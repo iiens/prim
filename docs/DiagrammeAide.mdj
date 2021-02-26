@@ -706,7 +706,7 @@
 											"top": 680,
 											"width": 585.09521484375,
 											"height": 13,
-											"text": "+interface_informationSelectStaff(): Informations",
+											"text": "+interface_askBuyStaff(): Staff*",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3555,7 +3555,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF33sV8UEtK7AQ="
 							},
-							"name": "DEFINE CASE_VIDE 0"
+							"name": "DEFINE CASE_VIDE 0",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3563,7 +3564,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF33sV8UEtK7AQ="
 							},
-							"name": "DEFINE CASE_GATE 1"
+							"name": "DEFINE CASE_GATE 1",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3571,7 +3573,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF33sV8UEtK7AQ="
 							},
-							"name": "DEFINE CASE_SOURCE 2"
+							"name": "DEFINE CASE_SOURCE 2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3579,7 +3582,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF33sV8UEtK7AQ="
 							},
-							"name": "DEFINE CASE_MACHINE 3"
+							"name": "DEFINE CASE_MACHINE 3",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -3747,7 +3751,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF33tkl5k3YXnI="
 									},
-									"name": "Machine m"
+									"name": "Machine m",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -3764,7 +3769,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF33tkl5k3YXnI="
 									},
-									"name": "int x"
+									"name": "int x",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -3772,7 +3778,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF33tkl5k3YXnI="
 									},
-									"name": "int y"
+									"name": "int y",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -3780,7 +3787,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF33tkl5k3YXnI="
 									},
-									"name": "*Map m"
+									"name": "*Map m",
+									"type": ""
 								}
 							]
 						},
@@ -4046,7 +4054,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF33sWMZ0t0Fqg="
 							},
-							"name": "interface_informationSelectStaff",
+							"name": "interface_askBuyStaff",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4054,7 +4062,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF33vnr9k8vYZo="
 									},
-									"type": "Informations",
+									"type": "Staff*",
 									"direction": "return"
 								}
 							]
@@ -4076,7 +4084,8 @@
 								"$ref": "AAAAAAF33sWigkueNkw="
 							},
 							"name": "DEFINE MACHINE_COLLECTEUR 1",
-							"visibility": "protected"
+							"visibility": "protected",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",

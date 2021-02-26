@@ -1,2 +1,2 @@
-# Projet Info S2 en C
+# IT Project in C
 
