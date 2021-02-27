@@ -1,20 +1,25 @@
-/***
+/*!
+ * \file utils.h
+ * \author Quentin Ra
+ * \version 0.1
+ * \date 27/02/2021
+ * \see Machine
+ * \see Difficulty
+ * \see Map
+ * \see data/actions.h
  * @file interface.h
- * @package headers
  *
  * This header contains any functions related to the interactions
  * between the player and the game.
- *  - print map
- *  - ask for level ({@link Difficulty}
- *  - ask for an action
- *  - ask for machine information for creation (@link Machine}
- *  - ask for machine information for update/delete
- *  - ask for staff information
+ * <ul>
+ * <li>print map</li>
+ * <li>ask for level (see Difficulty) </li>
+ * <li>ask for an action</li>
+ * <li>ask for machine information for creation (see Machine)</li>
+ * <li>ask for machine information for update/delete</li>
+ * <li>ask for staff information</li>
+ * </ul>
  *
- *  @see Machine
- *  @see Difficulty
- *  @see Map
- *  @see data/actions.h
  */
 
 #ifndef PRIM_INTERFACE_H
@@ -29,49 +34,53 @@
     //\/ Types declarations
     //\////////////////////////////\//
 
-    /***
-     * @struct
-     * Struct of an action mapping,
-     * each action (see actions.h, and id)
-     * is mapped with a string
+    /*!
+     * \struct user_action_mapping_s interface.h "headers/interface.h"
+     * \typedef user_action_mapping
+     * \param action_id: int, see actions.h
+     * \param key: a sentence to input to select this action
+     *
+     * Struct of an action mapping. Each action is mapped with a string.
+     *
      */
     typedef struct user_action_mapping_s {
-        int action_id;
-        char* key;
-    } user_action_mapping;
+        int action_id; //!< action_id: int, see actions.h
+        char* key; //!< a sentence to input to select this action
+    } user_action_mapping; //!< one mapping so (action, input_sequence)
 
-    /***
-     * array of all the mappings
-     */
+    /*!
+    * array of all the mappings
+    */
     const user_action_mapping user_mapping[] = {
-            //!< actions related to the game in general
-            {ACTION_SHOW_MAP, "s"},
-            {ACTION_END_TURN, "n"},
-            {ACTION_CANCEL_ACTION, "b"},
-            {ACTION_EXIT, "q"},
+        // actions related to the game in general
+        {ACTION_SHOW_MAP, "s"}, //!< show map with s
+        {ACTION_END_TURN, "n"}, //!< end turn with n
+        {ACTION_CANCEL_ACTION, "b"}, //!< cancel action with b
+        {ACTION_EXIT, "q"}, //!< exit with q
 
-            //!< hire
-            {ACTION_HIRE_FISE, "he"},
-            {ACTION_HIRE_FISA, "ha"},
+        // hire
+        {ACTION_HIRE_FISE, "he"}, //!< hire FISE with he
+        {ACTION_HIRE_FISA, "ha"}, //!< hire FISA with ha
 
-            //!< actions related to the units
-            {ACTION_BUY_MACHINE, "bm"},
-            {ACTION_BUY_STAFF, "bs"},
-            {ACTION_ASK_STAFF_LIST, "ls"},
+        // actions related to the units
+        {ACTION_BUY_MACHINE, "bm"}, //!< buy machine with bm
+        {ACTION_BUY_STAFF, "bs"}, //!< hire staff with bs
+        {ACTION_ASK_STAFF_LIST, "ls"}, //!< list staff with ls
 
-            //!< actions related to the machines
-            {ACTION_UPGRADE_MACHINE, "upm"},
-            {ACTION_DESTROY_MACHINE, "dm"},
+        // actions related to the machines
+        {ACTION_UPGRADE_MACHINE, "upm"}, //!< upgrade machine with upm
+        {ACTION_DESTROY_MACHINE, "dm"}, //!< destroy machine with dm
     };
 
     //\////////////////////////////\//
     //\/ Functions declarations
     //\////////////////////////////\//
 
-    /***
+    /*!
+     * \fn Difficulty interface_chooseDifficulty
      * @brief Ask for the user difficulty
      *
-     * Ask for the user difficulty, to process the size of the map.
+     * To process the size of the map.
      * Should be a valid difficulty, if not ask again.
      *
      * @return a valid difficulty chosen by the user.
@@ -79,7 +88,7 @@
      */
     Difficulty interface_chooseDifficulty();
 
-    /***
+    /*!
      * @brief Show the map
      *
      * We are waiting for a grid, like
@@ -104,7 +113,7 @@
      */
     void interface_showMap(const Map* map);
 
-    /***
+    /*!
      * @brief Ask for the user action
      *
      * Ask for the user action
@@ -115,7 +124,7 @@
      */
     Action interface_chooseAction();
 
-    /***
+    /*!
      * @brief ask user machine specific details
      *
      * @pre this method should be called after (or before) asking
@@ -130,7 +139,7 @@
      */
     Machine* interface_askAddMachine();
 
-    /**
+    /*!
      * @brief Ask for machine location
      *
      * Ask for machine location, this function should
@@ -150,12 +159,12 @@
      */
     Vector2D interface_askMachineLocation();
 
-    /**
+    /*!
      * @brief Ask which staff the user wants to buy.
      *
      * The user can ask for a list, with the ACTION_ASK_STAFF_LIST that print basic
      * info for each staff (1 per line)
-     * --> (<n°>) Name E:<cost> DD:<cost> Desc:<perks>
+     * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
      * ...
      *
      * Then the user choice a Staff (by inputting the n°) and

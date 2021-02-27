@@ -34,5 +34,5 @@ ENDIF(CUNIT_FOUND)
 # add_executable(prim run_suite_tests.c tests/suite1.h tests/suite1.c tests/tests_utils.c tests/tests_utils.h)
 # target_link_libraries(prim cunit ${CUNIT_LIBRARIES})
 
-add_executable(main src/main.c src/main.c headers/interface.h headers/data/actions.h headers/utils/utils.h)
+add_executable(main src/main.c src/main.c headers/interface.h _headers/data/actions.h headers/utils/utils.h)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
