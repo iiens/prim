@@ -108,7 +108,7 @@
      * - number of FISA
      * - the production mode
      *
-     * @param map a map
+     * @param[in] map a map
      * @see Map type
      */
     void interface_showMap(const Map* map);
