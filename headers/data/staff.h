@@ -7,7 +7,6 @@
  *
  * Contains all information about the character of the staff
  */
-
 #ifndef PRIM_STAFF_H
 #define PRIM_STAFF_H
 
@@ -33,6 +32,6 @@
         uint Cost_DD; //!< Price in DD of the character
         char * Description; //!< Description of character effects
         effect Effect_s[]; //!< array which contains the target of the effect
-    } staff;
+    } staff; //!< todo
 
 #endif //PRIM_STAFF_H

@@ -5,7 +5,7 @@
  * \date 27/02/2021
  *
  * \see interface.h
- * \see keys.h
+ * \see mapping.h
  *
  * Contains all the actions that the player can choose.
  *
@@ -14,14 +14,14 @@
 #define PRIM_ACTIONS_H
 
     /*!
-     * \enum Action actions.h "headers/data/action.h"
+     * \enum Action_S actions.h "headers/data/action.h"
      * \typedef Action: rename for enum Action
      * \brief all actions
      *
      * Contains all actions and their code (id).
      * Used when asking the user what he wants to do.
      */
-    typedef enum Action {
+    typedef enum Action_S {
         // actions related to the game in general
         ACTION_SHOW_MAP = 143, //!< show map
         ACTION_CANCEL_ACTION = 144, //!< cancel action so go back

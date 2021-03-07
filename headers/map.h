@@ -17,7 +17,6 @@
  * </ul>
  *
  */
-
 #ifndef PRIM_MAP_H
 #define PRIM_MAP_H
 
@@ -42,10 +41,12 @@
      * DD : value that measure the planet general health
      *
      */
+     //todo: enum ?
     #define CASE_VIDE 0 //!< a case that contain nothing
     #define CASE_GATE 1 //!< a case that contain the transdimensional gate
     #define CASE_SOURCE 2 //!< a case that contain resources
     #define CASE_MACHINE 3 //!< a case that contain a machine
+
     #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
     #define DD_VALUE 1 //!< DD Constant that measure the planet general health
 
@@ -66,7 +67,7 @@
         union {
             machine* mach;
             void other; // à voir
-        } in; //!< int, it correspond to the object contained in the case
+        } in; //!< union, it correspond to the object contained in the case
         int type; //!< int, type of object contained in the case
     } Case; //!< it correspond to a case of the board game
 

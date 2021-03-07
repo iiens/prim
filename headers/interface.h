@@ -1,12 +1,13 @@
 /*!
  * \file interface.h
  * \author Quentin Ra
- * \version 0.1
- * \date 27/02/2021
+ * \version 0.2
+ * \date 07/03/2021
  * \see Machine
  * \see Difficulty
  * \see Map
  * \see data/actions.h
+ * \see data/mapping.h
  *
  * This header contains any functions related to the interactions
  * between the player and the game.
@@ -25,51 +26,10 @@
 #define PRIM_INTERFACE_H
 
     #include "data/actions.h" //!< contains all actions
-    #include "utils/utils.h" //!< utilities functions
-    #include "map.h" //!< contains map type
     #include "data/difficulty.h" //!< contains difficulty type
-
-    //\////////////////////////////\//
-    //\/ Types declarations
-    //\////////////////////////////\//
-
-    /*!
-     * \typedef user_action_mapping
-     * \struct user_action_mapping_s interface.h "headers/interface.h"
-     * \param action_id: int, see actions.h
-     * \param key: a sentence to input to select this action
-     *
-     * Struct of an action mapping. Each action is mapped with a string.
-     *
-     */
-    typedef struct user_action_mapping_s {
-        int action_id; //!< action_id: int, see actions.h
-        char* key; //!< a sentence to input to select this action
-    } user_action_mapping; //!< one mapping so (action, input_sequence)
-
-    /*!
-    * array of all the mappings
-    */
-    const user_action_mapping user_mapping[] = {
-        // actions related to the game in general
-        {ACTION_SHOW_MAP, "s"}, //!< show map with s
-        {ACTION_END_TURN, "n"}, //!< end turn with n
-        {ACTION_CANCEL_ACTION, "b"}, //!< cancel action with b
-        {ACTION_EXIT, "q"}, //!< exit with q
-
-        // hire
-        {ACTION_HIRE_FISE, "he"}, //!< hire FISE with he
-        {ACTION_HIRE_FISA, "ha"}, //!< hire FISA with ha
-
-        // actions related to the units
-        {ACTION_BUY_MACHINE, "bm"}, //!< buy machine with bm
-        {ACTION_BUY_STAFF, "bs"}, //!< hire staff with bs
-        {ACTION_ASK_STAFF_LIST, "ls"}, //!< list staff with ls
-
-        // actions related to the machines
-        {ACTION_UPGRADE_MACHINE, "upm"}, //!< upgrade machine with upm
-        {ACTION_DESTROY_MACHINE, "dm"}, //!< destroy machine with dm
-    };
+    #include "data/mapping.h" //!< contains mappings type
+    #include "map.h" //!< contains map type
+    #include "utils/utils.h" //!< utilities functions
 
     //\////////////////////////////\//
     //\/ Functions declarations
@@ -91,21 +51,25 @@
      * @brief Show the map
      *
      * We are waiting for a grid, like
+     * <pre>
      *      0     1
      *   +----++----+
      * 0 | M  |     |
      *   +----++----+
+     * </pre>
      * Where 0,1 are the column indexes and 0 is the row index. M is the first
      * letter for machine, but well no need to write a lot, just enough so that the
      * player can guess whether he would want to check this case or not.
      *
      * At the end, we want to find basic information such as
-     * - E value
-     * - DD value
-     * - which turn is it
-     * - number of FISE
-     * - number of FISA
-     * - the production mode
+     * <ul>
+     * <li>E value</li>
+     * <li>DD value</li>
+     * <li>which turn is it</li>
+     * <li>number of FISE</li>
+     * <li>number of FISA</li>
+     * <li>the production mode</li>
+     * </ul>
      *
      * @param[in] map a map
      * @see Map type

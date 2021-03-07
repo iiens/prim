@@ -7,13 +7,12 @@
  *
  * Contains all information about machine
  */
-
 #ifndef PRIM_MACHINE_INFO_H
 #define PRIM_MACHINE_INFO_H
 
-#include <stdbool.h> //!< todo
+    #include <stdbool.h> //!< todo
 
-/*!
+    /*!
      * \typedef machine_info
      * \struct Machine_Info machine_info.h "headers/data/machine_info.h"
      * \param Type: int, number associate to the type of the machine

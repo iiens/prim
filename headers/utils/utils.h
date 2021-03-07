@@ -12,7 +12,7 @@
 
      /*!
       * @typedef Vector2D: name of struct Vector2D to Vector2D
-      * @struct Vector2D utils.h "headers/utils.h"
+      * @struct Vector2D_S utils.h "headers/utils.h"
       * @param x: x axis or column index
       * @param y: y axis or row index
       *
@@ -22,7 +22,7 @@
       * that y = i = row and x = j = column
       *
       */
-    typedef struct Vector2D {
+    typedef struct Vector2D_S {
         int x; //!< x axis
         int y; //!< y axis
     } Vector2D; //!< Vector2D type

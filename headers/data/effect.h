@@ -7,7 +7,6 @@
  *
  * Contains information about effects
  */
-
 #ifndef PRIM_EFFECT_H
 #define PRIM_EFFECT_H
 

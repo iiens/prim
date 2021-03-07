@@ -41,5 +41,5 @@ add_executable(main src/main.c src/main.c headers/interface.h headers/data/actio
         headers/data/machine.h
         headers/data/machine_info.h
         headers/data/staff.h
-        )
+        headers/data/mapping.h)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")

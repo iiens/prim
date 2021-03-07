@@ -7,10 +7,10 @@
  *
  * Contains main information about all of the machine
  */
-
 #ifndef PRIM_MACHINE_H
 #define PRIM_MACHINE_H
 
+    //todo: translate
     #define MACHINE_COLLECTEUR 1 //!< todo
     #define TAPIS_ROULANT 2 //!< todo
     #define CROIX 3 //!< todo
@@ -35,7 +35,7 @@
     /*!
      * array with information of all machines
      */
-
+    //todo: create and comment
     const machine_info machine_list [];
 
 #endif //PRIM_MACHINE_H
