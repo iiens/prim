@@ -29,6 +29,12 @@ Nothing for now.
   // code
   }  
   ```
+* this is how a struct should be declared
+```c
+typedef struct MachineInfo_S {
+int type; //!< int which represent the type of the machine
+} MachineInfo; //!< ....
+```
 * you must declare all variables at the start of a bloc
 * first declare then initialize variables
 * if a variable is only read, then use const
