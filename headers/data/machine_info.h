@@ -11,7 +11,7 @@
 #ifndef PRIM_MACHINE_INFO_H
 #define PRIM_MACHINE_INFO_H
 
-#include <stdbool.h>
+#include <stdbool.h> //!< todo
 
 /*!
      * \typedef machine_info

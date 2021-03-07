@@ -36,6 +36,6 @@
      * array with information of all machines
      */
 
-    const Machine_Info machine_list [];
+    const machine_info machine_list [];
 
 #endif //PRIM_MACHINE_H

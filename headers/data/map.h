@@ -190,7 +190,7 @@
      *
      * @return 1 if true else 0 
      */
-    int map_addMachine(const Machine machine, const int x, const int y, Map* m); 
+    int map_addMachine(const machine machine, const int x, const int y, Map* m);
 
     /*!
      * \fn int map_upgradeMachine(const int x,const int y, Map* m)
@@ -227,6 +227,6 @@
      * 
      * @return 1 if true else 0 
      */
-    int map_buyStaff(Staff s, Map* m);
+    int map_buyStaff(staff s, Map* m);
     
 #endif //PRIM_MAP_H

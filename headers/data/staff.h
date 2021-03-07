@@ -32,7 +32,7 @@
         uint Cost_E; //!< Price in E of the character
         uint Cost_DD; //!< Price in DD of the character
         char * Description; //!< Description of character effects
-        Effect Effect_s[]; //!< array which contains the target of the effect
+        effect Effect_s[]; //!< array which contains the target of the effect
     } staff;
 
 #endif //PRIM_STAFF_H
