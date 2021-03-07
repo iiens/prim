@@ -33,6 +33,6 @@
         uint Cost_DD; //!< Price in DD of the character
         char * Description; //!< Description of character effects
         Effect Effect_s[]; //!< array which contains the target of the effect
-} staff;
+    } staff;
 
 #endif //PRIM_STAFF_H
