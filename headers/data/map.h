@@ -1,6 +1,6 @@
 /*!
  * \file map.h
- * \author Antoine MAN
+ * \author Antoine MAN and Ramzy ZEBRIR
  * \version 0.1
  * \date 28/02/2021
  * \see Difficulty
@@ -21,6 +21,7 @@
 #ifndef PRIM_MAP_H
 #define PRIM_MAP_H
 
+    #include <stdbool.h> //!< return value
     #include "machine.h" //!< information about machine
     #include "staff.h" //!< information about staff
     #include "difficulty.h" //!< difficulty of the game
@@ -41,16 +42,16 @@
      * DD : value that measure the planet general health
      *
      */
-    #define CASE_VIDE 0 //!< todo
-    #define CASE_GATE 1 //!< todo
-    #define CASE_SOURCE 2 //!< todo
-    #define CASE_MACHINE 3 //!< todo
-    #define E 0 //!< todo
-    #define DD 1 //!< todo
+    #define CASE_VIDE 0 //!< a case that contain nothing
+    #define CASE_GATE 1 //!< a case that contain the transdimensional gate
+    #define CASE_SOURCE 2 //!< a case that contain resources
+    #define CASE_MACHINE 3 //!< a case that contain a machine
+    #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
+    #define DD_VALUE 1 //!< DD Constant that measure the planet general health
 
     /*!
      * \typedef Case
-     * \struct case_s map.h "headers/data/map.h"
+     * \struct Case_S map.h "headers/data/map.h"
      * \param x: abscissa
      * \param y: ordinate
      * \param in: it correspond to the object contained in the case
@@ -59,19 +60,19 @@
      * Struct that contains all the information concerning a case
      *
      */
-    typedef struct case_s {
+    typedef struct Case_S {
         int x; //!< int, abscissa
         int y; //!< int, ordinate
         union {
-            machine mach;
-            // à compléter ///////////////////////////////////////////////
+            machine* mach;
+            void other; // à voir
         } in; //!< int, it correspond to the object contained in the case
         int type; //!< int, type of object contained in the case
-    } Case; //!< todo
+    } Case; //!< it correspond to a case of the board game
 
     /*!
      * \typedef Map
-     * \struct Map_s map.h "headers/data/map.h"
+     * \struct Map_S map.h "headers/data/map.h"
      * \param width: int, map width
      * \param height: int, map height
      * \param map: a bi dimensional table to refer to 
@@ -87,7 +88,7 @@
      * emplacement, sources, resources, garbage, staff and gate, presents on the map.
      *
      */
-    typedef struct Map_s {
+    typedef struct Map_S {
         int width; //!< int, map width
         int height; //!< int, map height
         Case** map; //!< a bi dimensional tableto refer to the board of game
@@ -97,7 +98,7 @@
         uint E; //!< a value that measure the energy quantity of the player
         uint DD; //!< a value that measure the planet general health
         int productionFISA; //!< int, it correspond to the energy type produced by the FISA
-    } Map; //!< todo
+    } Map; //!< Board game that contain all of the information about each case
 
     
     //\////////////////////////////\//
@@ -111,6 +112,7 @@
      * In order to begin a new game, we need a board game.
      * It will contains all the map information concerning machines 
      * emplacement, sources, resources, garbage, staff and gate, presents on the map.
+     * 2 sources cases and 1 transdimensional gate are randomly placed
      *
      * @param[in] dif a valid difficulty chosen by the user
      * @return a new map that contains all the map information
@@ -127,10 +129,10 @@
      * to a map.
      *
      * @param[in] map a map
-     * @return an int in order to know if everythings worked well
+     * @return a bool in order to know if everythings worked well
      * @see Map type
      */
-    int map_destroy(const Map* map);
+    bool map_destroy(const Map* map);
     
     /*!
      * \fn int map_hireFISE(const Map* map)
@@ -140,10 +142,10 @@
      * Every turn, each FISE student produce 1 E and 1 DD
      *
      * @param[in] map a map
-     * @return an int in order to know if everythings worked well
+     * @return a bool in order to know if everythings worked well
      * @see Map type
      */
-    int map_hireFISE(const Map* map);
+    bool map_hireFISE(const Map* map);
     
     /*!
      * \fn int map_hireFISA(const Map* map)
@@ -153,10 +155,10 @@
      * Every 2 turns, each FISA student produce either 4 E or 4 DD
      *
      * @param[in] map a map
-     * @return an int in order to know if everythings worked well
+     * @return a bool in order to know if everythings worked well
      * @see Map type
      */
-    int map_hireFISA(const Map* map);
+    bool map_hireFISA(const Map* map);
     
     /*!
      * \fn int map_changeProductionFISA()
@@ -165,9 +167,9 @@
      * This function allow us to switch the energy type 
      * produced by the FISA between E or DD.
      *
-     * @return an int in order to know if everythings worked well
+     * @return a bool in order to know if everythings worked well
      */
-    int map_changeProductionFISA();
+    bool map_changeProductionFISA();
     
      /*!
      * \fn int map_endTurn()
@@ -175,9 +177,9 @@
      *
      * Finish a turn
      *
-     * @return an int in order to know if everythings worked well
+     * @return a bool in order to know if everythings worked well
      */
-    int map_endTurn();
+    bool map_endTurn();
 
     /*!
      * \fn int map_addMachine(const Machine machine, const int x, const int y, Map* m)

@@ -26,7 +26,7 @@
 
     #include "data/actions.h" //!< contains all actions
     #include "utils/utils.h" //!< utilities functions
-    #include "data/map.h" //!< contains map type
+    #include "map.h" //!< contains map type
     #include "data/difficulty.h" //!< contains difficulty type
 
     //\////////////////////////////\//
