@@ -37,7 +37,7 @@ ENDIF(CUNIT_FOUND)
 add_executable(main src/main.c src/main.c headers/interface.h headers/data/actions.h headers/utils/utils.h
         headers/data/difficulty.h
         headers/data/effect.h
-        headers/data/map.h
+        headers/map.h
         headers/data/machine.h
         headers/data/machine_info.h
         headers/data/staff.h

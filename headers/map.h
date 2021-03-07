@@ -22,9 +22,9 @@
 #define PRIM_MAP_H
 
     #include <stdbool.h> //!< return value
-    #include "machine.h" //!< information about machine
-    #include "staff.h" //!< information about staff
-    #include "difficulty.h" //!< difficulty of the game
+    #include "data/machine.h" //!< information about machine
+    #include "data/staff.h" //!< information about staff
+    #include "data/difficulty.h" //!< difficulty of the game
 
     //\////////////////////////////\//
     //\/ Types declarations
