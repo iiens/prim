@@ -66,7 +66,7 @@
         int y; //!< int, ordinate
         union {
             machine* mach;
-            void other; // à voir
+            void* other; // à voir
         } in; //!< union, it correspond to the object contained in the case
         int type; //!< int, type of object contained in the case
     } Case; //!< it correspond to a case of the board game
