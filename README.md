@@ -24,8 +24,7 @@ Nothing for now.
 * same for : for, while, switch statements
 * functions should be coded like this (excluding declarations and main)
 ```c
-  void
-  name( args )
+  void name( args )
   {
   // code
   }  
