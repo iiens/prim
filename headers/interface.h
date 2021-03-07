@@ -1,5 +1,5 @@
 /*!
- * \file utils.h
+ * \file interface.h
  * \author Quentin Ra
  * \version 0.1
  * \date 27/02/2021
@@ -7,7 +7,6 @@
  * \see Difficulty
  * \see Map
  * \see data/actions.h
- * @file interface.h
  *
  * This header contains any functions related to the interactions
  * between the player and the game.
@@ -35,8 +34,8 @@
     //\////////////////////////////\//
 
     /*!
-     * \struct user_action_mapping_s interface.h "headers/interface.h"
      * \typedef user_action_mapping
+     * \struct user_action_mapping_s interface.h "headers/interface.h"
      * \param action_id: int, see actions.h
      * \param key: a sentence to input to select this action
      *

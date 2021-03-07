@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../__old/old/interface.h"
+#include "../headers/interface.h"
 
 int main(void){
     printf("Hello World !");

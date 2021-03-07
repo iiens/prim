@@ -9,7 +9,7 @@
  * between the player and the elements on the board game.
  * <ul>
  * <li>create a new map</li>
- * <li>detroy a map</li>
+ * <li>destroy a map</li>
  * <li>hire a FISE</li>
  * <li>hire a FISA</li>
  * <li>switch energy type produced by the FISA </li>
