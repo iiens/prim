@@ -10,18 +10,18 @@
 #ifndef PRIM_UTILS_H
 #define PRIM_UTILS_H
 
-     /*!
-      * @typedef Vector2D: name of struct Vector2D to Vector2D
-      * @struct Vector2D_S utils.h "headers/utils.h"
-      * @param x: x axis or column index
-      * @param y: y axis or row index
-      *
-      * Convenience type for (x,y)
-      * with x = x axis and y = y axis.
-      * In a map (matrix ij), it means
-      * that y = i = row and x = j = column
-      *
-      */
+    /*!
+     * @typedef Vector2D: name of struct Vector2D to Vector2D
+     * @struct Vector2D_S utils.h "headers/utils.h"
+     * @param x: x axis or column index
+     * @param y: y axis or row index
+     *
+     * Convenience type for (x,y)
+     * with x = x axis and y = y axis.
+     * In a map (matrix ij), it means
+     * that y = i = row and x = j = column
+     *
+     */
     typedef struct Vector2D_S {
         int x; //!< x axis
         int y; //!< y axis

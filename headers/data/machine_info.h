@@ -37,7 +37,7 @@
         uint CostUpgradeDD; //!< price for upgrade the machine in DD
         uint CostDestroyE; //!< price for destroy the machine in E
         uint CostDestroyDD; //!< price for destroy the machine in DD;
-        char * Description; //!< description of the machine
-    } machine_info; //!< todo 
+        char* Description; //!< description of the machine
+    } machine_info; //!< todo
 
 #endif //PRIM_MACHINE_INFO_H

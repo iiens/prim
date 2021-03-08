@@ -30,7 +30,7 @@
     //\////////////////////////////\//
 
     /*!
-     * 
+     *
      * Type of object contained in a case
      *
      * CASE_VIDE: nothing on a case
@@ -41,7 +41,7 @@
      * DD : value that measure the planet general health
      *
      */
-     //todo: enum ?
+    //todo: enum ?
     #define CASE_VIDE 0 //!< a case that contain nothing
     #define CASE_GATE 1 //!< a case that contain the transdimensional gate
     #define CASE_SOURCE 2 //!< a case that contain resources
@@ -52,7 +52,7 @@
 
     /*!
      * \typedef Case
-     * \struct Case_S map.h "headers/data/map.h"
+     * \struct Case_S map.h "headers/map.h"
      * \param x: abscissa
      * \param y: ordinate
      * \param in: it correspond to the object contained in the case
@@ -73,10 +73,10 @@
 
     /*!
      * \typedef Map
-     * \struct Map_S map.h "headers/data/map.h"
+     * \struct Map_S map.h "headers/map.h"
      * \param width: int, map width
      * \param height: int, map height
-     * \param map: a bi dimensional table to refer to 
+     * \param map: a bi dimensional table to refer to
      * the board of game where each emplacement is a case (struct)
      * \param turn: int, an indicator to correspond to the actual turn of the game
      * \param numberFISE: as the name suggest, its corresponding to the number of FISE
@@ -85,7 +85,7 @@
      * \param DD: a value that measure the planet general health
      * \param productionFISA: int, it correspond to the energy type produced by the FISA
      *
-     * Struct that contains all the map information concerning machines 
+     * Struct that contains all the map information concerning machines
      * emplacement, sources, resources, garbage, staff and gate, presents on the map.
      *
      */
@@ -101,7 +101,7 @@
         int productionFISA; //!< int, it correspond to the energy type produced by the FISA
     } Map; //!< Board game that contain all of the information about each case
 
-    
+
     //\////////////////////////////\//
     //\/ Functions declarations
     //\////////////////////////////\//
@@ -111,7 +111,7 @@
      * @brief Create a new map
      *
      * In order to begin a new game, we need a board game.
-     * It will contains all the map information concerning machines 
+     * It will contains all the map information concerning machines
      * emplacement, sources, resources, garbage, staff and gate, presents on the map.
      * 2 sources cases and 1 transdimensional gate are randomly placed
      *
@@ -134,7 +134,7 @@
      * @see Map type
      */
     bool map_destroy(const Map* map);
-    
+
     /*!
      * \fn int map_hireFISE(const Map* map)
      * @brief Hire a FISE
@@ -147,7 +147,7 @@
      * @see Map type
      */
     bool map_hireFISE(const Map* map);
-    
+
     /*!
      * \fn int map_hireFISA(const Map* map)
      * @brief Hire a FISA
@@ -160,76 +160,76 @@
      * @see Map type
      */
     bool map_hireFISA(const Map* map);
-    
+
     /*!
      * \fn int map_changeProductionFISA()
      * @brief Switch the energy type produced by the FISA
      *
-     * This function allow us to switch the energy type 
+     * This function allow us to switch the energy type
      * produced by the FISA between E or DD.
      *
      * @return a bool in order to know if everythings worked well
      */
     bool map_changeProductionFISA();
-    
-     /*!
-     * \fn int map_endTurn()
-     * @brief Finish a turn
-     *
-     * Finish a turn
-     *
-     * @return a bool in order to know if everythings worked well
-     */
+
+    /*!
+    * \fn int map_endTurn()
+    * @brief Finish a turn
+    *
+    * Finish a turn
+    *
+    * @return a bool in order to know if everythings worked well
+    */
     bool map_endTurn();
 
     /*!
      * \fn int map_addMachine(const Machine machine, const int x, const int y, Map* m)
-     * @brief Add a machine 
+     * @brief Add a machine
      * @param[in] machine a machine
-     * @param[in] x x > 0 
-     * @param[in] y y > 0 
-     * @param[in,out] m a map 
+     * @param[in] x x > 0
+     * @param[in] y y > 0
+     * @param[in,out] m a map
      * Add a machine on the map
      *
-     * @return 1 if true else 0 
+     * @return 1 if true else 0
      */
     int map_addMachine(const machine machine, const int x, const int y, Map* m);
 
     /*!
      * \fn int map_upgradeMachine(const int x,const int y, Map* m)
-     * @brief Upgrade a machine 
-     * @param[in] x x > 0 
-     * @param[in] y y > 0 
-     * @param[in,out] m a map 
-     * Upgrade a machine on the map. We know which machine we upgrade thanks 
+     * @brief Upgrade a machine
+     * @param[in] x x > 0
+     * @param[in] y y > 0
+     * @param[in,out] m a map
+     * Upgrade a machine on the map. We know which machine we upgrade thanks
      * to the x and y coordinates
      *
-     * @return 1 if true else 0 
+     * @return 1 if true else 0
      */
-    int map_upgradeMachine(const int x,const int y, Map* m); 
+    int map_upgradeMachine(const int x, const int y, Map* m);
 
     /*!
      * \fn int map_destroyMachine(const int x,const int y, Map* m)
-     * @brief Destroy a machine 
-     * @param[in] x x > 0 
-     * @param[in] y y > 0 
-     * @param[in,out] m a map 
-     * Destroy a machine on the map. We know which machine we destroy thanks 
+     * @brief Destroy a machine
+     * @param[in] x x > 0
+     * @param[in] y y > 0
+     * @param[in,out] m a map
+     * Destroy a machine on the map. We know which machine we destroy thanks
      * to the x and y coordinates
      *
-     * @return 1 if true else 0 
+     * @return 1 if true else 0
      */
-    int map_destroyMachine(const int x,const int y, Map* m);
+    int map_destroyMachine(const int x, const int y, Map* m);
 
     /*!
      * \fn int map_buyStaff(Staff s, Map* m)
-     * @brief Buy a staff 
-     * @param[in] s a Staff 
-     * @param[in,out] m a map 
-     * Buy a staff 
-     * 
-     * @return 1 if true else 0 
+     * @brief Buy a staff
+     * @param[in] s a Staff
+     * @param[in,out] m a map
+     * Buy a staff
+     *
+     * @return 1 if true else 0
      */
     int map_buyStaff(staff s, Map* m);
-    
+
 #endif //PRIM_MAP_H

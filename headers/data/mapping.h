@@ -28,24 +28,24 @@
     * array of all the mappings
     */
     const UserActionMapping user_mapping[] = {
-        // actions related to the game in general
-        {ACTION_SHOW_MAP, "s"}, //!< show map with s
-        {ACTION_END_TURN, "n"}, //!< end turn with n
-        {ACTION_CANCEL_ACTION, "b"}, //!< cancel action with b
-        {ACTION_EXIT, "q"}, //!< exit with q
+            // actions related to the game in general
+            {ACTION_SHOW_MAP,        "s"}, //!< show map with s
+            {ACTION_END_TURN,        "n"}, //!< end turn with n
+            {ACTION_CANCEL_ACTION,   "b"}, //!< cancel action with b
+            {ACTION_EXIT,            "q"}, //!< exit with q
 
-        // hire
-        {ACTION_HIRE_FISE, "he"}, //!< hire FISE with he
-        {ACTION_HIRE_FISA, "ha"}, //!< hire FISA with ha
+            // hire
+            {ACTION_HIRE_FISE,       "he"}, //!< hire FISE with he
+            {ACTION_HIRE_FISA,       "ha"}, //!< hire FISA with ha
 
-        // actions related to the units
-        {ACTION_BUY_MACHINE, "bm"}, //!< buy machine with bm
-        {ACTION_BUY_STAFF, "bs"}, //!< hire staff with bs
-        {ACTION_ASK_STAFF_LIST, "ls"}, //!< list staff with ls
+            // actions related to the units
+            {ACTION_BUY_MACHINE,     "bm"}, //!< buy machine with bm
+            {ACTION_BUY_STAFF,       "bs"}, //!< hire staff with bs
+            {ACTION_ASK_STAFF_LIST,  "ls"}, //!< list staff with ls
 
-        // actions related to the machines
-        {ACTION_UPGRADE_MACHINE, "upm"}, //!< upgrade machine with upm
-        {ACTION_DESTROY_MACHINE, "dm"}, //!< destroy machine with dm
-    } ; //!< array of all the mappings
+            // actions related to the machines
+            {ACTION_UPGRADE_MACHINE, "upm"}, //!< upgrade machine with upm
+            {ACTION_DESTROY_MACHINE, "dm"}, //!< destroy machine with dm
+    }; //!< array of all the mappings
 
 #endif //PRIM_MAPPING_H

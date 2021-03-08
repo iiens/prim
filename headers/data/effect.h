@@ -19,7 +19,7 @@
      * Struct which contains the target of the effect
      *
      */
-    typedef struct Effect{
+    typedef struct Effect {
         int Target; //!< represent the target of the effect
         int Update; //!< represent the value of the effect
     } effect; //!< Struct which contains the target and the of the effect

@@ -15,9 +15,10 @@
     #define TAPIS_ROULANT 2 //!< todo
     #define CROIX 3 //!< todo
     #define DECHETTERIE 4 //!< todo
-    #define CENTRE_RECYCLAGE 5 //!< todo 
+    #define CENTRE_RECYCLAGE 5 //!< todo
 
     #include "machine_info.h" //!< all information about machine
+
     /*!
      * \typedef machine
      * \struct Machine machine.h "headers/data/machine.h"
@@ -36,6 +37,6 @@
      * array with information of all machines
      */
     //todo: create and comment
-    const machine_info machine_list [];
+    const machine_info machine_list[];
 
 #endif //PRIM_MACHINE_H

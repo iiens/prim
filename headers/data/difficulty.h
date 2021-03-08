@@ -26,12 +26,10 @@
      * HARD level : 30 x 30
      *
      */
-    typedef enum Difficulty { //todo: remove spaces
-
+    typedef enum Difficulty {
         Difficulty_EASY = 1, //!< EASY level : 10 x 10
         Difficulty_MEDIUM = 2, //!< MEDIUM level : 20 x 20
         Difficulty_HARD = 3, //!< HARD level : 30 x 30
-        
     } Difficulty; //!< Difficulty type
 
 #endif //PRIM_DIFFICULTY_H
