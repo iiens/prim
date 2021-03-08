@@ -40,8 +40,8 @@
 
             // actions related to the units
             {ACTION_BUY_MACHINE,     "bm"}, //!< buy machine with bm
-            {ACTION_BUY_STAFF,       "bs"}, //!< hire staff with bs
-            {ACTION_ASK_STAFF_LIST,  "ls"}, //!< list staff with ls
+            {ACTION_BUY_STAFF,       "bs"}, //!< hire Staff with bs
+            {ACTION_ASK_STAFF_LIST,  "ls"}, //!< list Staff with ls
 
             // actions related to the machines
             {ACTION_UPGRADE_MACHINE, "upm"}, //!< upgrade machine with upm

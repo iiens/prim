@@ -10,34 +10,32 @@
 #ifndef PRIM_MACHINE_INFO_H
 #define PRIM_MACHINE_INFO_H
 
-    #include <stdbool.h> //!< todo
-
     /*!
-     * \typedef machine_info
-     * \struct Machine_Info machine_info.h "headers/data/machine_info.h"
-     * \param Type: int, number associate to the type of the machine
-     * \param CosttE: uint, price in E of the machine
-     * \param CostDD: uint, price in DD of the machine
-     * \param Is_Upgrade: boolean, true if the machine had an Upgrade
-     * \param CostUpgradeE: uint, price for upgrade the machine in E
-     * \param CostUpgradeDD: uint, price for upgrade the machine in DD
-     * \param CostDestroyE: uint, price for destroy the machine in DD
-     * \param CostDestroyDD: uint, price for destroy the machine in E
-     * \param Description: char *, description of the machine
+     * \typedef MachineInfo
+     * \struct MachineInfo_S machine_info.h "headers/data/MachineInfo.h"
+     * \param type: int, number associate to the type of the machine
+     * \param costE: uint, price in E of the machine
+     * \param costDD: uint, price in DD of the machine
+     * \param level: level of upgrade of the machine
+     * \param costUpgradeE: uint, price for upgrade the machine in E
+     * \param costUpgradeDD: uint, price for upgrade the machine in DD
+     * \param costDestroyE: uint, price for destroy the machine in DD
+     * \param costDestroyDD: uint, price for destroy the machine in E
+     * \param description: char *, description of the machine
      *
      * Struct which contains all information about a machine
      *
      */
-    typedef struct Machine_Info {
-        int Type; //!< int which represent the type of the machine
-        uint CostE; //!< price in E of the machine
+    typedef struct MachineInfo_S {
+        int type; //!< int which represent the type of the machine
+        uint costE; //!< price in E of the machine
         uint CostDD; //!< price in DD of the machine
-        bool Is_Upgrade; //!< true if the machine had an Upgrade
-        uint CostUpgradeE; //!< price for upgrade the machine in E
-        uint CostUpgradeDD; //!< price for upgrade the machine in DD
-        uint CostDestroyE; //!< price for destroy the machine in E
-        uint CostDestroyDD; //!< price for destroy the machine in DD;
-        char* Description; //!< description of the machine
-    } machine_info; //!< todo
+        int Level; //!< level of upgrade of the machine
+        uint costUpgradeE; //!< price for upgrade the machine in E
+        uint costUpgradeDD; //!< price for upgrade the machine in DD
+        uint costDestroyE; //!< price for destroy the machine in E
+        uint costDestroyDD; //!< price for destroy the machine in DD;
+        char* description; //!< description of the machine
+    } MachineInfo; //!< Information of the machine
 
 #endif //PRIM_MACHINE_INFO_H

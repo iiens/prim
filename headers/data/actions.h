@@ -34,8 +34,8 @@
 
         // actions related to the units
         ACTION_BUY_MACHINE = 332, //!< trigger add machine
-        ACTION_BUY_STAFF = 333, //!< trigger hire staff
-        ACTION_ASK_STAFF_LIST = 334, //!< in hire staff, show staff list
+        ACTION_BUY_STAFF = 333, //!< trigger hire Staff
+        ACTION_ASK_STAFF_LIST = 334, //!< in hire Staff, show Staff list
 
         // actions related to the machines
         ACTION_UPGRADE_MACHINE = 514, //!< trigger upgrade machine

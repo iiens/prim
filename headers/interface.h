@@ -17,7 +17,7 @@
  * <li>ask for an action</li>
  * <li>ask for machine information for creation (see Machine)</li>
  * <li>ask for machine information for update/delete</li>
- * <li>ask for staff information</li>
+ * <li>ask for Staff information</li>
  * </ul>
  *
  */
@@ -123,10 +123,10 @@
     Vector2D interface_askMachineLocation();
 
     /*!
-     * @brief Ask which staff the user wants to buy.
+     * @brief Ask which Staff the user wants to buy.
      *
      * The user can ask for a list, with the ACTION_ASK_STAFF_LIST that print basic
-     * info for each staff (1 per line)
+     * info for each Staff (1 per line)
      * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
      * ...
      *
@@ -136,11 +136,11 @@
      * If the user wants to go back, then he can using
      * ACTION_CANCEL_ACTION action.
      *
-     * @return a valid staff that the user chosen. Or null if he asked to cancel.
+     * @return a valid Staff that the user chosen. Or null if he asked to cancel.
      *
      * @see ACTION_BUY_STAFF
      * @see ACTION_ASK_STAFF_LIST (action enum)
      */
-    Staff* interface_askBuyStaff();
+    Staff_S* interface_askBuyStaff();
 
 #endif //PRIM_INTERFACE_H

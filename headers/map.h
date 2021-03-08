@@ -22,7 +22,7 @@
 
     #include <stdbool.h> //!< return value
     #include "data/machine.h" //!< information about machine
-    #include "data/staff.h" //!< information about staff
+    #include "data/staff.h" //!< information about Staff
     #include "data/difficulty.h" //!< difficulty of the game
 
     //\////////////////////////////\//
@@ -65,7 +65,7 @@
         int x; //!< int, abscissa
         int y; //!< int, ordinate
         union {
-            machine* mach;
+            Machine* mach;
             void* other; // à voir
         } in; //!< union, it correspond to the object contained in the case
         int type; //!< int, type of object contained in the case
@@ -86,7 +86,7 @@
      * \param productionFISA: int, it correspond to the energy type produced by the FISA
      *
      * Struct that contains all the map information concerning machines
-     * emplacement, sources, resources, garbage, staff and gate, presents on the map.
+     * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
      *
      */
     typedef struct Map_S {
@@ -112,7 +112,7 @@
      *
      * In order to begin a new game, we need a board game.
      * It will contains all the map information concerning machines
-     * emplacement, sources, resources, garbage, staff and gate, presents on the map.
+     * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
      * 2 sources cases and 1 transdimensional gate are randomly placed
      *
      * @param[in] dif a valid difficulty chosen by the user
@@ -183,7 +183,7 @@
     bool map_endTurn();
 
     /*!
-     * \fn int map_addMachine(const Machine machine, const int x, const int y, Map* m)
+     * \fn bool map_addMachine(const Machine machine, const int x, const int y, Map* m)
      * @brief Add a machine
      * @param[in] machine a machine
      * @param[in] x x > 0
@@ -193,10 +193,10 @@
      *
      * @return 1 if true else 0
      */
-    int map_addMachine(const machine machine, const int x, const int y, Map* m);
+    bool map_addMachine(const Machine machine, const int x, const int y, Map* m);
 
     /*!
-     * \fn int map_upgradeMachine(const int x,const int y, Map* m)
+     * \fn bool map_upgradeMachine(const int x,const int y, Map* m)
      * @brief Upgrade a machine
      * @param[in] x x > 0
      * @param[in] y y > 0
@@ -206,10 +206,10 @@
      *
      * @return 1 if true else 0
      */
-    int map_upgradeMachine(const int x, const int y, Map* m);
+    bool map_upgradeMachine(const int x, const int y, Map* m);
 
     /*!
-     * \fn int map_destroyMachine(const int x,const int y, Map* m)
+     * \fn bool map_destroyMachine(const int x,const int y, Map* m)
      * @brief Destroy a machine
      * @param[in] x x > 0
      * @param[in] y y > 0
@@ -219,17 +219,17 @@
      *
      * @return 1 if true else 0
      */
-    int map_destroyMachine(const int x, const int y, Map* m);
+    bool map_destroyMachine(const int x, const int y, Map* m);
 
     /*!
-     * \fn int map_buyStaff(Staff s, Map* m)
-     * @brief Buy a staff
+     * \fn bool map_buyStaff(Staff s, Map* m)
+     * @brief Buy a Staff
      * @param[in] s a Staff
      * @param[in,out] m a map
-     * Buy a staff
+     * Buy a Staff
      *
      * @return 1 if true else 0
      */
-    int map_buyStaff(staff s, Map* m);
+    bool map_buyStaff(Staff s, Map* m);
 
 #endif //PRIM_MAP_H
