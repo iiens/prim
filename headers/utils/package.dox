@@ -1,0 +1,9 @@
+/** @dir headers/utils
+
+\authors Quentin Ra
+\version 0.1
+\date 27/02/2021
+
+Contains all utilities classes such as
+- utils.h : contains new types such as Vector2D
+*/

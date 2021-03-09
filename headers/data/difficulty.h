@@ -3,7 +3,6 @@
  * \author Antoine Man
  * \version 0.1
  * \date 04/03/2021
- *
  * \see interface.h
  * \see map.h
  *
@@ -14,8 +13,8 @@
 #define PRIM_DIFFICULTY_H
 
     /*!
-     * \enum Difficulty difficulty.h "headers/data/difficulty.h"
      * \typedef Difficulty: rename for enum Difficulty
+     * \enum Difficulty difficulty.h "headers/data/difficulty.h"
      * \brief all difficulties
      *
      * Contains all difficulties that the play can play.

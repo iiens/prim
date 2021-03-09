@@ -13,8 +13,6 @@
     /*!
      * @typedef Vector2D: name of struct Vector2D to Vector2D
      * @struct Vector2D_S utils.h "headers/utils.h"
-     * @param x: x axis or column index
-     * @param y: y axis or row index
      *
      * Convenience type for (x,y)
      * with x = x axis and y = y axis.

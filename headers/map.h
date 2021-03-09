@@ -53,10 +53,6 @@
     /*!
      * \typedef Case
      * \struct Case_S map.h "headers/map.h"
-     * \param x: abscissa
-     * \param y: ordinate
-     * \param in: it correspond to the object contained in the case
-     * \param type: type of object contained in the case
      *
      * Struct that contains all the information concerning a case
      *
@@ -74,16 +70,6 @@
     /*!
      * \typedef Map
      * \struct Map_S map.h "headers/map.h"
-     * \param width: int, map width
-     * \param height: int, map height
-     * \param map: a bi dimensional table to refer to
-     * the board of game where each emplacement is a case (struct)
-     * \param turn: int, an indicator to correspond to the actual turn of the game
-     * \param numberFISE: as the name suggest, its corresponding to the number of FISE
-     * \param numberFISA: as the name suggest, its corresponding to the number of FISA
-     * \param E: a value that measure the energy quantity of the player
-     * \param DD: a value that measure the planet general health
-     * \param productionFISA: int, it correspond to the energy type produced by the FISA
      *
      * Struct that contains all the map information concerning machines
      * emplacement, sources, resources, garbage, Staff and gate, presents on the map.

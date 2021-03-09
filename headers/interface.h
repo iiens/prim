@@ -21,7 +21,6 @@
  * </ul>
  *
  */
-
 #ifndef PRIM_INTERFACE_H
 #define PRIM_INTERFACE_H
 
@@ -127,8 +126,10 @@
      *
      * The user can ask for a list, with the ACTION_ASK_STAFF_LIST that print basic
      * info for each Staff (1 per line)
+     * <pre>
      * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
      * ...
+     * </pre>
      *
      * Then the user choice a Staff (by inputting the n°) and
      * it must be a valid id.
@@ -141,6 +142,6 @@
      * @see ACTION_BUY_STAFF
      * @see ACTION_ASK_STAFF_LIST (action enum)
      */
-    Staff_S* interface_askBuyStaff();
+    Staff* interface_askBuyStaff();
 
 #endif //PRIM_INTERFACE_H

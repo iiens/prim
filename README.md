@@ -2,14 +2,14 @@
 
 The subject can be found
 at in the doc folder and the git
-at https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a.
+at https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/.
 
-Must be compiled must our Makefile (make build,
+Must be compiled with our Makefile (make build,
 make run) or using ``gcc -Wall -Wextra -std=c99 src/main.c``.
 
 ### Description
 
-Nothing for now.
+Check user documentation file.
 
 ### Code guidelines
 
@@ -24,10 +24,10 @@ Nothing for now.
 * same for : for, while, switch statements
 * functions should be coded like this (excluding declarations and main)
 ```c
-  void name( args )
-  {
-  // code
-  }  
+void name( args )
+{
+    // code
+}  
   ```
 * this is how a struct should be declared
 ```c
@@ -51,5 +51,5 @@ Adapted from
 
 * Valentin DREANO
 * Antoine MAN
-* Quentin RAMSAMY--AGEORGES 
-*  Ramzy ZEBRIR
+* Quentin RAMSAMY- -AGEORGES 
+* Ramzy ZEBRIR

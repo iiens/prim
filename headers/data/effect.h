@@ -3,7 +3,7 @@
  * \author Ramzy ZEBRIR
  * \version 0.1
  * \date 04/03/2021
- * \see Staff.h
+ * \see staff.h
  *
  * Contains information about effects
  */
@@ -13,8 +13,6 @@
     /*!
      * \typedef Effect
      * \struct Effect_S Staff.h "headers/data/Staff.h"
-     * \param target: int, represent the target of the effect
-     * \param update: int, the value of the effect
      *
      * Struct which contains the target of the effect
      *

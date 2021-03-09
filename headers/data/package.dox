@@ -1,0 +1,16 @@
+/** @dir headers/data
+
+\authors Quentin Ra
+\authors Antoine MAN
+\authors Ramzy ZEBRIR
+\version 0.2
+\date 07/03/2021
+
+Contains all programs data so most all the enums and constants
+- actions.h : available actions (exit, back, buy..., hire..., ...)
+- difficulty.h : game difficulties
+- effect.h : staff effect
+- machine.h and machine_info.h : machine information
+- mapping.h : keys associated with actions
+- staff.h : staff information
+*/

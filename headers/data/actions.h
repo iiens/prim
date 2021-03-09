@@ -3,7 +3,6 @@
  * \author Quentin Ra
  * \version 0.1
  * \date 27/02/2021
- *
  * \see interface.h
  * \see mapping.h
  *
@@ -16,7 +15,6 @@
     /*!
      * \enum Action_S actions.h "headers/data/action.h"
      * \typedef Action: rename for enum Action
-     * \brief all actions
      *
      * Contains all actions and their code (id).
      * Used when asking the user what he wants to do.

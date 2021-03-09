@@ -3,7 +3,7 @@
  * \author Ramzy ZEBRIR
  * \version 0.1
  * \date 01/03/2021
- * \see MachineInfo.h
+ * \see machine_info.h
  *
  * Contains main information about all of the machine
  */
@@ -16,8 +16,6 @@
     /*!
      * \typedef Machine
      * \struct Machine_S machine.h "headers/data/machine.h"
-     * \param type: int, number associate to the type of the machine
-     * \param level: uint, Level of improvement of the machine
      *
      * Struct which contains the main information about a machine
      *

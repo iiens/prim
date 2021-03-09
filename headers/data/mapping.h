@@ -10,23 +10,21 @@
 #ifndef PRIM_MAPPING_H
 #define PRIM_MAPPING_H
 
+    #include "actions.h" //! actions.h : enum of all actions
+
     /*!
      * \typedef UserActionMapping
      * \struct UserActionMapping_S mapping.h "headers/data/mapping.h"
-     * \param action_id: int, see actions.h
-     * \param key: a sentence to input to select this action
      *
      * Struct of an action mapping. Each action is mapped with a string.
      *
      */
     typedef struct UserActionMapping_S {
-        int action_id; //!< action_id: int, see actions.h
+        Action action_id; //!< action_id: int, see actions.h
         char* key; //!< a sentence to input to select this action
     } UserActionMapping; //!< one mapping so (action, input_sequence)
 
-    /*!
-    * array of all the mappings
-    */
+    // @see UserActionMapping, all mappings
     const UserActionMapping user_mapping[] = {
             // actions related to the game in general
             {ACTION_SHOW_MAP,        "s"}, //!< show map with s

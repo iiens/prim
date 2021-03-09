@@ -1,5 +1,5 @@
 /*!
- * \file Staff.h
+ * \file staff.h
  * \author Ramzy ZEBRIR
  * \version 0.1
  * \date 04/03/2021
@@ -10,28 +10,22 @@
 #ifndef PRIM_STAFF_H
 #define PRIM_STAFF_H
 
-    #include "effect.h" //!< information about effect
+    #include "effect.h" //! effect.h : information about effect
 
     /*!
-    * \typedef Staff
-     * \struct Staff_S Staff.h "headers/data/Staff.h"
-     * \param id: int, id of the character
-     * \param name: char *, name of the character
-     * \param cost_E: uint, price in E of the character
-     * \param cost_DD: uint, price in DD of the character
-     * \param description: char *, description of character effects
-     * \param Effect_S: Effect_S[], contains the target of the effect
+     * \typedef Staff
+     * \struct Staff_S staff.h "headers/data/staff.h"
      *
      * Struct which contains the target of the effect
      *
      */
     typedef struct Staff_S {
-        int Id; //!< Id of the character
-        char* Name; //!< Name of the character
-        uint Cost_E; //!< Price in E of the character
-        uint Cost_DD; //!< Price in DD of the character
-        char* Description; //!< Description of character effects
-        Effect Effect_S[]; //!< array which contains the target of the effect
+        int id; //!< id of the character
+        char* name; //!< name of the character
+        uint costE; //!< Price in E of the character
+        uint costDD; //!< Price in DD of the character
+        char* description; //!< description of character effects
+        Effect effects[]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
 #endif //PRIM_STAFF_H
