@@ -35,6 +35,7 @@
             // hire
             {ACTION_HIRE_FISE,       "he"}, //!< hire FISE with he
             {ACTION_HIRE_FISA,       "ha"}, //!< hire FISA with ha
+            {ACTION_CHANGE_FISA_MODE,       "cm"}, //!< change mode with cm
 
             // actions related to the units
             {ACTION_BUY_MACHINE,     "bm"}, //!< buy machine with bm

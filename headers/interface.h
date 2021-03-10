@@ -1,8 +1,8 @@
 /*!
  * \file interface.h
  * \author Quentin Ra
- * \version 0.2
- * \date 07/03/2021
+ * \version 0.3
+ * \date 10/03/2021
  * \see Machine
  * \see Difficulty
  * \see Map
@@ -68,6 +68,7 @@
      * <li>number of FISE</li>
      * <li>number of FISA</li>
      * <li>the production mode</li>
+     * <li>the number of hired staffs (or their names followed by the count if different of one)</li>
      * </ul>
      *
      * @param[in] map a map
@@ -75,11 +76,50 @@
      */
     void interface_showMap(const Map* map);
 
+    /**
+     * Should take a map and print the list of the staff.
+     * Please do take note that this method use a global
+     * variable containing all data about the staff.
+     *
+     * This method should be a catalog of available staffs.
+     * You must add right after a staff name the count of this staff
+     * that the user have already bought.
+     *
+     * @pre staff list must be set
+     * @pre map must contains the list of staff that the player bought
+     *
+     * @param map used to fetch staff bought
+     *
+     * @see Map
+     */
+    void interface_showStaffList(const Map* map);
+
     /*!
      * @brief Ask for the user action
      *
      * Ask for the user action
      * Should be a valid action, if not ask again.
+     *
+     * Actions returned should be implemented by
+     *
+     * <ul>
+     * <li>{@link ACTION_SHOW_MAP}: {@link interface_showMap}</li>
+     * <li>{@link ACTION_CANCEL_ACTION}: no function, can't be used here ! (only when an action got chosen)</li>
+     * <li>{@link ACTION_EXIT} : caller should ends the program</li>
+     * <li>{@link ACTION_END_TURN} : next turn, call of {@link map_endTurn}</li>
+     *
+     * <li>{@link ACTION_HIRE_FISE} : hire fise, call of {@link map_hireFISE}</li>
+     * <li>{@link ACTION_HIRE_FISA} : hire fisa, call of {@link map_hireFISA}</li>
+     * <li>{@link ACTION_CHANGE_FISA_MODE} : change fisa production mode, call of {@link map_changeProductionFISA}</li>
+     *
+     * <li>{@link ACTION_BUY_MACHINE} : should ask {@link interface_askAddMachine} and {@link interface_askMachineLocation}</li>
+     * then call {@link map_addMachine}
+     * <li>{@link ACTION_BUY_STAFF} : should ask {@link interface_askBuyStaff} then {@link map_buyStaff}</li>
+     * <li>{@link ACTION_ASK_STAFF_LIST} : should call {@link interface_showStaffList}</li>
+     *
+     * <li>{@link ACTION_UPGRADE_MACHINE} : {@link interface_askMachineLocation} then {@link map_upgradeMachine}</li>
+     * <li>{@link ACTION_DESTROY_MACHINE} : {@link interface_askMachineLocation} then {@link map_destroyMachine}</li>
+     * </ul>
      *
      * @return a valid action chosen by the user.
      * @see Action enum

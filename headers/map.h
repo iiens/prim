@@ -41,7 +41,7 @@
      * DD : value that measure the planet general health
      *
      */
-    //todo: enum ?
+    //todo: Antoine, enum ?
     #define CASE_VIDE 0 //!< a case that contain nothing
     #define CASE_GATE 1 //!< a case that contain the transdimensional gate
     #define CASE_SOURCE 2 //!< a case that contain resources
@@ -49,6 +49,8 @@
 
     #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
     #define DD_VALUE 1 //!< DD Constant that measure the planet general health
+
+    //todo: Antoine, move struct into data ?
 
     /*!
      * \typedef Case
@@ -75,10 +77,11 @@
      * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
      *
      */
+     //todo: Antoine, maybe add a list of staff (maybe in Task B, but needed by interface.h)
     typedef struct Map_S {
         int width; //!< int, map width
         int height; //!< int, map height
-        Case** map; //!< a bi dimensional tableto refer to the board of game
+        Case** map; //!< a bi dimensional table to refer to the board of game
         uint turn; //!< int, an indicator to correspond to the actual turn of the game
         uint numberFISE; //!< as the name suggest, its corresponding to the number of FISE
         uint numberFISA; //!< as the name suggest, its corresponding to the number of FISA
@@ -116,7 +119,7 @@
      * to a map.
      *
      * @param[in] map a map
-     * @return a bool in order to know if everythings worked well
+     * @return a bool in order to know if everything worked well
      * @see Map type
      */
     bool map_destroy(const Map* map);
@@ -129,7 +132,7 @@
      * Every turn, each FISE student produce 1 E and 1 DD
      *
      * @param[in] map a map
-     * @return a bool in order to know if everythings worked well
+     * @return a bool in order to know if everything worked well
      * @see Map type
      */
     bool map_hireFISE(const Map* map);
@@ -142,7 +145,7 @@
      * Every 2 turns, each FISA student produce either 4 E or 4 DD
      *
      * @param[in] map a map
-     * @return a bool in order to know if everythings worked well
+     * @return a bool in order to know if everything worked well
      * @see Map type
      */
     bool map_hireFISA(const Map* map);
@@ -154,7 +157,7 @@
      * This function allow us to switch the energy type
      * produced by the FISA between E or DD.
      *
-     * @return a bool in order to know if everythings worked well
+     * @return a bool in order to know if everything worked well
      */
     bool map_changeProductionFISA();
 
@@ -164,7 +167,7 @@
     *
     * Finish a turn
     *
-    * @return a bool in order to know if everythings worked well
+    * @return a bool in order to know if everything worked well
     */
     bool map_endTurn();
 

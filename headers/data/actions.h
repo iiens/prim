@@ -29,6 +29,7 @@
         // hire
         ACTION_HIRE_FISE = 221, //!< trigger hire fise
         ACTION_HIRE_FISA = 222, //!< trigger hire fisa
+        ACTION_CHANGE_FISA_MODE = 223, //!< change fisa production mode
 
         // actions related to the units
         ACTION_BUY_MACHINE = 332, //!< trigger add machine
