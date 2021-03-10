@@ -24,15 +24,20 @@
 #ifndef PRIM_INTERFACE_H
 #define PRIM_INTERFACE_H
 
-    #include "data/actions.h" //!< contains all actions
-    #include "data/difficulty.h" //!< contains difficulty type
-    #include "data/mapping.h" //!< contains mappings type
-    #include "map.h" //!< contains map type
-    #include "utils/utils.h" //!< utilities functions
+    #include "data/actions.h" //! contains all actions
+    #include "data/difficulty.h" //! contains difficulty type
+    #include "data/mapping.h" //! contains mappings type
+    #include "map.h" //! contains map type
+    #include "utils/utils.h" //! utilities functions
 
     //\////////////////////////////\//
     //\/ Functions declarations
     //\////////////////////////////\//
+
+    // todo:
+    //  interface_init
+    //  interface_reload
+    //  interface_close
 
     /*!
      * \fn Difficulty interface_chooseDifficulty
@@ -85,11 +90,14 @@
      * You must add right after a staff name the count of this staff
      * that the user have already bought.
      *
+     * <pre>
+     * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
+     * ...
+     * </pre>
+     *
      * @pre staff list must be set
      * @pre map must contains the list of staff that the player bought
-     *
      * @param map used to fetch staff bought
-     *
      * @see Map
      */
     void interface_showStaffList(const Map* map);
@@ -135,6 +143,9 @@
      * If the user wants to go back, then he can using
      * ACTION_CANCEL_ACTION action.
      *
+     * We must fill each value inside our machine, for that
+     * check {@link Machine} type.
+     *
      * @return the machine that the user wanted to add.
      *
      * @see ACTION_BUY_MACHINE
@@ -164,15 +175,8 @@
     /*!
      * @brief Ask which Staff the user wants to buy.
      *
-     * The user can ask for a list, with the ACTION_ASK_STAFF_LIST that print basic
-     * info for each Staff (1 per line)
-     * <pre>
-     * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
-     * ...
-     * </pre>
-     *
-     * Then the user choice a Staff (by inputting the n°) and
-     * it must be a valid id.
+     * The user input an id (that he could find using list staff action)
+     * and we returns the staff in the global staff array that match the given id.
      *
      * If the user wants to go back, then he can using
      * ACTION_CANCEL_ACTION action.
@@ -182,6 +186,6 @@
      * @see ACTION_BUY_STAFF
      * @see ACTION_ASK_STAFF_LIST (action enum)
      */
-    Staff* interface_askBuyStaff();
+    Staff interface_askBuyStaff();
 
 #endif //PRIM_INTERFACE_H

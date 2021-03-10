@@ -10,7 +10,8 @@
 #ifndef PRIM_MACHINE_INFO_H
 #define PRIM_MACHINE_INFO_H
 
-    #include <stdbool.h> //!< return value
+    #include "effect.h" //! todo: Ramzy
+    #include <stdbool.h> //! return value
 
     /*!
      * \typedef MachineInfo

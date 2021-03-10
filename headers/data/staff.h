@@ -28,4 +28,6 @@
         Effect effects[]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
+    //todo: Ramzy init some staff ?, create array
+
 #endif //PRIM_STAFF_H
