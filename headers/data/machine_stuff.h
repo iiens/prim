@@ -24,8 +24,8 @@
         COLLECTOR_MACHINE = 1, //!< collector machine
         CONVEYOR_BELT = 2, //!< conveyor belt
         CROSS = 3, //!< cross
-        JUNKYARD = 4, //!< junkyard
-        RECYCLING_CENTER = 5, //!< recycling center
+        RECYCLING_CENTER = 4, //!< recycling center
+        JUNKYARD = 5, //!< junkyard
     } MachineStuff; //!< MachineStuff
 
 #endif //PRIM_MACHINE_STUFF_H

@@ -20,6 +20,7 @@
     typedef struct Effect_S {
         int target; //!< represent the target of the effect
         int update; //!< represent the value of the effect
+        char * description; //!< describe the effect
     } Effect; //!< Struct which contains the target and the of the effect
 
 #endif //PRIM_EFFECT_H
