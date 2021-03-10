@@ -1,8 +1,8 @@
 /*!
  * \file actions.h
  * \author Quentin Ra
- * \version 0.1
- * \date 27/02/2021
+ * \version 0.6
+ * \date 10/03/2021
  * \see interface.h
  * \see mapping.h
  *
@@ -24,7 +24,8 @@
         ACTION_SHOW_MAP = 143, //!< show map
         ACTION_CANCEL_ACTION = 144, //!< cancel action so go back
         ACTION_EXIT = 145, //!< exit so leave the program
-        ACTION_END_TURN = 146, //!< go to next turn
+        ACTION_LIST_ACTIONS = 146, //!< list all actions
+        ACTION_END_TURN = 147, //!< go to next turn
 
         // hire
         ACTION_HIRE_FISE = 221, //!< trigger hire fise
@@ -32,6 +33,7 @@
         ACTION_CHANGE_FISA_MODE = 223, //!< change fisa production mode
 
         // actions related to the units
+        ACTION_LIST_MACHINES = 331, //!< show list of machines
         ACTION_BUY_MACHINE = 332, //!< trigger add machine
         ACTION_BUY_STAFF = 333, //!< trigger hire Staff
         ACTION_ASK_STAFF_LIST = 334, //!< in hire Staff, show Staff list

@@ -18,8 +18,8 @@
      *
      */
     typedef struct Effect_S {
-        int target; //!< represent the target of the effect
-        int update; //!< represent the value of the effect
+        int target; //!< represent the target of the effect todo: such as ? (maybe use an enum, ..., see later)
+        int update; //!< represent the value of the effect todo: such as ? maybe you should say modifier/value
         char * description; //!< describe the effect
     } Effect; //!< Struct which contains the target and the of the effect
 

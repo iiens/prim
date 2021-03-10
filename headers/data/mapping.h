@@ -1,8 +1,8 @@
 /*!
  * \file mapping.h
  * \author Quentin Ra
- * \version 0.1
- * \date 07/03/2021
+ * \version 0.5
+ * \date 10/03/2021
  *
  * List of actions mappings
  *
@@ -25,11 +25,13 @@
     } UserActionMapping; //!< one mapping so (action, input_sequence)
 
     // @see UserActionMapping, all mappings
+    #define USER_MAPPING_SIZE 12 //!< to iterates user_mapping
     const UserActionMapping user_mapping[] = {
             // actions related to the game in general
             {ACTION_SHOW_MAP,        "s"}, //!< show map with s
             {ACTION_END_TURN,        "n"}, //!< end turn with n
             {ACTION_CANCEL_ACTION,   "b"}, //!< cancel action with b
+            {ACTION_LIST_ACTIONS,   "la"}, //!< list actions with la
             {ACTION_EXIT,            "q"}, //!< exit with q
 
             // hire
@@ -38,6 +40,7 @@
             {ACTION_CHANGE_FISA_MODE,       "cm"}, //!< change mode with cm
 
             // actions related to the units
+            {ACTION_LIST_MACHINES,     "lm"}, //!< list machines with lm
             {ACTION_BUY_MACHINE,     "bm"}, //!< buy machine with bm
             {ACTION_BUY_STAFF,       "bs"}, //!< hire Staff with bs
             {ACTION_ASK_STAFF_LIST,  "ls"}, //!< list Staff with ls

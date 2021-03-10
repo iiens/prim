@@ -1,7 +1,7 @@
 /*!
  * \file interface.h
  * \author Quentin Ra
- * \version 0.3
+ * \version 0.6
  * \date 10/03/2021
  * \see Machine
  * \see Difficulty
@@ -31,13 +31,38 @@
     #include "utils/utils.h" //! utilities functions
 
     //\////////////////////////////\//
-    //\/ Functions declarations
+    //\/ interface declarations
     //\////////////////////////////\//
 
-    // todo:
-    //  interface_init
-    //  interface_reload
-    //  interface_close
+    /*!
+     * Supposed to init interface.
+     *
+     * Can be used to show a message with the name of the
+     * game, the version, ... and/or display difficulties.
+     *
+     * @return  true ok, false ko
+     */
+    bool interface_init();
+
+    /**
+     * Reload interface. We should use this
+     * to update the map, the E,DD,... values
+     * that are shown.
+     *
+     * @param map game map
+     * @return true ok, false ko
+     */
+    bool interface_reload(const Map* map);
+
+    /**
+     * Dispose of interface and clean everything.
+     * @return true ok, false ko
+     */
+    bool interface_close();
+
+    //\////////////////////////////\//
+    //\/ game interface declarations
+    //\////////////////////////////\//
 
     /*!
      * \fn Difficulty interface_chooseDifficulty
@@ -102,6 +127,19 @@
      */
     void interface_showStaffList(const Map* map);
 
+    /**
+     * Show machine list.
+     * Should use global variable {@link machine_list} in {@link machine.h}.
+     */
+    void interface_showMachinesList();
+
+    /**
+     * Show actions list.
+     * Should use global variable {@link user_mapping} in {@link mapping.h}.
+     * And {@link USER_MAPPING_SIZE}
+     */
+    void interface_list_actions();
+
     /*!
      * @brief Ask for the user action
      *
@@ -114,12 +152,14 @@
      * <li>{@link ACTION_SHOW_MAP}: {@link interface_showMap}</li>
      * <li>{@link ACTION_CANCEL_ACTION}: no function, can't be used here ! (only when an action got chosen)</li>
      * <li>{@link ACTION_EXIT} : caller should ends the program</li>
+     * <li>{@link ACTION_LIST_ACTIONS} : call {@link interface_list_actions}</li>
      * <li>{@link ACTION_END_TURN} : next turn, call of {@link map_endTurn}</li>
      *
      * <li>{@link ACTION_HIRE_FISE} : hire fise, call of {@link map_hireFISE}</li>
      * <li>{@link ACTION_HIRE_FISA} : hire fisa, call of {@link map_hireFISA}</li>
      * <li>{@link ACTION_CHANGE_FISA_MODE} : change fisa production mode, call of {@link map_changeProductionFISA}</li>
      *
+     * <li>{@link ACTION_LIST_MACHINES} : should call {@link interface_showMachinesList}</li>
      * <li>{@link ACTION_BUY_MACHINE} : should ask {@link interface_askAddMachine} and {@link interface_askMachineLocation}</li>
      * then call {@link map_addMachine}
      * <li>{@link ACTION_BUY_STAFF} : should ask {@link interface_askBuyStaff} then {@link map_buyStaff}</li>

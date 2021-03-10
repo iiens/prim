@@ -109,7 +109,7 @@
      * @see Map type
      * @see Difficulty enum
      */
-    const Map* map_create(Difficulty dif);
+    Map* map_create(Difficulty dif);
 
     /*!
      * \fn int map_destroy(const Map* map)
