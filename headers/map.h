@@ -41,11 +41,6 @@
      * DD : value that measure the planet general health
      *
      */
-    //todo: Antoine, enum ?
-    #define CASE_VIDE 0 //!< a case that contain nothing
-    #define CASE_GATE 1 //!< a case that contain the transdimensional gate
-    #define CASE_SOURCE 2 //!< a case that contain resources
-    #define CASE_MACHINE 3 //!< a case that contain a machine
 
     #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
     #define DD_VALUE 1 //!< DD Constant that measure the planet general health
@@ -77,7 +72,6 @@
      * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
      *
      */
-     //todo: Antoine, maybe add a list of staff (maybe in Task B, but needed by interface.h)
     typedef struct Map_S {
         int width; //!< int, map width
         int height; //!< int, map height
@@ -88,6 +82,9 @@
         uint E; //!< a value that measure the energy quantity of the player
         uint DD; //!< a value that measure the planet general health
         int productionFISA; //!< int, it correspond to the energy type produced by the FISA
+        Staff* team; //!< a list of staffs that the user bought
+        int score; //!< a score which indicate number of resources put in the gate
+        int pollution; //!< a score which indicate number of garbage that are still present in the gate
     } Map; //!< Board game that contain all of the information about each case
 
 
@@ -102,7 +99,14 @@
      * In order to begin a new game, we need a board game.
      * It will contains all the map information concerning machines
      * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
-     * 2 sources cases and 1 transdimensional gate are randomly placed
+     *
+     * Difficulty has been chosen by the player which determine the width and height of the map
+     * Creation of the map : a bi dimensional Case table
+     * 2 sources cases and 1 transdimensional gate are randomly placed into those cases.
+     * The player starts the game with 5 FISE, 5 FISA, 100 E and 100 DD.
+     * Initialization of the turn, the score the pollution to 0.
+     * By default, the FISA production is E.
+     * A table which contain staffs that the user bought is also initialized
      *
      * @param[in] dif a valid difficulty chosen by the user
      * @return a new map that contains all the map information
@@ -112,11 +116,16 @@
     Map* map_create(Difficulty dif);
 
     /*!
-     * \fn int map_destroy(const Map* map)
+     * \fn bool map_destroy(const Map* map)
      * @brief Destroy a map
      *
      * At the end of a game, we need to free all the memory allocated
      * to a map.
+     *
+     * We have to free :
+     * Staff* team
+     *  Case** map
+     *  ... //todo: Antoine, complete
      *
      * @param[in] map a map
      * @return a bool in order to know if everything worked well
@@ -125,11 +134,15 @@
     bool map_destroy(const Map* map);
 
     /*!
-     * \fn int map_hireFISE(const Map* map)
+     * \fn bool map_hireFISE(const Map* map)
      * @brief Hire a FISE
      *
      * We hire a FISE in order to product more resources.
      * Every turn, each FISE student produce 1 E and 1 DD
+     * A student (FISE or FISA) costs 50 E and 20 DD.
+     *
+     * A verification is necessary to know if the player can hire a new FISE.
+     * We have to check resources E and DD of the player
      *
      * @param[in] map a map
      * @return a bool in order to know if everything worked well
@@ -138,11 +151,16 @@
     bool map_hireFISE(const Map* map);
 
     /*!
-     * \fn int map_hireFISA(const Map* map)
+     * \fn bool map_hireFISA(const Map* map)
      * @brief Hire a FISA
      *
      * We hire a FISA in order to product more resources.
      * Every 2 turns, each FISA student produce either 4 E or 4 DD
+     *
+     * A student (FISE or FISA) costs 50 E and 20 DD.
+     *
+     * A verification is necessary to know if the player can hire a new FISA.
+     * We have to check resources E and DD of the player
      *
      * @param[in] map a map
      * @return a bool in order to know if everything worked well
@@ -151,7 +169,7 @@
     bool map_hireFISA(const Map* map);
 
     /*!
-     * \fn int map_changeProductionFISA()
+     * \fn bool map_changeProductionFISA()
      * @brief Switch the energy type produced by the FISA
      *
      * This function allow us to switch the energy type
@@ -162,14 +180,43 @@
     bool map_changeProductionFISA();
 
     /*!
-    * \fn int map_endTurn()
+    * \fn bool map_endTurn()
     * @brief Finish a turn
     *
-    * Finish a turn
+    * Verifications to do at the end of a turn
+    * Check FISA and FISE production
+    * Update E value
+    * Call all conveyor belt/cross at the same time.
+    *   -> Resources moves
+    *   -> Verify each resource destination
+    *       -> next case empty -> resource is lost
+    *       -> next case is an ENTRY machine -> send to machine
+    * Check if we produce resources (sources)
+    * Check if we produce wastes (gate)
+    * Call all Recycling center
+    *   -> stored garbage don't decrease DD
+    *   -> 10 garbage produce 1 /per turn
+    * Call all collectors
+    *   -> activated from top to bot, left to right
+    *   -> No source -> do nothing
+    *   -> randomly choose a source among all adjacent ones
+    * Update DD value
+    *
     *
     * @return a bool in order to know if everything worked well
     */
     bool map_endTurn();
+
+    /*!
+    * \fn int map_endTurn()
+    * @brief In order to verify if a case is empty
+    *
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    * @return true/false if a case is empty
+    */
+    bool map_isEmpty(int x, int y, Map* map);
 
     /*!
      * \fn bool map_addMachine(const Machine machine, const int x, const int y, Map* m)
