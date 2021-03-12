@@ -13,14 +13,13 @@
     #include <stdlib.h> //! to use uint
 
     /*!
-        * \enum MachineStuff_S machine.h "headers/data/machine.h"
-        * \typedef MachineStuff
-        * \brief id associate to the machine to identify them
-        *
-        * Contains id associate to the machine.
-        *
-        */
-
+     * \enum MachineStuff_S machine.h "headers/data/machine.h"
+     * \typedef MachineStuff
+     * \brief id associate to the machine to identify them
+     *
+     * Contains id associate to the machine.
+     *
+     */
     typedef enum MachineStuff_S {
         MS_COLLECTOR = 1, //!< collector machine
         MS_CONVEYOR_BELT = 2, //!< conveyor belt
@@ -43,7 +42,7 @@
         DIRECTION_IN = 0,
         DIRECTION_OUT = 1,
         DIRECTION_NONE = 2,
-    }Direction; //!< Direction
+    } Direction; //!< Direction
 
     /*!
      * \typedef Orientation
@@ -52,12 +51,12 @@
      * Struct which contains the 4 direction possible for a machine
      *
      */
-    typedef struct Orientation_S{
+    typedef struct Orientation_S {
         Direction top; //!< top
         Direction left; //!< left
         Direction bottom; //!< bottom
         Direction right; //!< right
-    }Orientation; //!< Orientation
+    } Orientation; //!< Orientation
 
     /*!
      * \typedef Machine

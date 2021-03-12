@@ -228,7 +228,12 @@
      */
     Staff interface_askBuyStaff();
 
-    // TODO Calistro : function interface_showError(Error e) : bool
-    // Permet d'afficher une erreur du a un maque d'argent / une case avec une machine déjà présente
+    /**
+     * Show an error
+     * @param e an error code
+     * @param show true show this error, false hide any previous error
+     * @see ErrorCode
+     */
+    void interface_showError(ErrorCode e, bool show);
 
 #endif //PRIM_INTERFACE_H
