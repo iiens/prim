@@ -19,8 +19,9 @@
      */
     typedef struct Effect_S {
         int target; //!< represent the target of the effect todo: such as ? (maybe use an enum, ..., see later)
-        int update; //!< represent the value of the effect todo: such as ? maybe you should say modifier/value
+        int update_value; //!< represent the value of the effect
         char * description; //!< describe the effect
     } Effect; //!< Struct which contains the target and the of the effect
 
+    const Effect effect_1 = {1,10,"test"};
 #endif //PRIM_EFFECT_H

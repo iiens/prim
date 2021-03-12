@@ -28,32 +28,31 @@
 
     //todo: Ramzy add a constant with machine_list size ? (since we are in C)
 
-    //todo: Ramzy you mustn't use 1 (type value) but COLLECTOR_MACHINE etc. (since we created that enum only for that purpose)
     const MachineInfo machine_list[] = {
-        {1,200,20,1,500,200,60,200,
+        {MS_COLLECTOR,200,20,1,500,200,60,200,
          "The collector sends a resource produced by the source to the "
          "neighboring cell indicated by its orientation. It must be placed "
          "on a square adjacent to that of the source",
          1
          },
-        {2,60,20,1,-1,-1,60,200,
+        {MS_CONVEYOR_BELT,60,20,1,-1,-1,60,200,
          "A carpet has one exit and three entrances, the resource or waste exits"
          " 1 turn after entering the conveyor belt",
          0
          },
-        {3,160,20,1,-1,-1,60,200,
+        {MS_CROSS,160,20,1,-1,-1,60,200,
          "A cross is a set of two juxtaposed conveyor belts, allowing two "
          "lines of conveyor belts to cross. The cross has 2 inlets and 2 outlets "
          "which depend on the orientation of the cross",
          0
          },
-        {4,500,40,1,1500,100,100,500,
+        {MS_RECYCLING_CENTER,500,40,1,1500,100,100,500,
          "The recycling center is used to store waste. The recycling center"
          " has 4 entrances and 0 exits. At the start of the game, a recycling "
          "center can store up to 50 pieces of waste",
          1
          },
-        {5,100,100,1,200,600,100,200,
+        {MS_JUNKYARD,100,100,1,200,600,100,200,
          "The recycling center turns waste into a resource. Like the conveyor belt,"
          " the center has 3 entrances and one exit. The center can store up to 100 "
          "waste",

@@ -22,14 +22,13 @@
     * Contains id associate to the machine.
     *
     */
-    //todo: Ramzy, make a notation such as MACHINE_COLLECTOR, MACHINE_CONVEYOR_BELT, MACHINE_CROSS, ...
-    // or MS_COLLECTOR ... but all must start with the same value (see Action if needed)
+
     typedef enum MachineStuff_S {
-        COLLECTOR_MACHINE = 1, //!< collector machine
-        CONVEYOR_BELT = 2, //!< conveyor belt
-        CROSS = 3, //!< cross
-        RECYCLING_CENTER = 4, //!< recycling center
-        JUNKYARD = 5, //!< junkyard
+        MS_COLLECTOR = 1, //!< collector machine
+        MS_CONVEYOR_BELT = 2, //!< conveyor belt
+        MS_CROSS = 3, //!< cross
+        MS_RECYCLING_CENTER = 4, //!< recycling center
+        MS_JUNKYARD = 5, //!< junkyard
     } MachineStuff; //!< MachineStuff
 
 #endif //PRIM_MACHINE_STUFF_H

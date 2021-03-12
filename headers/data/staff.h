@@ -29,6 +29,9 @@
         Effect effects[20]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
-    //todo: Ramzy init some staff ?, create array
+    const Staff staff_list[] = {
+            {1,"Fetia Bannour",100,30,"The cost of constructing collectors"
+                                      "decreases by 10EE and 1DD ",} //todo : put an Effect
+    };
 
 #endif //PRIM_STAFF_H
