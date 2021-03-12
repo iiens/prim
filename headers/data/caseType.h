@@ -14,7 +14,7 @@
 
 /*!
  * \typedef CaseType: rename for enum caseType
- * \enum CaseType caseType.h "headers/data/caseType.h"
+ * \enum caseType caseType.h "headers/data/caseType.h"
  * \brief all case type
  *
  * Contains all type that a case can contain.
