@@ -28,7 +28,8 @@
         MS_RECYCLING_CENTER = 4, //!< recycling center
         MS_JUNKYARD = 5, //!< junkyard
     } MachineStuff; //!< Link between a machine and a int to recognize them
-    #include "machine_info.h" //<! all information about machine
+
+    #include "machine_info.h" //! all information about machine
 
     /*!
      * \enum Direction_S machine.h "headers/data/machine.h"
@@ -43,7 +44,6 @@
         DIRECTION_OUT = 1,
         DIRECTION_NONE = 2,
     }Direction; //!< Direction
-
 
     /*!
      * \typedef Orientation
@@ -75,12 +75,14 @@
         int capacity; //!< -1 it don't have capacity
     } Machine; //!< Machine
 
-    const MachineInfo machine_list[5] = {
-        {MS_COLLECTOR,200,20,1,500,200,60,200,
+    const MachineInfo machine_list[] = {
+        {
+           MS_COLLECTOR,200,20,1,500,200,60,200,
          "The collector sends a resource produced by the source to the "
-         "neighboring cell indicated by its orientation. It must be placed "
-         "on a square adjacent to that of the source",
-         1, .effect = {}   },
+            "neighboring cell indicated by its orientation. It must be placed "
+            "on a square adjacent to that of the source",
+         1, .effect = {}
+        },
         {MS_CONVEYOR_BELT,60,20,1,-1,-1,60,200,
          "A carpet has one exit and three entrances, the resource or waste exits"
          " 1 turn after entering the conveyor belt",
@@ -104,10 +106,4 @@
          },
     }; //!< Array with information about all machine
 
-    Orientation o1 = {
-        .top=DIRECTION_IN,
-        .left=DIRECTION_NONE,
-        .bottom = DIRECTION_OUT,
-        .right = DIRECTION_NONE,
-    };
 #endif //PRIM_MACHINE_H
