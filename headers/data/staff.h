@@ -22,8 +22,8 @@
     typedef struct Staff_S {
         int id; //!< id of the character
         char* name; //!< name of the character
-        uint costE; //!< Price in E of the character
-        uint costDD; //!< Price in DD of the character
+        int costE; //!< Price in E of the character
+        int costDD; //!< Price in DD of the character
         char* description; //!< description of character effects
         Effect effects[20]; //!< array which contains the target of the effect
     } Staff; //!< information about staff

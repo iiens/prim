@@ -76,11 +76,11 @@
         int width; //!< int, map width
         int height; //!< int, map height
         Case** map; //!< a bi dimensional table to refer to the board of game
-        uint turn; //!< int, an indicator to correspond to the actual turn of the game
-        uint numberFISE; //!< as the name suggest, its corresponding to the number of FISE
-        uint numberFISA; //!< as the name suggest, its corresponding to the number of FISA
-        uint E; //!< a value that measure the energy quantity of the player
-        uint DD; //!< a value that measure the planet general health
+        int turn; //!< int, an indicator to correspond to the actual turn of the game
+        int numberFISE; //!< as the name suggest, its corresponding to the number of FISE
+        int numberFISA; //!< as the name suggest, its corresponding to the number of FISA
+        int E; //!< a value that measure the energy quantity of the player
+        int DD; //!< a value that measure the planet general health
         int productionFISA; //!< int, it correspond to the energy type produced by the FISA
         Staff* team; //!< a list of staffs that the user bought
         int score; //!< a score which indicate number of resources put in the gate

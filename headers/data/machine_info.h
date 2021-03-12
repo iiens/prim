@@ -23,13 +23,13 @@
      */
     typedef struct MachineInfo_S {
         int type; //!< int which represent the type of the machine
-        uint costE; //!< price in E of the machine
-        uint CostDD; //!< price in DD of the machine
+        int costE; //!< price in E of the machine
+        int CostDD; //!< price in DD of the machine
         int level; //!< level of upgrade of the machine
-        uint costUpgradeE; //!< price for upgrade the machine in E
-        uint costUpgradeDD; //!< price for upgrade the machine in DD
-        uint costDestroyE; //!< price for destroy the machine in E
-        uint costDestroyDD; //!< price for destroy the machine in DD;
+        int costUpgradeE; //!< price for upgrade the machine in E
+        int costUpgradeDD; //!< price for upgrade the machine in DD
+        int costDestroyE; //!< price for destroy the machine in E
+        int costDestroyDD; //!< price for destroy the machine in DD;
         char* description; //!< description of the machine
         bool canUpgrade; //!< 1 if it's upgradable, else 0
         Effect effect; //!< An effect for the machine if it's upgrade
