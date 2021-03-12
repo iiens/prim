@@ -208,13 +208,14 @@
     bool map_endTurn();
 
     /*!
-    * \fn int map_endTurn()
+    * \fn bool map_isEmpty()
     * @brief In order to verify if a case is empty
     *
     * @param[in] x case abscissa
     * @param[in] y case ordinate
     * @param[in] map a map
     * @return true/false if a case is empty
+     *
     */
     bool map_isEmpty(int x, int y, Map* map);
 
