@@ -74,6 +74,6 @@
         int capacity; //!< -1 it don't have capacity
     } Machine; //!< Machine
 
-    extern const machine_list[];//!< Array with information about all machine
+    extern const MachineInfo machine_list[];//!< Array with information about all machine
 
 #endif //PRIM_MACHINE_H
