@@ -24,6 +24,7 @@
     #include "data/machine.h" //!< information about machine
     #include "data/staff.h" //!< information about Staff
     #include "data/difficulty.h" //!< difficulty of the game
+    #include "data/error.h" //!< errors messages
 
     //\////////////////////////////\//
     //\/ Types declarations
@@ -116,7 +117,7 @@
     Map* map_create(Difficulty dif);
 
     /*!
-     * \fn bool map_destroy(const Map* map)
+     * \fn ErrorCode map_destroy(const Map* map)
      * @brief Destroy a map
      *
      * At the end of a game, we need to free all the memory allocated
@@ -131,10 +132,10 @@
      * @return a bool in order to know if everything worked well
      * @see Map type
      */
-    bool map_destroy(const Map* map);
+    ErrorCode map_destroy(const Map* map);
 
     /*!
-     * \fn bool map_hireFISE(const Map* map)
+     * \fn ErrorCode map_hireFISE(const Map* map)
      * @brief Hire a FISE
      *
      * We hire a FISE in order to product more resources.
@@ -148,10 +149,10 @@
      * @return a bool in order to know if everything worked well
      * @see Map type
      */
-    bool map_hireFISE(const Map* map);
+    ErrorCode map_hireFISE(const Map* map);
 
     /*!
-     * \fn bool map_hireFISA(const Map* map)
+     * \fn ErrorCode map_hireFISA(const Map* map)
      * @brief Hire a FISA
      *
      * We hire a FISA in order to product more resources.
@@ -166,10 +167,10 @@
      * @return a bool in order to know if everything worked well
      * @see Map type
      */
-    bool map_hireFISA(const Map* map);
+    ErrorCode map_hireFISA(const Map* map);
 
     /*!
-     * \fn bool map_changeProductionFISA()
+     * \fn ErrorCode map_changeProductionFISA()
      * @brief Switch the energy type produced by the FISA
      *
      * This function allow us to switch the energy type
@@ -177,10 +178,10 @@
      *
      * @return a bool in order to know if everything worked well
      */
-    bool map_changeProductionFISA();
+    ErrorCode map_changeProductionFISA();
 
     /*!
-    * \fn bool map_endTurn()
+    * \fn ErrorCode map_endTurn()
     * @brief Finish a turn
     *
     * Verifications to do at the end of a turn
@@ -205,10 +206,10 @@
     *
     * @return a bool in order to know if everything worked well
     */
-    bool map_endTurn();
+    ErrorCode map_endTurn();
 
     /*!
-    * \fn bool map_isEmpty()
+    * \fn ErrorCode map_isEmpty()
     * @brief In order to verify if a case is empty
     *
     * @param[in] x case abscissa
@@ -217,7 +218,7 @@
     * @return true/false if a case is empty
      *
     */
-    bool map_isEmpty(int x, int y, Map* map);
+    ErrorCode map_isEmpty(int x, int y, Map* map);
 
     /*!
      * \fn bool map_addMachine(const Machine machine, const int x, const int y, Map* m)
