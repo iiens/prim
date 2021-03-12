@@ -28,21 +28,5 @@
         Effect effects[20]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
-    const Staff staff_list[] = {
-            {1, "Fetia Bannour", 100, 30, "The cost of constructing collectors"
-                                          "decreases by 10EE and 1DD ", .effects = {
-                    {
-                            .mode = CONSTRUCTION,
-                            .onOther = false,
-                            .what.machine = MS_COLLECTOR,
-                            .modifier_E = -10,
-                            .modifier_DD = -1,
-                            .min_cost_E = 10,
-                            .min_cost_DD = 1,
-                            .description = "Le coût de construction des collecteurs diminue de 10E et 1DD (minimum 10E\n"
-                                           "et 1DD)."
-                    },
-
-            }}};
 
 #endif //PRIM_STAFF_H
