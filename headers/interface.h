@@ -27,6 +27,7 @@
     #include "data/actions.h" //! contains all actions
     #include "data/difficulty.h" //! contains difficulty type
     #include "data/mapping.h" //! contains mappings type
+    #include "data/error.h" //! error codes that we would have to show
     #include "map.h" //! contains map type
     #include "utils/utils.h" //! utilities functions
 
@@ -231,9 +232,14 @@
     /**
      * Show an error
      * @param e an error code
-     * @param show true show this error, false hide any previous error
+     * @param show true show this error
      * @see ErrorCode
      */
-    void interface_showError(ErrorCode e, bool show);
+    void interface_showError(ErrorCode e);
+
+    /**
+     * Hide previous error
+     */
+    void interface_hideError();
 
 #endif //PRIM_INTERFACE_H
