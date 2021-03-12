@@ -10,8 +10,9 @@
 #ifndef PRIM_MACHINE_INFO_H
 #define PRIM_MACHINE_INFO_H
 
-    #include "effect.h" //! todo: Ramzy
+    #include "effect.h" //! effects of the staff and of the machine
     #include <stdbool.h> //! return value
+    #include <stdlib.h> //! to use uint
 
     /*!
      * \typedef MachineInfo
