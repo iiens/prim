@@ -21,6 +21,7 @@
     * Different Target
     *
     */
+
     typedef union Target_S {
         MachineStuff machine; //!< machine related effects
         enum SubTargets_S {

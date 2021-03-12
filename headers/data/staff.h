@@ -28,5 +28,6 @@
         Effect effects[20]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
+    extern const Staff staff_list[]; //!< Array of the staff
 
 #endif //PRIM_STAFF_H
