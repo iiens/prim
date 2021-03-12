@@ -34,12 +34,28 @@ ENDIF(CUNIT_FOUND)
 # add_executable(prim run_suite_tests.c tests/suite1.h tests/suite1.c tests/tests_utils.c tests/tests_utils.h)
 # target_link_libraries(prim cunit ${CUNIT_LIBRARIES})
 
-add_executable(main src/main.c headers/interface.h headers/data/actions.h headers/utils/utils.h
+add_executable(main
+        src/main.c
+
+        headers/map.h
+        headers/interface.h
+
+        headers/data/actions.h
         headers/data/difficulty.h
         headers/data/effect.h
-        headers/map.h
         headers/data/machine.h
         headers/data/machine_info.h
         headers/data/staff.h
-        headers/data/mapping.h headers/data/caseType.h headers/data/error.h)
+        headers/data/mapping.h
+        headers/data/caseType.h
+        headers/data/error.h
+
+        headers/utils/utils.h
+
+        src/main.h
+        )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
+
+find_package( Curses REQUIRED )
+include_directories( ${CURSES_INCLUDE_DIRS} )
+target_link_libraries( main ${CURSES_LIBRARIES} )

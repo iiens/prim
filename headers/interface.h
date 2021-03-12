@@ -140,6 +140,11 @@
      */
     void interface_list_actions();
 
+    /**
+     * @see interface_chooseAction, count of available actions
+     */
+    #define USER_MAPPING_SIZE 12 //!< to iterates user_mapping
+
     /*!
      * @brief Ask for the user action
      *

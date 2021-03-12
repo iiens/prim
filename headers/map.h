@@ -74,6 +74,7 @@
      *
      */
     typedef struct Map_S {
+        Difficulty difficulty; //!< game difficulty
         int width; //!< int, map width
         int height; //!< int, map height
         Case** map; //!< a bi dimensional table to refer to the board of game
@@ -117,7 +118,7 @@
     Map* map_create(Difficulty dif);
 
     /*!
-     * \fn ErrorCode map_destroy(const Map* map)
+     * \fn ErrorCode map_destroy(Map* map)
      * @brief Destroy a map
      *
      * At the end of a game, we need to free all the memory allocated
@@ -132,7 +133,7 @@
      * @return a bool in order to know if everything worked well
      * @see Map type
      */
-    ErrorCode map_destroy(const Map* map);
+    ErrorCode map_destroy(Map* map);
 
     /*!
      * \fn ErrorCode map_hireFISE(const Map* map)

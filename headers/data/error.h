@@ -22,8 +22,7 @@
  *
  */
 typedef enum ErrorCode_S {
-
-    TRUE = 0,
+    NO_ERROR = 0,
     ERROR_CASE_EMPTY = 1,
     ERROR_CASE_MACHINE = 2,
     ERROR_CASE_SOURCE = 3,
@@ -32,9 +31,8 @@ typedef enum ErrorCode_S {
     ERROR_NOT_ENOUGH_DD = 6,
     ERROR_CASE_NOT_FOUND = 7,
     ERROR = 8,
-
+    ERROR_INVALID_ACTION_SEQUENCE = 9,
     // TODO Antoine ADD ERROR endturn()
-
 } ErrorCode; //!< Error type
 
 #endif //PRIM_ERROR_H
