@@ -10,8 +10,25 @@
 #ifndef PRIM_MACHINE_H
 #define PRIM_MACHINE_H
 
-    #include "machine_stuff.h" //! a enum of all machine associate with a int
     #include "machine_info.h" //! all information about machine
+
+    /*!
+        * \enum MachineStuff_S machine_stuff.h "headers/data/machine_stuff.h"
+        * \typedef MachineStuff
+        * \brief id associate to the machine to identify them
+        *
+        * Contains id associate to the machine.
+        *
+        */
+
+        typedef enum MachineStuff_S {
+        MS_COLLECTOR = 1, //!< collector machine
+        MS_CONVEYOR_BELT = 2, //!< conveyor belt
+        MS_CROSS = 3, //!< cross
+        MS_RECYCLING_CENTER = 4, //!< recycling center
+        MS_JUNKYARD = 5, //!< junkyard
+    } MachineStuff; //!< Link between a machine and a int to recognize them
+
 
     /*!
      * \typedef Machine

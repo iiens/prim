@@ -25,7 +25,6 @@
         uint costE; //!< Price in E of the character
         uint costDD; //!< Price in DD of the character
         char* description; //!< description of character effects
-        //todo: if you don't put a value here, we won't be able to use it (10 here)
         Effect effects[20]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
