@@ -9,6 +9,7 @@
 
 bool back = false; //! Allow to cancel the current action
 
+//todo: Valentin, translate to english
 int main(void)
 {
     // Initialisation variables

@@ -25,6 +25,6 @@
     } UserActionMapping; //!< one mapping so (action, input_sequence)
 
     // @see UserActionMapping, all mappings
-    extern const UserActionMapping user_mapping[];
+    extern const UserActionMapping user_mapping[]; //!< will contains all mappings, used in interface.h
 
 #endif //PRIM_MAPPING_H

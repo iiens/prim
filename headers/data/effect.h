@@ -24,13 +24,14 @@
 
     typedef union Target_S {
         MachineStuff machine; //!< machine related effects
+        //!< \enum SubTargets_S: todo Ramzy doc
         enum SubTargets_S {
             NONE, //!< nothing
             SUB_HIRE, //!< if we want to apply something to all hire related functions
             SUB_FISE, //!< if we want to apply something to hire fise related
             SUB_FISA, //!< if we want to apply something to hire fisa related
             DESTROY_GARBAGE //!< if we want to check destroy related effects
-        } other;
+        } other; //!< todo: Ramzy doc
     } Target; //!< target of the effect
 
 

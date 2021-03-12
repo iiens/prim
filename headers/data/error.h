@@ -14,15 +14,14 @@
 
 /*!
  * \typedef ErrorCode: rename for enum ErrorCode
- * \enum ErrorCode error.h "headers/data/error.h"
+ * \enum ErrorCode_S error.h "headers/data/error.h"
  * \brief all return errors messages
  *
  *
  * // TODO Antoine commentaires
  *
  */
-
-typedef enum Error {
+typedef enum ErrorCode_S {
 
     TRUE = 0,
     ERROR_CASE_EMPTY = 1,

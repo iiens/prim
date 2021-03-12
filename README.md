@@ -15,7 +15,7 @@ Check user documentation file.
 
 **General**
 * code and comments should be written in english
-* we should write include by alphabetical order, and a comment by include
+* we should write includes ordered by alphabetical order, and a comment by include
 * use relevant names for variables when it's smart to do so (not index instead of i)
 * lines should have less that 79 columns
 
@@ -31,9 +31,9 @@ void name( args )
   ```
 * this is how a struct should be declared
 ```c
-typedef struct MachineInfo_S {
-    int type; //!< int which represent the type of the machine
-} MachineInfo; //!< ....
+typedef struct AName_S {
+    int anAttribute; //!< ...
+} AName; //!< ....
 ```
 * you must declare all variables at the start of a bloc
 * first declare then initialize variables

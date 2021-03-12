@@ -136,8 +136,7 @@
 
     /**
      * Show actions list.
-     * Should use global variable {@link user_mapping} in {@link mapping.h}.
-     * And {@link USER_MAPPING_SIZE}
+     * Should use global variable.
      */
     void interface_list_actions();
 
@@ -232,7 +231,6 @@
     /**
      * Show an error
      * @param e an error code
-     * @param show true show this error
      * @see ErrorCode
      */
     void interface_showError(ErrorCode e);

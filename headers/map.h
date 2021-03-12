@@ -209,15 +209,13 @@
     ErrorCode map_endTurn();
 
     /*!
-    * \fn ErrorCode map_isEmpty()
-    * @brief In order to verify if a case is empty
-    *
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] map a map
-    * @return true/false if a case is empty
-     *
-    */
+     * \fn ErrorCode map_isEmpty(int x, int y, Map* map)
+     * @brief In order to verify if a case is empty
+     * @param[in] x case abscissa
+     * @param[in] y case ordinate
+     * @param[in] map a map
+     * @return true/false if a case is empty
+     */
     ErrorCode map_isEmpty(int x, int y, Map* map);
 
     /*!
