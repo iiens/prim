@@ -181,7 +181,7 @@
     ErrorCode map_changeProductionFISA();
 
     /*!
-    * \fn ErrorCode map_endTurn()
+    * \fn ErrorCode map_endTurn(Map* map)
     * @brief Finish a turn
     *
     * Verifications to do at the end of a turn
@@ -203,10 +203,10 @@
     *   -> randomly choose a source among all adjacent ones
     * Update DD value
     *
-    *
+    * @param map game map
     * @return a bool in order to know if everything worked well
     */
-    ErrorCode map_endTurn();
+    ErrorCode map_endTurn(Map* map);
 
     /*!
      * \fn ErrorCode map_isEmpty(int x, int y, Map* map)
