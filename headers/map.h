@@ -25,8 +25,9 @@
     #include "data/staff.h" //!< information about Staff
     #include "data/difficulty.h" //!< difficulty of the game
     #include "data/error.h" //!< errors messages
+    #include "data/case_type.h" //!< todo: Antoine
 
-    //\////////////////////////////\//
+//\////////////////////////////\//
     //\/ Types declarations
     //\////////////////////////////\//
 
@@ -46,8 +47,6 @@
     #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
     #define DD_VALUE 1 //!< DD Constant that measure the planet general health
 
-    //todo: Antoine, move struct into data ?
-
     /*!
      * \typedef Case
      * \struct Case_S map.h "headers/map.h"
@@ -60,9 +59,9 @@
         int y; //!< int, ordinate
         union {
             Machine* mach;
-            void* other; // à voir
+            void* other;
         } in; //!< union, it correspond to the object contained in the case
-        int type; //!< int, type of object contained in the case
+        CaseType type; //!< type of object contained in the case
     } Case; //!< it correspond to a case of the board game
 
     /*!
@@ -83,7 +82,7 @@
         int numberFISA; //!< as the name suggest, its corresponding to the number of FISA
         int E; //!< a value that measure the energy quantity of the player
         int DD; //!< a value that measure the planet general health
-        int productionFISA; //!< int, it correspond to the energy type produced by the FISA
+        int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
         Staff* team; //!< a list of staffs that the user bought
         int score; //!< a score which indicate number of resources put in the gate
         int pollution; //!< a score which indicate number of garbage that are still present in the gate
@@ -230,7 +229,7 @@
      *
      * @return 1 if true else 0
      */
-    bool map_addMachine(const Machine machine, const int x, const int y, Map* m);
+    bool map_addMachine(Machine machine, int x, int y, Map* m);
 
     /*!
      * \fn bool map_upgradeMachine(const int x,const int y, Map* m)
@@ -243,7 +242,7 @@
      *
      * @return 1 if true else 0
      */
-    bool map_upgradeMachine(const int x, const int y, Map* m);
+    bool map_upgradeMachine(int x, int y, Map* m);
 
     /*!
      * \fn bool map_destroyMachine(const int x,const int y, Map* m)
@@ -256,7 +255,7 @@
      *
      * @return 1 if true else 0
      */
-    bool map_destroyMachine(const int x, const int y, Map* m);
+    bool map_destroyMachine(int x, int y, Map* m);
 
     /*!
      * \fn bool map_buyStaff(Staff s, Map* m)

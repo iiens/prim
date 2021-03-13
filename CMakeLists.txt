@@ -47,7 +47,7 @@ add_executable(main
         headers/data/machine_info.h
         headers/data/staff.h
         headers/data/mapping.h
-        headers/data/caseType.h
+        headers/data/case_type.h
         headers/data/error.h
 
         headers/utils/utils.h

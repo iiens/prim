@@ -65,7 +65,7 @@
     typedef struct Effect_S {
         Mode mode; //!< represent the mode applied to the machine
         Target what; //!< represent the target of the effect
-        bool onOther; //!< todo :
+        bool onOther; //!< todo : Ramzy doc
         int modifier_res; //!< if SEND_DOOR, resource put in multiply by this
         int modifier_FISA; //!< update the number of FISA
         int modifier_FISE; //!< update the number of FISE

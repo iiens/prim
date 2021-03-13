@@ -19,6 +19,7 @@ int main(void)
     Machine* m = NULL; //!< ...
 
     // Initialise interface
+    //todo: can fail
     interface_init();
 
     // Ask difficulty
@@ -41,7 +42,8 @@ int main(void)
 
             // sample to process an action
             // check documentation everything written
-            switch (act) {
+            //todo: since you are using err codes, check them
+            switch (act) { // NOLINT(hicpp-multiway-paths-covered)
                 case ACTION_SHOW_MAP:
                     // Update interface with the new map
                     interface_reload(map);
@@ -129,8 +131,11 @@ int main(void)
                         }
                     }
                     break;
-                default:
-                    // handles error
+                case ACTION_LIST_ACTIONS:
+                    interface_list_actions();
+                    break;
+                case ACTION_LIST_MACHINES:
+                    interface_showMachinesList();
                     break;
             }
         }

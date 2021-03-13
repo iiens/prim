@@ -1,5 +1,5 @@
 /*!
- * \file caseType.h
+ * \file case_type.h
  * \author Antoine Man
  * \version 0.1
  * \date 11/03/2021
@@ -8,12 +8,12 @@
  * Contains all the type that a case can contain.
  *
  */
-#ifndef PRIM_CASETYPE_H
-#define PRIM_CASETYPE_H
+#ifndef PRIM_CASE_TYPE_H
+#define PRIM_CASE_TYPE_H
 
     /*!
-     * \typedef CaseType: rename for enum caseType
-     * \enum caseType caseType.h "headers/data/caseType.h"
+     * \typedef CaseType
+     * \enum CaseType_S case_type.h "headers/data/case_type.h"
      * \brief all case type
      *
      * Contains all type that a case can contain.
@@ -26,11 +26,11 @@
      * 3 resources is produced from a resource case every 10 turns
      *
      */
-    typedef enum caseType {
+    typedef enum CaseType_S {
         CASE_VIDE = 0, //!< a case that contain nothing
         CASE_GATE = 1, //!< a case that contain the transdimensional gate
         CASE_SOURCE = 2, //!< a case that contain resources
         CASE_MACHINE = 3, //!< a case that contain a machine
-    } caseType; //!< Case type
+    } CaseType; //!< Case type
 
-#endif //PRIM_CASETYPE_H
+#endif //PRIM_CASE_TYPE_H
