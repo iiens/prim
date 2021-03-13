@@ -27,22 +27,9 @@
     #include "data/error.h" //!< errors messages
     #include "data/case_type.h" //!< todo: Antoine
 
-//\////////////////////////////\//
+    //\////////////////////////////\//
     //\/ Types declarations
     //\////////////////////////////\//
-
-    /*!
-     *
-     * Type of object contained in a case
-     *
-     * CASE_VIDE: nothing on a case
-     * CASE_VIDE: a case where there is the gate that we want to close
-     * CASE_VIDE: a case where resources popup
-     * CASE_VIDE: a case where there is a machine
-     * E : value that measure the energy quantity of the player
-     * DD : value that measure the planet general health
-     *
-     */
 
     #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
     #define DD_VALUE 1 //!< DD Constant that measure the planet general health
