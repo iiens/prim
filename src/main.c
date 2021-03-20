@@ -1,22 +1,25 @@
 #include <stdlib.h> //!< todo: Valentin
 #include <string.h> //!< todo: Valentin
+#include <stdbool.h> //!< todo : Valentin
 #include "main.h" //!< todo: Valentin
 
 bool back = false; //!< Allow to cancel the current action
 
-//todo: Valentin, translate to english
 int main(void)
 {
-    // Initialisation variables
-    Difficulty d; //!< Permet de connaitre la difficulté choisit par l'utilisateur
-    Map* map = NULL; //!< Permet de stocker l'etat du jeu
-    bool exit = false; //!< ...
-    bool endTurn = false; //!< Permet de stocker la detection de la fin d'un tour
+    // Variable declarations
+    Difficulty d; //!< Allows you to know the difficulty chosen by the user
+    Map* map = NULL; //!< Allows you to store the state of the game
+    bool exit = false; //!< flag to detect the choice to close the game
+    bool endTurn = false; //!< flag to the end of a tour
+    bool check = false; //!< flag to detect the success of certain action
 
-    Action act; //!< ...
-    Staff s; //!< ...
-    Vector2D v; //!< ...
-    Machine* m = NULL; //!< ...
+    ErrorCode e; //!< Allows you to get the return of the functions of map.h
+
+    Action act; //!< Allows you to know the action that the player chooses
+    Staff s; //!< Used to retrieve the function return from interface.h
+    Vector2D v; //!< Used to retrieve the function return from interface.h
+    Machine* m = NULL; //!< Used to retrieve the function return from interface.h
 
     // Initialise interface
     //todo: can fail
@@ -30,74 +33,102 @@ int main(void)
 
     // While the user don't want to leave
     while (!exit) {
-        // Update
+        // Interface update
         interface_reload(map);
 
         // Reset end turn
         endTurn = false;
 
-        while (!endTurn) { // while the user doesn't want the turn to end
-            // Demande au joueur de choisir une action
+        // While the user doesn't want the turn to end
+        while (!endTurn) {
+            // Allows you to ask the player to choose an action
             act = interface_chooseAction();
 
-            // sample to process an action
-            // check documentation everything written
-            //todo: since you are using err codes, check them
-            switch (act) { // NOLINT(hicpp-multiway-paths-covered)
+            // Handling of actions
+            switch (act) {
                 case ACTION_SHOW_MAP:
                     // Update interface with the new map
                     interface_reload(map);
                     break;
-                case ACTION_CANCEL_ACTION: // ignore
-                    break;
                 case ACTION_EXIT:
-                    // Initialize variable to left the game
+                    // Update variable to left the game
                     exit = true;
                     endTurn = true;
                     break;
                 case ACTION_END_TURN:
-                    // Initialize variable to left the turn
+                    // Update variable to left the turn
                     endTurn = true;
                     break;
                 case ACTION_HIRE_FISE:
                     // Call the map function to buy the FISE
-                    map_hireFISE(map);
+                    e = map_hireFISE(map);
+                    // Check the return of the function
+                    if (e != NO_ERROR) {
+                        // Show the error message
+                        interface_showError(e);
+                    }
                     break;
                 case ACTION_HIRE_FISA:
                     // Call the map function to buy the FISA
-                    map_hireFISA(map);
+                    e = map_hireFISA(map);
+                    // Check the return of the function
+                    if (e != NO_ERROR) {
+                        // Show the error message
+                        interface_showError(e);
+                    }
                     break;
                 case ACTION_CHANGE_FISA_MODE:
                     // Call The map function to change the mode of production of the FISA
                     // E or DD
-                    map_changeProductionFISA();
+                    e = map_changeProductionFISA();
+                    // Check the return of the function
+                    if (e != NO_ERROR) {
+                        // Show the error message
+                        interface_showError(e);
+                    }
                     break;
                 case ACTION_BUY_MACHINE:
                     do {
+                        // Request the position of the machine
                         v = interface_askMachineLocation();
-                        // check if it's ok
-                    } while (!map_isEmpty(v.x, v.y, map) || back);
-
-                    if (!back) {
-                        m = interface_askAddMachine();
-                        if(!back){
-                            if(map_addMachine(*m, v.x, v.y, map)){
-                                // Show the error message because This case don't have a machine
-                                // Show the error message because The player don't have the money
-                                // TODO OxOrio : Add interface_showError(Error e)
+                        // Check that the user has not abandoned the action
+                        if (!back) {
+                            // Call the map function to add machine
+                            e = map_addMachine(*m, v.x, v.y, map);
+                            // Check the return of the function
+                            if (e != NO_ERROR) {
+                                // Show the error message
+                                interface_showError(e);
+                            }
+                            else {
+                                // update variable to validate the action
+                                check = true;
                             }
                         }
-                    }
+                        // While the action is not successful or the user has not abandoned the action
+                    } while (!check || !back);
+
                     break;
                 case ACTION_BUY_STAFF:
-                    // ask where add staff
-                    s = interface_askBuyStaff();
-                    if (!back) {
-                        if(!map_buyStaff(s, map)){
-                            // Show the error message because The player don't have the money
-                            // TODO OxOrio : Add interface_showError(Error e)
+                    do {
+                        // Ask where add staff
+                        s = interface_askBuyStaff();
+                        // Check that the user has not abandoned the action
+                        if (!back) {
+                            // Call The map function to try to buy a staff member
+                            e = map_buyStaff(s, map);
+                            // Check the return of the function
+                            if (e != NO_ERROR) {
+                                // Show the error message
+                                interface_showError(e);
+                            }
+                            else {
+                                // update variable to validate the action
+                                check = true;
+                            }
                         }
-                    }
+                        // While the action is not successful or the user has not abandoned the action
+                    } while (!check || !back);
                     break;
                 case ACTION_ASK_STAFF_LIST:
                     // Call the interface function to show the list of staff
@@ -106,42 +137,65 @@ int main(void)
                     break;
                 case ACTION_UPGRADE_MACHINE:
                     do {
+                        // Request the position of the machine
                         v = interface_askMachineLocation();
-                        // check if it's ok
-                    } while (map_isEmpty(v.x, v.y, map) || back);
-
-                    if (!back) {
-                        if(!map_upgradeMachine(v.x, v.y, map)){
-                            // Show the error message because This case don't have a machine
-                            // Show the error message because The player don't have the money
-                            // TODO OxOrio : Add interface_showError(Error e)
+                        // Check that the user has not abandoned the action
+                        if (!back) {
+                            // Call The map function to improve the machine
+                            e = map_upgradeMachine(v.x, v.y, map);
+                            // Check the return of the function
+                            if (e != NO_ERROR) {
+                                // Show the error message
+                                interface_showError(e);
+                            }
+                            else {
+                                // Update variable to validate the action
+                                check = true;
+                            }
                         }
-                    }
+                        // While the action is not successful or the user has not abandoned the action
+                    } while (!check || !back);
                     break;
                 case ACTION_DESTROY_MACHINE:
                     do {
+                        // Request the position of the machine
                         v = interface_askMachineLocation();
-                        // check if it's ok
-                    } while (map_isEmpty(v.x, v.y, map) || back);
-
-                    if (!back) {
-                        if(!map_destroyMachine(v.x, v.y, map)){
-                            // Show the error message because This case don't ave a machine
-                            // TODO OxOrio : Add interface_showError(Error e)
+                        // Check that the user has not abandoned the action
+                        if (!back) {
+                            // Call The map function to destroy the machine
+                            e = map_destroyMachine(v.x, v.y, map);
+                            // Check the return of the function
+                            if (e != NO_ERROR) {
+                                // Show the error message
+                                interface_showError(e);
+                            }
+                            else {
+                                // Update variable to validate the action
+                                check = true;
+                            }
                         }
-                    }
+                        // While the action is not successful or the user has not abandoned the action
+                    } while (!check || !back);
                     break;
                 case ACTION_LIST_ACTIONS:
+                    // Request display of actions
                     interface_list_actions();
                     break;
                 case ACTION_LIST_MACHINES:
+                    // Request the display of machines
                     interface_showMachinesList();
                     break;
+                case ACTION_CANCEL_ACTION: // Ignore
+                default:
+                    break;
             }
+
+            back = false;
+            check = false;
         }
 
         // Process end turn
-        map_endTurn();
+        map_endTurn(map);
     }
 
     // Destroy map
