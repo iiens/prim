@@ -22,10 +22,9 @@
      *
      */
     typedef struct MachineInfo_S {
-        int type; //!< int which represent the type of the machine
+        MachineStuff type; //!< int which represent the type of the machine
         int costE; //!< price in E of the machine
-        int CostDD; //!< price in DD of the machine
-        int level; //!< level of upgrade of the machine
+        int costDD; //!< price in DD of the machine
         int costUpgradeE; //!< price for upgrade the machine in E
         int costUpgradeDD; //!< price for upgrade the machine in DD
         int costDestroyE; //!< price for destroy the machine in E

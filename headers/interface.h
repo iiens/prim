@@ -1,8 +1,8 @@
 /*!
  * \file interface.h
  * \author Quentin Ra
- * \version 0.6
- * \date 10/03/2021
+ * \version 0.7
+ * \date 20/03/2021
  * \see Machine
  * \see Difficulty
  * \see Map
@@ -41,9 +41,9 @@
      * Can be used to show a message with the name of the
      * game, the version, ... and/or display difficulties.
      *
-     * @return  true ok, false ko
+     * @return NO_ERROR ok or an error
      */
-    bool interface_init();
+    ErrorCode interface_init();
 
     /**
      * Reload interface. We should use this
@@ -51,15 +51,15 @@
      * that are shown.
      *
      * @param map game map
-     * @return true ok, false ko
+     * @return NO_ERROR ok or an error
      */
-    bool interface_reload(const Map* map);
+    ErrorCode interface_reload(const Map* map);
 
     /**
      * Dispose of interface and clean everything.
-     * @return true ok, false ko
+     * @return NO_ERROR ok or an error
      */
-    bool interface_close();
+    ErrorCode interface_close();
 
     //\////////////////////////////\//
     //\/ game interface declarations
@@ -239,10 +239,5 @@
      * @see ErrorCode
      */
     void interface_showError(ErrorCode e);
-
-    /**
-     * Hide previous error
-     */
-    void interface_hideError();
 
 #endif //PRIM_INTERFACE_H

@@ -52,10 +52,12 @@ add_executable(main
 
         headers/utils/utils.h
 
-        src/main.h
-        )
+        src/main.h)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
 
-find_package( Curses REQUIRED )
-include_directories( ${CURSES_INCLUDE_DIRS} )
+SET(CURSES_NEED_NCURSES TRUE)
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+
 target_link_libraries( main ${CURSES_LIBRARIES} )

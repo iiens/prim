@@ -48,7 +48,7 @@ int main(void)
             switch (act) {
                 case ACTION_SHOW_MAP:
                     // Update interface with the new map
-                    interface_reload(map);
+                    interface_showMap(map);
                     break;
                 case ACTION_EXIT:
                     // Update variable to left the game
@@ -93,6 +93,11 @@ int main(void)
                         v = interface_askMachineLocation();
                         // Check that the user has not abandoned the action
                         if (!back) {
+                            //todo: there is one more call to the interface
+                            // since we need to ask which machine do the user want to buy
+                            // see interface_askAddMachine
+                            // and check back value too
+
                             // Call the map function to add machine
                             e = map_addMachine(*m, v.x, v.y, map);
                             // Check the return of the function

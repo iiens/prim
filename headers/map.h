@@ -75,7 +75,6 @@
         int pollution; //!< a score which indicate number of garbage that are still present in the gate
     } Map; //!< Board game that contain all of the information about each case
 
-
     //\////////////////////////////\//
     //\/ Functions declarations
     //\////////////////////////////\//

@@ -66,7 +66,7 @@
      *
      */
     typedef struct Machine_S {
-        int type; //!< number associate to the type of the machine
+        MachineStuff type; //!< number associate to the type of the machine
         int level; //!< Represent the level of improvement of the machine
         Orientation orientation; //!< Represent the orientation of the machine
         int nb_resource; //!< number of resource on the machine
