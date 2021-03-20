@@ -18,21 +18,26 @@
  * \brief all return errors messages
  *
  *
- * // TODO Antoine commentaires
+ * Contain all error type returned by functions
+ * It allow to communicate directly with interface and
+ * to inform the user what is the problem, if there is an error
  *
  */
 typedef enum ErrorCode_S {
     NO_ERROR = 0,
-    ERROR_CASE_EMPTY = 1,
-    ERROR_CASE_MACHINE = 2,
-    ERROR_CASE_SOURCE = 3,
-    ERROR_CASE_GATE = 4,
-    ERROR_NOT_ENOUGH_E = 5,
-    ERROR_NOT_ENOUGH_DD = 6,
-    ERROR_CASE_NOT_FOUND = 7,
-    ERROR = 8,
-    ERROR_INVALID_ACTION_SEQUENCE = 9,
-    // TODO Antoine ADD ERROR endturn()
 } ErrorCode; //!< Error type
+
+/*!
+     * \fn char* get_Error_Msg(ErrorCode e)
+     * @brief Get an error message
+     *
+     * In order to know in detail an error returned by a function
+     * we need a function to describe this error
+     *
+     * @param[in] ErrorCode, a error code
+     * @return a string that describe the error
+     * @see ErrorCode type
+     */
+char* get_Error_Msg(ErrorCode e);
 
 #endif //PRIM_ERROR_H
