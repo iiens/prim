@@ -1,6 +1,7 @@
 #include <stdlib.h> //!< todo: Valentin
 #include <string.h> //!< todo: Valentin
 #include <stdbool.h> //!< todo : Valentin
+#include <stdio.h> //!< todo : Valentin
 #include "main.h" //!< todo: Valentin
 
 bool back = false; //!< Allow to cancel the current action
@@ -22,8 +23,16 @@ int main(void)
     Machine* m = NULL; //!< Used to retrieve the function return from interface.h
 
     // Initialise interface
-    //todo: can fail
-    interface_init();
+    e = interface_init();
+
+    // Check the return of the function
+    if (e != NO_ERROR) {
+        // Show the error message to the console
+        printf("%s\n", get_Error_Msg(e));
+
+        // Quit the program because the interface does not work
+        return EXIT_SUCCESS;
+    }
 
     // Ask difficulty
     d = interface_chooseDifficulty();
@@ -62,6 +71,7 @@ int main(void)
                 case ACTION_HIRE_FISE:
                     // Call the map function to buy the FISE
                     e = map_hireFISE(map);
+
                     // Check the return of the function
                     if (e != NO_ERROR) {
                         // Show the error message
@@ -71,6 +81,7 @@ int main(void)
                 case ACTION_HIRE_FISA:
                     // Call the map function to buy the FISA
                     e = map_hireFISA(map);
+
                     // Check the return of the function
                     if (e != NO_ERROR) {
                         // Show the error message
@@ -81,6 +92,7 @@ int main(void)
                     // Call The map function to change the mode of production of the FISA
                     // E or DD
                     e = map_changeProductionFISA();
+
                     // Check the return of the function
                     if (e != NO_ERROR) {
                         // Show the error message
@@ -91,23 +103,25 @@ int main(void)
                     do {
                         // Request the position of the machine
                         v = interface_askMachineLocation();
+
                         // Check that the user has not abandoned the action
                         if (!back) {
-                            //todo: there is one more call to the interface
-                            // since we need to ask which machine do the user want to buy
-                            // see interface_askAddMachine
-                            // and check back value too
+                            // Ask for the machine to add
+                            m = interface_askAddMachine();
 
-                            // Call the map function to add machine
-                            e = map_addMachine(*m, v.x, v.y, map);
-                            // Check the return of the function
-                            if (e != NO_ERROR) {
-                                // Show the error message
-                                interface_showError(e);
-                            }
-                            else {
-                                // update variable to validate the action
-                                check = true;
+                            // Check that the user has not abandoned the action
+                            if (!back) {
+                                // Call the map function to add machine
+                                e = map_addMachine(*m, v.x, v.y, map);
+                                // Check the return of the function
+                                if (e != NO_ERROR) {
+                                    // Show the error message
+                                    interface_showError(e);
+                                }
+                                else {
+                                    // update variable to validate the action
+                                    check = true;
+                                }
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
@@ -118,6 +132,7 @@ int main(void)
                     do {
                         // Ask where add staff
                         s = interface_askBuyStaff();
+
                         // Check that the user has not abandoned the action
                         if (!back) {
                             // Call The map function to try to buy a staff member
@@ -144,6 +159,7 @@ int main(void)
                     do {
                         // Request the position of the machine
                         v = interface_askMachineLocation();
+
                         // Check that the user has not abandoned the action
                         if (!back) {
                             // Call The map function to improve the machine
@@ -165,6 +181,7 @@ int main(void)
                     do {
                         // Request the position of the machine
                         v = interface_askMachineLocation();
+
                         // Check that the user has not abandoned the action
                         if (!back) {
                             // Call The map function to destroy the machine
@@ -195,6 +212,7 @@ int main(void)
                     break;
             }
 
+            // Reset the action verification variables
             back = false;
             check = false;
         }
