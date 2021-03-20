@@ -4,6 +4,8 @@
  * \version 0.1
  * \date 28/02/2021
  * \see Difficulty
+ * \see CaseType
+ * \see ErrorCode
  *
  * This header contains any functions related to the interactions
  * between the player and the elements on the board game.
@@ -14,6 +16,10 @@
  * <li>hire a FISA</li>
  * <li>switch energy type produced by the FISA </li>
  * <li>finish a turn</li>
+ * <li>add a machine in a case</li>
+ * <li>upgrade a machine, already created in a case</li>
+ * <li>detroy a machine, already created in a case</li>
+ * <li>buy staffs in order to have bonus</li>
  * </ul>
  *
  */
@@ -25,7 +31,7 @@
     #include "data/staff.h" //!< information about Staff
     #include "data/difficulty.h" //!< difficulty of the game
     #include "data/error.h" //!< errors messages
-    #include "data/case_type.h" //!< todo: Antoine
+    #include "data/case_type.h" //!< case type (empty, source, gate, machine)
 
     //\////////////////////////////\//
     //\/ Types declarations
@@ -112,10 +118,10 @@
      * We have to free :
      * Staff* team
      *  Case** map
-     *  ... //todo: Antoine, complete
+     *  ... (map.h , staff.f, machine.h)
      *
      * @param[in] map a map
-     * @return a bool in order to know if everything worked well
+     * @return an error that specify what is the problem
      * @see Map type
      */
     ErrorCode map_destroy(Map* map);
@@ -132,7 +138,7 @@
      * We have to check resources E and DD of the player
      *
      * @param[in] map a map
-     * @return a bool in order to know if everything worked well
+     * @return an error that specify what is the problem
      * @see Map type
      */
     ErrorCode map_hireFISE(const Map* map);
@@ -150,7 +156,7 @@
      * We have to check resources E and DD of the player
      *
      * @param[in] map a map
-     * @return a bool in order to know if everything worked well
+     * @return an error that specify what is the problem
      * @see Map type
      */
     ErrorCode map_hireFISA(const Map* map);
@@ -162,7 +168,7 @@
      * This function allow us to switch the energy type
      * produced by the FISA between E or DD.
      *
-     * @return a bool in order to know if everything worked well
+     * @return an error that specify what is the problem
      */
     ErrorCode map_changeProductionFISA();
 
@@ -190,22 +196,12 @@
     * Update DD value
     *
     * @param map game map
-    * @return a bool in order to know if everything worked well
+    * @return an error that specify what is the problem
     */
     ErrorCode map_endTurn(Map* map);
 
     /*!
-     * \fn ErrorCode map_isEmpty(int x, int y, Map* map)
-     * @brief In order to verify if a case is empty
-     * @param[in] x case abscissa
-     * @param[in] y case ordinate
-     * @param[in] map a map
-     * @return true/false if a case is empty
-     */
-    ErrorCode map_isEmpty(int x, int y, Map* map);
-
-    /*!
-     * \fn bool map_addMachine(const Machine machine, const int x, const int y, Map* m)
+     * \fn ErrorCode map_addMachine(const Machine machine, const int x, const int y, Map* m)
      * @brief Add a machine
      * @param[in] machine a machine
      * @param[in] x x > 0
@@ -213,12 +209,12 @@
      * @param[in,out] m a map
      * Add a machine on the map
      *
-     * @return 1 if true else 0
+     * @return an error that specify what is the problem
      */
-    bool map_addMachine(Machine machine, int x, int y, Map* m);
+    ErrorCode map_addMachine(Machine machine, int x, int y, Map* m);
 
     /*!
-     * \fn bool map_upgradeMachine(const int x,const int y, Map* m)
+     * \fn ErrorCode map_upgradeMachine(const int x,const int y, Map* m)
      * @brief Upgrade a machine
      * @param[in] x x > 0
      * @param[in] y y > 0
@@ -226,12 +222,12 @@
      * Upgrade a machine on the map. We know which machine we upgrade thanks
      * to the x and y coordinates
      *
-     * @return 1 if true else 0
+     * @return an error that specify what is the problem
      */
-    bool map_upgradeMachine(int x, int y, Map* m);
+    ErrorCode map_upgradeMachine(int x, int y, Map* m);
 
     /*!
-     * \fn bool map_destroyMachine(const int x,const int y, Map* m)
+     * \fn ErrorCode map_destroyMachine(const int x,const int y, Map* m)
      * @brief Destroy a machine
      * @param[in] x x > 0
      * @param[in] y y > 0
@@ -239,19 +235,19 @@
      * Destroy a machine on the map. We know which machine we destroy thanks
      * to the x and y coordinates
      *
-     * @return 1 if true else 0
+     * @return an error that specify what is the problem
      */
-    bool map_destroyMachine(int x, int y, Map* m);
+    ErrorCode map_destroyMachine(int x, int y, Map* m);
 
     /*!
-     * \fn bool map_buyStaff(Staff s, Map* m)
+     * \fn ErrorCode map_buyStaff(Staff s, Map* m)
      * @brief Buy a Staff
      * @param[in] s a Staff
      * @param[in,out] m a map
      * Buy a Staff
      *
-     * @return 1 if true else 0
+     * @return an error that specify what is the problem
      */
-    bool map_buyStaff(Staff s, Map* m);
+    ErrorCode map_buyStaff(Staff s, Map* m);
 
 #endif //PRIM_MAP_H
