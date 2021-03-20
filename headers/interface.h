@@ -31,6 +31,8 @@
     #include "map.h" //! contains map type
     #include "utils/utils.h" //! utilities functions
 
+    extern bool back; //!< Allow to cancel the current action, check in main after each cancelable action
+
     //\////////////////////////////\//
     //\/ interface declarations
     //\////////////////////////////\//
@@ -53,7 +55,7 @@
      * @param map game map
      * @return NO_ERROR ok or an error
      */
-    ErrorCode interface_reload(const Map* map);
+    ErrorCode interface_reload( const Map* map );
 
     /**
      * Dispose of interface and clean everything.
@@ -105,7 +107,7 @@
      * @param[in] map a map
      * @see Map type
      */
-    void interface_showMap(const Map* map);
+    void interface_showMap( const Map* map );
 
     /**
      * Should take a map and print the list of the staff.
@@ -126,7 +128,7 @@
      * @param map used to fetch staff bought
      * @see Map
      */
-    void interface_showStaffList(const Map* map);
+    void interface_showStaffList( const Map* map );
 
     /**
      * Show machine list.
@@ -238,6 +240,6 @@
      * @param e an error code
      * @see ErrorCode
      */
-    void interface_showError(ErrorCode e);
+    void interface_showError( ErrorCode e );
 
 #endif //PRIM_INTERFACE_H

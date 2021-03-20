@@ -10,7 +10,6 @@
 #ifndef PRIM_EFFECT_H
 #define PRIM_EFFECT_H
 
-
     #include "machine.h" //!< main information about a machine
 
     /*!
@@ -54,12 +53,12 @@
         CONSTRUCTION = 0, //!< create something, machine target
         UPGRADE = 1, //!< upgrade something, machine target
         DESTROY = 2,  //!< destroy something, machine target
-        HIRE  = 3, //!< hire someone, called when hiring, check other
-        ON_BUY  = 4, //!< called when staff bought
+        HIRE = 3, //!< hire someone, called when hiring, check other
+        ON_BUY = 4, //!< called when staff bought
         SEND_DOOR = 5, //!< called when garbage are sent to the door
-        DOOR_OUT  = 6, //!< called when garbage are leaving the door
-        PRODUCTION  = 7, //!< called when we will create something (E, DD, ...)
-        ON_TURN  = 8 //!< apply each turn
+        DOOR_OUT = 6, //!< called when garbage are leaving the door
+        PRODUCTION = 7, //!< called when we will create something (E, DD, ...)
+        ON_TURN = 8 //!< apply each turn
     } Mode; //!< what do we do in our effect
 
     /*!
@@ -80,7 +79,7 @@
         int modifier_DD; //!< update the DD cost
         int min_cost_E; //!< check after update of E with min_cost_E
         int min_cost_DD;//!< check after update of DD with min_cost_DD
-        char * description; //!< describe the effect
+        char* description; //!< describe the effect
     } Effect; //!< Struct which contains the target and the of the effect
 
 #endif //PRIM_EFFECT_H

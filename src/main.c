@@ -4,10 +4,7 @@
 #include <stdio.h> //!< todo : Valentin
 #include "main.h" //!< todo: Valentin
 
-bool back = false; //!< Allow to cancel the current action
-
-int main(void)
-{
+int main( void ) {
     // Variable declarations
     Difficulty d; //!< Allows you to know the difficulty chosen by the user
     Map* map = NULL; //!< Allows you to store the state of the game
@@ -26,7 +23,7 @@ int main(void)
     e = interface_init();
 
     // Check the return of the function
-    if (e != NO_ERROR) {
+    if ( e != NO_ERROR ) {
         // Show the error message to the console
         printf("%s\n", get_Error_Msg(e));
 
@@ -41,7 +38,7 @@ int main(void)
     map = map_create(d);
 
     // While the user don't want to leave
-    while (!exit) {
+    while ( !exit ) {
         // Interface update
         interface_reload(map);
 
@@ -49,12 +46,12 @@ int main(void)
         endTurn = false;
 
         // While the user doesn't want the turn to end
-        while (!endTurn) {
+        while ( !endTurn ) {
             // Allows you to ask the player to choose an action
             act = interface_chooseAction();
 
             // Handling of actions
-            switch (act) {
+            switch ( act ) {
                 case ACTION_SHOW_MAP:
                     // Update interface with the new map
                     interface_showMap(map);
@@ -73,7 +70,7 @@ int main(void)
                     e = map_hireFISE(map);
 
                     // Check the return of the function
-                    if (e != NO_ERROR) {
+                    if ( e != NO_ERROR ) {
                         // Show the error message
                         interface_showError(e);
                     }
@@ -83,7 +80,7 @@ int main(void)
                     e = map_hireFISA(map);
 
                     // Check the return of the function
-                    if (e != NO_ERROR) {
+                    if ( e != NO_ERROR ) {
                         // Show the error message
                         interface_showError(e);
                     }
@@ -94,7 +91,7 @@ int main(void)
                     e = map_changeProductionFISA();
 
                     // Check the return of the function
-                    if (e != NO_ERROR) {
+                    if ( e != NO_ERROR ) {
                         // Show the error message
                         interface_showError(e);
                     }
@@ -105,27 +102,26 @@ int main(void)
                         v = interface_askMachineLocation();
 
                         // Check that the user has not abandoned the action
-                        if (!back) {
+                        if ( !back ) {
                             // Ask for the machine to add
                             m = interface_askAddMachine();
 
                             // Check that the user has not abandoned the action
-                            if (!back) {
+                            if ( !back ) {
                                 // Call the map function to add machine
                                 e = map_addMachine(*m, v.x, v.y, map);
                                 // Check the return of the function
-                                if (e != NO_ERROR) {
+                                if ( e != NO_ERROR ) {
                                     // Show the error message
                                     interface_showError(e);
-                                }
-                                else {
+                                } else {
                                     // update variable to validate the action
                                     check = true;
                                 }
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while (!check || !back);
+                    } while ( !check || !back );
 
                     break;
                 case ACTION_BUY_STAFF:
@@ -134,21 +130,20 @@ int main(void)
                         s = interface_askBuyStaff();
 
                         // Check that the user has not abandoned the action
-                        if (!back) {
+                        if ( !back ) {
                             // Call The map function to try to buy a staff member
                             e = map_buyStaff(s, map);
                             // Check the return of the function
-                            if (e != NO_ERROR) {
+                            if ( e != NO_ERROR ) {
                                 // Show the error message
                                 interface_showError(e);
-                            }
-                            else {
+                            } else {
                                 // update variable to validate the action
                                 check = true;
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while (!check || !back);
+                    } while ( !check || !back );
                     break;
                 case ACTION_ASK_STAFF_LIST:
                     // Call the interface function to show the list of staff
@@ -161,21 +156,20 @@ int main(void)
                         v = interface_askMachineLocation();
 
                         // Check that the user has not abandoned the action
-                        if (!back) {
+                        if ( !back ) {
                             // Call The map function to improve the machine
                             e = map_upgradeMachine(v.x, v.y, map);
                             // Check the return of the function
-                            if (e != NO_ERROR) {
+                            if ( e != NO_ERROR ) {
                                 // Show the error message
                                 interface_showError(e);
-                            }
-                            else {
+                            } else {
                                 // Update variable to validate the action
                                 check = true;
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while (!check || !back);
+                    } while ( !check || !back );
                     break;
                 case ACTION_DESTROY_MACHINE:
                     do {
@@ -183,21 +177,20 @@ int main(void)
                         v = interface_askMachineLocation();
 
                         // Check that the user has not abandoned the action
-                        if (!back) {
+                        if ( !back ) {
                             // Call The map function to destroy the machine
                             e = map_destroyMachine(v.x, v.y, map);
                             // Check the return of the function
-                            if (e != NO_ERROR) {
+                            if ( e != NO_ERROR ) {
                                 // Show the error message
                                 interface_showError(e);
-                            }
-                            else {
+                            } else {
                                 // Update variable to validate the action
                                 check = true;
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while (!check || !back);
+                    } while ( !check || !back );
                     break;
                 case ACTION_LIST_ACTIONS:
                     // Request display of actions

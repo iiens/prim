@@ -20,6 +20,8 @@
      *
      * Struct which contains all information about a machine
      *
+     * Only machines that have canUpgrade=true can upgrade.
+     * This value must be checked before applying effect or increase level.
      */
     typedef struct MachineInfo_S {
         MachineStuff type; //!< int which represent the type of the machine
@@ -32,7 +34,6 @@
         char* description; //!< description of the machine
         bool canUpgrade; //!< 1 if it's upgradable, else 0
         Effect effect; //!< An effect for the machine if it's upgrade
-    } MachineInfo; //!< Information of the machine,Only machines that have canUpgrade=true can upgrade.
-    //!< this value must be checked before applying effect or increase level.
+    } MachineInfo; //!< Information of the machine.
 
 #endif //PRIM_MACHINE_INFO_H

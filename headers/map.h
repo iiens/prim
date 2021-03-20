@@ -26,12 +26,12 @@
 #ifndef PRIM_MAP_H
 #define PRIM_MAP_H
 
-    #include <stdbool.h> //!< return value
-    #include "data/machine.h" //!< information about machine
-    #include "data/staff.h" //!< information about Staff
-    #include "data/difficulty.h" //!< difficulty of the game
-    #include "data/error.h" //!< errors messages
-    #include "data/case_type.h" //!< case type (empty, source, gate, machine)
+#include <stdbool.h> //!< return value
+#include "data/machine.h" //!< information about machine
+#include "data/staff.h" //!< information about Staff
+#include "data/difficulty.h" //!< difficulty of the game
+#include "data/error.h" //!< errors messages
+#include "data/case_type.h" //!< case type (empty, source, gate, machine)
 
     //\////////////////////////////\//
     //\/ Types declarations
@@ -106,7 +106,7 @@
      * @see Map type
      * @see Difficulty enum
      */
-    Map* map_create(Difficulty dif);
+    Map* map_create( Difficulty dif );
 
     /*!
      * \fn ErrorCode map_destroy(Map* map)
@@ -124,7 +124,7 @@
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_destroy(Map* map);
+    ErrorCode map_destroy( Map* map );
 
     /*!
      * \fn ErrorCode map_hireFISE(const Map* map)
@@ -141,7 +141,7 @@
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_hireFISE(const Map* map);
+    ErrorCode map_hireFISE( const Map* map );
 
     /*!
      * \fn ErrorCode map_hireFISA(const Map* map)
@@ -159,7 +159,7 @@
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_hireFISA(const Map* map);
+    ErrorCode map_hireFISA( const Map* map );
 
     /*!
      * \fn ErrorCode map_changeProductionFISA()
@@ -198,7 +198,7 @@
     * @param map game map
     * @return an error that specify what is the problem
     */
-    ErrorCode map_endTurn(Map* map);
+    ErrorCode map_endTurn( Map* map );
 
     /*!
      * \fn ErrorCode map_addMachine(const Machine machine, const int x, const int y, Map* m)
@@ -211,7 +211,7 @@
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_addMachine(Machine machine, int x, int y, Map* m);
+    ErrorCode map_addMachine( Machine machine, int x, int y, Map* m );
 
     /*!
      * \fn ErrorCode map_upgradeMachine(const int x,const int y, Map* m)
@@ -224,7 +224,7 @@
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_upgradeMachine(int x, int y, Map* m);
+    ErrorCode map_upgradeMachine( int x, int y, Map* m );
 
     /*!
      * \fn ErrorCode map_destroyMachine(const int x,const int y, Map* m)
@@ -237,7 +237,7 @@
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_destroyMachine(int x, int y, Map* m);
+    ErrorCode map_destroyMachine( int x, int y, Map* m );
 
     /*!
      * \fn ErrorCode map_buyStaff(Staff s, Map* m)
@@ -248,6 +248,6 @@
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_buyStaff(Staff s, Map* m);
+    ErrorCode map_buyStaff( Staff s, Map* m );
 
 #endif //PRIM_MAP_H
