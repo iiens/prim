@@ -11,7 +11,7 @@
 #define PRIM_EFFECT_H
 
 
-    #include "machine.h" //!<
+    #include "machine.h" //!< main information about a machine
 
     /*!
     * \union Target_S effect.h "headers/data/effect.h"
@@ -24,14 +24,21 @@
 
     typedef union Target_S {
         MachineStuff machine; //!< machine related effects
-        //!< \enum SubTargets_S: todo Ramzy doc
+        /*!
+         * \enum SubTargets_S:
+         * \typedef other
+         * \brief represent all of the target who is not a machine
+         *
+         * Different SubTarget
+         *
+         */
         enum SubTargets_S {
             NONE, //!< nothing
             SUB_HIRE, //!< if we want to apply something to all hire related functions
             SUB_FISE, //!< if we want to apply something to hire fise related
             SUB_FISA, //!< if we want to apply something to hire fisa related
             DESTROY_GARBAGE //!< if we want to check destroy related effects
-        } other; //!< todo: Ramzy doc
+        } other; //!< all of the target who is not a machine
     } Target; //!< target of the effect
 
 
@@ -65,7 +72,7 @@
     typedef struct Effect_S {
         Mode mode; //!< represent the mode applied to the machine
         Target what; //!< represent the target of the effect
-        bool onOther; //!< todo : Ramzy doc
+        bool onOther; //!< to know if what is a machine or other
         int modifier_res; //!< if SEND_DOOR, resource put in multiply by this
         int modifier_FISA; //!< update the number of FISA
         int modifier_FISE; //!< update the number of FISE
