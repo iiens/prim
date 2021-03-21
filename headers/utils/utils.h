@@ -15,9 +15,9 @@
      * @struct Vector2D_S utils.h "headers/utils.h"
      *
      * Convenience type for (x,y)
-     * with x = x axis and y = y axis.
+     * with `x = x axis` and `y = y axis`.
      * In a map (matrix ij), it means
-     * that y = i = row and x = j = column
+     * that `y = i = row` and `x = j = column`
      *
      */
     typedef struct Vector2D_S {

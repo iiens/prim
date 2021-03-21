@@ -6,10 +6,13 @@
 \version 0.4
 \date 21/03/2021
 
-Contains all programs data so most all the enums and constants
+Contains all program data (such as structures defining how our data are
+ stored and most of our globals variables)
 - actions.h : available actions (exit, back, buy..., hire..., ...)
+- case_type.h : contains all the types that a case can contain.
 - difficulty.h : game difficulties
 - effect.h : staff effect
+- error.h : contains all errors messages
 - machine.h and machine_info.h : machine information
 - mapping.h : keys associated with actions
 - staff.h : staff information

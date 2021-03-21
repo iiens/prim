@@ -5,7 +5,7 @@
  * \date 11/03/2021
  * \see map.h
  *
- * Contains all the type that a case can contain.
+ * Contains all the types that a case can contain.
  *
  */
 #ifndef PRIM_CASE_TYPE_H

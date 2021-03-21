@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="main_8c" kind="file" language="C++">
+    <compoundname>main.c</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="17">
+        <label>data/case_type.h</label>
+        <link refid="case__type_8h"/>
+      </node>
+      <node id="1">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>main.h</label>
+        <link refid="main_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="7">
+        <label>../headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="9">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="12">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="8">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+      <node id="13">
+        <label>data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
+      </node>
+      <node id="16">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>&lt; todo: Valentin todo: Valentin todo : Valentin todo : Valentin todo: Valentin </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Allows you to know the difficulty chosen by the user</para>
+<para>&lt; Allows you to store the state of the game</para>
+<para>&lt; flag to detect the choice to close the game</para>
+<para>&lt; flag to the end of a tour</para>
+<para>&lt; flag to detect the success of certain action</para>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+<para>&lt; Allows you to know the action that the player chooses</para>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+        </inbodydescription>
+        <location file="src/main.c" line="7" column="5" bodyfile="src/main.c" bodystart="7" bodyend="224"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main.c"/>
+  </compounddef>
+</doxygen>

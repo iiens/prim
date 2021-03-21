@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="machine_8h" kind="file" language="C++">
+    <compoundname>machine.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="machine__info_8h" local="yes">machine_info.h</includes>
+    <includedby refid="effect_8h" local="yes">headers/data/effect.h</includedby>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="6">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_orientation___s" prot="public">Orientation_S</innerclass>
+    <innerclass refid="struct_machine___s" prot="public">Machine_S</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MachineStuff_S</name>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a653f4f8fc16999f829131acd63557b0b" prot="public">
+          <name>MS_COLLECTOR</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>collector machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a74e8c7711cfbab74d8ff85d2c3945580" prot="public">
+          <name>MS_CONVEYOR_BELT</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>conveyor belt </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43" prot="public">
+          <name>MS_CROSS</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>cross </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2" prot="public">
+          <name>MS_RECYCLING_CENTER</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>recycling center </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557" prot="public">
+          <name>MS_JUNKYARD</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>junkyard </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>to use uint </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="machine_8h" kindref="compound">machine.h</ref> &quot;headers/data/machine.h&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="23" column="5" bodyfile="headers/data/machine.h" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="enum" id="machine_8h_1a97f8fb799ae13007f658bbcf024096b2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Direction_S</name>
+        <enumvalue id="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a66a3c638b3f4a3d2e144245311b29241" prot="public">
+          <name>DIRECTION_IN</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a110d8bc2cf7464da0e5b438dc51ee183" prot="public">
+          <name>DIRECTION_OUT</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a8014a4c7dd2e1ab266e6b98e7c9b5780" prot="public">
+          <name>DIRECTION_NONE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all information about machine </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="machine_8h" kindref="compound">machine.h</ref> &quot;headers/data/machine.h&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="41" column="5" bodyfile="headers/data/machine.h" bodystart="41" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" prot="public" static="no">
+        <type>enum <ref refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16" kindref="member">MachineStuff_S</ref></type>
+        <definition>MachineStuff</definition>
+        <argsstring></argsstring>
+        <name>MachineStuff</name>
+        <briefdescription>
+<para>Link between a machine and a int to recognize them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>id associate to the machine to identify them</para>
+<para>Contains id associate to the machine. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="29" column="24"/>
+      </memberdef>
+      <memberdef kind="typedef" id="machine_8h_1a224b9163917ac32fc95a60d8c1eec3aa" prot="public" static="no">
+        <type>enum <ref refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2" kindref="member">Direction_S</ref></type>
+        <definition>Direction</definition>
+        <argsstring></argsstring>
+        <name>Direction</name>
+        <briefdescription>
+<para>Direction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>IN if it&apos;s the direction of the transit, else out, none if it&apos;s not a enter and not a exit.</para>
+<para>Contains id associate to the machine. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="45" column="21"/>
+      </memberdef>
+      <memberdef kind="typedef" id="machine_8h_1a871118a09520247c78a71ecd7b0abd58" prot="public" static="no">
+        <type>struct <ref refid="struct_orientation___s" kindref="compound">Orientation_S</ref></type>
+        <definition>Orientation</definition>
+        <argsstring></argsstring>
+        <name>Orientation</name>
+        <briefdescription>
+<para>Orientation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="59" column="23"/>
+      </memberdef>
+      <memberdef kind="typedef" id="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" prot="public" static="no">
+        <type>struct <ref refid="struct_machine___s" kindref="compound">Machine_S</ref></type>
+        <definition>Machine</definition>
+        <argsstring></argsstring>
+        <name>Machine</name>
+        <briefdescription>
+<para>Machine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="75" column="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="machine_8h_1a138aa1fe7b34ae22fafde583debd6339" prot="public" static="no" mutable="no">
+        <type>const <ref refid="machine__info_8h_1a61e24053e0bb9c5272cd6b2186e285fa" kindref="member">MachineInfo</ref></type>
+        <definition>const MachineInfo machine_list[]</definition>
+        <argsstring>[]</argsstring>
+        <name>machine_list</name>
+        <briefdescription>
+<para>Array with information about all machine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="77" column="30" declfile="headers/data/machine.h" declline="77" declcolumn="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>01/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="machine__info_8h" kindref="compound">machine_info.h</ref></para>
+</simplesect>
+Contains main information about all of the machine </para>
+    </detaileddescription>
+    <location file="headers/data/machine.h"/>
+  </compounddef>
+</doxygen>

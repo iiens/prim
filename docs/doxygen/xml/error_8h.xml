@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="error_8h" kind="file" language="C++">
+    <compoundname>error.h</compoundname>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="2">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ErrorCode_S</name>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcabf350750d0d4fabd8954c0f1e9bbae94" prot="public">
+          <name>NO_ERROR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all return errors messages </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="error_8h" kindref="compound">error.h</ref> &quot;headers/data/error.h&quot;</para>
+<para>Contain all error type returned by functions It allow to communicate directly with interface and to inform the user what is the problem, if there is an error </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/error.h" line="26" column="5" bodyfile="headers/data/error.h" bodystart="26" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="error_8h_1a2c911c64bc2c9547864df93078a7204e" prot="public" static="no">
+        <type>enum <ref refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dc" kindref="member">ErrorCode_S</ref></type>
+        <definition>ErrorCode:rename for enum ErrorCode</definition>
+        <argsstring></argsstring>
+        <name>ErrorCode</name>
+        <briefdescription>
+<para>Error type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/error.h" line="28" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="error_8h_1a0781923c96e57619d712e566bcb00de9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * get_Error_Msg</definition>
+        <argsstring>(ErrorCode e)</argsstring>
+        <name>get_Error_Msg</name>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Get an error message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In order to know in detail an error returned by a function we need a function to describe this error</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a error code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a string that describe the error </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/error.h" line="41" column="10" declfile="headers/data/error.h" declline="41" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>12/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h" kindref="compound">map.h</ref></para>
+</simplesect>
+Contains all errors messages returned by our functions </para>
+    </detaileddescription>
+    <location file="headers/data/error.h"/>
+  </compounddef>
+</doxygen>

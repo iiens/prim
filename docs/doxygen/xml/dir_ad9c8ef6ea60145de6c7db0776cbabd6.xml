@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_ad9c8ef6ea60145de6c7db0776cbabd6" kind="dir">
+    <compoundname>headers/utils</compoundname>
+    <innerfile refid="utils_8h">utils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="authors"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>27/02/2021</para>
+</simplesect>
+Contains all utilities classes such as<itemizedlist>
+<listitem><para><ref refid="utils_8h" kindref="compound">utils.h</ref> : contains new types such as Vector2D </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="headers/utils/"/>
+  </compounddef>
+</doxygen>

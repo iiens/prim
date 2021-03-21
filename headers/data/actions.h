@@ -15,6 +15,7 @@
     /*!
      * \enum Action_S actions.h "headers/data/action.h"
      * \typedef Action: rename for enum Action
+     * \brief action that the user can do
      *
      * Contains all actions and their code (id).
      * Used when asking the user what he wants to do.

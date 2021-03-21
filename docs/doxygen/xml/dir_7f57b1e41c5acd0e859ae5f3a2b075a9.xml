@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_7f57b1e41c5acd0e859ae5f3a2b075a9" kind="dir">
+    <compoundname>headers</compoundname>
+    <innerdir refid="dir_44fdd040e6cb86c9e816f1518b4f7b7d">headers/data</innerdir>
+    <innerdir refid="dir_ad9c8ef6ea60145de6c7db0776cbabd6">headers/utils</innerdir>
+    <innerfile refid="interface_8h">interface.h</innerfile>
+    <innerfile refid="map_8h">map.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="authors"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="authors"><para>Antoine MAN </para>
+</simplesect>
+<simplesect kind="authors"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>08/03/2021</para>
+</simplesect>
+Contains most important interfaces such as<itemizedlist>
+<listitem><para><ref refid="interface_8h" kindref="compound">interface.h</ref> : contains everything related to the interface between user and the game</para>
+</listitem><listitem><para><ref refid="map_8h" kindref="compound">map.h</ref> : contains all map-related functions </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="headers/"/>
+  </compounddef>
+</doxygen>

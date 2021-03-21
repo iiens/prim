@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="case__type_8h" kind="file" language="C++">
+    <compoundname>case_type.h</compoundname>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>headers/data/case_type.h</label>
+        <link refid="case__type_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="3">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="case__type_8h_1a843306d07280ade14d7b25d66d1390ec" prot="public" static="no" strong="no">
+        <type></type>
+        <name>CaseType_S</name>
+        <enumvalue id="case__type_8h_1a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" prot="public">
+          <name>CASE_VIDE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>a case that contain nothing </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="case__type_8h_1a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" prot="public">
+          <name>CASE_GATE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>a case that contain the transdimensional gate </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="case__type_8h_1a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" prot="public">
+          <name>CASE_SOURCE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>a case that contain resources </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="case__type_8h_1a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" prot="public">
+          <name>CASE_MACHINE</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>a case that contain a machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all case type </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="case__type_8h" kindref="compound">case_type.h</ref> &quot;headers/data/case_type.h&quot;</para>
+<para>Contains all type that a case can contain. Each case can contain 4 elements types : a part of the production line a resource case an empty case a transdimensional gate</para>
+<para>3 resources is produced from a resource case every 10 turns </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case_type.h" line="29" column="5" bodyfile="headers/data/case_type.h" bodystart="29" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="case__type_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" prot="public" static="no">
+        <type>enum <ref refid="case__type_8h_1a843306d07280ade14d7b25d66d1390ec" kindref="member">CaseType_S</ref></type>
+        <definition>CaseType</definition>
+        <argsstring></argsstring>
+        <name>CaseType</name>
+        <briefdescription>
+<para>Case type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case_type.h" line="34" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>11/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h" kindref="compound">map.h</ref></para>
+</simplesect>
+Contains all the types that a case can contain. </para>
+    </detaileddescription>
+    <location file="headers/data/case_type.h"/>
+  </compounddef>
+</doxygen>

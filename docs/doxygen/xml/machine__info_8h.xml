@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="machine__info_8h" kind="file" language="C++">
+    <compoundname>machine_info.h</compoundname>
+    <includes refid="effect_8h" local="yes">effect.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="machine_8h" local="yes">headers/data/machine.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="6">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_machine_info___s" prot="public">MachineInfo_S</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="machine__info_8h_1a61e24053e0bb9c5272cd6b2186e285fa" prot="public" static="no">
+        <type>struct <ref refid="struct_machine_info___s" kindref="compound">MachineInfo_S</ref></type>
+        <definition>MachineInfo</definition>
+        <argsstring></argsstring>
+        <name>MachineInfo</name>
+        <briefdescription>
+<para>Information of the machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>effects of the staff and of the machine return value to use uint </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine_info.h" line="37" column="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>01/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="machine_8h" kindref="compound">machine.h</ref></para>
+</simplesect>
+Contains all information about machine </para>
+    </detaileddescription>
+    <location file="headers/data/machine_info.h"/>
+  </compounddef>
+</doxygen>

@@ -26,12 +26,12 @@
 #ifndef PRIM_MAP_H
 #define PRIM_MAP_H
 
-#include <stdbool.h> //!< return value
-#include "data/machine.h" //!< information about machine
-#include "data/staff.h" //!< information about Staff
-#include "data/difficulty.h" //!< difficulty of the game
-#include "data/error.h" //!< errors messages
-#include "data/case_type.h" //!< case type (empty, source, gate, machine)
+    #include <stdbool.h> // return value
+    #include "data/machine.h" // information about machine
+    #include "data/staff.h" // information about Staff
+    #include "data/difficulty.h" // difficulty of the game
+    #include "data/error.h" // errors messages
+    #include "data/case_type.h" // case type (empty, source, gate, machine)
 
     //\////////////////////////////\//
     //\/ Types declarations
@@ -116,9 +116,11 @@
      * to a map.
      *
      * We have to free :
+     * <pre>
      * Staff* team
      *  Case** map
      *  ... (map.h , staff.f, machine.h)
+     * </pre>
      *
      * @param[in] map a map
      * @return an error that specify what is the problem
@@ -173,30 +175,50 @@
     ErrorCode map_changeProductionFISA();
 
     /*!
-    * \fn ErrorCode map_endTurn(Map* map)
-    * @brief Finish a turn
-    *
-    * Verifications to do at the end of a turn
-    * Check FISA and FISE production
-    * Update E value
-    * Call all conveyor belt/cross at the same time.
-    *   -> Resources moves
-    *   -> Verify each resource destination
-    *       -> next case empty -> resource is lost
-    *       -> next case is an ENTRY machine -> send to machine
-    * Check if we produce resources (sources)
-    * Check if we produce wastes (gate)
-    * Call all Recycling center
-    *   -> stored garbage don't decrease DD
-    *   -> 10 garbage produce 1 /per turn
-    * Call all collectors
-    *   -> activated from top to bot, left to right
-    *   -> No source -> do nothing
-    *   -> randomly choose a source among all adjacent ones
-    * Update DD value
-    *
-    * @param map game map
-    * @return an error that specify what is the problem
+     * \fn ErrorCode map_endTurn(Map* map)
+     * @brief Finish a turn
+     *
+     * Verifications to do at the end of a turn
+     * <ol>
+     * <li>Check FISA and FISE production</li>
+     * <li>Update E</li>
+     * <li>Call all conveyor belt/cross at the same time.</li>
+     *
+     * <li>
+     * <ol>
+     * <li>Resources moves</li>
+     * <li>Verify each resource destination</li>
+     * <li>next case empty then resource is lost</li>
+     * <li>next case is an ENTRY machine -> send to machine</li>
+     * </ol>
+     * </li>
+     *
+     * <li>Check if we produce resources (sources)</li>
+     * <li>Check if we produce wastes (gate)</li>
+     * <li>Call all Recycling center</li>
+     *
+     * <li>
+     * <ol>
+     * <li>stored garbage don't decrease DD</li>
+     * <li>10 garbage produce 1 /per turn</li>
+     * </ol>
+     * </li>
+     *
+     * <li>Call all collectors</li>
+     *
+     * <li>
+     * <ol>
+     * <li>activated from top to bot, left to right</li>
+     * <li>No source then do nothing</li>
+     * <li>randomly choose a source among all adjacent ones</li>
+     * </ol>
+     * </li>
+     *
+     * <li>Update DD value</li>
+     * </ol>
+     *
+     * \param map game map
+     * \return an error that specify what is the problem
     */
     ErrorCode map_endTurn( Map* map );
 

@@ -6,7 +6,7 @@
  * \see interface.h
  * \see map.h
  *
- * Contains all errors messages returned by the functions
+ * Contains all errors messages returned by our functions
  *
  */
 #ifndef PRIM_ERROR_H

@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="effect_8h" kind="file" language="C++">
+    <compoundname>effect.h</compoundname>
+    <includes refid="machine_8h" local="yes">machine.h</includes>
+    <includedby refid="machine__info_8h" local="yes">headers/data/machine_info.h</includedby>
+    <includedby refid="staff_8h" local="yes">headers/data/staff.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="5">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="union_target___s" prot="public">Target_S</innerclass>
+    <innerclass refid="struct_effect___s" prot="public">Effect_S</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="effect_8h_1a7591bf41d16a317b822948ae5bcc807f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Mode_S</name>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807faf635a16f0afb76f86daa7291f617ed74" prot="public">
+          <name>CONSTRUCTION</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>create something, machine target </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa7622ad012d4fa19b71427f2edfb2560b" prot="public">
+          <name>UPGRADE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>upgrade something, machine target </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa534df644e3182226cd53827fee0589a4" prot="public">
+          <name>DESTROY</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>destroy something, machine target </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa0d565f8b8e41b7d2f36b561e97885b4c" prot="public">
+          <name>HIRE</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>hire someone, called when hiring, check other </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fab077509394d7862ca1eb58622aae5c7e" prot="public">
+          <name>ON_BUY</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>called when staff bought </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807faf939c3ca8e48bc159f70c6c43e6ff980" prot="public">
+          <name>SEND_DOOR</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>called when garbage are sent to the door </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa2445c6427bd5e1763097b93f45a601e1" prot="public">
+          <name>DOOR_OUT</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+<para>called when garbage are leaving the door </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa602e518a6561abffa3c4e23e171ad26b" prot="public">
+          <name>PRODUCTION</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+<para>called when we will create something (E, DD, ...) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="effect_8h_1a7591bf41d16a317b822948ae5bcc807fad91e3016183edc3a8e1e2b07de265cb4" prot="public">
+          <name>ON_TURN</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+<para>apply each turn </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>mode activate when we do an action </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="effect_8h" kindref="compound">effect.h</ref> &quot;headers/data/effect.h&quot;</para>
+<para>Different Action </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="45" column="5" bodyfile="headers/data/effect.h" bodystart="45" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="effect_8h_1a31488d29805a596498c0234ae392d35d" prot="public" static="no">
+        <type>union <ref refid="union_target___s" kindref="compound">Target_S</ref></type>
+        <definition>Target</definition>
+        <argsstring></argsstring>
+        <name>Target</name>
+        <briefdescription>
+<para>target of the effect </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="34" column="18"/>
+      </memberdef>
+      <memberdef kind="typedef" id="effect_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911" prot="public" static="no">
+        <type>enum <ref refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807f" kindref="member">Mode_S</ref></type>
+        <definition>Mode</definition>
+        <argsstring></argsstring>
+        <name>Mode</name>
+        <briefdescription>
+<para>what do we do in our effect </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="55" column="16"/>
+      </memberdef>
+      <memberdef kind="typedef" id="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" prot="public" static="no">
+        <type>struct <ref refid="struct_effect___s" kindref="compound">Effect_S</ref></type>
+        <definition>Effect</definition>
+        <argsstring></argsstring>
+        <name>Effect</name>
+        <briefdescription>
+<para>Struct which contains the target and the of the effect. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="76" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="staff_8h" kindref="compound">staff.h</ref></para>
+</simplesect>
+Contains information about effects </para>
+    </detaileddescription>
+    <location file="headers/data/effect.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="mapping_8h" kind="file" language="C++">
+    <compoundname>mapping.h</compoundname>
+    <includes refid="actions_8h" local="yes">actions.h</includes>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="1">
+        <label>headers/data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="2">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_user_action_mapping___s" prot="public">UserActionMapping_S</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="mapping_8h_1a1a750232e533867d6e3e4b4b781cacb4" prot="public" static="no">
+        <type>struct <ref refid="struct_user_action_mapping___s" kindref="compound">UserActionMapping_S</ref></type>
+        <definition>UserActionMapping</definition>
+        <argsstring></argsstring>
+        <name>UserActionMapping</name>
+        <briefdescription>
+<para>one mapping so (action, input_sequence) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/mapping.h" line="25" column="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="mapping_8h_1abc28c4a370b4cdacc05015ccd4fc580b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="mapping_8h_1a1a750232e533867d6e3e4b4b781cacb4" kindref="member">UserActionMapping</ref></type>
+        <definition>const UserActionMapping user_mapping[]</definition>
+        <argsstring>[]</argsstring>
+        <name>user_mapping</name>
+        <briefdescription>
+<para>will contains all mappings, used in <ref refid="interface_8h" kindref="compound">interface.h</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para>will contains all mappings, used in <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>This array length is predetermined by <ref refid="interface_8h_1a9fa9dae540c5a4392eed8131340524e0" kindref="member">USER_MAPPING_SIZE</ref> constant in <ref refid="interface_8h" kindref="compound">interface.h</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/mapping.h" line="28" column="36" bodyfile="src/main.h" bodystart="12" bodyend="-1" declfile="headers/data/mapping.h" declline="28" declcolumn="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="version"><para>0.5 </para>
+</simplesect>
+<simplesect kind="date"><para>10/03/2021</para>
+</simplesect>
+List of actions mappings </para>
+    </detaileddescription>
+    <location file="headers/data/mapping.h"/>
+  </compounddef>
+</doxygen>

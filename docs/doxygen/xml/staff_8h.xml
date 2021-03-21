@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="staff_8h" kind="file" language="C++">
+    <compoundname>staff.h</compoundname>
+    <includes refid="effect_8h" local="yes">effect.h</includes>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="3">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_staff___s" prot="public">Staff_S</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" prot="public" static="no">
+        <type>struct <ref refid="struct_staff___s" kindref="compound">Staff_S</ref></type>
+        <definition>Staff</definition>
+        <argsstring></argsstring>
+        <name>Staff</name>
+        <briefdescription>
+<para>information about staff </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/staff.h" line="27" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="staff_8h_1a223cd533693dc1c64c992e0b6bb03f46" prot="public" static="no" mutable="no">
+        <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref></type>
+        <definition>const Staff staff_list[]</definition>
+        <argsstring>[]</argsstring>
+        <name>staff_list</name>
+        <briefdescription>
+<para>Array of the staff. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/staff.h" line="29" column="24" declfile="headers/data/staff.h" declline="29" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="effect_8h" kindref="compound">effect.h</ref></para>
+</simplesect>
+Contains all information about the character of the Staff </para>
+    </detaileddescription>
+    <location file="headers/data/staff.h"/>
+  </compounddef>
+</doxygen>

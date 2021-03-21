@@ -10,26 +10,19 @@
 #ifndef PRIM_EFFECT_H
 #define PRIM_EFFECT_H
 
-    #include "machine.h" //!< main information about a machine
+    #include "machine.h" // main information about a machine
 
     /*!
-    * \union Target_S effect.h "headers/data/effect.h"
-    * \typedef Target
-    * \brief represent the target , a machine or a staff
-    *
-    * Different Target
-    *
-    */
-
+     * \typedef Target
+     * \union Target_S effect.h "headers/data/effect.h"
+     * \brief represent the target on which we will apply an effect
+     */
     typedef union Target_S {
         MachineStuff machine; //!< machine related effects
         /*!
-         * \enum SubTargets_S:
          * \typedef other
-         * \brief represent all of the target who is not a machine
-         *
-         * Different SubTarget
-         *
+         * \enum SubTargets_S
+         * \brief represent all targets that are not a machine
          */
         enum SubTargets_S {
             NONE, //!< nothing
@@ -37,18 +30,18 @@
             SUB_FISE, //!< if we want to apply something to hire fise related
             SUB_FISA, //!< if we want to apply something to hire fisa related
             DESTROY_GARBAGE //!< if we want to check destroy related effects
-        } other; //!< all of the target who is not a machine
+        } other; //!< represent all targets that are not a machine
     } Target; //!< target of the effect
 
 
     /*!
-    * \enum Mode_S effect.h "headers/data/effect.h"
-    * \typedef Mode
-    * \brief mode activate when we do an action
-    *
-    * Different Action
-    *
-    */
+     * \typedef Mode
+     * \enum Mode_S effect.h "headers/data/effect.h"
+     * \brief mode activate when we do an action
+     *
+     * Different Action
+     *
+     */
     typedef enum Mode_S {
         CONSTRUCTION = 0, //!< create something, machine target
         UPGRADE = 1, //!< upgrade something, machine target

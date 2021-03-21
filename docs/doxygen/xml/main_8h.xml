@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="main_8h" kind="file" language="C++">
+    <compoundname>main.h</compoundname>
+    <includes refid="interface_8h" local="yes">../headers/interface.h</includes>
+    <includedby refid="main_8c" local="yes">src/main.c</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="14">
+        <label>data/case_type.h</label>
+        <link refid="case__type_8h"/>
+      </node>
+      <node id="1">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>../headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="4">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="7">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="3">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="9">
+        <label>data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="main_8h_1ad0e6b6213a172f1d71e8738bb156e7ea" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool back</definition>
+        <argsstring></argsstring>
+        <name>back</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>&lt; contains actions </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allow to cancel the current action, check in main after each cancelable action.</para>
+<para>Allow to cancel the current action </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="6" column="10" bodyfile="src/main.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="main_8h_1abc28c4a370b4cdacc05015ccd4fc580b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="mapping_8h_1a1a750232e533867d6e3e4b4b781cacb4" kindref="member">UserActionMapping</ref></type>
+        <definition>const UserActionMapping user_mapping[]</definition>
+        <argsstring>[]</argsstring>
+        <name>user_mapping</name>
+        <initializer>= {
+            
+            {<ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" kindref="member">ACTION_SHOW_MAP</ref>,         &quot;s&quot;}, 
+            {ACTION_END_TURN,         &quot;n&quot;}, 
+            {ACTION_CANCEL_ACTION,    &quot;b&quot;}, 
+            {ACTION_LIST_ACTIONS,     &quot;la&quot;}, 
+            {ACTION_EXIT,             &quot;q&quot;}, 
+
+            
+            {ACTION_HIRE_FISE,        &quot;he&quot;}, 
+            {ACTION_HIRE_FISA,        &quot;ha&quot;}, 
+            {ACTION_CHANGE_FISA_MODE, &quot;cm&quot;}, 
+
+            
+            {ACTION_LIST_MACHINES,    &quot;lm&quot;}, 
+            {ACTION_BUY_MACHINE,      &quot;bm&quot;}, 
+            {ACTION_BUY_STAFF,        &quot;bs&quot;}, 
+            {ACTION_ASK_STAFF_LIST,   &quot;ls&quot;}, 
+
+            
+            {ACTION_UPGRADE_MACHINE,  &quot;upm&quot;}, 
+            {ACTION_DESTROY_MACHINE,  &quot;dm&quot;}, 
+    }</initializer>
+        <briefdescription>
+<para>array of all the mappings </para>
+        </briefdescription>
+        <detaileddescription>
+<para>will contains all mappings, used in <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>This array length is predetermined by <ref refid="interface_8h_1a9fa9dae540c5a4392eed8131340524e0" kindref="member">USER_MAPPING_SIZE</ref> constant in <ref refid="interface_8h" kindref="compound">interface.h</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.h" line="12" column="29" bodyfile="src/main.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main.h"/>
+  </compounddef>
+</doxygen>

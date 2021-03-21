@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="struct_case___s" kind="struct"><name>Case_S</name>
+    <member refid="struct_case___s_1a14ad05fbc4d5dc1b7de4bdb7860c6c26" kind="variable"><name>x</name></member>
+    <member refid="struct_case___s_1a72e78a2d351713f6b123a4e25bf1f14d" kind="variable"><name>y</name></member>
+    <member refid="struct_case___s_1a2f7b4a7ac9b98b5efa6791556cb1abd8" kind="variable"><name>mach</name></member>
+    <member refid="struct_case___s_1a791de108ca2c08939a5b162269e2b747" kind="variable"><name>other</name></member>
+    <member refid="struct_case___s_1ae6642975be630a5157b9ece0c1c37bbb" kind="variable"><name>in</name></member>
+    <member refid="struct_case___s_1a3d7992a4e9740211d81f322d73250e5c" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="struct_effect___s" kind="struct"><name>Effect_S</name>
+    <member refid="struct_effect___s_1a73a0342e475ce48edaf862b15e4f2b29" kind="variable"><name>mode</name></member>
+    <member refid="struct_effect___s_1a03dac7069e16e9807c636e19e4419e16" kind="variable"><name>what</name></member>
+    <member refid="struct_effect___s_1a2191706dbf071792921cacd274a6c8b8" kind="variable"><name>onOther</name></member>
+    <member refid="struct_effect___s_1a134218293538ac2673ebf8ca2e48bc9b" kind="variable"><name>modifier_res</name></member>
+    <member refid="struct_effect___s_1a0a5458f2dd2d29a43b6ab4d1d3fe5bcf" kind="variable"><name>modifier_FISA</name></member>
+    <member refid="struct_effect___s_1a75566b2d7249a513721aca7d2e58f2dd" kind="variable"><name>modifier_FISE</name></member>
+    <member refid="struct_effect___s_1a1023bf60bacb8bd429a455d7ac9ec1d8" kind="variable"><name>modifier_E</name></member>
+    <member refid="struct_effect___s_1a5f63fe0877baf76f9b4faca63d945206" kind="variable"><name>modifier_DD</name></member>
+    <member refid="struct_effect___s_1a01f977a3bf21b193f255d501c3b8921d" kind="variable"><name>min_cost_E</name></member>
+    <member refid="struct_effect___s_1aeac56be0eb1149965dd717ddf5f6ae98" kind="variable"><name>min_cost_DD</name></member>
+    <member refid="struct_effect___s_1a2102a459b0957428f7f9dfb9bfa0e5ea" kind="variable"><name>description</name></member>
+  </compound>
+  <compound refid="struct_machine___s" kind="struct"><name>Machine_S</name>
+    <member refid="struct_machine___s_1a87d7b76ce1f9b526bf963a0783a60443" kind="variable"><name>type</name></member>
+    <member refid="struct_machine___s_1a6a6494128ad890e92d78489d5152672b" kind="variable"><name>level</name></member>
+    <member refid="struct_machine___s_1a16a3a276757dc01a73169e5ef7f284ae" kind="variable"><name>orientation</name></member>
+    <member refid="struct_machine___s_1acefe8b0f91dada4e00d03f4a8ce2bdcc" kind="variable"><name>nb_resource</name></member>
+    <member refid="struct_machine___s_1afa027080dd91efa8977fba3bf08154a2" kind="variable"><name>nb_garbage</name></member>
+    <member refid="struct_machine___s_1aee7c451ec90f68f9a31e9b442f42e411" kind="variable"><name>capacity</name></member>
+  </compound>
+  <compound refid="struct_machine_info___s" kind="struct"><name>MachineInfo_S</name>
+    <member refid="struct_machine_info___s_1a90503c8853ac78b3bc052d03ce37a766" kind="variable"><name>type</name></member>
+    <member refid="struct_machine_info___s_1ad613c14e4e8c380dd3b8a07b18357d9a" kind="variable"><name>costE</name></member>
+    <member refid="struct_machine_info___s_1af7cb09f4604f0ed31abdbb10f7f19387" kind="variable"><name>costDD</name></member>
+    <member refid="struct_machine_info___s_1ad96a162a0c9df7248b80ff126ad38cb7" kind="variable"><name>costUpgradeE</name></member>
+    <member refid="struct_machine_info___s_1adc2754c6619be90cdd920f8522485932" kind="variable"><name>costUpgradeDD</name></member>
+    <member refid="struct_machine_info___s_1a9eaff2be1e6a35cc58284cd118dbdf3b" kind="variable"><name>costDestroyE</name></member>
+    <member refid="struct_machine_info___s_1abe7e8c2e229d5c431428c0b39ce3a5a5" kind="variable"><name>costDestroyDD</name></member>
+    <member refid="struct_machine_info___s_1a8664eb7c06628ab29c3fb6d1f7a2a068" kind="variable"><name>description</name></member>
+    <member refid="struct_machine_info___s_1ab0afe6070c3ad464562c910fce23bbef" kind="variable"><name>canUpgrade</name></member>
+    <member refid="struct_machine_info___s_1ab296d74dadbe6a44db1fb6e8fdcbe5d3" kind="variable"><name>effect</name></member>
+  </compound>
+  <compound refid="struct_map___s" kind="struct"><name>Map_S</name>
+    <member refid="struct_map___s_1a51e8cf17daad9eeb7a3e2815fc180aad" kind="variable"><name>difficulty</name></member>
+    <member refid="struct_map___s_1a4148fbf59972eb3359c93753deb17755" kind="variable"><name>width</name></member>
+    <member refid="struct_map___s_1a38aed228778cce34f9b6642ee925977a" kind="variable"><name>height</name></member>
+    <member refid="struct_map___s_1ac741b3997587bb7e60500ab1f927a235" kind="variable"><name>map</name></member>
+    <member refid="struct_map___s_1a8d6e6ba81273f4d3ff2474e76f201414" kind="variable"><name>turn</name></member>
+    <member refid="struct_map___s_1aeb3e9d7f8acc9391ef2ea44e46a71651" kind="variable"><name>numberFISE</name></member>
+    <member refid="struct_map___s_1aec30236776c689078bdc47320b267836" kind="variable"><name>numberFISA</name></member>
+    <member refid="struct_map___s_1a5128537bb3d0fcb6d8ceaa50e6849c19" kind="variable"><name>E</name></member>
+    <member refid="struct_map___s_1a3c09ebd91469984c37f25b9bbcb24007" kind="variable"><name>DD</name></member>
+    <member refid="struct_map___s_1a43440c6e42863430362c698c6403883e" kind="variable"><name>productionFISA</name></member>
+    <member refid="struct_map___s_1a4c2e10b2dc6cd6125bcf56fa4f2e0cc7" kind="variable"><name>team</name></member>
+    <member refid="struct_map___s_1af46473d27af95312151aa18f74d1b51f" kind="variable"><name>score</name></member>
+    <member refid="struct_map___s_1a10a730d9ae97ea81c000473794cf912c" kind="variable"><name>pollution</name></member>
+  </compound>
+  <compound refid="struct_orientation___s" kind="struct"><name>Orientation_S</name>
+    <member refid="struct_orientation___s_1a9a5e2acfd3e1b533ba98889757dec0be" kind="variable"><name>top</name></member>
+    <member refid="struct_orientation___s_1ad662342226b055bf813e9a8e4f8bedf1" kind="variable"><name>left</name></member>
+    <member refid="struct_orientation___s_1a9b818cd1d9979b3a314645dda46cf5e5" kind="variable"><name>bottom</name></member>
+    <member refid="struct_orientation___s_1a53c305c10f0f2b5be2827326a480accc" kind="variable"><name>right</name></member>
+  </compound>
+  <compound refid="struct_staff___s" kind="struct"><name>Staff_S</name>
+    <member refid="struct_staff___s_1a9ce214bbf72bd43415c9a4e52a659bf6" kind="variable"><name>id</name></member>
+    <member refid="struct_staff___s_1a68693ddd177d7e294729e073496cb366" kind="variable"><name>name</name></member>
+    <member refid="struct_staff___s_1a6a68ef1f380347a930f089ae4070bbd4" kind="variable"><name>costE</name></member>
+    <member refid="struct_staff___s_1a18874fd0410f489283e3af7bd99ba0de" kind="variable"><name>costDD</name></member>
+    <member refid="struct_staff___s_1af9fc87fd9376d385b278758bd3888680" kind="variable"><name>description</name></member>
+    <member refid="struct_staff___s_1a1497d98838f42d24d4a6326161ca9472" kind="variable"><name>effects</name></member>
+  </compound>
+  <compound refid="union_target___s" kind="union"><name>Target_S</name>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82" kind="enum"><name>SubTargets_S</name></member>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ad4669e6666bf624d9db382de6a456580" kind="enumvalue"><name>NONE</name></member>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ac0d07b2330615bb5e3325b79c9e68b68" kind="enumvalue"><name>SUB_HIRE</name></member>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ade254abb415dfad57011d9a6f4ca9447" kind="enumvalue"><name>SUB_FISE</name></member>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ab1d817e7690952e7d21ecafb188f5b6c" kind="enumvalue"><name>SUB_FISA</name></member>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82a0dae9b970216bd282750b108c13dc7b4" kind="enumvalue"><name>DESTROY_GARBAGE</name></member>
+    <member refid="union_target___s_1afb52de3399e747e02e512edf3a6ad1b2" kind="variable"><name>machine</name></member>
+    <member refid="union_target___s_1a6763d10062c6e036762826aab4f86ec5" kind="variable"><name>other</name></member>
+  </compound>
+  <compound refid="struct_user_action_mapping___s" kind="struct"><name>UserActionMapping_S</name>
+    <member refid="struct_user_action_mapping___s_1ad5fe89e8119e71132a97c6cb12631d96" kind="variable"><name>action_id</name></member>
+    <member refid="struct_user_action_mapping___s_1a665f38c07a180ba9c7eaa310ee881e45" kind="variable"><name>key</name></member>
+  </compound>
+  <compound refid="struct_vector2_d___s" kind="struct"><name>Vector2D_S</name>
+    <member refid="struct_vector2_d___s_1ac2f1292a1ba69cc665c7e73ac68278d9" kind="variable"><name>x</name></member>
+    <member refid="struct_vector2_d___s_1a4be549ff195096901087f5e3e5ffcdd0" kind="variable"><name>y</name></member>
+  </compound>
+  <compound refid="userdoc_8md" kind="file"><name>userdoc.md</name>
+  </compound>
+  <compound refid="actions_8h" kind="file"><name>actions.h</name>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5" kind="enum"><name>Action_S</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" kind="enumvalue"><name>ACTION_SHOW_MAP</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5af9e90e85d0624fd3c5ad8e9b27a53836" kind="enumvalue"><name>ACTION_CANCEL_ACTION</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3a6e4bf0ba87fe533448728a5bf312eb" kind="enumvalue"><name>ACTION_EXIT</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a98db311aedbc9b9840983f714af32069" kind="enumvalue"><name>ACTION_LIST_ACTIONS</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5ae7e458358ff1cd44ed9b4e96c06848a8" kind="enumvalue"><name>ACTION_END_TURN</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a04f4e4d525b5aad96b3b9f1876868571" kind="enumvalue"><name>ACTION_HIRE_FISE</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5ade022643266e243c86fc3342f14b40a5" kind="enumvalue"><name>ACTION_HIRE_FISA</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6e5676061baed7440639fbe180b382f9" kind="enumvalue"><name>ACTION_CHANGE_FISA_MODE</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a006d500ef19364dfb71614d8457d92d2" kind="enumvalue"><name>ACTION_LIST_MACHINES</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" kind="enumvalue"><name>ACTION_BUY_MACHINE</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3fffebaaadf38024a0372cac589fa753" kind="enumvalue"><name>ACTION_BUY_STAFF</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a76469902bf9e246574a3e0f89fbfae42" kind="enumvalue"><name>ACTION_ASK_STAFF_LIST</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" kind="enumvalue"><name>ACTION_UPGRADE_MACHINE</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" kind="enumvalue"><name>ACTION_DESTROY_MACHINE</name></member>
+    <member refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kind="typedef"><name>Action</name></member>
+  </compound>
+  <compound refid="case__type_8h" kind="file"><name>case_type.h</name>
+    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390ec" kind="enum"><name>CaseType_S</name></member>
+    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" kind="enumvalue"><name>CASE_VIDE</name></member>
+    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" kind="enumvalue"><name>CASE_GATE</name></member>
+    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" kind="enumvalue"><name>CASE_SOURCE</name></member>
+    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" kind="enumvalue"><name>CASE_MACHINE</name></member>
+    <member refid="case__type_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kind="typedef"><name>CaseType</name></member>
+  </compound>
+  <compound refid="difficulty_8h" kind="file"><name>difficulty.h</name>
+    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kind="enum"><name>Difficulty</name></member>
+    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3a95f48065472a7866854a3c9b9ea8347e" kind="enumvalue"><name>DIFFICULTY_EASY</name></member>
+    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3acd9bd660438188b3fcbed6efc3deb92d" kind="enumvalue"><name>DIFFICULTY_MEDIUM</name></member>
+    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3a0d7385205eaa38cd67abe052bc39e431" kind="enumvalue"><name>DIFFICULTY_HARD</name></member>
+    <member refid="difficulty_8h_1a3d65c3a550541de7ed8d9678a18c2de8" kind="typedef"><name>Difficulty</name></member>
+  </compound>
+  <compound refid="effect_8h" kind="file"><name>effect.h</name>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807f" kind="enum"><name>Mode_S</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807faf635a16f0afb76f86daa7291f617ed74" kind="enumvalue"><name>CONSTRUCTION</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa7622ad012d4fa19b71427f2edfb2560b" kind="enumvalue"><name>UPGRADE</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa534df644e3182226cd53827fee0589a4" kind="enumvalue"><name>DESTROY</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa0d565f8b8e41b7d2f36b561e97885b4c" kind="enumvalue"><name>HIRE</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fab077509394d7862ca1eb58622aae5c7e" kind="enumvalue"><name>ON_BUY</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807faf939c3ca8e48bc159f70c6c43e6ff980" kind="enumvalue"><name>SEND_DOOR</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa2445c6427bd5e1763097b93f45a601e1" kind="enumvalue"><name>DOOR_OUT</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa602e518a6561abffa3c4e23e171ad26b" kind="enumvalue"><name>PRODUCTION</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fad91e3016183edc3a8e1e2b07de265cb4" kind="enumvalue"><name>ON_TURN</name></member>
+    <member refid="effect_8h_1a31488d29805a596498c0234ae392d35d" kind="typedef"><name>Target</name></member>
+    <member refid="effect_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911" kind="typedef"><name>Mode</name></member>
+    <member refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kind="typedef"><name>Effect</name></member>
+  </compound>
+  <compound refid="error_8h" kind="file"><name>error.h</name>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dc" kind="enum"><name>ErrorCode_S</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcabf350750d0d4fabd8954c0f1e9bbae94" kind="enumvalue"><name>NO_ERROR</name></member>
+    <member refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kind="typedef"><name>ErrorCode</name></member>
+    <member refid="error_8h_1a0781923c96e57619d712e566bcb00de9" kind="function"><name>get_Error_Msg</name></member>
+  </compound>
+  <compound refid="machine_8h" kind="file"><name>machine.h</name>
+    <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16" kind="enum"><name>MachineStuff_S</name></member>
+    <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a653f4f8fc16999f829131acd63557b0b" kind="enumvalue"><name>MS_COLLECTOR</name></member>
+    <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a74e8c7711cfbab74d8ff85d2c3945580" kind="enumvalue"><name>MS_CONVEYOR_BELT</name></member>
+    <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43" kind="enumvalue"><name>MS_CROSS</name></member>
+    <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2" kind="enumvalue"><name>MS_RECYCLING_CENTER</name></member>
+    <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557" kind="enumvalue"><name>MS_JUNKYARD</name></member>
+    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2" kind="enum"><name>Direction_S</name></member>
+    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a66a3c638b3f4a3d2e144245311b29241" kind="enumvalue"><name>DIRECTION_IN</name></member>
+    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a110d8bc2cf7464da0e5b438dc51ee183" kind="enumvalue"><name>DIRECTION_OUT</name></member>
+    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a8014a4c7dd2e1ab266e6b98e7c9b5780" kind="enumvalue"><name>DIRECTION_NONE</name></member>
+    <member refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kind="typedef"><name>MachineStuff</name></member>
+    <member refid="machine_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kind="typedef"><name>Direction</name></member>
+    <member refid="machine_8h_1a871118a09520247c78a71ecd7b0abd58" kind="typedef"><name>Orientation</name></member>
+    <member refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kind="typedef"><name>Machine</name></member>
+    <member refid="machine_8h_1a138aa1fe7b34ae22fafde583debd6339" kind="variable"><name>machine_list</name></member>
+  </compound>
+  <compound refid="machine__info_8h" kind="file"><name>machine_info.h</name>
+    <member refid="machine__info_8h_1a61e24053e0bb9c5272cd6b2186e285fa" kind="typedef"><name>MachineInfo</name></member>
+  </compound>
+  <compound refid="mapping_8h" kind="file"><name>mapping.h</name>
+    <member refid="mapping_8h_1a1a750232e533867d6e3e4b4b781cacb4" kind="typedef"><name>UserActionMapping</name></member>
+    <member refid="mapping_8h_1abc28c4a370b4cdacc05015ccd4fc580b" kind="variable"><name>user_mapping</name></member>
+  </compound>
+  <compound refid="data_2package_8dox" kind="file"><name>package.dox</name>
+  </compound>
+  <compound refid="package_8dox" kind="file"><name>package.dox</name>
+  </compound>
+  <compound refid="utils_2package_8dox" kind="file"><name>package.dox</name>
+  </compound>
+  <compound refid="staff_8h" kind="file"><name>staff.h</name>
+    <member refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kind="typedef"><name>Staff</name></member>
+    <member refid="staff_8h_1a223cd533693dc1c64c992e0b6bb03f46" kind="variable"><name>staff_list</name></member>
+  </compound>
+  <compound refid="interface_8h" kind="file"><name>interface.h</name>
+    <member refid="interface_8h_1a9fa9dae540c5a4392eed8131340524e0" kind="define"><name>USER_MAPPING_SIZE</name></member>
+    <member refid="interface_8h_1ad0e6b6213a172f1d71e8738bb156e7ea" kind="variable"><name>back</name></member>
+    <member refid="interface_8h_1ab47d5d899f3409a45d7d1fde4f9fb549" kind="function"><name>interface_init</name></member>
+    <member refid="interface_8h_1ac0f88a694b00721fb252a1dd792a61bc" kind="function"><name>interface_reload</name></member>
+    <member refid="interface_8h_1ab7c13ec570fb8fd038aab0ff35d839f2" kind="function"><name>interface_close</name></member>
+    <member refid="interface_8h_1a7aba8b0ed18d9a5bf8ada77a8be580c8" kind="function"><name>interface_chooseDifficulty</name></member>
+    <member refid="interface_8h_1a042cdfc50356b5668d4b708763152e22" kind="function"><name>interface_showMap</name></member>
+    <member refid="interface_8h_1a2b94e06c8e1c55d25b6049fd49df2384" kind="function"><name>interface_showStaffList</name></member>
+    <member refid="interface_8h_1a8d5d9afbd5faf995cf2214bd27ab5406" kind="function"><name>interface_showMachinesList</name></member>
+    <member refid="interface_8h_1a3d693e2a4cac185898862f1f6f7d6fde" kind="function"><name>interface_list_actions</name></member>
+    <member refid="interface_8h_1aab40b3b555768d71fd3a2ee102ed0b15" kind="function"><name>interface_chooseAction</name></member>
+    <member refid="interface_8h_1abb9d06aa05eb64c1f76228d14747326a" kind="function"><name>interface_askAddMachine</name></member>
+    <member refid="interface_8h_1a2f606771c73271192fc4ba8567ea83d9" kind="function"><name>interface_askMachineLocation</name></member>
+    <member refid="interface_8h_1a6b8107acc0f275a1316d3eeb0d298d69" kind="function"><name>interface_askBuyStaff</name></member>
+    <member refid="interface_8h_1a968f7f6a7683a9126d3279d6f34f10f0" kind="function"><name>interface_showError</name></member>
+  </compound>
+  <compound refid="map_8h" kind="file"><name>map.h</name>
+    <member refid="map_8h_1acd23bf67dcb04a6103def6305cea6d42" kind="define"><name>E_VALUE</name></member>
+    <member refid="map_8h_1ae85b18a68c0e20acd021fc9a582854e9" kind="define"><name>DD_VALUE</name></member>
+    <member refid="map_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kind="typedef"><name>Case</name></member>
+    <member refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kind="typedef"><name>Map</name></member>
+    <member refid="map_8h_1a4f81eda0b27a71f5d56ec75ab740efce" kind="function"><name>map_create</name></member>
+    <member refid="map_8h_1a52abbbca8d3a430d5a929bc17618e12b" kind="function"><name>map_destroy</name></member>
+    <member refid="map_8h_1a514859d4195b0b85d207527ac8d60cd8" kind="function"><name>map_hireFISE</name></member>
+    <member refid="map_8h_1a494e28227f59873f32789af312072d0f" kind="function"><name>map_hireFISA</name></member>
+    <member refid="map_8h_1a93c14b54276fd898c14cdeafb563390b" kind="function"><name>map_changeProductionFISA</name></member>
+    <member refid="map_8h_1a53a7bbdc123e6910eae6d12fe5613b9e" kind="function"><name>map_endTurn</name></member>
+    <member refid="map_8h_1ac7285f5ac0c920bfb6205a936a9d73fb" kind="function"><name>map_addMachine</name></member>
+    <member refid="map_8h_1ab8a693d3743e8c207fa5fdcbbada46cb" kind="function"><name>map_upgradeMachine</name></member>
+    <member refid="map_8h_1adb43592cf0c517b7eafaabd2038b891c" kind="function"><name>map_destroyMachine</name></member>
+    <member refid="map_8h_1a4114f8b400614d5c3d314400a0ae3dfc" kind="function"><name>map_buyStaff</name></member>
+  </compound>
+  <compound refid="utils_8h" kind="file"><name>utils.h</name>
+    <member refid="utils_8h_1acfafb36b3d421d90e2aa61c8076d117d" kind="typedef"><name>Vector2D</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="main_8c" kind="file"><name>main.c</name>
+    <member refid="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="main_8h" kind="file"><name>main.h</name>
+    <member refid="main_8h_1ad0e6b6213a172f1d71e8738bb156e7ea" kind="variable"><name>back</name></member>
+    <member refid="main_8h_1abc28c4a370b4cdacc05015ccd4fc580b" kind="variable"><name>user_mapping</name></member>
+  </compound>
+  <compound refid="md_docs_userdoc" kind="page"><name>md_docs_userdoc</name>
+  </compound>
+  <compound refid="dir_44fdd040e6cb86c9e816f1518b4f7b7d" kind="dir"><name>headers/data</name>
+  </compound>
+  <compound refid="dir_49e56c817e5e54854c35e136979f97ca" kind="dir"><name>docs</name>
+  </compound>
+  <compound refid="dir_7f57b1e41c5acd0e859ae5f3a2b075a9" kind="dir"><name>headers</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_ad9c8ef6ea60145de6c7db0776cbabd6" kind="dir"><name>headers/utils</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

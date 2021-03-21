@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_machine___s" kind="struct" language="C++" prot="public">
+    <compoundname>Machine_S</compoundname>
+    <includes refid="machine_8h" local="yes">headers/data/machine.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_machine___s_1a87d7b76ce1f9b526bf963a0783a60443" prot="public" static="no" mutable="no">
+        <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+        <definition>MachineStuff Machine_S::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>number associate to the type of the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="69" column="22" bodyfile="headers/data/machine.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1a6a6494128ad890e92d78489d5152672b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Machine_S::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+<para>Represent the level of improvement of the machine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="70" column="13" bodyfile="headers/data/machine.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1a16a3a276757dc01a73169e5ef7f284ae" prot="public" static="no" mutable="no">
+        <type><ref refid="machine_8h_1a871118a09520247c78a71ecd7b0abd58" kindref="member">Orientation</ref></type>
+        <definition>Orientation Machine_S::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <briefdescription>
+<para>Represent the orientation of the machine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="71" column="21" bodyfile="headers/data/machine.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1acefe8b0f91dada4e00d03f4a8ce2bdcc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Machine_S::nb_resource</definition>
+        <argsstring></argsstring>
+        <name>nb_resource</name>
+        <briefdescription>
+<para>number of resource on the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="72" column="13" bodyfile="headers/data/machine.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1afa027080dd91efa8977fba3bf08154a2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Machine_S::nb_garbage</definition>
+        <argsstring></argsstring>
+        <name>nb_garbage</name>
+        <briefdescription>
+<para>number of garbage on the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="73" column="13" bodyfile="headers/data/machine.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1aee7c451ec90f68f9a31e9b442f42e411" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Machine_S::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+<para>-1 it don&apos;t have capacity </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="74" column="13" bodyfile="headers/data/machine.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct which contains the main information about a machine </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Machine_S</label>
+        <link refid="struct_machine___s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+orientation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Orientation_S</label>
+        <link refid="struct_orientation___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="headers/data/machine.h" line="68" column="5" bodyfile="headers/data/machine.h" bodystart="68" bodyend="75"/>
+    <listofallmembers>
+      <member refid="struct_machine___s_1aee7c451ec90f68f9a31e9b442f42e411" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>capacity</name></member>
+      <member refid="struct_machine___s_1a6a6494128ad890e92d78489d5152672b" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>level</name></member>
+      <member refid="struct_machine___s_1afa027080dd91efa8977fba3bf08154a2" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>nb_garbage</name></member>
+      <member refid="struct_machine___s_1acefe8b0f91dada4e00d03f4a8ce2bdcc" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>nb_resource</name></member>
+      <member refid="struct_machine___s_1a16a3a276757dc01a73169e5ef7f284ae" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>orientation</name></member>
+      <member refid="struct_machine___s_1a87d7b76ce1f9b526bf963a0783a60443" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

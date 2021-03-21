@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="difficulty_8h" kind="file" language="C++">
+    <compoundname>difficulty.h</compoundname>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="2">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Difficulty</name>
+        <enumvalue id="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3a95f48065472a7866854a3c9b9ea8347e" prot="public">
+          <name>DIFFICULTY_EASY</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>EASY level : 10 x 10. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3acd9bd660438188b3fcbed6efc3deb92d" prot="public">
+          <name>DIFFICULTY_MEDIUM</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>MEDIUM level : 20 x 20. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3a0d7385205eaa38cd67abe052bc39e431" prot="public">
+          <name>DIFFICULTY_HARD</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>HARD level : 30 x 30. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all difficulties </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="difficulty_8h" kindref="compound">difficulty.h</ref> &quot;headers/data/difficulty.h&quot;</para>
+<para>Contains all difficulties that the play can play. Difficulties change width and height of the map.</para>
+<para>EASY level : 10 x 10 MEDIUM level : 20 x 20 HARD level : 30 x 30 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="28" column="5" bodyfile="headers/data/difficulty.h" bodystart="28" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="difficulty_8h_1a3d65c3a550541de7ed8d9678a18c2de8" prot="public" static="no">
+        <type>enum <ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+        <definition>typedef enum Difficulty Difficulty</definition>
+        <argsstring></argsstring>
+        <name>Difficulty</name>
+        <briefdescription>
+<para>Difficulty type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="32" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h" kindref="compound">map.h</ref></para>
+</simplesect>
+Contains all the difficulty that the player can play. </para>
+    </detaileddescription>
+    <location file="headers/data/difficulty.h"/>
+  </compounddef>
+</doxygen>

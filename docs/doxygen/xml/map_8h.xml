@@ -1,0 +1,689 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="map_8h" kind="file" language="C++">
+    <compoundname>map.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="machine_8h" local="yes">data/machine.h</includes>
+    <includes refid="staff_8h" local="yes">data/staff.h</includes>
+    <includes refid="difficulty_8h" local="yes">data/difficulty.h</includes>
+    <includes refid="error_8h" local="yes">data/error.h</includes>
+    <includes refid="case__type_8h" local="yes">data/case_type.h</includes>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>data/case_type.h</label>
+        <link refid="case__type_8h"/>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="8">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="1">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="2">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_case___s" prot="public">Case_S</innerclass>
+    <innerclass refid="struct_map___s" prot="public">Map_S</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="map_8h_1acd23bf67dcb04a6103def6305cea6d42" prot="public" static="no">
+        <name>E_VALUE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>E Constant that measure the energy quantity of the player. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="40" column="13" bodyfile="headers/map.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="map_8h_1ae85b18a68c0e20acd021fc9a582854e9" prot="public" static="no">
+        <name>DD_VALUE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>DD Constant that measure the planet general health. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="41" column="13" bodyfile="headers/map.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="map_8h_1ab9aab17a5e54a8bae6915bc24db13a17" prot="public" static="no">
+        <type>struct <ref refid="struct_case___s" kindref="compound">Case_S</ref></type>
+        <definition>Case</definition>
+        <argsstring></argsstring>
+        <name>Case</name>
+        <briefdescription>
+<para>it correspond to a case of the board game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="58" column="16"/>
+      </memberdef>
+      <memberdef kind="typedef" id="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" prot="public" static="no">
+        <type>struct <ref refid="struct_map___s" kindref="compound">Map_S</ref></type>
+        <definition>Map</definition>
+        <argsstring></argsstring>
+        <name>Map</name>
+        <briefdescription>
+<para>Board game that contain all of the information about each case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="82" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="map_8h_1a4f81eda0b27a71f5d56ec75ab740efce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+        <definition>const Map * map_create</definition>
+        <argsstring>(Difficulty dif)</argsstring>
+        <name>map_create</name>
+        <param>
+          <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+          <declname>dif</declname>
+        </param>
+        <briefdescription>
+<para>Create a new map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In order to begin a new game, we need a board game. It will contains all the map information concerning machines emplacement, sources, resources, garbage, Staff and gate, presents on the map.</para>
+<para>Difficulty has been chosen by the player which determine the width and height of the map Creation of the map : a bi dimensional Case table 2 sources cases and 1 transdimensional gate are randomly placed into those cases. The player starts the game with 5 FISE, 5 FISA, 100 E and 100 DD. Initialization of the turn, the score the pollution to 0. By default, the FISA production is E. A table which contain staffs that the user bought is also initialized</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dif</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a valid difficulty chosen by the user </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new map that contains all the map information </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a3d65c3a550541de7ed8d9678a18c2de8" kindref="member">Difficulty</ref> enum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="109" column="9" declfile="headers/map.h" declline="109" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1a52abbbca8d3a430d5a929bc17618e12b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_destroy</definition>
+        <argsstring>(Map *map)</argsstring>
+        <name>map_destroy</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>At the end of a game, we need to free all the memory allocated to a map.</para>
+<para>We have to free : <preformatted>
+Staff* team
+ Case** map
+ ... (<ref refid="map_8h" kindref="compound">map.h</ref> , staff.f, <ref refid="machine_8h" kindref="compound">machine.h</ref>)
+</preformatted></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="129" column="15" declfile="headers/map.h" declline="129" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1a514859d4195b0b85d207527ac8d60cd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_hireFISE</definition>
+        <argsstring>(const Map *map)</argsstring>
+        <name>map_hireFISE</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Hire a FISE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We hire a FISE in order to product more resources. Every turn, each FISE student produce 1 E and 1 DD A student (FISE or FISA) costs 50 E and 20 DD.</para>
+<para>A verification is necessary to know if the player can hire a new FISE. We have to check resources E and DD of the player</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="146" column="15" declfile="headers/map.h" declline="146" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1a494e28227f59873f32789af312072d0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_hireFISA</definition>
+        <argsstring>(const Map *map)</argsstring>
+        <name>map_hireFISA</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Hire a FISA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We hire a FISA in order to product more resources. Every 2 turns, each FISA student produce either 4 E or 4 DD</para>
+<para>A student (FISE or FISA) costs 50 E and 20 DD.</para>
+<para>A verification is necessary to know if the player can hire a new FISA. We have to check resources E and DD of the player</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="164" column="15" declfile="headers/map.h" declline="164" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1a93c14b54276fd898c14cdeafb563390b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_changeProductionFISA</definition>
+        <argsstring>()</argsstring>
+        <name>map_changeProductionFISA</name>
+        <briefdescription>
+<para>Switch the energy type produced by the FISA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allow us to switch the energy type produced by the FISA between E or DD.</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="175" column="15" declfile="headers/map.h" declline="175" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1a53a7bbdc123e6910eae6d12fe5613b9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_endTurn</definition>
+        <argsstring>(Map *map)</argsstring>
+        <name>map_endTurn</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Finish a turn. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Verifications to do at the end of a turn <orderedlist>
+<listitem>
+<para>Check FISA and FISE production </para>
+</listitem>
+<listitem>
+<para>Update E </para>
+</listitem>
+<listitem>
+<para>Call all conveyor belt/cross at the same time.</para>
+<para></para>
+</listitem>
+<listitem>
+<para><orderedlist>
+<listitem>
+<para>Resources moves </para>
+</listitem>
+<listitem>
+<para>Verify each resource destination </para>
+</listitem>
+<listitem>
+<para>next case empty then resource is lost </para>
+</listitem>
+<listitem>
+<para>next case is an ENTRY machine -&gt; send to machine </para>
+</listitem>
+</orderedlist>
+</para>
+<para></para>
+</listitem>
+<listitem>
+<para>Check if we produce resources (sources) </para>
+</listitem>
+<listitem>
+<para>Check if we produce wastes (gate) </para>
+</listitem>
+<listitem>
+<para>Call all Recycling center</para>
+<para></para>
+</listitem>
+<listitem>
+<para><orderedlist>
+<listitem>
+<para>stored garbage don&apos;t decrease DD </para>
+</listitem>
+<listitem>
+<para>10 garbage produce 1 /per turn </para>
+</listitem>
+</orderedlist>
+</para>
+<para></para>
+</listitem>
+<listitem>
+<para>Call all collectors</para>
+<para></para>
+</listitem>
+<listitem>
+<para><orderedlist>
+<listitem>
+<para>activated from top to bot, left to right </para>
+</listitem>
+<listitem>
+<para>No source then do nothing </para>
+</listitem>
+<listitem>
+<para>randomly choose a source among all adjacent ones </para>
+</listitem>
+</orderedlist>
+</para>
+<para></para>
+</listitem>
+<listitem>
+<para>Update DD value </para>
+</listitem>
+</orderedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>game map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="223" column="15" declfile="headers/map.h" declline="223" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1ac7285f5ac0c920bfb6205a936a9d73fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_addMachine</definition>
+        <argsstring>(Machine machine, int x, int y, Map *m)</argsstring>
+        <name>map_addMachine</name>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref></type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Add a machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a machine </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map Add a machine on the map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="236" column="15" declfile="headers/map.h" declline="236" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1ab8a693d3743e8c207fa5fdcbbada46cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_upgradeMachine</definition>
+        <argsstring>(int x, int y, Map *m)</argsstring>
+        <name>map_upgradeMachine</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Upgrade a machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map Upgrade a machine on the map. We know which machine we upgrade thanks to the x and y coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="249" column="15" declfile="headers/map.h" declline="249" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1adb43592cf0c517b7eafaabd2038b891c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_destroyMachine</definition>
+        <argsstring>(int x, int y, Map *m)</argsstring>
+        <name>map_destroyMachine</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map Destroy a machine on the map. We know which machine we destroy thanks to the x and y coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="262" column="15" declfile="headers/map.h" declline="262" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8h_1a4114f8b400614d5c3d314400a0ae3dfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_buyStaff</definition>
+        <argsstring>(Staff s, Map *m)</argsstring>
+        <name>map_buyStaff</name>
+        <param>
+          <type><ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref></type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Buy a Staff. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a Staff </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map Buy a Staff</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="273" column="15" declfile="headers/map.h" declline="273" declcolumn="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine MAN and Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>28/02/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a3d65c3a550541de7ed8d9678a18c2de8" kindref="member">Difficulty</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="case__type_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></para>
+</simplesect>
+This header contains any functions related to the interactions between the player and the elements on the board game. <itemizedlist>
+<listitem>
+<para>create a new map </para>
+</listitem>
+<listitem>
+<para>destroy a map </para>
+</listitem>
+<listitem>
+<para>hire a FISE </para>
+</listitem>
+<listitem>
+<para>hire a FISA </para>
+</listitem>
+<listitem>
+<para>switch energy type produced by the FISA  </para>
+</listitem>
+<listitem>
+<para>finish a turn </para>
+</listitem>
+<listitem>
+<para>add a machine in a case </para>
+</listitem>
+<listitem>
+<para>upgrade a machine, already created in a case </para>
+</listitem>
+<listitem>
+<para>detroy a machine, already created in a case </para>
+</listitem>
+<listitem>
+<para>buy staffs in order to have bonus </para>
+</listitem>
+</itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="headers/map.h"/>
+  </compounddef>
+</doxygen>

@@ -10,14 +10,12 @@
 #ifndef PRIM_STAFF_H
 #define PRIM_STAFF_H
 
-    #include "effect.h" //! effect.h : information about effect
+    #include "effect.h" // effect.h : information about effect
 
     /*!
      * \typedef Staff
      * \struct Staff_S staff.h "headers/data/staff.h"
-     *
-     * Struct which contains the target of the effect
-     *
+     * \brief Struct which contains the target of the effect
      */
     typedef struct Staff_S {
         int id; //!< id of the character

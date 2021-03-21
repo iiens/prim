@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>headers/map.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_userdoc.html">User documentation</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span>map.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Antoine MAN and Ramzy ZEBRIR</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>28/02/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="difficulty_8h.html#a3d65c3a550541de7ed8d9678a18c2de8" class="m-doc">Difficulty</a></p><p><a href="case__type_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a></p><p><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></p></aside><p>This header contains any functions related to the interactions between the player and the elements on the board game.</p><ul><li>create a new map</li><li>destroy a map</li><li>hire a FISE</li><li>hire a FISA</li><li>switch energy type produced by the FISA</li><li>finish a turn</li><li>add a machine in a case</li><li>upgrade a machine, already created in a case</li><li>detroy a machine, already created in a case</li><li>buy staffs in order to have bonus</li></ul>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="struct_case___s.html" class="m-doc">Case_S</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              struct <a href="struct_map___s.html" class="m-doc">Map_S</a>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="ab9aab17a5e54a8bae6915bc24db13a17">
+              using <a href="#ab9aab17a5e54a8bae6915bc24db13a17" class="m-doc-self">Case</a> = struct <a href="struct_case___s.html" class="m-doc">Case_<wbr />S</a>
+            </dt>
+            <dd>it correspond to a case of the board game</dd>
+            <dt id="afdfce14f0d12266a9956f9fe5e4fe1fd">
+              using <a href="#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc-self">Map</a> = struct <a href="struct_map___s.html" class="m-doc">Map_<wbr />S</a>
+            </dt>
+            <dd>Board game that contain all of the information about each case.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4f81eda0b27a71f5d56ec75ab740efce" class="m-doc">map_create</a>(</span><span class="m-doc-wrap"><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> dif) -&gt; <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>*</span>
+            </dt>
+            <dd>Create a new map.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a52abbbca8d3a430d5a929bc17618e12b" class="m-doc">map_destroy</a>(</span><span class="m-doc-wrap"><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Destroy a map.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a514859d4195b0b85d207527ac8d60cd8" class="m-doc">map_hireFISE</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Hire a FISE.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a494e28227f59873f32789af312072d0f" class="m-doc">map_hireFISA</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Hire a FISA.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a93c14b54276fd898c14cdeafb563390b" class="m-doc">map_changeProductionFISA</a>(</span><span class="m-doc-wrap">) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Switch the energy type produced by the FISA.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a53a7bbdc123e6910eae6d12fe5613b9e" class="m-doc">map_endTurn</a>(</span><span class="m-doc-wrap"><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Finish a turn.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac7285f5ac0c920bfb6205a936a9d73fb" class="m-doc">map_addMachine</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a> machine,
+              int x,
+              int y,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Add a machine.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ab8a693d3743e8c207fa5fdcbbada46cb" class="m-doc">map_upgradeMachine</a>(</span><span class="m-doc-wrap">int x,
+              int y,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Upgrade a machine.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#adb43592cf0c517b7eafaabd2038b891c" class="m-doc">map_destroyMachine</a>(</span><span class="m-doc-wrap">int x,
+              int y,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Destroy a machine.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4114f8b400614d5c3d314400a0ae3dfc" class="m-doc">map_buyStaff</a>(</span><span class="m-doc-wrap"><a href="staff_8h.html#a1c4df51d412ce9322d732b1eccbd3ea4" class="m-doc">Staff</a> s,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd>Buy a Staff.</dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="acd23bf67dcb04a6103def6305cea6d42">
+              <span class="m-doc-wrap-bumper">#define <a href="#acd23bf67dcb04a6103def6305cea6d42" class="m-doc-self">E_VALUE</a></span>
+            </dt>
+            <dd>E Constant that measure the energy quantity of the player.</dd>
+            <dt id="ae85b18a68c0e20acd021fc9a582854e9">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae85b18a68c0e20acd021fc9a582854e9" class="m-doc-self">DD_VALUE</a></span>
+            </dt>
+            <dd>DD Constant that measure the planet general health.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a4f81eda0b27a71f5d56ec75ab740efce"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4f81eda0b27a71f5d56ec75ab740efce" class="m-doc-self">map_create</a>(</span><span class="m-doc-wrap"><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> dif)</span></span>
+            </h3>
+            <p>Create a new map.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">dif&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a valid difficulty chosen by the user</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a new map that contains all the map information</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>In order to begin a new game, we need a board game. It will contains all the map information concerning machines emplacement, sources, resources, garbage, Staff and gate, presents on the map.</p><p>Difficulty has been chosen by the player which determine the width and height of the map Creation of the map : a bi dimensional Case table 2 sources cases and 1 transdimensional gate are randomly placed into those cases. The player starts the game with 5 FISE, 5 FISA, 100 E and 100 DD. Initialization of the turn, the score the pollution to 0. By default, the FISA production is E. A table which contain staffs that the user bought is also initialized</p><aside class="m-note m-default"><h4>See also</h4><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a> type</p><p><a href="difficulty_8h.html#a3d65c3a550541de7ed8d9678a18c2de8" class="m-doc">Difficulty</a> enum</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a52abbbca8d3a430d5a929bc17618e12b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a52abbbca8d3a430d5a929bc17618e12b" class="m-doc-self">map_destroy</a>(</span><span class="m-doc-wrap"><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+            </h3>
+            <p>Destroy a map.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>At the end of a game, we need to free all the memory allocated to a map.</p><p>We have to free :</p><pre>
+Staff* team
+ Case** map
+ ... (</pre><aside class="m-note m-default"><h4>See also</h4><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a> type</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a514859d4195b0b85d207527ac8d60cd8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a514859d4195b0b85d207527ac8d60cd8" class="m-doc-self">map_hireFISE</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+            </h3>
+            <p>Hire a FISE.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>We hire a FISE in order to product more resources. Every turn, each FISE student produce 1 E and 1 DD A student (FISE or FISA) costs 50 E and 20 DD.</p><p>A verification is necessary to know if the player can hire a new FISE. We have to check resources E and DD of the player</p><aside class="m-note m-default"><h4>See also</h4><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a> type</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a494e28227f59873f32789af312072d0f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a494e28227f59873f32789af312072d0f" class="m-doc-self">map_hireFISA</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+            </h3>
+            <p>Hire a FISA.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>We hire a FISA in order to product more resources. Every 2 turns, each FISA student produce either 4 E or 4 DD</p><p>A student (FISE or FISA) costs 50 E and 20 DD.</p><p>A verification is necessary to know if the player can hire a new FISA. We have to check resources E and DD of the player</p><aside class="m-note m-default"><h4>See also</h4><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a> type</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a93c14b54276fd898c14cdeafb563390b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a93c14b54276fd898c14cdeafb563390b" class="m-doc-self">map_changeProductionFISA</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Switch the energy type produced by the FISA.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>This function allow us to switch the energy type produced by the FISA between E or DD.</p>
+          </div></section>
+          <section class="m-doc-details" id="a53a7bbdc123e6910eae6d12fe5613b9e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a53a7bbdc123e6910eae6d12fe5613b9e" class="m-doc-self">map_endTurn</a>(</span><span class="m-doc-wrap"><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+            </h3>
+            <p>Finish a turn.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>game map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Verifications to do at the end of a turn</p><ol><li>Check FISA and FISE production</li><li>Update E</li><li><p>Call all conveyor belt/cross at the same time.</p></li><li><ol><li>Resources moves</li><li>Verify each resource destination</li><li>next case empty then resource is lost</li><li>next case is an ENTRY machine -&gt; send to machine</li></ol></li><li>Check if we produce resources (sources)</li><li>Check if we produce wastes (gate)</li><li><p>Call all Recycling center</p></li><li><ol><li>stored garbage don&#x27;t decrease DD</li><li>10 garbage produce 1 /per turn</li></ol></li><li><p>Call all collectors</p></li><li><ol><li>activated from top to bot, left to right</li><li>No source then do nothing</li><li>randomly choose a source among all adjacent ones</li></ol></li><li>Update DD value</li></ol>
+          </div></section>
+          <section class="m-doc-details" id="ac7285f5ac0c920bfb6205a936a9d73fb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac7285f5ac0c920bfb6205a936a9d73fb" class="m-doc-self">map_addMachine</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a> machine,
+              int x,
+              int y,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m)</span></span>
+            </h3>
+            <p>Add a machine.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a machine</td>
+                </tr>
+                <tr>
+                  <td>x&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>x &gt; 0</td>
+                </tr>
+                <tr>
+                  <td>y&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>y &gt; 0</td>
+                </tr>
+                <tr>
+                  <td>m&nbsp;<span class="m-label m-flat m-danger">in/out</span></td>
+                  <td>a map Add a machine on the map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ab8a693d3743e8c207fa5fdcbbada46cb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab8a693d3743e8c207fa5fdcbbada46cb" class="m-doc-self">map_upgradeMachine</a>(</span><span class="m-doc-wrap">int x,
+              int y,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m)</span></span>
+            </h3>
+            <p>Upgrade a machine.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">x&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>x &gt; 0</td>
+                </tr>
+                <tr>
+                  <td>y&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>y &gt; 0</td>
+                </tr>
+                <tr>
+                  <td>m&nbsp;<span class="m-label m-flat m-danger">in/out</span></td>
+                  <td>a map Upgrade a machine on the map. We know which machine we upgrade thanks to the x and y coordinates</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="adb43592cf0c517b7eafaabd2038b891c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adb43592cf0c517b7eafaabd2038b891c" class="m-doc-self">map_destroyMachine</a>(</span><span class="m-doc-wrap">int x,
+              int y,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m)</span></span>
+            </h3>
+            <p>Destroy a machine.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">x&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>x &gt; 0</td>
+                </tr>
+                <tr>
+                  <td>y&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>y &gt; 0</td>
+                </tr>
+                <tr>
+                  <td>m&nbsp;<span class="m-label m-flat m-danger">in/out</span></td>
+                  <td>a map Destroy a machine on the map. We know which machine we destroy thanks to the x and y coordinates</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4114f8b400614d5c3d314400a0ae3dfc"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4114f8b400614d5c3d314400a0ae3dfc" class="m-doc-self">map_buyStaff</a>(</span><span class="m-doc-wrap"><a href="staff_8h.html#a1c4df51d412ce9322d732b1eccbd3ea4" class="m-doc">Staff</a> s,
+              <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* m)</span></span>
+            </h3>
+            <p>Buy a Staff.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">s&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a Staff</td>
+                </tr>
+                <tr>
+                  <td>m&nbsp;<span class="m-label m-flat m-danger">in/out</span></td>
+                  <td>a map Buy a Staff</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error that specify what is the problem</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

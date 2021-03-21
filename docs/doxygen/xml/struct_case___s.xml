@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_case___s" kind="struct" language="C++" prot="public">
+    <compoundname>Case_S</compoundname>
+    <includes refid="map_8h" local="yes">headers/map.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_case___s_1a14ad05fbc4d5dc1b7de4bdb7860c6c26" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Case_S::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>int, abscissa </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="51" column="13" bodyfile="headers/map.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a72e78a2d351713f6b123a4e25bf1f14d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Case_S::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+<para>int, ordinate </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="52" column="13" bodyfile="headers/map.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a2f7b4a7ac9b98b5efa6791556cb1abd8" prot="public" static="no" mutable="no">
+        <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+        <definition>Machine* Case_S::mach</definition>
+        <argsstring></argsstring>
+        <name>mach</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="54" column="21" bodyfile="headers/map.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a791de108ca2c08939a5b162269e2b747" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* Case_S::other</definition>
+        <argsstring></argsstring>
+        <name>other</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="55" column="18" bodyfile="headers/map.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1ae6642975be630a5157b9ece0c1c37bbb" prot="public" static="no" mutable="no">
+        <type>union Case_S::@0</type>
+        <definition>union Case_S::@0 Case_S::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <briefdescription>
+<para>union, it correspond to the object contained in the case </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="56" column="18"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a3d7992a4e9740211d81f322d73250e5c" prot="public" static="no" mutable="no">
+        <type><ref refid="case__type_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+        <definition>CaseType Case_S::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>type of object contained in the case </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/map.h" line="57" column="18" bodyfile="headers/map.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct that contains all the information concerning a case </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Machine_S</label>
+        <link refid="struct_machine___s"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+orientation</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Case_S</label>
+        <link refid="struct_case___s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+mach</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Orientation_S</label>
+        <link refid="struct_orientation___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="headers/map.h" line="50" column="5" bodyfile="headers/map.h" bodystart="50" bodyend="58"/>
+    <listofallmembers>
+      <member refid="struct_case___s_1ae6642975be630a5157b9ece0c1c37bbb" prot="public" virt="non-virtual"><scope>Case_S</scope><name>in</name></member>
+      <member refid="struct_case___s_1a2f7b4a7ac9b98b5efa6791556cb1abd8" prot="public" virt="non-virtual"><scope>Case_S</scope><name>mach</name></member>
+      <member refid="struct_case___s_1a791de108ca2c08939a5b162269e2b747" prot="public" virt="non-virtual"><scope>Case_S</scope><name>other</name></member>
+      <member refid="struct_case___s_1a3d7992a4e9740211d81f322d73250e5c" prot="public" virt="non-virtual"><scope>Case_S</scope><name>type</name></member>
+      <member refid="struct_case___s_1a14ad05fbc4d5dc1b7de4bdb7860c6c26" prot="public" virt="non-virtual"><scope>Case_S</scope><name>x</name></member>
+      <member refid="struct_case___s_1a72e78a2d351713f6b123a4e25bf1f14d" prot="public" virt="non-virtual"><scope>Case_S</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
