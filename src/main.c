@@ -15,8 +15,8 @@ int main( void ) {
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
 
     Action act; //!< Allows you to know the action that the player chooses
-    Staff s; //!< Used to retrieve the function return from interface.h
-    Vector2D v; //!< Used to retrieve the function return from interface.h
+    Staff* s = NULL; //!< Used to retrieve the function return from interface.h
+    Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
     Machine* m = NULL; //!< Used to retrieve the function return from interface.h
 
     // Initialise interface
@@ -109,7 +109,7 @@ int main( void ) {
                             // Check that the user has not abandoned the action
                             if ( !back ) {
                                 // Call the map function to add machine
-                                e = map_addMachine(*m, v.x, v.y, map);
+                                e = map_addMachine(*m, v->x, v->y, map);
                                 // Check the return of the function
                                 if ( e != NO_ERROR ) {
                                     // Show the error message
@@ -121,7 +121,7 @@ int main( void ) {
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while ( !check || !back );
+                    } while ( !check && !back );
 
                     break;
                 case ACTION_BUY_STAFF:
@@ -132,7 +132,7 @@ int main( void ) {
                         // Check that the user has not abandoned the action
                         if ( !back ) {
                             // Call The map function to try to buy a staff member
-                            e = map_buyStaff(s, map);
+                            e = map_buyStaff(*s, map);
                             // Check the return of the function
                             if ( e != NO_ERROR ) {
                                 // Show the error message
@@ -143,7 +143,7 @@ int main( void ) {
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while ( !check || !back );
+                    } while ( !check && !back );
                     break;
                 case ACTION_ASK_STAFF_LIST:
                     // Call the interface function to show the list of staff
@@ -158,7 +158,7 @@ int main( void ) {
                         // Check that the user has not abandoned the action
                         if ( !back ) {
                             // Call The map function to improve the machine
-                            e = map_upgradeMachine(v.x, v.y, map);
+                            e = map_upgradeMachine(v->x, v->y, map);
                             // Check the return of the function
                             if ( e != NO_ERROR ) {
                                 // Show the error message
@@ -169,7 +169,7 @@ int main( void ) {
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while ( !check || !back );
+                    } while ( !check && !back );
                     break;
                 case ACTION_DESTROY_MACHINE:
                     do {
@@ -179,7 +179,7 @@ int main( void ) {
                         // Check that the user has not abandoned the action
                         if ( !back ) {
                             // Call The map function to destroy the machine
-                            e = map_destroyMachine(v.x, v.y, map);
+                            e = map_destroyMachine(v->x, v->y, map);
                             // Check the return of the function
                             if ( e != NO_ERROR ) {
                                 // Show the error message
@@ -190,11 +190,11 @@ int main( void ) {
                             }
                         }
                         // While the action is not successful or the user has not abandoned the action
-                    } while ( !check || !back );
+                    } while ( !check && !back );
                     break;
                 case ACTION_LIST_ACTIONS:
                     // Request display of actions
-                    interface_list_actions();
+                    interface_listActions();
                     break;
                 case ACTION_LIST_MACHINES:
                     // Request the display of machines
@@ -208,6 +208,9 @@ int main( void ) {
             // Reset the action verification variables
             back = false;
             check = false;
+            // Vector2D
+            if( v != NULL ){ free(v); v = NULL; }
+            if( s != NULL ){ free(s); s = NULL; }
         }
 
         // Process end turn

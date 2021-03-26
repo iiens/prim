@@ -24,14 +24,14 @@
 #ifndef PRIM_INTERFACE_H
 #define PRIM_INTERFACE_H
 
-    extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
-
     #include "data/actions.h" // contains all actions
     #include "data/difficulty.h" // contains difficulty type
     #include "data/mapping.h" // contains mappings type
     #include "data/error.h" // error codes that we would have to show
     #include "map.h" // contains map type
     #include "utils/utils.h" // utilities functions
+
+    extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
 
     //\////////////////////////////\//
     //\/ interface declarations
@@ -140,7 +140,7 @@
      * Show actions list.
      * Should use global variable.
      */
-    void interface_list_actions();
+    void interface_listActions();
 
     /**
      * @see interface_chooseAction, count of available actions
@@ -217,7 +217,7 @@
      * @see ACTION_UPGRADE_MACHINE
      * @see ACTION_DESTROY_MACHINE
      */
-    Vector2D interface_askMachineLocation();
+    Vector2D* interface_askMachineLocation();
 
     /*!
      * @brief Ask which Staff the user wants to buy.
@@ -233,7 +233,7 @@
      * @see ACTION_BUY_STAFF
      * @see ACTION_ASK_STAFF_LIST (action enum)
      */
-    Staff interface_askBuyStaff();
+    Staff* interface_askBuyStaff();
 
     /**
      * Show an error
