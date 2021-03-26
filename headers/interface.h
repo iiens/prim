@@ -159,7 +159,7 @@
      * <li>{@link ACTION_SHOW_MAP}: {@link interface_showMap}</li>
      * <li>{@link ACTION_CANCEL_ACTION}: no function, can't be used here ! (only when an action got chosen)</li>
      * <li>{@link ACTION_EXIT} : caller should ends the program</li>
-     * <li>{@link ACTION_LIST_ACTIONS} : call {@link interface_list_actions}</li>
+     * <li>{@link ACTION_LIST_ACTIONS} : call {@link interface_listActions}</li>
      * <li>{@link ACTION_END_TURN} : next turn, call of {@link map_endTurn}</li>
      *
      * <li>{@link ACTION_HIRE_FISE} : hire fise, call of {@link map_hireFISE}</li>

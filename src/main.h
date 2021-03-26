@@ -14,7 +14,7 @@
             {ACTION_SHOW_MAP,         "s"}, //!< show map with s
             {ACTION_END_TURN,         "n"}, //!< end turn with n
             {ACTION_CANCEL_ACTION,    "b"}, //!< cancel action with b
-            {ACTION_LIST_ACTIONS,     "la"}, //!< list actions with la
+            {ACTION_LIST_ACTIONS,     "help"}, //!< list actions with la
             {ACTION_EXIT,             "q"}, //!< exit with q
 
             // hire
