@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "main.h"
 
-void buyMachineAction(Map* map) {
+void main_buyMachineAction(Map* map) {
     Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
     Machine* m = NULL; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
@@ -42,7 +42,7 @@ void buyMachineAction(Map* map) {
     }
 }
 
-void buyStaffAction(Map* map) {
+void main_buyStaffAction(Map* map) {
     Staff* s = NULL; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
@@ -73,7 +73,7 @@ void buyStaffAction(Map* map) {
     }
 }
 
-void upgradeMachine(Map* map) {
+void main_upgradeMachine(Map* map) {
     Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
@@ -104,7 +104,7 @@ void upgradeMachine(Map* map) {
     }
 }
 
-void destroyAction(Map* map) {
+void main_destroyAction(Map* map) {
     Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
@@ -135,7 +135,7 @@ void destroyAction(Map* map) {
     }
 }
 
-bool HandlingActions(Action act, Map* map, bool* exit) {
+bool main_handlingActions(Action act, Map* map, bool* exit) {
     // Variable declarations
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
 
@@ -184,11 +184,11 @@ bool HandlingActions(Action act, Map* map, bool* exit) {
             break;
         case ACTION_BUY_MACHINE:
             // Call the function to buy the machine
-            buyMachineAction(map);
+            main_buyMachineAction(map);
             break;
         case ACTION_BUY_STAFF:
             // Call the function to buy the staff
-            buyStaffAction(map);
+            main_buyStaffAction(map);
             break;
         case ACTION_ASK_STAFF_LIST:
             // Call the interface function to show the list of staff
@@ -197,11 +197,11 @@ bool HandlingActions(Action act, Map* map, bool* exit) {
             break;
         case ACTION_UPGRADE_MACHINE:
             // Call the function to upgrade machine
-            upgradeMachine(map);
+            main_upgradeMachine(map);
             break;
         case ACTION_DESTROY_MACHINE:
             // Call the function to destroy machine
-            destroyAction(map);
+            main_destroyAction(map);
             break;
         case ACTION_LIST_ACTIONS:
             // Request display of actions
@@ -221,7 +221,7 @@ bool HandlingActions(Action act, Map* map, bool* exit) {
     return false;
 }
 
-Map* InitGame() {
+Map* main_initGame() {
     Difficulty d; //!< Allows you to know the difficulty chosen by the user
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
 
@@ -231,7 +231,7 @@ Map* InitGame() {
     // Check the return of the function
     if ( e != NO_ERROR ) {
         // Show the error message to the console
-        printf("%s\n", get_Error_Msg(e));
+        printf("%s\n", error_getMessage(e));
 
         // Quit the function because the interface does not work
         return NULL;
@@ -252,7 +252,7 @@ int main( void ) {
     Action act; //!< Allows you to know the action that the player chooses
 
     // Initialise la partie
-    map = InitGame();
+    map = main_initGame();
 
     // Check the return of the function
     if ( map == NULL ) {
@@ -274,7 +274,7 @@ int main( void ) {
             act = interface_chooseAction();
 
             // Handling of actions
-            endTurn = HandlingActions(act, map, &exit);
+            endTurn = main_handlingActions(act, map, &exit);
         }
 
         // Process end turn
