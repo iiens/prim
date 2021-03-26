@@ -33,7 +33,7 @@
         int costDestroyDD; //!< price for destroy the machine in DD;
         char* description; //!< description of the machine
         bool canUpgrade; //!< 1 if it's upgradable, else 0
-        Effect effect; //!< An effect for the machine if it's upgrade
+        Effect effects[5]; //!< An effect for the machine if it's upgrade
     } MachineInfo; //!< Information of the machine.
 
 #endif //PRIM_MACHINE_INFO_H
