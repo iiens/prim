@@ -25,4 +25,15 @@
         int y; //!< y axis
     } Vector2D; //!< Vector2D type
 
+    // https://stackoverflow.com/questions/3437404/min-and-max-in-c#3437484
+    #define max(a,b) \
+           ({ __typeof__ (a) _a = (a); \
+               __typeof__ (b) _b = (b); \
+             _a > _b ? _a : _b; }) //!< return the max between two numbers
+
+    #define min(a,b) \
+           ({ __typeof__ (a) _a = (a); \
+               __typeof__ (b) _b = (b); \
+             _a > _b ? _b : _a; }) //!< return the min between two numbers
+
 #endif //PRIM_UTILS_H

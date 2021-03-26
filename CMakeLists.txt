@@ -36,6 +36,8 @@ ENDIF(CUNIT_FOUND)
 
 add_executable(main
         src/main.c
+        src/model/map.c
+        src/view/interface.c
 
         headers/map.h
         headers/interface.h
@@ -52,6 +54,9 @@ add_executable(main
 
         headers/utils/utils.h
 
-        src/main.h)
+        src/main.h
+
+        src/view/translation.c
+        src/view/translation.h)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
