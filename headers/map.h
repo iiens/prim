@@ -55,6 +55,8 @@
             void* other;
         } in; //!< union, it correspond to the object contained in the case
         CaseType type; //!< type of object contained in the case
+        int nbResource; //!< number of resource on the machine
+        int nbGarbage; //!< number of garbage on the machine
     } Case; //!< it correspond to a case of the board game
 
     /*!

@@ -69,8 +69,6 @@
         MachineStuff type; //!< number associate to the type of the machine
         int level; //!< Represent the level of improvement of the machine
         Orientation orientation; //!< Represent the orientation of the machine
-        int nb_resource; //!< number of resource on the machine
-        int nb_garbage; //!< number of garbage on the machine
         int capacity; //!< -1 it don't have capacity
     } Machine; //!< Machine
 

@@ -65,13 +65,13 @@
         Mode mode; //!< represent the mode applied to the machine
         Target what; //!< represent the target of the effect
         bool onOther; //!< to know if what is a machine or other
-        int modifier_res; //!< if SEND_DOOR, resource put in multiply by this
-        int modifier_FISA; //!< update the number of FISA
-        int modifier_FISE; //!< update the number of FISE
-        int modifier_E; //!< update the E cost
-        int modifier_DD; //!< update the DD cost
-        int min_cost_E; //!< check after update of E with min_cost_E
-        int min_cost_DD;//!< check after update of DD with min_cost_DD
+        int modifierRes; //!< if SEND_DOOR, resource put in multiply by this
+        int modifierFISA; //!< update the number of FISA
+        int modifierFISE; //!< update the number of FISE
+        int modifierE; //!< update the E cost
+        int modifierDD; //!< update the DD cost
+        int min_costE; //!< check after update of E with min_cost_E
+        int min_costDD;//!< check after update of DD with min_cost_DD
         char* description; //!< describe the effect
     } Effect; //!< Struct which contains the target and the of the effect
 

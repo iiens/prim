@@ -20,7 +20,7 @@
      *
      */
     typedef struct UserActionMapping_S {
-        Action action_id; //!< action_id: int, see actions.h
+        Action actionID; //!< actionID: int, see actions.h
         char* key; //!< a sentence to input to select this action
     } UserActionMapping; //!< one mapping so (action, input_sequence)
 
