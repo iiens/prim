@@ -43,3 +43,33 @@ ErrorCode map_addMachine(const Machine machine, const int x, const int y, Map* m
 ErrorCode map_upgradeMachine(const int x, const int y, Map* m){ return NO_ERROR;}
 ErrorCode map_destroyMachine(const int x, const int y, Map* m){ return ERROR_CASE_EMPTY;}
 ErrorCode map_buyStaff(Staff s, Map* m){ return NO_ERROR;}
+
+ErrorCode map_isCaseExist( int x, int y, Map* m ){
+    if ( x >= 0 && x < m->width ){
+         if ( y >= 0 && y < m->height ){
+             return NO_ERROR;
+         }
+     }
+    return ERROR_CASE_NOT_FOUND;
+}
+
+int map_getnumberResource( int x, int y, Map* m ){
+    int res = -1;
+    if ( map_isCaseExist(x, y, m) == NO_ERROR ){
+        res = m->map[x][y].nbResource;
+    }
+    return res;
+}
+
+int map_getnumberGarbage( int x, int y, Map* m ){
+    int res = -1;
+    if ( map_isCaseExist(x, y, m) == NO_ERROR ){
+        res = m->map[x][y].nbGarbage;
+    }
+    return res;
+}
+
+int map_getnumberFISE( Map* m ){ return m->numberFISE; }
+int map_getnumberFISA( Map* m ){ return m->numberFISA; }
+int map_getnumberE( Map* m ) { return m->E; }
+int map_getnumberDD( Map* m ) { return m->DD; }

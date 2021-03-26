@@ -274,4 +274,104 @@
      */
     ErrorCode map_buyStaff( Staff s, Map* m );
 
+    /*!
+    * \fn ErrorCode map_isEmpty( int x, int y, Map* m )
+    * @brief In order to verify if a case is empty
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    * @return an error that specify what is the problem
+    */
+    ErrorCode map_isEmpty( int x, int y, Map* m );
+
+    /*!
+    * \fn ErrorCode map_isCaseExist( int x, int y, Map* m )
+    * @brief In order to verify if a case exist
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    * @return an error that specify what is the problem
+    */
+    ErrorCode map_isCaseExist( int x, int y, Map* m );
+
+    /*!
+    * \fn int map_getnumberResource( int x, int y, Map* m )
+    * @brief a function to get the number of resources
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    *
+    * This function get the number of resources on a specific case.
+    * Return a negative value if the case does not exist
+    *
+    * @return the number of resources available on the case
+    */
+    int map_getnumberResource( int x, int y, Map* m );
+
+    /*!
+    * \fn int map_getnumberGarbage( int x, int y, Map* m )
+    * @brief a function to get the number of garbage
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    *
+    * This function get the number of garbage on a specific case.
+    * Return a negative value if the case does not exist
+    *
+    * @return the number of garbage available on the case
+    */
+    int map_getnumberGarbage( int x, int y, Map* m );
+
+    /*!
+    * \fn int map_getnumberFISE( Map* m )
+    * @brief a function to get the number of FISE
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    *
+    * This function get the number of FISE recruited by the player.
+    *
+    * @return the number of FISE available
+    */
+    int map_getnumberFISE( Map* m );
+
+    /*!
+    * \fn int map_getnumberFISA( Map* m )
+    * @brief a function to get the number of FISA
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    *
+    * This function get the number of FISA recruited by the player.
+    *
+    * @return the number of FISA available
+    */
+    int map_getnumberFISA( Map* m );
+
+    /*!
+    * \fn int map_getnumberE( Map* m )
+    * @brief a function to get the number of E
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    *
+    * This function get the number of E posseded by the player.
+    *
+    * @return the number of E available
+    */
+    int map_getnumberE( Map* m );
+
+    /*!
+    * \fn int map_getnumberE( Map* m )
+    * @brief a function to get the number of DD
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] map a map
+    *
+    * This function get the number of DD posseded by the player.
+    *
+    * @return the number of DD available
+    */
+    int map_getnumberDD( Map* m );
+
 #endif //PRIM_MAP_H
