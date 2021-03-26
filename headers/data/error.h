@@ -28,7 +28,7 @@
     } ErrorCode; //!< Error type
 
     /*!
-     * \fn char* get_Error_Msg(ErrorCode e)
+     * \fn char* error_getMessage(ErrorCode e)
      * @brief Get an error message
      *
      * In order to know in detail an error returned by a function
