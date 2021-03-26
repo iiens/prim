@@ -2,6 +2,8 @@
 #include "../../headers/utils/map_utils.h"
 
 //todo: default implementation
+//todo créer la grille Case source et gate
+//todo créer le staff
 Map* map_create(Difficulty dif){
     Map* m = (Map*) malloc(sizeof(Map));
     m->width = map_utils_getSizeByDifficulty(dif);
