@@ -4,18 +4,6 @@
 #include <stdio.h>
 #include "main.h"
 
-Map* main_initGame();
-
-bool main_handlingActions(Action act, Map* map, bool* exit);
-
-void main_buyMachineAction(Map* map);
-
-void main_buyStaffAction(Map* map);
-
-void main_upgradeMachine(Map* map);
-
-void main_destroyAction(Map* map);
-
 int main( void ) {
     // Variable declarations
     Map* map = NULL; //!< Allows you to store the state of the game
@@ -23,7 +11,7 @@ int main( void ) {
     bool endTurn = false; //!< flag to the end of a tour
     Action act; //!< Allows you to know the action that the player chooses
 
-    // Initialise la partie
+    // Initializes the game
     map = main_initGame();
 
     // Check the return of the function
@@ -147,11 +135,11 @@ bool main_handlingActions(Action act, Map* map, bool* exit) {
             break;
         case ACTION_UPGRADE_MACHINE:
             // Call the function to upgrade machine
-            main_upgradeMachine(map);
+            main_upgradeMachineAction(map);
             break;
         case ACTION_DESTROY_MACHINE:
             // Call the function to destroy machine
-            main_destroyAction(map);
+            main_destroyMachineAction(map);
             break;
         case ACTION_LIST_ACTIONS:
             // Request display of actions
@@ -240,7 +228,7 @@ void main_buyStaffAction(Map* map) {
     }
 }
 
-void main_upgradeMachine(Map* map) {
+void main_upgradeMachineAction(Map* map) {
     Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
@@ -271,7 +259,7 @@ void main_upgradeMachine(Map* map) {
     }
 }
 
-void main_destroyAction(Map* map) {
+void main_destroyMachineAction(Map* map) {
     Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
@@ -301,4 +289,3 @@ void main_destroyAction(Map* map) {
         free(v); v = NULL;
     }
 }
-
