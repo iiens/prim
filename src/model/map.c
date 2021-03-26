@@ -1,20 +1,5 @@
 #include "../../headers/map.h"
-
-//todo: create map_utils and move this
-// maybe some constants ?
-int map_utils_getSizeByDifficulty(Difficulty d){
-    switch (d) {
-        case DIFFICULTY_EASY:
-            return 10;
-            break;
-        case DIFFICULTY_MEDIUM:
-            return 20;
-            break;
-        case DIFFICULTY_HARD:
-            return 30;
-            break;
-    }
-}
+#include "../../headers/utils/map_utils.h"
 
 //todo: default implementation
 Map* map_create(Difficulty dif){

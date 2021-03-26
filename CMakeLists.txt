@@ -57,6 +57,6 @@ add_executable(main
         src/main.h
 
         src/view/translation.c
-        src/view/translation.h)
+        src/view/translation.h headers/utils/map_utils.h)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
