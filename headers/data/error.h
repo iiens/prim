@@ -38,6 +38,6 @@
      * @return a string that describe the error
      * @see ErrorCode type
      */
-    char* get_Error_Msg( ErrorCode e );
+    char* error_getMessage( ErrorCode e );
 
 #endif //PRIM_ERROR_H
