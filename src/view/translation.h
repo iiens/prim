@@ -49,4 +49,11 @@
      */
     char* translation_get(Translation t);
 
+    /**
+     * Convenience method, return machine name
+     * @param s machine stuff
+     * @return translation
+     */
+    char* translation_getMachineType(MachineStuff s);
+
 #endif //PRIM_TRANSLATION_H

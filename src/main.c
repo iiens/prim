@@ -156,7 +156,7 @@ bool main_handlingActions(Action act, Map* map, bool* exit) {
 
     // Reset the action verification variables
     back = false;
-    return false;
+    return true;
 }
 
 void main_buyMachineAction(Map* map) {

@@ -74,3 +74,21 @@ char* translation_get(Translation t)
             return "";
     }
 }
+
+char* translation_getMachineType(MachineStuff s)
+{
+    switch ( s ) {
+        case MS_COLLECTOR:
+            return "Collector";
+        case MS_CONVEYOR_BELT:
+            return "Conveyor belt";
+        case MS_CROSS:
+            return "Cross";
+        case MS_RECYCLING_CENTER:
+            return "Recycling center";
+        case MS_JUNKYARD:
+            return "Junkyard";
+        default:
+            return "Unknown machine";
+    }
+}

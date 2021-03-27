@@ -9,6 +9,11 @@
  */
 
 #include "../../headers/interface.h"
+#include "ncurses/interface_ncurses.h"
+
+//todo: maybe allow this value to be changed in a option
+// of our main (such as ./prim --no-ncurses
+bool useNCurses = true; //!< true if we will use ncurses
 
 //\////////////////////////////\//
 //\/ interface related
@@ -16,17 +21,26 @@
 
 // init
 ErrorCode interface_init() {
-    return NO_ERROR;
+    if(useNCurses){
+        return interface_ncurses_init();
+    }
+    return ERROR_INIT_INTERFACE;
 }
 
 // reload
 ErrorCode interface_reload(const Map* map) {
-    return NO_ERROR;
+    if(useNCurses){
+        return interface_ncurses_reload(map);
+    }
+    return ERROR_INIT_INTERFACE;
 }
 
 // close
 ErrorCode interface_close() {
-    return NO_ERROR;
+    if(useNCurses){
+        return interface_ncurses_close();
+    }
+    return ERROR_INIT_INTERFACE;
 }
 
 //\////////////////////////////\//
@@ -34,19 +48,25 @@ ErrorCode interface_close() {
 //\////////////////////////////\//
 
 void interface_showMap(const Map* map){
-    // do nothing
+    if(useNCurses){
+        interface_ncurses_showMap(map);
+    }
 }
 
 void interface_showStaffList(const Map* map){
-    // do nothing
+    if(useNCurses){
+        interface_ncurses_showStaffList(map);
+    }
 }
 
 void interface_showMachinesList(){
-    // do nothing
+    if(useNCurses){
+        interface_ncurses_showMachinesList();
+    }
 }
 
 void interface_listActions(){
-    // do nothing
+    //todo:
 }
 
 //\////////////////////////////\//
@@ -55,29 +75,36 @@ void interface_listActions(){
 
 // action
 Action interface_chooseAction(){
-    // todo: you can switch that
+    if(useNCurses){
+        return interface_ncurses_chooseAction();
+    }
     return ACTION_EXIT;
 }
 
 // difficulty
 Difficulty interface_chooseDifficulty(){
+    if(useNCurses){
+        return interface_ncurses_chooseDifficulty();
+    }
     return DIFFICULTY_EASY;
 }
 
 Machine* interface_askAddMachine(){
-    //todo: if you need a machine
+    //todo:
     back = true; // go back
     return NULL;
 }
 
 Vector2D* interface_askMachineLocation(){
-    //todo: if you need a vector2D
+    if(useNCurses){
+        return interface_ncurses_askMachineLocation();
+    }
     back = true; // go back
     return NULL;
 }
 
 Staff* interface_askBuyStaff(){
-    //todo: if you need a staff
+    //todo:
     back = true;
     return NULL;
 }
@@ -87,5 +114,7 @@ Staff* interface_askBuyStaff(){
 //\////////////////////////////\//
 
 void interface_showError(ErrorCode e){
-
+    if(useNCurses){
+        interface_ncurses_showError(e);
+    }
 }
