@@ -1,5 +1,7 @@
+# docker build -t prim .
+# docker run prim
 FROM gcc:4.9
-COPY .. /usr/prim/
+COPY . /usr/prim/
 WORKDIR /usr/prim/
 LABEL name="Prim, environnement line"
 LABEL version="1.0"

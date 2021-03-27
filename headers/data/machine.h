@@ -12,8 +12,6 @@
 
     #include <stdlib.h> //! to use uint
 
-
-
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
      * \typedef MachineStuff
@@ -29,9 +27,9 @@
         MS_RECYCLING_CENTER = 4, //!< recycling center
         MS_JUNKYARD = 5, //!< junkyard
     } MachineStuff; //!< Link between a machine and a int to recognize them
+
     #include "effect.h" //! contains effects
     #include "machine_info.h" //! all information about machine
-
 
     /*!
      * \enum Direction_S machine.h "headers/data/machine.h"
@@ -75,6 +73,8 @@
         int capacity; //!< -1 it don't have capacity
     } Machine; //!< Machine
 
-    extern const MachineInfo machine_list[];
+    #define NUMBER_OF_MACHINES 5 //!< todo: Ramzy comment
+
+    extern const MachineInfo machine_list[]; //!< todo: Ramzy comment
 
 #endif //PRIM_MACHINE_H

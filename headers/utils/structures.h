@@ -10,7 +10,7 @@
 #ifndef PRIM_STRUCTURES_H
 #define PRIM_STRUCTURES_H
 
-#include "effect.h" // effect.h : information about effect
+    #include "../data/effect.h" // effect.h : information about effect
 
 
 

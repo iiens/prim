@@ -27,14 +27,12 @@
         switch (d) {
             case DIFFICULTY_EASY:
                 return 10;
-                break;
             case DIFFICULTY_MEDIUM:
                 return 20;
-                break;
             case DIFFICULTY_HARD:
                 return 30;
-                break;
         }
+        return -1;
     }
 
 #endif //PRIM_MAP_UTILS_H

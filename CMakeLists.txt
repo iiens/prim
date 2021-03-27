@@ -51,12 +51,26 @@ add_executable(main
         headers/data/mapping.h
         headers/data/case_type.h
         headers/data/error.h
+        headers/utils/structures.h
 
         headers/utils/utils.h
 
         src/main.h
 
         src/view/translation.c
-        src/view/translation.h headers/utils/map_utils.h)
+        src/view/translation.h
+
+        headers/utils/map_utils.h
+
+        src/view/ncurses/interface_ncurses.c
+        src/view/ncurses/interface_ncurses.h
+        src/view/ncurses/interface_ncurses_utils.c
+        src/view/ncurses/interface_ncurses_utils.h
+        )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
+
+SET(CURSES_NEED_NCURSES TRUE)
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+target_link_libraries( main ${CURSES_LIBRARIES} )
