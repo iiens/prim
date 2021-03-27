@@ -21,9 +21,9 @@ Map* map_create(Difficulty dif){
 }
 
 ErrorCode map_destroy(Map* map){ free(map); return NO_ERROR; }
-ErrorCode map_hireFISE( Map* map){ return NO_ERROR; }
-ErrorCode map_hireFISA( Map* map){ return NO_ERROR; }
-ErrorCode map_changeProductionFISA(){ return NO_ERROR; }
+ErrorCode map_hireFISE(Map* map){ return NO_ERROR; }
+ErrorCode map_hireFISA(Map* map){ return NO_ERROR; }
+ErrorCode map_changeProductionFISA(Map* map){ return NO_ERROR; }
 ErrorCode map_endTurn(Map* map){ map->turn++;return NO_ERROR; }
 ErrorCode map_isEmpty(int x, int y, Map* map){ return NO_ERROR; }
 ErrorCode map_addMachine(const Machine machine, const int x, const int y, Map* m){ return ERROR;}

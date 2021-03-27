@@ -112,7 +112,7 @@ bool main_handlingActions(Action act, Map* map, bool* exit) {
         case ACTION_CHANGE_FISA_MODE:
             // Call The map function to change the mode of production of the FISA
             // E or DD
-            e = map_changeProductionFISA();
+            e = map_changeProductionFISA(map);
 
             // Check the return of the function
             if ( e != NO_ERROR ) {
