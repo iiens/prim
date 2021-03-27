@@ -108,5 +108,5 @@ ErrorCode interface_ncurses_close()
 //\////////////////////////////\//
 
 Machine* interface_ncurses_askAddMachine() {
-    return NULL; //todo:
+    return NULL;
 }

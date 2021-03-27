@@ -23,6 +23,7 @@ CFLAGS= -Wall -Wextra -std=c99 -lncurses -lform
 OUTPUT=./obj/
 OUTPUT_V=$(OUTPUT)view/
 OUTPUT_M=$(OUTPUT)model/
+OUTPUT_U=$(OUTPUT)utils/
 OUTPUT_V_N=$(OUTPUT_V)ncurses/
 OUTPUT_V_N_M=$(OUTPUT_V_N)modules/
 # src
@@ -32,6 +33,7 @@ SOURCE_H_D=$(SOURCE_H)data/
 SOURCE_H_U=$(SOURCE_H)utils/
 SOURCE_V=$(SOURCE)view/
 SOURCE_M=$(SOURCE)model/
+SOURCE_U=$(SOURCE)utils/
 SOURCE_V_N=$(SOURCE_V)ncurses/
 # ncurses module
 SOURCE_V_N_M=$(SOURCE_V_N)modules/
@@ -41,7 +43,8 @@ MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT_V_N_M)loc
 # files (without .o)
 O_FILES= $(OUTPUT)main.o $(OUTPUT_V)interface.o $(OUTPUT_V_N)interface_ncurses.o \
 	$(OUTPUT_V_N)interface_ncurses_utils.o $(OUTPUT_M)map.o \
-	$(OUTPUT_V)translation.o $(MODULES)
+	$(OUTPUT_V)translation.o $(MODULES) \
+	$(OUTPUT_U)utils_fun.o
 
 INTERFACE_DEP=headers/map.h \
 	$(SOURCE_H_D)difficulty.h $(SOURCE_H_D)actions.h \
@@ -101,6 +104,11 @@ $(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o 
 # - all interface.h deps
 $(OUTPUT_V)translation.o: $(SOURCE_V)translation.c $(SOURCE_V)translation.h $(INTERFACE_DEP)
 	mkdir -p $(OUTPUT_V) && $(CC) $(CFLAGS) -c -o $(OUTPUT_V)translation.o $(SOURCE_V)translation.c
+
+# utils_fun.o
+# - utils_fun.c and .h
+$(OUTPUT_U)utils_fun.o: $(SOURCE_U)utils_fun.c $(SOURCE_U)utils_fun.h
+	mkdir -p $(OUTPUT_U) && $(CC) $(CFLAGS) -c -o $(OUTPUT_U)utils_fun.o $(SOURCE_U)utils_fun.c
 
 prim: $(O_FILES)
 	$(CC) $(CFLAGS) -o bin/prim $(O_FILES)

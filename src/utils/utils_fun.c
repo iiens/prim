@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "utils.h"
+#include "utils_fun.h"
 
 /**
  * Some power function, fix me plz
@@ -32,7 +32,7 @@ char* utils_intToString(int number)
     result[length] = '\0'; // last
 
     // fill
-    for ( int i = length-1, e = 0, n; i >= 0; i--, e++ ) {
+    for ( int i = length-1, e = 0; i >= 0; i--, e++ ) {
         if ( e == 0 ){
             result[i] = (char) ((number%10)+'0');
         } else {

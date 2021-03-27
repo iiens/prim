@@ -116,22 +116,15 @@ int writeLabel(int i, int j, char* tag, char* content)
 
 void interface_ncurses_initListWindow(char* title)
 {
-    int width = (COLS - GAME_WIDTH); //!< map window width
-    int size = (int) strlen(title) + 1 +
-               (int) strlen(translation_get(TRANSLATE_GO_BACK_B));
-    char* res = (char*) malloc(size*sizeof(char)); //!< frame title
-    sprintf(res, "%s %s", title, translation_get(TRANSLATE_GO_BACK_B));
-
     //clear
     wclear(mapWindow);
     wrefresh(mapWindow);
     interface_ncurses_clearAction(" ");
 
     //title centered
-    mvwprintw(mapWindow, 0, width/2 - (int) strlen(res)/2, res);
-
-    // free
-    free(res);
+    mvwaddstr(mapWindow, 0, 0, title);
+    waddstr(mapWindow, " ");
+    waddstr(mapWindow, translation_get(TRANSLATE_GO_BACK_B));
 }
 
 void* interface_ncurses_showInActionField(Closure init, Closure check){

@@ -9,8 +9,8 @@
  * Contains all the actions that the player can choose.
  *
  */
-#ifndef PRIM_ACTIONS_UTILS_H
-#define PRIM_ACTIONS_UTILS_H
+#ifndef PRIM_ACTIONS_H
+#define PRIM_ACTIONS_H
 
     /*!
      * \enum Action_S actions.h "headers/data/action.h"
@@ -44,4 +44,4 @@
         ACTION_DESTROY_MACHINE = 515, //!< trigger destroy machine
     } Action; //!< Action type
 
-#endif //PRIM_ACTIONS_UTILS_H
+#endif //PRIM_ACTIONS_H

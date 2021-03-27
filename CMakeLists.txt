@@ -42,7 +42,7 @@ add_executable(main
         headers/map.h
         headers/interface.h
 
-        headers/data/actions_utils.h
+        headers/data/actions.h
         headers/data/difficulty.h
         headers/data/effect.h
         headers/data/machine.h
@@ -72,7 +72,7 @@ add_executable(main
         src/view/ncurses/modules/location.c
         src/view/ncurses/modules/show.c
         src/view/ncurses/modules/staff.c
-        src/utils/utils.c src/utils/utils.h)
+        src/utils/utils_fun.c src/utils/utils_fun.h)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c99")
 

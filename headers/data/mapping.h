@@ -10,7 +10,7 @@
 #ifndef PRIM_MAPPING_H
 #define PRIM_MAPPING_H
 
-    #include "actions_utils.h" // actions.h : enum of all actions
+    #include "actions.h" // actions.h : enum of all actions
 
     /*!
      * \typedef UserActionMapping

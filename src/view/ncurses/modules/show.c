@@ -5,7 +5,7 @@
 #include "../interface_ncurses.h"
 #include "../interface_ncurses_utils.h"
 #include "../../translation.h"
-#include "../../../utils/utils.h"
+#include "../../../utils/utils_fun.h"
 #include <string.h>
 
 void interface_ncurses_showMap(const Map* map)
@@ -77,7 +77,7 @@ void interface_ncurses_showMap(const Map* map)
     wrefresh(mapWindow);
 }
 
-void interface_ncurses_showMachinesList()
+void interface_ncurses_showMachinesList() //todo: remake without buffers
 {
     const int LINE_COUNT = NUMBER_OF_MACHINES;
     const int size = 5 + 5 + 3 + 3; //!< we allow 5 number as, result is "n E n DD" (3 are spaces and 3 are letters)
@@ -148,18 +148,6 @@ void interface_ncurses_showStaffList(const Map* map)
     char* number; //!< parsed number
     bool input = false; //!< stop input and reload view ?
     bool leave = false; //!< stop this menu and go back ?
-    char* buff = (char*) malloc(
-            (strlen(translation_get(TRANSLATION_LIST_STAFF_INDEX)) + 3 * 3 +
-             (int) strlen(translation_get(TRANSLATION_PRESS_ARROW_CHANGE_PAGE)))
-            *
-            sizeof(char)
-    ); //!< buffer that show the number of the page we are on
-    //example "Laurence Bourard (id=8) (200 E 100 DD)";
-    int textLength = 100 /* max name size */ + 7 /* spaces */
-                     + 4 /* ( and ) */ + 11 /* id= E and DD and Owned: */
-                     + 3 * 5 /* 3 numbers, 5 chars max*/; //!< size of the teacher name buffer
-    char* teacherHeader = (char*) malloc(textLength * sizeof(char)); //!< teacher name header buffer
-
     //todo: unused
     (void) (map);
 
@@ -168,6 +156,7 @@ void interface_ncurses_showStaffList(const Map* map)
     cbreak();
     curs_set(FALSE);
     keypad(mapWindow, TRUE);
+    wclear(mapWindow);
 
     // we will print staffs
     // then wait.
@@ -179,11 +168,18 @@ void interface_ncurses_showStaffList(const Map* map)
         interface_ncurses_initListWindow(translation_get(TRANSLATE_STAFF_LIST_TITLE));
 
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
-        sprintf(buff, translation_get(TRANSLATION_LIST_STAFF_INDEX), start + 1,
-                start + (min(rowPerPage, rowPerPage)),
-                max);
-        strcat(buff, translation_get(TRANSLATION_PRESS_ARROW_CHANGE_PAGE));
-        mvwprintw(mapWindow, 2, 0, buff);
+        mvwaddstr(mapWindow, 2, 0, "Staff ");
+        number = utils_intToString(start + 1);
+        waddstr(mapWindow, number);
+        free(number);number = utils_intToString(start + (min(rowPerPage, rowPerPage)));
+        waddstr(mapWindow, " to ");
+        waddstr(mapWindow, number);
+        waddstr(mapWindow, " on ");
+        free(number);number = utils_intToString(max);
+        waddstr(mapWindow, number);
+        free(number);
+        waddstr(mapWindow, ".");
+        waddstr(mapWindow, translation_get(TRANSLATION_PRESS_ARROW_CHANGE_PAGE));
         wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
 
         for ( int i = 0, j = start; i < rowPerPage; i++, j++ ) {
@@ -237,10 +233,6 @@ void interface_ncurses_showStaffList(const Map* map)
         input = false;
     } while ( !leave );
 
-    // free
-    free(buff);
-    free(teacherHeader);
-
     // reset
     echo();
     nocbreak();
@@ -250,12 +242,8 @@ void interface_ncurses_showStaffList(const Map* map)
 
 void interface_ncurses_listActions()
 {
-    char* line; //!< a line that we will print
     char* actionName; //!< action name
-    char* mapping;
-    // we will print two columns
-    char* action1; //!< action_name: mapping -- action2
-    char* action2; //!< and action is another action_name: mapping
+    char* mapping; //!< action mapping
 
     //clear
     wclear(mapWindow);
