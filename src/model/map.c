@@ -60,3 +60,76 @@ int map_getnumberFISE( Map* m ){ return m->numberFISE; }
 int map_getnumberFISA( Map* m ){ return m->numberFISA; }
 int map_getnumberE( Map* m ) { return m->E; }
 int map_getnumberDD( Map* m ) { return m->DD; }
+
+ErrorCode map_setnumberResource( int x, int y, Map* m, int val ){
+    int res, tmp = 0;
+    if ( map_isCaseExist(x, y, m) == NO_ERROR ){
+        if ( (tmp = m->map[x][y].nbResource) + val >= 0 ){
+            tmp = tmp + val;
+            res = NO_ERROR;
+        }else{
+            res = ERROR_NEGATIVE_RESULT;
+        }
+    }else{
+    res = ERROR_CASE_NOT_FOUND;
+    }
+    return res;
+}
+
+ErrorCode map_setnumberGarbage( int x, int y, Map* m, int val ){
+    int res, tmp = 0;
+    if ( map_isCaseExist(x, y, m) == NO_ERROR ){
+        if ( (tmp = m->map[x][y].nbGarbage) + val >= 0 ){
+            tmp = tmp + val;
+            res = NO_ERROR;
+        }else{
+            res = ERROR_NEGATIVE_RESULT;
+        }
+    }else{
+        res = ERROR_CASE_NOT_FOUND;
+    }
+    return res;
+}
+ErrorCode map_setnumberFISE( Map* m, int val){
+    int res, tmp = 0;
+    if ( (tmp = m->numberFISE) + val >= 0 ){
+        tmp = tmp + val;
+        res = NO_ERROR;
+    }else{
+        res = ERROR_NEGATIVE_RESULT;
+    }
+    return res;
+}
+
+ErrorCode map_setnumberFISA( Map* m, int val ){
+    int res, tmp = 0;
+    if ( (tmp = m->numberFISA) + val >= 0 ){
+        tmp = tmp + val;
+        res = NO_ERROR;
+    }else{
+        res = ERROR_NEGATIVE_RESULT;
+    }
+    return res;
+}
+
+ErrorCode map_setnumberE( Map* m, int val ){
+    int res, tmp = 0;
+    if ( (tmp = m->E) + val >= 0 ){
+        tmp = tmp + val;
+        res = NO_ERROR;
+    }else{
+        res = ERROR_NEGATIVE_RESULT;
+    }
+    return res;
+}
+
+ErrorCode map_setnumberDD( Map* m, int val ){
+    int res, tmp = 0;
+    if ( (tmp = m->DD) + val >= 0 ){
+        tmp = tmp + val;
+        res = NO_ERROR;
+    }else{
+        res = ERROR_NEGATIVE_RESULT;
+    }
+    return res;
+}

@@ -25,16 +25,21 @@
      */
     typedef enum ErrorCode_S {
         NO_ERROR = 0,
-        ERROR_CASE_EMPTY = 1,
-        ERROR_CASE_MACHINE = 2,
-        ERROR_CASE_SOURCE = 3,
-        ERROR_CASE_GATE = 4,
-        ERROR_NOT_ENOUGH_E = 5,
-        ERROR_NOT_ENOUGH_DD = 6,
-        ERROR_CASE_NOT_FOUND = 7,
-        ERROR = 8,
+        ERROR = 1,
+
+        ERROR_CASE_EMPTY = 2,
+        ERROR_CASE_MACHINE = 21,
+        ERROR_CASE_SOURCE = 22,
+        ERROR_CASE_GATE = 23,
+        ERROR_CASE_NOT_FOUND = 24,
+
+        ERROR_NOT_ENOUGH_E = 3,
+        ERROR_NOT_ENOUGH_DD = 31,
+        ERROR_NEGATIVE_RESULT = 32,
+
         ERROR_INVALID_ACTION_SEQUENCE = 9,
         ERROR_INVALID_LOCATION_SEQUENCE = 91,
+
         ERROR_INIT_INTERFACE = 10,
         ERROR_INIT_NCURSES_INTERFACE = 11,
         ERROR_NO_NCURSES_COLORS_INTERFACE = 12,
