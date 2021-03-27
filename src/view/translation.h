@@ -38,6 +38,8 @@
         TRANSLATION_LIST_STAFF_INDEX,
         TRANSLATION_PRESS_ARROW_CHANGE_PAGE,
 
+        TRANSLATE_ACTION_LIST_TITLE,
+
         // actions
         TRANSLATE_INPUT_MACHINE_LOCATION,
         TRANSLATE_INPUT_STAFF,
@@ -57,5 +59,12 @@
      * @return translation
      */
     char* translation_getMachineType(MachineStuff s);
+
+    /**
+     * Returns action name by enum value
+     * @param action action id
+     * @return action as a string
+     */
+    char* actions_utils_fetchAction(Action action);
 
 #endif //PRIM_TRANSLATION_H

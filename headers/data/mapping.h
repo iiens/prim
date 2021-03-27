@@ -10,7 +10,7 @@
 #ifndef PRIM_MAPPING_H
 #define PRIM_MAPPING_H
 
-    #include "actions.h" // actions.h : enum of all actions
+    #include "actions_utils.h" // actions.h : enum of all actions
 
     /*!
      * \typedef UserActionMapping
@@ -23,6 +23,11 @@
         Action actionID; //!< actionID: int, see actions.h
         char* key; //!< a sentence to input to select this action
     } UserActionMapping; //!< one mapping so (action, input_sequence)
+
+    /**
+     * @see interface_chooseAction, count of available actions
+     */
+    #define USER_MAPPING_SIZE 14 //!< to iterates user_mapping
 
     // @see UserActionMapping, all mappings
     extern const UserActionMapping user_mapping[]; //!< will contains all mappings, used in interface.h

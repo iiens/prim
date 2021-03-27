@@ -22,14 +22,14 @@ int main( void ) {
 
     // While the user don't want to leave
     while ( !exit ) {
-        // Interface update
-        interface_reload(map);
-
         // Reset end turn
         endTurn = false;
 
         // While the user doesn't want the turn to end
         while ( !endTurn ) {
+            // Interface update
+            interface_reload(map);
+
             // Allows you to ask the player to choose an action
             act = interface_chooseAction();
 
@@ -156,7 +156,7 @@ bool main_handlingActions(Action act, Map* map, bool* exit) {
 
     // Reset the action verification variables
     back = false;
-    return true;
+    return false;
 }
 
 void main_buyMachineAction(Map* map) {

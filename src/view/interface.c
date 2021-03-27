@@ -119,9 +119,9 @@ Staff* interface_askBuyStaff(){
     return NULL;
 }
 
-//\////////////////////////////\//
+//\////////////////\//
 //\/ others
-//\////////////////////////////\//
+//\///////////////\//
 
 void interface_showError(ErrorCode e){
     if(useNCurses){

@@ -7,7 +7,7 @@
 /** Callback on init  */
 void* interface_ncurses_chooseActionClosureInit()
 {
-    if (lastMessage == NULL)
+    if ( lastMessage == NULL )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_ACTION));
     return NULL;
 }
@@ -15,8 +15,8 @@ void* interface_ncurses_chooseActionClosureInit()
 /** check submitted action **/
 void* interface_ncurses_chooseActionClosureCheck(char* buff, bool* leave, ErrorCode* error)
 {
-    for (int i = 0; i < USER_MAPPING_SIZE; ++i) {
-        if(strcmp(buff, user_mapping[i].key) == 0){ //same
+    for ( int i = 0; i < USER_MAPPING_SIZE; i++ ) {
+        if ( strcmp(buff, user_mapping[i].key) == 0 ) { //same
             *leave = true;
             // return acton
             Action* a = (Action*) malloc(sizeof(Action));

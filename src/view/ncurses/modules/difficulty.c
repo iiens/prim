@@ -24,7 +24,7 @@ Difficulty interface_ncurses_chooseDifficulty()
     max = max((int) strlen(translation_get(TRANSLATE_DIF_E)), (int) max);
 
     // write title, centered
-    mvaddstr(TITLE_LINE,COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2,TRANSLATE_CHOICE_DIFF);
+    mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2, TRANSLATE_CHOICE_DIFF);
 
     // fill difficulties
     difficulties = (char**) malloc(N_DIFFICULTIES * sizeof(char*));
@@ -34,45 +34,46 @@ Difficulty interface_ncurses_chooseDifficulty()
 
     // disabled
     disabled = (int*) malloc(N_DIFFICULTIES * sizeof(int));
-    for (int i = 0; i < N_DIFFICULTIES; ++i) disabled[i] = -1;
+    for ( int i = 0; i < N_DIFFICULTIES; ++i ) disabled[i] = -1;
 
     // init item
-    item = (char*)  malloc(max * sizeof(char));
+    item = (char*) malloc(max * sizeof(char));
 
     // show difficulties menu
-    format = (char*) malloc(10*sizeof(char));
-    sprintf(format, "%s%d%s",  "%-", max, "s");
-    for (int i = 0; i < N_DIFFICULTIES; i++) {
-        if( i == current ) attron( A_STANDOUT ); // highlight current
-        else attroff( A_STANDOUT );
+    format = (char*) malloc(10 * sizeof(char));
+    sprintf(format, "%s%d%s", "%-", max, "s");
+    for ( int i = 0; i < N_DIFFICULTIES; i++ ) {
+        if ( i == current ) attron(A_STANDOUT); // highlight current
+        else
+            attroff(A_STANDOUT);
         // put in buffer, same spacing for all
-        sprintf(item, format,  difficulties[i]);
+        sprintf(item, format, difficulties[i]);
         // put in the screen
         //todo: Calistro: getSizeByDifficulty instead of 10,20,30
-        if ( (LINES <= 10+ACTION_HEIGHT && i==0) ||
-             (LINES <= 20+ACTION_HEIGHT && i==1) ||
-             (LINES <= 30+ACTION_HEIGHT && i==2) ){
+        if ((LINES <= 10 + ACTION_HEIGHT && i == 0) ||
+            (LINES <= 20 + ACTION_HEIGHT && i == 1) ||
+            (LINES <= 30 + ACTION_HEIGHT && i == 2)) {
             disabled[i] = i;
-            mvprintw(i+1+CONTENT_LINE_START, 2, "%s", item);
+            mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
             attron(COLOR_PAIR(ERROR_COLOR));
-            mvprintw(i+1+CONTENT_LINE_START,2+max+2, " %s", TRANSLATE_SCREEN_TOO_SMALL);
+            mvprintw(i + 1 + CONTENT_LINE_START, 2 + max + 2, " %s", TRANSLATE_SCREEN_TOO_SMALL);
             attroff(COLOR_PAIR(ERROR_COLOR));
         } else {
-            mvprintw(i+1+CONTENT_LINE_START, 2, "%s", item );
+            mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
         }
     }
     refresh(); //refresh view
 
     // set everything to process input
     noecho(); // no echo of characters
-    keypad(stdscr , TRUE); // already enable here, but just in case
+    keypad(stdscr, TRUE); // already enable here, but just in case
     cbreak(); // disabled, we activate it to process char as they are typed
     curs_set(FALSE); // hide cursor
 
     // get the input
-    while(true){
+    while ( true ) {
         ch = getch();
-        if(ch == 'q'){
+        if ( ch == 'q' ) {
             // we leave
             interface_ncurses_close();
             exit(0); // todo: this ends program on q
@@ -80,13 +81,13 @@ Difficulty interface_ncurses_chooseDifficulty()
         // un-highlight current
         attron(A_NORMAL);
         // put in buffer, same spacing for all
-        sprintf(item, format,  difficulties[current]);
+        sprintf(item, format, difficulties[current]);
         // put in the screen
-        mvprintw(current+1+CONTENT_LINE_START, 2, "%s", item );
+        mvprintw(current + 1 + CONTENT_LINE_START, 2, "%s", item);
         attroff(A_NORMAL);
 
         // change current
-        switch(ch) { // NOLINT(hicpp-multiway-paths-covered)
+        switch ( ch ) { // NOLINT(hicpp-multiway-paths-covered)
             case KEY_UP: //arrow up
                 current--;
                 current = max(current, 0);
@@ -100,23 +101,23 @@ Difficulty interface_ncurses_chooseDifficulty()
             case 10: // enter on my keyboard :(
                 leave = true;
                 // is_disabled ? if yes we don't leave
-                for (int i = 0; i < N_DIFFICULTIES; i++) {
-                    if(disabled[i] == current){
+                for ( int i = 0; i < N_DIFFICULTIES; i++ ) {
+                    if ( disabled[i] == current ) {
                         leave = false;
                     }
                 }
                 break;
         }
 
-        if(leave) break;
+        if ( leave ) break;
 
         // highlight current
-        attron( A_STANDOUT );
+        attron(A_STANDOUT);
         // put in buffer, same spacing for all
-        sprintf(item, format,  difficulties[current]);
+        sprintf(item, format, difficulties[current]);
         // put in the screen
-        mvprintw(current+1+CONTENT_LINE_START, 2, "%s", item );
-        attroff( A_STANDOUT );
+        mvprintw(current + 1 + CONTENT_LINE_START, 2, "%s", item);
+        attroff(A_STANDOUT);
     }
 
     // reset everything
@@ -130,10 +131,14 @@ Difficulty interface_ncurses_chooseDifficulty()
     free(item);
     free(format);
 
-    switch (current) {
-        case 0: return DIFFICULTY_EASY;
-        case 1: return DIFFICULTY_MEDIUM;
-        case 2: return DIFFICULTY_HARD;
-        default: return DIFFICULTY_EASY;
+    switch ( current ) {
+        case 0:
+            return DIFFICULTY_EASY;
+        case 1:
+            return DIFFICULTY_MEDIUM;
+        case 2:
+            return DIFFICULTY_HARD;
+        default:
+            return DIFFICULTY_EASY;
     }
 }

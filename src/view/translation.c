@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "../../headers/interface.h"
 #include "translation.h"
 
@@ -108,6 +107,8 @@ char* translation_get(Translation t)
             return "Input staff ID. You can fetch them using `ls` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ACTION:
             return "Use `help` to get the list of available actions.";
+        case TRANSLATE_ACTION_LIST_TITLE:
+            return "List of all actions";
         default:
             return "";
     }
@@ -129,4 +130,41 @@ char* translation_getMachineType(MachineStuff s)
         default:
             return "Unknown machine";
     }
+}
+
+char* actions_utils_fetchAction(Action action)
+{
+    switch ( action ) {
+        case ACTION_SHOW_MAP:
+            return "Show map";
+        case ACTION_CANCEL_ACTION:
+            return "Cancel action";
+        case ACTION_EXIT:
+            return "Exit";
+        case ACTION_LIST_ACTIONS:
+            return "List actions";
+        case ACTION_END_TURN:
+            return "End turn";
+        case ACTION_HIRE_FISE:
+            return "Hire FISE";
+        case ACTION_HIRE_FISA:
+            return "Hire FISA";
+        case ACTION_CHANGE_FISA_MODE:
+            return "Change FISA mode";
+        case ACTION_LIST_MACHINES:
+            return "List Machines";
+        case ACTION_BUY_MACHINE:
+            return "Buy machine";
+        case ACTION_BUY_STAFF:
+            return "Hire Staff";
+        case ACTION_ASK_STAFF_LIST:
+            return "List Staffs";
+        case ACTION_UPGRADE_MACHINE:
+            return "Upgrade machine";
+        case ACTION_DESTROY_MACHINE:
+            return "Destroy machine";
+        default:
+            return "Unknow command";
+    }
+    return "Invalid action";
 }

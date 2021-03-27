@@ -10,7 +10,7 @@
 /** Callback on init  */
 void* interface_ncurses_askMachineLocationClosureInit()
 {
-    if (lastMessage == NULL)
+    if ( lastMessage == NULL)
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_MACHINE_LOCATION));
     return NULL;
 }
@@ -19,7 +19,7 @@ void* interface_ncurses_askMachineLocationClosureInit()
 void* interface_ncurses_askMachineLocationClosureCheck(char* buff, bool* leave, ErrorCode* error)
 {
     // he wants to go back
-    if(strcmp(buff, BACK_MAPPING) == 0){
+    if ( strcmp(buff, BACK_MAPPING) == 0 ) {
         back = true;
         *leave = TRUE;
         return NULL;
@@ -34,30 +34,30 @@ void* interface_ncurses_askMachineLocationClosureCheck(char* buff, bool* leave, 
         int v1; //!< first value
         int v2; //!< second value
 
-        if(length < 10) { // not some weird long number
+        if ( length < 10 ) { // not some weird long number
             // creates buffers
-            n1 = (char*) malloc(MAX_NUMBER_LENGTH*sizeof(char));
-            n2 = (char*) malloc(MAX_NUMBER_LENGTH*sizeof(char));
+            n1 = (char*) malloc(MAX_NUMBER_LENGTH * sizeof(char));
+            n2 = (char*) malloc(MAX_NUMBER_LENGTH * sizeof(char));
 
             // first number
-            for ( i = 0; i < length && buff[i] != ',' ; i++,j++ ) {
+            for ( i = 0; i < length && buff[i] != ','; i++, j++ ) {
                 n1[j] = buff[i];
             }
             // second number
             i++;
-            for (j=0; i < length; i++, j++) {
+            for ( j = 0; i < length; i++, j++ ) {
                 n2[j] = buff[i];
             }
 
             // convert and return
-            if ( j != 0 ){ // n2 not empty
+            if ( j != 0 ) { // n2 not empty
                 // fetch v1
                 v1 = (int) strtol(n1, &endPtr, 10);
 
-                if(endPtr != NULL){
+                if ( endPtr != NULL ) {
                     v2 = (int) strtol(n2, &endPtr, 10);
 
-                    if(endPtr != NULL){
+                    if ( endPtr != NULL ) {
                         Vector2D* v = (Vector2D*) malloc(sizeof(Vector2D));
                         v->x = v1;
                         v->y = v2;
