@@ -55,6 +55,7 @@ void interface_ncurses_hideError()
     }
     // refresh
     wrefresh(actionWindow);
+    lastMessage = NULL;
 }
 
 char* interface_ncurses_gameTag(char* text, int value, char* buf, char* format)
@@ -133,3 +134,54 @@ void interface_ncurses_initListWindow(char* title)
     free(res);
 }
 
+void* interface_ncurses_showInActionField(Closure init, Closure check){
+    bool leave = false; //!< do we need to leave ?
+    void* result = NULL; //!< function result
+    ErrorCode error = ERROR_INVALID_ACTION_SEQUENCE; //!< error code
+    if(init != NULL) init(NULL, NULL, NULL);
+    do {
+        char buf[ACTION_BUF_SIZE] = "";
+        int read;
+        int cursor = 0; //read <-> buf cursor
+
+        // move at bottom left
+        attron(A_BOLD); // bold
+        mvwprintw(actionWindow, 1, 1, translation_get(TRANSLATE_ACTION_LABEL));
+        move(MIN_ROW_SAVED - 1, strlen(translation_get(TRANSLATE_ACTION_LABEL)) + 1);
+        attroff(A_BOLD);
+        wrefresh(gameWindow);
+        wrefresh(actionWindow);
+
+        do {
+            // read char by char
+            read = getch();
+            if(read != '\n'){
+                buf[cursor] = (char) read;
+            }
+            cursor++;
+            if(cursor == ACTION_BUF_SIZE-1) { // same as enter
+                break;
+            }
+        } while (read != '\n');
+        // end str
+        buf[cursor] = '\0';
+
+        result = check(buf, &leave, &error);
+        if(leave){ // leave set as true ?
+            // clean inputted actionWindow
+            interface_ncurses_clearAction(buf);
+            interface_ncurses_hideError();
+            // return result
+            return result;
+        }
+
+        // clean inputted actionWindow
+        interface_ncurses_clearAction(buf);
+
+        // show error in red
+        interface_showError(error);
+
+        wrefresh(actionWindow);
+        // and do again
+    } while (true);
+}

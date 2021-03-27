@@ -24,6 +24,7 @@ OUTPUT=./obj/
 OUTPUT_V=$(OUTPUT)view/
 OUTPUT_M=$(OUTPUT)model/
 OUTPUT_V_N=$(OUTPUT_V)ncurses/
+OUTPUT_V_N_M=$(OUTPUT_V_N)modules/
 # src
 SOURCE=./src/
 SOURCE_H=./headers/
@@ -32,10 +33,15 @@ SOURCE_H_U=$(SOURCE_H)utils/
 SOURCE_V=$(SOURCE)view/
 SOURCE_M=$(SOURCE)model/
 SOURCE_V_N=$(SOURCE_V)ncurses/
+# ncurses module
+SOURCE_V_N_M=$(SOURCE_V_N)modules/
+MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT_V_N_M)location.o $(OUTPUT_V_N_M)show.o \
+	$(OUTPUT_V_N_M)staff.o
+
 # files (without .o)
 O_FILES= $(OUTPUT)main.o $(OUTPUT_V)interface.o $(OUTPUT_V_N)interface_ncurses.o \
 	$(OUTPUT_V_N)interface_ncurses_utils.o $(OUTPUT_M)map.o \
-	$(OUTPUT_V)translation.o
+	$(OUTPUT_V)translation.o $(MODULES)
 
 INTERFACE_DEP=headers/map.h \
 	$(SOURCE_H_D)difficulty.h $(SOURCE_H_D)actions.h \
@@ -70,8 +76,25 @@ $(OUTPUT_V_N)interface_ncurses.o: $(SOURCE_V_N)interface_ncurses.c $(SOURCE_V_N)
  		$(OUTPUT_V_N)interface_ncurses_utils.o
 	mkdir -p $(OUTPUT_V_N) && $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N)interface_ncurses.o $(SOURCE_V_N)interface_ncurses.c
 
+# ncurses utils
 $(OUTPUT_V_N)interface_ncurses_utils.o: $(SOURCE_V_N)interface_ncurses_utils.c $(SOURCE_V_N)interface_ncurses_utils.h
 	mkdir -p $(OUTPUT_V_N) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N)interface_ncurses_utils.o $(SOURCE_V_N)interface_ncurses_utils.c
+
+# ncurses modules
+$(OUTPUT_V_N_M)action.o: $(SOURCE_V_N_M)action.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)action.o $(SOURCE_V_N_M)action.c
+
+$(OUTPUT_V_N_M)difficulty.o: $(SOURCE_V_N_M)difficulty.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)difficulty.o $(SOURCE_V_N_M)difficulty.c
+
+$(OUTPUT_V_N_M)location.o: $(SOURCE_V_N_M)location.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)location.o $(SOURCE_V_N_M)location.c
+
+$(OUTPUT_V_N_M)show.o: $(SOURCE_V_N_M)show.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)show.o $(SOURCE_V_N_M)show.c
+
+$(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)staff.o $(SOURCE_V_N_M)staff.c
 
 # translation.o
 # - translation.c and .h

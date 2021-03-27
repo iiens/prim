@@ -9,13 +9,19 @@
     /*!
      * This array length is predetermined by {@link USER_MAPPING_SIZE}
      * constant in interface.h.
+     *
+     * BEWARE ! Theses values cannot be changed easily, for now, since
+     * they are used in the translation. Also, since it's hard (for now) to get
+     * the key for ACTION_CANCEL_ACTION, there is a constant in some file that
+     * need to be changed if this value is changed (but since this value mustn't change
+     * for now, it's useless to know witch file).
      */
     const UserActionMapping user_mapping[] = {
         // actions related to the game in general
         {ACTION_SHOW_MAP,         "s"}, //!< show map with s
         {ACTION_END_TURN,         "n"}, //!< end turn with n
         {ACTION_CANCEL_ACTION,    "b"}, //!< cancel action with b
-        {ACTION_LIST_ACTIONS,     "help"}, //!< list actions with la
+        {ACTION_LIST_ACTIONS,     "help"}, //!< list actions with help
         {ACTION_EXIT,             "q"}, //!< exit with q
 
         // hire

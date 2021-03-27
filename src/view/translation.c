@@ -1,18 +1,52 @@
+#include <stdio.h>
 #include "../../headers/interface.h"
 #include "translation.h"
 
 char* error_getMessage( ErrorCode e )
 {
-    switch (e) { //todo: fill this with error messages. and use translation.h
+    switch (e) {
+        case NO_ERROR:
+            break;
+        case ERROR:
+            return "Some error occurred";
+        case ERROR_CASE_MACHINE:
+            return "case is a machine"; //todo: what ?
+        case ERROR_CASE_SOURCE:
+            return "case is a source"; //todo: what ?
+        case ERROR_CASE_GATE:
+            return "case is a gate"; //todo: what ?
+        case ERROR_CASE_NOT_FOUND:
+            return "Case not found";
+        case ERROR_NOT_ENOUGH_E:
+            return "Not enough E.";
+        case ERROR_NOT_ENOUGH_DD:
+            return "Not enough DD.";
+        case ERROR_NEGATIVE_RESULT:
+            return "Result is negative"; //todo: what ?
+        case ERROR_INIT_INTERFACE:
+            return "Cannon init interface";
+        case ERROR_INIT_NCURSES_INTERFACE:
+            return "Cannon init interface, ncurses not supported";
+        case ERROR_NO_NCURSES_COLORS_INTERFACE:
+            return "Colors aren't supported in this terminal";
+        case ERROR_CLOSE_INTERFACE:
+            return "Unable to close interface";
         case ERROR_INVALID_ACTION_SEQUENCE:
             return "Wrong actionWindow sequence!";
         case ERROR_INVALID_LOCATION_SEQUENCE:
             return "Coordinates format is \"x,y\"";
-        case ERROR_CASE_EMPTY:
-            return "Cannot destroy machine, nothing here. Please try again.";
+        case ERROR_CASE_EMPTY: //todo: empty for destroy, ... ?
+            return "No machine here. Please try again.";
+        case ERROR_INVALID_STAFF_NUMBER:
+            return "Invalid staff ID.";
+        case ERROR_INVALID_MACHINE_NUMBER:
+            return "Invalid machine ID.";
+        case ERROR_INIT_NCURSES_INTERFACE_SIZE:
+            return "Cannot init interface, screen too small.";
         default:
             return "An unknown error occurred.";
     }
+    return "Error. Please report it to the developers.";
 }
 
 char* translation_get(Translation t)
@@ -70,6 +104,10 @@ char* translation_get(Translation t)
             return " Press <- or -> to move to the previous/next page.";
         case TRANSLATE_INPUT_MACHINE_LOCATION:
             return "Submit machine location. Format is \"x,y\" (without \")";
+        case TRANSLATE_INPUT_STAFF:
+            return "Input staff ID. You can fetch them using `ls` action. Press `b` to go back.";
+        case TRANSLATE_INPUT_ACTION:
+            return "Use `help` to get the list of available actions.";
         default:
             return "";
     }

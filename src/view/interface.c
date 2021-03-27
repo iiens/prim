@@ -50,23 +50,29 @@ ErrorCode interface_close() {
 void interface_showMap(const Map* map){
     if(useNCurses){
         interface_ncurses_showMap(map);
+        return;
     }
 }
 
 void interface_showStaffList(const Map* map){
     if(useNCurses){
         interface_ncurses_showStaffList(map);
+        return;
     }
 }
 
 void interface_showMachinesList(){
     if(useNCurses){
         interface_ncurses_showMachinesList();
+        return;
     }
 }
 
 void interface_listActions(){
-    //todo:
+    if(useNCurses){
+        interface_ncurses_listActions();
+        return;
+    }
 }
 
 //\////////////////////////////\//
@@ -90,7 +96,9 @@ Difficulty interface_chooseDifficulty(){
 }
 
 Machine* interface_askAddMachine(){
-    //todo:
+    if(useNCurses){
+        return interface_ncurses_askAddMachine();
+    }
     back = true; // go back
     return NULL;
 }
@@ -104,7 +112,9 @@ Vector2D* interface_askMachineLocation(){
 }
 
 Staff* interface_askBuyStaff(){
-    //todo:
+    if(useNCurses){
+        return interface_ncurses_askBuyStaff();
+    }
     back = true;
     return NULL;
 }
@@ -116,5 +126,6 @@ Staff* interface_askBuyStaff(){
 void interface_showError(ErrorCode e){
     if(useNCurses){
         interface_ncurses_showError(e);
+        return;
     }
 }

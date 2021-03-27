@@ -26,10 +26,10 @@ ErrorCode map_hireFISA(Map* map){ return NO_ERROR; }
 ErrorCode map_changeProductionFISA(Map* map){ return NO_ERROR; }
 ErrorCode map_endTurn(Map* map){ map->turn++;return NO_ERROR; }
 ErrorCode map_isEmpty(int x, int y, Map* map){ return NO_ERROR; }
-ErrorCode map_addMachine(const Machine machine, const int x, const int y, Map* m){ return ERROR;}
-ErrorCode map_upgradeMachine(const int x, const int y, Map* m){ return NO_ERROR;}
-ErrorCode map_destroyMachine(const int x, const int y, Map* m){ return ERROR_CASE_EMPTY;}
-ErrorCode map_buyStaff(Staff s, Map* m){ return NO_ERROR;}
+ErrorCode map_addMachine(Machine machine, int x, int y, Map* m){ return ERROR;}
+ErrorCode map_upgradeMachine(int x, int y, Map* m){ return NO_ERROR;}
+ErrorCode map_destroyMachine(int x, int y, Map* m){ return ERROR_CASE_EMPTY;}
+ErrorCode map_buyStaff(Staff s, Map* m){ return ERROR_NOT_ENOUGH_E;}
 
 ErrorCode map_isCaseExist( int x, int y, Map* m ){
     if ( x >= 0 && x < m->width ){

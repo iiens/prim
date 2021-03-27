@@ -21,11 +21,17 @@
 
     #define ERROR_LINE 0 //!< error line in action window
 
+    #define BACK_MAPPING "b" //!< back value used everywhere
+
     WINDOW* gameWindow; //!< score, turn, ... information window
     WINDOW* mapWindow; //!< game map window
     WINDOW* actionWindow; //!< input action window
 
-    extern Map* lastMap; //!< last saved map, just in case
+    extern int MIN_ROW_SAVED; //!< number of row saved
+    extern int MIN_COL_SAVED; //!< number of cols saved
+    extern char* lastMessage;
+
+    typedef void* (*Closure)(char* buff, bool* leave, ErrorCode* error); //!< closure function
 
     // utilities functions
     /*!
@@ -90,5 +96,14 @@
      * @param message
      */
     void interface_ncurses_showMessage(char* message);
+
+    /**
+     * Take an init and a check function.
+     * Ask for input until check is done.
+     * @param init null or a closure that init the view, called after setting things up
+     * @param check function that checks whether input is valid (then return) or not (ask again)
+     * @return the result of the check function, if the check is successful
+     */
+    void* interface_ncurses_showInActionField(Closure init, Closure check);
 
 #endif //PRIM_INTERFACE_NCURSES_UTILS_H
