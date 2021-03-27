@@ -301,7 +301,7 @@
     //\////////////////////////////\//
 
     /*!
-    * \fn int map_getnumberResource( int x, int y, Map* m )
+    * \fn int map_getNumberResource( int x, int y, Map* m )
     * @brief a function to get the number of resources
     * @param[in] x case abscissa
     * @param[in] y case ordinate
@@ -312,10 +312,10 @@
     *
     * @return the number of resources available on the case
     */
-    int map_getnumberResource( int x, int y, Map* m );
+    int map_getNumberResource( int x, int y, Map* m );
 
     /*!
-    * \fn int map_getnumberGarbage( int x, int y, Map* m )
+    * \fn int map_getNumberGarbage( int x, int y, Map* m )
     * @brief a function to get the number of garbage
     * @param[in] x case abscissa
     * @param[in] y case ordinate
@@ -326,10 +326,10 @@
     *
     * @return the number of garbage available on the case
     */
-    int map_getnumberGarbage( int x, int y, Map* m );
+    int map_getNumberGarbage( int x, int y, Map* m );
 
     /*!
-    * \fn int map_getnumberFISE( Map* m )
+    * \fn int map_getNumberFISE( Map* m )
     * @brief a function to get the number of FISE
     * @param[in] map a map
     *
@@ -337,10 +337,10 @@
     *
     * @return the number of FISE available
     */
-    int map_getnumberFISE( Map* m );
+    int map_getNumberFISE( Map* m );
 
     /*!
-    * \fn int map_getnumberFISA( Map* m )
+    * \fn int map_getNumberFISA( Map* m )
     * @brief a function to get the number of FISA
     * @param[in] map a map
     *
@@ -348,10 +348,10 @@
     *
     * @return the number of FISA available
     */
-    int map_getnumberFISA( Map* m );
+    int map_getNumberFISA( Map* m );
 
     /*!
-    * \fn int map_getnumberE( Map* m )
+    * \fn int map_getNumberE( Map* m )
     * @brief a function to get the number of E
     * @param[in] map a map
     *
@@ -359,10 +359,10 @@
     *
     * @return the number of E available
     */
-    int map_getnumberE( Map* m );
+    int map_getNumberE( Map* m );
 
     /*!
-    * \fn int map_getnumberE( Map* m )
+    * \fn int map_getNumberDD( Map* m )
     * @brief a function to get the number of DD
     * @param[in] map a map
     *
@@ -370,82 +370,82 @@
     *
     * @return the number of DD available
     */
-    int map_getnumberDD( Map* m );
+    int map_getNumberDD( Map* m );
 
     /*!
-    * \fn ErrorCode map_setnumberResource( int x, int y, Map* m, int val )
+    * \fn ErrorCode map_setNumberResource( int x, int y, Map* m, int val )
     * @brief a function to set the number of resources
     * @param[in] x case abscissa
     * @param[in] y case ordinate
     * @param[in] map a map
-    * @param[in] val a resource value
+    * @param[in] val a resource value to add/to substract
     *
     * This function set the number of resources on a specific case.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setnumberResource( int x, int y, Map* m, int val );
+    ErrorCode map_setNumberResource( int x, int y, Map* m, int val );
 
     /*!
-    * \fn ErrorCode map_setnumberGarbage( int x, int y, Map* m, int val )
+    * \fn ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val )
     * @brief a function to set the number of garbage
     * @param[in] x case abscissa
     * @param[in] y case ordinate
     * @param[in] map a map
-    * @param[in] val a resource value
+    * @param[in] val a resource value to add/to substract
     *
     * This function set the number of garbage on a specific case.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setnumberGarbage( int x, int y, Map* m, int val );
+    ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val );
 
     /*!
-    * \fn ErrorCode map_setnumberFISE( Map* m, int val)
+    * \fn ErrorCode map_setNumberFISE( Map* m, int val)
     * @brief a function to set the number of FISE
     * @param[in] map a map
-    * @param[in] val number of FISE
+    * @param[in] val number of FISE to add/to substract
     *
     * This function set the number of FISE recruited by the player.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setnumberFISE( Map* m, int val);
+    ErrorCode map_setNumberFISE( Map* m, int val);
 
     /*!
-    * \fn ErrorCode map_setnumberFISA( Map* m, int val )
+    * \fn ErrorCode map_setNumberFISA( Map* m, int val )
     * @brief a function to set the number of FISA
     * @param[in] map a map
-    * @param[in] val number of FISA
+    * @param[in] val number of FISA to add/to substract
     *
     * This function set the number of FISA recruited by the player.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setnumberFISA( Map* m, int val );
+    ErrorCode map_setNumberFISA( Map* m, int val );
 
     /*!
-    * \fn ErrorCode map_setnumberE( Map* m, int val )
+    * \fn ErrorCode map_setNumberE( Map* m, int val )
     * @brief a function to set the number of E
     * @param[in] map a map
-    * @param[in] val E value
+    * @param[in] val E value to add/to substract
     *
     * This function set the number of E posseded by the player.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setnumberE( Map* m, int val );
+    ErrorCode map_setNumberE( Map* m, int val );
 
     /*!
-    * \fn ErrorCode map_setnumberDD( Map* m, int val )
+    * \fn ErrorCode map_setNumberDD( Map* m, int val )
     * @brief a function to set the number of DD
     * @param[in] map a map
-    * @param[in] val DD value
+    * @param[in] val DD value to add/to substract
     *
     * This function set the number of DD posseded by the player.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setnumberDD( Map* m, int val );
+    ErrorCode map_setNumberDD( Map* m, int val );
 
 #endif //PRIM_MAP_H

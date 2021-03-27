@@ -21,8 +21,8 @@ Map* map_create(Difficulty dif){
 }
 
 ErrorCode map_destroy(Map* map){ free(map); return NO_ERROR; }
-ErrorCode map_hireFISE(const Map* map){ return NO_ERROR; }
-ErrorCode map_hireFISA(const Map* map){ return NO_ERROR; }
+ErrorCode map_hireFISE( Map* map){ return NO_ERROR; }
+ErrorCode map_hireFISA( Map* map){ return NO_ERROR; }
 ErrorCode map_changeProductionFISA(){ return NO_ERROR; }
 ErrorCode map_endTurn(Map* map){ map->turn++;return NO_ERROR; }
 ErrorCode map_isEmpty(int x, int y, Map* map){ return NO_ERROR; }
@@ -40,7 +40,7 @@ ErrorCode map_isCaseExist( int x, int y, Map* m ){
     return ERROR_CASE_NOT_FOUND;
 }
 
-int map_getnumberResource( int x, int y, Map* m ){
+int map_getNumberResource( int x, int y, Map* m ){
     int res = -1;
     if ( map_isCaseExist(x, y, m) == NO_ERROR ){
         res = m->map[x][y].nbResource;
@@ -48,7 +48,7 @@ int map_getnumberResource( int x, int y, Map* m ){
     return res;
 }
 
-int map_getnumberGarbage( int x, int y, Map* m ){
+int map_getNumberGarbage( int x, int y, Map* m ){
     int res = -1;
     if ( map_isCaseExist(x, y, m) == NO_ERROR ){
         res = m->map[x][y].nbGarbage;
@@ -56,12 +56,12 @@ int map_getnumberGarbage( int x, int y, Map* m ){
     return res;
 }
 
-int map_getnumberFISE( Map* m ){ return m->numberFISE; }
-int map_getnumberFISA( Map* m ){ return m->numberFISA; }
-int map_getnumberE( Map* m ) { return m->E; }
-int map_getnumberDD( Map* m ) { return m->DD; }
+int map_getNumberFISE( Map* m ){ return m->numberFISE; }
+int map_getNumberFISA( Map* m ){ return m->numberFISA; }
+int map_getNumberE( Map* m ) { return m->E; }
+int map_getNumberDD( Map* m ) { return m->DD; }
 
-ErrorCode map_setnumberResource( int x, int y, Map* m, int val ){
+ErrorCode map_setNumberResource( int x, int y, Map* m, int val ){
     int res, tmp = 0;
     if ( map_isCaseExist(x, y, m) == NO_ERROR ){
         if ( (tmp = m->map[x][y].nbResource) + val >= 0 ){
@@ -76,7 +76,7 @@ ErrorCode map_setnumberResource( int x, int y, Map* m, int val ){
     return res;
 }
 
-ErrorCode map_setnumberGarbage( int x, int y, Map* m, int val ){
+ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val ){
     int res, tmp = 0;
     if ( map_isCaseExist(x, y, m) == NO_ERROR ){
         if ( (tmp = m->map[x][y].nbGarbage) + val >= 0 ){
@@ -90,7 +90,7 @@ ErrorCode map_setnumberGarbage( int x, int y, Map* m, int val ){
     }
     return res;
 }
-ErrorCode map_setnumberFISE( Map* m, int val){
+ErrorCode map_setNumberFISE( Map* m, int val){
     int res, tmp = 0;
     if ( (tmp = m->numberFISE) + val >= 0 ){
         tmp = tmp + val;
@@ -101,7 +101,7 @@ ErrorCode map_setnumberFISE( Map* m, int val){
     return res;
 }
 
-ErrorCode map_setnumberFISA( Map* m, int val ){
+ErrorCode map_setNumberFISA( Map* m, int val ){
     int res, tmp = 0;
     if ( (tmp = m->numberFISA) + val >= 0 ){
         tmp = tmp + val;
@@ -112,7 +112,7 @@ ErrorCode map_setnumberFISA( Map* m, int val ){
     return res;
 }
 
-ErrorCode map_setnumberE( Map* m, int val ){
+ErrorCode map_setNumberE( Map* m, int val ){
     int res, tmp = 0;
     if ( (tmp = m->E) + val >= 0 ){
         tmp = tmp + val;
@@ -123,7 +123,7 @@ ErrorCode map_setnumberE( Map* m, int val ){
     return res;
 }
 
-ErrorCode map_setnumberDD( Map* m, int val ){
+ErrorCode map_setNumberDD( Map* m, int val ){
     int res, tmp = 0;
     if ( (tmp = m->DD) + val >= 0 ){
         tmp = tmp + val;
