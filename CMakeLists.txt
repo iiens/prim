@@ -31,8 +31,8 @@ ENDIF(CUNIT_FOUND)
 ###########
 
 # add_executable(prim run_suite_tests.c __old/tests/suite1.h __old/tests/suite1.c __old/tests/tests_utils.c __old/tests/tests_utils.h)
-# add_executable(prim run_suite_tests.c tests/suite1.h tests/suite1.c tests/tests_utils.c tests/tests_utils.h)
-# target_link_libraries(prim cunit ${CUNIT_LIBRARIES})
+add_executable(AllTests tests/AllTests.c tests/testMap.h tests/testMap.c tests/listesTest.h)
+target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
 add_executable(main
         src/main.c
