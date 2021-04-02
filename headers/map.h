@@ -238,7 +238,7 @@
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_addMachine( Machine machine, int x, int y, Map* m );
+    ErrorCode map_addMachine( Machine* machine, int x, int y, Map* m );
 
     /*!
      * \fn ErrorCode map_upgradeMachine(const int x,const int y, Map* m)

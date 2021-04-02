@@ -1,14 +1,16 @@
+#include <time.h>
 #include "../../headers/map.h"
 #include "../../headers/utils/map_utils.h"
 
-//todo: default implementation
-//todo créer la grille Case source et gate
-//todo créer le staff
+#include <stdio.h>
+#include <stdlib.h>
+
 Map* map_create(Difficulty dif){
+    // Initialisation map
     Map* m = (Map*) malloc(sizeof(Map));
-    m->width = map_utils_getSizeByDifficulty(dif);
-    m->height = map_utils_getSizeByDifficulty(dif);
-    m->difficulty = dif;
+    int source_x, source_y, gate_x, gate_y;
+
+    // Initializing the basic values of the game
     m->turn = 1;
     m->productionFISA = E_VALUE;
     m->E = 100;
@@ -17,18 +19,142 @@ Map* map_create(Difficulty dif){
     m->pollution = 0;
     m->numberFISA = 5;
     m->numberFISE = 5;
+    m->numberStaff = 0;
+    m->team = NULL;
+
+    // Initialization of the map according to the difficulty
+    m->width = map_utils_getSizeByDifficulty(dif);
+    m->height = map_utils_getSizeByDifficulty(dif);
+    m->difficulty = dif;
+
+    // Create grid
+    m->map = (Case**)malloc(m->width*sizeof(Case*));
+    for (int i = 0; i < m->width; i++) {
+        // Creation of each Case
+        m->map[i] = (Case*)malloc(m->height*sizeof(Case));
+
+        // Initialization of boxes
+        for (int j = 0; j < m->height; ++j) {
+            m->map[i][j].x = i;
+            m->map[i][j].y = j;
+            m->map[i][j].nbGarbage = 0;
+            m->map[i][j].nbResource = 0;
+            m->map[i][j].type = CASE_VIDE;
+            m->map[i][j].in.other = NULL;
+        }
+    }
+
+    srand( time( NULL ) );
+    // Random gate placement
+    gate_x = rand() % m->width;
+    gate_y = rand() % m->height;
+    m->map[gate_x][gate_y].type = CASE_GATE;
+
+    // Random placement of the 2 sources
+    for (int i = 0; i < 2; i++){
+        do {
+            source_x = rand() % m->width;
+            source_y = rand() % m->height;
+        } while (m->map[source_x][source_y].type != CASE_VIDE);
+
+        m->map[source_x][source_y].type = CASE_SOURCE;
+    }
+
     return m;
 }
 
-ErrorCode map_destroy(Map* map){ free(map); return NO_ERROR; }
-ErrorCode map_hireFISE(Map* map){ return NO_ERROR; }
-ErrorCode map_hireFISA(Map* map){ return NO_ERROR; }
-ErrorCode map_changeProductionFISA(Map* map){ return NO_ERROR; }
-ErrorCode map_endTurn(Map* map){ map->turn++;return NO_ERROR; }
-ErrorCode map_isEmpty(const int x, const int y, const Map* map){ return NO_ERROR; }
-ErrorCode map_addMachine(Machine machine, int x, int y, Map* m){ return ERROR;}
-ErrorCode map_upgradeMachine(int x, int y, Map* m){ return NO_ERROR;}
+ErrorCode map_destroy(Map* m){
+    free(m->team);
+
+    for (int i = 0; i < m->width; i++) {
+        free(m->map[i]);
+    }
+    free(m->map);
+
+    free(m);
+    return NO_ERROR;
+}
+
+ErrorCode map_hireFISE(Map* m){
+    if (m->E >= 50) {
+        if (m->DD >= 20) {
+            m->E = m->E - 50;
+            m->DD = m->DD - 20;
+
+            m->numberFISE++;
+        } else {
+            return ERROR_NOT_ENOUGH_DD;
+        }
+    } else {
+        return ERROR_NOT_ENOUGH_E;
+    }
+
+    return NO_ERROR;
+}
+
+ErrorCode map_hireFISA(Map* m){
+    if (m->E >= 50) {
+        if (m->DD >= 20) {
+            m->E = m->E - 50;
+            m->DD = m->DD - 20;
+
+            m->numberFISA++;
+        } else {
+            return ERROR_NOT_ENOUGH_DD;
+        }
+    } else {
+        return ERROR_NOT_ENOUGH_E;
+    }
+
+    return NO_ERROR;
+}
+
+ErrorCode map_changeProductionFISA(Map* m){
+    if (m->productionFISA == E_VALUE) {
+        m->productionFISA = DD_VALUE;
+    } else {
+        m->productionFISA = E_VALUE;
+    }
+
+    return NO_ERROR;
+}
+
+ErrorCode map_endTurn(Map* m){ m->turn++;return NO_ERROR; }
+
+ErrorCode map_isEmpty(const int x, const int y, const Map* m){return NO_ERROR;}
+
+ErrorCode map_addMachine(Machine* machine, int x, int y, Map* m){
+    if (map_isCaseExist(x,y,m) == NO_ERROR) {
+        if (map_isEmpty(x,y,m) == NO_ERROR) {
+            m->map[x][y].in.mach = machine;
+            m->map[x][y].type = CASE_MACHINE;
+        } else {
+            return ERROR;
+        }
+    } else {
+        return ERROR_CASE_NOT_FOUND;
+    }
+}
+
+ErrorCode map_upgradeMachine(int x, int y, Map* m){
+    if (map_isCaseExist(x,y,m) == NO_ERROR) {
+        if (map_getTypeCase(x,y,m) == CASE_MACHINE) {
+            MachineStuff machType = map_getTypeMachine(x,y,m);
+
+
+            // TODO Valentin : Faire le traitement par type de machine
+
+            return NO_ERROR;
+        } else {
+            return ERROR;
+        }
+    } else {
+        return ERROR_CASE_NOT_FOUND;
+    }
+}
+
 ErrorCode map_destroyMachine(int x, int y, Map* m){ return ERROR_CASE_EMPTY;}
+
 ErrorCode map_buyStaff(Staff s, Map* m){ return ERROR_NOT_ENOUGH_E;}
 
 ErrorCode map_isCaseExist( const int x, const int y, const Map* m ){
