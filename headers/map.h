@@ -79,6 +79,7 @@
         int DD; //!< a value that measure the planet general health
         int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
         Staff* team; //!< a list of staffs that the user bought
+        int numberStaff; //!< number of staff recruited by the player
         int score; //!< a score which indicate number of resources put in the gate
         int pollution; //!< a score which indicate number of garbage that are still present in the gate
     } Map; //!< Board game that contain all of the information about each case
@@ -277,31 +278,31 @@
     ErrorCode map_buyStaff( Staff s, Map* m );
 
     /*!
-    * \fn ErrorCode map_isEmpty( int x, int y, Map* m )
+    * \fn ErrorCode map_isEmpty( const int x, const int y, const Map* m );
     * @brief In order to verify if a case is empty
     * @param[in] x case abscissa
     * @param[in] y case ordinate
     * @param[in] map a map
     * @return an error that specify what is the problem
     */
-    ErrorCode map_isEmpty( int x, int y, Map* m );
+    ErrorCode map_isEmpty( const int x, const int y, const Map* m );
 
     /*!
-    * \fn ErrorCode map_isCaseExist( int x, int y, Map* m )
+    * \fn ErrorCode map_isCaseExist( const int x, const int y, const Map* m );
     * @brief In order to verify if a case exist
     * @param[in] x case abscissa
     * @param[in] y case ordinate
     * @param[in] map a map
     * @return an error that specify what is the problem
     */
-    ErrorCode map_isCaseExist( int x, int y, Map* m );
+    ErrorCode map_isCaseExist( const int x, const int y, const Map* m );
 
     //\////////////////////////////\//
-    //\/ Functions Getters and Setters
+    //\/ Functions Getters
     //\////////////////////////////\//
 
     /*!
-    * \fn int map_getNumberResource( int x, int y, Map* m )
+    * \fn int map_getNumberResource( const int x, const int y, const Map* m );
     * @brief a function to get the number of resources
     * @param[in] x case abscissa
     * @param[in] y case ordinate
@@ -312,10 +313,10 @@
     *
     * @return the number of resources available on the case
     */
-    int map_getNumberResource( int x, int y, Map* m );
+    int map_getNumberResource( const int x, const int y, const Map* m );
 
     /*!
-    * \fn int map_getNumberGarbage( int x, int y, Map* m )
+    * \fn int map_getNumberGarbage( const int x, const int y, const Map* m );
     * @brief a function to get the number of garbage
     * @param[in] x case abscissa
     * @param[in] y case ordinate
@@ -326,10 +327,10 @@
     *
     * @return the number of garbage available on the case
     */
-    int map_getNumberGarbage( int x, int y, Map* m );
+    int map_getNumberGarbage( const int x, const int y, const Map* m );
 
     /*!
-    * \fn int map_getNumberFISE( Map* m )
+    * \fn int map_getNumberFISE( const Map* m )
     * @brief a function to get the number of FISE
     * @param[in] map a map
     *
@@ -337,10 +338,10 @@
     *
     * @return the number of FISE available
     */
-    int map_getNumberFISE( Map* m );
+    int map_getNumberFISE( const Map* m );
 
     /*!
-    * \fn int map_getNumberFISA( Map* m )
+    * \fn int map_getNumberFISA( const Map* m )
     * @brief a function to get the number of FISA
     * @param[in] map a map
     *
@@ -348,10 +349,10 @@
     *
     * @return the number of FISA available
     */
-    int map_getNumberFISA( Map* m );
+    int map_getNumberFISA( const Map* m );
 
     /*!
-    * \fn int map_getNumberE( Map* m )
+    * \fn int map_getNumberE( const Map* m )
     * @brief a function to get the number of E
     * @param[in] map a map
     *
@@ -359,10 +360,10 @@
     *
     * @return the number of E available
     */
-    int map_getNumberE( Map* m );
+    int map_getNumberE( const Map* m );
 
     /*!
-    * \fn int map_getNumberDD( Map* m )
+    * \fn int map_getNumberDD( const Map* m )
     * @brief a function to get the number of DD
     * @param[in] map a map
     *
@@ -370,10 +371,132 @@
     *
     * @return the number of DD available
     */
-    int map_getNumberDD( Map* m );
+    int map_getNumberDD( const Map* m );
 
     /*!
-    * \fn ErrorCode map_setNumberResource( int x, int y, Map* m, int val )
+    * \fn int map_getPlayerScore( const Map* m )
+    * @brief a function to get the player score
+    * @param[in] map a map
+    *
+    * This function get the player score.
+    * 10 000 points to win the game
+    *
+    * @return the score
+    */
+    int map_getPlayerScore( const Map* m );
+
+    /*!
+    * \fn int map_getNumberPollution( const Map* m )
+    * @brief a function to get the pollution score
+    * @param[in] map a map
+    *
+    * This function get the pollution score.
+    * Each resource given to the gate, produce a garbage
+    * Each garbage present on the map and unstocked decrease the number of DD by 1
+    *
+    * @return the pollution score
+    */
+    int map_getNumberPollution( const Map* m );
+
+    /*!
+    * \fn Difficulty map_getDifficulty( const Map* m )
+    * @brief a function to get the difficulty of the map
+    * @param[in] map a map
+    *
+    * This function get the difficulty of the map.
+    * EASY level : 10 x 10
+    * MEDIUM level : 20 x 20
+    * HARD level : 30 x 30
+    *
+    * @return the difficulty
+    */
+    Difficulty map_getDifficulty( const Map* m );
+
+    /*!
+    * \fn int map_getWidth( const Map* m )
+    * @brief a function to get map width
+    * @param[in] map a map
+    *
+    * This function get map width.
+    *
+    * @return the map width.
+    */
+    int map_getWidth( const Map* m );
+
+    /*!
+    * \fn int map_getHeight( const Map* m )
+    * @brief a function to get map height
+    * @param[in] map a map
+    *
+    * This function get map height.
+    *
+    * @return the map height.
+    */
+    int map_getHeight( const Map* m );
+
+    /*!
+    * \fn int map_getNumberStaff( const Map* m )
+    * @brief a function to get the number of staff
+    * @param[in] map a map
+    *
+    * This function get the number of staff
+    *
+    * @return the number of staff
+    */
+    int map_getNumberStaff( const Map* m );
+
+    /*!
+    * \fn Case* map_getCase( const int x, const int y, const Map* m );
+    * @brief a function to get a case of the map
+    * @param[in] map a map
+    *
+    * This function get a case of the map
+    *
+    * @return the case address if exist, if not a null address
+    */
+    Case* map_getCase( const int x, const int y, const Map* m );
+
+    /*!
+    * \fn CaseType map_getTypeCase( const int x, const int y, const Map* m );
+    * @brief a function to get the type case of a case on the map
+    * @param[in] map a map
+    *
+    * This function get the type case of a case on the map
+    * <ul>
+    *   <li> CASE_VIDE = 0, a case that contain nothing
+    *   <li> CASE_GATE = 1, a case that contain the transdimensional gate
+    *   <li> CASE_SOURCE = 2, a case that contain resources
+    *   <li> CASE_MACHINE = 3, a case that contain a machine
+    * </ul>
+    *
+    * @return the type case if case exist, if not -1
+    */
+    CaseType map_getTypeCase( const int x, const int y, const Map* m );
+
+    /*!
+    * \fn MachineStuff map_getTypeMachine( const int x, const int y, const Map* m );
+    * @brief a function to get the type machine
+    * @param[in] map a map
+    *
+    * This function get the type machine of a case containing a machine
+    * <ul>
+    *   <li> MS_COLLECTOR = 1, collector machine
+    *   <li> MS_CONVEYOR_BELT = 2, conveyor belt
+    *   <li> MS_CROSS = 3, cross
+    *   <li> MS_RECYCLING_CENTER = 4, recycling center
+    *   <li> MS_JUNKYARD = 5, junkyard
+    * </ul>
+    *
+    * @return the type machine if case exist, if not -1
+    */
+    MachineStuff map_getTypeMachine( const int x, const int y, const Map* m );
+
+    //\////////////////////////////\//
+    //\/ Functions Setters
+    //\////////////////////////////\//
+
+    /*!
+    * \fn ErrorCode map_setNumberResource( const int x, const int y, Map* m, int val );
     * @brief a function to set the number of resources
     * @param[in] x case abscissa
     * @param[in] y case ordinate
@@ -384,10 +507,10 @@
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setNumberResource( int x, int y, Map* m, int val );
+    ErrorCode map_setNumberResource( const int x, const int y, Map* m, int val );
 
     /*!
-    * \fn ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val )
+    * \fn ErrorCode map_setNumberGarbage( const int x, const int y, Map* m, int val );
     * @brief a function to set the number of garbage
     * @param[in] x case abscissa
     * @param[in] y case ordinate
@@ -398,7 +521,7 @@
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val );
+    ErrorCode map_setNumberGarbage( const int x, const int y, Map* m, int val );
 
     /*!
     * \fn ErrorCode map_setNumberFISE( Map* m, int val)
