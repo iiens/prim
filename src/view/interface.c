@@ -1,6 +1,5 @@
 /*!
- * This file is like a
- * the design pattern adaptor
+ * This file is like the design pattern adaptor
  * also called wrapper.
  *
  * But since we are in C, we need to put a
@@ -20,24 +19,27 @@ bool useNCurses = true; //!< true if we will use ncurses
 //\////////////////////////////\//
 
 // init
-ErrorCode interface_init() {
-    if(useNCurses){
+ErrorCode interface_init()
+{
+    if ( useNCurses ) {
         return interface_ncurses_init();
     }
     return ERROR_INIT_INTERFACE;
 }
 
 // reload
-ErrorCode interface_reload(const Map* map) {
-    if(useNCurses){
+ErrorCode interface_reload(const Map* map)
+{
+    if ( useNCurses ) {
         return interface_ncurses_reload(map);
     }
     return ERROR_INIT_INTERFACE;
 }
 
 // close
-ErrorCode interface_close() {
-    if(useNCurses){
+ErrorCode interface_close()
+{
+    if ( useNCurses ) {
         return interface_ncurses_close();
     }
     return ERROR_INIT_INTERFACE;
@@ -47,29 +49,33 @@ ErrorCode interface_close() {
 //\/ Show related functions
 //\////////////////////////////\//
 
-void interface_showMap(const Map* map){
-    if(useNCurses){
+void interface_showMap(const Map* map)
+{
+    if ( useNCurses ) {
         interface_ncurses_showMap(map);
         return;
     }
 }
 
-void interface_showStaffList(const Map* map){
-    if(useNCurses){
+void interface_showStaffList(const Map* map)
+{
+    if ( useNCurses ) {
         interface_ncurses_showStaffList(map);
         return;
     }
 }
 
-void interface_showMachinesList(){
-    if(useNCurses){
+void interface_showMachinesList()
+{
+    if ( useNCurses ) {
         interface_ncurses_showMachinesList();
         return;
     }
 }
 
-void interface_listActions(){
-    if(useNCurses){
+void interface_listActions()
+{
+    if ( useNCurses ) {
         interface_ncurses_listActions();
         return;
     }
@@ -80,39 +86,44 @@ void interface_listActions(){
 //\////////////////////////////\//
 
 // action
-Action interface_chooseAction(){
-    if(useNCurses){
+Action interface_chooseAction()
+{
+    if ( useNCurses ) {
         return interface_ncurses_chooseAction();
     }
     return ACTION_EXIT;
 }
 
 // difficulty
-Difficulty interface_chooseDifficulty(){
-    if(useNCurses){
+Difficulty interface_chooseDifficulty()
+{
+    if ( useNCurses ) {
         return interface_ncurses_chooseDifficulty();
     }
     return DIFFICULTY_EASY;
 }
 
-MachineStuff interface_askAddMachine(){
-    if(useNCurses){
+MachineStuff interface_askAddMachine()
+{
+    if ( useNCurses ) {
         return interface_ncurses_askAddMachine();
     }
     back = true; // go back
     return MS_COLLECTOR;
 }
 
-Vector2D* interface_askMachineLocation(){
-    if(useNCurses){
+Vector2D* interface_askMachineLocation()
+{
+    if ( useNCurses ) {
         return interface_ncurses_askMachineLocation();
     }
     back = true; // go back
     return NULL;
 }
 
-Staff* interface_askBuyStaff(){
-    if(useNCurses){
+Staff* interface_askBuyStaff()
+{
+    if ( useNCurses ) {
         return interface_ncurses_askBuyStaff();
     }
     back = true;
@@ -123,8 +134,9 @@ Staff* interface_askBuyStaff(){
 //\/ others
 //\///////////////\//
 
-void interface_showError(ErrorCode e){
-    if(useNCurses){
+void interface_showError(ErrorCode e)
+{
+    if ( useNCurses ) {
         interface_ncurses_showError(e);
         return;
     }

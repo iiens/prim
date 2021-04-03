@@ -1,9 +1,9 @@
 // get all of our variables to translate
 #include "../../headers/utils/translation.h"
 
-char* error_getMessage( ErrorCode e )
+char* error_getMessage(ErrorCode e)
 {
-    switch (e) {
+    switch ( e ) {
         case NO_ERROR:
             break;
         case ERROR:
@@ -168,5 +168,4 @@ char* actions_utils_fetchAction(Action action)
         default:
             return "Unknow command";
     }
-    return "Invalid action";
 }

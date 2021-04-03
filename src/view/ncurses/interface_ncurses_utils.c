@@ -3,9 +3,10 @@
 #include "../../../headers/utils/translation.h"
 #include <string.h> //!< strlen, ...
 
-char *lastMessage = NULL; //!< last message that we printed
+char* lastMessage = NULL; //!< last message that we printed
 
-void interface_ncurses_showActionField(){
+void interface_ncurses_showActionField()
+{
     // move at bottom left
     attron(A_BOLD); // bold
     mvwprintw(actionWindow, 1, 1, translation_get(TRANSLATE_ACTION_LABEL));
@@ -14,7 +15,8 @@ void interface_ncurses_showActionField(){
     wrefresh(actionWindow);
 }
 
-void interface_ncurses_showMessageWithColor(char* message, int color){
+void interface_ncurses_showMessageWithColor(char* message, int color)
+{
     interface_ncurses_hideError(); // hide previous error
 
     // show
@@ -33,7 +35,6 @@ void interface_ncurses_showError(ErrorCode e)
 {
     char* message; //!< error message
     message = error_getMessage(e); // fetch message
-
     // show
     interface_ncurses_showMessageWithColor(message, ERROR_COLOR);
 }
@@ -47,10 +48,10 @@ void interface_ncurses_showMessage(char* message)
 
 void interface_ncurses_hideError()
 {
-    if(lastMessage == NULL) return;
+    if ( lastMessage == NULL ) return;
     // delete line
     // we remove the first one, until there is no character
-    for (int i = 0; i < (int) strlen(lastMessage) + 1; ++i) {
+    for ( int i = 0; i < (int) strlen(lastMessage) + 1; ++i ) {
         mvwdelch(actionWindow, ERROR_LINE, 0); //
     }
     // refresh
@@ -61,7 +62,7 @@ void interface_ncurses_hideError()
 char* interface_ncurses_gameTag(char* text, int value, char* buf, char* format)
 {
     // create a format like %-30s: %d
-    sprintf(format, "%s%d%s","%.",30,"s: %d");
+    sprintf(format, "%s%d%s", "%.", 30, "s: %d");
     // write using format into buf
     sprintf(buf, format, text, value);
     // return buf
@@ -71,7 +72,7 @@ char* interface_ncurses_gameTag(char* text, int value, char* buf, char* format)
 char* interface_ncurses_gameTag_type(char* text, void* value, char* buf, char* format, char* type)
 {
     // create a format like %-30s: %d
-    sprintf(format, "%s%d%s%s","%.",30,"s: ",type);
+    sprintf(format, "%s%d%s%s", "%.", 30, "s: ", type);
     // write using format into buf
     sprintf(buf, format, text, value);
     // return buf
@@ -82,7 +83,7 @@ void interface_ncurses_clearAction(char* buf)
 {
     // delete each character one by one
     // we don't move x, since characters moves to the left each time we delete one
-    for (int i = 0; i < (int) strlen(buf); ++i) {
+    for ( int i = 0; i < (int) strlen(buf); ++i ) {
         mvwdelch(actionWindow, 1, strlen(translation_get(TRANSLATE_ACTION_LABEL)));
     }
     // refresh
@@ -93,23 +94,29 @@ void interface_ncurses_show_menu_wait()
 {
     wrefresh(mapWindow);
     // hide cursor
-    noecho(); cbreak(); curs_set(FALSE); keypad(mapWindow, TRUE);
+    noecho();
+    cbreak();
+    curs_set(FALSE);
+    keypad(mapWindow, TRUE);
     // wait for input
-    while (getch() != BACK_MAPPING[0]);
+    while ( getch() != BACK_MAPPING[0] );
     // reset
-    echo();nocbreak();curs_set(TRUE);keypad(mapWindow, FALSE);
+    echo();
+    nocbreak();
+    curs_set(TRUE);
+    keypad(mapWindow, FALSE);
 }
 
 int writeLabel(int i, int j, char* tag, char* content)
 {
     // tag such as cost:
     wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwprintw(mapWindow, 3+2*i, j, tag);
+    mvwprintw(mapWindow, 3 + 2 * i, j, tag);
     wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-    j+= (int) strlen(tag);
+    j += (int) strlen(tag);
     // value
-    mvwprintw(mapWindow, 3+2*i, j, content);
-    j+= (int) strlen(content);
+    mvwprintw(mapWindow, 3 + 2 * i, j, content);
+    j += (int) strlen(content);
     return j;
 }
 
@@ -126,11 +133,12 @@ void interface_ncurses_initListWindow(char* title)
     waddstr(mapWindow, translation_get(TRANSLATE_GO_BACK_B));
 }
 
-void* interface_ncurses_showInActionField(Closure init, Closure check){
+void* interface_ncurses_showInActionField(Closure init, Closure check)
+{
     bool leave = false; //!< do we need to leave ?
     void* result = NULL; //!< function result
     ErrorCode error = ERROR_INVALID_ACTION_SEQUENCE; //!< error code
-    if(init != NULL) init(NULL, NULL, NULL);
+    if ( init != NULL ) init(NULL, NULL, NULL);
     do {
         char buf[ACTION_BUF_SIZE] = "";
         int read;
@@ -147,19 +155,19 @@ void* interface_ncurses_showInActionField(Closure init, Closure check){
         do {
             // read char by char
             read = getch();
-            if(read != '\n'){
+            if ( read != '\n' ) {
                 buf[cursor] = (char) read;
             }
             cursor++;
-            if(cursor == ACTION_BUF_SIZE-1) { // same as enter
+            if ( cursor == ACTION_BUF_SIZE - 1 ) { // same as enter
                 break;
             }
-        } while (read != '\n');
+        } while ( read != '\n' );
         // end str
         buf[cursor] = '\0';
 
         result = check(buf, &leave, &error);
-        if(leave){ // leave set as true ?
+        if ( leave ) { // leave set as true ?
             // clean inputted actionWindow
             interface_ncurses_clearAction(buf);
             interface_ncurses_hideError();
@@ -175,11 +183,13 @@ void* interface_ncurses_showInActionField(Closure init, Closure check){
 
         wrefresh(actionWindow);
         // and do again
-    } while (true);
+    } while ( true );
 }
 
-char* interface_utils_getCaseContent(int x, int y, const Map* map) {
-    CaseType t = map_getTypeCase(x,y, map);
+//todo: move to translation ?
+char* interface_utils_getCaseContent(int x, int y, const Map* map)
+{
+    CaseType t = map_getTypeCase(x, y, map);
     switch ( t ) {
         case CASE_VIDE:
             return " ";
@@ -188,7 +198,7 @@ char* interface_utils_getCaseContent(int x, int y, const Map* map) {
         case CASE_SOURCE:
             return "S";
         case CASE_MACHINE:
-            switch ( map_getTypeMachine(x,y, map) ) {
+            switch ( map_getTypeMachine(x, y, map)) {
                 case MS_COLLECTOR:
                     return "C";
                 case MS_CONVEYOR_BELT:

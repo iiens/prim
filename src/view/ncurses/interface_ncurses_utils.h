@@ -31,7 +31,7 @@
     extern int MIN_COL_SAVED; //!< number of cols saved
     extern char* lastMessage;
 
-    typedef void* (*Closure)(char* buff, bool* leave, ErrorCode* error); //!< closure function
+    typedef void* (* Closure)(char* buff, bool* leave, ErrorCode* error); //!< closure function
 
     // utilities functions
     /*!

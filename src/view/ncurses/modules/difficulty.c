@@ -28,7 +28,8 @@ Difficulty interface_ncurses_chooseDifficulty()
     max = max((int) strlen(translation_get(TRANSLATE_DIF_E)), (int) max);
 
     // write title, centered
-    mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2, translation_get(TRANSLATE_CHOICE_DIFF));
+    mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2,
+             translation_get(TRANSLATE_CHOICE_DIFF));
 
     // fill difficulties
     difficulties = (char**) malloc(N_DIFFICULTIES * sizeof(char*));

@@ -39,20 +39,20 @@ ErrorCode interface_ncurses_init()
     setlocale(LC_ALL, "fr_FR.UTF-8");
 
     //init screen
-    if(initscr() == NULL){
+    if ( initscr() == NULL ) {
         interface_close();
         //Colors aren't supported in this terminal
         return ERROR_INIT_NCURSES_INTERFACE;
     }
 
-    if(LINES > MIN_ROW_SAVED) MIN_ROW_SAVED = LINES;
+    if ( LINES > MIN_ROW_SAVED ) MIN_ROW_SAVED = LINES;
 
-    if(resize_term(MIN_ROW_SAVED, MIN_COL_SAVED) == -1) {
+    if ( resize_term(MIN_ROW_SAVED, MIN_COL_SAVED) == -1 ) {
         interface_close();
         return ERROR_INIT_NCURSES_INTERFACE_SIZE;
     }
 
-    gameWindow = subwin(stdscr, LINES - ACTION_HEIGHT, GAME_WIDTH , 0, 0);
+    gameWindow = subwin(stdscr, LINES - ACTION_HEIGHT, GAME_WIDTH, 0, 0);
     mapWindow = subwin(stdscr, LINES - ACTION_HEIGHT, COLS - GAME_WIDTH, 0, GAME_WIDTH);
     actionWindow = subwin(stdscr, ACTION_HEIGHT, COLS, LINES - ACTION_HEIGHT, 0);
 
@@ -61,7 +61,7 @@ ErrorCode interface_ncurses_init()
     box(mapWindow, ACS_VLINE, ACS_HLINE);
 
     //init colors
-    if(has_colors() == FALSE) {
+    if ( has_colors() == FALSE ) {
         interface_close();
         //Colors aren't supported in this terminal
         return ERROR_NO_NCURSES_COLORS_INTERFACE;
@@ -99,6 +99,6 @@ ErrorCode interface_ncurses_close()
 {
     // free main window
     bool r = endwin();
-    if(!r) return ERROR_CLOSE_INTERFACE;
+    if ( !r ) return ERROR_CLOSE_INTERFACE;
     return NO_ERROR;
 }
