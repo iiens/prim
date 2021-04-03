@@ -4,32 +4,23 @@
 #include "CUnit/CUCurses.h" /* only on systems having curses */
 
 // Tests files
-#include
-#include "testMap.h"
+#include "listSuite.h"
 
 int main()
 {
+    int res;
     CU_pSuite pSuite = NULL;
 
     /* initialize the CUnit test registry */
     if (CUE_SUCCESS != CU_initialize_registry())
         return CU_get_error();
 
-    /* add a suite to the registry */
-    pSuite = CU_add_suite("Suite_success", init_suite_success, clean_suite_success);
-    if (NULL == pSuite)
-    {
-        CU_cleanup_registry();
-        return CU_get_error();
-    }
-
-    /* add the tests to the suite */
-    if ((NULL == CU_add_test(pSuite, "successful_test_1", test_success1)) ||
-        (NULL == CU_add_test(pSuite, "successful_test_2", test_success2)) ||
-        (NULL == CU_add_test(pSuite, "successful_test_3", test_success3)))
-    {
-        CU_cleanup_registry();
-        return CU_get_error();
+    for (int i = 0; i < NUMBERSUITE; i++) {
+        res = listSuit[i](pSuite);
+        if (res == EXIT_FAILURE) {
+            CU_cleanup_registry();
+            return CU_get_error();
+        }
     }
 
     /* Run all tests using the basic interface */

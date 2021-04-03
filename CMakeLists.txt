@@ -32,7 +32,11 @@ include_directories(${CURSES_INCLUDE_DIR})
 # Project
 ###########
 
-add_executable(AllTests tests/AllTests.c tests/testMap.h tests/testMap.c tests/listesTest.h)
+add_executable(AllTests
+        tests/AllTests.c
+        tests/testMap.h
+        tests/testMap.c
+        tests/listSuite.h)
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
 add_executable(main
