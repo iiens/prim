@@ -121,11 +121,14 @@ ErrorCode map_changeProductionFISA(Map* m){
 
 ErrorCode map_endTurn(Map* m){ m->turn++;return NO_ERROR; }
 
-ErrorCode map_isEmpty(const int x, const int y, const Map* m){return NO_ERROR;}
+ErrorCode map_isEmpty(const int x, const int y, const Map* m){  return NO_ERROR; }
 
-ErrorCode map_addMachine(Machine* machine, int x, int y, Map* m){
+ErrorCode map_addMachine(MachineStuff type, int x, int y, Map* m){
     if (map_isCaseExist(x,y,m) == NO_ERROR) {
         if (map_isEmpty(x,y,m) == NO_ERROR) {
+            //todo: create machine
+            Machine* machine = (Machine*) malloc(sizeof(Machine));
+            machine->type = type;
             m->map[x][y].in.mach = machine;
             m->map[x][y].type = CASE_MACHINE;
         } else {
@@ -134,6 +137,7 @@ ErrorCode map_addMachine(Machine* machine, int x, int y, Map* m){
     } else {
         return ERROR_CASE_NOT_FOUND;
     }
+    return NO_ERROR;
 }
 
 ErrorCode map_upgradeMachine(int x, int y, Map* m){

@@ -1,6 +1,10 @@
 #ifndef PRIM_TRANSLATION_H
 #define PRIM_TRANSLATION_H
 
+    #include "../data/error.h"
+    #include "../data/machine.h"
+    #include "../data/actions.h"
+
     /*!
      * \typedef Translation
      * \struct Translation_S translation.h "src/view/translation.h"
@@ -43,6 +47,7 @@
         // actions
         TRANSLATE_INPUT_MACHINE_LOCATION,
         TRANSLATE_INPUT_STAFF,
+        TRANSLATE_INPUT_MACHINE,
         TRANSLATE_INPUT_ACTION,
     } Translation;
 

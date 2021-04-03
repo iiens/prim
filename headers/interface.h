@@ -192,7 +192,7 @@
      *
      * @see ACTION_BUY_MACHINE
      */
-    Machine* interface_askAddMachine();
+    MachineStuff interface_askAddMachine();
 
     /*!
      * @brief Ask for machine location
@@ -228,6 +228,7 @@
      * @see ACTION_BUY_STAFF
      * @see ACTION_ASK_STAFF_LIST (action enum)
      */
+     //todo: return ID
     Staff* interface_askBuyStaff();
 
     /**
