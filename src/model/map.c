@@ -44,17 +44,17 @@ Map* map_create(Difficulty dif){
         }
     }
 
-    srand( time( NULL ) );
+    srandom( time( NULL ) );
     // Random gate placement
-    gate_x = rand() % m->width;
-    gate_y = rand() % m->height;
+    gate_x = (int) (random() % m->width);
+    gate_y = (int) (random() % m->height);
     m->map[gate_x][gate_y].type = CASE_GATE;
 
     // Random placement of the 2 sources
     for (int i = 0; i < 2; i++){
         do {
-            source_x = rand() % m->width;
-            source_y = rand() % m->height;
+            source_x = (int) (random() % m->width);
+            source_y = (int) (random() % m->height);
         } while (m->map[source_x][source_y].type != CASE_VIDE);
 
         m->map[source_x][source_y].type = CASE_SOURCE;
@@ -119,15 +119,27 @@ ErrorCode map_changeProductionFISA(Map* m){
     return NO_ERROR;
 }
 
-ErrorCode map_endTurn(Map* m){ m->turn++;return NO_ERROR; }
+ErrorCode map_endTurn(Map* m){
+
+    // TODO Valentin : Déplacer les ressources
+    // TODO Valentin : Gagner les sous des fise et des Fisa au besoin.
+    // TODO Valentin : Générer les ressources avec les sources
+    // TODO Valentin : Faire fonctionner les décheteries
+    m->turn++;
+    return NO_ERROR;
+}
 
 ErrorCode map_isEmpty(const int x, const int y, const Map* m){return NO_ERROR;}
 
 ErrorCode map_addMachine(Machine* machine, int x, int y, Map* m){
+    // TODO Valentin : Rajouter prix machine
+
     if (map_isCaseExist(x,y,m) == NO_ERROR) {
         if (map_isEmpty(x,y,m) == NO_ERROR) {
             m->map[x][y].in.mach = machine;
             m->map[x][y].type = CASE_MACHINE;
+
+            return NO_ERROR;
         } else {
             return ERROR;
         }
@@ -153,9 +165,26 @@ ErrorCode map_upgradeMachine(int x, int y, Map* m){
     }
 }
 
-ErrorCode map_destroyMachine(int x, int y, Map* m){ return ERROR_CASE_EMPTY;}
+ErrorCode map_destroyMachine(int x, int y, Map* m){
+    if (map_isCaseExist(x,y,m) == NO_ERROR) {
+        if (map_getTypeCase(x,y,m) == CASE_MACHINE) {
 
-ErrorCode map_buyStaff(Staff s, Map* m){ return ERROR_NOT_ENOUGH_E;}
+            free(m->map[x][y].in.mach);
+            m->map[x][y].in.mach = NULL;
+            m->map[x][y].type = CASE_VIDE;
+
+            return NO_ERROR;
+        } else {
+            return ERROR;
+        }
+    } else {
+        return ERROR_CASE_NOT_FOUND;
+    }
+}
+
+ErrorCode map_buyStaff(Staff s, Map* m){
+    return ERROR_NOT_ENOUGH_E;
+}
 
 ErrorCode map_isCaseExist( const int x, const int y, const Map* m ){
     if ( x >= 0 && x < m->width ){
