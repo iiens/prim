@@ -1,5 +1,5 @@
 #include "../../../../headers/interface.h"
-#include "../../translation.h"
+#include "../../../../headers/utils/translation.h"
 #include "../interface_ncurses.h"
 #include "../interface_ncurses_utils.h"
 #include <string.h>

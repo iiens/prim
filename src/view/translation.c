@@ -1,9 +1,9 @@
-#include "../../headers/interface.h"
-#include "translation.h"
+// get all of our variables to translate
+#include "../../headers/utils/translation.h"
 
-char* error_getMessage( ErrorCode e )
+char* error_getMessage(ErrorCode e)
 {
-    switch (e) {
+    switch ( e ) {
         case NO_ERROR:
             break;
         case ERROR:
@@ -105,6 +105,8 @@ char* translation_get(Translation t)
             return "Submit machine location. Format is \"x,y\" (without \")";
         case TRANSLATE_INPUT_STAFF:
             return "Input staff ID. You can fetch them using `ls` action. Press `b` to go back.";
+        case TRANSLATE_INPUT_MACHINE:
+            return "Input machine ID. You can fetch them using `lm` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ACTION:
             return "Use `help` to get the list of available actions.";
         case TRANSLATE_ACTION_LIST_TITLE:
@@ -166,5 +168,4 @@ char* actions_utils_fetchAction(Action action)
         default:
             return "Unknow command";
     }
-    return "Invalid action";
 }

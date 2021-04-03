@@ -4,36 +4,38 @@
 #include "../../../../headers/interface.h"
 #include "../interface_ncurses.h"
 #include "../interface_ncurses_utils.h"
-#include "../../translation.h"
+#include "../../../../headers/utils/translation.h"
 #include "../../../utils/utils_fun.h"
 #include <string.h>
 
 void interface_ncurses_showMap(const Map* map)
 {
     wclear(mapWindow); //reset
+    wclear(gameWindow); //reset
 
     char* buf = (char*) malloc(GAME_WIDTH * sizeof(char));
     char* format = (char*) malloc(GAME_WIDTH * sizeof(char));
 
     char* production =
-            map->numberFISA == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
+            map->productionFISA == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
 
     // init_view
     mvwprintw(gameWindow, 1, 1, translation_get(TRANSLATE_GAME_NAME));
     mvwprintw(gameWindow, 2, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_TURN), map->turn, buf, format));
-    mvwprintw(gameWindow, 3, 1, interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_E), map->E, buf, format));
+    mvwprintw(gameWindow, 3, 1,
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_E), map_getNumberE(map), buf, format));
     mvwprintw(gameWindow, 4, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_DD), map->DD, buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_DD), map_getNumberDD(map), buf, format));
     mvwprintw(gameWindow, 5, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISE), map->numberFISE, buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISE), map_getNumberFISE(map), buf, format));
     mvwprintw(gameWindow, 6, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISA), map->numberFISA, buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISA), map_getNumberFISA(map), buf, format));
     mvwprintw(gameWindow, 7, 1,
               interface_ncurses_gameTag_type(translation_get(TRANSLATE_GAME_FISA_MODE), production, buf, format,
                                              "%s"));
-    //todo: manage number of staffs
-    mvwprintw(gameWindow, 8, 1, interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_STAFFS), 0, buf, format));
+    mvwprintw(gameWindow, 8, 1,
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_STAFFS), map_getNumberStaff(map), buf, format));
     mvwprintw(gameWindow, 9, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_SCORE), map->score, buf, format));
     mvwprintw(gameWindow, 10, 1,
@@ -52,8 +54,8 @@ void interface_ncurses_showMap(const Map* map)
         if ( j == 0 ) mvwprintw(mapWindow, 1, 3, "+"); // starting +
         mvwprintw(mapWindow, 1, 4 + j * 3, "--+");
         for ( int i = 0; i < map->width; i++ ) {
-            mvwaddstr(mapWindow, i + 2, 4 + j * 3, " ");
-            //todo: put item inside
+            char* content = interface_utils_getCaseContent(j, i, map); //!< case content
+            mvwaddstr(mapWindow, i + 2, 4 + j * 3, content);
             mvwaddstr(mapWindow, i + 2, 5 + j * 3, (char*) L" ");
             mvwaddstr(mapWindow, i + 2, 6 + j * 3, "+");
         }
@@ -171,11 +173,13 @@ void interface_ncurses_showStaffList(const Map* map)
         mvwaddstr(mapWindow, 2, 0, "Staff ");
         number = utils_intToString(start + 1);
         waddstr(mapWindow, number);
-        free(number);number = utils_intToString(start + (min(rowPerPage, rowPerPage)));
+        free(number);
+        number = utils_intToString(start + (min(rowPerPage, rowPerPage)));
         waddstr(mapWindow, " to ");
         waddstr(mapWindow, number);
         waddstr(mapWindow, " on ");
-        free(number);number = utils_intToString(max);
+        free(number);
+        number = utils_intToString(max);
         waddstr(mapWindow, number);
         free(number);
         waddstr(mapWindow, ".");
@@ -190,10 +194,12 @@ void interface_ncurses_showStaffList(const Map* map)
             number = utils_intToString(s.id);
             waddstr(mapWindow, number);
             waddstr(mapWindow, ") (");
-            free(number); number = utils_intToString(s.costE);
+            free(number);
+            number = utils_intToString(s.costE);
             waddstr(mapWindow, number);
             waddstr(mapWindow, " E ");
-            free(number); number = utils_intToString(s.costDD);
+            free(number);
+            number = utils_intToString(s.costDD);
             waddstr(mapWindow, number);
             free(number);
             waddstr(mapWindow, " DD). Owned: ");
@@ -253,7 +259,7 @@ void interface_ncurses_listActions()
     //title
     interface_ncurses_initListWindow(translation_get(TRANSLATE_ACTION_LIST_TITLE));
 
-    int mid = getmaxx(mapWindow)/2;
+    int mid = getmaxx(mapWindow) / 2;
 
     for ( int i = 0, j = 2; i < USER_MAPPING_SIZE; i++, j++ ) {
         actionName = actions_utils_fetchAction(user_mapping[i].actionID);
@@ -262,7 +268,7 @@ void interface_ncurses_listActions()
         wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
         mvwaddstr(mapWindow, j, 0, actionName);
         wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-        waddstr(mapWindow,":");
+        waddstr(mapWindow, ":");
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
         waddstr(mapWindow, " `");
         waddstr(mapWindow, mapping);
@@ -275,7 +281,7 @@ void interface_ncurses_listActions()
         wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
         mvwaddstr(mapWindow, j, mid, actionName);
         wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-        waddstr(mapWindow,":");
+        waddstr(mapWindow, ":");
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
         waddstr(mapWindow, " `");
         waddstr(mapWindow, mapping);

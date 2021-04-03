@@ -131,15 +131,51 @@ ErrorCode map_endTurn(Map* m){
 
 ErrorCode map_isEmpty(const int x, const int y, const Map* m){return NO_ERROR;}
 
-ErrorCode map_addMachine(Machine* machine, int x, int y, Map* m){
-    // TODO Valentin : Rajouter prix machine
-
+ErrorCode map_addMachine(MachineStuff type, int x, int y, Map* m){
+    int index, costE, costDD, numberMachine;
     if (map_isCaseExist(x,y,m) == NO_ERROR) {
         if (map_isEmpty(x,y,m) == NO_ERROR) {
-            m->map[x][y].in.mach = machine;
-            m->map[x][y].type = CASE_MACHINE;
 
-            return NO_ERROR;
+            index = 0;
+            while (machine_list[index].type != type) {index++;}
+
+            numberMachine = 0;
+            for (int i = 0; i < m->width; ++i) {
+                for (int j = 0; j < m->height; ++j) {
+                    if (m->map[i][j].type == CASE_MACHINE && m->map[i][j].in.mach->type == type) {
+                        numberMachine++;
+                    }
+                }
+            }
+
+            if (machine_list[index].canUpgrade == 1) {
+                costE = machine_list[index].costE - (numberMachine + machine_list[index].effects->modifierE);
+                if (costE < machine_list[index].effects->min_costE) {
+                    costE = machine_list[index].effects->min_costE;
+                }
+                costDD = machine_list[index].costDD - (numberMachine + machine_list[index].effects->modifierDD);
+                if (costDD < machine_list[index].effects->min_costDD) {
+                    costDD = machine_list[index].effects->min_costDD;
+                }
+            } else {
+                costE = machine_list[index].costE;
+                costDD = machine_list[index].costDD;
+            }
+
+            if (m->E >= costE) {
+                if (m->DD >= costDD) {
+                    Machine * machine = (Machine*)malloc(sizeof (Machine));
+                    machine->type = type;
+                    machine->level = 1;
+                    machine->capacity = 0;
+
+                    return NO_ERROR;
+                } else {
+                    return ERROR_NOT_ENOUGH_DD;
+                }
+            } else {
+                return ERROR_NOT_ENOUGH_E;
+            }
         } else {
             return ERROR;
         }

@@ -10,6 +10,7 @@
 #ifndef PRIM_EFFECT_H
 #define PRIM_EFFECT_H
 
+    #include <stdbool.h> // bool type
     #include "machine.h" // main information about a machine
 
     /*!

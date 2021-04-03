@@ -31,7 +31,7 @@
     extern int MIN_COL_SAVED; //!< number of cols saved
     extern char* lastMessage;
 
-    typedef void* (*Closure)(char* buff, bool* leave, ErrorCode* error); //!< closure function
+    typedef void* (* Closure)(char* buff, bool* leave, ErrorCode* error); //!< closure function
 
     // utilities functions
     /*!
@@ -105,5 +105,14 @@
      * @return the result of the check function, if the check is successful
      */
     void* interface_ncurses_showInActionField(Closure init, Closure check);
+
+    /**
+     * Return one letter with what's inside this case
+     * @param x col
+     * @param y row
+     * @param map map
+     * @return
+     */
+    char* interface_utils_getCaseContent(int x, int y, const Map* map);
 
 #endif //PRIM_INTERFACE_NCURSES_UTILS_H

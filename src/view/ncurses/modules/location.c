@@ -4,7 +4,7 @@
 #include "../../../../headers/interface.h"
 #include "../interface_ncurses.h"
 #include "../interface_ncurses_utils.h"
-#include "../../translation.h"
+#include "../../../../headers/utils/translation.h"
 #include <string.h>
 
 /** Callback on init  */

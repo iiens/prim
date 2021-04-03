@@ -58,7 +58,7 @@
 
     /*! @see interface_askAddMachine
      * @return see interface_askAddMachine */
-    Machine* interface_ncurses_askAddMachine();
+    MachineStuff interface_ncurses_askAddMachine();
 
     /*! @see interface_askMachineLocation
      * @return see interface_askMachineLocation */
