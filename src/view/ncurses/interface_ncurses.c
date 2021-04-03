@@ -102,11 +102,3 @@ ErrorCode interface_ncurses_close()
     if(!r) return ERROR_CLOSE_INTERFACE;
     return NO_ERROR;
 }
-
-//\////////////////////////////\//
-//\/ ask for user input
-//\////////////////////////////\//
-
-Machine* interface_ncurses_askAddMachine() {
-    return NULL;
-}

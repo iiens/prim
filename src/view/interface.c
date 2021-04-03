@@ -95,12 +95,12 @@ Difficulty interface_chooseDifficulty(){
     return DIFFICULTY_EASY;
 }
 
-Machine* interface_askAddMachine(){
+MachineStuff interface_askAddMachine(){
     if(useNCurses){
         return interface_ncurses_askAddMachine();
     }
     back = true; // go back
-    return NULL;
+    return MS_COLLECTOR;
 }
 
 Vector2D* interface_askMachineLocation(){

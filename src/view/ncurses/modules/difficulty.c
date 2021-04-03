@@ -1,12 +1,12 @@
 #include "../../../../headers/interface.h"
+#include "../../../../headers/utils/map_utils.h"
 #include "../interface_ncurses.h"
 #include "../interface_ncurses_utils.h"
-#include "../../translation.h"
+#include "../../../../headers/utils/translation.h"
 #include <string.h>
 
 Difficulty interface_ncurses_chooseDifficulty()
 {
-    return DIFFICULTY_EASY; //todo: temp
     const int N_DIFFICULTIES = 3; //!< number of difficulties
     const int TITLE_LINE = 2; //!< y of title line
     const int CONTENT_LINE_START = 4; //!< y of content line (first line)
@@ -18,19 +18,24 @@ Difficulty interface_ncurses_chooseDifficulty()
     int current = 0; //!< current selected difficulty
     int ch; //!< current char read
     bool leave = false; //!< leave branch
+    // sizes
+    int EASY_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_EASY); //!< size of map for EASY
+    int MEDIUM_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_MEDIUM); //!< size of map for MEDIUM
+    int HARD_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_HARD); //!< size of map for HARD
 
     // find biggest value
     max = max((int) strlen(translation_get(TRANSLATE_DIF_M)), (int) strlen(translation_get(TRANSLATE_DIF_H)));
     max = max((int) strlen(translation_get(TRANSLATE_DIF_E)), (int) max);
 
     // write title, centered
-    mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2, TRANSLATE_CHOICE_DIFF);
+    mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2, translation_get(TRANSLATE_CHOICE_DIFF));
 
     // fill difficulties
     difficulties = (char**) malloc(N_DIFFICULTIES * sizeof(char*));
     difficulties[0] = translation_get(TRANSLATE_DIF_E);
     difficulties[1] = translation_get(TRANSLATE_DIF_M);
     difficulties[2] = translation_get(TRANSLATE_DIF_H);
+
 
     // disabled
     disabled = (int*) malloc(N_DIFFICULTIES * sizeof(int));
@@ -42,6 +47,7 @@ Difficulty interface_ncurses_chooseDifficulty()
     // show difficulties menu
     format = (char*) malloc(10 * sizeof(char));
     sprintf(format, "%s%d%s", "%-", max, "s");
+
     for ( int i = 0; i < N_DIFFICULTIES; i++ ) {
         if ( i == current ) attron(A_STANDOUT); // highlight current
         else
@@ -49,14 +55,13 @@ Difficulty interface_ncurses_chooseDifficulty()
         // put in buffer, same spacing for all
         sprintf(item, format, difficulties[i]);
         // put in the screen
-        //todo: Calistro: getSizeByDifficulty instead of 10,20,30
-        if ((LINES <= 10 + ACTION_HEIGHT && i == 0) ||
-            (LINES <= 20 + ACTION_HEIGHT && i == 1) ||
-            (LINES <= 30 + ACTION_HEIGHT && i == 2)) {
+        if ((LINES <= EASY_SIZE + ACTION_HEIGHT && i == 0) ||
+            (LINES <= MEDIUM_SIZE + ACTION_HEIGHT && i == 1) ||
+            (LINES <= HARD_SIZE + ACTION_HEIGHT && i == 2)) {
             disabled[i] = i;
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
             attron(COLOR_PAIR(ERROR_COLOR));
-            mvprintw(i + 1 + CONTENT_LINE_START, 2 + max + 2, " %s", TRANSLATE_SCREEN_TOO_SMALL);
+            mvprintw(i + 1 + CONTENT_LINE_START, 2 + max + 2, " %s", translation_get(TRANSLATE_SCREEN_TOO_SMALL));
             attroff(COLOR_PAIR(ERROR_COLOR));
         } else {
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
@@ -75,7 +80,7 @@ Difficulty interface_ncurses_chooseDifficulty()
         ch = getch();
         if ( ch == 'q' ) {
             // we leave
-            interface_ncurses_close();
+            interface_close();
             exit(0); // todo: this ends program on q
         }
         // un-highlight current
@@ -141,4 +146,5 @@ Difficulty interface_ncurses_chooseDifficulty()
         default:
             return DIFFICULTY_EASY;
     }
+
 }

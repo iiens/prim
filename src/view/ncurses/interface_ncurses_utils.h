@@ -106,4 +106,13 @@
      */
     void* interface_ncurses_showInActionField(Closure init, Closure check);
 
+    /**
+     * Return one letter with what's inside this case
+     * @param x col
+     * @param y row
+     * @param map map
+     * @return
+     */
+    char* interface_utils_getCaseContent(int x, int y, const Map* map);
+
 #endif //PRIM_INTERFACE_NCURSES_UTILS_H

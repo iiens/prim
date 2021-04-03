@@ -1,6 +1,6 @@
 #include "interface_ncurses.h" //!< base interface
 #include "interface_ncurses_utils.h" //!< this header
-#include "../translation.h"
+#include "../../../headers/utils/translation.h"
 #include <string.h> //!< strlen, ...
 
 char *lastMessage = NULL; //!< last message that we printed
@@ -95,8 +95,7 @@ void interface_ncurses_show_menu_wait()
     // hide cursor
     noecho(); cbreak(); curs_set(FALSE); keypad(mapWindow, TRUE);
     // wait for input
-    //todo: maybe some constant
-    while (getch() != 'b');
+    while (getch() != BACK_MAPPING[0]);
     // reset
     echo();nocbreak();curs_set(TRUE);keypad(mapWindow, FALSE);
 }
@@ -177,4 +176,31 @@ void* interface_ncurses_showInActionField(Closure init, Closure check){
         wrefresh(actionWindow);
         // and do again
     } while (true);
+}
+
+char* interface_utils_getCaseContent(int x, int y, const Map* map) {
+    CaseType t = map_getTypeCase(x,y, map);
+    switch ( t ) {
+        case CASE_VIDE:
+            return " ";
+        case CASE_GATE:
+            return "G";
+        case CASE_SOURCE:
+            return "S";
+        case CASE_MACHINE:
+            switch ( map_getTypeMachine(x,y, map) ) {
+                case MS_COLLECTOR:
+                    return "C";
+                case MS_CONVEYOR_BELT:
+                    return "B";
+                case MS_CROSS:
+                    return "X";
+                case MS_RECYCLING_CENTER:
+                    return "R";
+                case MS_JUNKYARD:
+                    return "J";
+            }
+        default:
+            return "?";
+    }
 }
