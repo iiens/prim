@@ -366,68 +366,63 @@
 
             }},
 
-            {16, "Marie Szafranski", 1000, 400, "When a ressource is send at the gate"
-                                                " it count for 2 but number of garbage is the same ", .effects = {
+            {16, "Marie Szafranski", 1000, 400, "When a resource is send at the gate"
+                                                " it count for 2 but number of garbage is 1 ", .effects = {
                     {
                             .mode = SEND_DOOR,
                             .onOther = 1,
                             .what.other = NONE,
-
-                            .description = "When a ressource is send at the gate it count for 2 but number of garbage "
-                                           " is the same"
+                            .modifierRes = 2,
+                            .description = "When a resource is send at the gate it count for 2 but number of garbage "
+                                           " is 1"
                     },
 
             }},
 
-            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
-                                                " decreases by 5E and 25DD ", .effects = {
+            {17, "Gael Thomas", 1000, 400, "When a garbage leave the door it has a one"
+                                                " in 10 chance of disappearing ", .effects = {
                     {
-                            .mode = DESTROY,
+                            .mode = DOOR_OUT,//<!todo : not implement yet make a variable with a randomize if = 1 remove
+                            //garbage
                             .onOther = 0,
                             .what.machine = MS_RECYCLING_CENTER,
-                            .modifierE = -5,
-                            .modifierDD = -25,
-                            .min_costE = 5,
-                            .min_costDD = 25,
-                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
-                                           "and 25DD)."
+                            .description = "When a garbage leave the door it has a one"
+                                           "in 10 chance of disappearing"
                     },
 
             }},
 
-            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
-                                                " decreases by 5E and 25DD ", .effects = {
+            {18, "Eric Lejeune", 1000, 200, "The cost of FISE decreases by 5E and 2DD"
+                                            " (min 5E and 2DD)", .effects = {
                     {
-                            .mode = DESTROY,
-                            .onOther = 0,
-                            .what.machine = MS_RECYCLING_CENTER,
+                            .mode = ON_BUY,
+                            .onOther = 1,
+                            .what.other = SUB_FISE,
                             .modifierE = -5,
-                            .modifierDD = -25,
+                            .modifierDD = -2,
                             .min_costE = 5,
-                            .min_costDD = 25,
-                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
-                                           "and 25DD)."
+                            .min_costDD = 2,
+                            .description = "The cost of FISE decreases by 5E and 2DD min 5E and 2DD"
                     },
 
             }},
 
-            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
-                                                " decreases by 5E and 25DD ", .effects = {
+            {19, "Christine Mathias", 1000, 200, "The cost of FISA decreases by 5E and 2DD"
+                                                 " (min 5E and 2DD)", .effects = {
                     {
-                            .mode = DESTROY,
-                            .onOther = 0,
-                            .what.machine = MS_RECYCLING_CENTER,
+                            .mode = ON_BUY,
+                            .onOther = 1,
+                            .what.other = SUB_FISA,
                             .modifierE = -5,
-                            .modifierDD = -25,
+                            .modifierDD = -2,
                             .min_costE = 5,
-                            .min_costDD = 25,
-                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
-                                           "and 25DD)."
+                            .min_costDD = 2,
+                            .description = "The cost of FISA decreases by 5E and 2DD min 5E and 2DD"
                     },
 
             }},
 
-            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+            {20, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
                                                 " decreases by 5E and 25DD ", .effects = {
                     {
                             .mode = DESTROY,
