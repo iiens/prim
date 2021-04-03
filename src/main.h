@@ -86,67 +86,58 @@
      */
     void main_destroyMachineAction(Map* map);
 
-    //todo: mettre les bonnes valeurs pour machine_list
-    //todo: make descriptions shorter please
     const MachineInfo machine_list[] = {
             {
                     MS_COLLECTOR,200,20,500,100,60,200,
-                    "The collector sends a resource produced by the source to the "
-                    "neighboring cell indicated by its orientation. It must be placed "
-                    "on a square adjacent to that of the source",
-                    1, .effects = {
+                    "Sends a resource produced by the source to the "
+                    "neighboring cell indicated by its orientation.",
+                    1,1, .effects  = {
                     {
-                             .mode = UPGRADE,
-                             .onOther = true,
+                             .mode = PRODUCTION,
+                             .onOther = 0,
                              .what.machine = MS_COLLECTOR,
-                             .modifierE = -10,
-                             .modifierDD = -1,
-                             .min_costE = 10,
-                             .min_costDD = 1,
-                             .description = "Le coût de construction des collecteurs diminue de 10E et 1DD (minimum 10E\n"
-                                            "et 1DD)."
-                     },}
+                             .modifierCapacity = +1 ,
+                             .description = "Collector storage increases by 1 "
+                                            },}
             },
             {MS_CONVEYOR_BELT,60,20,-1,-1,60,200,
-                    "A carpet has one exit and three entrances, the resource or waste exits"
-                    " 1 turn after entering the conveyor belt",
-                    0, .effects = {{
-                                          .mode = UPGRADE,
-                                          .onOther = true,
-                                          .what.machine = MS_COLLECTOR,
-                                          .modifierE = -10,
-                                          .modifierDD = -1,
-                                          .min_costE = 10,
-                                          .min_costDD = 1,
-                                          .description = "Le coût de construction des collecteurs diminue de 10E et 1DD (minimum 10E\n"
-                                                         "et 1DD)."
-                                  },}
-            },
+                    "A carpet has one exit and three entrances, the resource or waste exits",
+                    0,0, .effects = {}},
             {MS_CROSS,160,20,-1,-1,60,200,
-                    "A cross is a set of two juxtaposed conveyor belts, allowing two "
-                    "lines of conveyor belts to cross. The cross has 2 inlets and 2 outlets "
-                    "which depend on the orientation of the cross",
+                    "The cross has 2 inlets and 2 outlets "
+                    "which depend on the orientation of the cross",0,
                     0, .effects = {}},
             {MS_RECYCLING_CENTER,500,40,1500,100,100,500,
-                    "The recycling center is used to store waste. The recycling center"
-                    " has 4 entrances and 0 exits. At the start of the game, a recycling "
-                    "center can store up to 50 pieces of waste",
-                    1, .effects = {}},
+                    "The recycling center has 3 entrances and one exit. The center can store up to 100 "
+                    "waste",100,
+                    1, .effects = {
+                    {
+                                           .mode = PRODUCTION,
+                                           .onOther = 0,
+                                           .what.machine = MS_RECYCLING_CENTER,
+                                           .modifierCapacity= +10,
+                                           .description = "Storage of Recycling center increases by 10"
+                                                         },}
+            },
             {MS_JUNKYARD,100,100,200,600,100,200,
-                    "The recycling center turns waste into a resource. Like the conveyor belt,"
-                    " the center has 3 entrances and one exit. The center can store up to 100 "
-                    "waste",
-                    1, .effects = {}
+                    "The junkyard"
+                    " has 4 entrances and 0 exits. Can store up to 50 pieces of waste",50,
+                    1, .effects = {{
+                                           .mode = PRODUCTION,
+                                           .onOther = 0,
+                                           .what.machine = MS_JUNKYARD,
+                                           .modifierCapacity= +20,
+                                           .description = "Storage of Junkyard increases by 20"
+                                                          "et 1DD)."},}
             },
     }; //!< Array with information about all machine
 
-    //todo: NUMBER_OF_STAFFS in staff.h (increase each time you add a staff)
     const Staff staff_list[] = {
             {1, "Fetia Bannour", 100, 30, "The cost of constructing collectors"
-                                          "decreases by 10E and 1DD ", .effects = {
+                                          " decreases by 10E and 1DD ", .effects = {
                     {
                             .mode = CONSTRUCTION,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_COLLECTOR,
                             .modifierE = -10,
                             .modifierDD = -1,
@@ -158,10 +149,10 @@
 
             }},
             {2, "Kevin Goilard", 100, 30, "The cost of constructing conveyor belt"
-                                          "decreases by 3E and 1DD ", .effects = {
+                                          " decreases by 3E and 1DD ", .effects = {
                     {
                             .mode = CONSTRUCTION,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_CONVEYOR_BELT,
                             .modifierE = -3,
                             .modifierDD = -1,
@@ -173,10 +164,10 @@
 
             }},
             {3, "Vincent Jeannas", 100, 30, "The cost of constructing cross"
-                                            "decreases by 8E and 1DD ", .effects = {
+                                            " decreases by 8E and 1DD ", .effects = {
                     {
                             .mode = CONSTRUCTION,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_CROSS,
                             .modifierE = -8,
                             .modifierDD = -1,
@@ -188,10 +179,10 @@
 
             }},
             {4, "Thomas Laurent", 100, 30, "The cost of constructing recycling center"
-                                          "decreases by 25E and 2DD ", .effects = {
+                                          " decreases by 25E and 2DD ", .effects = {
                     {
                             .mode = CONSTRUCTION,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_RECYCLING_CENTER,
                             .modifierE = -25,
                             .modifierDD = -2,
@@ -204,10 +195,10 @@
             }},
 
             {5, "Massinissa Merabet", 100, 30, "The cost of constructing junkyard"
-                                           "decreases by 5E and 5DD ", .effects = {
+                                           " decreases by 5E and 5DD ", .effects = {
                     {
                             .mode = CONSTRUCTION,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_JUNKYARD,
                             .modifierE = -5,
                             .modifierDD = -5,
@@ -221,10 +212,10 @@
 
 
             {6, "Stefi Nouleho", 200, 100, "The cost of upgrading collectors"
-                                           "decreases by 25E and 5DD ", .effects = {
+                                           " decreases by 25E and 5DD ", .effects = {
                     {
                             .mode = UPGRADE,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_COLLECTOR,
                             .modifierE = -25,
                             .modifierDD = -5,
@@ -238,10 +229,10 @@
 
 
             {7, "Vitera Y", 200, 100, "The cost of upgrading recycling center"
-                                           "decreases by 75E and 5DD ", .effects = {
+                                           " decreases by 75E and 5DD ", .effects = {
                     {
                             .mode = UPGRADE,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_RECYCLING_CENTER,
                             .modifierE = -75,
                             .modifierDD = -5,
@@ -254,10 +245,10 @@
             }},
 
             {8, "Laurence Bourard", 200, 100, "The cost of upgrading junkyard"
-                                      "decreases by 10E and 30DD ", .effects = {
+                                      " decreases by 10E and 30DD ", .effects = {
                     {
                             .mode = UPGRADE,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_JUNKYARD,
                             .modifierE = -10,
                             .modifierDD = -30,
@@ -270,10 +261,10 @@
             }},
 
             {9, "Nicolas Brunel", 100, 200, "The cost of destroying collectors"
-                                      "decreases by 3E and 10DD ", .effects = {
+                                      " decreases by 3E and 10DD ", .effects = {
                     {
                             .mode = DESTROY,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_COLLECTOR,
                             .modifierE = -3,
                             .modifierDD = -10,
@@ -286,10 +277,10 @@
             }},
 
             {10, "Anastase Charantonis", 100, 200, "The cost of destroying conveyor"
-                                      "belt decreases by 3E and 10DD ", .effects = {
+                                      " belt decreases by 3E and 10DD ", .effects = {
                     {
                             .mode = DESTROY,
-                            .onOther = false,
+                            .onOther = 0,
                             .what.machine = MS_CONVEYOR_BELT,
                             .modifierE = -3,
                             .modifierDD = -10,
@@ -301,34 +292,169 @@
 
             }},
 
-            {7, "Vitera Y", 200, 100, "The cost of upgrading recycling center"
-                                      "decreases by 75E and 5DD ", .effects = {
+            {11, "Catherine Dubois", 100, 200, "The cost of destroying cross"
+                                      " decreases by 3E and 10DD ", .effects = {
                     {
-                            .mode = UPGRADE,
-                            .onOther = false,
-                            .what.machine = MS_RECYCLING_CENTER,
-                            .modifierE = -75,
-                            .modifierDD = -5,
-                            .min_costE = 75,
-                            .min_costDD = 5,
-                            .description = "The cost of upgrading recycling center decreases by 75E and 5DD (min 75E\n"
-                                           "and 5DD)."
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_CROSS,
+                            .modifierE = -3,
+                            .modifierDD = -10,
+                            .min_costE = 3,
+                            .min_costDD = 10,
+                            .description = "The cost of destroying conveyor belt decreases by 3E and 10DD (min 3E\n"
+                                           "and 10DD)."
                     },
 
             }},
 
-            {7, "Vitera Y", 200, 100, "The cost of upgrading recycling center"
-                                      "decreases by 75E and 5DD ", .effects = {
+            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                      " decreases by 5E and 25DD ", .effects = {
                     {
-                            .mode = UPGRADE,
-                            .onOther = false,
+                            .mode = DESTROY,
+                            .onOther = 0,
                             .what.machine = MS_RECYCLING_CENTER,
-                            .modifierE = -75,
-                            .modifierDD = -5,
-                            .min_costE = 75,
-                            .min_costDD = 5,
-                            .description = "The cost of upgrading recycling center decreases by 75E and 5DD (min 75E\n"
-                                           "and 5DD)."
+                            .modifierE = -5,
+                            .modifierDD = -25,
+                            .min_costE = 5,
+                            .min_costDD = 25,
+                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                                           "and 25DD)."
+                    },
+
+            }},
+
+            {13, "Alain Faye", 100, 200, "The cost of destroying junkyard"
+                                                " decreases by 5E and 10DD ", .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_JUNKYARD,
+                            .modifierE = -5,
+                            .modifierDD = -10,
+                            .min_costE = 5,
+                            .min_costDD = 10,
+                            .description = "The cost of destroying junkyard decreases by 5E and 10DD (min 5E\n"
+                                           "and 10DD)."
+                    },
+
+            }},
+
+            {14, "Anne-Laure Ligozat", 1000, 10, "Half garbage of each case are remove"
+                                                , .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.other = DESTROY_GARBAGE,
+                            .modifierRes = 1,//<! todo : trouver un moyen de diviser par 2 cet attribut
+                            .description = "Half garbage of each case are remove"
+                    },
+
+            }},
+
+            {15, "Christophe Mouilleron", 1000, 400, "School hire 20 FISE and 10 FISA"
+                                                , .effects = {
+                    {
+                            .mode = HIRE,
+                            .onOther = 1,
+                            .what.other = SUB_HIRE,
+                            .modifierFISE = +20,
+                            .modifierFISA = +10,
+                            .description = "School hire 20 FISE and 10 FISA"
+
+                    },
+
+            }},
+
+            {16, "Marie Szafranski", 1000, 400, "When a ressource is send at the gate"
+                                                " it count for 2 but number of garbage is the same ", .effects = {
+                    {
+                            .mode = SEND_DOOR,
+                            .onOther = 1,
+                            .what.other = NONE,
+
+                            .description = "When a ressource is send at the gate it count for 2 but number of garbage "
+                                           " is the same"
+                    },
+
+            }},
+
+            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                                " decreases by 5E and 25DD ", .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_RECYCLING_CENTER,
+                            .modifierE = -5,
+                            .modifierDD = -25,
+                            .min_costE = 5,
+                            .min_costDD = 25,
+                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                                           "and 25DD)."
+                    },
+
+            }},
+
+            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                                " decreases by 5E and 25DD ", .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_RECYCLING_CENTER,
+                            .modifierE = -5,
+                            .modifierDD = -25,
+                            .min_costE = 5,
+                            .min_costDD = 25,
+                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                                           "and 25DD)."
+                    },
+
+            }},
+
+            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                                " decreases by 5E and 25DD ", .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_RECYCLING_CENTER,
+                            .modifierE = -5,
+                            .modifierDD = -25,
+                            .min_costE = 5,
+                            .min_costDD = 25,
+                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                                           "and 25DD)."
+                    },
+
+            }},
+
+            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                                " decreases by 5E and 25DD ", .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_RECYCLING_CENTER,
+                            .modifierE = -5,
+                            .modifierDD = -25,
+                            .min_costE = 5,
+                            .min_costDD = 25,
+                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                                           "and 25DD)."
+                    },
+
+            }},
+
+            {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                                " decreases by 5E and 25DD ", .effects = {
+                    {
+                            .mode = DESTROY,
+                            .onOther = 0,
+                            .what.machine = MS_RECYCLING_CENTER,
+                            .modifierE = -5,
+                            .modifierDD = -25,
+                            .min_costE = 5,
+                            .min_costDD = 25,
+                            .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                                           "and 25DD)."
                     },
 
             }},

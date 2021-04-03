@@ -26,8 +26,8 @@
         Effect effects[20]; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
-    #define NUMBER_OF_STAFFS 12 //!< todo: Ramzy comment
+    #define NUMBER_OF_STAFFS 12 //!< number of staff in staff_list
 
-    extern const Staff staff_list[]; //!< todo: Ramzy comment
+    extern const Staff staff_list[]; //!< contains all of the staff
 
 #endif //PRIM_STAFF_H

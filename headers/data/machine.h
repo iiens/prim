@@ -70,11 +70,10 @@
         MachineStuff type; //!< number associate to the type of the machine
         int level; //!< Represent the level of improvement of the machine
         Orientation orientation; //!< Represent the orientation of the machine
-        int capacity; //!< -1 it don't have capacity
     } Machine; //!< Machine
 
-    #define NUMBER_OF_MACHINES 5 //!< todo: Ramzy comment
+    #define NUMBER_OF_MACHINES 5 //!< name of machines
 
-    extern const MachineInfo machine_list[]; //!< todo: Ramzy comment
+    extern const MachineInfo machine_list[]; //!< contains information about machines
 
 #endif //PRIM_MACHINE_H

@@ -71,6 +71,7 @@
         int modifierFISE; //!< update the number of FISE
         int modifierE; //!< update the E cost
         int modifierDD; //!< update the DD cost
+        int modifierCapacity; //!< update the capacity of the machine
         int min_costE; //!< check after update of E with min_cost_E
         int min_costDD;//!< check after update of DD with min_cost_DD
         char* description; //!< describe the effect
