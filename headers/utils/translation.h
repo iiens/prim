@@ -53,7 +53,7 @@
 
     /**
      * Returns the translation of a translation constant
-     * @param t, see enum Translation
+     * @param t: see enum Translation
      * @return the translated or an empty string if there is none
      */
     char* translation_get(Translation t);

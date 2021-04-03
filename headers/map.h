@@ -112,7 +112,8 @@
     Map* map_create( Difficulty dif );
 
     /*!
-     * \fn ErrorCode map_destroy(Map* map)
+     * \fn ErrorCode map_destroy( Map* m )
+     * @param[in] m a map
      * @brief Destroy a map
      *
      * At the end of a game, we need to free all the memory allocated
@@ -125,14 +126,13 @@
      *  ... (map.h , staff.f, machine.h)
      * </pre>
      *
-     * @param[in] map a map
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_destroy( Map* map );
+    ErrorCode map_destroy( Map* m );
 
     /*!
-     * \fn ErrorCode map_hireFISE(Map* map)
+     * \fn ErrorCode map_hireFISE(Map* m)
      * @brief Hire a FISE
      *
      * We hire a FISE in order to product more resources.
@@ -142,14 +142,14 @@
      * A verification is necessary to know if the player can hire a new FISE.
      * We have to check resources E and DD of the player
      *
-     * @param[in] map a map
+     * @param[in] m a map
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_hireFISE( Map* map );
+    ErrorCode map_hireFISE( Map* m );
 
     /*!
-     * \fn ErrorCode map_hireFISA(Map* map)
+     * \fn ErrorCode map_hireFISA(Map* m)
      * @brief Hire a FISA
      *
      * We hire a FISA in order to product more resources.
@@ -160,27 +160,27 @@
      * A verification is necessary to know if the player can hire a new FISA.
      * We have to check resources E and DD of the player
      *
-     * @param[in] map a map
+     * @param[in] m a map
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_hireFISA( Map* map );
+    ErrorCode map_hireFISA( Map* m );
 
     /*!
-     * \fn ErrorCode map_changeProductionFISA( Map* map )
+     * \fn ErrorCode map_changeProductionFISA( Map* m )
      * @brief Switch the energy type produced by the FISA
      *
      * This function allow us to switch the energy type
      * produced by the FISA between E or DD.
      *
-     * @param[in] map a map
+     * @param[in] m a map
      * @return an error that specify what is the problem
      * @see Map type
      */
-    ErrorCode map_changeProductionFISA( Map* map );
+    ErrorCode map_changeProductionFISA( Map* m );
 
     /*!
-     * \fn ErrorCode map_endTurn(Map* map)
+     * \fn ErrorCode map_endTurn(Map* m)
      * @brief Finish a turn
      *
      * Verifications to do at the end of a turn
@@ -222,15 +222,15 @@
      * <li>Update DD value</li>
      * </ol>
      *
-     * \param map game map
+     * \param m game map
      * \return an error that specify what is the problem
     */
-    ErrorCode map_endTurn( Map* map );
+    ErrorCode map_endTurn( Map* m );
 
     /*!
-     * \fn ErrorCode map_addMachine(const Machine machine, const int x, const int y, Map* m)
+     * \fn ErrorCode map_addMachine( MachineStuff type, int x, int y, Map* m )
      * @brief Add a machine
-     * @param[in] machine a machine
+     * @param[in] type a machine
      * @param[in] x x > 0
      * @param[in] y y > 0
      * @param[in,out] m a map
@@ -238,7 +238,7 @@
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_addMachine( MachineStuff machine, int x, int y, Map* m );
+    ErrorCode map_addMachine( MachineStuff type, int x, int y, Map* m );
 
     /*!
      * \fn ErrorCode map_upgradeMachine(const int x,const int y, Map* m)
@@ -254,7 +254,7 @@
     ErrorCode map_upgradeMachine( int x, int y, Map* m );
 
     /*!
-     * \fn ErrorCode map_destroyMachine(const int x,const int y, Map* m)
+     * \fn ErrorCode map_destroyMachine( int x, int y, Map* m )
      * @brief Destroy a machine
      * @param[in] x x > 0
      * @param[in] y y > 0
@@ -267,7 +267,7 @@
     ErrorCode map_destroyMachine( int x, int y, Map* m );
 
     /*!
-     * \fn ErrorCode map_buyStaff(Staff s, Map* m)
+     * \fn ErrorCode map_buyStaff( Staff s, Map* m )
      * @brief Buy a Staff
      * @param[in] s a Staff
      * @param[in,out] m a map
@@ -278,61 +278,61 @@
     ErrorCode map_buyStaff( Staff s, Map* m );
 
     /*!
-    * \fn ErrorCode map_isEmpty( const int x, const int y, const Map* m );
+    * \fn ErrorCode map_isEmpty( int x, int y, const Map* m );
     * @brief In order to verify if a case is empty
     * @param[in] x case abscissa
     * @param[in] y case ordinate
-    * @param[in] map a map
+    * @param[in] m a map
     * @return an error that specify what is the problem
     */
-    ErrorCode map_isEmpty( const int x, const int y, const Map* m );
+    ErrorCode map_isEmpty( int x, int y, const Map* m );
 
     /*!
-    * \fn ErrorCode map_isCaseExist( const int x, const int y, const Map* m );
+    * \fn ErrorCode map_isCaseExist( int x, int y, const Map* m );
     * @brief In order to verify if a case exist
     * @param[in] x case abscissa
     * @param[in] y case ordinate
-    * @param[in] map a map
+    * @param[in] m a map
     * @return an error that specify what is the problem
     */
-    ErrorCode map_isCaseExist( const int x, const int y, const Map* m );
+    ErrorCode map_isCaseExist( int x, int y, const Map* m );
 
     //\////////////////////////////\//
     //\/ Functions Getters
     //\////////////////////////////\//
 
     /*!
-    * \fn int map_getNumberResource( const int x, const int y, const Map* m );
+    * \fn int map_getNumberResource( int x, int y, const Map* m );
     * @brief a function to get the number of resources
     * @param[in] x case abscissa
     * @param[in] y case ordinate
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of resources on a specific case.
     * Return a negative value if the case does not exist
     *
     * @return the number of resources available on the case
     */
-    int map_getNumberResource( const int x, const int y, const Map* m );
+    int map_getNumberResource( int x, int y, const Map* m );
 
     /*!
-    * \fn int map_getNumberGarbage( const int x, const int y, const Map* m );
+    * \fn int map_getNumberGarbage( int x, int y, const Map* m );
     * @brief a function to get the number of garbage
     * @param[in] x case abscissa
     * @param[in] y case ordinate
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of garbage on a specific case.
     * Return a negative value if the case does not exist
     *
     * @return the number of garbage available on the case
     */
-    int map_getNumberGarbage( const int x, const int y, const Map* m );
+    int map_getNumberGarbage( int x, int y, const Map* m );
 
     /*!
     * \fn int map_getNumberFISE( const Map* m )
     * @brief a function to get the number of FISE
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of FISE recruited by the player.
     *
@@ -343,7 +343,7 @@
     /*!
     * \fn int map_getNumberFISA( const Map* m )
     * @brief a function to get the number of FISA
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of FISA recruited by the player.
     *
@@ -354,7 +354,7 @@
     /*!
     * \fn int map_getNumberE( const Map* m )
     * @brief a function to get the number of E
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of E posseded by the player.
     *
@@ -365,7 +365,7 @@
     /*!
     * \fn int map_getNumberDD( const Map* m )
     * @brief a function to get the number of DD
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of DD posseded by the player.
     *
@@ -376,7 +376,7 @@
     /*!
     * \fn int map_getPlayerScore( const Map* m )
     * @brief a function to get the player score
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the player score.
     * 10 000 points to win the game
@@ -388,7 +388,7 @@
     /*!
     * \fn int map_getNumberPollution( const Map* m )
     * @brief a function to get the pollution score
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the pollution score.
     * Each resource given to the gate, produce a garbage
@@ -401,7 +401,7 @@
     /*!
     * \fn Difficulty map_getDifficulty( const Map* m )
     * @brief a function to get the difficulty of the map
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the difficulty of the map.
     * EASY level : 10 x 10
@@ -415,7 +415,7 @@
     /*!
     * \fn int map_getWidth( const Map* m )
     * @brief a function to get map width
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get map width.
     *
@@ -426,7 +426,7 @@
     /*!
     * \fn int map_getHeight( const Map* m )
     * @brief a function to get map height
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get map height.
     *
@@ -437,7 +437,7 @@
     /*!
     * \fn int map_getNumberStaff( const Map* m )
     * @brief a function to get the number of staff
-    * @param[in] map a map
+    * @param[in] m a map
     *
     * This function get the number of staff
     *
@@ -446,20 +446,24 @@
     int map_getNumberStaff( const Map* m );
 
     /*!
-    * \fn Case* map_getCase( const int x, const int y, const Map* m );
+    * \fn Case* map_getCase( int x, int y, const Map* m );
     * @brief a function to get a case of the map
-    * @param[in] map a map
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] m a map
     *
     * This function get a case of the map
     *
     * @return the case address if exist, if not a null address
     */
-    Case* map_getCase( const int x, const int y, const Map* m );
+    Case* map_getCase( int x, int y, const Map* m );
 
     /*!
-    * \fn CaseType map_getTypeCase( const int x, const int y, const Map* m );
+    * \fn CaseType map_getTypeCase( int x, int y, const Map* m );
     * @brief a function to get the type case of a case on the map
-    * @param[in] map a map
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] m a map
     *
     * This function get the type case of a case on the map
     * <ul>
@@ -471,12 +475,14 @@
     *
     * @return the type case if case exist, if not -1
     */
-    CaseType map_getTypeCase( const int x, const int y, const Map* m );
+    CaseType map_getTypeCase( int x, int y, const Map* m );
 
     /*!
     * \fn MachineStuff map_getTypeMachine( const int x, const int y, const Map* m );
     * @brief a function to get the type machine
-    * @param[in] map a map
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] m a map
     *
     * This function get the type machine of a case containing a machine
     * <ul>
@@ -489,44 +495,44 @@
     *
     * @return the type machine if case exist, if not -1
     */
-    MachineStuff map_getTypeMachine( const int x, const int y, const Map* m );
+    MachineStuff map_getTypeMachine( int x, int y, const Map* m );
 
     //\////////////////////////////\//
     //\/ Functions Setters
     //\////////////////////////////\//
 
     /*!
-    * \fn ErrorCode map_setNumberResource( const int x, const int y, Map* m, int val );
+    * \fn ErrorCode map_setNumberResource( int x, int y, Map* m, int val );
     * @brief a function to set the number of resources
     * @param[in] x case abscissa
     * @param[in] y case ordinate
-    * @param[in] map a map
+    * @param[in] m a map
     * @param[in] val a resource value to add/to substract
     *
     * This function set the number of resources on a specific case.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setNumberResource( const int x, const int y, Map* m, int val );
+    ErrorCode map_setNumberResource( int x, int y, Map* m, int val );
 
     /*!
-    * \fn ErrorCode map_setNumberGarbage( const int x, const int y, Map* m, int val );
+    * \fn ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val );
     * @brief a function to set the number of garbage
     * @param[in] x case abscissa
     * @param[in] y case ordinate
-    * @param[in] map a map
+    * @param[in] m a map
     * @param[in] val a resource value to add/to substract
     *
     * This function set the number of garbage on a specific case.
     *
     * @return an error that specify what is the problem
     */
-    ErrorCode map_setNumberGarbage( const int x, const int y, Map* m, int val );
+    ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val );
 
     /*!
     * \fn ErrorCode map_setNumberFISE( Map* m, int val)
     * @brief a function to set the number of FISE
-    * @param[in] map a map
+    * @param[in] m a map
     * @param[in] val number of FISE to add/to substract
     *
     * This function set the number of FISE recruited by the player.
@@ -538,7 +544,7 @@
     /*!
     * \fn ErrorCode map_setNumberFISA( Map* m, int val )
     * @brief a function to set the number of FISA
-    * @param[in] map a map
+    * @param[in] m a map
     * @param[in] val number of FISA to add/to substract
     *
     * This function set the number of FISA recruited by the player.
@@ -550,7 +556,7 @@
     /*!
     * \fn ErrorCode map_setNumberE( Map* m, int val )
     * @brief a function to set the number of E
-    * @param[in] map a map
+    * @param[in] m a map
     * @param[in] val E value to add/to substract
     *
     * This function set the number of E posseded by the player.
@@ -562,7 +568,7 @@
     /*!
     * \fn ErrorCode map_setNumberDD( Map* m, int val )
     * @brief a function to set the number of DD
-    * @param[in] map a map
+    * @param[in] m a map
     * @param[in] val DD value to add/to substract
     *
     * This function set the number of DD posseded by the player.

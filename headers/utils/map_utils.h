@@ -13,13 +13,13 @@
     #include "../data/difficulty.h" // contains difficulty type
 
     /*!
-     * \fn int map_utils_getSizeByDifficulty(Difficulty dif)
+     * \fn int map_utils_getSizeByDifficulty(Difficulty d)
      * @brief a function to get the map size according to the difficulty
      *
      * This function get this size of the map
      * in order to create the map type
      *
-     * @param[in] dif a valid difficulty chosen by the user
+     * @param[in] d a valid difficulty chosen by the user
      * @return int : map size
      * @see Difficulty enum
      */
