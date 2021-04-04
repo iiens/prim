@@ -161,7 +161,7 @@ bool main_handlingActions(Action act, Map* map, bool* exit) {
 
 void main_buyMachineAction(Map* map) {
     Vector2D* v = NULL; //!< Used to retrieve the function return from interface.h
-    MachineStuff m; //!< Used to retrieve the function return from interface.h
+    MachineSpec m; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
 
@@ -177,7 +177,7 @@ void main_buyMachineAction(Map* map) {
             // Check that the user has not abandoned the action
             if ( !back ) {
                 // Call the map function to add machine
-                e = map_addMachine(m, v->x, v->y, map);
+                e = map_addMachine(m.type, m.orientation, v->x, v->y, map);
                 // Check the return of the function
                 if ( e != NO_ERROR ) {
                     // Show the error message

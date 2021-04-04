@@ -33,6 +33,18 @@
 
     extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
 
+    /*!
+     * @typedef MachineSpec: machine that the user requested
+     * @struct MachineSpec_S interface.h "headers/interface.h"
+     *
+     * Convenience structure for the user to request
+     * a machine.
+     */
+    typedef struct MachineSpec_S {
+        MachineStuff type; //!< machine type
+        Orientation orientation; //!< got an orientation
+    } MachineSpec; //!< machine that the user requested
+
     //\////////////////////////////\//
     //\/ interface declarations
     //\////////////////////////////\//
@@ -192,7 +204,7 @@
      *
      * @see ACTION_BUY_MACHINE
      */
-    MachineStuff interface_askAddMachine();
+    MachineSpec interface_askAddMachine();
 
     /*!
      * @brief Ask for machine location

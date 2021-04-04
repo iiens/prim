@@ -28,7 +28,7 @@ ErrorCode interface_init()
 }
 
 // reload
-ErrorCode interface_reload(const Map* map)
+ErrorCode interface_reload( const Map* map )
 {
     if ( useNCurses ) {
         return interface_ncurses_reload(map);
@@ -49,7 +49,7 @@ ErrorCode interface_close()
 //\/ Show related functions
 //\////////////////////////////\//
 
-void interface_showMap(const Map* map)
+void interface_showMap( const Map* map )
 {
     if ( useNCurses ) {
         interface_ncurses_showMap(map);
@@ -57,7 +57,7 @@ void interface_showMap(const Map* map)
     }
 }
 
-void interface_showStaffList(const Map* map)
+void interface_showStaffList( const Map* map )
 {
     if ( useNCurses ) {
         interface_ncurses_showStaffList(map);
@@ -103,13 +103,13 @@ Difficulty interface_chooseDifficulty()
     return DIFFICULTY_EASY;
 }
 
-MachineStuff interface_askAddMachine()
+MachineSpec interface_askAddMachine()
 {
     if ( useNCurses ) {
         return interface_ncurses_askAddMachine();
     }
     back = true; // go back
-    return MS_COLLECTOR;
+    return (MachineSpec) {};
 }
 
 Vector2D* interface_askMachineLocation()
@@ -134,7 +134,7 @@ Staff* interface_askBuyStaff()
 //\/ others
 //\///////////////\//
 
-void interface_showError(ErrorCode e)
+void interface_showError( ErrorCode e )
 {
     if ( useNCurses ) {
         interface_ncurses_showError(e);

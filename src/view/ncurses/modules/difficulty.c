@@ -40,7 +40,8 @@ Difficulty interface_ncurses_chooseDifficulty()
 
     // disabled
     disabled = (int*) malloc(N_DIFFICULTIES * sizeof(int));
-    for ( int i = 0; i < N_DIFFICULTIES; ++i ) disabled[i] = -1;
+    for ( int i = 0; i < N_DIFFICULTIES; ++i )
+        disabled[i] = -1;
 
     // init item
     item = (char*) malloc(max * sizeof(char));
@@ -50,15 +51,15 @@ Difficulty interface_ncurses_chooseDifficulty()
     sprintf(format, "%s%d%s", "%-", max, "s");
 
     for ( int i = 0; i < N_DIFFICULTIES; i++ ) {
-        if ( i == current ) attron(A_STANDOUT); // highlight current
+        if ( i == current )
+            attron(A_STANDOUT); // highlight current
         else
             attroff(A_STANDOUT);
         // put in buffer, same spacing for all
         sprintf(item, format, difficulties[i]);
         // put in the screen
-        if ((LINES <= EASY_SIZE + ACTION_HEIGHT && i == 0) ||
-            (LINES <= MEDIUM_SIZE + ACTION_HEIGHT && i == 1) ||
-            (LINES <= HARD_SIZE + ACTION_HEIGHT && i == 2)) {
+        if ( (LINES <= EASY_SIZE + ACTION_HEIGHT && i == 0) || (LINES <= MEDIUM_SIZE + ACTION_HEIGHT && i == 1) ||
+             (LINES <= HARD_SIZE + ACTION_HEIGHT && i == 2) ) {
             disabled[i] = i;
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
             attron(COLOR_PAIR(ERROR_COLOR));
@@ -115,7 +116,8 @@ Difficulty interface_ncurses_chooseDifficulty()
                 break;
         }
 
-        if ( leave ) break;
+        if ( leave )
+            break;
 
         // highlight current
         attron(A_STANDOUT);

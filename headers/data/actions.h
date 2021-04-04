@@ -21,6 +21,11 @@
      * Used when asking the user what he wants to do.
      */
     typedef enum Action_S {
+        //todo:
+        // action to view case content
+        // action to rotate a machine ?
+        // action to view the list of orientations
+
         // actions related to the game in general
         ACTION_SHOW_MAP = 143, //!< show map
         ACTION_CANCEL_ACTION = 144, //!< cancel action so go back

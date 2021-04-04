@@ -8,14 +8,12 @@
 void* interface_ncurses_askBuyStaffClosureInit();
 
 /** input staff **/
-void* interface_ncurses_askBuyStaffCheck(char* buff, bool* leave, ErrorCode* error);
+void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* error );
 
 Staff* interface_ncurses_askBuyStaff()
 {
-    Staff* s = ((Staff*) interface_ncurses_showInActionField(
-            interface_ncurses_askBuyStaffClosureInit,
-            interface_ncurses_askBuyStaffCheck
-    ));
+    Staff* s = ((Staff*) interface_ncurses_showInActionField(interface_ncurses_askBuyStaffClosureInit,
+                                                             interface_ncurses_askBuyStaffCheck));
     return s;
 }
 
@@ -26,7 +24,7 @@ void* interface_ncurses_askBuyStaffClosureInit()
     return NULL;
 }
 
-void* interface_ncurses_askBuyStaffCheck(char* buff, bool* leave, ErrorCode* error)
+void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
     if ( strcmp(buff, BACK_MAPPING) == 0 ) {

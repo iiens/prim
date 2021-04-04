@@ -12,7 +12,7 @@
 
     /*!
      * @typedef Vector2D: name of struct Vector2D to Vector2D
-     * @struct Vector2D_S utils.h "headers/utils.h"
+     * @struct Vector2D_S utils.h "headers/utils/utils.h"
      *
      * Convenience type for (x,y)
      * with `x = x axis` and `y = y axis`.

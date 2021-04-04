@@ -4,6 +4,7 @@
     #include "../data/error.h"
     #include "../data/machine.h"
     #include "../data/actions.h"
+    #include "../data/case_type.h"
 
     /*!
      * \typedef Translation
@@ -49,6 +50,7 @@
         TRANSLATE_INPUT_STAFF,
         TRANSLATE_INPUT_MACHINE,
         TRANSLATE_INPUT_ACTION,
+        TRANSLATE_INPUT_ORIENTATION,
     } Translation;
 
     /**
@@ -70,6 +72,20 @@
      * @param action action id
      * @return action as a string
      */
-    char* actions_utils_fetchAction(Action action);
+    char* translation_actionFetchName( Action action);
+
+    /**
+     * Returns the type of a case
+     * @param t type of a case
+     * @return the translation
+     */
+    char* translation_fetchCaseTypeName( CaseType t );
+
+    /**
+     * Returns machine type name
+     * @param s stuff of a case
+     * @return the translation
+     */
+    char* translation_fetchMachineTypeName( MachineStuff s );
 
 #endif //PRIM_TRANSLATION_H

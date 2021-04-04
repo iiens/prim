@@ -8,7 +8,7 @@
 #include "../../../utils/utils_fun.h"
 #include <string.h>
 
-void interface_ncurses_showMap(const Map* map)
+void interface_ncurses_showMap( const Map* map )
 {
     wclear(mapWindow); //reset
     wclear(gameWindow); //reset
@@ -32,8 +32,7 @@ void interface_ncurses_showMap(const Map* map)
     mvwprintw(gameWindow, 6, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISA), map_getNumberFISA(map), buf, format));
     mvwprintw(gameWindow, 7, 1,
-              interface_ncurses_gameTag_type(translation_get(TRANSLATE_GAME_FISA_MODE), production, buf, format,
-                                             "%s"));
+              interface_ncurses_gameTag_type(translation_get(TRANSLATE_GAME_FISA_MODE), production, buf, format, "%s"));
     mvwprintw(gameWindow, 8, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_STAFFS), map_getNumberStaff(map), buf, format));
     mvwprintw(gameWindow, 9, 1,
@@ -51,7 +50,8 @@ void interface_ncurses_showMap(const Map* map)
     //          +  +  +  +  +  +
     for ( int j = 0; j < map->height; j++ ) {
         mvwprintw(mapWindow, 0, j * 3 + 3, " %2d", j);
-        if ( j == 0 ) mvwprintw(mapWindow, 1, 3, "+"); // starting +
+        if ( j == 0 )
+            mvwprintw(mapWindow, 1, 3, "+"); // starting +
         mvwprintw(mapWindow, 1, 4 + j * 3, "--+");
         for ( int i = 0; i < map->width; i++ ) {
             char* content = interface_utils_getCaseContent(j, i, map); //!< case content
@@ -109,7 +109,8 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
 
         // write prices
         sprintf(p, "%5d E %5d DD", m.costE, m.costDD);
-        if ( m.canUpgrade ) sprintf(pUpgrade, "%5d E %5d DD", m.costUpgradeE, m.costUpgradeDD);
+        if ( m.canUpgrade )
+            sprintf(pUpgrade, "%5d E %5d DD", m.costUpgradeE, m.costUpgradeDD);
         sprintf(pDestroy, "%5d E %5d DD", m.costDestroyE, m.costDestroyDD);
 
         // "Machine:" - in red
@@ -141,7 +142,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     interface_ncurses_show_menu_wait();
 }
 
-void interface_ncurses_showStaffList(const Map* map)
+void interface_ncurses_showStaffList( const Map* map )
 {
     const int rowPerPage = 4; //!< number of row per page, todo: fetch from screen size
     int start = 0; //!< we are starting from this index
@@ -218,8 +219,10 @@ void interface_ncurses_showStaffList(const Map* map)
                 case KEY_LEFT:
                     // we don't want to change our rowPerPage
                     // if last page didn't have enough rows
-                    if ( start % rowPerPage != 0 ) start -= (start % rowPerPage);
-                    else start = max(start - rowPerPage, 0);
+                    if ( start % rowPerPage != 0 )
+                        start -= (start % rowPerPage);
+                    else
+                        start = max(start - rowPerPage, 0);
                     input = true;
                     break;
                     // page after
@@ -262,7 +265,7 @@ void interface_ncurses_listActions()
     int mid = getmaxx(mapWindow) / 2;
 
     for ( int i = 0, j = 2; i < USER_MAPPING_SIZE; i++, j++ ) {
-        actionName = actions_utils_fetchAction(user_mapping[i].actionID);
+        actionName = translation_actionFetchName(user_mapping[i].actionID);
         mapping = user_mapping[i].key;
         // first action
         wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
@@ -276,7 +279,7 @@ void interface_ncurses_listActions()
         wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
         i++;
         // second action
-        actionName = actions_utils_fetchAction(user_mapping[i].actionID);
+        actionName = translation_actionFetchName(user_mapping[i].actionID);
         mapping = user_mapping[i].key;
         wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
         mvwaddstr(mapWindow, j, mid, actionName);

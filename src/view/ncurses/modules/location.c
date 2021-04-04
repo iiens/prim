@@ -10,13 +10,13 @@
 /** Callback on init  */
 void* interface_ncurses_askMachineLocationClosureInit()
 {
-    if ( lastMessage == NULL)
+    if ( lastMessage == NULL )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_MACHINE_LOCATION));
     return NULL;
 }
 
 /** Callback on check  */
-void* interface_ncurses_askMachineLocationClosureCheck(char* buff, bool* leave, ErrorCode* error)
+void* interface_ncurses_askMachineLocationClosureCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
     if ( strcmp(buff, BACK_MAPPING) == 0 ) {
@@ -83,9 +83,7 @@ void* interface_ncurses_askMachineLocationClosureCheck(char* buff, bool* leave, 
 
 Vector2D* interface_ncurses_askMachineLocation()
 {
-    Vector2D* v = (Vector2D*) interface_ncurses_showInActionField(
-            interface_ncurses_askMachineLocationClosureInit,
-            interface_ncurses_askMachineLocationClosureCheck
-    );
+    Vector2D* v = (Vector2D*) interface_ncurses_showInActionField(interface_ncurses_askMachineLocationClosureInit,
+                                                                  interface_ncurses_askMachineLocationClosureCheck);
     return v;
 }

@@ -7,20 +7,34 @@
 /** init buy machine interface **/
 void* interface_ncurses_askBuyMachineClosureInit();
 
-/** input staff **/
-void* interface_ncurses_askBuyMachineCheck(char* buff, bool* leave, ErrorCode* error);
+/** init ask orientation interface **/
+void* interface_ncurses_askOrientationClosureInit();
 
-MachineStuff interface_ncurses_askAddMachine()
+/** input machine **/
+void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* error );
+
+/** input orientation **/
+void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode* error );
+
+MachineSpec interface_ncurses_askAddMachine()
 {
-    MachineStuff* m = ((MachineStuff*) interface_ncurses_showInActionField(
-            interface_ncurses_askBuyMachineClosureInit,
-            interface_ncurses_askBuyMachineCheck
-    ));
+    MachineStuff* m = ((MachineStuff*) interface_ncurses_showInActionField(interface_ncurses_askBuyMachineClosureInit,
+                                                                           interface_ncurses_askBuyMachineCheck));
+
+    Orientation* o = ((Orientation*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
+                                                                         interface_ncurses_askOrientationCheck));
+
     // we need to do that since we use void* and Action* to match this constraint
-    MachineStuff machine = *m;
-    free(m);
+    MachineSpec machine;
+    machine.type = *m;
+    machine.orientation = *o;
+
+    free(m); // free
+    free(o); // free
     return machine;
 }
+
+// askBuyMachine
 
 void* interface_ncurses_askBuyMachineClosureInit()
 {
@@ -29,7 +43,7 @@ void* interface_ncurses_askBuyMachineClosureInit()
     return NULL;
 }
 
-void* interface_ncurses_askBuyMachineCheck(char* buff, bool* leave, ErrorCode* error)
+void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
     if ( strcmp(buff, BACK_MAPPING) == 0 ) {
@@ -53,7 +67,32 @@ void* interface_ncurses_askBuyMachineCheck(char* buff, bool* leave, ErrorCode* e
         }
 
         // set error
-        *error = ERROR_INVALID_STAFF_NUMBER;
+        *error = ERROR_INVALID_MACHINE_NUMBER;
+        return NULL;
+    }
+}
+
+// askOrientation
+
+void* interface_ncurses_askOrientationClosureInit()
+{
+    if ( lastMessage == NULL )
+        interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_MACHINE));
+    return NULL;
+}
+
+void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode* error )
+{
+    // he wants to go back
+    if ( strcmp(buff, BACK_MAPPING) == 0 ) {
+        back = true;
+        *leave = TRUE;
+        return NULL;
+    } else {
+        //todo: process here
+
+        // set error
+        *error = ERROR_INVALID_MACHINE_NUMBER;
         return NULL;
     }
 }

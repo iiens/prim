@@ -3,7 +3,7 @@
 //todo: Ramzy constant ?
 int map_utils_getSizeByDifficulty(Difficulty d)
 {
-    switch ( d ) {
+    switch ( d ) { // NOLINT(hicpp-multiway-paths-covered)
         case DIFFICULTY_EASY:
             return 10;
         case DIFFICULTY_MEDIUM:

@@ -192,27 +192,11 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
 char* interface_utils_getCaseContent( int x, int y, const Map* map )
 {
     CaseType t = map_getTypeCase(x, y, map);
-    switch ( t ) {
-        case CASE_VIDE:
-            return " ";
-        case CASE_GATE:
-            return "G";
-        case CASE_SOURCE:
-            return "S";
-        case CASE_MACHINE:
-            switch ( map_getTypeMachine(x, y, map) ) {
-                case MS_COLLECTOR:
-                    return "C";
-                case MS_CONVEYOR_BELT:
-                    return "B";
-                case MS_CROSS:
-                    return "X";
-                case MS_RECYCLING_CENTER:
-                    return "R";
-                case MS_JUNKYARD:
-                    return "J";
-            }
-        default:
-            return "?";
-    }
+    char* response = translation_fetchCaseTypeName(t);
+    if ( response != NULL )
+        // it's not a machine
+        return response;
+    else
+        // it's a machine
+        return translation_fetchMachineTypeName(map_getTypeMachine(x, y, map));
 }

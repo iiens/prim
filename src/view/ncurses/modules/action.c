@@ -13,7 +13,7 @@ void* interface_ncurses_chooseActionClosureInit()
 }
 
 /** check submitted action **/
-void* interface_ncurses_chooseActionClosureCheck(char* buff, bool* leave, ErrorCode* error)
+void* interface_ncurses_chooseActionClosureCheck( char* buff, bool* leave, ErrorCode* error )
 {
     for ( int i = 0; i < USER_MAPPING_SIZE; i++ ) {
         if ( strcmp(buff, user_mapping[i].key) == 0 ) { //same
@@ -31,10 +31,8 @@ void* interface_ncurses_chooseActionClosureCheck(char* buff, bool* leave, ErrorC
 
 Action interface_ncurses_chooseAction()
 {
-    Action* a = ((Action*) interface_ncurses_showInActionField(
-            interface_ncurses_chooseActionClosureInit,
-            interface_ncurses_chooseActionClosureCheck
-    ));
+    Action* a = ((Action*) interface_ncurses_showInActionField(interface_ncurses_chooseActionClosureInit,
+                                                               interface_ncurses_chooseActionClosureCheck));
     // we need to do that since we use void* and Action* to match this constraint
     Action action = *a;
     free(a);

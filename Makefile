@@ -118,7 +118,8 @@ $(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o 
 # - actions.h
 # - machine.h
 # - error.h
-$(OUTPUT_V)translation.o: $(SOURCE_V)translation.c $(SOURCE_H_U)translation.h $(SOURCE_H_D)error.h $(SOURCE_H_D)machine.h $(SOURCE_H_D)actions.h
+$(OUTPUT_V)translation.o: $(SOURCE_V)translation.c $(SOURCE_H_U)translation.h \
+	$(SOURCE_H_D)error.h $(SOURCE_H_D)machine.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case_type.h
 	mkdir -p $(OUTPUT_V) && $(CC) $(CFLAGS) -c -o $(OUTPUT_V)translation.o $(SOURCE_V)translation.c
 
 # utils_fun.o
