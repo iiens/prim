@@ -34,7 +34,7 @@
      *
      * @return Array of the staff
      */
-    structures_staff* createStructuresStaff();
+    Element* createStructuresStaff();
 
     /*!
      * \fn destroyStructuresStaff
@@ -46,13 +46,13 @@
      * @param[in] array of staff that the player has
      * @return a void
      */
-    void destroyStructuresStaff(structures_staff* s);
+    void destroyStructuresStaff(Element * e);
 
 
-    int getElement(structures_staff* s, int index_Staff);
+    int getElement(Element* e, int index_Staff);
 
 
-    int add_Element(structures_staff * s, int number_Staff);
+    int add_Element(Element * e, int number_Staff);
 
 
 
