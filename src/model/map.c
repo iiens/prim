@@ -389,6 +389,17 @@ MachineStuff map_getTypeMachine(const int x, const int y, const Map *m) {
     }
 }
 
+int map_getIndexByMachine(MachineStuff type) {
+    int indexM = 0;
+    while (indexM < NUMBER_OF_MACHINES && machine_list[indexM].type != type) { indexM++; }
+
+    if (indexM == NUMBER_OF_MACHINES) {
+        return -1;
+    } else {
+        return indexM;
+    }
+}
+
 //\////////////////////////////\//
 //\/ Functions Setters
 //\////////////////////////////\//

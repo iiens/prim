@@ -497,6 +497,9 @@
     */
     MachineStuff map_getTypeMachine( int x, int y, const Map* m );
 
+    // TODO Antoine commentaires
+    int map_getIndexByMachine(MachineStuff type);
+
     //\////////////////////////////\//
     //\/ Functions Setters
     //\////////////////////////////\//
