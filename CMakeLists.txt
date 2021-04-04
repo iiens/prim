@@ -52,7 +52,10 @@ add_executable(main
         src/view/ncurses/modules/show.c
         src/view/ncurses/modules/staff.c
         src/view/ncurses/modules/machine.c
-        src/utils/utils_fun.c src/model/map_utils.c)
+        src/utils/utils_fun.c src/model/map_utils.c
+
+        headers/utils/structures.h
+        )
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )
