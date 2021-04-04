@@ -4,7 +4,7 @@
 /**
  * Some power function, fix me plz
  */
-int utils_power(int n, int e)
+int utils_power( int n, int e )
 {
     int r = 1;
     while ( e > 0 ) {
@@ -17,7 +17,7 @@ int utils_power(int n, int e)
 /**
  * Some aton function
  */
-char* utils_intToString(int number)
+char* utils_intToString( int number )
 {
     char* result; //!< result
     int length = 1; //!< number length
