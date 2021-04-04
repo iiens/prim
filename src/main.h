@@ -346,7 +346,7 @@
                             .mode = DESTROY,
                             .onOther = 0,
                             .what.other = DESTROY_GARBAGE,
-                            .modifierRes = 1,//<! todo : trouver un moyen de diviser par 2 cet attribut
+                            .modifierRes = 1/2, // multiply for each case this number of garbage by this number
                             .description = "Half garbage of each case are remove"
                     },
 

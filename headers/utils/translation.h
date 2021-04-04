@@ -77,7 +77,8 @@
     /**
      * Returns the type of a case
      * @param t type of a case
-     * @return the translation
+     * @return the translation or NULL if it's a machine. In such
+     * case, use {@link translation_fetchMachineTypeName}
      */
     char* translation_fetchCaseTypeName( CaseType t );
 

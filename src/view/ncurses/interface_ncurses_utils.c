@@ -188,7 +188,6 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
     } while ( true );
 }
 
-//todo: move to translation ?
 char* interface_utils_getCaseContent( int x, int y, const Map* map )
 {
     CaseType t = map_getTypeCase(x, y, map);

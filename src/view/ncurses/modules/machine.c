@@ -25,13 +25,17 @@ MachineSpec interface_ncurses_askAddMachine()
                                                                          interface_ncurses_askOrientationCheck));
 
     // we need to do that since we use void* and Action* to match this constraint
-    MachineSpec machine;
-    machine.type = *m;
-    machine.orientation = *o;
+    if ( o != NULL && m != NULL ) {
+        MachineSpec machine;
+        machine.type = *m;
+        machine.orientation = *o;
+        // free
+        free(m);
+        free(o);
+        return machine;
+    }
 
-    free(m); // free
-    free(o); // free
-    return machine;
+    return (MachineSpec) {};
 }
 
 // askBuyMachine
@@ -77,7 +81,7 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
 void* interface_ncurses_askOrientationClosureInit()
 {
     if ( lastMessage == NULL )
-        interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_MACHINE));
+        interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_ORIENTATION));
     return NULL;
 }
 
@@ -92,7 +96,7 @@ void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode*
         //todo: process here
 
         // set error
-        *error = ERROR_INVALID_MACHINE_NUMBER;
+        *error = ERROR_INVALID_ORIENTATION_NUMBER;
         return NULL;
     }
 }
