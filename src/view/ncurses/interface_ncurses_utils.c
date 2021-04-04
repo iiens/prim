@@ -15,7 +15,7 @@ void interface_ncurses_showActionField()
     wrefresh(actionWindow);
 }
 
-void interface_ncurses_showMessageWithColor(char* message, int color)
+void interface_ncurses_showMessageWithColor( char* message, int color )
 {
     interface_ncurses_hideError(); // hide previous error
 
@@ -31,7 +31,7 @@ void interface_ncurses_showMessageWithColor(char* message, int color)
     wrefresh(actionWindow);
 }
 
-void interface_ncurses_showError(ErrorCode e)
+void interface_ncurses_showError( ErrorCode e )
 {
     char* message; //!< error message
     message = error_getMessage(e); // fetch message
@@ -39,7 +39,7 @@ void interface_ncurses_showError(ErrorCode e)
     interface_ncurses_showMessageWithColor(message, ERROR_COLOR);
 }
 
-void interface_ncurses_showMessage(char* message)
+void interface_ncurses_showMessage( char* message )
 {
     // show
     interface_ncurses_showMessageWithColor(message, SUCCESS_COLOR);
@@ -48,7 +48,8 @@ void interface_ncurses_showMessage(char* message)
 
 void interface_ncurses_hideError()
 {
-    if ( lastMessage == NULL ) return;
+    if ( lastMessage == NULL )
+        return;
     // delete line
     // we remove the first one, until there is no character
     for ( int i = 0; i < (int) strlen(lastMessage) + 1; ++i ) {
@@ -59,7 +60,7 @@ void interface_ncurses_hideError()
     lastMessage = NULL;
 }
 
-char* interface_ncurses_gameTag(char* text, int value, char* buf, char* format)
+char* interface_ncurses_gameTag( char* text, int value, char* buf, char* format )
 {
     // create a format like %-30s: %d
     sprintf(format, "%s%d%s", "%.", 30, "s: %d");
@@ -69,7 +70,7 @@ char* interface_ncurses_gameTag(char* text, int value, char* buf, char* format)
     return buf;
 }
 
-char* interface_ncurses_gameTag_type(char* text, void* value, char* buf, char* format, char* type)
+char* interface_ncurses_gameTag_type( char* text, void* value, char* buf, char* format, char* type )
 {
     // create a format like %-30s: %d
     sprintf(format, "%s%d%s%s", "%.", 30, "s: ", type);
@@ -79,7 +80,7 @@ char* interface_ncurses_gameTag_type(char* text, void* value, char* buf, char* f
     return buf;
 }
 
-void interface_ncurses_clearAction(char* buf)
+void interface_ncurses_clearAction( char* buf )
 {
     // delete each character one by one
     // we don't move x, since characters moves to the left each time we delete one
@@ -107,7 +108,7 @@ void interface_ncurses_show_menu_wait()
     keypad(mapWindow, FALSE);
 }
 
-int writeLabel(int i, int j, char* tag, char* content)
+int writeLabel( int i, int j, char* tag, char* content )
 {
     // tag such as cost:
     wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
@@ -120,7 +121,7 @@ int writeLabel(int i, int j, char* tag, char* content)
     return j;
 }
 
-void interface_ncurses_initListWindow(char* title)
+void interface_ncurses_initListWindow( char* title )
 {
     //clear
     wclear(mapWindow);
@@ -133,12 +134,13 @@ void interface_ncurses_initListWindow(char* title)
     waddstr(mapWindow, translation_get(TRANSLATE_GO_BACK_B));
 }
 
-void* interface_ncurses_showInActionField(Closure init, Closure check)
+void* interface_ncurses_showInActionField( Closure init, Closure check )
 {
     bool leave = false; //!< do we need to leave ?
     void* result = NULL; //!< function result
     ErrorCode error = ERROR_INVALID_ACTION_SEQUENCE; //!< error code
-    if ( init != NULL ) init(NULL, NULL, NULL);
+    if ( init != NULL )
+        init(NULL, NULL, NULL);
     do {
         char buf[ACTION_BUF_SIZE] = "";
         int read;
@@ -187,7 +189,7 @@ void* interface_ncurses_showInActionField(Closure init, Closure check)
 }
 
 //todo: move to translation ?
-char* interface_utils_getCaseContent(int x, int y, const Map* map)
+char* interface_utils_getCaseContent( int x, int y, const Map* map )
 {
     CaseType t = map_getTypeCase(x, y, map);
     switch ( t ) {
@@ -198,7 +200,7 @@ char* interface_utils_getCaseContent(int x, int y, const Map* map)
         case CASE_SOURCE:
             return "S";
         case CASE_MACHINE:
-            switch ( map_getTypeMachine(x, y, map)) {
+            switch ( map_getTypeMachine(x, y, map) ) {
                 case MS_COLLECTOR:
                     return "C";
                 case MS_CONVEYOR_BELT:

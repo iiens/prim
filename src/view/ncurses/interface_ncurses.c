@@ -45,7 +45,8 @@ ErrorCode interface_ncurses_init()
         return ERROR_INIT_NCURSES_INTERFACE;
     }
 
-    if ( LINES > MIN_ROW_SAVED ) MIN_ROW_SAVED = LINES;
+    if ( LINES > MIN_ROW_SAVED )
+        MIN_ROW_SAVED = LINES;
 
     if ( resize_term(MIN_ROW_SAVED, MIN_COL_SAVED) == -1 ) {
         interface_close();
@@ -88,7 +89,7 @@ ErrorCode interface_ncurses_init()
 // 2- show the map
 // 3- show input action field
 // and save this map in a pointer
-ErrorCode interface_ncurses_reload(const Map* map)
+ErrorCode interface_ncurses_reload( const Map* map )
 {
     interface_showMap(map); // 1 and 2
     interface_ncurses_showActionField(); // 3
@@ -99,6 +100,7 @@ ErrorCode interface_ncurses_close()
 {
     // free main window
     bool r = endwin();
-    if ( !r ) return ERROR_CLOSE_INTERFACE;
+    if ( !r )
+        return ERROR_CLOSE_INTERFACE;
     return NO_ERROR;
 }

@@ -31,7 +31,7 @@
     extern int MIN_COL_SAVED; //!< number of cols saved
     extern char* lastMessage;
 
-    typedef void* (* Closure)(char* buff, bool* leave, ErrorCode* error); //!< closure function
+    typedef void* (* Closure)( char* buff, bool* leave, ErrorCode* error ); //!< closure function
 
     // utilities functions
     /*!
@@ -47,7 +47,7 @@
      * @param[out] format (we will put the format in)
      * @return
      */
-    char* interface_ncurses_gameTag(char* text, int value, char* buf, char* format);
+    char* interface_ncurses_gameTag( char* text, int value, char* buf, char* format );
 
     /**
      * @see interface_ncurses_gameTag
@@ -58,13 +58,13 @@
      * @param type %d for int, %s for char*... this is associated with value type
      * @return same as in interface_ncurses_gameTag
      */
-    char* interface_ncurses_gameTag_type(char* text, void* value, char* buf, char* format, char* type);
+    char* interface_ncurses_gameTag_type( char* text, void* value, char* buf, char* format, char* type );
 
     /*!
     * Clear last actionWindow
     * @param buf last actionWindow text
     */
-    void interface_ncurses_clearAction(char* buf);
+    void interface_ncurses_clearAction( char* buf );
 
     /**
      * Wait function.
@@ -82,20 +82,20 @@
     * @param content content put right after the label
     * @return x value after adding the label+text
     */
-    int writeLabel(int i, int j, char* tag, char* content);
+    int writeLabel( int i, int j, char* tag, char* content );
 
     /**
      * Clean mapWindow and put in a title in the center. This method
      * is used when showing a list of something. We will use 'b' to go back.
      * @param title a title
      */
-    void interface_ncurses_initListWindow(char* title);
+    void interface_ncurses_initListWindow( char* title );
 
     /**
      * Show some message
      * @param message
      */
-    void interface_ncurses_showMessage(char* message);
+    void interface_ncurses_showMessage( char* message );
 
     /**
      * Take an init and a check function.
@@ -104,7 +104,7 @@
      * @param check function that checks whether input is valid (then return) or not (ask again)
      * @return the result of the check function, if the check is successful
      */
-    void* interface_ncurses_showInActionField(Closure init, Closure check);
+    void* interface_ncurses_showInActionField( Closure init, Closure check );
 
     /**
      * Return one letter with what's inside this case
@@ -113,6 +113,6 @@
      * @param map map
      * @return
      */
-    char* interface_utils_getCaseContent(int x, int y, const Map* map);
+    char* interface_utils_getCaseContent( int x, int y, const Map* map );
 
 #endif //PRIM_INTERFACE_NCURSES_UTILS_H
