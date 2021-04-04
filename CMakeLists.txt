@@ -55,6 +55,7 @@ add_executable(main
         src/utils/utils_fun.c src/model/map_utils.c
 
         headers/utils/structures.h
+        headers/utils/const.h
         )
 
 target_include_directories(main PUBLIC /headers)

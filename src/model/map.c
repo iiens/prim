@@ -1,9 +1,25 @@
 #include <time.h>
 #include "../../headers/map.h"
 #include "../../headers/utils/map_utils.h"
+#include "../../headers/utils/const.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+
+ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
+    if (m->E >= costE) {
+        if (m->DD >= costDD) {
+            m->E = m->E - costE;
+            m->DD = m->DD - costDD;
+
+            return NO_ERROR;
+        } else {
+            return ERROR_NOT_ENOUGH_DD;
+        }
+    } else {
+        return ERROR_NOT_ENOUGH_E;
+    }
+}
 
 Map *map_create(Difficulty dif) {
     // Initialisation map
@@ -13,12 +29,12 @@ Map *map_create(Difficulty dif) {
     // Initializing the basic values of the game
     m->turn = 1;
     m->productionFISA = E_VALUE;
-    m->E = 100;
-    m->DD = 100;
+    m->E = NUMBER_E_DEPART;
+    m->DD = NUMBER_DD_DEPART;
     m->score = 0;
     m->pollution = 0;
-    m->numberFISA = 5;
-    m->numberFISE = 5;
+    m->numberFISA = NUMBER_FISA;
+    m->numberFISE = NUMBER_FISE;
     m->numberStaff = 0;
     m->team = NULL;
 
@@ -76,37 +92,41 @@ ErrorCode map_destroy(Map *m) {
 }
 
 ErrorCode map_hireFISE(Map *m) {
-    if (m->E >= 50) {
-        if (m->DD >= 20) {
-            m->E = m->E - 50;
-            m->DD = m->DD - 20;
+    int costE, costDD;
 
-            m->numberFISE++;
-        } else {
-            return ERROR_NOT_ENOUGH_DD;
-        }
+    costE = COST_FISE_E;
+    costDD = COST_FISE_DD;
+
+    // Prendre en compte les effets de staff
+    //map_checkCostEffectStaff(m, HIRE, (Target) {.other = SUB_FISE}, &costE, &costDD);
+
+    // Vérifie que le joueur à les sous
+    ErrorCode e = map_tryBuy(m, costE, costDD);
+    if (e == NO_ERROR) {
+        map_setNumberFISE(m, 1);
+        return NO_ERROR;
     } else {
-        return ERROR_NOT_ENOUGH_E;
+        return e;
     }
-
-    return NO_ERROR;
 }
 
 ErrorCode map_hireFISA(Map *m) {
-    if (m->E >= 50) {
-        if (m->DD >= 20) {
-            m->E = m->E - 50;
-            m->DD = m->DD - 20;
+    int costE, costDD;
 
-            m->numberFISA++;
-        } else {
-            return ERROR_NOT_ENOUGH_DD;
-        }
+    costE = COST_FISA_E;
+    costDD = COST_FISA_DD;
+
+    // Prendre en compte les effets de staff
+    //map_checkCostEffectStaff(m, HIRE, (Target) {.other = SUB_FISA}, &costE, &costDD);
+
+    // Vérifie que le joueur à les sous
+    ErrorCode e = map_tryBuy(m, costE, costDD);
+    if (e == NO_ERROR) {
+        map_setNumberFISA(m, 1);
+        return NO_ERROR;
     } else {
-        return ERROR_NOT_ENOUGH_E;
+        return e;
     }
-
-    return NO_ERROR;
 }
 
 ErrorCode map_changeProductionFISA(Map *m) {
@@ -119,12 +139,65 @@ ErrorCode map_changeProductionFISA(Map *m) {
     return NO_ERROR;
 }
 
+void productionFise(Map *m) {
+    int productionE, productionDD, numberFise;
+
+    productionE = PRODUCTION_FISE_E;
+    productionDD = PRODUCTION_FISE_DD;
+    numberFise = map_getNumberFISE(m);
+    // Prendre en compte les effets de staff
+    //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &productionE, &productionDD);
+    map_setNumberE(m, productionE * numberFise);
+    map_setNumberDD(m, productionDD * numberFise);
+}
+
+void productionFisa(Map *m) {
+    int productionE, productionDD, numberFisa;
+
+    if (m->turn % NB_TURN_FISA == 0) {
+        productionE = PRODUCTION_FISA_E;
+        productionDD = PRODUCTION_FISA_DD;
+        numberFisa = map_getNumberFISA(m);
+
+        // Prendre en compte les effets de staff
+        //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &productionE, &productionDD);
+
+        if (m->productionFISA == E_VALUE) {
+            map_setNumberE(m, productionE * numberFisa);
+        } else {
+            map_setNumberDD(m, productionDD * numberFisa);
+        }
+    }
+}
+
 ErrorCode map_endTurn(Map *m) {
+    int nombreTour;
+
+    // Productin des Fise
+    productionFise(m);
+
+    // Productin des Fisa
+    productionFisa(m);
 
     // TODO Valentin : Déplacer les ressources
-    // TODO Valentin : Gagner les sous des fise et des Fisa au besoin.
+
     // TODO Valentin : Générer les ressources avec les sources
+    // Vérifier
+    nombreTour = NB_TURN_PRODUCTION_SOURCE;
+    // Décrémenter les
+    if (m->turn % 10 == 0) {
+        // récupérer l'emplacement des sources
+        // incrémenter m->map[0][0].nbResource + NB_RESSOURCE_PRODUCT_BY_SOURCE;
+    }
+
+    // TODO Valentin : La porte prduit des déchêts
+
     // TODO Valentin : Faire fonctionner les décheteries
+
+    // TODO Valentin : Les collecteurs s'activent
+
+    // TODO Valentin : Suprimerles ressources non collecté
+
     m->turn++;
     return NO_ERROR;
 }
@@ -132,36 +205,33 @@ ErrorCode map_endTurn(Map *m) {
 ErrorCode map_isEmpty(const int x, const int y, const Map *m) { return NO_ERROR; }
 
 ErrorCode map_addMachine(MachineStuff type, Orientation orientation, int x, int y, Map *m) {
-    int index, costE, costDD;
+    int indexM, costE, costDD;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_isEmpty(x, y, m) == NO_ERROR) {
 
             // Permet de trouver les infos de la machine
-            index = 0;
-            while (machine_list[index].type != type) { index++; }
+            indexM = map_searchIndexMachine(type);
+
+            costE = machine_list[indexM].costE;
+            costDD = machine_list[indexM].costDD;
 
             // Prendre en compte les effets de staff
-
-            costE = machine_list[index].costE;
-            costDD = machine_list[index].costDD;
+            //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
-            if (m->E >= costE) {
-                if (m->DD >= costDD) {
-                    Machine *machine = (Machine *) malloc(sizeof(Machine));
-                    machine->type = type;
-                    machine->level = 1;
-                    machine->orientation = orientation;
+            ErrorCode e = map_tryBuy(m, costE, costDD);
+            if (e == NO_ERROR) {
+                Machine *machine = (Machine *) malloc(sizeof(Machine));
+                machine->type = type;
+                machine->level = 1;
+                machine->orientation = orientation;
 
-                    m->E = m->E - costE;
-                    m->DD = m->DD - costDD;
+                m->map[x][y].type = CASE_MACHINE;
+                m->map[x][y].in.mach = machine;
 
-                    return NO_ERROR;
-                } else {
-                    return ERROR_NOT_ENOUGH_DD;
-                }
+                return NO_ERROR;
             } else {
-                return ERROR_NOT_ENOUGH_E;
+                return e;
             }
         } else {
             return ERROR;
@@ -172,30 +242,30 @@ ErrorCode map_addMachine(MachineStuff type, Orientation orientation, int x, int 
 }
 
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
-    int index, costE, costDD;
+    int indexM, costE, costDD;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
-            index = 0;
-            while (machine_list[index].type != machType) { index++; }
+            // Permet de trouver les infos de la machine
+            indexM = map_searchIndexMachine(machType);
 
-            if (machine_list[index].canUpgrade) {
-                costE = machine_list[index].costUpgradeE;
-                costDD = machine_list[index].costUpgradeDD;
+            if (machine_list[indexM].canUpgrade) {
 
-                if (m->E >= costE) {
-                    if (m->DD >= costDD) {
-                        m->map[x][y].in.mach->level++;
+                costE = machine_list[indexM].costUpgradeE;
+                costDD = machine_list[indexM].costUpgradeDD;
 
-                        m->E = m->E - costE;
-                        m->DD = m->DD - costDD;
-                        return NO_ERROR;
-                    } else {
-                        return ERROR_NOT_ENOUGH_DD;
-                    }
+                // Prendre en compte les effets de staff
+                //map_checkCostEffectStaff(m, UPGRADE, (Target) {.machine = machType}, &costE, &costDD);
+
+                // Vérifie que le joueur à les sous
+                ErrorCode e = map_tryBuy(m, costE, costDD);
+                if (e == NO_ERROR) {
+                    m->map[x][y].in.mach->level++;
+
+                    return NO_ERROR;
                 } else {
-                    return ERROR_NOT_ENOUGH_E;
+                    return e;
                 }
             } else {
                 return ERROR_INVALID_ACTION_SEQUENCE;
@@ -209,36 +279,30 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
 }
 
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
-    int index, costE, costDD;
+    int indexM, costE, costDD;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
-            // Permet de trouver les infos de la machine
 
-            index = 0;
-            while (machine_list[index].type != machType) { index++; }
+            // Permet de trouver les infos de la machine
+            indexM = map_searchIndexMachine(machType);
+
+            costE = machine_list[indexM].costDestroyE;
+            costDD = machine_list[indexM].costDestroyDD;
 
             // Prendre en compte les effets de staff
-
-            costE = machine_list[index].costDestroyE;
-            costDD = machine_list[index].costDestroyDD;
+            //map_checkCostEffectStaff(m, DESTROY, (Target) {.machine = machType}, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
-            if (m->E >= costE) {
-                if (m->DD >= costDD) {
-                    free(m->map[x][y].in.mach);
-                    m->map[x][y].in.mach = NULL;
-                    m->map[x][y].type = CASE_VIDE;
+            ErrorCode e = map_tryBuy(m, costE, costDD);
+            if (e == NO_ERROR) {
+                free(m->map[x][y].in.mach);
+                m->map[x][y].in.mach = NULL;
+                m->map[x][y].type = CASE_VIDE;
 
-                    m->E = m->E - costE;
-                    m->DD = m->DD - costDD;
-
-                    return NO_ERROR;
-                } else {
-                    return ERROR_NOT_ENOUGH_DD;
-                }
+                return NO_ERROR;
             } else {
-                return ERROR_NOT_ENOUGH_E;
+                return e;
             }
         } else {
             return ERROR;
