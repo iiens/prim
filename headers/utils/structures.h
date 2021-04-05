@@ -35,7 +35,7 @@
     typedef struct ElementList_S
     {
         int number;
-        Element *next;
+        struct ElementList *next;
     }ElementList;
 
     extern Element structures_tab[]; //!< contains all of the recruited staff and the number of each staff recruited
