@@ -26,16 +26,16 @@
 
 
     /*!
-     * \typedef ElementListe
-     * \struct ElementListe_S Structures.h "headers/data/Structures.h"
+     * \typedef ElementList
+     * \struct ElementList_S Structures.h "headers/data/Structures.h"
      *
      * Struct which represent a list
      *
      */
     typedef struct ElementList_S
     {
-        int number;
-        struct ElementList *next;
+        Element value;
+        ElementList *next;
     }ElementList;
 
     extern Element structures_tab[]; //!< contains all of the recruited staff and the number of each staff recruited
