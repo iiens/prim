@@ -66,7 +66,7 @@
 
     /*! @see interface_askBuyStaff
      * @return see interface_askBuyStaff */
-    Staff* interface_ncurses_askBuyStaff();
+    int interface_ncurses_askBuyStaff();
 
     /*! @see interface_showError
      * @param e see interface_showError */

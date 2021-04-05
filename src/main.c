@@ -198,7 +198,7 @@ void main_buyMachineAction(Map* map) {
 }
 
 void main_buyStaffAction(Map* map) {
-    int s = NULL; //!< Used to retrieve the function return from interface.h
+    int s; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
 

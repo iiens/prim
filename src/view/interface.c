@@ -121,13 +121,13 @@ Vector2D* interface_askMachineLocation()
     return NULL;
 }
 
-Staff* interface_askBuyStaff()
+int interface_askBuyStaff()
 {
     if ( useNCurses ) {
         return interface_ncurses_askBuyStaff();
     }
     back = true;
-    return NULL;
+    return -1;
 }
 
 //\////////////////\//

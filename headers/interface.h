@@ -240,8 +240,7 @@
      * @see ACTION_BUY_STAFF
      * @see ACTION_ASK_STAFF_LIST (action enum)
      */
-     //todo: return ID
-    Staff* interface_askBuyStaff();
+    int interface_askBuyStaff();
 
     /**
      * Show an error
