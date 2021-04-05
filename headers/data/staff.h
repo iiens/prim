@@ -110,6 +110,17 @@
 
     /*!
     * \fn char* staff_getStaffNameByID(const Staff *staff)
+    * @brief a function to get the staff id of the staff member
+    * @param[in] const Staff *staff
+    *
+    * This function get the staff id of the staff member
+    *
+    * @return the staff id of the staff member
+    */
+    int staff_getStaffID(const Staff *staff);
+
+    /*!
+    * \fn char* staff_getStaffNameByID(const Staff *staff)
     * @brief a function to get the staff name of the staff member
     * @param[in] const Staff *staff
     *

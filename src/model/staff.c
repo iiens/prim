@@ -64,6 +64,8 @@ const Effect* staff_getStaffEffectByID(int id) {
     }
 }
 
+int staff_getStaffID(const Staff *staff) { return staff->id; }
+
 char* staff_getStaffName(const Staff *staff) { return staff->name; }
 
 int staff_getStaffCostE(const Staff *staff) { return staff->costE; }
