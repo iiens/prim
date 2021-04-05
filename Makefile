@@ -51,7 +51,7 @@ INTERFACE_MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT
 O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
-	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o \
+	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o \
 	$(OUTPUT_U)utils_fun.o
 
 # all off our header files included in interface.h for convenience sake
@@ -110,7 +110,7 @@ $(OUTPUT_V_N_M)machine.o: $(SOURCE_V_N_M)machine.c $(OUTPUT_V_N)interface_ncurse
 $(OUTPUT_V_N_M)show.o: $(SOURCE_V_N_M)show.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
 	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)show.o $(SOURCE_V_N_M)show.c
 
-$(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+$(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(OUTPUT_M)staff.o
 	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)staff.o $(SOURCE_V_N_M)staff.c
 
 # translation.o
@@ -132,6 +132,11 @@ $(OUTPUT_U)utils_fun.o: $(SOURCE_U)utils_fun.c $(SOURCE_U)utils_fun.h
 # - difficulty.h
 $(OUTPUT_M)map_utils.o: $(SOURCE_M)map_utils.c $(SOURCE_H_U)map_utils.h $(SOURCE_H_D)difficulty.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)map_utils.o $(SOURCE_M)map_utils.c
+
+# staff.o
+# - staff.c and .h
+$(OUTPUT_M)staff.o: $(SOURCE_M)staff.c $(SOURCE_H_D)staff.h
+	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)staff.o $(SOURCE_M)staff.c
 
 prim: $(O_FILES)
 	$(CC) $(CFLAGS) -o bin/prim $(O_FILES)
