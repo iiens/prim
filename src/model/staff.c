@@ -77,7 +77,7 @@ char* staff_getStaffDescription(const Staff *staff) { return staff->description;
 const Effect* staff_getStaffEffect(const Staff *staff) { return &(staff->effects); }
 
 const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
-    int indexS = 0, check;
+    int check;
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
         if(staff_list[i].effects.mode == mode){
 
@@ -92,4 +92,5 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
             }
         }
     }
+    return NULL;
 }

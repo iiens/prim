@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const MachineInfo *map_getMachineInfoByType(MachineStuff type) {
+const MachineInfo *machineInfo_getMachineInfoByType(MachineStuff type) {
     int indexM = 0;
     while (indexM < NUMBER_OF_MACHINES && machine_list[indexM].type != type) { indexM++; }
 

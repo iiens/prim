@@ -115,6 +115,6 @@ ErrorCode staff_actionLaurentPrevel(Map *m, int idStaff) {
     map_setNumberFISA(m, (fisaGraduate * -1));
 
     // Envoie des ressource à la porte
-    map_sendResourcesToGate(m, fisaGraduate + fiseGraduate)
+    map_sendResourcesToGate(m, fisaGraduate + fiseGraduate);
     return NO_ERROR;
 }

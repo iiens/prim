@@ -77,13 +77,27 @@ ErrorCode map_destroy(Map *m) {
 }
 
 ErrorCode map_hireFISE(Map *m) {
-    int costE, costDD;
-
-    costE = COST_FISE_E;
-    costDD = COST_FISE_DD;
+    int costE = COST_FISE_E;
+    int costDD = COST_FISE_DD;
 
     // Prendre en compte les effets de staff
-    //map_checkCostEffectStaff(m, HIRE, (Target) {.other = SUB_FISE}, &costE, &costDD);
+    const Staff* staff = staffInfo_getByModeAndType(ON_BUY, (Target) {.other = SUB_FISE});
+    const Effect * effect = staff_getStaffEffect(staff);
+    int idStaff = staff_getStaffID(staff);
+    int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+    int modifE = effect_getModifierE(effect);
+    int modifDD = effect_getModifierDD(effect);
+    int minE = effect_getMinCostE(effect);
+    int minDD = effect_getMinCostDD(effect);
+
+    costE = costE - (modifE * numberStaff);
+    if (costE < minE) {
+        costE = minE;
+    }
+    costDD = costDD - (modifDD * numberStaff);
+    if (costDD < minDD) {
+        costDD = minDD;
+    }
 
     // Vérifie que le joueur à les sous
     ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -96,13 +110,27 @@ ErrorCode map_hireFISE(Map *m) {
 }
 
 ErrorCode map_hireFISA(Map *m) {
-    int costE, costDD;
-
-    costE = COST_FISA_E;
-    costDD = COST_FISA_DD;
+    int costE = COST_FISA_E;
+    int costDD = COST_FISA_DD;
 
     // Prendre en compte les effets de staff
-    //map_checkCostEffectStaff(m, HIRE, (Target) {.other = SUB_FISA}, &costE, &costDD);
+    const Staff* staff = staffInfo_getByModeAndType(ON_BUY, (Target) {.other = SUB_FISA});
+    const Effect * effect = staff_getStaffEffect(staff);
+    int idStaff = staff_getStaffID(staff);
+    int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+    int modifE = effect_getModifierE(effect);
+    int modifDD = effect_getModifierDD(effect);
+    int minE = effect_getMinCostE(effect);
+    int minDD = effect_getMinCostDD(effect);
+
+    costE = costE - (modifE * numberStaff);
+    if (costE < minE) {
+        costE = minE;
+    }
+    costDD = costDD - (modifDD * numberStaff);
+    if (costDD < minDD) {
+        costDD = minDD;
+    }
 
     // Vérifie que le joueur à les sous
     ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -304,33 +332,37 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
 
 ErrorCode map_buyStaff(int idStaff, Map *m) {
     const Staff *staff = staff_getStaffByID(idStaff);
-    int costE = staff_getStaffCostE(staff);
-    int costDD = staff_getStaffCostDD(staff);
+    if (staff != NULL) {
+        int costE = staff_getStaffCostE(staff);
+        int costDD = staff_getStaffCostDD(staff);
 
-    ErrorCode e = map_tryBuy(m, costE, costDD);
-    if (e == NO_ERROR) {
-        // TODO Valentin : Incrémenter le staff dans map.team
+        ErrorCode e = map_tryBuy(m, costE, costDD);
+        if (e == NO_ERROR) {
+            // TODO Valentin : Incrémenter le staff dans map.team
 
-        switch (idStaff) {
-            case 14:
-                // Parourir toutes les cases
-                staff_actionAnneLaureLigozat(m, 14);
-                break;
-            case 15:
-                // Parourir toutes les cases
-                staff_actionChristopheMouilleron(m, 15);
-                break;
-            case 24:
-                // Parourir toutes les cases
-                staff_actionLaurentPrevel(m, 24);
-                break;
-            default:
-                break;
+            switch (idStaff) {
+                case 14:
+                    // Parourir toutes les cases
+                    staff_actionAnneLaureLigozat(m, 14);
+                    break;
+                case 15:
+                    // Parourir toutes les cases
+                    staff_actionChristopheMouilleron(m, 15);
+                    break;
+                case 24:
+                    // Parourir toutes les cases
+                    staff_actionLaurentPrevel(m, 24);
+                    break;
+                default:
+                    break;
+            }
+
+            return NO_ERROR;
+        } else {
+            return e;
         }
-
-        return NO_ERROR;
     } else {
-        return e;
+        return ERROR_INVALID_STAFF_NUMBER;
     }
 }
 
