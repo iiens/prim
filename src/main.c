@@ -198,7 +198,7 @@ void main_buyMachineAction(Map* map) {
 }
 
 void main_buyStaffAction(Map* map) {
-    Staff* s = NULL; //!< Used to retrieve the function return from interface.h
+    int s; //!< Used to retrieve the function return from interface.h
     ErrorCode e; //!< Allows you to get the return of the functions of map.h
     bool check = false; //!< flag to detect the success of certain action
 
@@ -209,7 +209,7 @@ void main_buyStaffAction(Map* map) {
         // Check that the user has not abandoned the action
         if ( !back ) {
             // Call The map function to try to buy a staff member
-            e = map_buyStaff(*s, map);
+            e = map_buyStaff(s, map);
             // Check the return of the function
             if ( e != NO_ERROR ) {
                 // Show the error message
@@ -221,11 +221,6 @@ void main_buyStaffAction(Map* map) {
         }
         // While the action is not successful or the user has not abandoned the action
     } while ( !check && !back );
-
-    // Free Staff
-    if( s != NULL ){
-        free(s); s = NULL;
-    }
 }
 
 void main_upgradeMachineAction(Map* map) {

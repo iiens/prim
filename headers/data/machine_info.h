@@ -42,4 +42,30 @@
 
     extern const MachineInfo machine_list[]; //!< contains information about machines
 
+    // TODO Antoine Faire toute la doc
+
+    const MachineInfo *machineInfo_getMachineInfoByType(MachineStuff type);
+
+    MachineStuff machineInfo_getType(const MachineInfo *machine);
+
+    int machineInfo_getCostE(const MachineInfo *machine);
+
+    int machineInfo_getCostDD(const MachineInfo *machine);
+
+    int machineInfo_getCostUpgradeE(const MachineInfo *machine);
+
+    int machineInfo_getCostUpgradeDD(const MachineInfo *machine);
+
+    int machineInfo_getCostDestroyE(const MachineInfo *machine);
+
+    int machineInfo_getCostDestroyDD(const MachineInfo *machine);
+
+    char* machineInfo_getDescription(const MachineInfo *machine);
+
+    int machineInfo_getCapacity(const MachineInfo *machine);
+
+    bool machineInfo_getCanUpgrade(const MachineInfo *machine);
+
+    const Effect *machineInfo_getEffects(const MachineInfo *machine);
+
 #endif //PRIM_MACHINE_INFO_H

@@ -10,11 +10,14 @@ void* interface_ncurses_askBuyStaffClosureInit();
 /** input staff **/
 void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* error );
 
-Staff* interface_ncurses_askBuyStaff()
+int interface_ncurses_askBuyStaff()
 {
-    Staff* s = ((Staff*) interface_ncurses_showInActionField(interface_ncurses_askBuyStaffClosureInit,
-                                                             interface_ncurses_askBuyStaffCheck));
-    return s;
+    int* s = ((int*) interface_ncurses_showInActionField(interface_ncurses_askBuyStaffClosureInit,
+                                                                interface_ncurses_askBuyStaffCheck));
+    // pass
+    int staff_id = *s;
+    free(s);
+    return staff_id;
 }
 
 void* interface_ncurses_askBuyStaffClosureInit()
@@ -38,9 +41,11 @@ void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* er
         staffID = strtol(buff, &endPtr, 10);
 
         if ( endPtr != NULL && staff_isIDValid(staffID) == NO_ERROR ) {
+            int* result = (int*) malloc(sizeof(int)); //!< returned result
+            *result = staffID;
             // okay
             *leave = true;
-            return (Staff*) staff_getStaffByID(staffID);
+            return result;
         }
 
         // set error

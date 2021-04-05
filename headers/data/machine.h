@@ -69,5 +69,19 @@
         Orientation orientation; //!< Represent the orientation of the machine
     } Machine; //!< Machine
 
+    // TODO ANTOINE FAIRE LA DOC
 
+    MachineStuff machine_getType(Machine* machine);
+
+    int machine_getLevel(Machine* machine);
+
+    Orientation  machine_getOrientation(Machine* machine);
+
+    Direction  machine_getOrientationTop(Machine* machine);
+
+    Direction  machine_getOrientationBottom(Machine* machine);
+
+    Direction  machine_getOrientationLeft(Machine* machine);
+
+    Direction  machine_getOrientationRight(Machine* machine);
 #endif //PRIM_MACHINE_H
