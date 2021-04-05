@@ -86,6 +86,10 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     char* p = (char*) malloc(size * sizeof(char)); //!< cost value
     char* pUpgrade = (char*) malloc(size * sizeof(char)); //!< cost upgrade value
     char* pDestroy = (char*) malloc(size * sizeof(char)); //!< cost destroy value
+    int blocLength = 2; //!< number of line per machine
+
+    if ( (LINE_COUNT*3+4) < LINES )
+        blocLength++;
 
     //clear
     wclear(mapWindow);
@@ -115,20 +119,20 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
 
         // "Machine:" - in red
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
-        mvwprintw(mapWindow, 2 + 2 * i, 0, translation_get(TRANSLATE_ML_MACHINE_TAG));
+        mvwprintw(mapWindow, 2 + blocLength * i, 0, translation_get(TRANSLATE_ML_MACHINE_TAG));
         wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
         // machine description
-        mvwprintw(mapWindow, 2 + 2 * i, (int) strlen(translation_get(TRANSLATE_ML_MACHINE_TAG)), head);
+        mvwprintw(mapWindow, 2 + blocLength * i, (int) strlen(translation_get(TRANSLATE_ML_MACHINE_TAG)), head);
 
         // write in one line
         // >>> cost: vE vDD >>> cost upgrade: vE vDD >>> cost destroy: vE vDD
         // with v the value
         // cost:, ... are put in green
         //cost:
-        j = writeLabel(i, j, translation_get(TRANSLATE_ML_COST_TAG), p); //cost
+        j = writeLabel(i, j, blocLength, translation_get(TRANSLATE_ML_COST_TAG), p); //cost
         if ( m.canUpgrade )
-            j = writeLabel(i, j, translation_get(TRANSLATE_ML_COST_UP_TAG), pUpgrade); //cost upgrade
-        writeLabel(i, j, translation_get(TRANSLATE_ML_COST_DESTROY_TAG), pDestroy); // cost destroy
+            j = writeLabel(i, j, blocLength, translation_get(TRANSLATE_ML_COST_UP_TAG), pUpgrade); //cost upgrade
+        writeLabel(i, j, blocLength, translation_get(TRANSLATE_ML_COST_DESTROY_TAG), pDestroy); // cost destroy
 
         // free
         free(head);
@@ -156,7 +160,7 @@ void interface_ncurses_showStaffList( const Map* map )
     //todo: unused
     (void) (map);
 
-    if ( (rowPerPage*blocLength*2+6) < LINES )
+    if ( (rowPerPage*3+6) < LINES )
         blocLength++;
 
     // hide cursor

@@ -78,11 +78,12 @@
     * frame at i,j coordinates
     * @param i y value
     * @param j x value
+    * @param blocLength size of a bloc
     * @param tag label/tag put in green, : me be added by yourself
     * @param content content put right after the label
     * @return x value after adding the label+text
     */
-    int writeLabel( int i, int j, char* tag, char* content );
+    int writeLabel( int i, int j, int blocLength, char* tag, char* content );
 
     /**
      * Clean mapWindow and put in a title in the center. This method

@@ -108,15 +108,15 @@ void interface_ncurses_show_menu_wait()
     keypad(mapWindow, FALSE);
 }
 
-int writeLabel( int i, int j, char* tag, char* content )
+int writeLabel( int i, int j, int blocLength, char* tag, char* content )
 {
     // tag such as cost:
     wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwprintw(mapWindow, 3 + 2 * i, j, tag);
+    mvwprintw(mapWindow, 3 + blocLength * i, j, tag);
     wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
     j += (int) strlen(tag);
     // value
-    mvwprintw(mapWindow, 3 + 2 * i, j, content);
+    mvwprintw(mapWindow, 3 + blocLength * i, j, content);
     j += (int) strlen(content);
     return j;
 }
