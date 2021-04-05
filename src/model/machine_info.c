@@ -14,24 +14,24 @@ const MachineInfo *map_getMachineInfoByType(MachineStuff type) {
     }
 }
 
-MachineStuff machineInfo_getType(MachineInfo *machine){ return machine->type; }
+MachineStuff machineInfo_getType(const MachineInfo *machine){ return machine->type; }
 
-int machineInfo_getCostE(MachineInfo *machine){ return machine->costE; }
+int machineInfo_getCostE(const MachineInfo *machine){ return machine->costE; }
 
-int machineInfo_getCostDD(MachineInfo *machine){ return machine->costDD; }
+int machineInfo_getCostDD(const MachineInfo *machine){ return machine->costDD; }
 
-int machineInfo_getCostUpgradeE(MachineInfo *machine){ return machine->costUpgradeE; }
+int machineInfo_getCostUpgradeE(const MachineInfo *machine){ return machine->costUpgradeE; }
 
-int machineInfo_getCostUpgradeDD(MachineInfo *machine){ return machine->costUpgradeDD; }
+int machineInfo_getCostUpgradeDD(const MachineInfo *machine){ return machine->costUpgradeDD; }
 
-int machineInfo_getCostDestroyE(MachineInfo *machine){ return machine->costDestroyE; }
+int machineInfo_getCostDestroyE(const MachineInfo *machine){ return machine->costDestroyE; }
 
-int machineInfo_getCostDestroyDD(MachineInfo *machine){ return machine->costDestroyDD; }
+int machineInfo_getCostDestroyDD(const MachineInfo *machine){ return machine->costDestroyDD; }
 
-char* machineInfo_getDescription(MachineInfo *machine){ return machine->description; }
+char* machineInfo_getDescription(const MachineInfo *machine){ return machine->description; }
 
-int machineInfo_getCapacity(MachineInfo *machine){ return machine->capacity;}
+int machineInfo_getCapacity(const MachineInfo *machine){ return machine->capacity;}
 
-bool machineInfo_getCanUpgrade(MachineInfo *machine){ return machine->canUpgrade; }
+bool machineInfo_getCanUpgrade(const MachineInfo *machine){ return machine->canUpgrade; }
 
-const Effect *machineInfo_getEffects(MachineInfo *machine){ return &(machine->effects); }
+const Effect *machineInfo_getEffects(const MachineInfo *machine){ return &(machine->effects); }

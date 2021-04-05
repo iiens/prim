@@ -46,26 +46,26 @@
 
     const MachineInfo *machineInfo_getMachineInfoByType(MachineStuff type);
 
-    MachineStuff machineInfo_getType(MachineInfo *machine);
+    MachineStuff machineInfo_getType(const MachineInfo *machine);
 
-    int machineInfo_getCostE(MachineInfo *machine);
+    int machineInfo_getCostE(const MachineInfo *machine);
 
-    int machineInfo_getCostDD(MachineInfo *machine);
+    int machineInfo_getCostDD(const MachineInfo *machine);
 
-    int machineInfo_getCostUpgradeE(MachineInfo *machine);
+    int machineInfo_getCostUpgradeE(const MachineInfo *machine);
 
-    int machineInfo_getCostUpgradeDD(MachineInfo *machine);
+    int machineInfo_getCostUpgradeDD(const MachineInfo *machine);
 
-    int machineInfo_getCostDestroyE(MachineInfo *machine);
+    int machineInfo_getCostDestroyE(const MachineInfo *machine);
 
-    int machineInfo_getCostDestroyDD(MachineInfo *machine);
+    int machineInfo_getCostDestroyDD(const MachineInfo *machine);
 
-    char* machineInfo_getDescription(MachineInfo *machine);
+    char* machineInfo_getDescription(const MachineInfo *machine);
 
-    int machineInfo_getCapacity(MachineInfo *machine);
+    int machineInfo_getCapacity(const MachineInfo *machine);
 
-    bool machineInfo_getCanUpgrade(MachineInfo *machine);
+    bool machineInfo_getCanUpgrade(const MachineInfo *machine);
 
-    const Effect *machineInfo_getEffects(MachineInfo *machine);
+    const Effect *machineInfo_getEffects(const MachineInfo *machine);
 
 #endif //PRIM_MACHINE_INFO_H
