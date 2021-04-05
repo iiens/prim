@@ -267,15 +267,15 @@
     ErrorCode map_destroyMachine( int x, int y, Map* m );
 
     /*!
-     * \fn ErrorCode map_buyStaff( Staff s, Map* m )
+     * \fn ErrorCode map_buyStaff( int idStaff, Map* m )
      * @brief Buy a Staff
-     * @param[in] s a Staff
-     * @param[in,out] m a map
+     * @param[in] idStaff a int
+     * @param[in,out] m a Map*
      * Buy a Staff
      *
      * @return an error that specify what is the problem
      */
-    ErrorCode map_buyStaff( Staff s, Map* m );
+    ErrorCode map_buyStaff( int idStaff, Map* m );
 
     /*!
     * \fn ErrorCode map_isEmpty( int x, int y, const Map* m );
