@@ -106,7 +106,65 @@
     *
     * @return the staff effect according to the id
     */
-    Effect* staff_getStaffEffectByID(int id);
+    const Effect* staff_getStaffEffectByID(int id);
+
+    /*!
+    * \fn char* staff_getStaffNameByID(const Staff *staff)
+    * @brief a function to get the staff name of the staff member
+    * @param[in] const Staff *staff
+    *
+    * This function get the staff name of the staff member
+    *
+    * @return the staff name of the staff member
+    */
+    char* staff_getStaffName(const Staff *staff);
+
+    /*!
+    * \fn int staff_getStaffCostEByID(const Staff *staff)
+    * @brief a function to get the staff cost E of the staff member
+    * @param[in] const Staff *staff
+    *
+    * This function get the staff cost E of the staff member
+    *
+    * @return the staff cost E of the staff member
+    */
+    int staff_getStaffCostE(const Staff *staff);
+
+    /*!
+    * \fn int staff_getStaffCostDDByID(const Staff *staff)
+    * @brief a function to get the staff cost DD of the staff member
+    * @param[in] const Staff *staff
+    *
+    * This function get the staff cost DD of the staff member
+    *
+    * @return the staff cost DD of the staff member
+    */
+    int staff_getStaffCostDD(const Staff *staff);
+
+    /*!
+    * \fn char* staff_getStaffDescriptionByID(const Staff *staff)
+    * @brief a function to get the staff description of the staff member
+    * @param[in] const Staff *staff
+    *
+    * This function get the staff description of the staff member
+    *
+    * @return the staff description of the staff member
+    */
+    char* staff_getStaffDescription(const Staff *staff);
+
+    /*!
+    * \fn Effect staff_getStaffEffectByID(const Staff *staff)
+    * @brief a function to get the staff effect of the staff member
+    * @param[in] const Staff *staff
+    *
+    * This function get the staff effect of the staff member
+    *
+    * @return the staff effect of the staff member
+    */
+    const Effect* staff_getStaffEffect(const Staff *staff);
+
+    //TODO ANTOINE FAIRE LA DOC
+    const Staff *staffInfo_getByModeAndType(Mode mode, Target type);
 
 
 #endif //PRIM_STAFF_H

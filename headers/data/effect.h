@@ -77,4 +77,30 @@
         char* description; //!< describe the effect
     } Effect; //!< Struct which contains the target and the of the effect
 
+    // TODO ANtoine Faire toute la doc
+
+    Mode effect_getMode(const Effect *effect);
+
+    Target effect_getWhat(const Effect *effect);
+
+    bool effect_getOnOther(const Effect *effect);
+
+    int effect_getModifierRes(const Effect *effect);
+
+    int effect_getModifierFISA(const Effect *effect);
+
+    int effect_getModifierFISE(const Effect *effect);
+
+    int effect_getModifierE(const Effect *effect);
+
+    int effect_getModifierDD(const Effect *effect);
+
+    int effect_getModifierCapacity(const Effect *effect);
+
+    int effect_getMinCostE(const Effect *effect);
+
+    int effect_getMinCostDD(const Effect *effect);
+
+    char* effect_getDescription(const Effect *effect);
+
 #endif //PRIM_EFFECT_H

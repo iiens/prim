@@ -519,20 +519,6 @@
     */
     MachineStuff map_getTypeMachine( int x, int y, const Map* m );
 
-    /*!
-    * \fn int map_getIndexByMachine(MachineStuff type);
-    * @brief a function to get the index of a specific type machine
-    * @param[in] MachineStuff type
-    *
-    * This function get the index of a specific type machine
-    * in order to get all the information about it :
-    * cost E, cost DD, cost upgrade E, cost upgrade DD
-    * cost detroy E, cost detroy DD etc...
-    *
-    * @return the index of a specific type machine
-    */
-    int map_getIndexByMachine(MachineStuff type);
-
     //\////////////////////////////\//
     //\/ Functions Setters
     //\////////////////////////////\//
