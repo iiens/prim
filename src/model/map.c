@@ -6,21 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
-    if (map_getNumberE(m) >= costE) {
-        if (map_getNumberDD(m) >= costDD) {
-            map_setNumberE(m, costE);
-            map_setNumberDD(m, costDD);
-
-            return NO_ERROR;
-        } else {
-            return ERROR_NOT_ENOUGH_DD;
-        }
-    } else {
-        return ERROR_NOT_ENOUGH_E;
-    }
-}
-
 Map *map_create(Difficulty dif) {
     // Initialisation map
     Map *m = (Map *) malloc(sizeof(Map));
@@ -139,37 +124,6 @@ ErrorCode map_changeProductionFISA(Map *m) {
     return NO_ERROR;
 }
 
-void productionFise(Map *m) {
-    int productionE, productionDD, numberFise;
-
-    productionE = PRODUCTION_FISE_E;
-    productionDD = PRODUCTION_FISE_DD;
-    numberFise = map_getNumberFISE(m);
-    // Prendre en compte les effets de staff
-    //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &productionE, &productionDD);
-    map_setNumberE(m, productionE * numberFise);
-    map_setNumberDD(m, productionDD * numberFise);
-}
-
-void productionFisa(Map *m) {
-    int productionE, productionDD, numberFisa;
-
-    if (map_getNumberTurn(m) % NB_TURN_FISA == 0) {
-        productionE = PRODUCTION_FISA_E;
-        productionDD = PRODUCTION_FISA_DD;
-        numberFisa = map_getNumberFISA(m);
-
-        // Prendre en compte les effets de staff
-        //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &productionE, &productionDD);
-
-        if (map_getProductionFISA(m) == E_VALUE) {
-            map_setNumberE(m, productionE * numberFisa);
-        } else {
-            map_setNumberDD(m, productionDD * numberFisa);
-        }
-    }
-}
-
 ErrorCode map_endTurn(Map *m) {
     int nombreTour;
 
@@ -202,29 +156,37 @@ ErrorCode map_endTurn(Map *m) {
     return NO_ERROR;
 }
 
-ErrorCode map_addMachine(MachineStuff type, Orientation orientation, int x, int y, Map *m) {
-    int indexM, costE, costDD;
+ErrorCode map_addMachine(MachineStuff machType, Orientation orientation, int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_isEmpty(x, y, m) == NO_ERROR) {
+            const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
+            int costE = machineInfo_getCostE(machineInfo);
+            int costDD = machineInfo_getCostDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            /*indexM = map_getIndexByMachine(type);
+            const Staff *staff = staffInfo_getByModeAndType(CONSTRUCTION, (Target) {.machine = machType});
+            const Effect *effect = staff_getStaffEffect(staff);
+            int idStaff = staff_getStaffID(staff);
+            int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+            int modifE = effect_getModifierE(effect);
+            int modifDD = effect_getModifierDD(effect);
+            int minE = effect_getMinCostE(effect);
+            int minDD = effect_getMinCostDD(effect);
 
-            costE = machine_list[indexM].costE;
-            costDD = machine_list[indexM].costDD;*/
-
-            // TODO Valentin modifier après changement des fonctions de getters
-            costE = 10;
-            costDD = 10;
-
-            // Prendre en compte les effets de staff
-            //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &costE, &costDD);
+            costE = costE - (modifE * numberStaff);
+            if (costE < minE) {
+                costE = minE;
+            }
+            costDD = costDD - (modifDD * numberStaff);
+            if (costDD < minDD) {
+                costDD = minDD;
+            }
 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
                 Machine *machine = (Machine *) malloc(sizeof(Machine));
-                machine->type = type;
+                machine->type = machType;
                 machine->level = 1;
                 machine->orientation = orientation;
 
@@ -244,24 +206,34 @@ ErrorCode map_addMachine(MachineStuff type, Orientation orientation, int x, int 
 }
 
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
-    int indexM, costE, costDD;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
-            // Permet de trouver les infos de la machine
-            //indexM = map_getIndexByMachine(machType);
+            const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
 
-            if (machine_list[0].canUpgrade) {
+            if (machineInfo_getCanUpgrade(machineInfo)) {
+                int costE = machineInfo_getCostUpgradeE(machineInfo);
+                int costDD = machineInfo_getCostUpgradeDD(machineInfo);
 
-                /*costE = machine_list[indexM].costUpgradeE;
-                costDD = machine_list[indexM].costUpgradeDD;*/
+                // Permet de trouver les infos de la machine
+                const Staff *staff = staffInfo_getByModeAndType(UPGRADE, (Target) {.machine = machType});
+                const Effect *effect = staff_getStaffEffect(staff);
+                int idStaff = staff_getStaffID(staff);
+                int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+                int modifE = effect_getModifierE(effect);
+                int modifDD = effect_getModifierDD(effect);
+                int minE = effect_getMinCostE(effect);
+                int minDD = effect_getMinCostDD(effect);
 
-                // TODO Valentin modifier après changement des fonctions de getters
-                costE = 10;
-                costDD = 10;
-                // Prendre en compte les effets de staff
-                //map_checkCostEffectStaff(m, UPGRADE, (Target) {.machine = machType}, &costE, &costDD);
+                costE = costE - (modifE * numberStaff);
+                if (costE < minE) {
+                    costE = minE;
+                }
+                costDD = costDD - (modifDD * numberStaff);
+                if (costDD < minDD) {
+                    costDD = minDD;
+                }
 
                 // Vérifie que le joueur à les sous
                 ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -284,22 +256,32 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
 }
 
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
-    int indexM, costE, costDD;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
+            const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
+            int costE = machineInfo_getCostDestroyE(machineInfo);
+            int costDD = machineInfo_getCostDestroyDD(machineInfo);
+
             // Permet de trouver les infos de la machine
-            /*indexM = map_getIndexByMachine(machType);
+            const Staff *staff = staffInfo_getByModeAndType(DESTROY, (Target) {.machine = machType});
+            const Effect *effect = staff_getStaffEffect(staff);
+            int idStaff = staff_getStaffID(staff);
+            int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+            int modifE = effect_getModifierE(effect);
+            int modifDD = effect_getModifierDD(effect);
+            int minE = effect_getMinCostE(effect);
+            int minDD = effect_getMinCostDD(effect);
 
-            costE = machine_list[indexM].costDestroyE;
-            costDD = machine_list[indexM].costDestroyDD;*/
-
-            // TODO Valentin modifier après changement des fonctions de getters
-            costE = 10;
-            costDD = 10;
-            // Prendre en compte les effets de staff
-            //map_checkCostEffectStaff(m, DESTROY, (Target) {.machine = machType}, &costE, &costDD);
+            costE = costE - (modifE * numberStaff);
+            if (costE < minE) {
+                costE = minE;
+            }
+            costDD = costDD - (modifDD * numberStaff);
+            if (costDD < minDD) {
+                costDD = minDD;
+            }
 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -320,8 +302,36 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
     }
 }
 
-ErrorCode map_buyStaff(Staff s, Map *m) {
-    return ERROR_NOT_ENOUGH_E;
+ErrorCode map_buyStaff(int idStaff, Map *m) {
+    const Staff *staff = staff_getStaffByID(idStaff);
+    int costE = staff_getStaffCostE(staff);
+    int costDD = staff_getStaffCostDD(staff);
+
+    ErrorCode e = map_tryBuy(m, costE, costDD);
+    if (e == NO_ERROR) {
+        // TODO Valentin : Incrémenter le staff dans map.team
+
+        switch (idStaff) {
+            case 14:
+                // Parourir toutes les cases
+                staff_actionAnneLaureLigozat(m, 14);
+                break;
+            case 15:
+                // Parourir toutes les cases
+                staff_actionChristopheMouilleron(m, 15);
+                break;
+            case 24:
+                // Parourir toutes les cases
+                staff_actionLaurentPrevel(m, 24);
+                break;
+            default:
+                break;
+        }
+
+        return NO_ERROR;
+    } else {
+        return e;
+    }
 }
 
 ErrorCode map_isEmpty(const int x, const int y, const Map *m) { return NO_ERROR; }
@@ -375,9 +385,9 @@ int map_getHeight(const Map *m) { return m->height; }
 
 int map_getNumberStaff(const Map *m) { return m->numberStaff; }
 
-int map_getNumberTurn( const Map* m ) { return m->turn; }
+int map_getNumberTurn(const Map *m) { return m->turn; }
 
-int map_getProductionFISA( const Map* m ) { return m->productionFISA; }
+int map_getProductionFISA(const Map *m) { return m->productionFISA; }
 
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
