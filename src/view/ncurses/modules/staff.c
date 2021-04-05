@@ -32,19 +32,15 @@ void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* er
         *leave = TRUE;
         return NULL;
     } else {
-        const int base = staff_list[0].id; //!< base id
         char* endPtr = NULL; //!< conversion error
         int staffID; //!< staff ID
 
         staffID = strtol(buff, &endPtr, 10);
 
-        if ( staffID >= base && staffID <= base + NUMBER_OF_STAFFS - 1 ) {
-            int index = staffID - base; //!< fetch staff_list index
+        if ( endPtr != NULL && staff_isIDValid(staffID) == NO_ERROR ) {
             // okay
             *leave = true;
-            Staff* s = (Staff*) malloc(sizeof(Staff));
-            *s = staff_list[index];
-            return s;
+            return (Staff*) staff_getStaffByID(staffID);
         }
 
         // set error

@@ -145,14 +145,19 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
 void interface_ncurses_showStaffList( const Map* map )
 {
     const int rowPerPage = 4; //!< number of row per page, todo: fetch from screen size
-    int start = 0; //!< we are starting from this index
-    int max = NUMBER_OF_STAFFS; //!< number of staff
+    const int STAFF_COUNT = NUMBER_OF_STAFFS; //!< number of staff
+    int start = 1; //!< we are starting from this index
     int ch; //!< character read
+    int blocLength = 2; //!< number of line per staff
     char* number; //!< parsed number
     bool input = false; //!< stop input and reload view ?
     bool leave = false; //!< stop this menu and go back ?
+
     //todo: unused
     (void) (map);
+
+    if ( (rowPerPage*blocLength*2+6) < LINES )
+        blocLength++;
 
     // hide cursor
     noecho();
@@ -172,41 +177,41 @@ void interface_ncurses_showStaffList( const Map* map )
 
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
         mvwaddstr(mapWindow, 2, 0, "Staff ");
-        number = utils_intToString(start + 1);
+        number = utils_intToString(start);
         waddstr(mapWindow, number);
         free(number);
-        number = utils_intToString(start + (min(rowPerPage, rowPerPage)));
+        number = utils_intToString(min(start + rowPerPage - 1, STAFF_COUNT));
         waddstr(mapWindow, " to ");
         waddstr(mapWindow, number);
         waddstr(mapWindow, " on ");
         free(number);
-        number = utils_intToString(max);
+        number = utils_intToString(STAFF_COUNT);
         waddstr(mapWindow, number);
         free(number);
         waddstr(mapWindow, ".");
         waddstr(mapWindow, translation_get(TRANSLATION_PRESS_ARROW_CHANGE_PAGE));
         wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
 
-        for ( int i = 0, j = start; i < rowPerPage; i++, j++ ) {
-            Staff s = staff_list[j];
+        for ( int i = 0, j = start; i < rowPerPage && j <= STAFF_COUNT; i++, j++ ) {
+            Staff* s = (Staff*) staff_getStaffByID(j);
             wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-            mvwaddstr(mapWindow, 4 + i * 2, 0, s.name);
+            mvwaddstr(mapWindow, 4 + i * blocLength, 0, s->name);
             waddstr(mapWindow, " (id=");
-            number = utils_intToString(s.id);
+            number = utils_intToString(s->id);
             waddstr(mapWindow, number);
             waddstr(mapWindow, ") (");
             free(number);
-            number = utils_intToString(s.costE);
+            number = utils_intToString(s->costE);
             waddstr(mapWindow, number);
             waddstr(mapWindow, " E ");
             free(number);
-            number = utils_intToString(s.costDD);
+            number = utils_intToString(s->costDD);
             waddstr(mapWindow, number);
             free(number);
             waddstr(mapWindow, " DD). Owned: ");
             waddstr(mapWindow, "0");
             wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-            mvwaddstr(mapWindow, 5 + i * 2, 0, s.description);
+            mvwaddstr(mapWindow, 5 + i * blocLength, 0, s->description);
         }
 
         wrefresh(mapWindow);
@@ -219,15 +224,14 @@ void interface_ncurses_showStaffList( const Map* map )
                 case KEY_LEFT:
                     // we don't want to change our rowPerPage
                     // if last page didn't have enough rows
-                    if ( start % rowPerPage != 0 )
-                        start -= (start % rowPerPage);
-                    else
-                        start = max(start - rowPerPage, 0);
+                    start -= rowPerPage;
+                    if ( start < 1 ) start = 1;
                     input = true;
                     break;
                     // page after
                 case KEY_RIGHT:
-                    start = min(start + rowPerPage, max - rowPerPage);
+                    start += rowPerPage;
+                    if ( start > STAFF_COUNT ) start -= rowPerPage; // go back
                     input = true;
                     break;
                     // back

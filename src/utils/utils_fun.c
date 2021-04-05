@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "utils_fun.h"
 
 /**
@@ -22,23 +23,15 @@ char* utils_intToString( int number )
     char* result; //!< result
     int length = 1; //!< number length
     int tmp = number;
+    // get number size
     while ( tmp >= 10 ) {
         tmp /= 10;
         length++;
     }
 
-    // creates
+    // creates a buffer and print number into it
     result = (char*) malloc((length + 1) * sizeof(char));
-    result[length] = '\0'; // last
-
-    // fill
-    for ( int i = length - 1, e = 0; i >= 0; i--, e++ ) {
-        if ( e == 0 ) {
-            result[i] = (char) ((number % 10) + '0');
-        } else {
-            result[i] = (char) ((number / utils_power(number, e)) + '0');
-        }
-    }
+    sprintf(result, "%d", number);
 
     return result;
 }
