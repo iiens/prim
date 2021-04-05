@@ -10,9 +10,10 @@
 #ifndef PRIM_MACHINE_INFO_H
 #define PRIM_MACHINE_INFO_H
 
-    #include "effect.h" //! effects of the staff and of the machine
     #include <stdbool.h> //! return value
     #include <stdlib.h> //! to use uint
+    #include "machine.h"
+    #include "effect.h"
 
     /*!
      * \typedef MachineInfo
@@ -36,5 +37,9 @@
         bool canUpgrade; //!< 1 if it's upgradable, else 0
         Effect effects[5]; //!< An effect for the machine if it's upgrade
     } MachineInfo; //!< Information of the machine.
+
+    #define NUMBER_OF_MACHINES 5 //!< name of machines
+
+    extern const MachineInfo machine_list[]; //!< contains information about machines
 
 #endif //PRIM_MACHINE_INFO_H

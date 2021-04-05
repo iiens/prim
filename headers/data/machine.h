@@ -28,9 +28,6 @@
         MS_JUNKYARD = 5, //!< junkyard
     } MachineStuff; //!< Link between a machine and a int to recognize them
 
-    #include "effect.h" //! contains effects
-    #include "machine_info.h" //! all information about machine
-
     /*!
      * \enum Direction_S machine.h "headers/data/machine.h"
      * \typedef Direction
@@ -72,8 +69,5 @@
         Orientation orientation; //!< Represent the orientation of the machine
     } Machine; //!< Machine
 
-    #define NUMBER_OF_MACHINES 5 //!< name of machines
-
-    extern const MachineInfo machine_list[]; //!< contains information about machines
 
 #endif //PRIM_MACHINE_H

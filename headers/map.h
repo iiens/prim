@@ -27,7 +27,7 @@
 #define PRIM_MAP_H
 
     #include <stdbool.h> // return value
-    #include "data/machine.h" // information about machine
+    #include "data/machine_info.h" // information about machine
     #include "data/staff.h" // information about Staff
     #include "data/difficulty.h" // difficulty of the game
     #include "data/error.h" // errors messages
@@ -446,6 +446,28 @@
     int map_getNumberStaff( const Map* m );
 
     /*!
+    * \fn int map_getNumberTurn( const Map* m )
+    * @brief a function to get the number of turn
+    * @param[in] m a map
+    *
+    * This function get the number of turn
+    *
+    * @return the number of turn
+    */
+    int map_getNumberTurn( const Map* m );
+
+    /*!
+    * \fn int map_getNumberTurn( const Map* m )
+    * @brief a function to get the production of FISA
+    * @param[in] m a map
+    *
+    * This function get the production of FISA
+    *
+    * @return the production of FISA
+    */
+    int map_getProductionFISA( const Map* m );
+
+    /*!
     * \fn Case* map_getCase( int x, int y, const Map* m );
     * @brief a function to get a case of the map
     * @param[in] x case abscissa
@@ -497,7 +519,18 @@
     */
     MachineStuff map_getTypeMachine( int x, int y, const Map* m );
 
-    // TODO Antoine commentaires
+    /*!
+    * \fn int map_getIndexByMachine(MachineStuff type);
+    * @brief a function to get the index of a specific type machine
+    * @param[in] MachineStuff type
+    *
+    * This function get the index of a specific type machine
+    * in order to get all the information about it :
+    * cost E, cost DD, cost upgrade E, cost upgrade DD
+    * cost detroy E, cost detroy DD etc...
+    *
+    * @return the index of a specific type machine
+    */
     int map_getIndexByMachine(MachineStuff type);
 
     //\////////////////////////////\//

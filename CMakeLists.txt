@@ -56,7 +56,7 @@ add_executable(main
 
         headers/utils/structures.h
         headers/utils/const.h
-        )
+        src/model/staff.c)
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )

@@ -210,7 +210,7 @@ ErrorCode map_addMachine(MachineStuff type, Orientation orientation, int x, int 
         if (map_isEmpty(x, y, m) == NO_ERROR) {
 
             // Permet de trouver les infos de la machine
-            indexM = map_searchIndexMachine(type);
+            indexM = map_getIndexByMachine(type);
 
             costE = machine_list[indexM].costE;
             costDD = machine_list[indexM].costDD;
@@ -248,7 +248,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
             // Permet de trouver les infos de la machine
-            indexM = map_searchIndexMachine(machType);
+            indexM = map_getIndexByMachine(machType);
 
             if (machine_list[indexM].canUpgrade) {
 
@@ -285,7 +285,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
             // Permet de trouver les infos de la machine
-            indexM = map_searchIndexMachine(machType);
+            indexM = map_getIndexByMachine(machType);
 
             costE = machine_list[indexM].costDestroyE;
             costDD = machine_list[indexM].costDestroyDD;
@@ -365,6 +365,10 @@ int map_getHeight(const Map *m) { return m->height; }
 
 int map_getNumberStaff(const Map *m) { return m->numberStaff; }
 
+int map_getNumberTurn( const Map* m ) { return m->turn; }
+
+int map_getProductionFISA( const Map* m ) { return m->productionFISA; }
+
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         return &(m->map[x][y]);
@@ -405,75 +409,63 @@ int map_getIndexByMachine(MachineStuff type) {
 //\////////////////////////////\//
 
 ErrorCode map_setNumberResource(const int x, const int y, Map *m, int val) {
-    int res, tmp = 0;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        if ((tmp = m->map[x][y].nbResource) + val >= 0) {
-            m->map[x][y].nbResource = tmp + val;
-            res = NO_ERROR;
+        if (m->map[x][y].nbResource + val >= 0) {
+            m->map[x][y].nbResource += val;
+            return NO_ERROR;
         } else {
-            res = ERROR_NEGATIVE_RESULT;
+            return ERROR_NEGATIVE_RESULT;
         }
     } else {
-        res = ERROR_CASE_NOT_FOUND;
+        return ERROR_CASE_NOT_FOUND;
     }
-    return res;
 }
 
 ErrorCode map_setNumberGarbage(const int x, const int y, Map *m, int val) {
-    int res, tmp = 0;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        if ((tmp = m->map[x][y].nbGarbage) + val >= 0) {
-            m->map[x][y].nbGarbage = tmp + val;
-            res = NO_ERROR;
+        if (m->map[x][y].nbGarbage + val >= 0) {
+            m->map[x][y].nbGarbage += val;
+            return NO_ERROR;
         } else {
-            res = ERROR_NEGATIVE_RESULT;
+            return ERROR_NEGATIVE_RESULT;
         }
     } else {
-        res = ERROR_CASE_NOT_FOUND;
+        return ERROR_CASE_NOT_FOUND;
     }
-    return res;
 }
 
 ErrorCode map_setNumberFISE(Map *m, int val) {
-    int res, tmp = 0;
-    if ((tmp = m->numberFISE) + val >= 0) {
-        m->numberFISE = tmp + val;
-        res = NO_ERROR;
+    if (m->numberFISE + val >= 0) {
+        m->numberFISE += val;
+        return NO_ERROR;
     } else {
-        res = ERROR_NEGATIVE_RESULT;
+        return ERROR_NEGATIVE_RESULT;
     }
-    return res;
 }
 
 ErrorCode map_setNumberFISA(Map *m, int val) {
-    int res, tmp = 0;
-    if ((tmp = m->numberFISA) + val >= 0) {
-        m->numberFISA = tmp + val;
-        res = NO_ERROR;
+    if (m->numberFISA + val >= 0) {
+        m->numberFISA += val;
+        return NO_ERROR;
     } else {
-        res = ERROR_NEGATIVE_RESULT;
+        return ERROR_NEGATIVE_RESULT;
     }
-    return res;
 }
 
 ErrorCode map_setNumberE(Map *m, int val) {
-    int res, tmp = 0;
-    if ((tmp = m->E) + val >= 0) {
-        m->E = tmp + val;
-        res = NO_ERROR;
+    if (m->E + val >= 0) {
+        m->E += val;
+        return NO_ERROR;
     } else {
-        res = ERROR_NEGATIVE_RESULT;
+        return ERROR_NEGATIVE_RESULT;
     }
-    return res;
 }
 
 ErrorCode map_setNumberDD(Map *m, int val) {
-    int res, tmp = 0;
-    if ((tmp = m->DD) + val >= 0) {
-        m->DD = tmp + val;
-        res = NO_ERROR;
+    if (m->DD + val >= 0) {
+        m->DD += val;
+        return NO_ERROR;
     } else {
-        res = ERROR_NEGATIVE_RESULT;
+        return ERROR_NEGATIVE_RESULT;
     }
-    return res;
 }
