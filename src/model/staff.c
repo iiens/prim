@@ -92,4 +92,5 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
             }
         }
     }
+    return NULL;
 }
