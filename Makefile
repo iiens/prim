@@ -18,7 +18,8 @@ all: prim
 # compiler
 CC= gcc
 # compilation flags
-CFLAGS= -Wall -Wextra -std=c99 -lncurses -lform
+CFLAGS= -Wall -Wextra -std=c99
+NCURSES_FLAGS=-lncurses -lform
 
 # path
 OUTPUT=./obj/
@@ -156,7 +157,7 @@ $(OUTPUT_M)machine.o: $(SOURCE_M)machine.c $(SOURCE_H_D)machine.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)machine.o $(SOURCE_M)machine.c
 
 prim: $(O_FILES)
-	$(CC) $(CFLAGS) -o bin/prim $(O_FILES)
+	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(NCURSES_FLAGS)
 
 # compile before run
 # then run
