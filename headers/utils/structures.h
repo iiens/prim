@@ -16,37 +16,51 @@
      * \typedef Element
      * \struct Element_S Structures.h "headers/data/Structures.h"
      *
-     * Struct which contains a staff and the number of this staff
+     * Struct which contains a key which is the index and the value contains in this index
      *
      */
     typedef struct Element_S {
-        int index_Staff; //!< index of the staff of staff_list
-        int number_Staff; //!< number of this staff recruited
+        int key; //!< index of the tab
+        int value; //!< value of the tab
     } Element; //!< Struct which contains the target and the of the effect
 
-    extern Element structures_staff[]; //!< contains all of the recruited staff and the number of each staff recruited
 
     /*!
-     * \fn structures_staff* createStructuresStaff()
-     * @brief Create an Array of staff
-     * create an array of staff which will be composed of the staff that we recruited
+     * \typedef ElementListe
+     * \struct ElementListe_S Structures.h "headers/data/Structures.h"
      *
+     * Struct which represent a list
      *
-     * @return Array of the staff
      */
-    Element* createStructuresStaff();
+    typedef struct ElementList_S
+    {
+        int number;
+        Element *next;
+    }ElementList;
+
+    extern Element structures_tab[]; //!< contains all of the recruited staff and the number of each staff recruited
 
     /*!
-     * \fn destroyStructuresStaff
-     * @brief Destroy the staff that we recruited
+     * \fn Element* createStructuresStaff()
+     * @brief Create an Array of structures_tab
+     * create an array of structures_tab
+     *
+     *
+     * @return Array of the structures_tab
+     */
+    Element* createStructuresTab();
+
+    /*!
+     * \fn destroyStructuresTab
+     * @brief Destroy the array structures_tab
      *
      * At the end of the game we need to clean all of the map
-     * this function will destroy the array of staff of the player
+     * this function will destroy the array
      *
-     * @param[in] array of staff that the player has
+     * @param[in] array of structures_tab
      * @return a void
      */
-    void destroyStructuresStaff(Element * e);
+    void destroyStructuresTab(Element * e);
 
 
     int getElement(Element* e, int index_Staff);
