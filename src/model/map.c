@@ -7,10 +7,10 @@
 #include <stdlib.h>
 
 ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
-    if (m->E >= costE) {
-        if (m->DD >= costDD) {
-            m->E = m->E - costE;
-            m->DD = m->DD - costDD;
+    if (map_getNumberE(m) >= costE) {
+        if (map_getNumberDD(m) >= costDD) {
+            map_setNumberE(m, costE);
+            map_setNumberDD(m, costDD);
 
             return NO_ERROR;
         } else {
@@ -154,7 +154,7 @@ void productionFise(Map *m) {
 void productionFisa(Map *m) {
     int productionE, productionDD, numberFisa;
 
-    if (m->turn % NB_TURN_FISA == 0) {
+    if (map_getNumberTurn(m) % NB_TURN_FISA == 0) {
         productionE = PRODUCTION_FISA_E;
         productionDD = PRODUCTION_FISA_DD;
         numberFisa = map_getNumberFISA(m);
@@ -162,7 +162,7 @@ void productionFisa(Map *m) {
         // Prendre en compte les effets de staff
         //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &productionE, &productionDD);
 
-        if (m->productionFISA == E_VALUE) {
+        if (map_getProductionFISA(m) == E_VALUE) {
             map_setNumberE(m, productionE * numberFisa);
         } else {
             map_setNumberDD(m, productionDD * numberFisa);
@@ -185,7 +185,7 @@ ErrorCode map_endTurn(Map *m) {
     // Vérifier
     nombreTour = NB_TURN_PRODUCTION_SOURCE;
     // Décrémenter les
-    if (m->turn % 10 == 0) {
+    if (map_getNumberTurn(m) % 10 == 0) {
         // récupérer l'emplacement des sources
         // incrémenter m->map[0][0].nbResource + NB_RESSOURCE_PRODUCT_BY_SOURCE;
     }
@@ -202,18 +202,20 @@ ErrorCode map_endTurn(Map *m) {
     return NO_ERROR;
 }
 
-ErrorCode map_isEmpty(const int x, const int y, const Map *m) { return NO_ERROR; }
-
 ErrorCode map_addMachine(MachineStuff type, Orientation orientation, int x, int y, Map *m) {
     int indexM, costE, costDD;
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_isEmpty(x, y, m) == NO_ERROR) {
 
             // Permet de trouver les infos de la machine
-            indexM = map_getIndexByMachine(type);
+            /*indexM = map_getIndexByMachine(type);
 
             costE = machine_list[indexM].costE;
-            costDD = machine_list[indexM].costDD;
+            costDD = machine_list[indexM].costDD;*/
+
+            // TODO Valentin modifier après changement des fonctions de getters
+            costE = 10;
+            costDD = 10;
 
             // Prendre en compte les effets de staff
             //map_checkCostEffectStaff(m, CONSTRUCTION, (Target) {.machine = type}, &costE, &costDD);
@@ -248,13 +250,16 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
             // Permet de trouver les infos de la machine
-            indexM = map_getIndexByMachine(machType);
+            //indexM = map_getIndexByMachine(machType);
 
-            if (machine_list[indexM].canUpgrade) {
+            if (machine_list[0].canUpgrade) {
 
-                costE = machine_list[indexM].costUpgradeE;
-                costDD = machine_list[indexM].costUpgradeDD;
+                /*costE = machine_list[indexM].costUpgradeE;
+                costDD = machine_list[indexM].costUpgradeDD;*/
 
+                // TODO Valentin modifier après changement des fonctions de getters
+                costE = 10;
+                costDD = 10;
                 // Prendre en compte les effets de staff
                 //map_checkCostEffectStaff(m, UPGRADE, (Target) {.machine = machType}, &costE, &costDD);
 
@@ -285,11 +290,14 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             MachineStuff machType = map_getTypeMachine(x, y, m);
 
             // Permet de trouver les infos de la machine
-            indexM = map_getIndexByMachine(machType);
+            /*indexM = map_getIndexByMachine(machType);
 
             costE = machine_list[indexM].costDestroyE;
-            costDD = machine_list[indexM].costDestroyDD;
+            costDD = machine_list[indexM].costDestroyDD;*/
 
+            // TODO Valentin modifier après changement des fonctions de getters
+            costE = 10;
+            costDD = 10;
             // Prendre en compte les effets de staff
             //map_checkCostEffectStaff(m, DESTROY, (Target) {.machine = machType}, &costE, &costDD);
 
@@ -315,6 +323,8 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
 ErrorCode map_buyStaff(Staff s, Map *m) {
     return ERROR_NOT_ENOUGH_E;
 }
+
+ErrorCode map_isEmpty(const int x, const int y, const Map *m) { return NO_ERROR; }
 
 ErrorCode map_isCaseExist(const int x, const int y, const Map *m) {
     if (x >= 0 && x < m->width) {
