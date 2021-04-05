@@ -25,7 +25,7 @@
         int costE; //!< Price in E of the character
         int costDD; //!< Price in DD of the character
         char* description; //!< description of character effects
-        Effect effects[1]; //!< array which contains the target of the effect
+        Effect effects; //!< array which contains the target of the effect
     } Staff; //!< information about staff
 
     #define NUMBER_OF_STAFFS 21 //!< number of staff in staff_list
