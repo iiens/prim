@@ -81,23 +81,7 @@ ErrorCode map_hireFISE(Map *m) {
     int costDD = COST_FISE_DD;
 
     // Prendre en compte les effets de staff
-    const Staff* staff = staffInfo_getByModeAndType(ON_BUY, (Target) {.other = SUB_FISE});
-    const Effect * effect = staff_getStaffEffect(staff);
-    int idStaff = staff_getStaffID(staff);
-    int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-    int modifE = effect_getModifierE(effect);
-    int modifDD = effect_getModifierDD(effect);
-    int minE = effect_getMinCostE(effect);
-    int minDD = effect_getMinCostDD(effect);
-
-    costE = costE - (modifE * numberStaff);
-    if (costE < minE) {
-        costE = minE;
-    }
-    costDD = costDD - (modifDD * numberStaff);
-    if (costDD < minDD) {
-        costDD = minDD;
-    }
+    map_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISE}, m, &costE, &costDD);
 
     // Vérifie que le joueur à les sous
     ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -114,23 +98,7 @@ ErrorCode map_hireFISA(Map *m) {
     int costDD = COST_FISA_DD;
 
     // Prendre en compte les effets de staff
-    const Staff* staff = staffInfo_getByModeAndType(ON_BUY, (Target) {.other = SUB_FISA});
-    const Effect * effect = staff_getStaffEffect(staff);
-    int idStaff = staff_getStaffID(staff);
-    int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-    int modifE = effect_getModifierE(effect);
-    int modifDD = effect_getModifierDD(effect);
-    int minE = effect_getMinCostE(effect);
-    int minDD = effect_getMinCostDD(effect);
-
-    costE = costE - (modifE * numberStaff);
-    if (costE < minE) {
-        costE = minE;
-    }
-    costDD = costDD - (modifDD * numberStaff);
-    if (costDD < minDD) {
-        costDD = minDD;
-    }
+    map_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISA}, m, &costE, &costDD);
 
     // Vérifie que le joueur à les sous
     ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -162,23 +130,31 @@ ErrorCode map_endTurn(Map *m) {
     productionFisa(m);
 
     // TODO Valentin : Déplacer les ressources
+    // Besoin de la listes des tapis
 
     // TODO Valentin : Générer les ressources avec les sources
     // Vérifier
     nombreTour = NB_TURN_PRODUCTION_SOURCE;
     // Décrémenter les
     if (map_getNumberTurn(m) % 10 == 0) {
-        // récupérer l'emplacement des sources
+        // récupérer l'emplacement des sources liste
         // incrémenter m->map[0][0].nbResource + NB_RESSOURCE_PRODUCT_BY_SOURCE;
     }
 
-    // TODO Valentin : La porte prduit des déchêts
+    // TODO Valentin : La porte produit des déchêts
+    // Pour envoyer mettre ressources sur la case de la porte
+    // remplacer les ressources par des déchets
+    // Verifier staff
 
     // TODO Valentin : Faire fonctionner les décheteries
+    // Liste des décheteries
+    // Déchets sur la case
 
     // TODO Valentin : Les collecteurs s'activent
+    // Liste des collecteurs
 
     // TODO Valentin : Suprimerles ressources non collecté
+    // listes des sources et des décheteries
 
     m->turn++;
     return NO_ERROR;
@@ -192,23 +168,7 @@ ErrorCode map_addMachine(MachineStuff machType, Orientation orientation, int x, 
             int costDD = machineInfo_getCostDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            const Staff *staff = staffInfo_getByModeAndType(CONSTRUCTION, (Target) {.machine = machType});
-            const Effect *effect = staff_getStaffEffect(staff);
-            int idStaff = staff_getStaffID(staff);
-            int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-            int modifE = effect_getModifierE(effect);
-            int modifDD = effect_getModifierDD(effect);
-            int minE = effect_getMinCostE(effect);
-            int minDD = effect_getMinCostDD(effect);
-
-            costE = costE - (modifE * numberStaff);
-            if (costE < minE) {
-                costE = minE;
-            }
-            costDD = costDD - (modifDD * numberStaff);
-            if (costDD < minDD) {
-                costDD = minDD;
-            }
+            map_checkModifyCost(CONSTRUCTION, (Target) {.machine = machType}, m, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -245,23 +205,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 int costDD = machineInfo_getCostUpgradeDD(machineInfo);
 
                 // Permet de trouver les infos de la machine
-                const Staff *staff = staffInfo_getByModeAndType(UPGRADE, (Target) {.machine = machType});
-                const Effect *effect = staff_getStaffEffect(staff);
-                int idStaff = staff_getStaffID(staff);
-                int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-                int modifE = effect_getModifierE(effect);
-                int modifDD = effect_getModifierDD(effect);
-                int minE = effect_getMinCostE(effect);
-                int minDD = effect_getMinCostDD(effect);
-
-                costE = costE - (modifE * numberStaff);
-                if (costE < minE) {
-                    costE = minE;
-                }
-                costDD = costDD - (modifDD * numberStaff);
-                if (costDD < minDD) {
-                    costDD = minDD;
-                }
+                map_checkModifyCost(UPGRADE, (Target) {.machine = machType}, m, &costE, &costDD);
 
                 // Vérifie que le joueur à les sous
                 ErrorCode e = map_tryBuy(m, costE, costDD);
@@ -293,23 +237,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             int costDD = machineInfo_getCostDestroyDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            const Staff *staff = staffInfo_getByModeAndType(DESTROY, (Target) {.machine = machType});
-            const Effect *effect = staff_getStaffEffect(staff);
-            int idStaff = staff_getStaffID(staff);
-            int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-            int modifE = effect_getModifierE(effect);
-            int modifDD = effect_getModifierDD(effect);
-            int minE = effect_getMinCostE(effect);
-            int minDD = effect_getMinCostDD(effect);
-
-            costE = costE - (modifE * numberStaff);
-            if (costE < minE) {
-                costE = minE;
-            }
-            costDD = costDD - (modifDD * numberStaff);
-            if (costDD < minDD) {
-                costDD = minDD;
-            }
+            map_checkModifyCost(DESTROY, (Target) {.machine = machType}, m, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);

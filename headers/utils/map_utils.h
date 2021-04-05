@@ -39,6 +39,16 @@ ErrorCode map_tryBuy(Map *m, int costE, int costDD);
 
 /**
  *
+ * @param mode
+ * @param target
+ * @param m
+ * @param costE
+ * @param costDD
+ */
+void map_checkModifyCost(Mode mode, Target target, Map* m, int* costE, int* costDD);
+
+/**
+ *
  * @param m
  */
 void productionFise(Map *m);

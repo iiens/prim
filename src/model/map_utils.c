@@ -18,8 +18,8 @@ int map_utils_getSizeByDifficulty(Difficulty d) {
 ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
     if (map_getNumberE(m) >= costE) {
         if (map_getNumberDD(m) >= costDD) {
-            map_setNumberE(m, costE);
-            map_setNumberDD(m, costDD);
+            map_setNumberE(m, (costE * -1));
+            map_setNumberDD(m, costDD * -1);
 
             return NO_ERROR;
         } else {
@@ -30,42 +30,82 @@ ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
     }
 }
 
+void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
+    const Staff *staff = staffInfo_getByModeAndType(mode, target);
+    if (staff != NULL) {
+        int idStaff = staff_getStaffID(staff);
+        int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+        const Effect *effect = staff_getStaffEffect(staff);
+
+        if (numberStaff > 0 && effect != NULL) {
+
+            switch (mode) {
+                case CONSTRUCTION:
+                case UPGRADE:
+                case DESTROY: {
+                    int modifyE = effect_getModifierE(effect);
+                    int modifyDD = effect_getModifierDD(effect);
+                    int minE = effect_getMinCostE(effect);
+                    int minDD = effect_getMinCostDD(effect);
+
+                    *numberE = *numberE - (modifyE * numberStaff);
+                    if (*numberE < minE) {
+                        *numberE = minE;
+                    }
+                    *numberDD = *numberDD - (modifyDD * numberStaff);
+                    if (*numberDD < minDD) {
+                        *numberDD = minDD;
+                    }
+                }
+                    break;
+                case PRODUCTION:
+                    *numberE = effect_getModifierE(effect) * numberStaff;
+                    *numberDD = effect_getModifierDD(effect) * numberStaff;
+                    break;
+                case HIRE:
+                case ON_BUY:
+                case SEND_DOOR:
+                case DOOR_OUT:
+                case ON_TURN:
+                default:
+                    break;
+
+            }
+        }
+    }
+}
+
 void productionFise(Map *m) {
     int productionE = PRODUCTION_FISE_E;
     int productionDD = PRODUCTION_FISE_DD;
 
     int numberFise = map_getNumberFISE(m);
 
+    int modifE = 0;
+    int modifDD = 0;
     // Prendre en compte les effets de staff
-    const Staff* staff = staffInfo_getByModeAndType(PRODUCTION, (Target) {.other = SUB_FISE});
-    const Effect * effect = staff_getStaffEffect(staff);
-    int idStaff = staff_getStaffID(staff);
-    int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-    int modifE = effect_getModifierE(effect);
-    int modifDD = effect_getModifierDD(effect);
+    map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISE}, m, &modifE, &modifDD);
 
-    map_setNumberE(m, (productionE + (modifE * numberStaff)) * numberFise);
-    map_setNumberDD(m, (productionDD+ (modifDD * numberStaff)) * numberFise);
+    map_setNumberE(m, (productionE + modifE) * numberFise);
+    map_setNumberDD(m, (productionDD + modifDD) * numberFise);
 }
 
 void productionFisa(Map *m) {
     if (map_getNumberTurn(m) % NB_TURN_FISA == 0) {
         int productionE = PRODUCTION_FISA_E;
         int productionDD = PRODUCTION_FISA_DD;
+
         int numberFisa = map_getNumberFISA(m);
 
+        int modifE = 0;
+        int modifDD = 0;
         // Prendre en compte les effets de staff
-        const Staff* staff = staffInfo_getByModeAndType(PRODUCTION, (Target) {.other = SUB_FISA});
-        const Effect * effect = staff_getStaffEffect(staff);
-        int idStaff = staff_getStaffID(staff);
-        int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
-        int modifE = effect_getModifierE(effect);
-        int modifDD = effect_getModifierDD(effect);
+        map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &modifE, &modifDD);
 
         if (map_getProductionFISA(m) == E_VALUE) {
-            map_setNumberE(m, (productionE + (modifE * numberStaff)) * numberFisa);
+            map_setNumberE(m, (productionE + modifE) * numberFisa);
         } else {
-            map_setNumberDD(m, (productionDD+ (modifDD * numberStaff)) * numberFisa);
+            map_setNumberDD(m, (productionDD + modifDD) * numberFisa);
         }
     }
 }
