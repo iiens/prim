@@ -221,11 +221,6 @@ void main_buyStaffAction(Map* map) {
         }
         // While the action is not successful or the user has not abandoned the action
     } while ( !check && !back );
-
-    // Free Staff
-    if( s != NULL ){
-        free(s); s = NULL;
-    }
 }
 
 void main_upgradeMachineAction(Map* map) {
