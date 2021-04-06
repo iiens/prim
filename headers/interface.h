@@ -42,7 +42,7 @@
      */
     typedef struct MachineSpec_S {
         MachineStuff type; //!< machine type
-        Orientation orientation; //!< got an orientation
+        int rotation; //!< how much should we rotate the machine
     } MachineSpec; //!< machine that the user requested
 
     //\////////////////////////////\//

@@ -21,17 +21,17 @@ MachineSpec interface_ncurses_askAddMachine()
     MachineStuff* m = ((MachineStuff*) interface_ncurses_showInActionField(interface_ncurses_askBuyMachineClosureInit,
                                                                            interface_ncurses_askBuyMachineCheck));
 
-    Orientation* o = ((Orientation*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
-                                                                         interface_ncurses_askOrientationCheck));
+    int* rotation = (int*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
+                                                               interface_ncurses_askOrientationCheck);
 
     // we need to do that since we use void* and Action* to match this constraint
-    if ( o != NULL && m != NULL ) {
+    if ( rotation != NULL && m != NULL ) {
         MachineSpec machine;
         machine.type = *m;
-        machine.orientation = *o;
+        machine.rotation = *rotation;
         // free
         free(m);
-        free(o);
+        free(rotation);
         return machine;
     }
 
@@ -61,7 +61,7 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
 
         machineID = strtol(buff, &endPtr, 10);
 
-        if ( machineID >= base && machineID <= base + NUMBER_OF_MACHINES - 1 ) {
+        if ( endPtr != NULL && machineID >= base && machineID <= base + NUMBER_OF_MACHINES - 1 ) {
             int index = machineID - base; //!< fetch machine_list index
             // okay
             *leave = true;
@@ -93,7 +93,16 @@ void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode*
         *leave = TRUE;
         return NULL;
     } else {
-        //todo: process here
+        char* endPtr = NULL; //!< conversion error
+        int rotation = strtol(buff, &endPtr, 10);
+
+        // todo: constants
+        if ( endPtr != NULL && rotation >= 0 && rotation <= 3 ){
+            int* result = (int*) malloc(sizeof(int)); //!< store result, no dangling pointer
+            *result = rotation;
+            *leave = true;
+            return result;
+        }
 
         // set error
         *error = ERROR_INVALID_ORIENTATION_NUMBER;

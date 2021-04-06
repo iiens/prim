@@ -112,8 +112,8 @@ char* translation_get( Translation t )
             // todo: constant here ?
             return "Input machine ID. You can fetch them using `lm` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ORIENTATION:
-            // todo: ....
-            return "Input a rotation value of the default orientation (check the manual).";
+            // todo: constants
+            return "Input a rotation (0-3) value of the default orientation (check the manual).";
         case TRANSLATE_INPUT_ACTION:
             // todo: constant here ?
             return "Use `help` to get the list of available actions.";

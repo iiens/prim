@@ -55,8 +55,9 @@ void interface_ncurses_showMap( const Map* map )
         mvwprintw(mapWindow, 1, 4 + j * 3, "--+");
         for ( int i = 0; i < map->width; i++ ) {
             char* content = interface_utils_getCaseContent(j, i, map); //!< case content
+            char orientation = interface_utils_parseOrientation(i, j, map); //!< orientation
             mvwaddstr(mapWindow, i + 2, 4 + j * 3, content);
-            mvwaddstr(mapWindow, i + 2, 5 + j * 3, (char*) L" ");
+            mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);
             mvwaddstr(mapWindow, i + 2, 6 + j * 3, "+");
         }
     }

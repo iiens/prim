@@ -116,4 +116,13 @@
      */
     char* interface_utils_getCaseContent( int x, int y, const Map* map );
 
+    /**
+     * Return orientation as a char
+     * @param map the map
+     * @param x col
+     * @param y row
+     * @return a char representation the orientation
+     */
+    char interface_utils_parseOrientation(int x, int y, const Map* map);
+
 #endif //PRIM_INTERFACE_NCURSES_UTILS_H

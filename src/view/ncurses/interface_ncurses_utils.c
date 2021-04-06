@@ -199,3 +199,31 @@ char* interface_utils_getCaseContent( int x, int y, const Map* map )
         // it's a machine
         return translation_fetchMachineTypeName(map_getTypeMachine(x, y, map));
 }
+
+char interface_utils_parseOrientation(int x, int y, const Map* map) {
+    if ( map_getTypeCase(x,y,map) == CASE_MACHINE ){
+        MachineStuff s = map_getTypeMachine(x,y,map); //!< machine stuff
+        Orientation o = *map_getOrientationByLocatedMachine(x,y,map); //!< orientation
+        Direction d = DIRECTION_IN;
+        switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
+            case MS_COLLECTOR:
+            case MS_CONVEYOR_BELT:
+            case MS_RECYCLING_CENTER:
+                d = DIRECTION_OUT;
+                if ( o.top == d ) return '8';
+                if ( o.bottom == d ) return '2';
+                if ( o.left == d ) return '4';
+                if ( o.right == d ) return '6';
+                break;
+            case MS_CROSS:
+                if ( o.bottom == d && o.right == d ) return (char) L'3';
+                if ( o.bottom == d && o.left == d ) return (char) L'1';
+                if ( o.top == d && o.left == d ) return (char) L'7';
+                if ( o.top == d && o.right == d ) return (char) L'9';
+                break;
+            case MS_JUNKYARD:
+                return 'A'; // all
+        }
+    }
+    return L' ';
+}
