@@ -10,8 +10,9 @@
 #ifndef PRIM_CONST_H
 #define PRIM_CONST_H
 
-    #define NUMBER_DD_DEPART 100 //!< number of DD at the start of the game
-    #define NUMBER_E_DEPART 100 //!< number of E at the start of the game
+    // todo: rename !
+    #define NUMBER_DD_DEPART 5000 //!< number of DD at the start of the game
+    #define NUMBER_E_DEPART 5000 //!< number of E at the start of the game
     #define PRODUCTION_FISA_E 4 //!< number of E produced by FISA
     #define PRODUCTION_FISA_DD 4 //!< number of DD produced by FISA
     #define PRODUCTION_FISE_E 1 //!< number of E produced by FISE

@@ -210,16 +210,16 @@ char interface_utils_parseOrientation(int x, int y, const Map* map) {
             case MS_CONVEYOR_BELT:
             case MS_RECYCLING_CENTER:
                 d = DIRECTION_OUT;
-                if ( o.top == d ) return '8';
-                if ( o.bottom == d ) return '2';
-                if ( o.left == d ) return '4';
-                if ( o.right == d ) return '6';
+                if ( o.top == d ) return L'8';
+                if ( o.bottom == d ) return L'2';
+                if ( o.left == d ) return L'4';
+                if ( o.right == d ) return L'6';
                 break;
             case MS_CROSS:
-                if ( o.bottom == d && o.right == d ) return (char) L'3';
-                if ( o.bottom == d && o.left == d ) return (char) L'1';
-                if ( o.top == d && o.left == d ) return (char) L'7';
-                if ( o.top == d && o.right == d ) return (char) L'9';
+                if ( o.bottom == d && o.right == d ) return L'3';
+                if ( o.bottom == d && o.left == d ) return L'1';
+                if ( o.top == d && o.left == d ) return L'7';
+                if ( o.top == d && o.right == d ) return L'9';
                 break;
             case MS_JUNKYARD:
                 return 'A'; // all
