@@ -11,7 +11,6 @@
 #define PRIM_MACHINE_H
 
     #include <stdlib.h> //! to use uint
-    #include <stdbool.h> //! to use bool
 
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
@@ -158,40 +157,49 @@
     Direction  machine_getOrientationRight(Orientation* orient);
 
     /*!
-     * \fn Orientation* machine_generateDefaultOrientation(MachineStuff s)
+     * \fn Orientation machine_generateDefaultOrientation(MachineStuff s)
      * @brief a function to get a default orientation for a machine
      * @param[in] MachineStuff a type machine
      *
      * This fonction get D:
-     *
      * MS_COLLECTOR = 1, collector machine
+     * <pre>
      *      None
      *  None x None
      *      Out
+     * </pre>
      *
      * MS_CONVEYOR_BELT = 2, conveyor belt
+     * <pre>
      *      In
      *   In x In
      *     Out
+     * </pre>
+     *
      *
      * MS_CROSS = 3, cross
+     * <pre>
      *      In
      *  Out x In
      *     Out
+     * </pre>
      *
      * MS_RECYCLING_CENTER = 4, recycling center
+     * <pre>
      *      In
      *   In x In
      *     Out
+     * </pre>
      *
      * MS_JUNKYARD = 5, junkyard
+     * <pre>
      *      In
      *   In x In
      *     In
-     *
+     * </pre>
      * @return a default orientation for a machine
      */
-    Orientation* machine_generateDefaultOrientation(MachineStuff s);
+    Orientation machine_generateDefaultOrientation(MachineStuff s);
 
     // TODO Antoine Faire la doc + signature + implémentation et trouver un autre nom de fonction
     // une méthode un peu complexe (tu peux me redemander après
@@ -210,16 +218,5 @@
      * @return the new orientation after the clockwise rotation
      */
     Orientation* machine_rotateMachine(Orientation* o, int rotation);
-
-    /*!
-     * \fn bool machine_isRotationMeaninfull(MachineStuff s)
-     * @brief a function to know if the type machine is a collector
-     * @param[in] MachineStuff a type machine
-     *
-     * This function allow to know of the type machine is a collector or not
-     *
-     * @return true if the type is not a collector, false if it is
-     */
-    bool machine_isRotationMeaninfull(MachineStuff s);
 
 #endif //PRIM_MACHINE_H

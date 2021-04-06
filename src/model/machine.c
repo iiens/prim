@@ -17,41 +17,45 @@ Direction  machine_getOrientationLeft(Orientation* orient){ return orient->left;
 
 Direction  machine_getOrientationRight(Orientation* orient){ return orient->right; }
 
-Orientation* machine_generateDefaultOrientation(MachineStuff s) {
-    Orientation* orient = (Orientation*) malloc (sizeof(Orientation));
+Orientation machine_generateDefaultOrientation(MachineStuff s) {
+    Orientation orient;
     switch (s) {
         case MS_COLLECTOR:
-            orient->top = DIRECTION_NONE;
-            orient->right = DIRECTION_NONE;
-            orient->bottom = DIRECTION_OUT;
-            orient->left = DIRECTION_NONE;
+            orient.top = DIRECTION_NONE;
+            orient.right = DIRECTION_NONE;
+            orient.bottom = DIRECTION_OUT;
+            orient.left = DIRECTION_NONE;
             break;
         case MS_CONVEYOR_BELT:
-            orient->top = DIRECTION_IN;
-            orient->right = DIRECTION_IN;
-            orient->bottom = DIRECTION_OUT;
-            orient->left = DIRECTION_IN;
+            orient.top = DIRECTION_IN;
+            orient.right = DIRECTION_IN;
+            orient.bottom = DIRECTION_OUT;
+            orient.left = DIRECTION_IN;
             break;
         case MS_CROSS:
-            orient->top = DIRECTION_IN;
-            orient->right = DIRECTION_IN;
-            orient->bottom = DIRECTION_OUT;
-            orient->left = DIRECTION_OUT;
+            orient.top = DIRECTION_IN;
+            orient.right = DIRECTION_IN;
+            orient.bottom = DIRECTION_OUT;
+            orient.left = DIRECTION_OUT;
             break;
         case MS_RECYCLING_CENTER:
-            orient->top = DIRECTION_IN;
-            orient->right = DIRECTION_IN;
-            orient->bottom = DIRECTION_OUT;
-            orient->left = DIRECTION_IN;
+            orient.top = DIRECTION_IN;
+            orient.right = DIRECTION_IN;
+            orient.bottom = DIRECTION_OUT;
+            orient.left = DIRECTION_IN;
             break;
         case MS_JUNKYARD:
-            orient->top = DIRECTION_IN;
-            orient->right = DIRECTION_IN;
-            orient->bottom = DIRECTION_IN;
-            orient->left = DIRECTION_IN;
+            orient.top = DIRECTION_IN;
+            orient.right = DIRECTION_IN;
+            orient.bottom = DIRECTION_IN;
+            orient.left = DIRECTION_IN;
             break;
         default:
-            return NULL;
+            orient.top = DIRECTION_NONE;
+            orient.right = DIRECTION_NONE;
+            orient.bottom = DIRECTION_NONE;
+            orient.left = DIRECTION_NONE;
+            break;
     }
         return orient;
 }
@@ -72,13 +76,5 @@ Orientation* machine_rotateMachine(Orientation* o, int rotation) {
         orient->right = tmp;
     }
     return orient;
-}
-
-bool machine_isRotationMeaninfull(MachineStuff type) {
-    if (type != MS_COLLECTOR) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
