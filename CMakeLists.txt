@@ -57,7 +57,10 @@ add_executable(main
         src/model/effect.c
         src/model/machine_info.c
         src/model/machine.c
-        src/model/map_utils.c)
+        src/model/map_utils.c
+
+        headers/utils/structures.h
+        src/utils/structure.c)
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )

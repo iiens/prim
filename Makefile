@@ -4,7 +4,7 @@
 # Authors Quentin Ra, Antoine MAN, Ramzy ZEBRIR and Valentin DREANO
 #
 # This makefile can be used instead of our CMakeLists.
-# Version 1.0.0, Usage :
+# Version 1.0.8, Usage :
 # - `make` : creates project, put executable in ./bin/prim
 # - `make all` : same as make
 # - `make clean` : clean .o files
@@ -129,6 +129,11 @@ $(OUTPUT_V)translation.o: $(SOURCE_V)translation.c $(SOURCE_H_U)translation.h \
 # - utils_fun.c and .h
 $(OUTPUT_U)utils_fun.o: $(SOURCE_U)utils_fun.c $(SOURCE_U)utils_fun.h
 	mkdir -p $(OUTPUT_U) && $(CC) $(CFLAGS) -c -o $(OUTPUT_U)utils_fun.o $(SOURCE_U)utils_fun.c
+
+# structure.o
+# - structure.c and .h
+$(OUTPUT_U)structure.o: $(SOURCE_U)structure.c $(SOURCE_H_U)structure.h
+	mkdir -p $(OUTPUT_U) && $(CC) $(CFLAGS) -c -o $(OUTPUT_U)structure.o $(SOURCE_U)structure.c
 
 # map_utils.o
 # - map_utils.c and .h

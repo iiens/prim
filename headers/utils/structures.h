@@ -10,14 +10,14 @@
 #ifndef PRIM_STRUCTURES_H
 #define PRIM_STRUCTURES_H
 
-#include "../data/effect.h" // effect.h : information about effect
+    #include "../data/effect.h" // effect.h : information about effect
 
     /*!
      * \typedef Element
      * \union Element_S effect.h "headers/data/structures.h"
      * \brief Represent a list
      */
-
+     //todo: documentation
     typedef union Element_S {
         int number;
         char* text;
@@ -27,27 +27,27 @@
     /*!
      * \typedef ElementType
      * \enum ElementType_S
-     * \brief \\<! todo : do a comment
+     * \brief todo : do a comment
      */
-
     typedef enum ElementType_S {
-        NUMBER, TEXT, OBJECT
+        NUMBER,
+        TEXT,
+        OBJECT
     } ElementType;
-
 
     /*!
      * \typedef Dictionary
      * \struct Dictionary_S structures.h "headers/data/structures.h"
      * \brief Struct which contains a dictionary of ElementType
      */
-
-    typedef struct Dictionary_S {
+    //todo: documentation
+    typedef struct List_S {
         ElementType typeKey;
         ElementType typeValue;
         Element* keys;
         Element* values;
-        struct Dictionary_S* next;
-    } Dictionary;
+        struct List* next;
+    } List;
 
     /*!
      * \fn Dictionary* createDictionary()
@@ -57,13 +57,11 @@
      *
      * @return Array of the structures_tab
      */
-     //<! todo : do the documentation
-    Dictionary* createDictionary(ElementType keyType, ElementType valueType);
-    void destroyDictionary(Dictionary* d);
-    Element getElement(Dictionary* d, Element key);
-    Element addElement(Dictionary* d, Element key, Element value);
-    bool hashKey(Dictionary* d, Element key);
-
+     // todo : do the documentation
+     List* createDictionary(ElementType keyType, ElementType valueType);
+     void destroyDictionary(List* d);
+     Element getElement(List* d, Element key);
+     bool addElement(List* d, Element key, Element value);
 
     /*!
      * \fn destroyStructuresTab
@@ -75,6 +73,5 @@
      * @param[in] array of structures_tab
      * @return a void
      */
-
 
 #endif //PRIM_STRUCTURES_H
