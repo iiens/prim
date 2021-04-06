@@ -14,41 +14,56 @@
 
     /*!
      * \typedef Element
-     * \struct Element_S Structures.h "headers/data/Structures.h"
-     *
-     * Struct which contains a key which is the index and the value contains in this index
-     *
+     * \union Element_S effect.h "headers/data/structures.h"
+     * \brief Represent a list
      */
-    typedef struct Element_S {
-        int key; //!< index of the tab
-        int value; //!< value of the tab
-    } Element; //!< Struct which contains the target and the of the effect
+
+    typedef union Element_S {
+        int number;
+        char* text;
+        void* object;
+    } Element;
+
+    /*!
+     * \typedef ElementType
+     * \enum ElementType_S
+     * \brief \\<! todo : do a comment
+     */
+
+    typedef enum ElementType_S {
+        NUMBER, TEXT, OBJECT
+    } ElementType;
 
 
     /*!
-     * \typedef ElementList
-     * \struct ElementList_S Structures.h "headers/data/Structures.h"
-     *
-     * Struct which represent a list
-     *
+     * \typedef Dictionary
+     * \struct Dictionary_S structures.h "headers/data/structures.h"
+     * \brief Struct which contains a dictionary of ElementType
      */
-    typedef struct ElementList_S
-    {
-        Element value;
-        ElementList *next;
-    }ElementList;
 
-    extern Element structures_tab[]; //!< contains all of the recruited staff and the number of each staff recruited
+    typedef struct Dictionary_S {
+        ElementType typeKey;
+        ElementType typeValue;
+        Element* keys;
+        Element* values;
+        struct Dictionary_S* next;
+    } Dictionary;
 
     /*!
-     * \fn Element* createStructuresStaff()
-     * @brief Create an Array of structures_tab
+     * \fn Dictionary* createDictionary()
+     * @brief Create a Dictionary of ElementType and Element
      * create an array of structures_tab
      *
      *
      * @return Array of the structures_tab
      */
-    Element* createStructuresTab();
+     //<! todo : do the documentation
+    Dictionary* createDictionary(ElementType keyType, ElementType valueType);
+    void destroyDictionary(Dictionary* d);
+    Element getElement(Dictionary* d, Element key);
+    Element addElement(Dictionary* d, Element key, Element value);
+    bool hashKey(Dictionary* d, Element key);
+
 
     /*!
      * \fn destroyStructuresTab
@@ -60,16 +75,6 @@
      * @param[in] array of structures_tab
      * @return a void
      */
-    void destroyStructuresTab(Element * e);
-
-
-    int getElement(Element* e, int index_Staff);
-
-
-    int add_Element(Element * e, int number_Staff);
-
-
-
 
 
 #endif //PRIM_STRUCTURES_H
