@@ -384,6 +384,22 @@ int map_getIndexByMachine(MachineStuff type) {
     }
 }
 
+Machine* map_getLocatedMachine( int x, int y, const Map* m ) {
+    if (map_getTypeMachine(x, y, m) > 0) {
+        return map_getCase(x,y,m)->in.mach;
+    } else {
+        return NULL;
+    }
+}
+
+Orientation* map_getOrientationByLocatedMachine( int x, int y, const Map* m ) {
+    if (map_getLocatedMachine(x,y,m) != NULL) {
+        return &(map_getLocatedMachine(x,y,m)->orientation);
+    } else {
+        return NULL;
+    }
+}
+
 //\////////////////////////////\//
 //\/ Functions Setters
 //\////////////////////////////\//

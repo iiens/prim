@@ -519,6 +519,32 @@
     */
     MachineStuff map_getTypeMachine( int x, int y, const Map* m );
 
+    /*!
+    * \fn Machine* map_getLocatedMachine( int x, int y, const Map* m )
+    * @brief a function to get a located machine on the map
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] m a map
+    *
+    * This function get a located machine on the map
+    *
+    * @return a located machine on the map if exist
+    */
+    Machine* map_getLocatedMachine( int x, int y, const Map* m );
+
+    /*!
+    * \fn Orientation* map_getOrientationByLocatedMachine( int x, int y, Map* m );
+    * @brief a function to get the orientation of a machine located on the map
+    * @param[in] x case abscissa
+    * @param[in] y case ordinate
+    * @param[in] m a map
+    *
+    * This function get the orientation of a machine located on the map
+    *
+    * @return the orientation of a machine located on the map
+    */
+    Orientation* map_getOrientationByLocatedMachine( int x, int y, const Map* m );
+
     //\////////////////////////////\//
     //\/ Functions Setters
     //\////////////////////////////\//

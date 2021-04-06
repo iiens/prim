@@ -11,6 +11,7 @@
 #define PRIM_MACHINE_H
 
     #include <stdlib.h> //! to use uint
+    #include <stdbool.h> //! to use bool
 
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
@@ -69,19 +70,156 @@
         Orientation orientation; //!< Represent the orientation of the machine
     } Machine; //!< Machine
 
-    // TODO ANTOINE FAIRE LA DOC
-
+    /*!
+     * \fn MachineStuff machine_getType(Machine* machine)
+     * @brief a function to get the type of the machine
+     * @param[in] Machine* a machine
+     *
+     * @return the type of the machine
+     */
     MachineStuff machine_getType(Machine* machine);
 
+    /*!
+     * \fn int machine_getType(Machine* machine)
+     * @brief a function to get the level of the machine
+     * @param[in] Machine* a machine
+     *
+     * @return the level of the machine
+     */
     int machine_getLevel(Machine* machine);
 
+    /*!
+     * \fn Orientation machine_getOrientation(Machine* machine)
+     * @brief a function to get the orientation of the machine
+     * @param[in] Machine* a machine
+     *
+     * @return the orientation of the machine
+     */
     Orientation  machine_getOrientation(Machine* machine);
 
-    Direction  machine_getOrientationTop(Machine* machine);
+    /*!
+     * \fn Direction machine_getOrientationTop(Orientation* orient)
+     * @brief a function to get the top orientation of the machine
+     * @param[in] Machine* a machine
+     *
+     * <ul>
+     *  <li> DIRECTION_IN = 0
+     *  <li> DIRECTION_OUT = 1
+     *  <li> DIRECTION_NONE = 2
+     * </ul>
+     *
+     * @return the top orientation of the machine
+     */
+    Direction  machine_getOrientationTop(Orientation* orient);
 
-    Direction  machine_getOrientationBottom(Machine* machine);
+    /*!
+     * \fn Direction machine_getOrientationBottom(Orientation* orient)
+     * @brief a function to get the bottom orientation of the machine
+     * @param[in] Machine* a machine
+     *
+     * <ul>
+     *  <li> DIRECTION_IN = 0
+     *  <li> DIRECTION_OUT = 1
+     *  <li> DIRECTION_NONE = 2
+     * </ul>
+     *
+     * @return the bottom orientation of the machine
+     */
+    Direction  machine_getOrientationBottom(Orientation* orient);
 
-    Direction  machine_getOrientationLeft(Machine* machine);
+    /*!
+     * \fn Direction machine_getOrientationLeft(Orientation* orient)
+     * @brief a function to get the left orientation of the machine
+     * @param[in] Machine* a machine
+     *
+     * <ul>
+     *  <li> DIRECTION_IN = 0
+     *  <li> DIRECTION_OUT = 1
+     *  <li> DIRECTION_NONE = 2
+     * </ul>
+     *
+     * @return the left orientation of the machine
+     */
+    Direction  machine_getOrientationLeft(Orientation* orient);
 
-    Direction  machine_getOrientationRight(Machine* machine);
+    /*!
+     * \fn Direction machine_getOrientationRight(Orientation* orient)
+     * @brief a function to get the right orientation of the machine
+     * @param[in] Machine* a machine
+     *
+     * <ul>
+     *  <li> DIRECTION_IN = 0
+     *  <li> DIRECTION_OUT = 1
+     *  <li> DIRECTION_NONE = 2
+     * </ul>
+     *
+     * @return the right orientation of the machine
+     */
+    Direction  machine_getOrientationRight(Orientation* orient);
+
+    /*!
+     * \fn Orientation* machine_generateDefaultOrientation(MachineStuff s)
+     * @brief a function to get a default orientation for a machine
+     * @param[in] MachineStuff a type machine
+     *
+     * This fonction get D:
+     *
+     * MS_COLLECTOR = 1, collector machine
+     *      None
+     *  None x None
+     *      Out
+     *
+     * MS_CONVEYOR_BELT = 2, conveyor belt
+     *      In
+     *   In x In
+     *     Out
+     *
+     * MS_CROSS = 3, cross
+     *      In
+     *  Out x In
+     *     Out
+     *
+     * MS_RECYCLING_CENTER = 4, recycling center
+     *      In
+     *   In x In
+     *     Out
+     *
+     * MS_JUNKYARD = 5, junkyard
+     *      In
+     *   In x In
+     *     In
+     *
+     * @return a default orientation for a machine
+     */
+    Orientation* machine_generateDefaultOrientation(MachineStuff s);
+
+    // TODO Antoine Faire la doc + signature + implémentation et trouver un autre nom de fonction
+    // une méthode un peu complexe (tu peux me redemander après
+    // comment cet entier est calculé
+    int machine_getOrientationBis(Orientation o);
+
+    /*!
+     * \fn Orientation* machine_rotateMachine(Orientation* o, int rotation)
+     * @brief a function to rotate the orientation of a machine
+     * @param[in] Orientation* an orientation
+     * @param[in] int a rotation
+     *
+     * This function rotate the orientation of a machine in clockwise
+     * The int rotation can be a negative value.
+     *
+     * @return the new orientation after the clockwise rotation
+     */
+    Orientation* machine_rotateMachine(Orientation* o, int rotation);
+
+    /*!
+     * \fn bool machine_isRotationMeaninfull(MachineStuff s)
+     * @brief a function to know if the type machine is a collector
+     * @param[in] MachineStuff a type machine
+     *
+     * This function allow to know of the type machine is a collector or not
+     *
+     * @return true if the type is not a collector, false if it is
+     */
+    bool machine_isRotationMeaninfull(MachineStuff s);
+
 #endif //PRIM_MACHINE_H
