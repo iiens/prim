@@ -160,7 +160,7 @@ ErrorCode map_endTurn(Map *m) {
     return NO_ERROR;
 }
 
-ErrorCode map_addMachine(MachineStuff machType, Orientation orientation, int x, int y, Map *m) {
+ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_isEmpty(x, y, m) == NO_ERROR) {
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
@@ -173,6 +173,9 @@ ErrorCode map_addMachine(MachineStuff machType, Orientation orientation, int x, 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
+                Orientation orientation = machine_generateDefaultOrientation(machType);
+                machine_rotateMachine(&orientation, rotation);
+
                 Machine *machine = (Machine *) malloc(sizeof(Machine));
                 machine->type = machType;
                 machine->level = 1;

@@ -13,6 +13,7 @@
 #include "../data/difficulty.h" // contains difficulty type
 #include "translation.h"
 #include "../map.h"
+#include "structures.h"
 
 /*!
  * \fn int map_utils_getSizeByDifficulty(Difficulty d)
@@ -58,6 +59,47 @@ void productionFise(Map *m);
  * @param m
  */
 void productionFisa(Map *m);
+
+/**
+ * Permet de géné des ressources grâce aux sources
+ *
+ * @param listResources
+ */
+void generateResources(Map * m);
+
+/**
+ * Permet de faire fonctionner les Tapis
+ * Attention à ne déplacer les ressources que d'une case
+ *
+ * @param listResources
+ */
+void moveResources(Map * m);
+
+/**
+ *
+ * @param m
+ */
+void activateRecyclingCenters(Map* m);
+
+
+/**
+ * Détruit toutes les ressources non collecté à la fin d'un tour
+ *  check :
+ *      - sources
+ *      - décheterie
+ *
+ * @param listSources
+ */
+void destroyResources(Map * m);
+
+/**
+ * Permet de transformer tous les ressources emmené à la porte en déchets
+ *
+ * @param m
+ * @param resources
+ * @return
+ */
+ErrorCode map_sendResourcesToGate(Map *m, int resources);
 
 /**
  *

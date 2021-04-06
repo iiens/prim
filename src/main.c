@@ -177,7 +177,7 @@ void main_buyMachineAction(Map* map) {
             // Check that the user has not abandoned the action
             if ( !back ) {
                 // Call the map function to add machine
-                e = map_addMachine(m.type, m.orientation, v->x, v->y, map);
+                e = map_addMachine(m.type, m.rotation, v->x, v->y, map);
                 // Check the return of the function
                 if ( e != NO_ERROR ) {
                     // Show the error message
