@@ -62,7 +62,7 @@ O_FILES= $(OUTPUT)main.o \
 INTERFACE_DEP= $(SOURCE_H)map.h \
 	$(SOURCE_H_D)difficulty.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case.h $(SOURCE_H_D)effect.h \
 	$(SOURCE_H_D)machine.h $(SOURCE_H_D)machine_info.h $(SOURCE_H_D)staff.h $(SOURCE_H_D)error.h \
-	$(SOURCE_H_D)mapping.h \
+	$(SOURCE_H_D)mapping.h $(SOURCE_H_D)box.h \
 	$(SOURCE_H_U)const.h $(SOURCE_H_U)map_utils.h $(SOURCE_H_U)structures.h $(SOURCE_H_U)translation.h $(SOURCE_H_U)utils.h
 
 # 3. Dependencies
@@ -150,6 +150,11 @@ $(OUTPUT_M)staff.o: $(SOURCE_M)staff.c $(SOURCE_H_D)staff.h
 # - effect.c and .h
 $(OUTPUT_M)effect.o: $(SOURCE_M)effect.c $(SOURCE_H_D)effect.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)effect.o $(SOURCE_M)effect.c
+
+# box.o
+# - box.c and .h
+$(OUTPUT_M)box.o: $(SOURCE_M)box.c $(SOURCE_H_D)box.h
+	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)box.o $(SOURCE_M)box.c
 
 # case.o
 # - case.c and .h
