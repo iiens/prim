@@ -17,8 +17,7 @@ struct Map_S {
     int E; //!< a value that measure the energy quantity of the player
     int DD; //!< a value that measure the planet general health
     int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
-    Staff *team; //!< a list of staffs that the user bought
-    int numberStaff; //!< number of staff recruited by the player
+    Dictionary * team; //!< a list of staffs that the user bought
     int score; //!< a score which indicate number of resources put in the gate
     int pollution; //!< a score which indicate number of garbage that are still present in the gate
 };
@@ -337,8 +336,6 @@ Difficulty map_getDifficulty(const Map *m) { return m->difficulty; }
 int map_getWidth(const Map *m) { return m->width; }
 
 int map_getHeight(const Map *m) { return m->height; }
-
-int map_getNumberStaff(const Map *m) { return m->numberStaff; }
 
 int map_getNumberTurn(const Map *m) { return m->turn; }
 

@@ -363,17 +363,6 @@
     int map_getHeight( const Map* m );
 
     /*!
-    * \fn int map_getNumberStaff( const Map* m )
-    * @brief a function to get the number of staff
-    * @param[in] m a map
-    *
-    * This function get the number of staff
-    *
-    * @return the number of staff
-    */
-    int map_getNumberStaff( const Map* m );
-
-    /*!
     * \fn int map_getNumberTurn( const Map* m )
     * @brief a function to get the number of turn
     * @param[in] m a map
