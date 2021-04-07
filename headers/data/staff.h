@@ -13,6 +13,7 @@
 
     #include "effect.h" // effect.h : information about effect
     #include "error.h" // error.h : errors messages
+    #include "../utils/structures.h" //! to use type List
 
     /*!
      * \typedef Staff
@@ -24,13 +25,13 @@
     #define NUMBER_OF_STAFFS 21 //!< number of staff in staff_list
 
     /*!
-    * \fn ErrorCode staff_isIDValid(int id)
+    * \fn int staff_isIDValid(int id)
     * @brief a function in order to verify if a staff id exist
     * @param[in] id an id
     *
-    * @return an error that specify what is the problem
+    * @return index if exist, -1 if not
     */
-    ErrorCode staff_isIDValid(int id);
+    int staff_isIDValid(int id);
 
     /*!
     * \fn Staff* staff_getStaffByID(int id)
@@ -167,6 +168,18 @@
 
     //TODO ANTOINE FAIRE LA DOC
     const Staff *staffInfo_getByModeAndType(Mode mode, Target type);
+
+    // creer la liste de staff
+    Dictionary* staff_createStaffDictionary();
+
+    // get le nombre d'un staff particulier
+    int staff_getNumberStaffByID(const Dictionary* dict, int id);
+
+    // incremente le nombre d'un staff particulier
+    void staff_hireStaff(Dictionary* dict, int id);
+
+    ErrorCode staff_destroyStaffDictionary(Dictionary* dict);
+
 
 
 #endif //PRIM_STAFF_H

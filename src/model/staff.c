@@ -314,17 +314,19 @@ const Staff staff_list[] = {
         },
 };
 
-ErrorCode staff_isIDValid(int id) {
-    if (id > 0 && id <= NUMBER_OF_STAFFS) {
-        return NO_ERROR;
-    }else{
-        return ERROR_INVALID_MACHINE_NUMBER;
+int staff_isIDValid(int id) {
+    for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
+        if (staff_list[i].id == id) {
+            return i;
+        }
     }
+    return -1;
 }
 
 const Staff* staff_getStaffByID(int id) {
-    if (staff_isIDValid(id) == NO_ERROR) {
-        return &(staff_list[id - 1]);
+    int index = staff_isIDValid(id);
+    if (index >= 0) {
+        return &(staff_list[index]);
     } else {
         return NULL;
     }
@@ -404,4 +406,40 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
         }
     }
     return NULL;
+}
+
+Dictionary* staff_createStaffDictionary() {
+    Dictionary* dict = (Dictionary*) malloc(sizeof(Dictionary));
+    Couple* tabStaff = (Couple*) malloc(NUMBER_OF_STAFFS*sizeof(Couple));
+
+    dict->length = NUMBER_OF_STAFFS;
+    for (int i = 0; i < dict->length; ++i) {
+        tabStaff[i].keys.number = staff_list[i].id;
+        tabStaff[i].values.number = 0;
+    }
+    dict->entries = tabStaff;
+
+    return dict;
+}
+
+int staff_getNumberStaffByID(const Dictionary* dict, int id) {
+    int index = staff_isIDValid(id);
+    if (index >= 0) {
+        return dict->entries[index].values.number;
+    } else {
+        return -1;
+    }
+}
+
+void staff_hireStaff(Dictionary* dict, int id) {
+    int index = staff_isIDValid(id);
+    if (index >= 0) {
+        dict->entries[index].values.number++;
+    }
+}
+
+ErrorCode staff_destroyStaffDictionary(Dictionary* dict) {
+    free(dict->entries);
+    free(dict);
+    return NO_ERROR;
 }
