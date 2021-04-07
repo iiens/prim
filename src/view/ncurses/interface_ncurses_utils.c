@@ -190,38 +190,38 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
 
 char* interface_utils_getCaseContent( int x, int y, const Map* map )
 {
-    CaseType t = case_getType(x, y, map);
+    Case* c = map_getCase(x, y, map);
+    CaseType t = case_getType(c);
     char* response = translation_fetchCaseTypeName(t);
     if ( response != NULL )
         // it's not a machine
         return response;
     else
         // it's a machine
-        return translation_fetchMachineTypeName(machine_getType(case_getMachine(x, y, map)));
+        return translation_fetchMachineTypeName(machine_getType(case_getMachine(c)));
 }
 
 char interface_utils_parseOrientation(int x, int y, const Map* map) {
-    if (case_getType(x, y, map) == CASE_MACHINE ){
-        Case* c = map_getCase(x, y, map);
-        Machine* m = case_getMachine(x, y, map);
+    Case* c = map_getCase(x, y, map);
+    if ( case_getType(c) == CASE_MACHINE ){
+        Machine* m = case_getMachine(c);
         MachineStuff s = machine_getType(m);; //!< machine stuff
-        Orientation* o = machine_getOrientation(m); //!< orientation
         Direction d = DIRECTION_IN;
         switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
             case MS_COLLECTOR:
             case MS_CONVEYOR_BELT:
             case MS_RECYCLING_CENTER:
                 d = DIRECTION_OUT;
-                if ( machine_isOrientationTop(d) ) return L'8';
-                if ( machine_isOrientationBottom(d) ) return L'2';
-                if ( machine_isOrientationLeft(d) ) return L'4';
-                if ( machine_isOrientationRight(d) ) return L'6';
+                if ( machine_isOrientationTop(m, d) ) return L'8';
+                if ( machine_isOrientationBottom(m, d) ) return L'2';
+                if ( machine_isOrientationLeft(m, d) ) return L'4';
+                if ( machine_isOrientationRight(m, d) ) return L'6';
                 break;
             case MS_CROSS:
-                if ( machine_isOrientationBottomRight(d) ) return L'3';
-                if ( machine_isOrientationBottomLeft(d) ) return L'1';
-                if ( machine_isOrientationTopLeft(d) ) return L'7';
-                if ( machine_isOrientationTopRight(d) ) return L'9';
+                if ( machine_isOrientationBottomRight(m, d) ) return L'3';
+                if ( machine_isOrientationBottomLeft(m, d) ) return L'1';
+                if ( machine_isOrientationTopLeft(m, d) ) return L'7';
+                if ( machine_isOrientationTopRight(m, d) ) return L'9';
                 break;
             case MS_JUNKYARD:
                 return 'A'; // all
