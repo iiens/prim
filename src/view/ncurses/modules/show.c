@@ -17,12 +17,12 @@ void interface_ncurses_showMap( const Map* map )
     char* format = (char*) malloc(GAME_WIDTH * sizeof(char));
 
     char* production =
-            map->productionFISA == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
+            map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
 
     // init_view
     mvwprintw(gameWindow, 1, 1, translation_get(TRANSLATE_GAME_NAME));
     mvwprintw(gameWindow, 2, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_TURN), map->turn, buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_TURN), map_getNumberTurn(map), buf, format));
     mvwprintw(gameWindow, 3, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_E), map_getNumberE(map), buf, format));
     mvwprintw(gameWindow, 4, 1,
@@ -36,9 +36,9 @@ void interface_ncurses_showMap( const Map* map )
     mvwprintw(gameWindow, 8, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_STAFFS), map_getNumberStaff(map), buf, format));
     mvwprintw(gameWindow, 9, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_SCORE), map->score, buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_SCORE), map_getPlayerScore(map), buf, format));
     mvwprintw(gameWindow, 10, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map->pollution, buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map_getNumberPollution(map), buf, format));
 
     free(buf);
     free(format);
@@ -48,12 +48,12 @@ void interface_ncurses_showMap( const Map* map )
     //          +  +  +  +  +  +
     //          +  +  +  +  +  +
     //          +  +  +  +  +  +
-    for ( int j = 0; j < map->height; j++ ) {
+    for ( int j = 0; j < map_getHeight(map); j++ ) {
         mvwprintw(mapWindow, 0, j * 3 + 3, " %2d", j);
         if ( j == 0 )
             mvwprintw(mapWindow, 1, 3, "+"); // starting +
         mvwprintw(mapWindow, 1, 4 + j * 3, "--+");
-        for ( int i = 0; i < map->width; i++ ) {
+        for ( int i = 0; i < map_getWidth(map); i++ ) {
             char* content = interface_utils_getCaseContent(j, i, map); //!< case content
             char orientation = interface_utils_parseOrientation(j, i, map); //!< orientation
             mvwaddstr(mapWindow, i + 2, 4 + j * 3, content);
@@ -72,7 +72,7 @@ void interface_ncurses_showMap( const Map* map )
     //     n |  +  +  +  +  +  +
     // we don't put a +--+--+--+--+--+--+ at the end
     // since screens are all ready to short on height
-    for ( int j = 0; j < map->height; ++j ) {
+    for ( int j = 0; j < map_getHeight(map); ++j ) {
         mvwprintw(mapWindow, j + 2, 0, "%3d|", j);
     }
 
@@ -200,23 +200,23 @@ void interface_ncurses_showStaffList( const Map* map )
         for ( int i = 0, j = start; i < rowPerPage && j <= STAFF_COUNT; i++, j++ ) {
             Staff* s = (Staff*) staff_getStaffByID(j);
             wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-            mvwaddstr(mapWindow, 4 + i * blocLength, 0, s->name);
+            mvwaddstr(mapWindow, 4 + i * blocLength, 0, staff_getStaffName(s));
             waddstr(mapWindow, " (id=");
-            number = utils_intToString(s->id);
+            number = utils_intToString(staff_getStaffID(s));
             waddstr(mapWindow, number);
             waddstr(mapWindow, ") (");
             free(number);
-            number = utils_intToString(s->costE);
+            number = utils_intToString(staff_getStaffCostE(s));
             waddstr(mapWindow, number);
             waddstr(mapWindow, " E ");
             free(number);
-            number = utils_intToString(s->costDD);
+            number = utils_intToString(staff_getStaffCostDD(s));
             waddstr(mapWindow, number);
             free(number);
             waddstr(mapWindow, " DD). Owned: ");
             waddstr(mapWindow, "0");
             wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-            mvwaddstr(mapWindow, 5 + i * blocLength, 0, s->description);
+            mvwaddstr(mapWindow, 5 + i * blocLength, 0, staff_getStaffDescription(s));
         }
 
         wrefresh(mapWindow);
