@@ -110,6 +110,36 @@ void productionFisa(Map *m) {
     }
 }
 
+void moveResources(Map * m) {
+    int width = map_getWidth(m);
+    int height = map_getHeight(m);
+
+    for (int x = 0; x < width; ++x) {
+        for (int y = 0; y < height; ++y) {
+            Case * cursor = map_getCase(x, y, m);
+            // If case contains tapis or croix
+            // Demander un getter revoyant true or false
+            // Afin que se soit générique prends en argument un MachineStuff
+            // Eviterair de recoder pour chaque type
+            if (true) {
+                Case* next;
+
+                // Récupérer Case* suivante qui correspont à l'entrée de
+                while (next != NULL) {
+                    cursor = next;
+
+                }
+
+                // Move carton
+                while (cursor != NULL) {
+                    next; // Récupérer le précédent
+
+                }
+            }
+        }
+    }
+}
+
 ErrorCode map_sendResourcesToGate(Map *m, int resources) {
 
     return NO_ERROR;
