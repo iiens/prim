@@ -2,7 +2,6 @@
 #include "../../../../headers/utils/map_utils.h"
 #include "../interface_ncurses.h"
 #include "../interface_ncurses_utils.h"
-#include "../../../../headers/utils/translation.h"
 #include <string.h>
 
 Difficulty interface_ncurses_chooseDifficulty()
@@ -18,6 +17,7 @@ Difficulty interface_ncurses_chooseDifficulty()
     int current = 0; //!< current selected difficulty
     int ch; //!< current char read
     bool leave = false; //!< leave branch
+    const int TOP = ACTION_HEIGHT+8; //!< min height
     // sizes
     int EASY_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_EASY); //!< size of map for EASY
     int MEDIUM_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_MEDIUM); //!< size of map for MEDIUM
@@ -36,7 +36,6 @@ Difficulty interface_ncurses_chooseDifficulty()
     difficulties[0] = translation_get(TRANSLATE_DIF_E);
     difficulties[1] = translation_get(TRANSLATE_DIF_M);
     difficulties[2] = translation_get(TRANSLATE_DIF_H);
-
 
     // disabled
     disabled = (int*) malloc(N_DIFFICULTIES * sizeof(int));
@@ -58,8 +57,8 @@ Difficulty interface_ncurses_chooseDifficulty()
         // put in buffer, same spacing for all
         sprintf(item, format, difficulties[i]);
         // put in the screen
-        if ( (LINES <= EASY_SIZE + ACTION_HEIGHT && i == 0) || (LINES <= MEDIUM_SIZE + ACTION_HEIGHT && i == 1) ||
-             (LINES <= HARD_SIZE + ACTION_HEIGHT && i == 2) ) {
+        if ( (LINES <= EASY_SIZE + TOP && i == 0) || (LINES <= MEDIUM_SIZE && i == 1) ||
+             (LINES <= HARD_SIZE && i == 2) ) {
             disabled[i] = i;
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
             attron(COLOR_PAIR(ERROR_COLOR));

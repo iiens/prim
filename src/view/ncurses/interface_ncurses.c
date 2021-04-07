@@ -22,7 +22,7 @@
 //\/ interface related
 //\////////////////////////////\//
 
-int MIN_ROW_SAVED = 17;
+int MIN_ROW_SAVED = 23;
 int MIN_COL_SAVED = 164;
 
 // we init the main screen

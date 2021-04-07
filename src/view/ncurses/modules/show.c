@@ -10,14 +10,16 @@
 
 void interface_ncurses_showMap( const Map* map )
 {
+    const int END_BASE = 10; //!< 10 lines of games constants
+    const int HEIGHT = map_getHeight(map); //!< height
+    const int WIDTH = map_getWidth(map); //!< width
+    char* buf = (char*) malloc(GAME_WIDTH * sizeof(char)); //!< see interface_ncurses_gameTag
+    char* format = (char*) malloc(GAME_WIDTH * sizeof(char)); //!< see interface_ncurses_gameTag
+    char* production = //!< string for the production mode
+            map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
+
     wclear(mapWindow); //reset
     wclear(gameWindow); //reset
-
-    char* buf = (char*) malloc(GAME_WIDTH * sizeof(char));
-    char* format = (char*) malloc(GAME_WIDTH * sizeof(char));
-
-    char* production =
-            map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
 
     // init_view
     mvwprintw(gameWindow, 1, 1, translation_get(TRANSLATE_GAME_NAME));
@@ -37,8 +39,90 @@ void interface_ncurses_showMap( const Map* map )
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_STAFFS), map_getNumberStaff(map), buf, format));
     mvwprintw(gameWindow, 9, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_SCORE), map_getPlayerScore(map), buf, format));
-    mvwprintw(gameWindow, 10, 1,
+    // END_BASE = 10
+    mvwprintw(gameWindow, END_BASE, 1,
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map_getNumberPollution(map), buf, format));
+
+    // then we have
+    //todo: redo plz
+    wattron(gameWindow, COLOR_PAIR(COLOR_RED));
+    mvwaddstr(gameWindow, END_BASE+2, 1, "Legend");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_RED));
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+3, 1, "S");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": Source ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "G");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": Gate ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+4, 1, "C");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": Collector ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "B");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": CONVEYOR BELT ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+5, 1, "X");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": Cross ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "R");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": RECYCLING CENTER ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+6, 1, "J");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": JUNKYARD ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+8, 1, "4");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": LEFT ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "6");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": RIGHT ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "8");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": TOP ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+9, 1, "2");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": BOTTOM ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "7");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": TOP LEFT ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "9");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": TOP RIGHT ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    mvwaddstr(gameWindow, END_BASE+10, 1, "1");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": BOTTOM LEFT ");
+
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, "3");
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": BOTTOM RIGHT ");
 
     free(buf);
     free(format);
@@ -48,18 +132,31 @@ void interface_ncurses_showMap( const Map* map )
     //          +  +  +  +  +  +
     //          +  +  +  +  +  +
     //          +  +  +  +  +  +
-    for ( int j = 0; j < map_getHeight(map); j++ ) {
+    for ( int j = 0; j < HEIGHT; j++ ) {
         mvwprintw(mapWindow, 0, j * 3 + 3, " %2d", j);
         if ( j == 0 )
-            mvwprintw(mapWindow, 1, 3, "+"); // starting +
+            mvwprintw(mapWindow, 1, 1, "y +"); // starting +
         mvwprintw(mapWindow, 1, 4 + j * 3, "--+");
-        for ( int i = 0; i < map_getWidth(map); i++ ) {
+        for ( int i = 0; i < WIDTH; i++ ) {
             char* content = interface_utils_getCaseContent(j, i, map); //!< case content
             char orientation = interface_utils_parseOrientation(j, i, map); //!< orientation
             mvwaddstr(mapWindow, i + 2, 4 + j * 3, content);
             mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);
             mvwaddstr(mapWindow, i + 2, 6 + j * 3, "+");
         }
+    }
+    mvwprintw(mapWindow, 0, 2, "x");
+
+    // fill the number before each row
+    //         0  1  2  3 ... n
+    //       +--+--+--+--+--+--+
+    //     0 |  +  +  +  +  +  +
+    //     1 |  +  +  +  +  +  +
+    //     2 |  +  +  +  +  +  +
+    //   ... |  +  +  +  +  +  +
+    //     n |  +  +  +  +  +  +
+    for ( int j = 0; j < HEIGHT; ++j ) {
+        mvwprintw(mapWindow, j + 2, 0, "%3d|", j);
     }
 
     // fill the number before each row
@@ -70,10 +167,10 @@ void interface_ncurses_showMap( const Map* map )
     //     2 |  +  +  +  +  +  +
     //   ... |  +  +  +  +  +  +
     //     n |  +  +  +  +  +  +
-    // we don't put a +--+--+--+--+--+--+ at the end
-    // since screens are all ready to short on height
-    for ( int j = 0; j < map_getHeight(map); ++j ) {
-        mvwprintw(mapWindow, j + 2, 0, "%3d|", j);
+    //       +--+--+--+--+--+--+
+    mvwprintw(mapWindow, HEIGHT+2, 3, "+");
+    for ( int j = 0; j < WIDTH; ++j ) {
+        waddstr(mapWindow, "--+");
     }
 
     // show
