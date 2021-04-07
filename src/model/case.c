@@ -88,3 +88,11 @@ bool case_isEmpty(const Case* c) {
         return false;
     }
 }
+
+ErrorCode case_destroy(Case* c) {
+    if (case_getType(c) == CASE_MACHINE) {
+        free(c->in.mach);
+    }
+    free(c);
+    return NO_ERROR;
+}

@@ -154,4 +154,6 @@
     void case_addSource(Case* c);
     bool case_isEmpty(const Case* c);
 
+    ErrorCode case_destroy(Case* c);
+
 #endif //PRIM_CASE_H
