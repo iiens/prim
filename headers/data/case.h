@@ -140,7 +140,6 @@
     /*!
     * \fn Case* case_create(nt x, int y)
     * @brief a function to create a new case
-    * @param[in] CaseType
     * @param[in] int x
     * @param[in] int y
     *
@@ -148,9 +147,29 @@
     */
     Case* case_create(int x, int y);
 
-    // TODO ANTOINE DOC
+    /*!
+    * \fn void case_addMachine(Case* c, Machine* mach)
+    * @brief a function to add a machine on an empty case
+    * @param[in] Case* c
+    * @param[in] Machine* mach
+    *
+    */
     void case_addMachine(Case* c, Machine* mach);
+
+    /*!
+    * \fn void case_addGate(Case* c)
+    * @brief a function to add a gate on an empty case
+    * @param[in] Case* c
+    *
+    */
     void case_addGate(Case* c);
+
+    /*!
+    * \fn void case_addSource(Case* c)
+    * @brief a function to add a source on an empty case
+    * @param[in] Case* c
+    *
+    */
     void case_addSource(Case* c);
     bool case_isEmpty(const Case* c);
 
