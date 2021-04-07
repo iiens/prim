@@ -226,7 +226,6 @@ ErrorCode map_sendResourcesToGate(Map *m, int resources) {
 
 void activateCollectors(Map *m) {
     Case *c;
-    int numberResources;
     for (int i = 0; i < map_getWidth(m); ++i) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
@@ -234,7 +233,23 @@ void activateCollectors(Map *m) {
             if (type == CASE_MACHINE) {
                 Machine *machine= case_getMachine(c);
                 if (machine_getType(machine) == MS_COLLECTOR) {
+                    Orientation *orientation = machine_getOrientation(machine);
+                    int x = case_getX(c);
+                    int y = case_getY(c);
+                    Case *next;
 
+                    if (machine_getOrientationBottom(orientation) == DIRECTION_NONE) {
+                        next = map_getCase(x, y, m);
+                        if (case_getType(next) == CASE_SOURCE) {
+                            // TODO Valentin : réfléchir au déplacement des ressources
+                        }
+                    }
+                    if (machine_getOrientationLeft(orientation) == DIRECTION_NONE) {
+                    }
+                    if (machine_getOrientationTop(orientation) == DIRECTION_NONE) {
+                    }
+                    if (machine_getOrientationRight(orientation) == DIRECTION_NONE) {
+                    }
                 }
             }
         }

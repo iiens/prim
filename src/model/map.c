@@ -37,8 +37,7 @@ Map *map_create(Difficulty dif) {
     m->pollution = 0;
     m->numberFISA = NUMBER_FISA;
     m->numberFISE = NUMBER_FISE;
-    m->numberStaff = 0;
-    m->team = NULL;
+    m->team = staff_createStaffDictionary();
 
     // Initialization of the map according to the difficulty
     m->width = map_utils_getSizeByDifficulty(dif);
@@ -146,7 +145,7 @@ ErrorCode map_endTurn(Map *m) {
 
     // TODO Valentin : Déplacer les ressources
     // Besoin de la listes des tapis
-    moveResources(m);
+    //moveResources(m);
 
     // TODO Valentin : Générer les ressources avec les sources
     generateResources(m);
@@ -161,7 +160,7 @@ ErrorCode map_endTurn(Map *m) {
     // Déchets sur la case
 
     // TODO Valentin : Les collecteurs s'activent
-    // Liste des collecteurs
+    activateCollectors(m);
 
     // TODO Valentin : Suprimerles ressources non collecté
     resetResourcesGarbage(m);
