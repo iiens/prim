@@ -75,13 +75,38 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
     }
 }
 
-bool map_CaseHasMachineType(MachineStuff type, Case* c) {
+bool caseHasMachineType(MachineStuff type, Case *c) {
     Machine *machine = map_getLocatedMachine(c);
     if (machine != NULL && machine_getType(machine) == type) {
         return true;
     } else {
         return false;
     }
+}
+
+Case *getLastConveyorBelt(Map *m, Case *c) {
+    Machine *machine = map_getLocatedMachine(c);
+    Orientation *orientation = machine_getOrientation(machine);
+    int x = case_getX(c);
+    int y = case_getY(c);
+
+    int nextX, nextY;
+
+    if (machine_getOrientationBottom(orientation) == DIRECTION_OUT) {
+        nextX = x;
+        nextY = y - 1;
+    } else if (machine_getOrientationLeft(orientation) == DIRECTION_OUT) {
+        nextX = x - 1;
+        nextY = y;
+    } else if (machine_getOrientationTop(orientation) == DIRECTION_OUT) {
+        nextX = x;
+        nextY = y + 1;
+    } else if (machine_getOrientationRight(orientation) == DIRECTION_OUT) {
+        nextX = x + 1;
+        nextY = y;
+    } else return NULL;
+
+    Case *next = map_getCase(nextX, nextY, m);
 }
 
 // Fonction EndTurn
@@ -120,26 +145,21 @@ void productionFisa(Map *m) {
     }
 }
 
-void moveResources(Map * m) {
+void moveResources(Map *m) {
     int width = map_getWidth(m);
     int height = map_getHeight(m);
 
     for (int x = 0; x < width; ++x) {
         for (int y = 0; y < height; ++y) {
-            Case * cursor = map_getCase(x, y, m);
+            Case *cursor = map_getCase(x, y, m);
 
-            if (map_CaseHasMachineType(MS_CONVEYOR_BELT, cursor) || map_CaseHasMachineType(MS_CROSS, cursor)) {
-                Case* next;
-
-                // Récupérer Case* suivante qui correspont à l'entrée de
-                while (next != NULL) {
-                    cursor = next;
-
-                }
+            if (caseHasMachineType(MS_CONVEYOR_BELT, cursor) || caseHasMachineType(MS_CROSS, cursor)) {
+                // Aller jusqu'à la case qui n'a pas de successeur
+                cursor = recursive_Profondeur(m, cursor);
 
                 // Move carton
                 while (cursor != NULL) {
-                    next; // Récupérer le précédent
+                    // Récupérer le précédent
 
                 }
             }

@@ -148,6 +148,7 @@ ErrorCode map_endTurn(Map *m) {
 
     // TODO Valentin : Déplacer les ressources
     // Besoin de la listes des tapis
+    moveResources(m);
 
     // TODO Valentin : Générer les ressources avec les sources
     // Vérifier
