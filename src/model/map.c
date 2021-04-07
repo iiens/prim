@@ -377,17 +377,11 @@ Case *map_getCase(const int x, const int y, const Map *m) {
     }
 }
 
-CaseType map_getTypeCase(const int x, const int y, const Map *m) {
-    if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        return map_getCase(x, y, m)->type;
-    } else {
-        return -1;
-    }
-}
+CaseType map_getTypeCase(Case* c) { return c->type; }
 
-Machine *map_getLocatedMachine(int x, int y, const Map *m) {
-    if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-        return map_getCase(x, y, m)->in.mach;
+Machine* map_getLocatedMachine(Case* c) {
+    if (map_getTypeCase(c) == CASE_MACHINE) {
+        return c->in.mach;
     } else {
         return NULL;
     }

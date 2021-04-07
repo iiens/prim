@@ -466,11 +466,9 @@
     Case* map_getCase( int x, int y, const Map* m );
 
     /*!
-    * \fn CaseType map_getTypeCase( int x, int y, const Map* m );
+    * \fn CaseType map_getTypeCase(Case* c)
     * @brief a function to get the type case of a case on the map
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
+    * @param[in] Case*
     *
     * This function get the type case of a case on the map
     * <ul>
@@ -482,20 +480,18 @@
     *
     * @return the type case if case exist, if not -1
     */
-    CaseType map_getTypeCase( int x, int y, const Map* m );
+    CaseType map_getTypeCase(Case* c);
 
     /*!
-    * \fn Machine* map_getLocatedMachine( int x, int y, const Map* m )
+    * \fn Machine* map_getLocatedMachine(Case* c)
     * @brief a function to get a located machine on the map
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
+    * @param[in] Case*
     *
     * This function get a located machine on the map
     *
     * @return a located machine on the map if exist
     */
-    Machine* map_getLocatedMachine( int x, int y, const Map* m );
+    Machine* map_getLocatedMachine(Case* c);
 
     //\////////////////////////////\//
     //\/ Functions Setters
