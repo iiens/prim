@@ -140,7 +140,7 @@
      * </pre>
      * @return a default orientation for a machine
      */
-    //Facade *facade_defaultFacade(MachineStuff s);
+    Facade *facade_defaultFacade(MachineStuff s);
 
     // TODO Antoine Faire la doc + signature + implémentation et trouver un autre nom de fonction
     // une méthode un peu complexe (tu peux me redemander après

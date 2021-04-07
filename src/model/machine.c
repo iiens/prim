@@ -18,6 +18,7 @@ struct Machine_S {
 
 Facade *facade_defaultFacade(MachineStuff s) {
     Facade *interface = (Facade *) malloc(4*sizeof(Facade)); // TODO : uteliser #define number facade
+
     for (int i = 0; i < 4; ++i) {
         interface[i].content = NULL;
     }

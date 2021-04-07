@@ -339,6 +339,8 @@ int map_getNumberTurn(const Map *m) { return m->turn; }
 
 int map_getProductionFISA(const Map *m) { return m->productionFISA; }
 
+Dictionary* map_getStaffDictionary( const Map* m ) { return m->team; }
+
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         return m->map[x][y];
