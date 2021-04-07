@@ -75,6 +75,16 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
     }
 }
 
+bool map_CaseHasMachineType(MachineStuff type, Case* c) {
+    Machine* machine = case_getLocatedMachine(c);
+    if (machine != NULL && machine_getType(machine) == type) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Fonction EndTurn
 void productionFise(Map *m) {
     int productionE = PRODUCTION_FISE_E;
     int productionDD = PRODUCTION_FISE_DD;
@@ -145,6 +155,7 @@ ErrorCode map_sendResourcesToGate(Map *m, int resources) {
     return NO_ERROR;
 }
 
+// Fonction specifique Staff
 ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {
     // Parcourir toutes les cases pour supprimer la moitie des déchets
     return NO_ERROR;
