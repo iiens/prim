@@ -82,14 +82,13 @@ void interface_ncurses_showMap( const Map* map )
 
 void interface_ncurses_showMachinesList() //todo: remake without buffers
 {
-    const int LINE_COUNT = NUMBER_OF_MACHINES;
     const int size = 5 + 5 + 3 + 3; //!< we allow 5 number as, result is "n E n DD" (3 are spaces and 3 are letters)
     char* p = (char*) malloc(size * sizeof(char)); //!< cost value
     char* pUpgrade = (char*) malloc(size * sizeof(char)); //!< cost upgrade value
     char* pDestroy = (char*) malloc(size * sizeof(char)); //!< cost destroy value
     int blocLength = 2; //!< number of line per machine
 
-    if ( (LINE_COUNT*3+4) < LINES )
+    if ( (NUMBER_OF_MACHINES*3+4) < LINES )
         blocLength++;
 
     //clear
@@ -101,22 +100,22 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     interface_ncurses_initListWindow(translation_get(TRANSLATE_MACHINE_LIST_TITLE));
 
     // print each machine
-    for ( int i = 0; i < LINE_COUNT; ++i ) {
+    for ( int i = 0; i < NUMBER_OF_MACHINES; ++i ) {
         int j = 0; //!< in which column we should add the next part, see below with cost line
-        MachineInfo m = machine_list[i];
-        char* desc = m.description;
-        char* name = translation_getMachineType(m.type);
-        int id = m.type;
+        const MachineInfo* m = machineInfo_getMachineInfoByType(MS_COLLECTOR);
+        char* desc = machineInfo_getDescription(m);
+        char* name = translation_getMachineType(machineInfo_getType(m));
+        int id = machineInfo_getType(m);
         // size is two strings + 1 (size of id)
         char* head = (char*) malloc(
                 (strlen(name) + 1 + strlen(desc) + 1 + 10) * sizeof(char)); //!< header of this machine
         sprintf(head, " %s (id=%d) : %s", name, id, desc);
 
         // write prices
-        sprintf(p, "%5d E %5d DD", m.costE, m.costDD);
-        if ( m.canUpgrade )
-            sprintf(pUpgrade, "%5d E %5d DD", m.costUpgradeE, m.costUpgradeDD);
-        sprintf(pDestroy, "%5d E %5d DD", m.costDestroyE, m.costDestroyDD);
+        sprintf(p, "%5d E %5d DD", machineInfo_getCostE(m), machineInfo_getCostDD(m));
+        if ( machineInfo_getCanUpgrade(m) )
+            sprintf(pUpgrade, "%5d E %5d DD", machineInfo_getCostUpgradeE(m), machineInfo_getCostUpgradeDD(m));
+        sprintf(pDestroy, "%5d E %5d DD", machineInfo_getCostDestroyE(m), machineInfo_getCostDestroyDD(m));
 
         // "Machine:" - in red
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
@@ -131,7 +130,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
         // cost:, ... are put in green
         //cost:
         j = writeLabel(i, j, blocLength, translation_get(TRANSLATE_ML_COST_TAG), p); //cost
-        if ( m.canUpgrade )
+        if ( machineInfo_getCanUpgrade(m) )
             j = writeLabel(i, j, blocLength, translation_get(TRANSLATE_ML_COST_UP_TAG), pUpgrade); //cost upgrade
         writeLabel(i, j, blocLength, translation_get(TRANSLATE_ML_COST_DESTROY_TAG), pDestroy); // cost destroy
 

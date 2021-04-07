@@ -55,19 +55,15 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
         *leave = TRUE;
         return NULL;
     } else {
-        const int base = machine_list[0].type; //!< base id
         char* endPtr = NULL; //!< conversion error
         int machineID; //!< machine ID
 
         machineID = strtol(buff, &endPtr, 10);
 
-        if ( endPtr != NULL && machineID >= base && machineID <= base + NUMBER_OF_MACHINES - 1 ) {
-            int index = machineID - base; //!< fetch machine_list index
+        if ( endPtr != NULL && machineInfo_isStuffValid(machineID) == NO_ERROR ) {
             // okay
             *leave = true;
-            MachineStuff* m = (MachineStuff*) malloc(sizeof(MachineStuff));
-            *m = machine_list[index].type;
-            return m;
+            return machineInfo_getType(machineInfo_getMachineInfo(machineID));
         }
 
         // set error
