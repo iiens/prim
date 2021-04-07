@@ -46,19 +46,14 @@ Map *map_create(Difficulty dif) {
     m->difficulty = dif;
 
     // Create grid
-    m->map = (Case **) malloc(m->width * sizeof(Case *));
+    m->map = (Case ***) malloc(m->width * sizeof(Case **));
     for (int i = 0; i < m->width; i++) {
         // Creation of each Case
-        m->map[i] = (Case *) malloc(m->height * sizeof(Case));
+        m->map[i] = (Case **) malloc(m->height * sizeof(Case*));
 
         // Initialization of boxes
         for (int j = 0; j < m->height; ++j) {
-            m->map[i][j].x = i;
-            m->map[i][j].y = j;
-            m->map[i][j].nbGarbage = 0;
-            m->map[i][j].nbResource = 0;
-            m->map[i][j].type = CASE_VIDE;
-            m->map[i][j].in.other = NULL;
+            m->map[i][j] = case_create(i, j);
         }
     }
 
@@ -66,16 +61,16 @@ Map *map_create(Difficulty dif) {
     // Random gate placement
     gate_x = (int) (random() % m->width);
     gate_y = (int) (random() % m->height);
-    m->map[gate_x][gate_y].type = CASE_GATE;
+    case_addGate(m->map[gate_x][gate_y]);
 
     // Random placement of the 2 sources
     for (int i = 0; i < 2; i++) {
         do {
             source_x = (int) (random() % m->width);
             source_y = (int) (random() % m->height);
-        } while (m->map[source_x][source_y].type != CASE_VIDE);
+        } while (case_isEmpty(m->map[source_x][source_y]));
 
-        m->map[source_x][source_y].type = CASE_SOURCE;
+        case_addSource(m->map[source_x][source_y]);
     }
 
     return m;
@@ -180,7 +175,8 @@ ErrorCode map_endTurn(Map *m) {
 
 ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        if (map_isEmpty(x, y, m) == NO_ERROR) {
+        Case* c = map_getCase(x, y, m);
+        if (case_isEmpty(c)) {
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
             int costE = machineInfo_getCostE(machineInfo);
             int costDD = machineInfo_getCostDD(machineInfo);
@@ -195,9 +191,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
                 machine_rotateMachine(orientation, rotation);
 
                 Machine *machine = machine_Create(machType, orientation);
-
-                m->map[x][y].type = CASE_MACHINE;
-                m->map[x][y].in.mach = machine;
+                case_addMachine(c, machine);
 
                 return NO_ERROR;
             } else {
@@ -264,10 +258,10 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                machine_destroyMachine(m->map[x][y].in.mach);
+                machine_destroyMachine(machine);
 
-                m->map[x][y].in.mach = NULL;
-                m->map[x][y].type = CASE_VIDE;
+                // Demander seter case vide
+                // mettre .mach et .other à NULL
 
                 return NO_ERROR;
             } else {

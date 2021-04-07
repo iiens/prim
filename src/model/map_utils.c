@@ -107,6 +107,13 @@ Case *getLastConveyorBelt(Map *m, Case *c) {
     } else return NULL;
 
     Case *next = map_getCase(nextX, nextY, m);
+    if (next != NULL) {
+        if (caseHasMachineType(MS_CONVEYOR_BELT, next) || caseHasMachineType(MS_CROSS, next)) {
+            if (machine_getOrientationRight(orientation) == DIRECTION_IN) {
+                return getLastConveyorBelt(m, next);
+            } return c;
+        } else return c;
+    } else return c;
 }
 
 // Fonction EndTurn
@@ -155,7 +162,7 @@ void moveResources(Map *m) {
 
             if (caseHasMachineType(MS_CONVEYOR_BELT, cursor) || caseHasMachineType(MS_CROSS, cursor)) {
                 // Aller jusqu'à la case qui n'a pas de successeur
-                cursor = recursive_Profondeur(m, cursor);
+                cursor = getLastConveyorBelt(m, cursor);
 
                 // Move carton
                 while (cursor != NULL) {

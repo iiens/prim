@@ -244,16 +244,6 @@
     ErrorCode map_buyStaff( int idStaff, Map* m );
 
     /*!
-    * \fn ErrorCode map_isEmpty( int x, int y, const Map* m );
-    * @brief In order to verify if a case is empty
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    * @return an error that specify what is the problem
-    */
-    ErrorCode map_isEmpty( int x, int y, const Map* m );
-
-    /*!
     * \fn ErrorCode map_isCaseExist( int x, int y, const Map* m );
     * @brief In order to verify if a case exist
     * @param[in] x case abscissa
