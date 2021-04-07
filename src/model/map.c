@@ -11,14 +11,14 @@ struct Map_S {
     Difficulty difficulty; //!< game difficulty
     int width; //!< int, map width
     int height; //!< int, map height
-    Case** map; //!< a bi dimensional table to refer to the board of game
+    Case **map; //!< a bi dimensional table to refer to the board of game
     int turn; //!< int, an indicator to correspond to the actual turn of the game
     int numberFISE; //!< as the name suggest, its corresponding to the number of FISE
     int numberFISA; //!< as the name suggest, its corresponding to the number of FISA
     int E; //!< a value that measure the energy quantity of the player
     int DD; //!< a value that measure the planet general health
     int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
-    Staff* team; //!< a list of staffs that the user bought
+    Staff *team; //!< a list of staffs that the user bought
     int numberStaff; //!< number of staff recruited by the player
     int score; //!< a score which indicate number of resources put in the gate
     int pollution; //!< a score which indicate number of garbage that are still present in the gate
@@ -191,14 +191,11 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                Orientation orientation = machine_generateDefaultOrientation(machType);
-                machine_rotateMachine(&orientation, rotation);
+                Orientation* orientation = machine_generateDefaultOrientation(machType);
+                machine_rotateMachine(orientation, rotation);
 
                 // TODO Valentin : utiliser machine_create
-                Machine *machine = (Machine *) malloc(sizeof(Machine));
-                machine->type = machType;
-                machine->level = 1;
-                machine->orientation = orientation;
+                Machine *machine;
 
                 m->map[x][y].type = CASE_MACHINE;
                 m->map[x][y].in.mach = machine;
@@ -218,7 +215,8 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-            MachineStuff machType = map_getTypeMachine(x, y, m);
+            Machine * machine = map_getLocatedMachine(x, y, m);
+            MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
 
@@ -233,7 +231,6 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 ErrorCode e = map_tryBuy(m, costE, costDD);
                 if (e == NO_ERROR) {
                     // TODO VAlentin : Utiliser setter
-                    m->map[x][y].in.mach->level++;
 
                     return NO_ERROR;
                 } else {
@@ -253,7 +250,8 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-            MachineStuff machType = map_getTypeMachine(x, y, m);
+            Machine * machine = map_getLocatedMachine(x, y, m);
+            MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
             int costE = machineInfo_getCostDestroyE(machineInfo);
@@ -266,7 +264,6 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
                 // TODO Valentin : Utiliser destroy machine
-                free(m->map[x][y].in.mach);
 
                 // TODO Valentin : utiliser setter
                 m->map[x][y].in.mach = NULL;
@@ -391,9 +388,9 @@ CaseType map_getTypeCase(const int x, const int y, const Map *m) {
     }
 }
 
-Machine* map_getLocatedMachine( int x, int y, const Map* m ) {
+Machine *map_getLocatedMachine(int x, int y, const Map *m) {
     if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-        return &(map_getCase(x,y,m)->in.mach);
+        return map_getCase(x, y, m)->in.mach;
     } else {
         return NULL;
     }
