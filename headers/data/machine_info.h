@@ -69,6 +69,6 @@
 
     int machineInfo_isMachineStuffValid(int id);
 
-    MachineInfo* machineInfo_getMachineStuff(int id);
+    const MachineInfo* machineInfo_getMachineStuff(int id);
 
 #endif //PRIM_MACHINE_INFO_H

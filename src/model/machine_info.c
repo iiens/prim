@@ -91,7 +91,7 @@ int machineInfo_isMachineStuffValid(int id) {
     return -1;
 }
 
-MachineInfo* machineInfo_getMachineStuff(int id) {
+const MachineInfo* machineInfo_getMachineStuff(int id) {
     int index = machineInfo_isMachineStuffValid(id);
     if (machineInfo_isMachineStuffValid(id) >= 0) {
         return &(machine_list[index]);
