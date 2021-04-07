@@ -207,7 +207,7 @@
     int machine_getOrientationBis(Orientation o);
 
     /*!
-     * \fn Orientation* machine_rotateMachine(Orientation* o, int rotation)
+     * \fn void machine_rotateMachine(Orientation* o, int rotation)
      * @brief a function to rotate the orientation of a machine
      * @param[in] Orientation* an orientation
      * @param[in] int a rotation
@@ -215,8 +215,8 @@
      * This function rotate the orientation of a machine in clockwise
      * The int rotation can be a negative value.
      *
-     * @return the new orientation after the clockwise rotation
+     * @return nothing
      */
-    Orientation* machine_rotateMachine(Orientation* o, int rotation);
+    void machine_rotateMachine(Orientation* o, int rotation);
 
 #endif //PRIM_MACHINE_H

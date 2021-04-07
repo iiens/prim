@@ -64,17 +64,15 @@ Orientation machine_generateDefaultOrientation(MachineStuff s) {
 //int machine_getOrientation(Orientation o);
 
 //Todo ANTOINE Number direction COnstante ?
-Orientation* machine_rotateMachine(Orientation* o, int rotation) {
-    Orientation* orient = o;
+void machine_rotateMachine(Orientation* o, int rotation) {
     Direction tmp;
     rotation = (rotation % 4) + 4;
     for(int i=0; i<(rotation % 4); i++) {
-        tmp = orient->top;
-        orient->top = orient->left;
-        orient->left = orient->bottom;
-        orient->bottom = orient->right;
-        orient->right = tmp;
+        tmp = o->top;
+        o->top = o->left;
+        o->left = o->bottom;
+        o->bottom = o->right;
+        o->right = tmp;
     }
-    return orient;
 }
 
