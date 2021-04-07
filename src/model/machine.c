@@ -17,7 +17,7 @@ struct Machine_S {
 }; //!< Machine
 
 Facade *facade_defaultFacade(MachineStuff s) {
-    Facade *interface = (Facade *) malloc(4*sizeof(Facade)); // TODO : uteliser #define number facade
+    Facade *interface = (Facade *) malloc(4*sizeof(Facade)); // TODO : RAMZY #define NUMBER FACADE 4
 
     for (int i = 0; i < 4; ++i) {
         interface[i].content = NULL;
@@ -65,11 +65,11 @@ Facade *facade_defaultFacade(MachineStuff s) {
     return interface;
 }
 
-Machine *machine_Create(MachineStuff type, int rotation) {
+Machine *machine_create(MachineStuff type, int rotation) {
     Machine *mach = (Machine *) malloc(sizeof(Machine));
     mach->type = type;
     mach->level = 1;
-    mach->numberFacade = 4; // TODO : Demander #define
+    mach->numberFacade = 4; // TODO : Demander #define NUMBER FACADE RAMZY
     mach->interface = facade_defaultFacade(type);
 
     return mach;

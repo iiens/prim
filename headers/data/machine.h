@@ -88,7 +88,7 @@
      *
      * @return the level of the machine
      */
-    int machine_getLevel(const Machine* machine);
+    int machine_getLevel(const Machine *machine);
 
     /*!
      * @brief a function to get the orientation of the machine
@@ -165,7 +165,7 @@
     void machine_incrementLevel(Machine* m);
 
     // create une MAchine* avec level=1
-    Machine* machine_Create(MachineStuff type, int rotation);
+    Machine* machine_create(MachineStuff type, int rotation);
 
     // free les argument de machine( carton) et Machine
     ErrorCode machine_destroyMachine(Machine* mach);
@@ -190,5 +190,6 @@
 
     Direction facade_getDirection(const Machine *machine, Cardinal card);
     Box* facade_getBoxTop(const Machine *machine, Cardinal card);
+
 
 #endif //PRIM_MACHINE_H

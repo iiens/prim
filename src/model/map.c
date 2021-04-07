@@ -182,7 +182,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                Machine *machine = machine_Create(machType, rotation);
+                Machine *machine = machine_create(machType, rotation);
                 machine_rotateMachine(machine, rotation);
                 case_addMachine(c, machine);
 
