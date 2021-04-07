@@ -83,7 +83,7 @@ const Effect *machineInfo_getEffects(const MachineInfo *machine){ return &(machi
 
 int machineInfo_isMachineStuffValid(int id) {
     for (int i = 0; i < NUMBER_OF_MACHINES; ++i) {
-        if (machine_list[i].type == (MachineStuff) id) {
+        if (machine_list[i].type == id) {
             return i;
         }
     }

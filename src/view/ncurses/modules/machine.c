@@ -21,11 +21,14 @@ MachineSpec interface_ncurses_askAddMachine()
     MachineStuff* m = ((MachineStuff*) interface_ncurses_showInActionField(interface_ncurses_askBuyMachineClosureInit,
                                                                            interface_ncurses_askBuyMachineCheck));
 
-    int* rotation = (int*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
+    int* rotation = NULL;
+
+    if ( !back )
+        rotation = (int*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
                                                                interface_ncurses_askOrientationCheck);
 
     // we need to do that since we use void* and Action* to match this constraint
-    if ( rotation != NULL && m != NULL ) {
+    if ( !back && rotation != NULL && m != NULL ) {
         MachineSpec machine;
         machine.type = *m;
         machine.rotation = *rotation;
@@ -58,9 +61,9 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
         char* endPtr = NULL; //!< conversion error
         int machineID; //!< machine ID
 
-        machineID = strtol(buff, &endPtr, 10);
+        machineID = (int) strtol(buff, &endPtr, 10);
 
-        if ( endPtr != NULL && machineInfo_isMachineStuffValid(machineID) == NO_ERROR ) {
+        if ( endPtr != NULL && machineInfo_isMachineStuffValid(machineID) != -1 ) {
             MachineStuff* m = (MachineStuff*) malloc(sizeof(MachineStuff));
             // okay
             *leave = true;
