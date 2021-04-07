@@ -68,7 +68,7 @@ Map *map_create(Difficulty dif) {
         do {
             source_x = (int) (random() % m->width);
             source_y = (int) (random() % m->height);
-        } while (case_isEmpty(m->map[source_x][source_y]));
+        } while (!case_isEmpty(m->map[source_x][source_y]));
 
         case_addSource(m->map[source_x][source_y]);
     }
@@ -80,6 +80,9 @@ ErrorCode map_destroy(Map *m) {
     free(m->team);
 
     for (int i = 0; i < m->width; i++) {
+        for (int j = 0; j < m->height; ++j) {
+            case_destroy(m->map[i][j]);
+        }
         free(m->map[i]);
     }
     free(m->map);
@@ -146,13 +149,7 @@ ErrorCode map_endTurn(Map *m) {
     moveResources(m);
 
     // TODO Valentin : Générer les ressources avec les sources
-    // Vérifier
-    nombreTour = NB_TURN_PRODUCTION_SOURCE;
-    // Décrémenter les
-    if (map_getNumberTurn(m) % nombreTour == 0) {
-        // récupérer l'emplacement des sources liste
-        // incrémenter m->map[0][0].nbResource + NB_RESSOURCE_PRODUCT_BY_SOURCE;
-    }
+    generateResources(m);
 
     // TODO Valentin : La porte produit des déchêts
     // Pour envoyer mettre ressources sur la case de la porte
@@ -167,7 +164,7 @@ ErrorCode map_endTurn(Map *m) {
     // Liste des collecteurs
 
     // TODO Valentin : Suprimerles ressources non collecté
-    // listes des sources et des décheteries
+    resetResourcesGarbage(m);
 
     m->turn++;
     return NO_ERROR;
