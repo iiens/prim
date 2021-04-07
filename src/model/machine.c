@@ -85,3 +85,20 @@ void machine_rotateMachine(Orientation* o, int rotation) {
     }
 }
 
+void machine_incrementLevel(Machine* m) { m->level++; }
+
+Machine* machine_Create(MachineStuff type, Orientation orient) {
+    Machine* mach = (Machine*) malloc(sizeof(Machine));
+    mach->orientation = orient;
+    mach->type = type;
+    mach->level = 1;
+
+    return mach;
+}
+
+ErrorCode machine_destroyMachine(Machine* mach) {
+    // free tous les composants de machine, y compris Carton
+    free(mach);
+    return NO_ERROR;
+}
+

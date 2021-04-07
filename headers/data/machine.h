@@ -11,6 +11,7 @@
 #define PRIM_MACHINE_H
 
     #include <stdlib.h> //! to use uint
+    #include "error.h" //! to return error message
 
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
@@ -209,5 +210,18 @@
      * @return nothing
      */
     void machine_rotateMachine(Orientation* o, int rotation);
+
+    //TODO ANTOINE DOC
+
+    // incrémente le level de 1
+    void machine_incrementLevel(Machine* m);
+
+    // create une MAchine* avec level=1
+    Machine* machine_Create(MachineStuff type, Orientation orient);
+
+    // free les argument de machine( carton) et Machine
+    ErrorCode machine_destroyMachine(Machine* mach);
+
+
 
 #endif //PRIM_MACHINE_H
