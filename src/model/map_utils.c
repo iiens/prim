@@ -76,7 +76,7 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
 }
 
 bool map_CaseHasMachineType(MachineStuff type, Case* c) {
-    Machine* machine = case_getLocatedMachine(c);
+    Machine *machine = map_getLocatedMachine(c);
     if (machine != NULL && machine_getType(machine) == type) {
         return true;
     } else {
@@ -127,11 +127,8 @@ void moveResources(Map * m) {
     for (int x = 0; x < width; ++x) {
         for (int y = 0; y < height; ++y) {
             Case * cursor = map_getCase(x, y, m);
-            // If case contains tapis or croix
-            // Demander un getter revoyant true or false
-            // Afin que se soit générique prends en argument un MachineStuff
-            // Eviterair de recoder pour chaque type
-            if (true) {
+
+            if (map_CaseHasMachineType(MS_CONVEYOR_BELT, cursor) || map_CaseHasMachineType(MS_CROSS, cursor)) {
                 Case* next;
 
                 // Récupérer Case* suivante qui correspont à l'entrée de
