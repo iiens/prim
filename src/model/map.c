@@ -136,7 +136,7 @@ ErrorCode map_endTurn(Map *m) {
     // Vérifier
     nombreTour = NB_TURN_PRODUCTION_SOURCE;
     // Décrémenter les
-    if (map_getNumberTurn(m) % 10 == 0) {
+    if (map_getNumberTurn(m) % nombreTour == 0) {
         // récupérer l'emplacement des sources liste
         // incrémenter m->map[0][0].nbResource + NB_RESSOURCE_PRODUCT_BY_SOURCE;
     }
@@ -176,6 +176,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
                 Orientation orientation = machine_generateDefaultOrientation(machType);
                 machine_rotateMachine(&orientation, rotation);
 
+                // TODO Valentin : utiliser machine_create
                 Machine *machine = (Machine *) malloc(sizeof(Machine));
                 machine->type = machType;
                 machine->level = 1;
@@ -213,6 +214,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 // Vérifie que le joueur à les sous
                 ErrorCode e = map_tryBuy(m, costE, costDD);
                 if (e == NO_ERROR) {
+                    // TODO VAlentin : Utiliser setter
                     m->map[x][y].in.mach->level++;
 
                     return NO_ERROR;
@@ -245,7 +247,10 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
+                // TODO Valentin : Utiliser destroy machine
                 free(m->map[x][y].in.mach);
+
+                // TODO Valentin : utiliser setter
                 m->map[x][y].in.mach = NULL;
                 m->map[x][y].type = CASE_VIDE;
 
