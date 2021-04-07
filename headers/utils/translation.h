@@ -4,7 +4,7 @@
     #include "../data/error.h"
     #include "../data/machine.h"
     #include "../data/actions.h"
-    #include "../data/case_type.h"
+    #include "../data/case.h"
 
     /*!
      * \typedef Translation

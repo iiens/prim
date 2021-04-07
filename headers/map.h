@@ -31,7 +31,7 @@
     #include "data/staff.h" // information about Staff
     #include "data/difficulty.h" // difficulty of the game
     #include "data/error.h" // errors messages
-    #include "data/case_type.h" // case type (empty, source, gate, machine)
+    #include "data/case.h" // case type (empty, source, gate, machine)
 
     //\////////////////////////////\//
     //\/ Types declarations
@@ -39,25 +39,6 @@
 
     #define E_VALUE 0 //!< E Constant that measure the energy quantity of the player
     #define DD_VALUE 1 //!< DD Constant that measure the planet general health
-
-    /*!
-     * \typedef Case
-     * \struct Case_S map.h "headers/map.h"
-     *
-     * Struct that contains all the information concerning a case
-     *
-     */
-    typedef struct Case_S {
-        int x; //!< int, abscissa
-        int y; //!< int, ordinate
-        union {
-            Machine* mach;
-            void* other;
-        } in; //!< union, it correspond to the object contained in the case
-        CaseType type; //!< type of object contained in the case
-        int nbResource; //!< number of resource on the machine
-        int nbGarbage; //!< number of garbage on the machine
-    } Case; //!< it correspond to a case of the board game
 
     /*!
      * \typedef Map
@@ -287,34 +268,6 @@
     //\////////////////////////////\//
 
     /*!
-    * \fn int map_getNumberResource( int x, int y, const Map* m );
-    * @brief a function to get the number of resources
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    *
-    * This function get the number of resources on a specific case.
-    * Return a negative value if the case does not exist
-    *
-    * @return the number of resources available on the case
-    */
-    int map_getNumberResource( int x, int y, const Map* m );
-
-    /*!
-    * \fn int map_getNumberGarbage( int x, int y, const Map* m );
-    * @brief a function to get the number of garbage
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    *
-    * This function get the number of garbage on a specific case.
-    * Return a negative value if the case does not exist
-    *
-    * @return the number of garbage available on the case
-    */
-    int map_getNumberGarbage( int x, int y, const Map* m );
-
-    /*!
     * \fn int map_getNumberFISE( const Map* m )
     * @brief a function to get the number of FISE
     * @param[in] m a map
@@ -465,65 +418,9 @@
     */
     Case* map_getCase( int x, int y, const Map* m );
 
-    /*!
-    * \fn CaseType map_getTypeCase(Case* c)
-    * @brief a function to get the type case of a case on the map
-    * @param[in] Case*
-    *
-    * This function get the type case of a case on the map
-    * <ul>
-    *   <li> CASE_VIDE = 0, a case that contain nothing
-    *   <li> CASE_GATE = 1, a case that contain the transdimensional gate
-    *   <li> CASE_SOURCE = 2, a case that contain resources
-    *   <li> CASE_MACHINE = 3, a case that contain a machine
-    * </ul>
-    *
-    * @return the type case if case exist, if not -1
-    */
-    CaseType map_getTypeCase(Case* c);
-
-    /*!
-    * \fn Machine* map_getLocatedMachine(Case* c)
-    * @brief a function to get a located machine on the map
-    * @param[in] Case*
-    *
-    * This function get a located machine on the map
-    *
-    * @return a located machine on the map if exist
-    */
-    Machine* map_getLocatedMachine(Case* c);
-
     //\////////////////////////////\//
     //\/ Functions Setters
     //\////////////////////////////\//
-
-    /*!
-    * \fn ErrorCode map_setNumberResource( int x, int y, Map* m, int val );
-    * @brief a function to set the number of resources
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    * @param[in] val a resource value to add/to substract
-    *
-    * This function set the number of resources on a specific case.
-    *
-    * @return an error that specify what is the problem
-    */
-    ErrorCode map_setNumberResource( int x, int y, Map* m, int val );
-
-    /*!
-    * \fn ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val );
-    * @brief a function to set the number of garbage
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    * @param[in] val a resource value to add/to substract
-    *
-    * This function set the number of garbage on a specific case.
-    *
-    * @return an error that specify what is the problem
-    */
-    ErrorCode map_setNumberGarbage( int x, int y, Map* m, int val );
 
     /*!
     * \fn ErrorCode map_setNumberFISE( Map* m, int val)

@@ -190,20 +190,20 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
 
 char* interface_utils_getCaseContent( int x, int y, const Map* map )
 {
-    CaseType t = map_getTypeCase(x, y, map);
+    CaseType t = case_getType(x, y, map);
     char* response = translation_fetchCaseTypeName(t);
     if ( response != NULL )
         // it's not a machine
         return response;
     else
         // it's a machine
-        return translation_fetchMachineTypeName(machine_getType(map_getLocatedMachine(x, y, map)));
+        return translation_fetchMachineTypeName(machine_getType(case_getMachine(x, y, map)));
 }
 
 char interface_utils_parseOrientation(int x, int y, const Map* map) {
-    if ( map_getTypeCase(x,y,map) == CASE_MACHINE ){
+    if (case_getType(x, y, map) == CASE_MACHINE ){
         Case* c = map_getCase(x, y, map);
-        Machine* m = map_getLocatedMachine(x,y,map);
+        Machine* m = case_getMachine(x, y, map);
         MachineStuff s = machine_getType(m);; //!< machine stuff
         Orientation* o = machine_getOrientation(m); //!< orientation
         Direction d = DIRECTION_IN;

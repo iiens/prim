@@ -76,7 +76,7 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
 }
 
 bool caseHasMachineType(MachineStuff type, Case *c) {
-    Machine *machine = map_getLocatedMachine(c);
+    Machine *machine = case_getMachine(c);
     if (machine != NULL && machine_getType(machine) == type) {
         return true;
     } else {
@@ -85,7 +85,7 @@ bool caseHasMachineType(MachineStuff type, Case *c) {
 }
 
 Case *getLastConveyorBelt(Map *m, Case *c) {
-    Machine *machine = map_getLocatedMachine(c);
+    Machine *machine = case_getMachine(c);
     Orientation *orientation = machine_getOrientation(machine);
     int x = case_getX(c);
     int y = case_getY(c);

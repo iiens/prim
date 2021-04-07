@@ -10,7 +10,7 @@ struct Map_S {
     Difficulty difficulty; //!< game difficulty
     int width; //!< int, map width
     int height; //!< int, map height
-    Case **map; //!< a bi dimensional table to refer to the board of game
+    Case ***map; //!< a bi dimensional table to refer to the board of game
     int turn; //!< int, an indicator to correspond to the actual turn of the game
     int numberFISE; //!< as the name suggest, its corresponding to the number of FISE
     int numberFISA; //!< as the name suggest, its corresponding to the number of FISA
@@ -214,8 +214,8 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case * c = map_getCase(x, y, m);
-        if (map_getTypeCase(c) == CASE_MACHINE) {
-            Machine *machine = map_getLocatedMachine(c);
+        if (case_getType(c) == CASE_MACHINE) {
+            Machine *machine = case_getMachine(c);
             MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
@@ -250,8 +250,8 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case * c = map_getCase(x, y, m);
-        if (map_getTypeCase(c) == CASE_MACHINE) {
-            Machine *machine = map_getLocatedMachine(c);
+        if (case_getType(c) == CASE_MACHINE) {
+            Machine *machine = case_getMachine(c);
             MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
@@ -317,8 +317,6 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
     }
 }
 
-ErrorCode map_isEmpty(const int x, const int y, const Map *m) { return NO_ERROR; }
-
 ErrorCode map_isCaseExist(const int x, const int y, const Map *m) {
     if (x >= 0 && x < m->width) {
         if (y >= 0 && y < m->height) {
@@ -331,22 +329,6 @@ ErrorCode map_isCaseExist(const int x, const int y, const Map *m) {
 //\////////////////////////////\//
 //\/ Functions Getters
 //\////////////////////////////\//
-
-int map_getNumberResource(const int x, const int y, const Map *m) {
-    int res = -1;
-    if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        res = m->map[x][y].nbResource;
-    }
-    return res;
-}
-
-int map_getNumberGarbage(const int x, const int y, const Map *m) {
-    int res = -1;
-    if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        res = m->map[x][y].nbGarbage;
-    }
-    return res;
-}
 
 int map_getNumberFISE(const Map *m) { return m->numberFISE; }
 
@@ -374,17 +356,7 @@ int map_getProductionFISA(const Map *m) { return m->productionFISA; }
 
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        return &(m->map[x][y]);
-    } else {
-        return NULL;
-    }
-}
-
-CaseType map_getTypeCase(Case* c) { return c->type; }
-
-Machine* map_getLocatedMachine(Case* c) {
-    if (map_getTypeCase(c) == CASE_MACHINE) {
-        return c->in.mach;
+        return m->map[x][y];
     } else {
         return NULL;
     }
@@ -393,32 +365,6 @@ Machine* map_getLocatedMachine(Case* c) {
 //\////////////////////////////\//
 //\/ Functions Setters
 //\////////////////////////////\//
-
-ErrorCode map_setNumberResource(const int x, const int y, Map *m, int val) {
-    if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        if (m->map[x][y].nbResource + val >= 0) {
-            m->map[x][y].nbResource += val;
-            return NO_ERROR;
-        } else {
-            return ERROR_NEGATIVE_RESULT;
-        }
-    } else {
-        return ERROR_CASE_NOT_FOUND;
-    }
-}
-
-ErrorCode map_setNumberGarbage(const int x, const int y, Map *m, int val) {
-    if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        if (m->map[x][y].nbGarbage + val >= 0) {
-            m->map[x][y].nbGarbage += val;
-            return NO_ERROR;
-        } else {
-            return ERROR_NEGATIVE_RESULT;
-        }
-    } else {
-        return ERROR_CASE_NOT_FOUND;
-    }
-}
 
 ErrorCode map_setNumberFISE(Map *m, int val) {
     if (m->numberFISE + val >= 0) {
