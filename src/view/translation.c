@@ -179,10 +179,13 @@ char* translation_fetchCaseTypeName( CaseType t )
 {
     switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
         case CASE_VIDE:
+        case CASE_BOX:
             return " ";
         case CASE_GATE:
+        case CASE_BOX_GATE:
             return "G";
         case CASE_SOURCE:
+        case CASE_BOX_SOURCE:
             return "S";
         case CASE_MACHINE:
             return NULL;
