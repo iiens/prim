@@ -249,12 +249,9 @@ void interface_ncurses_showStaffList( const Map* map )
     int ch; //!< character read
     int blocLength = 2; //!< number of line per staff
     char* number; //!< parsed number
+    Dictionary* dictionary = map_getStaffDictionary(map);
     bool input = false; //!< stop input and reload view ?
     bool leave = false; //!< stop this menu and go back ?
-
-    //todo: unused
-    // and seems to be an error
-    (void) (map);
 
     if ( (rowPerPage*3+6) < LINES )
         blocLength++;
@@ -309,13 +306,18 @@ void interface_ncurses_showStaffList( const Map* map )
             waddstr(mapWindow, number);
             free(number);
             waddstr(mapWindow, " DD). Owned: ");
-            waddstr(mapWindow, "0");
             wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
+            wattron(mapWindow, COLOR_PAIR(COLOR_RED));
+            number = utils_intToString(staff_getNumberStaffByID(dictionary, staff_getStaffID(s)));
+            waddstr(mapWindow, number);
+            wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
+            free(number);
             mvwaddstr(mapWindow, 5 + i * blocLength, 0, staff_getStaffDescription(s));
         }
 
         wrefresh(mapWindow);
 
+        //todo: check for segfault
         // wait for input
         while ( !input ) {
             ch = getch();
