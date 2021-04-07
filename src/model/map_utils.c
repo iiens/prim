@@ -84,34 +84,57 @@ bool caseHasMachineType(MachineStuff type, Case *c) {
     }
 }
 
-Case *getLastConveyorBelt(Map *m, Case *c) {
+Case *getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
     Machine *machine = case_getMachine(c);
     Orientation *orientation = machine_getOrientation(machine);
     int x = case_getX(c);
     int y = case_getY(c);
 
-    int nextX, nextY;
+    int nextX, nextY, dSave;
 
     if (machine_getOrientationBottom(orientation) == DIRECTION_OUT) {
         nextX = x;
         nextY = y - 1;
+        dSave = 0;
     } else if (machine_getOrientationLeft(orientation) == DIRECTION_OUT) {
         nextX = x - 1;
         nextY = y;
+        dSave = 1;
     } else if (machine_getOrientationTop(orientation) == DIRECTION_OUT) {
         nextX = x;
         nextY = y + 1;
+        dSave = 2;
     } else if (machine_getOrientationRight(orientation) == DIRECTION_OUT) {
         nextX = x + 1;
         nextY = y;
+        dSave = 3;
     } else return NULL;
 
     Case *next = map_getCase(nextX, nextY, m);
     if (next != NULL) {
         if (caseHasMachineType(MS_CONVEYOR_BELT, next) || caseHasMachineType(MS_CROSS, next)) {
-            if (machine_getOrientationRight(orientation) == DIRECTION_IN) {
-                return getLastConveyorBelt(m, next);
-            } return c;
+            Machine *nextMachine = case_getMachine(next);
+            Orientation *nextOrientation = machine_getOrientation(nextMachine);
+
+            switch (dSave) { // NOLINT(hicpp-multiway-paths-covered)
+                case 0:
+                    if (machine_getOrientationBottom(nextOrientation) == DIRECTION_IN) {
+                        return getLastConveyorBelt(m, next);
+                    } else return c;
+                case 1:
+                    if (machine_getOrientationLeft(nextOrientation) == DIRECTION_IN) {
+                        return getLastConveyorBelt(m, next);
+                    } else return c;
+                case 2:
+                    if (machine_getOrientationTop(nextOrientation) == DIRECTION_IN) {
+                        return getLastConveyorBelt(m, next);
+                    } else return c;
+                case 3:
+                    if (machine_getOrientationRight(nextOrientation) == DIRECTION_IN) {
+                        return getLastConveyorBelt(m, next);
+                    } else return c;
+            }
+
         } else return c;
     } else return c;
 }
@@ -167,6 +190,50 @@ void moveResources(Map *m) {
                 // Move carton
                 while (cursor != NULL) {
                     // Récupérer le précédent
+                }
+            }
+        }
+    }
+}
+
+
+void generateResources(Map *m) {
+    int numberTour = NB_TURN_PRODUCTION_SOURCE;
+
+    // Verifier Staff
+
+    if (map_getNumberTurn(m) % numberTour == 0) {
+        Case *c;
+        int generateResource = 3;
+
+        // Verifier staff
+
+        for (int i = 0; i < map_getWidth(m); ++i) {
+            for (int j = 0; j < map_getHeight(m); ++j) {
+                c = map_getCase(i, j, m);
+                if (case_getType(c) == CASE_SOURCE) {
+                    case_setNumberResource(c, generateResource);
+                }
+            }
+        }
+    }
+}
+
+
+ErrorCode map_sendResourcesToGate(Map *m, int resources) {
+    return NO_ERROR;
+}
+
+void activateCollectors(Map *m) {
+    Case *c;
+    int numberResources;
+    for (int i = 0; i < map_getWidth(m); ++i) {
+        for (int j = 0; j < map_getHeight(m); ++j) {
+            c = map_getCase(i, j, m);
+            CaseType type = case_getType(c);
+            if (type == CASE_MACHINE) {
+                Machine *machine= case_getMachine(c);
+                if (machine_getType(machine) == MS_COLLECTOR) {
 
                 }
             }
@@ -174,9 +241,27 @@ void moveResources(Map *m) {
     }
 }
 
-ErrorCode map_sendResourcesToGate(Map *m, int resources) {
+void resetResourcesGarbage(Map *m) {
+    Case *c, *gate;
+    int numberResources, numberGarbage, allGarbage = 0;
+    for (int i = 0; i < map_getWidth(m); ++i) {
+        for (int j = 0; j < map_getHeight(m); ++j) {
+            c = map_getCase(i, j, m);
+            CaseType type = case_getType(c);
+            if (type == CASE_GATE) {
+                gate = c;
+            } else if (type != CASE_MACHINE) {
+                numberResources = case_getNumberResource(c);
+                case_setNumberResource(c, (numberResources * -1));
 
-    return NO_ERROR;
+                numberGarbage = case_getNumberGarbage(c);
+                allGarbage += numberGarbage;
+                case_setNumberGarbage(c, (numberGarbage * -1));
+            }
+        }
+    }
+
+    case_setNumberGarbage(gate, allGarbage);
 }
 
 // Fonction specifique Staff

@@ -81,6 +81,11 @@ void moveResources(Map * m);
  */
 void activateRecyclingCenters(Map* m);
 
+/**
+ *
+ * @param m
+ */
+void activateCollectors(Map* m);
 
 /**
  * Détruit toutes les ressources non collecté à la fin d'un tour
@@ -90,7 +95,7 @@ void activateRecyclingCenters(Map* m);
  *
  * @param listSources
  */
-void destroyResources(Map * m);
+void resetResourcesGarbage(Map * m);
 
 /**
  * Permet de transformer tous les ressources emmené à la porte en déchets
