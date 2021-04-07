@@ -239,4 +239,6 @@
 
     bool machine_isOrientationTopLeft(const Machine* mach, Direction d);
 
+    //TODO METTRE NEW SIGNATURES
+
 #endif //PRIM_MACHINE_H

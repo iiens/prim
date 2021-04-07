@@ -3,48 +3,56 @@
 #include "stdlib.h"
 #include "stdio.h"
 
+struct Box_S {
+    int nbResource; //!< number of resource on the machine
+    int nbGarbage; //!< number of garbage on the machine
+};
+
 struct Case_S {
     int x; //!< int, abscissa
     int y; //!< int, ordinate
-    union {
-        Machine* mach;
-        void* other;
-    } in; //!< union, it correspond to the object contained in the case
+    void* in; //!< union, it correspond to the object contained in the case
     CaseType type; //!< type of object contained in the case
-    int nbResource; //!< number of resource on the machine
-    int nbGarbage; //!< number of garbage on the machine
 }; //!< it correspond to a case of the board game
 
 int case_getX(const Case* c) { return c->x; }
 
 int case_getY(const Case* c) { return c->y; }
 
-int case_getNumberResource(const Case* c) { return c->nbResource; }
+int box_getNumberResource(const Box * b) { return b->nbResource; }
 
-int case_getNumberGarbage(const Case* c) { return c->nbGarbage; }
+int box_getNumberGarbage(const  Box * b) { return b->nbGarbage; }
 
 CaseType case_getType(const Case* c) { return c->type; }
 
 Machine* case_getMachine(const Case* c) {
     if (case_getType(c) == CASE_MACHINE) {
-        return c->in.mach;
+        return (Machine*) c->in;
     } else {
         return NULL;
     }
 }
 
-ErrorCode case_setNumberResource(Case* c, int val ) {
-    if (case_getNumberResource(c) + val >= 0) {
-        c->nbResource += val;
+Box* case_getBox(const Case* c) {
+    if (case_getType(c) == CASE_BOX) {
+        return (Box*) c->in;
+    } else {
+        return NULL;
+    }
+}
+
+ErrorCode box_setNumberResource(Box * b, int val ) {
+    if (box_getNumberResource(b) + val >= 0) {
+        b->nbResource += val;
         return NO_ERROR;
     } else {
         return ERROR_NEGATIVE_RESULT;
     }
 }
 
-ErrorCode case_setNumberGarbage(Case* c, int val ) {
-    if (case_getNumberGarbage(c) + val >= 0) {
-        c->nbGarbage += val;
+ErrorCode box_setNumberGarbage(Box* b, int val ) {
+    if (box_getNumberGarbage(b) + val >= 0) {
+        b->nbGarbage += val;
         return NO_ERROR;
     } else {
         return ERROR_NEGATIVE_RESULT;
@@ -54,7 +62,7 @@ ErrorCode case_setNumberGarbage(Case* c, int val ) {
 void case_addMachine(Case* c, Machine* mach) {
     if(case_isEmpty(c)) {
         c->type = CASE_MACHINE;
-        c->in.mach = mach;
+        c->in = mach;
     }
 }
 
@@ -71,11 +79,8 @@ void case_addSource(Case* c) {
 
 Case* case_create(int x, int y) {
     Case* c = (Case*) malloc(sizeof(Case));
-    c->nbResource = 0;
-    c->nbGarbage = 0;
     c->type = CASE_VIDE;
-    c->in.other = NULL;
-    c->in.mach = NULL;
+    c->in = NULL;
     c->x = x;
     c->y = y;
     return c;
@@ -89,9 +94,17 @@ bool case_isEmpty(const Case* c) {
     }
 }
 
+bool case_hasBox(const Case* c){
+    if (c->in != NULL) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ErrorCode case_destroy(Case* c) {
-    if (case_getType(c) == CASE_MACHINE) {
-        free(c->in.mach);
+    if (case_getType(c) == CASE_MACHINE || case_getType(c) == CASE_BOX ) {
+        free(c->in);
     }
     free(c);
     return NO_ERROR;

@@ -120,23 +120,29 @@ Case *getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
                 case 0:
                     if (machine_getOrientationBottom(nextOrientation) == DIRECTION_IN) {
                         return getLastConveyorBelt(m, next);
-                    } else return c;
+                    }
+                    return c;
                 case 1:
                     if (machine_getOrientationLeft(nextOrientation) == DIRECTION_IN) {
                         return getLastConveyorBelt(m, next);
-                    } else return c;
+                    }
+                    return c;
                 case 2:
                     if (machine_getOrientationTop(nextOrientation) == DIRECTION_IN) {
                         return getLastConveyorBelt(m, next);
-                    } else return c;
+                    }
+                    return c;
                 case 3:
                     if (machine_getOrientationRight(nextOrientation) == DIRECTION_IN) {
                         return getLastConveyorBelt(m, next);
-                    } else return c;
+                    }
+                    return c;
             }
 
-        } else return c;
-    } else return c;
+        }
+        return c;
+    }
+    return c;
 }
 
 // Fonction EndTurn
@@ -212,7 +218,7 @@ void generateResources(Map *m) {
             for (int j = 0; j < map_getHeight(m); ++j) {
                 c = map_getCase(i, j, m);
                 if (case_getType(c) == CASE_SOURCE) {
-                    case_setNumberResource(c, generateResource);
+                    //case_setNumberResource(c, generateResource);
                 }
             }
         }
@@ -231,7 +237,7 @@ void activateCollectors(Map *m) {
             c = map_getCase(i, j, m);
             CaseType type = case_getType(c);
             if (type == CASE_MACHINE) {
-                Machine *machine= case_getMachine(c);
+                Machine *machine = case_getMachine(c);
                 if (machine_getType(machine) == MS_COLLECTOR) {
                     Orientation *orientation = machine_getOrientation(machine);
                     int x = case_getX(c);
@@ -266,17 +272,17 @@ void resetResourcesGarbage(Map *m) {
             if (type == CASE_GATE) {
                 gate = c;
             } else if (type != CASE_MACHINE) {
-                numberResources = case_getNumberResource(c);
+                /*numberResources = case_getNumberResource(c);
                 case_setNumberResource(c, (numberResources * -1));
 
                 numberGarbage = case_getNumberGarbage(c);
                 allGarbage += numberGarbage;
-                case_setNumberGarbage(c, (numberGarbage * -1));
+                case_setNumberGarbage(c, (numberGarbage * -1));*/
             }
         }
     }
 
-    case_setNumberGarbage(gate, allGarbage);
+    //case_setNumberGarbage(gate, allGarbage);
 }
 
 // Fonction specifique Staff
