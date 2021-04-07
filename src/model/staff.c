@@ -12,6 +12,308 @@ struct Staff_S {
     Effect effects; //!< array which contains the target of the effect
 }; //!< information about staff
 
+const Staff staff_list[] = {
+        {1, "Fetia Bannour", 100, 30, "The cost of constructing collectors"
+                                      " decreases by 10E and 1DD ", .effects = {
+                .mode = CONSTRUCTION,
+                .onOther = 0,
+                .what.machine = MS_COLLECTOR,
+                .modifierE = -10,
+                .modifierDD = -1,
+                .min_costE = 10,
+                .min_costDD = 1,
+                .description = "The cost of constructing collectors decreases by 10EE and 1DD (min 10E\n"
+                               "and 1DD)."
+        }
+
+        },
+        {2, "Kevin Goilard", 100, 30, "The cost of constructing conveyor belt"
+                                      " decreases by 3E and 1DD ", .effects = {
+                .mode = CONSTRUCTION,
+                .onOther = 0,
+                .what.machine = MS_CONVEYOR_BELT,
+                .modifierE = -3,
+                .modifierDD = -1,
+                .min_costE = 3,
+                .min_costDD = 1,
+                .description = "The cost of constructing conveyor belt decreases by 3E and 1DD (min 3EE\n"
+                               "and 1DD)."
+        }
+
+        },
+        {3, "Vincent Jeannas", 100, 30, "The cost of constructing cross"
+                                        " decreases by 8E and 1DD ", .effects = {
+                .mode = CONSTRUCTION,
+                .onOther = 0,
+                .what.machine = MS_CROSS,
+                .modifierE = -8,
+                .modifierDD = -1,
+                .min_costE = 8,
+                .min_costDD = 1,
+                .description = "The cost of constructing cross decreases by 8E and 1DD (min 8EE\n"
+                               "and 1DD)."
+        }
+
+        },
+        {4, "Thomas Laurent", 100, 30, "The cost of constructing recycling center"
+                                       " decreases by 25E and 2DD ", .effects = {
+                .mode = CONSTRUCTION,
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .modifierE = -25,
+                .modifierDD = -2,
+                .min_costE = 25,
+                .min_costDD = 2,
+                .description = "The cost of constructing conveyor belt decreases by 25E and 2DD (min 25E\n"
+                               "and 2DD)."
+        }
+
+        },
+
+        {5, "Massinissa Merabet", 100, 30, "The cost of constructing junkyard"
+                                           " decreases by 5E and 5DD ", .effects = {
+                .mode = CONSTRUCTION,
+                .onOther = 0,
+                .what.machine = MS_JUNKYARD,
+                .modifierE = -5,
+                .modifierDD = -5,
+                .min_costE = 5,
+                .min_costDD = 5,
+                .description = "The cost of constructing conveyor belt decreases by 5E and 5DD (min 5E\n"
+                               "and 5DD)."
+        }
+
+        },
+
+
+        {6, "Stefi Nouleho", 200, 100, "The cost of upgrading collectors"
+                                       " decreases by 25E and 5DD ", .effects = {
+                .mode = UPGRADE,
+                .onOther = 0,
+                .what.machine = MS_COLLECTOR,
+                .modifierE = -25,
+                .modifierDD = -5,
+                .min_costE = 25,
+                .min_costDD = 5,
+                .description = "The cost of upgrading collectors decreases by 25E and 5DD (min 25E\n"
+                               "and 5DD)."
+        }
+
+        },
+
+
+        {7, "Vitera Y", 200, 100, "The cost of upgrading recycling center"
+                                  " decreases by 75E and 5DD ", .effects = {
+                .mode = UPGRADE,
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .modifierE = -75,
+                .modifierDD = -5,
+                .min_costE = 75,
+                .min_costDD = 5,
+                .description = "The cost of upgrading recycling center decreases by 75E and 5DD (min 75E\n"
+                               "and 5DD)."
+        }
+
+        },
+
+        {8, "Laurence Bourard", 200, 100, "The cost of upgrading junkyard"
+                                          " decreases by 10E and 30DD ", .effects = {
+                .mode = UPGRADE,
+                .onOther = 0,
+                .what.machine = MS_JUNKYARD,
+                .modifierE = -10,
+                .modifierDD = -30,
+                .min_costE = 20,
+                .min_costDD = 30,
+                .description = "The cost of upgrading junkyard decreases by 10E and 30DD (min 20E\n"
+                               "and 30DD)."
+        }
+
+        },
+
+        {9, "Nicolas Brunel", 100, 200, "The cost of destroying collectors"
+                                        " decreases by 3E and 10DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_COLLECTOR,
+                .modifierE = -3,
+                .modifierDD = -10,
+                .min_costE = 3,
+                .min_costDD = 10,
+                .description = "The cost of destroying recycling center decreases by 3E and 10DD (min 3E\n"
+                               "and 10DD)."
+        }
+
+        },
+
+        {10, "Anastase Charantonis", 100, 200, "The cost of destroying conveyor"
+                                               " belt decreases by 3E and 10DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_CONVEYOR_BELT,
+                .modifierE = -3,
+                .modifierDD = -10,
+                .min_costE = 3,
+                .min_costDD = 10,
+                .description = "The cost of destroying conveyor belt decreases by 3E and 10DD (min 3E\n"
+                               "and 10DD)."
+        }
+
+        },
+
+        {11, "Catherine Dubois", 100, 200, "The cost of destroying cross"
+                                           " decreases by 3E and 10DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_CROSS,
+                .modifierE = -3,
+                .modifierDD = -10,
+                .min_costE = 3,
+                .min_costDD = 10,
+                .description = "The cost of destroying conveyor belt decreases by 3E and 10DD (min 3E\n"
+                               "and 10DD)."
+        }
+
+        },
+
+        {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                            " decreases by 5E and 25DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .modifierE = -5,
+                .modifierDD = -25,
+                .min_costE = 5,
+                .min_costDD = 25,
+                .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                               "and 25DD)."
+        }
+
+        },
+
+        {13, "Alain Faye", 100, 200, "The cost of destroying junkyard"
+                                     " decreases by 5E and 10DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_JUNKYARD,
+                .modifierE = -5,
+                .modifierDD = -10,
+                .min_costE = 5,
+                .min_costDD = 10,
+                .description = "The cost of destroying junkyard decreases by 5E and 10DD (min 5E\n"
+                               "and 10DD)."
+        }
+
+        },
+
+        {14, "Anne-Laure Ligozat", 1000, 10, "Half garbage of each case are remove"
+                , .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.other = DESTROY_GARBAGE,
+                .modifierRes = 1/2, // multiply for each case this number of garbage by this number
+                .description = "Half garbage of each case are remove"
+        }
+
+        },
+
+        {15, "Christophe Mouilleron", 1000, 400, "School hire 20 FISE and 10 FISA"
+                , .effects = {
+                .mode = HIRE,
+                .onOther = 1,
+                .what.other = SUB_HIRE,
+                .modifierFISE = +20,
+                .modifierFISA = +10,
+                .description = "School hire 20 FISE and 10 FISA"
+
+        }
+
+        },
+
+        {16, "Marie Szafranski", 1000, 400, "When a resource is send at the gate"
+                                            " it count for 2 but number of garbage is 1 ", .effects = {
+                .mode = SEND_DOOR,
+                .onOther = 1,
+                .what.other = NONE,
+                .modifierRes = 2,
+                .description = "When a resource is send at the gate it count for 2 but number of garbage "
+                               " is 1"
+        }
+
+        },
+
+        {17, "Gael Thomas", 1000, 400, "When a garbage leave the door it has a one"
+                                       " in 10 chance of disappearing ", .effects = {
+                .mode = DOOR_OUT,//<!todo : not implement yet make a variable with a randomize if = 1 remove
+                //garbage
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .description = "When a garbage leave the door it has a one"
+                               "in 10 chance of disappearing"
+        }
+
+        },
+
+        {18, "Eric Lejeune", 1000, 200, "The cost of FISE decreases by 5E and 2DD"
+                                        " (min 5E and 2DD)", .effects = {
+                .mode = ON_BUY,
+                .onOther = 1,
+                .what.other = SUB_FISE,
+                .modifierE = -5,
+                .modifierDD = -2,
+                .min_costE = 5,
+                .min_costDD = 2,
+                .description = "The cost of FISE decreases by 5E and 2DD min 5E and 2DD"
+        }
+
+        },
+
+        {19, "Christine Mathias", 1000, 200, "The cost of FISA decreases by 5E and 2DD"
+                                             " (min 5E and 2DD)", .effects = {
+                .mode = ON_BUY,
+                .onOther = 1,
+                .what.other = SUB_FISA,
+                .modifierE = -5,
+                .modifierDD = -2,
+                .min_costE = 5,
+                .min_costDD = 2,
+                .description = "The cost of FISA decreases by 5E and 2DD min 5E and 2DD"
+        }
+
+        },
+
+        {20, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                            " decreases by 5E and 25DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .modifierE = -5,
+                .modifierDD = -25,
+                .min_costE = 5,
+                .min_costDD = 25,
+                .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                               "and 25DD)."
+        }
+
+        },
+
+        {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+                                            " decreases by 5E and 25DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .modifierE = -5,
+                .modifierDD = -25,
+                .min_costE = 5,
+                .min_costDD = 25,
+                .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                               "and 25DD)."
+        }
+
+        },
+};
+
 ErrorCode staff_isIDValid(int id) {
     if (id > 0 && id <= NUMBER_OF_STAFFS) {
         return NO_ERROR;

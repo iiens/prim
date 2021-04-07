@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "../../headers/data/machine_info.h" //! to use bool
 struct Orientation_S {
     Direction top; //!< top
     Direction left; //!< left
@@ -15,6 +15,52 @@ struct Machine_S {
     int level; //!< Represent the level of improvement of the machine
     Orientation* orientation; //!< Represent the orientation of the machine
 }; //!< Machine
+
+const MachineInfo machine_list[] = {
+        {
+                MS_COLLECTOR,200,20,500,100,60,200,
+                "Sends a resource produced by the source to the "
+                "neighboring cell indicated by its orientation.",
+                1,1, .effects  =
+                {
+                        .mode = PRODUCTION,
+                        .onOther = 0,
+                        .what.machine = MS_COLLECTOR,
+                        .modifierCapacity = +1 ,
+                        .description = "Collector storage increases by 1 "
+                }
+        },
+        {MS_CONVEYOR_BELT,60,20,-1,-1,60,200,
+                "A carpet has one exit and three entrances, the resource or waste exits",
+                0,0, .effects = {}},
+        {MS_CROSS,160,20,-1,-1,60,200,
+                "The cross has 2 inlets and 2 outlets "
+                "which depend on the orientation of the cross",0,
+                0, .effects = {}},
+        {MS_RECYCLING_CENTER,500,40,1500,100,100,500,
+                "The recycling center has 3 entrances and one exit. The center can store up to 100 "
+                "waste",100,
+                1, .effects =
+                {
+                        .mode = PRODUCTION,
+                        .onOther = 0,
+                        .what.machine = MS_RECYCLING_CENTER,
+                        .modifierCapacity= +10,
+                        .description = "Storage of Recycling center increases by 10"
+                }
+        },
+        {MS_JUNKYARD,100,100,200,600,100,200,
+                "The junkyard"
+                " has 4 entrances and 0 exits. Can store up to 50 pieces of waste",50,
+                1, .effects = {
+                .mode = PRODUCTION,
+                .onOther = 0,
+                .what.machine = MS_JUNKYARD,
+                .modifierCapacity= +20,
+                .description = "Storage of Junkyard increases by 20"
+                               "et 1DD)."}
+        }
+}; //!< Array with information about all machine
 
 MachineStuff machine_getType(const Machine* machine){ return machine->type; }
 

@@ -23,8 +23,6 @@
 
     #define NUMBER_OF_STAFFS 21 //!< number of staff in staff_list
 
-    extern const Staff staff_list[]; //!< contains all of the staff
-
     /*!
     * \fn ErrorCode staff_isIDValid(int id)
     * @brief a function in order to verify if a staff id exist

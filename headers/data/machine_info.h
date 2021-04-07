@@ -40,7 +40,6 @@
 
     #define NUMBER_OF_MACHINES 5 //!< name of machines
 
-    extern const MachineInfo machine_list[]; //!< contains information about machines
 
     // TODO Antoine Faire toute la doc
 
