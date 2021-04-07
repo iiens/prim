@@ -36,6 +36,8 @@
         CASE_SOURCE = 2, //!< a case that contain resources
         CASE_MACHINE = 3, //!< a case that contain a machine
         CASE_BOX = 4, //!< a case that contain a box
+        CASE_BOXGATE = 5, //!< a case that contain a box on a gate
+        CASE_BOXSOURCE = 6, //!< a case that contain a box on a source
     } CaseType; //!< Case type
 
     /*!
@@ -138,6 +140,9 @@
     *
     */
     void case_addSource(Case* c);
+
+    void case_addBox(Case* c);
+
     bool case_isEmpty(const Case* c);
     bool case_hasBox(const Case* c);
 //TODO ANTOINE DOC
