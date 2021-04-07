@@ -380,7 +380,7 @@ Case *map_getCase(const int x, const int y, const Map *m) {
 
 CaseType map_getTypeCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        return m->map[x][y].type;
+        return map_getCase(x, y, m)->type;
     } else {
         return -1;
     }
