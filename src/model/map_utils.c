@@ -85,7 +85,8 @@ bool caseHasMachineType(MachineStuff type, Case *c) {
 }
 
 Case *getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
-    Machine *machine = case_getMachine(c);
+    // TODO Valentin : Corriger
+    /*Machine *machine = case_getMachine(c);
     Orientation *orientation = machine_getOrientation(machine);
     int x = case_getX(c);
     int y = case_getY(c);
@@ -142,7 +143,7 @@ Case *getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
         }
         return c;
     }
-    return c;
+    return c;*/
 }
 
 // Fonction EndTurn
@@ -231,7 +232,8 @@ ErrorCode map_sendResourcesToGate(Map *m, int resources) {
 }
 
 void activateCollectors(Map *m) {
-    Case *c;
+    // TODO Valentin : Corriger
+    /*Case *c;
     for (int i = 0; i < map_getWidth(m); ++i) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
@@ -259,7 +261,7 @@ void activateCollectors(Map *m) {
                 }
             }
         }
-    }
+    }*/
 }
 
 void resetResourcesGarbage(Map *m) {

@@ -13,6 +13,7 @@
     #include <stdlib.h> //! to use uint
     #include "error.h" //! to return error message
     #include "stdbool.h" //! to use bool
+    #include "box.h"
 
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
@@ -44,6 +45,17 @@
         DIRECTION_NONE = 2,
     } Direction; //!< Direction
 
+    // TODO DOC ANTOINE
+    typedef enum Cardinal_S {
+        NORTH = 0, //!<
+        EAST = 1, //!<
+        SOUTH = 2, //!<
+        WEST = 3, //!<
+    } Cardinal; //!<
+
+    //todo: Antoine documentation
+    typedef struct Facade_S Facade;
+
     /*!
      * \typedef Orientation
      * \struct Orientation_S machine.h "headers/data/machine.h"
@@ -63,7 +75,6 @@
     typedef struct Machine_S Machine;
 
     /*!
-     * \fn MachineStuff machine_getType(const Machine* machine)
      * @brief a function to get the type of the machine
      * @param[in] Machine* a machine
      *
@@ -72,7 +83,6 @@
     MachineStuff machine_getType(const Machine* machine);
 
     /*!
-     * \fn int machine_getType(const Machine* machine)
      * @brief a function to get the level of the machine
      * @param[in] Machine* a machine
      *
@@ -81,76 +91,14 @@
     int machine_getLevel(const Machine* machine);
 
     /*!
-     * \fn Orientation machine_getOrientation(const Machine* machine)
      * @brief a function to get the orientation of the machine
      * @param[in] Machine* a machine
      *
      * @return the orientation of the machine
      */
-    Orientation* machine_getOrientation(const Machine* machine);
+    //Orientation* machine_getOrientation(const Machine* machine);
 
     /*!
-     * \fn Direction machine_getOrientationTop(const Orientation* orient)
-     * @brief a function to get the top orientation of the machine
-     * @param[in] Machine* a machine
-     *
-     * <ul>
-     *  <li> DIRECTION_IN = 0
-     *  <li> DIRECTION_OUT = 1
-     *  <li> DIRECTION_NONE = 2
-     * </ul>
-     *
-     * @return the top orientation of the machine
-     */
-    Direction  machine_getOrientationTop(const Orientation* orient);
-
-    /*!
-     * \fn Direction machine_getOrientationBottom(const Orientation* orient)
-     * @brief a function to get the bottom orientation of the machine
-     * @param[in] Machine* a machine
-     *
-     * <ul>
-     *  <li> DIRECTION_IN = 0
-     *  <li> DIRECTION_OUT = 1
-     *  <li> DIRECTION_NONE = 2
-     * </ul>
-     *
-     * @return the bottom orientation of the machine
-     */
-    Direction  machine_getOrientationBottom(const Orientation* orient);
-
-    /*!
-     * \fn Direction machine_getOrientationLeft(const Orientation* orient)
-     * @brief a function to get the left orientation of the machine
-     * @param[in] Machine* a machine
-     *
-     * <ul>
-     *  <li> DIRECTION_IN = 0
-     *  <li> DIRECTION_OUT = 1
-     *  <li> DIRECTION_NONE = 2
-     * </ul>
-     *
-     * @return the left orientation of the machine
-     */
-    Direction  machine_getOrientationLeft(const Orientation* orient);
-
-    /*!
-     * \fn Direction machine_getOrientationRight(const Orientation* orient)
-     * @brief a function to get the right orientation of the machine
-     * @param[in] Machine* a machine
-     *
-     * <ul>
-     *  <li> DIRECTION_IN = 0
-     *  <li> DIRECTION_OUT = 1
-     *  <li> DIRECTION_NONE = 2
-     * </ul>
-     *
-     * @return the right orientation of the machine
-     */
-    Direction  machine_getOrientationRight(const Orientation* orient);
-
-    /*!
-     * \fn Orientation machine_generateDefaultOrientation(MachineStuff s)
      * @brief a function to get a default orientation for a machine
      * @param[in] MachineStuff a type machine
      *
@@ -192,7 +140,7 @@
      * </pre>
      * @return a default orientation for a machine
      */
-    Orientation* machine_generateDefaultOrientation(MachineStuff s);
+    //Facade *facade_defaultFacade(MachineStuff s);
 
     // TODO Antoine Faire la doc + signature + implémentation et trouver un autre nom de fonction
     // une méthode un peu complexe (tu peux me redemander après
@@ -200,9 +148,8 @@
     int machine_getOrientationBis(Orientation o);
 
     /*!
-     * \fn void machine_rotateMachine(Orientation* o, int rotation)
      * @brief a function to rotate the orientation of a machine
-     * @param[in] Orientation* an orientation
+     * @param[in] Machine* an machine
      * @param[in] int a rotation
      *
      * This function rotate the orientation of a machine in clockwise
@@ -210,7 +157,7 @@
      *
      * @return nothing
      */
-    void machine_rotateMachine(Orientation* o, int rotation);
+    void machine_rotateMachine(Machine *machine, int rotation);
 
     //TODO ANTOINE DOC
 
@@ -218,7 +165,7 @@
     void machine_incrementLevel(Machine* m);
 
     // create une MAchine* avec level=1
-    Machine* machine_Create(MachineStuff type, Orientation* orient);
+    Machine* machine_Create(MachineStuff type, int rotation);
 
     // free les argument de machine( carton) et Machine
     ErrorCode machine_destroyMachine(Machine* mach);
@@ -240,5 +187,8 @@
     bool machine_isOrientationTopLeft(const Machine* mach, Direction d);
 
     //TODO METTRE NEW SIGNATURES
+
+    Direction facade_getDirection(const Machine *machine, Cardinal card);
+    Box* facade_getBoxTop(const Machine *machine, Cardinal card);
 
 #endif //PRIM_MACHINE_H

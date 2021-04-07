@@ -3,11 +3,6 @@
 #include "stdlib.h"
 #include "stdio.h"
 
-struct Box_S {
-    int nbResource; //!< number of resource on the machine
-    int nbGarbage; //!< number of garbage on the machine
-};
-
 struct Case_S {
     int x; //!< int, abscissa
     int y; //!< int, ordinate
@@ -18,10 +13,6 @@ struct Case_S {
 int case_getX(const Case* c) { return c->x; }
 
 int case_getY(const Case* c) { return c->y; }
-
-int box_getNumberResource(const Box * b) { return b->nbResource; }
-
-int box_getNumberGarbage(const  Box * b) { return b->nbGarbage; }
 
 CaseType case_getType(const Case* c) { return c->type; }
 
@@ -38,24 +29,6 @@ Box* case_getBox(const Case* c) {
         return (Box*) c->in;
     } else {
         return NULL;
-    }
-}
-
-ErrorCode box_setNumberResource(Box * b, int val ) {
-    if (box_getNumberResource(b) + val >= 0) {
-        b->nbResource += val;
-        return NO_ERROR;
-    } else {
-        return ERROR_NEGATIVE_RESULT;
-    }
-}
-
-ErrorCode box_setNumberGarbage(Box* b, int val ) {
-    if (box_getNumberGarbage(b) + val >= 0) {
-        b->nbGarbage += val;
-        return NO_ERROR;
-    } else {
-        return ERROR_NEGATIVE_RESULT;
     }
 }
 
