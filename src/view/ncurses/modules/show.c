@@ -253,6 +253,7 @@ void interface_ncurses_showStaffList( const Map* map )
     bool leave = false; //!< stop this menu and go back ?
 
     //todo: unused
+    // and seems to be an error
     (void) (map);
 
     if ( (rowPerPage*3+6) < LINES )

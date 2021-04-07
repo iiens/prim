@@ -40,7 +40,7 @@ void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* er
 
         staffID = strtol(buff, &endPtr, 10);
 
-        if ( endPtr != NULL && staff_isIDValid(staffID) == NO_ERROR ) {
+        if ( endPtr != NULL && staff_isIDValid(staffID) != -1 ) {
             int* result = (int*) malloc(sizeof(int)); //!< returned result
             *result = staffID;
             // okay
