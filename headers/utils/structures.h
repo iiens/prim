@@ -10,19 +10,8 @@
 #ifndef PRIM_STRUCTURES_H
 #define PRIM_STRUCTURES_H
 
-    #include "../data/effect.h" // effect.h : information about effect
-
-    /*!
-     * \typedef Element
-     * \union Element_S effect.h "headers/data/structures.h"
-     * \brief Represent a list
-     */
-     //todo: documentation
-    typedef union Element_S {
-        int number;
-        char* text;
-        void* object;
-    } Element;
+#include "../data/effect.h" // effect.h : information about effect
+#include "../data/error.h" // todo: ...
 
     /*!
      * \typedef ElementType
@@ -36,19 +25,50 @@
     } ElementType;
 
     /*!
+    * \typedef Element
+    * \union Element_S effect.h "headers/data/structures.h"
+    * \brief Represent a list
+    */
+    //todo: documentation
+    typedef union Element_S {
+        int number;
+        char* text;
+        void* object;
+        ElementType type; //!< in witch field we got our value
+    } Element;
+
+    typedef struct Couple_S{
+        Element keys;
+        Element values;
+    } Couple;
+
+    /*!
      * \typedef Dictionary
      * \struct Dictionary_S structures.h "headers/data/structures.h"
      * \brief Struct which contains a dictionary of ElementType
      */
     //todo: documentation
+    typedef struct Dictionary_S {
+        int length;
+        Couple* entries;
+    } Dictionary;
+
     typedef struct List_S {
-        ElementType typeKey;
-        ElementType typeValue;
-        Element* keys;
-        Element* values;
-        struct List* next;
+        Element current;
+        struct List_S* next;
     } List;
 
+    // create list
+    List* list_create(Element first);
+
+    // at the end
+    ErrorCode list_addElement(List* l, Element e);
+    // advance list => next and return current
+    Element list_next(List** current);
+    // get Element
+    Element list_get(List* list);
+    // destroy
+    ErrorCode list_destroy(List* list);
     /*!
      * \fn Dictionary* createDictionary()
      * @brief Create a Dictionary of ElementType and Element
@@ -57,11 +77,11 @@
      *
      * @return Array of the structures_tab
      */
-     // todo : do the documentation
-     List* createDictionary(ElementType keyType, ElementType valueType);
-     void destroyDictionary(List* d);
-     Element getElement(List* d, Element key);
-     bool addElement(List* d, Element key, Element value);
+    // todo : do the documentation
+    Dictionary* dictionary_create(int length);
+    ErrorCode dictionary_destroy(Dictionary* d);
+    Element dictionary_getElement(Dictionary* d, Element key);
+    ErrorCode dictionary_addElement(Dictionary* d, Element key, Element value);
 
     /*!
      * \fn destroyStructuresTab
