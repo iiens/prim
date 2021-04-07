@@ -182,7 +182,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                Machine *machine = machine_Create(machType, rotation);
+                Machine *machine = machine_create(machType, rotation);
                 machine_rotateMachine(machine, rotation);
                 case_addMachine(c, machine);
 
@@ -276,7 +276,8 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
 
         ErrorCode e = map_tryBuy(m, costE, costDD);
         if (e == NO_ERROR) {
-            // TODO Valentin : Incrémenter le staff dans map.team
+            Dictionary * dictionary = map_getStaffDictionary(m);
+            staff_hireStaff(dictionary, idStaff);
 
             switch (idStaff) {
                 case 14:
@@ -338,6 +339,8 @@ int map_getHeight(const Map *m) { return m->height; }
 int map_getNumberTurn(const Map *m) { return m->turn; }
 
 int map_getProductionFISA(const Map *m) { return m->productionFISA; }
+
+Dictionary* map_getStaffDictionary( const Map* m ) { return m->team; }
 
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {

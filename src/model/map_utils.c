@@ -34,7 +34,8 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
     const Staff *staff = staffInfo_getByModeAndType(mode, target);
     if (staff != NULL) {
         int idStaff = staff_getStaffID(staff);
-        int numberStaff = 0; // TODO Valentin : récupérer nombre de fois staff possédé
+        Dictionary * dictionary = map_getStaffDictionary(m);
+        int numberStaff = staff_getNumberStaffByID(dictionary, idStaff);
         const Effect *effect = staff_getStaffEffect(staff);
 
         if (numberStaff > 0 && effect != NULL) {

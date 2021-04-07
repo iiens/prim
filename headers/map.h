@@ -384,6 +384,9 @@
     */
     int map_getProductionFISA( const Map* m );
 
+    //TODO ANTOINE DOC
+    Dictionary* map_getStaffDictionary( const Map* m );
+
     /*!
     * \fn Case* map_getCase( int x, int y, const Map* m );
     * @brief a function to get a case of the map
