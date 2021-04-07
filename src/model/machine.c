@@ -3,19 +3,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-MachineStuff machine_getType(Machine* machine){ return machine->type; }
+struct Orientation_S {
+    Direction top; //!< top
+    Direction left; //!< left
+    Direction bottom; //!< bottom
+    Direction right; //!< right
+}; //!< Orientation
 
-int machine_getLevel(Machine* machine){ return machine->level; }
+struct Machine_S {
+    MachineStuff type; //!< number associate to the type of the machine
+    int level; //!< Represent the level of improvement of the machine
+    Orientation orientation; //!< Represent the orientation of the machine
+}; //!< Machine
 
-Orientation  machine_getOrientation(Machine* machine){ return machine->orientation; }
+MachineStuff machine_getType(const Machine* machine){ return machine->type; }
 
-Direction  machine_getOrientationTop(Orientation* orient){ return orient->top; }
+int machine_getLevel(const Machine* machine){ return machine->level; }
 
-Direction  machine_getOrientationBottom(Orientation* orient){ return orient->bottom; }
+Orientation* machine_getOrientation(const Machine* machine){ return &(machine->orientation); }
 
-Direction  machine_getOrientationLeft(Orientation* orient){ return orient->left; }
+Direction  machine_getOrientationTop(const Orientation* orient){ return orient->top; }
 
-Direction  machine_getOrientationRight(Orientation* orient){ return orient->right; }
+Direction  machine_getOrientationBottom(const Orientation* orient){ return orient->bottom; }
+
+Direction  machine_getOrientationLeft(const Orientation* orient){ return orient->left; }
+
+Direction  machine_getOrientationRight(const Orientation* orient){ return orient->right; }
 
 Orientation machine_generateDefaultOrientation(MachineStuff s) {
     Orientation orient;

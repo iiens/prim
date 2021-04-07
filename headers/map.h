@@ -67,22 +67,7 @@
      * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
      *
      */
-    typedef struct Map_S {
-        Difficulty difficulty; //!< game difficulty
-        int width; //!< int, map width
-        int height; //!< int, map height
-        Case** map; //!< a bi dimensional table to refer to the board of game
-        int turn; //!< int, an indicator to correspond to the actual turn of the game
-        int numberFISE; //!< as the name suggest, its corresponding to the number of FISE
-        int numberFISA; //!< as the name suggest, its corresponding to the number of FISA
-        int E; //!< a value that measure the energy quantity of the player
-        int DD; //!< a value that measure the planet general health
-        int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
-        Staff* team; //!< a list of staffs that the user bought
-        int numberStaff; //!< number of staff recruited by the player
-        int score; //!< a score which indicate number of resources put in the gate
-        int pollution; //!< a score which indicate number of garbage that are still present in the gate
-    } Map; //!< Board game that contain all of the information about each case
+    typedef struct Map_S Map;
 
     //\////////////////////////////\//
     //\/ Functions declarations
@@ -500,26 +485,6 @@
     CaseType map_getTypeCase( int x, int y, const Map* m );
 
     /*!
-    * \fn MachineStuff map_getTypeMachine( const int x, const int y, const Map* m );
-    * @brief a function to get the type machine
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    *
-    * This function get the type machine of a case containing a machine
-    * <ul>
-    *   <li> MS_COLLECTOR = 1, collector machine
-    *   <li> MS_CONVEYOR_BELT = 2, conveyor belt
-    *   <li> MS_CROSS = 3, cross
-    *   <li> MS_RECYCLING_CENTER = 4, recycling center
-    *   <li> MS_JUNKYARD = 5, junkyard
-    * </ul>
-    *
-    * @return the type machine if case exist, if not -1
-    */
-    MachineStuff map_getTypeMachine( int x, int y, const Map* m );
-
-    /*!
     * \fn Machine* map_getLocatedMachine( int x, int y, const Map* m )
     * @brief a function to get a located machine on the map
     * @param[in] x case abscissa
@@ -531,19 +496,6 @@
     * @return a located machine on the map if exist
     */
     Machine* map_getLocatedMachine( int x, int y, const Map* m );
-
-    /*!
-    * \fn Orientation* map_getOrientationByLocatedMachine( int x, int y, Map* m );
-    * @brief a function to get the orientation of a machine located on the map
-    * @param[in] x case abscissa
-    * @param[in] y case ordinate
-    * @param[in] m a map
-    *
-    * This function get the orientation of a machine located on the map
-    *
-    * @return the orientation of a machine located on the map
-    */
-    Orientation* map_getOrientationByLocatedMachine( int x, int y, const Map* m );
 
     //\////////////////////////////\//
     //\/ Functions Setters

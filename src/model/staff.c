@@ -3,6 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct Staff_S {
+    int id; //!< id of the character
+    char* name; //!< name of the character
+    int costE; //!< Price in E of the character
+    int costDD; //!< Price in DD of the character
+    char* description; //!< description of character effects
+    Effect effects; //!< array which contains the target of the effect
+}; //!< information about staff
+
 ErrorCode staff_isIDValid(int id) {
     if (id > 0 && id <= NUMBER_OF_STAFFS) {
         return NO_ERROR;

@@ -19,14 +19,7 @@
      * \struct Staff_S staff.h "headers/data/staff.h"
      * \brief Struct which contains the target of the effect
      */
-    typedef struct Staff_S {
-        int id; //!< id of the character
-        char* name; //!< name of the character
-        int costE; //!< Price in E of the character
-        int costDD; //!< Price in DD of the character
-        char* description; //!< description of character effects
-        Effect effects; //!< array which contains the target of the effect
-    } Staff; //!< information about staff
+    typedef struct Staff_S Staff;
 
     #define NUMBER_OF_STAFFS 21 //!< number of staff in staff_list
 

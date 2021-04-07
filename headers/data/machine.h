@@ -49,12 +49,7 @@
      * Struct which contains the 4 direction possible for a machine
      *
      */
-    typedef struct Orientation_S {
-        Direction top; //!< top
-        Direction left; //!< left
-        Direction bottom; //!< bottom
-        Direction right; //!< right
-    } Orientation; //!< Orientation
+    typedef struct Orientation_S Orientation;
 
     /*!
      * \typedef Machine
@@ -63,41 +58,37 @@
      * Struct which contains the main information about a machine
      *
      */
-    typedef struct Machine_S {
-        MachineStuff type; //!< number associate to the type of the machine
-        int level; //!< Represent the level of improvement of the machine
-        Orientation orientation; //!< Represent the orientation of the machine
-    } Machine; //!< Machine
+    typedef struct Machine_S Machine;
 
     /*!
-     * \fn MachineStuff machine_getType(Machine* machine)
+     * \fn MachineStuff machine_getType(const Machine* machine)
      * @brief a function to get the type of the machine
      * @param[in] Machine* a machine
      *
      * @return the type of the machine
      */
-    MachineStuff machine_getType(Machine* machine);
+    MachineStuff machine_getType(const Machine* machine);
 
     /*!
-     * \fn int machine_getType(Machine* machine)
+     * \fn int machine_getType(const Machine* machine)
      * @brief a function to get the level of the machine
      * @param[in] Machine* a machine
      *
      * @return the level of the machine
      */
-    int machine_getLevel(Machine* machine);
+    int machine_getLevel(const Machine* machine);
 
     /*!
-     * \fn Orientation machine_getOrientation(Machine* machine)
+     * \fn Orientation machine_getOrientation(const Machine* machine)
      * @brief a function to get the orientation of the machine
      * @param[in] Machine* a machine
      *
      * @return the orientation of the machine
      */
-    Orientation  machine_getOrientation(Machine* machine);
+    Orientation* machine_getOrientation(const Machine* machine);
 
     /*!
-     * \fn Direction machine_getOrientationTop(Orientation* orient)
+     * \fn Direction machine_getOrientationTop(const Orientation* orient)
      * @brief a function to get the top orientation of the machine
      * @param[in] Machine* a machine
      *
@@ -109,10 +100,10 @@
      *
      * @return the top orientation of the machine
      */
-    Direction  machine_getOrientationTop(Orientation* orient);
+    Direction  machine_getOrientationTop(const Orientation* orient);
 
     /*!
-     * \fn Direction machine_getOrientationBottom(Orientation* orient)
+     * \fn Direction machine_getOrientationBottom(const Orientation* orient)
      * @brief a function to get the bottom orientation of the machine
      * @param[in] Machine* a machine
      *
@@ -124,10 +115,10 @@
      *
      * @return the bottom orientation of the machine
      */
-    Direction  machine_getOrientationBottom(Orientation* orient);
+    Direction  machine_getOrientationBottom(const Orientation* orient);
 
     /*!
-     * \fn Direction machine_getOrientationLeft(Orientation* orient)
+     * \fn Direction machine_getOrientationLeft(const Orientation* orient)
      * @brief a function to get the left orientation of the machine
      * @param[in] Machine* a machine
      *
@@ -139,10 +130,10 @@
      *
      * @return the left orientation of the machine
      */
-    Direction  machine_getOrientationLeft(Orientation* orient);
+    Direction  machine_getOrientationLeft(const Orientation* orient);
 
     /*!
-     * \fn Direction machine_getOrientationRight(Orientation* orient)
+     * \fn Direction machine_getOrientationRight(const Orientation* orient)
      * @brief a function to get the right orientation of the machine
      * @param[in] Machine* a machine
      *
@@ -154,7 +145,7 @@
      *
      * @return the right orientation of the machine
      */
-    Direction  machine_getOrientationRight(Orientation* orient);
+    Direction  machine_getOrientationRight(const Orientation* orient);
 
     /*!
      * \fn Orientation machine_generateDefaultOrientation(MachineStuff s)

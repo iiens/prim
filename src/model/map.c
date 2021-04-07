@@ -1,10 +1,28 @@
 #include <time.h>
 #include "../../headers/map.h"
+#include "../../headers/data/machine.h"
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+
+struct Map_S {
+    Difficulty difficulty; //!< game difficulty
+    int width; //!< int, map width
+    int height; //!< int, map height
+    Case** map; //!< a bi dimensional table to refer to the board of game
+    int turn; //!< int, an indicator to correspond to the actual turn of the game
+    int numberFISE; //!< as the name suggest, its corresponding to the number of FISE
+    int numberFISA; //!< as the name suggest, its corresponding to the number of FISA
+    int E; //!< a value that measure the energy quantity of the player
+    int DD; //!< a value that measure the planet general health
+    int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
+    Staff* team; //!< a list of staffs that the user bought
+    int numberStaff; //!< number of staff recruited by the player
+    int score; //!< a score which indicate number of resources put in the gate
+    int pollution; //!< a score which indicate number of garbage that are still present in the gate
+};
 
 Map *map_create(Difficulty dif) {
     // Initialisation map
@@ -373,36 +391,9 @@ CaseType map_getTypeCase(const int x, const int y, const Map *m) {
     }
 }
 
-MachineStuff map_getTypeMachine(const int x, const int y, const Map *m) {
-    if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-        return m->map[x][y].in.mach->type;
-    } else {
-        return -1;
-    }
-}
-
-int map_getIndexByMachine(MachineStuff type) {
-    int indexM = 0;
-    while (indexM < NUMBER_OF_MACHINES && machine_list[indexM].type != type) { indexM++; }
-
-    if (indexM == NUMBER_OF_MACHINES) {
-        return -1;
-    } else {
-        return indexM;
-    }
-}
-
 Machine* map_getLocatedMachine( int x, int y, const Map* m ) {
-    if (map_getTypeMachine(x, y, m) > 0) {
-        return map_getCase(x,y,m)->in.mach;
-    } else {
-        return NULL;
-    }
-}
-
-Orientation* map_getOrientationByLocatedMachine( int x, int y, const Map* m ) {
-    if (map_getLocatedMachine(x,y,m) != NULL) {
-        return &(map_getLocatedMachine(x,y,m)->orientation);
+    if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
+        return &(map_getCase(x,y,m)->in.mach);
     } else {
         return NULL;
     }
