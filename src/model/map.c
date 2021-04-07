@@ -182,12 +182,9 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                // TODO Valentin : Corriger
-                /*Orientation *orientation = machine_generateDefaultOrientation(machType);
-                machine_rotateMachine(orientation, rotation);
-
-                Machine *machine = machine_Create(machType, orientation);
-                case_addMachine(c, machine);*/
+                Machine *machine = machine_Create(machType, rotation);
+                machine_rotateMachine(machine, rotation);
+                case_addMachine(c, machine);
 
                 return NO_ERROR;
             } else {
