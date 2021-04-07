@@ -53,14 +53,14 @@ O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
 	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
-	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o \
+	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o \
 	$(OUTPUT_U)utils_fun.o
 
 # all off our header files included in interface.h for convenience sake
 # data ( line 2 - 4 )
 # utils ( line 5 )
 INTERFACE_DEP= $(SOURCE_H)map.h \
-	$(SOURCE_H_D)difficulty.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case_type.h $(SOURCE_H_D)effect.h \
+	$(SOURCE_H_D)difficulty.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case.h $(SOURCE_H_D)effect.h \
 	$(SOURCE_H_D)machine.h $(SOURCE_H_D)machine_info.h $(SOURCE_H_D)staff.h $(SOURCE_H_D)error.h \
 	$(SOURCE_H_D)mapping.h \
 	$(SOURCE_H_U)const.h $(SOURCE_H_U)map_utils.h $(SOURCE_H_U)structures.h $(SOURCE_H_U)translation.h $(SOURCE_H_U)utils.h
@@ -122,7 +122,7 @@ $(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o 
 # - machine.h
 # - error.h
 $(OUTPUT_V)translation.o: $(SOURCE_V)translation.c $(SOURCE_H_U)translation.h \
-	$(SOURCE_H_D)error.h $(SOURCE_H_D)machine.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case_type.h
+	$(SOURCE_H_D)error.h $(SOURCE_H_D)machine.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case.h
 	mkdir -p $(OUTPUT_V) && $(CC) $(CFLAGS) -c -o $(OUTPUT_V)translation.o $(SOURCE_V)translation.c
 
 # utils_fun.o
@@ -150,6 +150,11 @@ $(OUTPUT_M)staff.o: $(SOURCE_M)staff.c $(SOURCE_H_D)staff.h
 # - effect.c and .h
 $(OUTPUT_M)effect.o: $(SOURCE_M)effect.c $(SOURCE_H_D)effect.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)effect.o $(SOURCE_M)effect.c
+
+# case.o
+# - case.c and .h
+$(OUTPUT_M)case.o: $(SOURCE_M)case.c $(SOURCE_H_D)case.h
+	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)case.o $(SOURCE_M)case.c
 
 # machine_info.o
 # - machine_info.c and .h

@@ -60,10 +60,12 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
 
         machineID = strtol(buff, &endPtr, 10);
 
-        if ( endPtr != NULL && machineInfo_isStuffValid(machineID) == NO_ERROR ) {
+        if ( endPtr != NULL && machineInfo_isMachineStuffValid(machineID) == NO_ERROR ) {
+            MachineStuff* m = (MachineStuff*) malloc(sizeof(MachineStuff));
             // okay
             *leave = true;
-            return machineInfo_getType(machineInfo_getMachineInfo(machineID));
+            *m = machineInfo_getType(machineInfo_getMachineStuff(machineID));
+            return m;
         }
 
         // set error
