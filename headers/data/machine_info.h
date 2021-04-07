@@ -67,4 +67,8 @@
 
     const Effect *machineInfo_getEffects(const MachineInfo *machine);
 
+    int machineInfo_isMachineStuffValid(int id);
+
+    MachineInfo* machineInfo_getMachineStuff(int id);
+
 #endif //PRIM_MACHINE_INFO_H
