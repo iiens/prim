@@ -276,7 +276,8 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
 
         ErrorCode e = map_tryBuy(m, costE, costDD);
         if (e == NO_ERROR) {
-            // TODO Valentin : Incrémenter le staff dans map.team
+            Dictionary * dictionary = map_getStaffDictionary(m);
+            staff_hireStaff(dictionary, idStaff);
 
             switch (idStaff) {
                 case 14:
