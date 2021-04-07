@@ -191,11 +191,10 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                Orientation* orientation = machine_generateDefaultOrientation(machType);
+                Orientation *orientation = machine_generateDefaultOrientation(machType);
                 machine_rotateMachine(orientation, rotation);
 
-                // TODO Valentin : utiliser machine_create
-                Machine *machine;
+                Machine *machine = machine_Create(machType, orientation);
 
                 m->map[x][y].type = CASE_MACHINE;
                 m->map[x][y].in.mach = machine;
@@ -215,7 +214,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-            Machine * machine = map_getLocatedMachine(x, y, m);
+            Machine *machine = map_getLocatedMachine(x, y, m);
             MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
@@ -230,7 +229,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 // Vérifie que le joueur à les sous
                 ErrorCode e = map_tryBuy(m, costE, costDD);
                 if (e == NO_ERROR) {
-                    // TODO VAlentin : Utiliser setter
+                    machine_incrementLevel(machine);
 
                     return NO_ERROR;
                 } else {
@@ -250,7 +249,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         if (map_getTypeCase(x, y, m) == CASE_MACHINE) {
-            Machine * machine = map_getLocatedMachine(x, y, m);
+            Machine *machine = map_getLocatedMachine(x, y, m);
             MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
@@ -263,9 +262,8 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                // TODO Valentin : Utiliser destroy machine
+                machine_destroyMachine(m->map[x][y].in.mach);
 
-                // TODO Valentin : utiliser setter
                 m->map[x][y].in.mach = NULL;
                 m->map[x][y].type = CASE_VIDE;
 
