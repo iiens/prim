@@ -12,6 +12,7 @@
 
     #include <stdlib.h> //! to use uint
     #include "error.h" //! to return error message
+    #include "stdbool.h" //! to use bool
 
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
@@ -217,11 +218,25 @@
     void machine_incrementLevel(Machine* m);
 
     // create une MAchine* avec level=1
-    Machine* machine_Create(MachineStuff type, Orientation orient);
+    Machine* machine_Create(MachineStuff type, Orientation* orient);
 
     // free les argument de machine( carton) et Machine
     ErrorCode machine_destroyMachine(Machine* mach);
 
+    bool machine_isOrientationTop(const Machine* mach, Direction d);
 
+    bool machine_isOrientationTopRight(const Machine* mach, Direction d);
+
+    bool machine_isOrientationRight(const Machine* mach, Direction d);
+
+    bool machine_isOrientationBottomRight(const Machine* mach, Direction d);
+
+    bool machine_isOrientationBottom(const Machine* mach, Direction d);
+
+    bool machine_isOrientationBottomLeft(const Machine* mach, Direction d);
+
+    bool machine_isOrientationLeft(const Machine* mach, Direction d);
+
+    bool machine_isOrientationTopLeft(const Machine* mach, Direction d);
 
 #endif //PRIM_MACHINE_H

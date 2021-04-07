@@ -13,14 +13,14 @@ struct Orientation_S {
 struct Machine_S {
     MachineStuff type; //!< number associate to the type of the machine
     int level; //!< Represent the level of improvement of the machine
-    Orientation orientation; //!< Represent the orientation of the machine
+    Orientation* orientation; //!< Represent the orientation of the machine
 }; //!< Machine
 
 MachineStuff machine_getType(const Machine* machine){ return machine->type; }
 
 int machine_getLevel(const Machine* machine){ return machine->level; }
 
-Orientation* machine_getOrientation(const Machine* machine){ return &(machine->orientation); }
+Orientation* machine_getOrientation(const Machine* machine){ return machine->orientation; }
 
 Direction  machine_getOrientationTop(const Orientation* orient){ return orient->top; }
 
@@ -87,7 +87,7 @@ void machine_rotateMachine(Orientation* o, int rotation) {
 
 void machine_incrementLevel(Machine* m) { m->level++; }
 
-Machine* machine_Create(MachineStuff type, Orientation orient) {
+Machine* machine_Create(MachineStuff type, Orientation* orient) {
     Machine* mach = (Machine*) malloc(sizeof(Machine));
     mach->orientation = orient;
     mach->type = type;
@@ -98,7 +98,78 @@ Machine* machine_Create(MachineStuff type, Orientation orient) {
 
 ErrorCode machine_destroyMachine(Machine* mach) {
     // free tous les composants de machine, y compris Carton
+    free(mach->orientation);
     free(mach);
     return NO_ERROR;
+}
+
+bool machine_isOrientationTop(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationTop(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool machine_isOrientationTopRight(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationTop(orient) == d && machine_getOrientationRight(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool machine_isOrientationRight(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationRight(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool machine_isOrientationBottomRight(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationBottom(orient) == d && machine_getOrientationRight(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+bool machine_isOrientationBottom(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationBottom(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool machine_isOrientationBottomLeft(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationBottom(orient) == d && machine_getOrientationLeft(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+bool machine_isOrientationLeft(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationLeft(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool machine_isOrientationTopLeft(const Machine* mach, Direction d) {
+    Orientation* orient = mach->orientation;
+    if(machine_getOrientationTop(orient) == d && machine_getOrientationLeft(orient) == d) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
