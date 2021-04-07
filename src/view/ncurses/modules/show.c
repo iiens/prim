@@ -197,7 +197,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     // print each machine
     for ( int i = 0; i < NUMBER_OF_MACHINES; ++i ) {
         int j = 0; //!< in which column we should add the next part, see below with cost line
-        const MachineInfo* m = machineInfo_getMachineInfoByType(MS_COLLECTOR);
+        const MachineInfo* m = machineInfo_getMachineStuff(i+1);
         char* desc = machineInfo_getDescription(m);
         char* name = translation_getMachineType(machineInfo_getType(m));
         int id = machineInfo_getType(m);
