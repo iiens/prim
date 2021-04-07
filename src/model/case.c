@@ -53,9 +53,9 @@ void case_addSource(Case* c) {
 void case_addBox(Case* c) {
     if (c->type != CASE_MACHINE && !(case_hasBox(c))) {
         if(c->type == CASE_GATE) {
-            c->type = CASE_BOXGATE;
+            c->type = CASE_BOX_GATE;
         } else if (c->type == CASE_SOURCE) {
-            c->type = CASE_BOXSOURCE;
+            c->type = CASE_BOX_SOURCE;
         } else {
             c->type = CASE_BOX;
         }

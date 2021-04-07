@@ -36,8 +36,8 @@
         CASE_SOURCE = 2, //!< a case that contain resources
         CASE_MACHINE = 3, //!< a case that contain a machine
         CASE_BOX = 4, //!< a case that contain a box
-        CASE_BOXGATE = 5, //!< a case that contain a box on a gate
-        CASE_BOXSOURCE = 6, //!< a case that contain a box on a source
+        CASE_BOX_GATE = 5, //!< a case that contain a box on a gate
+        CASE_BOX_SOURCE = 6, //!< a case that contain a box on a source
     } CaseType; //!< Case type
 
     /*!
