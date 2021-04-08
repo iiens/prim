@@ -17,7 +17,7 @@ Difficulty interface_ncurses_chooseDifficulty()
     int current = 0; //!< current selected difficulty
     int ch; //!< current char read
     bool leave = false; //!< leave branch
-    const int TOP = ACTION_HEIGHT+8; //!< min height
+    const int TOP = ACTION_HEIGHT + 8; //!< min height
     // sizes
     int EASY_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_EASY); //!< size of map for EASY
     int MEDIUM_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_MEDIUM); //!< size of map for MEDIUM

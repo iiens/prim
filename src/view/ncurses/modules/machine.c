@@ -25,7 +25,7 @@ MachineSpec interface_ncurses_askAddMachine()
 
     if ( !back )
         rotation = (int*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
-                                                               interface_ncurses_askOrientationCheck);
+                                                              interface_ncurses_askOrientationCheck);
 
     // we need to do that since we use void* and Action* to match this constraint
     if ( !back && rotation != NULL && m != NULL ) {
@@ -98,7 +98,7 @@ void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode*
         int rotation = strtol(buff, &endPtr, 10);
 
         // todo: constants
-        if ( endPtr != NULL && rotation >= 0 && rotation <= 3 ){
+        if ( endPtr != NULL && rotation >= 0 && rotation <= 3 ) {
             int* result = (int*) malloc(sizeof(int)); //!< store result, no dangling pointer
             *result = rotation;
             *leave = true;

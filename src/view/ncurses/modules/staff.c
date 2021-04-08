@@ -13,7 +13,7 @@ void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* er
 int interface_ncurses_askBuyStaff()
 {
     int* s = ((int*) interface_ncurses_showInActionField(interface_ncurses_askBuyStaffClosureInit,
-                                                                interface_ncurses_askBuyStaffCheck));
+                                                         interface_ncurses_askBuyStaffCheck));
     // pass
     int staff_id = *s;
     free(s);

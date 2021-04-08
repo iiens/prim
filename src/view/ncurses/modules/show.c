@@ -16,7 +16,8 @@ void interface_ncurses_showMap( const Map* map )
     char* buf = (char*) malloc(GAME_WIDTH * sizeof(char)); //!< see interface_ncurses_gameTag
     char* format = (char*) malloc(GAME_WIDTH * sizeof(char)); //!< see interface_ncurses_gameTag
     char* production = //!< string for the production mode
-            map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(TRANSLATE_GAME_DD);
+            map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(
+                    TRANSLATE_GAME_DD);
 
     wclear(mapWindow); //reset
     wclear(gameWindow); //reset
@@ -39,16 +40,17 @@ void interface_ncurses_showMap( const Map* map )
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_SCORE), map_getPlayerScore(map), buf, format));
     // END_BASE = 10
     mvwprintw(gameWindow, END_BASE, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map_getNumberPollution(map), buf, format));
+              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map_getNumberPollution(map), buf,
+                                        format));
 
     // then we have
     //todo: redo plz
     wattron(gameWindow, COLOR_PAIR(COLOR_RED));
-    mvwaddstr(gameWindow, END_BASE+2, 1, "Legend");
+    mvwaddstr(gameWindow, END_BASE + 2, 1, "Legend");
     wattroff(gameWindow, COLOR_PAIR(COLOR_RED));
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+3, 1, "S");
+    mvwaddstr(gameWindow, END_BASE + 3, 1, "S");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": Source ");
 
@@ -58,7 +60,7 @@ void interface_ncurses_showMap( const Map* map )
     waddstr(gameWindow, ": Gate ");
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+4, 1, "C");
+    mvwaddstr(gameWindow, END_BASE + 4, 1, "C");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": Collector ");
 
@@ -68,7 +70,7 @@ void interface_ncurses_showMap( const Map* map )
     waddstr(gameWindow, ": CONVEYOR BELT ");
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+5, 1, "X");
+    mvwaddstr(gameWindow, END_BASE + 5, 1, "X");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": Cross ");
 
@@ -78,12 +80,12 @@ void interface_ncurses_showMap( const Map* map )
     waddstr(gameWindow, ": RECYCLING CENTER ");
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+6, 1, "J");
+    mvwaddstr(gameWindow, END_BASE + 6, 1, "J");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": JUNKYARD ");
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+8, 1, "4");
+    mvwaddstr(gameWindow, END_BASE + 8, 1, "4");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": LEFT ");
 
@@ -98,7 +100,7 @@ void interface_ncurses_showMap( const Map* map )
     waddstr(gameWindow, ": TOP ");
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+9, 1, "2");
+    mvwaddstr(gameWindow, END_BASE + 9, 1, "2");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": BOTTOM ");
 
@@ -113,7 +115,7 @@ void interface_ncurses_showMap( const Map* map )
     waddstr(gameWindow, ": TOP RIGHT ");
 
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE+10, 1, "1");
+    mvwaddstr(gameWindow, END_BASE + 10, 1, "1");
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": BOTTOM LEFT ");
 
@@ -166,7 +168,7 @@ void interface_ncurses_showMap( const Map* map )
     //   ... |  +  +  +  +  +  +
     //     n |  +  +  +  +  +  +
     //       +--+--+--+--+--+--+
-    mvwprintw(mapWindow, HEIGHT+2, 3, "+");
+    mvwprintw(mapWindow, HEIGHT + 2, 3, "+");
     for ( int j = 0; j < WIDTH; ++j ) {
         waddstr(mapWindow, "--+");
     }
@@ -183,7 +185,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     char* pDestroy = (char*) malloc(size * sizeof(char)); //!< cost destroy value
     int blocLength = 2; //!< number of line per machine
 
-    if ( (NUMBER_OF_MACHINES*3+4) < LINES )
+    if ( (NUMBER_OF_MACHINES * 3 + 4) < LINES )
         blocLength++;
 
     //clear
@@ -197,7 +199,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     // print each machine
     for ( int i = 0; i < NUMBER_OF_MACHINES; ++i ) {
         int j = 0; //!< in which column we should add the next part, see below with cost line
-        const MachineInfo* m = machineInfo_getMachineStuff(i+1);
+        const MachineInfo* m = machineInfo_getMachineStuff(i + 1);
         char* desc = machineInfo_getDescription(m);
         char* name = translation_getMachineType(machineInfo_getType(m));
         int id = machineInfo_getType(m);
@@ -253,7 +255,7 @@ void interface_ncurses_showStaffList( const Map* map )
     bool input = false; //!< stop input and reload view ?
     bool leave = false; //!< stop this menu and go back ?
 
-    if ( (rowPerPage*3+6) < LINES )
+    if ( (rowPerPage * 3 + 6) < LINES )
         blocLength++;
 
     // hide cursor
@@ -327,13 +329,15 @@ void interface_ncurses_showStaffList( const Map* map )
                     // we don't want to change our rowPerPage
                     // if last page didn't have enough rows
                     start -= rowPerPage;
-                    if ( start < 1 ) start = 1;
+                    if ( start < 1 )
+                        start = 1;
                     input = true;
                     break;
                     // page after
                 case KEY_RIGHT:
                     start += rowPerPage;
-                    if ( start > STAFF_COUNT ) start -= rowPerPage; // go back
+                    if ( start > STAFF_COUNT )
+                        start -= rowPerPage; // go back
                     input = true;
                     break;
                     // back
