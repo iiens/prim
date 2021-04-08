@@ -12,7 +12,7 @@
 #include "../../../../headers/map.h" //!< map, since we are using the Map (show, ...)
 
 #define ERROR_COLOR 1 //!< error color code
-#define SUCCESS_COLOR 3 //!< success color code
+#define SUCCESS_COLOR 2 //!< success color code
 
 #define ACTION_HEIGHT 2 //!< height of action window
 #define GAME_WIDTH (COLS/4) //!< height of action window
