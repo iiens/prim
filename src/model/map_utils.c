@@ -229,40 +229,50 @@ void generateResources(Map *m) {
 }
 
 ErrorCode map_sendResourcesToGate(Map *m) {
+    Case *c;
+    CaseType type;
+    for (int i = 0; i < map_getWidth(m); ++i) {
+        for (int j = 0; j < map_getHeight(m); ++j) {
+            c = map_getCase(i, j, m);
+            type = case_getType(c);
+            if (type == CASE_BOX_GATE) {
+                Box *box = case_getBox(c);
+                box_setNumberGarbage(box, box_getNumberResource(box));
+                box_setNumberResource(box, box_getNumberResource(box) * -1);
+            }
+        }
+    }
+
     return NO_ERROR;
 }
 
 void activateCollectors(Map *m) {
-    // TODO Valentin : Corriger
-    /*Case *c;
+    Case *c;
     for (int i = 0; i < map_getWidth(m); ++i) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             CaseType type = case_getType(c);
+            Box* cumulative = box_create(0,0);
             if (type == CASE_MACHINE) {
                 Machine *machine = case_getMachine(c);
                 if (machine_getType(machine) == MS_COLLECTOR) {
-                    Orientation *orientation = machine_getOrientation(machine);
                     int x = case_getX(c);
                     int y = case_getY(c);
                     Case *next;
 
-                    if (machine_getOrientationBottom(orientation) == DIRECTION_NONE) {
-                        next = map_getCase(x, y, m);
-                        if (case_getType(next) == CASE_SOURCE) {
-                            // TODO Valentin : réfléchir au déplacement des ressources
+                    if (facade_getDirection(machine, NORTH) == DIRECTION_IN) {
+                        next = map_getCase(x, y+1, m);
+                        if (case_getType(next) == CASE_BOX_SOURCE) {
+                            Box* tmp = case_getBox(next);
+                            box_addB2toB1(cumulative, tmp);
+                            case_setEmpty(next);
+                            case_addSource(c);
                         }
-                    }
-                    if (machine_getOrientationLeft(orientation) == DIRECTION_NONE) {
-                    }
-                    if (machine_getOrientationTop(orientation) == DIRECTION_NONE) {
-                    }
-                    if (machine_getOrientationRight(orientation) == DIRECTION_NONE) {
                     }
                 }
             }
         }
-    }*/
+    }
 }
 
 void resetResourcesGarbage(Map *m) {
