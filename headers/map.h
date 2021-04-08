@@ -314,19 +314,6 @@
     int map_getPlayerScore( const Map* m );
 
     /*!
-    * \fn int map_getNumberPollution( const Map* m )
-    * @brief a function to get the pollution score
-    * @param[in] m a map
-    *
-    * This function get the pollution score.
-    * Each resource given to the gate, produce a garbage
-    * Each garbage present on the map and unstocked decrease the number of DD by 1
-    *
-    * @return the pollution score
-    */
-    int map_getNumberPollution( const Map* m );
-
-    /*!
     * \fn Difficulty map_getDifficulty( const Map* m )
     * @brief a function to get the difficulty of the map
     * @param[in] m a map
@@ -399,6 +386,10 @@
     * @return the case address if exist, if not a null address
     */
     Case* map_getCase( int x, int y, const Map* m );
+
+    //TODO ANTOINE DOC
+    //parcourt toutre la map
+    int map_getNumberPollution( const Map* m );
 
     //\////////////////////////////\//
     //\/ Functions Setters

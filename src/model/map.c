@@ -19,7 +19,6 @@ struct Map_S {
     int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
     Dictionary *team; //!< a list of staffs that the user bought
     int score; //!< a score which indicate number of resources put in the gate
-    int pollution; //!< a score which indicate number of garbage that are still present in the gate
 };
 
 Map *map_create(Difficulty dif) {
@@ -33,7 +32,6 @@ Map *map_create(Difficulty dif) {
     m->E = NUMBER_E_DEPART;
     m->DD = NUMBER_DD_DEPART;
     m->score = 0;
-    m->pollution = 0;
     m->numberFISA = NUMBER_FISA;
     m->numberFISE = NUMBER_FISE;
     m->team = staff_createStaffDictionary();
@@ -178,7 +176,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                Machine *machine = machine_create(machType, rotation);
+                Machine *machine = machine_create(machType);
                 machine_rotateMachine(machine, rotation);
                 case_addMachine(c, machine);
 
@@ -327,8 +325,6 @@ int map_getNumberDD(const Map *m) { return m->DD; }
 
 int map_getPlayerScore(const Map *m) { return m->score; }
 
-int map_getNumberPollution(const Map *m) { return m->pollution; }
-
 Difficulty map_getDifficulty(const Map *m) { return m->difficulty; }
 
 int map_getWidth(const Map *m) { return m->width; }
@@ -347,6 +343,19 @@ Case *map_getCase(const int x, const int y, const Map *m) {
     } else {
         return NULL;
     }
+}
+
+int map_getNumberPollution(const Map *m) {
+    int nbGarbage = 0;
+    for (int i = 0; i < m->height; ++i) {
+        for (int j = 0; j < m->width; ++j) {
+            Case *c = map_getCase(i, j, m);
+            if (case_hasBox(c)) {
+                nbGarbage += box_getNumberGarbage(case_getBox(c));
+            }
+        }
+    }
+    return nbGarbage;
 }
 
 //\////////////////////////////\//
