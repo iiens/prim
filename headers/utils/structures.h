@@ -30,10 +30,12 @@
     * \brief Represent a list
     */
     //todo: documentation
-    typedef union Element_S {
-        int number;
-        char* text;
-        void* object;
+    typedef struct Element_S {
+        union {
+            int number;
+            char* text;
+            void* object;
+        } content;
         ElementType type; //!< in witch field we got our value
     } Element;
 

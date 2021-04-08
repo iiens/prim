@@ -414,8 +414,8 @@ Dictionary* staff_createStaffDictionary() {
 
     dict->length = NUMBER_OF_STAFFS;
     for (int i = 0; i < dict->length; ++i) {
-        tabStaff[i].keys.number = staff_list[i].id;
-        tabStaff[i].values.number = 0;
+        tabStaff[i].keys.content.number = staff_list[i].id;
+        tabStaff[i].values.content.number = 0;
     }
     dict->entries = tabStaff;
 
@@ -425,7 +425,7 @@ Dictionary* staff_createStaffDictionary() {
 int staff_getNumberStaffByID(const Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        return dict->entries[index].values.number;
+        return dict->entries[index].values.content.number;
     } else {
         return -1;
     }
@@ -434,7 +434,7 @@ int staff_getNumberStaffByID(const Dictionary* dict, int id) {
 void staff_hireStaff(Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        dict->entries[index].values.number++;
+        dict->entries[index].values.content.number++;
     }
 }
 
