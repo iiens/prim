@@ -1,5 +1,6 @@
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
+#include "../../headers/data/box.h"
 
 //todo: Ramzy constant ?
 int map_utils_getSizeByDifficulty(Difficulty d) {
@@ -18,7 +19,7 @@ int map_utils_getSizeByDifficulty(Difficulty d) {
 ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
     if (map_getNumberE(m) >= costE) {
         if (map_getNumberDD(m) >= costDD) {
-            map_setNumberE(m, (costE * -1));
+            map_setNumberE(m, costE * -1);
             map_setNumberDD(m, costDD * -1);
 
             return NO_ERROR;
@@ -34,7 +35,7 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
     const Staff *staff = staffInfo_getByModeAndType(mode, target);
     if (staff != NULL) {
         int idStaff = staff_getStaffID(staff);
-        Dictionary * dictionary = map_getStaffDictionary(m);
+        Dictionary *dictionary = map_getStaffDictionary(m);
         int numberStaff = staff_getNumberStaffByID(dictionary, idStaff);
         const Effect *effect = staff_getStaffEffect(staff);
 
@@ -204,11 +205,11 @@ void moveResources(Map *m) {
     }
 }
 
-
 void generateResources(Map *m) {
     int numberTour = NB_TURN_PRODUCTION_SOURCE;
 
-    // Verifier Staff
+    // TODO Valentin : attendre
+    //map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &numberTour, NULL);
 
     if (map_getNumberTurn(m) % numberTour == 0) {
         Case *c;
@@ -220,15 +221,14 @@ void generateResources(Map *m) {
             for (int j = 0; j < map_getHeight(m); ++j) {
                 c = map_getCase(i, j, m);
                 if (case_getType(c) == CASE_SOURCE) {
-                    //case_setNumberResource(c, generateResource);
+                    case_addBox(c, box_create(generateResource, 0));
                 }
             }
         }
     }
 }
 
-
-ErrorCode map_sendResourcesToGate(Map *m, int resources) {
+ErrorCode map_sendResourcesToGate(Map *m) {
     return NO_ERROR;
 }
 
@@ -267,30 +267,72 @@ void activateCollectors(Map *m) {
 
 void resetResourcesGarbage(Map *m) {
     Case *c, *gate;
-    int numberResources, numberGarbage, allGarbage = 0;
+    Box *box = box_create(0, 0);
+    Box *tmpBox;
+
     for (int i = 0; i < map_getWidth(m); ++i) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             CaseType type = case_getType(c);
-            if (type == CASE_GATE) {
+            if (type == CASE_GATE || type == CASE_BOX_GATE) {
                 gate = c;
-            } else if (type != CASE_MACHINE) {
-                /*numberResources = case_getNumberResource(c);
-                case_setNumberResource(c, (numberResources * -1));
+            } else if (type == CASE_BOX || type == CASE_BOX_SOURCE) {
+                tmpBox = case_getBox(c);
+                box_setNumberGarbage(box, box_getNumberGarbage(tmpBox));
 
-                numberGarbage = case_getNumberGarbage(c);
-                allGarbage += numberGarbage;
-                case_setNumberGarbage(c, (numberGarbage * -1));*/
+                case_setEmpty(c);
             }
         }
     }
 
-    //case_setNumberGarbage(gate, allGarbage);
+    if (case_hasBox(gate)) {
+        box_addB2toB1(case_getBox(gate), box);
+        free(box);
+    } else {
+        case_addBox(gate, tmpBox);
+    }
 }
 
 // Fonction specifique Staff
 ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {
+    // Récupération du staff et de son effet
+    const Staff *staff = staff_getStaffByID(idStaff);
+    const Effect *effect = staff_getStaffEffect(staff);
+    int coefficient = effect_getModifierRes(effect);
+
     // Parcourir toutes les cases pour supprimer la moitie des déchets
+    Case *c;
+    int numberG, rest, div;
+    for (int i = 0; i < map_getWidth(m); ++i) {
+        for (int j = 0; j < map_getHeight(m); ++j) {
+            Box *box;
+            c = map_getCase(i, j, m);
+            CaseType type = case_getType(c);
+
+            if (case_hasBox(c)) {
+                box = case_getBox(c);
+                numberG = box_getNumberGarbage(box);
+
+                div = (numberG * coefficient) / 100;
+
+                box_setNumberGarbage(box, div * -1);
+            } else if (type == CASE_MACHINE) {
+                Machine * machine = case_getMachine(c);
+
+                // Remplacer 4 par define ou getNumberFacade
+                for (int k = 0; k < 4; ++k) {
+                    box = facade_getBox(machine, 0);
+                    numberG = box_getNumberGarbage(box);
+
+                    div = (numberG * coefficient) / 100;
+
+                    box_setNumberGarbage(box, div * -1);
+                }
+            }
+        }
+    }
+
+
     return NO_ERROR;
 }
 
@@ -324,11 +366,41 @@ ErrorCode staff_actionLaurentPrevel(Map *m, int idStaff) {
     int fiseGraduate = numberFise * coefficient;
     int fisaGraduate = numberFisa * coefficient;
 
-    // Nouveau nombre de fise et fisa
-    map_setNumberFISE(m, (fiseGraduate * -1));
-    map_setNumberFISA(m, (fisaGraduate * -1));
+    if (map_getNumberFISE(m) >= fiseGraduate) {
+        if (map_getNumberFISA(m) >= fisaGraduate) {
+            // Nouveau nombre de fise et fisa
+            map_setNumberFISE(m, (fiseGraduate * -1));
+            map_setNumberFISA(m, (fisaGraduate * -1));
 
-    // Envoie des ressource à la porte
-    map_sendResourcesToGate(m, fisaGraduate + fiseGraduate);
+            // Envoie des ressource à la porte
+            Case *c;
+            for (int i = 0; i < map_getWidth(m); ++i) {
+                for (int j = 0; j < map_getHeight(m); ++j) {
+                    c = map_getCase(i, j, m);
+                    CaseType type = case_getType(c);
+                    if (type == CASE_GATE) {
+                        case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
+                        map_sendResourcesToGate(m);
+                    } else if (type == CASE_BOX_GATE) {
+                        Box *saveBox = box_create(0, 0);
+                        box_addB2toB1(saveBox, case_getBox(c));
+                        case_setEmpty(c);
+
+                        case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
+                        map_sendResourcesToGate(m);
+
+                        case_addBox(c, saveBox);
+                    }
+                }
+            }
+        } else {
+            // TODO VAlentin : Changer avec erreur de pas assez de fisa
+            return ERROR_NOT_ENOUGH_DD;
+        }
+    } else {
+        // TODO VAlentin : Changer avec erreur de pas assez de fise
+        return ERROR_NOT_ENOUGH_E;
+    }
+
     return NO_ERROR;
 }

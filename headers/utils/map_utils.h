@@ -104,7 +104,7 @@ void resetResourcesGarbage(Map * m);
  * @param resources
  * @return
  */
-ErrorCode map_sendResourcesToGate(Map *m, int resources);
+ErrorCode map_sendResourcesToGate(Map *m);
 
 /**
  *

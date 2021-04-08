@@ -17,7 +17,7 @@ struct Map_S {
     int E; //!< a value that measure the energy quantity of the player
     int DD; //!< a value that measure the planet general health
     int productionFISA; //!< int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE
-    Dictionary * team; //!< a list of staffs that the user bought
+    Dictionary *team; //!< a list of staffs that the user bought
     int score; //!< a score which indicate number of resources put in the gate
     int pollution; //!< a score which indicate number of garbage that are still present in the gate
 };
@@ -47,7 +47,7 @@ Map *map_create(Difficulty dif) {
     m->map = (Case ***) malloc(m->width * sizeof(Case **));
     for (int i = 0; i < m->width; i++) {
         // Creation of each Case
-        m->map[i] = (Case **) malloc(m->height * sizeof(Case*));
+        m->map[i] = (Case **) malloc(m->height * sizeof(Case *));
 
         // Initialization of boxes
         for (int j = 0; j < m->height; ++j) {
@@ -55,17 +55,17 @@ Map *map_create(Difficulty dif) {
         }
     }
 
-    srandom(time(NULL));
+    srand(time(NULL));
     // Random gate placement
-    gate_x = (int) (random() % m->width);
-    gate_y = (int) (random() % m->height);
+    gate_x = (int) (rand() % m->width);
+    gate_y = (int) (rand() % m->height);
     case_addGate(m->map[gate_x][gate_y]);
 
     // Random placement of the 2 sources
     for (int i = 0; i < 2; i++) {
         do {
-            source_x = (int) (random() % m->width);
-            source_y = (int) (random() % m->height);
+            source_x = (int) (rand() % m->width);
+            source_y = (int) (rand() % m->height);
         } while (!case_isEmpty(m->map[source_x][source_y]));
 
         case_addSource(m->map[source_x][source_y]);
@@ -134,25 +134,21 @@ ErrorCode map_changeProductionFISA(Map *m) {
 }
 
 ErrorCode map_endTurn(Map *m) {
-    int nombreTour;
-
-    // Productin des Fise
+    // Production of Fise
     productionFise(m);
 
-    // Productin des Fisa
+    // Production of Fisa
     productionFisa(m);
 
     // TODO Valentin : Déplacer les ressources
     // Besoin de la listes des tapis
     //moveResources(m);
 
-    // TODO Valentin : Générer les ressources avec les sources
+    // Generation of resources
     generateResources(m);
 
     // TODO Valentin : La porte produit des déchêts
-    // Pour envoyer mettre ressources sur la case de la porte
-    // remplacer les ressources par des déchets
-    // Verifier staff
+    map_sendResourcesToGate(m);
 
     // TODO Valentin : Faire fonctionner les décheteries
     // Liste des décheteries
@@ -161,7 +157,7 @@ ErrorCode map_endTurn(Map *m) {
     // TODO Valentin : Les collecteurs s'activent
     activateCollectors(m);
 
-    // TODO Valentin : Suprimerles ressources non collecté
+    // Destroy the no-collected resources
     resetResourcesGarbage(m);
 
     m->turn++;
@@ -170,7 +166,7 @@ ErrorCode map_endTurn(Map *m) {
 
 ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        Case* c = map_getCase(x, y, m);
+        Case *c = map_getCase(x, y, m);
         if (case_isEmpty(c)) {
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
             int costE = machineInfo_getCostE(machineInfo);
@@ -200,7 +196,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
 
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        Case * c = map_getCase(x, y, m);
+        Case *c = map_getCase(x, y, m);
         if (case_getType(c) == CASE_MACHINE) {
             Machine *machine = case_getMachine(c);
             MachineStuff machType = machine_getType(machine);
@@ -236,7 +232,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
 
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
-        Case * c = map_getCase(x, y, m);
+        Case *c = map_getCase(x, y, m);
         if (case_getType(c) == CASE_MACHINE) {
             Machine *machine = case_getMachine(c);
             MachineStuff machType = machine_getType(machine);
@@ -273,24 +269,30 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
 
         ErrorCode e = map_tryBuy(m, costE, costDD);
         if (e == NO_ERROR) {
-            Dictionary * dictionary = map_getStaffDictionary(m);
+            Dictionary *dictionary = map_getStaffDictionary(m);
             staff_hireStaff(dictionary, idStaff);
 
             switch (idStaff) {
                 case 14:
                     // Parourir toutes les cases
-                    staff_actionAnneLaureLigozat(m, 14);
+                    e = staff_actionAnneLaureLigozat(m, 14);
                     break;
                 case 15:
                     // Parourir toutes les cases
-                    staff_actionChristopheMouilleron(m, 15);
+                    e = staff_actionChristopheMouilleron(m, 15);
                     break;
                 case 24:
                     // Parourir toutes les cases
-                    staff_actionLaurentPrevel(m, 24);
+                    e = staff_actionLaurentPrevel(m, 24);
                     break;
                 default:
+                    e = NO_ERROR;
                     break;
+            }
+
+            if (e != NO_ERROR) {
+                map_setNumberE(m, costE);
+                map_setNumberDD(m, costDD);
             }
 
             return NO_ERROR;
@@ -337,7 +339,7 @@ int map_getNumberTurn(const Map *m) { return m->turn; }
 
 int map_getProductionFISA(const Map *m) { return m->productionFISA; }
 
-Dictionary* map_getStaffDictionary( const Map* m ) { return m->team; }
+Dictionary *map_getStaffDictionary(const Map *m) { return m->team; }
 
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
