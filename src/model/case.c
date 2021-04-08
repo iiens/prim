@@ -14,7 +14,10 @@ int case_getX(const Case* c) { return c->x; }
 
 int case_getY(const Case* c) { return c->y; }
 
-CaseType case_getType(const Case* c) { return c->type; }
+//TODO DOC
+CaseType case_getType(const Case* c) {
+    return c->type & 0xFFFFFFFE;
+}
 
 Machine* case_getMachine(const Case* c) {
     if (case_getType(c) == CASE_MACHINE) {
@@ -25,7 +28,7 @@ Machine* case_getMachine(const Case* c) {
 }
 
 Box* case_getBox(const Case* c) {
-    if (case_getType(c) == CASE_BOX) {
+    if (case_hasBox(c)) {
         return (Box*) c->in;
     } else {
         return NULL;
@@ -44,43 +47,36 @@ void case_addGate(Case* c) {
         c->type = CASE_GATE;
     }
 }
+
 void case_addSource(Case* c) {
     if(case_isEmpty(c)) {
         c->type = CASE_SOURCE;
     }
 }
 
+//TODO DOC
 void case_addBox(Case* c, Box* box) {
     if (c->type != CASE_MACHINE && !(case_hasBox(c))) {
-        if(c->type == CASE_GATE) {
-            c->type = CASE_BOX_GATE;
-        } else if (c->type == CASE_SOURCE) {
-            c->type = CASE_BOX_SOURCE;
-        } else {
-            c->type = CASE_BOX;
-        }
+        c->type = c->type | 0x01;
         c->in = box;
     }
 }
 
+//TODO DOC
+ErrorCode case_deleteBox(Case* c) {
+    if (case_hasBox(c)) {
+        free(c->in);
+        c->type = c->type & 0xFFFFFFFE;
+    }
+    return NO_ERROR;
+}
+
 void case_setEmpty(Case* c) {
     if (case_hasBox(c)) {
-        switch (c->type) {
-            case CASE_VIDE:
-            case CASE_GATE:
-            case CASE_SOURCE:
-                break;
-            case CASE_MACHINE:
-                machine_destroyMachine(c->in);
-                break;
-            case CASE_BOX:
-            case CASE_BOX_GATE:
-            case CASE_BOX_SOURCE:
-                free(c->in);
-                break;
-        }
+        free(c->in);
+    } else if (case_getType(c) == CASE_MACHINE) {
+        machine_destroyMachine((Machine*) c->in);
     }
-
     c->type = CASE_VIDE;
     c->in = NULL;
 }
@@ -102,8 +98,9 @@ bool case_isEmpty(const Case* c) {
     }
 }
 
+// TODO DOC
 bool case_hasBox(const Case* c){
-    if (c->in != NULL) {
+    if ((c->type & 0x01) == 0x01) {
         return true;
     } else {
         return false;
@@ -111,23 +108,7 @@ bool case_hasBox(const Case* c){
 }
 
 ErrorCode case_destroy(Case* c) {
-    if (case_getType(c) == CASE_MACHINE || case_getType(c) == CASE_BOX ) {
-        free(c->in);
-    }
+    case_setEmpty(c);
     free(c);
-    return NO_ERROR;
-}
-
-ErrorCode case_deleteBox(Case* c) {
-    if (case_hasBox(c)) {
-        free(c->in);
-        if (c->type == CASE_BOX_GATE) {
-            c->type = CASE_GATE;
-        } else if (c->type == CASE_BOX_SOURCE) {
-            c->type = CASE_SOURCE;
-        } else if (c->type == CASE_BOX) {
-            c->type = CASE_VIDE;
-        }
-    }
     return NO_ERROR;
 }
