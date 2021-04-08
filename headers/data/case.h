@@ -29,15 +29,15 @@
      *
      * 3 resources is produced from a resource case every 10 turns
      *
+     * if impaire presence Box
+     * TODO ANTOINE DOC
+     *
      */
     typedef enum CaseType_S {
         CASE_VIDE = 0, //!< a case that contain nothing
-        CASE_GATE = 1, //!< a case that contain the transdimensional gate
-        CASE_SOURCE = 2, //!< a case that contain resources
-        CASE_MACHINE = 3, //!< a case that contain a machine
-        CASE_BOX = 4, //!< a case that contain a box
-        CASE_BOX_GATE = 5, //!< a case that contain a box on a gate
-        CASE_BOX_SOURCE = 6, //!< a case that contain a box on a source
+        CASE_GATE = 2, //!< a case that contain the transdimensional gate
+        CASE_SOURCE = 4, //!< a case that contain resources
+        CASE_MACHINE = 6, //!< a case that contain a machine
     } CaseType; //!< Case type
 
     /*!
