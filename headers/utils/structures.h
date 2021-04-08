@@ -52,6 +52,7 @@
     //todo: documentation
     typedef struct Dictionary_S {
         int length;
+        int numberOfElement;
         Couple* entries;
     } Dictionary;
 
@@ -82,8 +83,11 @@
     // todo : do the documentation
     Dictionary* dictionary_create(int length);
     ErrorCode dictionary_destroy(Dictionary* d);
-    Element dictionary_getElement(Dictionary* d, Element key);
+    Element* dictionary_getElement(Dictionary* d, Element key);
     ErrorCode dictionary_addElement(Dictionary* d, Element key, Element value);
+    Couple* dictionary_getCoupletByIndex(Dictionary *d,int index);
+    ErrorCode dictionary_addCoupleText(Dictionary *d,char* key, char* value);
+    ErrorCode dictionary_addCoupleIntText(Dictionary* d,int key, char* value);
 
     /*!
      * \fn destroyStructuresTab

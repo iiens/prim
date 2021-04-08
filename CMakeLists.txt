@@ -39,6 +39,9 @@ add_executable(AllTests
         tests/listSuite.h headers/data/box.h)
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
+add_executable(toto src/utils/structure.c)
+target_include_directories(toto PUBLIC /headers)
+
 add_executable(main
         src/main.c
         src/model/map.c
