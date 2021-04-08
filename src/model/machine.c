@@ -65,7 +65,7 @@ Facade *facade_defaultFacade(MachineStuff s) {
     return interface;
 }
 
-Machine *machine_create(MachineStuff type, int rotation) {
+Machine *machine_create(MachineStuff type) {
     Machine *mach = (Machine *) malloc(sizeof(Machine));
     mach->type = type;
     mach->level = 1;
