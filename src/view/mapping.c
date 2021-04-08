@@ -46,6 +46,18 @@ const UserActionMapping* mapping_getMapping( const char* seq )
     return NULL;
 }
 
+const UserActionMapping* mapping_getMappingByAction( Action action )
+{
+    // check for all
+    for ( int i = 0; i < USER_MAPPING_SIZE; i++ ) {
+        if ( user_mapping[i].actionID == action ) { //same
+            // return mapping
+            return &(user_mapping[i]);
+        }
+    }
+    return NULL;
+}
+
 int mapping_getSize()
 {
     return USER_MAPPING_SIZE;
@@ -58,4 +70,9 @@ const UserActionMapping* mapping_get( int index )
         return &(user_mapping[index]);
     }
     return NULL;
+}
+
+const UserActionMapping* mapping_getBackMapping()
+{
+    return mapping_getMappingByAction(ACTION_CANCEL_ACTION);
 }

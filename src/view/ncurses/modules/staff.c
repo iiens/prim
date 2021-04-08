@@ -30,7 +30,7 @@ void* interface_ncurses_askBuyStaffClosureInit()
 void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
-    if ( strcmp(buff, BACK_MAPPING) == 0 ) {
+    if ( strcmp(buff, mapping_getBackMapping()->key) == 0 ) {
         back = true;
         *leave = TRUE;
         return NULL;

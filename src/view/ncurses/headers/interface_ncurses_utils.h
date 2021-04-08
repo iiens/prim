@@ -21,8 +21,6 @@
 
 #define ERROR_LINE 0 //!< error line in action window
 
-#define BACK_MAPPING "b" //!< back value used everywhere
-
 WINDOW* gameWindow; //!< score, turn, ... information window
 WINDOW* mapWindow; //!< game map window
 WINDOW* actionWindow; //!< input action window

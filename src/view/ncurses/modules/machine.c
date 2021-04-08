@@ -53,7 +53,7 @@ void* interface_ncurses_askBuyMachineClosureInit()
 void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
-    if ( strcmp(buff, BACK_MAPPING) == 0 ) {
+    if ( strcmp(buff, mapping_getBackMapping()->key) == 0 ) {
         back = true;
         *leave = TRUE;
         return NULL;
@@ -89,13 +89,13 @@ void* interface_ncurses_askOrientationClosureInit()
 void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
-    if ( strcmp(buff, BACK_MAPPING) == 0 ) {
+    if ( strcmp(buff, mapping_getBackMapping()->key) == 0 ) {
         back = true;
         *leave = TRUE;
         return NULL;
     } else {
         char* endPtr = NULL; //!< conversion error
-        int rotation = strtol(buff, &endPtr, 10);
+        int rotation = (int) strtol(buff, &endPtr, 10);
 
         // todo: constants
         if ( endPtr != NULL && rotation >= 0 && rotation <= 3 ) {

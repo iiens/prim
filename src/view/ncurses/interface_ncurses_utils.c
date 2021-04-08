@@ -99,8 +99,8 @@ void interface_ncurses_show_menu_wait()
     cbreak();
     curs_set(FALSE);
     keypad(mapWindow, TRUE);
-    // wait for input
-    while ( getch() != BACK_MAPPING[0] );
+    // wait for input, only the first char since noecho
+    while ( getch() != mapping_getBackMapping()->key[0] );
     // reset
     echo();
     nocbreak();

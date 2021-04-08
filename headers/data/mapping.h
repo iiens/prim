@@ -37,11 +37,26 @@
      */
     const UserActionMapping* mapping_get(int index);
 
-    /*
+    /*!
+     * Returns a mapping or null if not found by an action
+     * @param action you could also use for cancel action {@link mapping_getBackMapping}
+     * @return a mapping or null
+     */
+    const UserActionMapping* mapping_getMappingByAction( Action action );
+
+    /*!
      * Returns a mapping or null if not found
      * @param seq a character sequence that the user inputted
      * @return null or a UserActionMapping matching the sequence
      */
     const UserActionMapping* mapping_getMapping(const char* seq);
+
+    /**
+     * Returns the mapping associated with the back
+     * Action. This is a convenient method since
+     * this mapping is used in a lot a places.
+     * @return
+     */
+    const UserActionMapping* mapping_getBackMapping();
 
 #endif //PRIM_MAPPING_H

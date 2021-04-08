@@ -19,7 +19,7 @@ void* interface_ncurses_askMachineLocationClosureInit()
 void* interface_ncurses_askMachineLocationClosureCheck( char* buff, bool* leave, ErrorCode* error )
 {
     // he wants to go back
-    if ( strcmp(buff, BACK_MAPPING) == 0 ) {
+    if ( strcmp(buff, mapping_getBackMapping()->key) == 0 ) {
         back = true;
         *leave = TRUE;
         return NULL;
