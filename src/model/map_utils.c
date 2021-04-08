@@ -235,7 +235,7 @@ ErrorCode map_sendResourcesToGate(Map *m) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             type = case_getType(c);
-            if (type == CASE_BOX_GATE) {
+            if (type == CASE_GATE && case_hasBox(c)) {
                 Box *box = case_getBox(c);
                 box_setNumberGarbage(box, box_getNumberResource(box));
                 box_setNumberResource(box, box_getNumberResource(box) * -1);
@@ -262,7 +262,7 @@ void activateCollectors(Map *m) {
 
                     if (facade_getDirection(machine, NORTH) == DIRECTION_IN) {
                         next = map_getCase(x, y+1, m);
-                        if (case_getType(next) == CASE_BOX_SOURCE) {
+                        if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
                             Box* tmp = case_getBox(next);
                             box_addB2toB1(cumulative, tmp);
                             case_setEmpty(next);
@@ -284,9 +284,9 @@ void resetResourcesGarbage(Map *m) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             CaseType type = case_getType(c);
-            if (type == CASE_GATE || type == CASE_BOX_GATE) {
+            if (type == CASE_GATE) {
                 gate = c;
-            } else if (type == CASE_BOX || type == CASE_BOX_SOURCE) {
+            } else if (case_hasBox(c)) {
                 tmpBox = case_getBox(c);
                 box_setNumberGarbage(box, box_getNumberGarbage(tmpBox));
 
@@ -389,17 +389,19 @@ ErrorCode staff_actionLaurentPrevel(Map *m, int idStaff) {
                     c = map_getCase(i, j, m);
                     CaseType type = case_getType(c);
                     if (type == CASE_GATE) {
-                        case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
-                        map_sendResourcesToGate(m);
-                    } else if (type == CASE_BOX_GATE) {
-                        Box *saveBox = box_create(0, 0);
-                        box_addB2toB1(saveBox, case_getBox(c));
-                        case_setEmpty(c);
+                        if (case_hasBox(c)) {
+                            Box *saveBox = box_create(0, 0);
+                            box_addB2toB1(saveBox, case_getBox(c));
+                            case_setEmpty(c);
 
-                        case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
-                        map_sendResourcesToGate(m);
+                            case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
+                            map_sendResourcesToGate(m);
 
-                        case_addBox(c, saveBox);
+                            case_addBox(c, saveBox);
+                        } else {
+                            case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
+                            map_sendResourcesToGate(m);
+                        }
                     }
                 }
             }
