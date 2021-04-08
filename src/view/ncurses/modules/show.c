@@ -361,45 +361,37 @@ void interface_ncurses_showStaffList( const Map* map )
 
 void interface_ncurses_listActions()
 {
+    const UserActionMapping* m; //!< store mapping
     char* actionName; //!< action name
     char* mapping; //!< action mapping
 
     //clear
     wclear(mapWindow);
-    wrefresh(mapWindow);
     interface_ncurses_clearAction(" ");
 
     //title
     interface_ncurses_initListWindow(translation_get(TRANSLATE_ACTION_LIST_TITLE));
 
-    int mid = getmaxx(mapWindow) / 2;
-
-    for ( int i = 0, j = 2; i < USER_MAPPING_SIZE; i++, j++ ) {
-        actionName = translation_actionFetchName(user_mapping[i].actionID);
-        mapping = user_mapping[i].key;
-        // first action
-        wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-        mvwaddstr(mapWindow, j, 0, actionName);
-        wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-        waddstr(mapWindow, ":");
-        wattron(mapWindow, COLOR_PAIR(COLOR_RED));
-        waddstr(mapWindow, " `");
-        waddstr(mapWindow, mapping);
-        waddstr(mapWindow, "`");
-        wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
-        i++;
-        // second action
-        actionName = translation_actionFetchName(user_mapping[i].actionID);
-        mapping = user_mapping[i].key;
-        wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-        mvwaddstr(mapWindow, j, mid, actionName);
-        wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
-        waddstr(mapWindow, ":");
-        wattron(mapWindow, COLOR_PAIR(COLOR_RED));
-        waddstr(mapWindow, " `");
-        waddstr(mapWindow, mapping);
-        waddstr(mapWindow, "`");
-        wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
+    for ( int i = 0, j = 2; i < mapping_getSize(); i++, j++ ) {
+        // two per line
+        for ( int k = 0; k < 2; k++ ) {
+            int start = 0; //!< starting point
+            if ( k == 1 ) k = getmaxx(mapWindow) / 2; // second start at the middle of the screen
+            m = mapping_get(i); // fetch
+            actionName = translation_actionFetchName(m->actionID);
+            mapping = m->key;
+            // first action
+            wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
+            mvwaddstr(mapWindow, j, start, actionName);
+            wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
+            waddstr(mapWindow, ":");
+            wattron(mapWindow, COLOR_PAIR(COLOR_RED));
+            waddstr(mapWindow, " `");
+            waddstr(mapWindow, mapping);
+            waddstr(mapWindow, "`");
+            wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
+            i++;
+        }
     }
 
     interface_ncurses_show_menu_wait();

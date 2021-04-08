@@ -24,12 +24,24 @@
         char* key; //!< a sentence to input to select this action
     } UserActionMapping; //!< one mapping so (action, input_sequence)
 
-    /**
-     * @see interface_chooseAction, count of available actions
+    /*!
+     * returns the number of mappings
+     * @return a size, to iterates the array of mappings
      */
-    #define USER_MAPPING_SIZE 14 //!< to iterates user_mapping
+    int mapping_getSize();
 
-    // @see UserActionMapping, all mappings
-    extern const UserActionMapping user_mapping[]; //!< will contains all mappings, used in interface.h
+    /**
+     * Returns a mapping or null if not found by an index
+     * @param index from 0 to {@link mapping_getSize}
+     * @return a mapping or null
+     */
+    const UserActionMapping* mapping_get(int index);
+
+    /*
+     * Returns a mapping or null if not found
+     * @param seq a character sequence that the user inputted
+     * @return null or a UserActionMapping matching the sequence
+     */
+    const UserActionMapping* mapping_getMapping(const char* seq);
 
 #endif //PRIM_MAPPING_H

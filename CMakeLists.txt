@@ -60,7 +60,7 @@ add_executable(main
         src/model/map_utils.c
 
         headers/utils/structures.h
-        src/utils/structure.c src/model/case.c src/model/box.c)
+        src/utils/structure.c src/model/case.c src/model/box.c src/view/mapping.c)
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )
