@@ -64,9 +64,25 @@ void case_addBox(Case* c, Box* box) {
 }
 
 void case_setEmpty(Case* c) {
-    if (!(case_hasBox(c))) {
-        c->type = CASE_VIDE;
+    if (case_hasBox(c)) {
+        switch (c->type) {
+            case CASE_VIDE:
+            case CASE_GATE:
+            case CASE_SOURCE:
+                break;
+            case CASE_MACHINE:
+                machine_destroyMachine(c->in);
+                break;
+            case CASE_BOX:
+            case CASE_BOX_GATE:
+            case CASE_BOX_SOURCE:
+                free(c->in);
+                break;
+        }
     }
+
+    c->type = CASE_VIDE;
+    c->in = NULL;
 }
 
 Case* case_create(int x, int y) {
