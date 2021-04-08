@@ -165,7 +165,7 @@
     void machine_incrementLevel(Machine* m);
 
     // create une MAchine* avec level=1
-    Machine* machine_create(MachineStuff type, int rotation);
+    Machine* machine_create(MachineStuff type);
 
     // free les argument de machine( carton) et Machine
     ErrorCode machine_destroyMachine(Machine* mach);
