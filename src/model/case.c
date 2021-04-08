@@ -36,7 +36,7 @@ Box* case_getBox(const Case* c) {
 }
 
 void case_addMachine(Case* c, Machine* mach) {
-    if(case_isEmpty(c)) {
+    if(case_isEmpty(c) && c->in != NULL) {
         c->type = CASE_MACHINE;
         c->in = mach;
     }
@@ -56,7 +56,7 @@ void case_addSource(Case* c) {
 
 //TODO DOC
 void case_addBox(Case* c, Box* box) {
-    if (c->type != CASE_MACHINE && !(case_hasBox(c))) {
+    if (c->type != CASE_MACHINE && !(case_hasBox(c)) && c->in != NULL) {
         c->type = c->type | 0x01;
         c->in = box;
     }
