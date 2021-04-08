@@ -141,7 +141,9 @@
     */
     void case_addSource(Case* c);
 
-    void case_addBox(Case* c);
+    void case_addBox(Case* c, Box* box);
+
+    void case_setEmpty(Case* c);
 
     bool case_isEmpty(const Case* c);
     bool case_hasBox(const Case* c);

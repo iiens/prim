@@ -50,7 +50,7 @@ void case_addSource(Case* c) {
     }
 }
 
-void case_addBox(Case* c) {
+void case_addBox(Case* c, Box* box) {
     if (c->type != CASE_MACHINE && !(case_hasBox(c))) {
         if(c->type == CASE_GATE) {
             c->type = CASE_BOX_GATE;
@@ -59,6 +59,13 @@ void case_addBox(Case* c) {
         } else {
             c->type = CASE_BOX;
         }
+        c->in = box;
+    }
+}
+
+void case_setEmpty(Case* c) {
+    if (!(case_hasBox(c))) {
+        c->type = CASE_VIDE;
     }
 }
 
@@ -81,9 +88,9 @@ bool case_isEmpty(const Case* c) {
 
 bool case_hasBox(const Case* c){
     if (c->in != NULL) {
-        return false;
-    } else {
         return true;
+    } else {
+        return false;
     }
 }
 
