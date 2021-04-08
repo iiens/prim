@@ -53,7 +53,7 @@ O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
 	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
-	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o \
+	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o \
 	$(OUTPUT_U)utils_fun.o
 
 # all off our header files included in interface.h for convenience sake

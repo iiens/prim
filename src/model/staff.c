@@ -298,7 +298,7 @@ const Staff staff_list[] = {
 
         },
 
-        {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+        {21, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
                                             " decreases by 5E and 25DD ", .effects = {
                 .mode = DESTROY,
                 .onOther = 0,

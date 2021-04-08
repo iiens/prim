@@ -38,7 +38,7 @@ void* interface_ncurses_askBuyStaffCheck( char* buff, bool* leave, ErrorCode* er
         char* endPtr = NULL; //!< conversion error
         int staffID; //!< staff ID
 
-        staffID = strtol(buff, &endPtr, 10);
+        staffID = (int) strtol(buff, &endPtr, 10);
 
         if ( endPtr != NULL && staff_isIDValid(staffID) != -1 ) {
             int* result = (int*) malloc(sizeof(int)); //!< returned result
