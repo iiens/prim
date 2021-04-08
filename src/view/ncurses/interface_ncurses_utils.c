@@ -242,10 +242,13 @@ char interface_utils_parseOrientation( int x, int y, const Map* map )
 void interface_ncurses_utils_init_colors()
 {
     // colors goes from 0 to 255
-    for ( short i = 0; i < 255; i++ ) {
+    /*for ( short i = 0; i < 255; i++ ) {
         // init
         init_color(i, 0, 0, 0);
         // new color as foreground, black as background
         init_pair(i, i, COLOR_BLACK);
-    }
+    }*/
+
+    init_pair(ERROR_COLOR, COLOR_RED, COLOR_BLACK);
+    init_pair(SUCCESS_COLOR, COLOR_GREEN, COLOR_BLACK);
 }
