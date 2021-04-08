@@ -117,3 +117,17 @@ ErrorCode case_destroy(Case* c) {
     free(c);
     return NO_ERROR;
 }
+
+ErrorCode case_deleteBox(Case* c) {
+    if (case_hasBox(c)) {
+        free(c->in);
+        if (c->type == CASE_BOX_GATE) {
+            c->type = CASE_GATE;
+        } else if (c->type == CASE_BOX_SOURCE) {
+            c->type = CASE_SOURCE;
+        } else if (c->type == CASE_BOX) {
+            c->type = CASE_VIDE;
+        }
+    }
+    return NO_ERROR;
+}

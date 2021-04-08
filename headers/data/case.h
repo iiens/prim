@@ -150,4 +150,6 @@
 //TODO ANTOINE DOC
     ErrorCode case_destroy(Case* c);
 
+    ErrorCode case_deleteBox(Case* c);
+
 #endif //PRIM_CASE_H
