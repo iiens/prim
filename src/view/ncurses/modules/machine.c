@@ -97,8 +97,7 @@ void* interface_ncurses_askOrientationCheck( char* buff, bool* leave, ErrorCode*
         char* endPtr = NULL; //!< conversion error
         int rotation = (int) strtol(buff, &endPtr, 10);
 
-        // todo: constants
-        if ( endPtr != NULL && rotation >= 0 && rotation <= 3 ) {
+        if ( endPtr != NULL && machine_isRotationCorrect(rotation) ) {
             int* result = (int*) malloc(sizeof(int)); //!< store result, no dangling pointer
             *result = rotation;
             *leave = true;

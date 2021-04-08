@@ -207,3 +207,29 @@ char* translation_fetchMachineTypeName( MachineStuff s )
     return "Error. Please report it to the developers.";
 }
 
+Dictionary* translation_getLegendMachines()
+{
+    Dictionary* machines = dictionary_create(7);
+    dictionary_addCoupleText(machines, "S", "Source");
+    dictionary_addCoupleText(machines, "G", "Gate");
+    dictionary_addCoupleText(machines, "C", "Collector");
+    dictionary_addCoupleText(machines, "B", "Conveyor belt");
+    dictionary_addCoupleText(machines, "X", "Cross");
+    dictionary_addCoupleText(machines, "R", "Recycling center");
+    dictionary_addCoupleText(machines, "J", "Junkyard");
+    return machines;
+}
+
+Dictionary* translation_getLegendDirections()
+{
+    Dictionary* machines = dictionary_create(7);
+    dictionary_addCoupleText(machines, "1", "BOTTOM LEFT");
+    dictionary_addCoupleText(machines, "2", "BOTTOM");
+    dictionary_addCoupleText(machines, "3", "BOTTOM RIGHT");
+    dictionary_addCoupleText(machines, "4", "LEFT");
+    dictionary_addCoupleText(machines, "6", "RIGHT");
+    dictionary_addCoupleText(machines, "7", "TOP LEFT");
+    dictionary_addCoupleText(machines, "8", "TOP");
+    dictionary_addCoupleText(machines, "9", "TOP RIGHT");
+    return machines;
+}

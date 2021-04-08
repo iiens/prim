@@ -5,6 +5,7 @@
     #include "../data/machine.h"
     #include "../data/actions.h"
     #include "../data/case.h"
+    #include "../utils/structures.h"
 
     /*!
      * \typedef Translation
@@ -53,28 +54,28 @@
         TRANSLATE_INPUT_ORIENTATION,
     } Translation;
 
-    /**
+    /*!
      * Returns the translation of a translation constant
      * @param t: see enum Translation
      * @return the translated or an empty string if there is none
      */
     char* translation_get(Translation t);
 
-    /**
+    /*!
      * Convenience method, return machine name
      * @param s machine stuff
      * @return translation
      */
     char* translation_getMachineType(MachineStuff s);
 
-    /**
+    /*!
      * Returns action name by enum value
      * @param action action id
      * @return action as a string
      */
     char* translation_actionFetchName( Action action);
 
-    /**
+    /*!
      * Returns the type of a case
      * @param t type of a case
      * @return the translation or NULL if it's a machine. In such
@@ -82,11 +83,23 @@
      */
     char* translation_fetchCaseTypeName( CaseType t );
 
-    /**
+    /*!
      * Returns machine type name
      * @param s stuff of a case
      * @return the translation
      */
     char* translation_fetchMachineTypeName( MachineStuff s );
+
+    /*!
+     * Returns the dictionary of the legend of the machines
+     * @return the dictionary
+     */
+    Dictionary* translation_getLegendMachines();
+
+    /*!
+     * Returns the dictionary of the legend of the directions
+     * @return the dictionary
+     */
+    Dictionary* translation_getLegendDirections();
 
 #endif //PRIM_TRANSLATION_H

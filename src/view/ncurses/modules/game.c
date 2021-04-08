@@ -1,6 +1,19 @@
 #include "../headers/interface_ncurses.h"
 #include "../headers/interface_ncurses_utils.h"
 
+void interface_ncurses_showLegend(bool first, int y, Couple entry)
+{
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    if ( first )
+        mvwaddstr(gameWindow, y, 1, entry.keys.content.text);
+    else
+        waddstr(gameWindow, entry.keys.content.text);
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": ");
+    waddstr(gameWindow, entry.values.content.text);
+    waddstr(gameWindow, " ");
+}
+
 void interface_ncurses_gameMenu( const Map* map )
 {
     const int END_BASE = 10; //!< 10 lines of games constants
@@ -33,95 +46,39 @@ void interface_ncurses_gameMenu( const Map* map )
               interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map_getNumberPollution(map), buf,
                                         format));
 
-    //    Dictionary* machines;
-    //    machines = dictionary_create(7);
-    //    dictionary_addElement(machines,
-    //                          (Element) {.content = {.text = "S"}, .type = TEXT},
-    //                          (Element) {.content = {.text = "Source"}, .type = TEXT});
-    //    dictionary_addElement(machines,
-    //                          (Element) {.content = {.text = "S"}, .type = TEXT},
-    //                          (Element) {.content = {.text = "Source"}, .type = TEXT});
+    // show legend
+    Dictionary* machines = translation_getLegendMachines();
 
     // then we have
-    //todo: redo plz
     wattron(gameWindow, COLOR_PAIR(COLOR_RED));
     mvwaddstr(gameWindow, END_BASE + 2, 1, "Legend");
     wattroff(gameWindow, COLOR_PAIR(COLOR_RED));
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 3, 1, "S");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Source ");
+    interface_ncurses_showLegend(true, END_BASE + 3, dictionary_getCoupleByIndex(machines, 0));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 1));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 2));
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "G");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Gate ");
+    interface_ncurses_showLegend(true, END_BASE + 4, dictionary_getCoupleByIndex(machines, 4));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 5));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 6));
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 4, 1, "C");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Collector ");
+    interface_ncurses_showLegend(true, END_BASE + 5, dictionary_getCoupleByIndex(machines, 7));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 8));
+    // same line ?
+    interface_ncurses_showLegend(true, 0, dictionary_getCoupleByIndex(machines, 9));
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "B");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": CONVEYOR BELT ");
+    Dictionary* directions = translation_getLegendDirections();
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 5, 1, "X");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Cross ");
+    interface_ncurses_showLegend(true, END_BASE + 7, dictionary_getCoupleByIndex(directions, 0));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 1));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 2));
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "R");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": RECYCLING CENTER ");
+    interface_ncurses_showLegend(true, END_BASE + 8, dictionary_getCoupleByIndex(directions, 3));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 4));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 5));
 
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 6, 1, "J");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": JUNKYARD ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 8, 1, "4");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": LEFT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "6");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": RIGHT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "8");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": TOP ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 9, 1, "2");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": BOTTOM ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "7");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": TOP LEFT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "9");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": TOP RIGHT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 10, 1, "1");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": BOTTOM LEFT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "3");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": BOTTOM RIGHT ");
+    interface_ncurses_showLegend(true, END_BASE + 9, dictionary_getCoupleByIndex(directions, 6));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 7));
 
     free(buf);
     free(format);

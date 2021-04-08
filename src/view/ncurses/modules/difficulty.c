@@ -1,8 +1,22 @@
-#include "../../../../headers/interface.h"
 #include "../../../../headers/utils/map_utils.h"
 #include "../headers/interface_ncurses.h"
 #include "../headers/interface_ncurses_utils.h"
 #include <string.h>
+
+// TL;DR
+//
+// This is made while thinking that we will always have 32 difficulties.
+// because I need to translate them and nothing tells me how much difficulties they are
+// so I can't iterate the enum. And it's an enum so I can't iterates it.
+//
+// So we will show the 3 difficulties
+// easy
+// medium
+// hard
+//
+// and some of them may be disabled if the screen is too small.
+//
+// Selected one is highlighted.
 
 Difficulty interface_ncurses_chooseDifficulty()
 {
