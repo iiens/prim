@@ -188,7 +188,7 @@ Direction facade_getDirection(const Machine *machine, Cardinal card) {
     return DIRECTION_NONE;
 }
 
-Box *facade_getBoxTop(const Machine *machine, Cardinal card) {
+Box *facade_getBox(const Machine *machine, Cardinal card) {
     for (int i = 0; i < machine->numberFacade; ++i) {
         if (machine->interface[i].cardinal == card) {
             return machine->interface[card].content;

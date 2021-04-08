@@ -189,7 +189,7 @@
     //TODO METTRE NEW SIGNATURES
 
     Direction facade_getDirection(const Machine *machine, Cardinal card);
-    Box* facade_getBoxTop(const Machine *machine, Cardinal card);
+    Box* facade_getBox(const Machine *machine, Cardinal card);
 
 
 #endif //PRIM_MACHINE_H
