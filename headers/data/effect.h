@@ -66,7 +66,7 @@
         Mode mode; //!< represent the mode applied to the machine
         Target what; //!< represent the target of the effect
         bool onOther; //!< to know if what is a machine or other
-        int modifierRes; //!< if SEND_DOOR, resource put in multiply by this
+        float modifierRes; //!< if SEND_DOOR, resource put in multiply by this
         int modifierFISA; //!< update the number of FISA
         int modifierFISE; //!< update the number of FISE
         int modifierE; //!< update the E cost
