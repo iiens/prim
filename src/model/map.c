@@ -251,10 +251,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             // Vérifie que le joueur à les sous
             ErrorCode e = map_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                machine_destroyMachine(machine);
-
-                // Demander seter case vide
-                // mettre .mach et .other à NULL
+                case_setEmpty(c);
 
                 return NO_ERROR;
             } else {

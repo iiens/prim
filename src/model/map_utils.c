@@ -49,11 +49,11 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
                     int minE = effect_getMinCostE(effect);
                     int minDD = effect_getMinCostDD(effect);
 
-                    *numberE = *numberE - (modifyE * numberStaff);
+                    *numberE = *numberE + (modifyE * numberStaff);
                     if (*numberE < minE) {
                         *numberE = minE;
                     }
-                    *numberDD = *numberDD - (modifyDD * numberStaff);
+                    *numberDD = *numberDD + (modifyDD * numberStaff);
                     if (*numberDD < minDD) {
                         *numberDD = minDD;
                     }
