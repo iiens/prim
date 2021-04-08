@@ -1,7 +1,7 @@
 #include "../../../../headers/interface.h"
 #include "../../../../headers/utils/map_utils.h"
-#include "../interface_ncurses.h"
-#include "../interface_ncurses_utils.h"
+#include "../headers/interface_ncurses.h"
+#include "../headers/interface_ncurses_utils.h"
 #include <string.h>
 
 Difficulty interface_ncurses_chooseDifficulty()

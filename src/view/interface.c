@@ -8,7 +8,7 @@
  */
 
 #include "../../headers/interface.h"
-#include "ncurses/interface_ncurses.h"
+#include "ncurses/headers/interface_ncurses.h"
 
 //todo: maybe allow this value to be changed in a option
 // of our main (such as ./prim --no-ncurses

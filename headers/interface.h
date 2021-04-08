@@ -30,6 +30,7 @@
     #include "data/error.h" // error codes that we would have to show
     #include "map.h" // contains map type
     #include "utils/utils.h" // utilities functions
+    #include "utils/translation.h" // translation related functions
 
     extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
 

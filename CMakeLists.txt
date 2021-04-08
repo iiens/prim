@@ -48,6 +48,7 @@ add_executable(main
         src/view/ncurses/interface_ncurses_utils.c
         src/view/ncurses/modules/action.c
         src/view/ncurses/modules/difficulty.c
+        src/view/ncurses/modules/game.c
         src/view/ncurses/modules/location.c
         src/view/ncurses/modules/show.c
         src/view/ncurses/modules/staff.c

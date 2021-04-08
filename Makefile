@@ -28,6 +28,7 @@ OUTPUT_M=$(OUTPUT)model/
 OUTPUT_U=$(OUTPUT)utils/
 OUTPUT_V_N=$(OUTPUT_V)ncurses/
 OUTPUT_V_N_M=$(OUTPUT_V_N)modules/
+OUTPUT_V_N_H=$(OUTPUT_V_N)headers/
 # src
 SOURCE=./src/
 SOURCE_H=./headers/
@@ -38,12 +39,13 @@ SOURCE_M=$(SOURCE)model/
 SOURCE_U=$(SOURCE)utils/
 SOURCE_V_N=$(SOURCE_V)ncurses/
 # ncurses module
+SOURCE_V_N_H=$(SOURCE_V_N)headers/
 SOURCE_V_N_M=$(SOURCE_V_N)modules/
 
 # all interface modules object files
-# we got 6 target to do
+# we got 7 target to do
 INTERFACE_MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT_V_N_M)location.o $(OUTPUT_V_N_M)machine.o \
-	$(OUTPUT_V_N_M)show.o $(OUTPUT_V_N_M)staff.o
+	$(OUTPUT_V_N_M)show.o $(OUTPUT_V_N_M)staff.o $(OUTPUT_V_N_M)game.o
 
 # all off our project files
 # 2-3 : we got our interface and 2 ncurses related and translation and our modules of course. Also a translation file.
@@ -89,12 +91,12 @@ $(OUTPUT_M)map.o: $(SOURCE_M)map.c $(SOURCE_H)map.h $(INTERFACE_DEP) $(OUTPUT_M)
 # interface_ncurses.o
 # - interface_ncurses.c and .h
 # - interface_ncurses_utils.c and interface_ncurses_utils.h
-$(OUTPUT_V_N)interface_ncurses.o: $(SOURCE_V_N)interface_ncurses.c $(SOURCE_V_N)interface_ncurses.h \
+$(OUTPUT_V_N)interface_ncurses.o: $(SOURCE_V_N)interface_ncurses.c $(SOURCE_V_N_H)interface_ncurses.h \
  		$(OUTPUT_V_N)interface_ncurses_utils.o
 	mkdir -p $(OUTPUT_V_N) && $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N)interface_ncurses.o $(SOURCE_V_N)interface_ncurses.c
 
 # ncurses utils
-$(OUTPUT_V_N)interface_ncurses_utils.o: $(SOURCE_V_N)interface_ncurses_utils.c $(SOURCE_V_N)interface_ncurses_utils.h
+$(OUTPUT_V_N)interface_ncurses_utils.o: $(SOURCE_V_N)interface_ncurses_utils.c $(SOURCE_V_N_H)interface_ncurses_utils.h
 	mkdir -p $(OUTPUT_V_N) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N)interface_ncurses_utils.o $(SOURCE_V_N)interface_ncurses_utils.c
 
 # ncurses modules
@@ -112,6 +114,9 @@ $(OUTPUT_V_N_M)machine.o: $(SOURCE_V_N_M)machine.c $(OUTPUT_V_N)interface_ncurse
 
 $(OUTPUT_V_N_M)show.o: $(SOURCE_V_N_M)show.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
 	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)show.o $(SOURCE_V_N_M)show.c
+
+$(OUTPUT_V_N_M)game.o: $(SOURCE_V_N_M)game.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o
+	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)game.o $(SOURCE_V_N_M)game.c
 
 $(OUTPUT_V_N_M)staff.o: $(SOURCE_V_N_M)staff.c $(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(OUTPUT_M)staff.o
 	mkdir -p $(OUTPUT_V_N_M) &&  $(CC) $(CFLAGS) -c -o $(OUTPUT_V_N_M)staff.o $(SOURCE_V_N_M)staff.c

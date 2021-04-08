@@ -1,131 +1,17 @@
 //
 // Show related functions
 //
-#include "../../../../headers/interface.h"
-#include "../interface_ncurses.h"
-#include "../interface_ncurses_utils.h"
-#include "../../../../headers/utils/translation.h"
-#include "../../../utils/utils_fun.h"
 #include <string.h>
+#include "../headers/interface_ncurses.h"
+#include "../headers/interface_ncurses_utils.h"
+#include "../../../utils/utils_fun.h"
 
 void interface_ncurses_showMap( const Map* map )
 {
-    const int END_BASE = 10; //!< 10 lines of games constants
     const int HEIGHT = map_getHeight(map); //!< height
     const int WIDTH = map_getWidth(map); //!< width
-    char* buf = (char*) malloc(GAME_WIDTH * sizeof(char)); //!< see interface_ncurses_gameTag
-    char* format = (char*) malloc(GAME_WIDTH * sizeof(char)); //!< see interface_ncurses_gameTag
-    char* production = //!< string for the production mode
-            map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(
-                    TRANSLATE_GAME_DD);
 
     wclear(mapWindow); //reset
-    wclear(gameWindow); //reset
-
-    // init_view
-    mvwprintw(gameWindow, 1, 1, translation_get(TRANSLATE_GAME_NAME));
-    mvwprintw(gameWindow, 2, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_TURN), map_getNumberTurn(map), buf, format));
-    mvwprintw(gameWindow, 3, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_E), map_getNumberE(map), buf, format));
-    mvwprintw(gameWindow, 4, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_DD), map_getNumberDD(map), buf, format));
-    mvwprintw(gameWindow, 5, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISE), map_getNumberFISE(map), buf, format));
-    mvwprintw(gameWindow, 6, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_FISA), map_getNumberFISA(map), buf, format));
-    mvwprintw(gameWindow, 7, 1,
-              interface_ncurses_gameTag_type(translation_get(TRANSLATE_GAME_FISA_MODE), production, buf, format, "%s"));
-    mvwprintw(gameWindow, 9, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_SCORE), map_getPlayerScore(map), buf, format));
-    // END_BASE = 10
-    mvwprintw(gameWindow, END_BASE, 1,
-              interface_ncurses_gameTag(translation_get(TRANSLATE_GAME_GARBAGE), map_getNumberPollution(map), buf,
-                                        format));
-
-    // then we have
-    //todo: redo plz
-    wattron(gameWindow, COLOR_PAIR(COLOR_RED));
-    mvwaddstr(gameWindow, END_BASE + 2, 1, "Legend");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_RED));
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 3, 1, "S");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Source ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "G");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Gate ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 4, 1, "C");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Collector ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "B");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": CONVEYOR BELT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 5, 1, "X");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": Cross ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "R");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": RECYCLING CENTER ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 6, 1, "J");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": JUNKYARD ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 8, 1, "4");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": LEFT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "6");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": RIGHT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "8");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": TOP ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 9, 1, "2");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": BOTTOM ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "7");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": TOP LEFT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "9");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": TOP RIGHT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwaddstr(gameWindow, END_BASE + 10, 1, "1");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": BOTTOM LEFT ");
-
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, "3");
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": BOTTOM RIGHT ");
-
-    free(buf);
-    free(format);
 
     //         0  1  2  3 ... n
     //       +--+--+--+--+--+--+
@@ -376,7 +262,8 @@ void interface_ncurses_listActions()
         // two per line
         for ( int k = 0; k < 2; k++ ) {
             int start = 0; //!< starting point
-            if ( k == 1 ) k = getmaxx(mapWindow) / 2; // second start at the middle of the screen
+            if ( k == 1 )
+                start = getmaxx(mapWindow) / 2; // second start at the middle of the screen
             m = mapping_get(i); // fetch
             actionName = translation_actionFetchName(m->actionID);
             mapping = m->key;

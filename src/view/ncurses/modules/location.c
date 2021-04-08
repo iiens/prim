@@ -2,8 +2,8 @@
 // Ask machine location
 //
 #include "../../../../headers/interface.h"
-#include "../interface_ncurses.h"
-#include "../interface_ncurses_utils.h"
+#include "../headers/interface_ncurses.h"
+#include "../headers/interface_ncurses_utils.h"
 #include "../../../../headers/utils/translation.h"
 #include <string.h>
 

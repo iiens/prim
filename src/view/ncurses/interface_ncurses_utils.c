@@ -1,5 +1,5 @@
-#include "interface_ncurses.h" //!< base interface
-#include "interface_ncurses_utils.h" //!< this header
+#include "headers/interface_ncurses.h" //!< base interface
+#include "headers/interface_ncurses_utils.h" //!< this header
 #include "../../../headers/utils/translation.h"
 #include <string.h> //!< strlen, ...
 
@@ -237,4 +237,15 @@ char interface_utils_parseOrientation( int x, int y, const Map* map )
         }
     }
     return L' ';
+}
+
+void interface_ncurses_utils_init_colors()
+{
+    // colors goes from 0 to 255
+    for ( short i = 0; i < 255; i++ ) {
+        // init
+        init_color(i, 0, 0, 0);
+        // new color as foreground, black as background
+        init_pair(i, i, COLOR_BLACK);
+    }
 }

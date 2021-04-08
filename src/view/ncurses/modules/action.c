@@ -1,7 +1,7 @@
 #include "../../../../headers/interface.h"
 #include "../../../../headers/utils/translation.h"
-#include "../interface_ncurses.h"
-#include "../interface_ncurses_utils.h"
+#include "../headers/interface_ncurses.h"
+#include "../headers/interface_ncurses_utils.h"
 #include <string.h>
 
 /** Callback on init  */
@@ -16,7 +16,7 @@ void* interface_ncurses_chooseActionClosureInit()
 void* interface_ncurses_chooseActionClosureCheck( char* buff, bool* leave, ErrorCode* error )
 {
     const UserActionMapping* m = mapping_getMapping(buff);
-    if ( m != NULL ){
+    if ( m != NULL ) {
         *leave = true;
         return (void*) &(m->actionID);
     }

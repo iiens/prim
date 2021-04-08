@@ -34,7 +34,7 @@ const UserActionMapping user_mapping[] = {
         {ACTION_DESTROY_MACHINE,  "rm"}, //!< destroy machine with rm
 }; //!< array of all the mappings
 
-const UserActionMapping* mapping_getMapping(const char* seq)
+const UserActionMapping* mapping_getMapping( const char* seq )
 {
     // check for all
     for ( int i = 0; i < USER_MAPPING_SIZE; i++ ) {
@@ -51,11 +51,10 @@ int mapping_getSize()
     return USER_MAPPING_SIZE;
 }
 
-const UserActionMapping* mapping_get(int index)
+const UserActionMapping* mapping_get( int index )
 {
     // if in
-    if (index >= 0 && index < mapping_getSize())
-    {
+    if ( index >= 0 && index < mapping_getSize() ) {
         return &(user_mapping[index]);
     }
     return NULL;

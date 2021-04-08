@@ -3,20 +3,9 @@
  * This file is supposed to contains all interface functions that
  * uses ncurses.
  */
-#include "../../../headers/interface.h"
-#include "interface_ncurses.h"
-#include "interface_ncurses_utils.h"
+#include "headers/interface_ncurses.h"
+#include "headers/interface_ncurses_utils.h"
 #include <locale.h>
-
-// References
-// https://manpages.debian.org/testing/ncurses-doc/keypad.3ncurses.en.html
-// https://stackoverflow.com/questions/8108634/global-variables-in-header-file
-// https://techlister.com/linux/creating-menu-with-ncurses-in-c/1293/
-// https://stackoverflow.com/questions/66540302/c99-utf8-characters-with-ncurses
-// https://stackoverflow.com/questions/33322601/clearing-a-field-buffer-in-ncurses
-// adding colors
-// - init_color(CODE_MY, 0,0,0);
-// - init_pair(MY_COLOR, 124, COLOR_BLACK);
 
 //\////////////////////////////\//
 //\/ interface related
@@ -35,28 +24,31 @@ int MIN_COL_SAVED = 164;
 //
 ErrorCode interface_ncurses_init()
 {
-    //allow UTF-8
+    // allow UTF-8
     setlocale(LC_ALL, "fr_FR.UTF-8");
 
-    //init screen
+    // init screen
     if ( initscr() == NULL ) {
         interface_close();
-        //Colors aren't supported in this terminal
         return ERROR_INIT_NCURSES_INTERFACE;
     }
 
+    // increase value if we can have a greater height
+    // we actually don't care about width
     if ( LINES > MIN_ROW_SAVED )
         MIN_ROW_SAVED = LINES;
 
+    // here resize the term
     if ( resize_term(MIN_ROW_SAVED, MIN_COL_SAVED) == -1 ) {
         interface_close();
         return ERROR_INIT_NCURSES_INTERFACE_SIZE;
     }
 
+    // create windows
     gameWindow = subwin(stdscr, LINES - ACTION_HEIGHT, GAME_WIDTH, 0, 0);
     mapWindow = subwin(stdscr, LINES - ACTION_HEIGHT, COLS - GAME_WIDTH, 0, GAME_WIDTH);
     actionWindow = subwin(stdscr, ACTION_HEIGHT, COLS, LINES - ACTION_HEIGHT, 0);
-
+    // seems useless but boxing them
     box(gameWindow, ACS_VLINE, ACS_HLINE);
     box(actionWindow, ACS_VLINE, ACS_HLINE);
     box(mapWindow, ACS_VLINE, ACS_HLINE);
@@ -67,11 +59,11 @@ ErrorCode interface_ncurses_init()
         //Colors aren't supported in this terminal
         return ERROR_NO_NCURSES_COLORS_INTERFACE;
     }
+    // start colors
     start_color();
 
     // declare colors
-    init_pair(ERROR_COLOR, COLOR_RED, COLOR_BLACK);
-    init_pair(SUCCESS_COLOR, COLOR_GREEN, COLOR_BLACK);
+    interface_ncurses_utils_init_colors();
 
     // ...
     keypad(stdscr, TRUE);
@@ -91,7 +83,8 @@ ErrorCode interface_ncurses_init()
 // and save this map in a pointer
 ErrorCode interface_ncurses_reload( const Map* map )
 {
-    interface_showMap(map); // 1 and 2
+    interface_ncurses_gameMenu(map); // 1
+    interface_ncurses_showMap(map); // 2
     interface_ncurses_showActionField(); // 3
     return NO_ERROR;
 }
