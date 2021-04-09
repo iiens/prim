@@ -313,7 +313,7 @@ Element dictionary_elementFromText( char* text )
     return e;
 }
 
-Element dictionary_elementFromObject ( void* object )
+Element dictionary_elementFromObject( void* object )
 {
     Element e;
     e.type = OBJECT;
