@@ -27,5 +27,6 @@
     #define NB_TURN_PRODUCTION_SOURCE 10 //!< number of turns before Source Production 
     #define NB_RESOURCE_PRODUCT_BY_SOURCE 3  //!< number of resource produced by Source
     #define NUMBER_DIRECTION 4 //!< number of direction
+    #define NUMBER_WASTE_TO_PRODUCT_RESOURCE 10 //!< number of waste to product a resource in a recycling center
 
 #endif //PRIM_CONST_H

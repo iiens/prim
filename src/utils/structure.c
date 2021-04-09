@@ -270,7 +270,7 @@ Element* dictionary_getElementText( Dictionary* d, char* key )
 Element* dictionary_getElementInt( Dictionary* d, int key )
 {
     // create element
-    return dictionary_getElement(d, dictionary_elementFromInt(key));
+    return dictionary_getElement(d, dictionary_elementFromNumber(key));
 }
 
 int dictionary_elementToInt( Element e )
@@ -281,6 +281,14 @@ int dictionary_elementToInt( Element e )
     return -1;
 }
 
+void* dictionary_elementToObject( Element e )
+{
+    if ( e.type == OBJECT ) {
+        return e.content.object;
+    }
+    return NULL;
+}
+
 char* dictionary_elementToText( Element e )
 {
     if ( e.type == TEXT ) {
@@ -289,7 +297,7 @@ char* dictionary_elementToText( Element e )
     return "";
 }
 
-Element dictionary_elementFromInt( int number )
+Element dictionary_elementFromNumber( int number )
 {
     Element e;
     e.type = NUMBER;
@@ -302,6 +310,14 @@ Element dictionary_elementFromText( char* text )
     Element e;
     e.type = TEXT;
     e.content.text = text;
+    return e;
+}
+
+Element dictionary_elementFromObject ( void* object )
+{
+    Element e;
+    e.type = OBJECT;
+    e.content.object = object;
     return e;
 }
 

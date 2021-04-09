@@ -93,12 +93,14 @@ Couple* dictionary_getCoupleByIndex( Dictionary *d, int index);
 ErrorCode dictionary_addCoupleText(Dictionary *d,char* key, char* value);
 ErrorCode dictionary_addCoupleIntText(Dictionary* d,int key, char* value);
 Element* dictionary_getElementText(Dictionary *d, char* key);
+ErrorCode dictionary_addCoupleInt( Dictionary* d, int key, int value );
 Element* dictionary_getElementInt(Dictionary *d, int key);
 
 int dictionary_elementToInt(Element e);
 char* dictionary_elementToText( Element e);
-Element dictionary_elementFromInt(int number);
+Element dictionary_elementFromNumber(int number);
 Element dictionary_elementFromText( char* text);
+Element dictionary_elementFromObject (void* object);
 
 /*!
  * \fn destroyStructuresTab
