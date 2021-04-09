@@ -18,10 +18,7 @@ Facade **facade_defaultFacade(MachineStuff s) {
 
     switch (s) {
         case MS_COLLECTOR:
-            facade_setDirection(interface[NORTH],DIRECTION_NONE);
-            facade_setDirection(interface[EAST],DIRECTION_NONE);
-            facade_setDirection(interface[SOUTH],DIRECTION_IN);
-            facade_setDirection(interface[WEST],DIRECTION_NONE);
+            facade_setDirection(interface[SOUTH],DIRECTION_OUT);
             break;
         case MS_CONVEYOR_BELT:
             facade_setDirection(interface[NORTH],DIRECTION_IN);
@@ -64,7 +61,9 @@ Machine *machine_create(MachineStuff type) {
 
 ErrorCode machine_destroyMachine(Machine *mach) {
     // free tous les composants de machine, y compris Carton
-    free(mach->interface);
+    for (Cardinal i = 0; i < NUMBER_CARDINAL; ++i) {
+        facade_destroy(mach->interface[i]);
+    }
     free(mach);
     return NO_ERROR;
 }
