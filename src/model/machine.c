@@ -10,10 +10,11 @@ struct Machine_S {
 }; //!< Machine
 
 Facade **facade_defaultFacade(MachineStuff s) {
-    Facade **interface = (Facade **) malloc(NUMBER_CARDINAL * sizeof(Facade *)); // TODO : RAMZY #define NUMBER FACADE 4
+    Facade **interface = (Facade **) malloc(NUMBER_CARDINAL * sizeof(Facade *));
 
     for (Cardinal i = 0; i < NUMBER_CARDINAL; ++i) {
         interface[i] = facade_create(i);
+        facade_setDirection(interface[i],DIRECTION_NONE);
     }
 
     switch (s) {
