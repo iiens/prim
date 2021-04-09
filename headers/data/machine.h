@@ -162,6 +162,8 @@
 
     bool machine_isOrientationTopLeft(const Machine* mach, Direction d);
 
+    bool machine_isRotationCorrect(int rotation);
+
     //TODO METTRE NEW SIGNATURES
 
     Direction machine_getDirection(const Machine *machine, Cardinal card);

@@ -156,6 +156,14 @@ bool machine_isOrientationTopLeft(const Machine *mach, Direction d) {
     }
 }
 
+bool machine_isRotationCorrect(int rotation) {
+    if (rotation >= 0 && rotation <NUMBER_CARDINAL) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Struct Facade
 Direction machine_getDirection(const Machine *machine, Cardinal card) {
     return facade_getDirection(machine->interface[card]);
