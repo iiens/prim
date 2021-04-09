@@ -11,10 +11,21 @@
 #include <stdio.h>
 #include "../../headers/utils/structures.h"
 
+List* list_createEmpty( )
+{
+    List* l = (List*) malloc(sizeof(List));
+    l->current = NULL;
+    l->next = NULL;
+    return l;
+}
+
 List* list_create( Element first )
 {
     List* l = (List*) malloc(sizeof(List));
-    l->current = first;
+    //todo: do better
+    Element* a = (Element*) malloc(sizeof(Element));
+    *a = first;
+    l->current = a;
     l->next = NULL;
     return l;
 }
@@ -22,10 +33,18 @@ List* list_create( Element first )
 // at the end
 ErrorCode list_addElement( List* l, Element e )
 {
-    List* c = l;
+    if (l->current == NULL){
+        //todo: do better
+        Element* a = (Element*) malloc(sizeof(Element));
+        *a = e;
+        l->current = a;
+        return NO_ERROR;
+    }
+
     if ( l->next == NULL ) {
         l->next = list_create(e);
     } else {
+        List* c = l;
         while ( c->next != NULL ) {
             c = c->next;
         }
@@ -37,21 +56,64 @@ ErrorCode list_addElement( List* l, Element e )
 // advance list => next and return current
 Element list_next( List** current )
 {
-    Element e = (*current)->current;
+    Element* e = (*current)->current;
     *current = (*current)->next;
-    return e;
+    return *e;
 }
 
 // get Element
 Element list_get( List* list )
 {
-    return list->current;
+    return *list->current;
+}
+
+ErrorCode list_removeByIndex(List* list,int index){
+
+    int pos=0;
+    if(list->next == NULL) {
+        free(list->current); //todo: delete
+        list->current = NULL;
+    }
+
+    while (list->next !=NULL){
+        if(pos+1 == index) {
+            list->next = list->next->next;
+            return NO_ERROR;
+        }
+        pos++;
+    }
+
+    return NO_ERROR;
+
+}
+
+Element* list_getByIndex(List* list, int index){
+    int pos = 0;
+    while (list->current !=NULL){
+        if(pos == index)
+            return list->current;
+        list = list->next;
+        pos++;
+    }
+    return NULL;
+}
+
+int list_getSize(List* list){
+    int sz = 0;
+    if(list->current == NULL)
+        return 0;
+    while (list !=NULL){
+        list = list->next;
+        sz++;
+    }
+    return sz;
 }
 
 // destroy
 ErrorCode list_destroy( List* list )
 {
     //todo: no a real free (check list->next)
+    //todo: and free elements
     if ( list != NULL )
         free(list);
     return NO_ERROR;

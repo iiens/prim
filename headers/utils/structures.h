@@ -57,19 +57,23 @@ typedef struct Dictionary_S {
 } Dictionary;
 
 typedef struct List_S {
-    Element current;
+    Element* current;
     struct List_S* next;
 } List;
 
 // create list
 List* list_create(Element first);
-
+List* list_createEmpty( );
+Element* list_getByIndex(List* list, int index);
+int list_getSize(List* list);
 // at the end
 ErrorCode list_addElement(List* l, Element e);
 // advance list => next and return current
 Element list_next(List** current);
 // get Element
 Element list_get(List* list);
+// remove Element by Index
+ErrorCode list_removeByIndex(List* list,int index);
 // destroy
 ErrorCode list_destroy(List* list);
 /*!
