@@ -178,7 +178,7 @@
     // incremente le nombre d'un staff particulier
     void staff_hireStaff(Dictionary* dict, int id);
 
-    ErrorCode staff_destroyStaffDictionary(Dictionary* dict);
+    void staff_destroyStaffDictionary(Dictionary* dict);
 
 
 

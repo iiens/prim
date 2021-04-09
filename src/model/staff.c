@@ -409,23 +409,17 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
 }
 
 Dictionary* staff_createStaffDictionary() {
-    Dictionary* dict = (Dictionary*) malloc(sizeof(Dictionary));
-    Couple* tabStaff = (Couple*) malloc(NUMBER_OF_STAFFS*sizeof(Couple));
-
-    dict->length = NUMBER_OF_STAFFS;
-    for (int i = 0; i < dict->length; ++i) {
-        tabStaff[i].keys.content.number = staff_list[i].id;
-        tabStaff[i].values.content.number = 0;
+    Dictionary* dict = dictionary_create(NUMBER_OF_STAFFS);
+    for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
+        dictionary_addCoupleInt(dict, staff_list[i].id, 0);
     }
-    dict->entries = tabStaff;
-
     return dict;
 }
 
 int staff_getNumberStaffByID(const Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        return dict->entries[index].values.content.number;
+        return dictionary_getCoupleByIndex(dict, index)->values.content.number;
     } else {
         return -1;
     }
@@ -434,12 +428,11 @@ int staff_getNumberStaffByID(const Dictionary* dict, int id) {
 void staff_hireStaff(Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        dict->entries[index].values.content.number++;
+        Couple * couple = dictionary_getCoupleByIndex(dict, index);
+        dictionary_addCoupleInt(dict, staff_list[index].id, couple->values.content.number++);
     }
 }
 
-ErrorCode staff_destroyStaffDictionary(Dictionary* dict) {
-    free(dict->entries);
-    free(dict);
-    return NO_ERROR;
+void staff_destroyStaffDictionary(Dictionary* dict) {
+    dictionary_destroy(dict);
 }
