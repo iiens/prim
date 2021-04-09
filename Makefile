@@ -56,7 +56,7 @@ O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
 	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
 	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o $(OUTPUT_M)facade.o \
-	$(OUTPUT_U)utils_fun.o
+	$(OUTPUT_U)utils_fun.o $(OUTPUT_U)structure.o
 
 # all off our header files included in interface.h for convenience sake
 # data ( line 2 - 4 )
@@ -145,7 +145,7 @@ $(OUTPUT_U)utils_fun.o: $(SOURCE_U)utils_fun.c $(SOURCE_U)utils_fun.h
 
 # structure.o
 # - structure.c and .h
-$(OUTPUT_U)structure.o: $(SOURCE_U)structure.c $(SOURCE_H_U)structure.h
+$(OUTPUT_U)structure.o: $(SOURCE_U)structure.c $(SOURCE_H_U)structures.h
 	mkdir -p $(OUTPUT_U) && $(CC) $(CFLAGS) -c -o $(OUTPUT_U)structure.o $(SOURCE_U)structure.c
 
 # map_utils.o
