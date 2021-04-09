@@ -1,63 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../../headers/data/machine_info.h" //! to use bool
-
-struct Facade_S {
-    Cardinal cardinal;
-    Direction direction;
-    Box *content;
-}; //!< Facade
+#include "../../headers/data/machine_info.h"
 
 struct Machine_S {
     MachineStuff type; //!< number associate to the type of the machine
     int level; //!< Represent the level of improvement of the machineFacade
-    int numberFacade; //!< Represent the number of facade
-    Facade *interface; //!< Represent the orientation of the machine
+    Facade **interface; //!< Represent the orientation of the machine
 }; //!< Machine
 
-Facade *facade_defaultFacade(MachineStuff s) {
-    Facade *interface = (Facade *) malloc(4*sizeof(Facade)); // TODO : RAMZY #define NUMBER FACADE 4
+Facade **facade_defaultFacade(MachineStuff s) {
+    Facade **interface = (Facade **) malloc(NUMBER_CARDINAL * sizeof(Facade *)); // TODO : RAMZY #define NUMBER FACADE 4
 
-    for (int i = 0; i < 4; ++i) {
-        interface[i].content = NULL;
+    for (Cardinal i = 0; i < NUMBER_CARDINAL; ++i) {
+        interface[i] = facade_create(i);
     }
-
-    interface[0].cardinal = NORTH;
-    interface[1].cardinal = EAST;
-    interface[2].cardinal = SOUTH;
-    interface[3].cardinal = WEST;
 
     switch (s) {
         case MS_COLLECTOR:
-            interface[NORTH].direction = DIRECTION_NONE;
-            interface[EAST].direction = DIRECTION_NONE;
-            interface[SOUTH].direction = DIRECTION_OUT;
-            interface[WEST].direction = DIRECTION_NONE;
+            facade_setDirection(interface[SOUTH],DIRECTION_IN);
             break;
         case MS_CONVEYOR_BELT:
-            interface[NORTH].direction = DIRECTION_IN;
-            interface[EAST].direction = DIRECTION_IN;
-            interface[SOUTH].direction = DIRECTION_OUT;
-            interface[WEST].direction = DIRECTION_IN;
+            facade_setDirection(interface[NORTH],DIRECTION_IN);
+            facade_setDirection(interface[EAST],DIRECTION_IN);
+            facade_setDirection(interface[SOUTH],DIRECTION_OUT);
+            facade_setDirection(interface[WEST],DIRECTION_IN);
             break;
         case MS_CROSS:
-            interface[NORTH].direction = DIRECTION_IN;
-            interface[EAST].direction = DIRECTION_IN;
-            interface[SOUTH].direction = DIRECTION_OUT;
-            interface[WEST].direction = DIRECTION_OUT;
+            facade_setDirection(interface[NORTH],DIRECTION_IN);
+            facade_setDirection(interface[EAST],DIRECTION_IN);
+            facade_setDirection(interface[SOUTH],DIRECTION_OUT);
+            facade_setDirection(interface[WEST],DIRECTION_OUT);
             break;
         case MS_RECYCLING_CENTER:
-            interface[NORTH].direction = DIRECTION_IN;
-            interface[EAST].direction = DIRECTION_IN;
-            interface[SOUTH].direction = DIRECTION_OUT;
-            interface[WEST].direction = DIRECTION_IN;
+            facade_setDirection(interface[NORTH],DIRECTION_IN);
+            facade_setDirection(interface[EAST],DIRECTION_IN);
+            facade_setDirection(interface[SOUTH],DIRECTION_OUT);
+            facade_setDirection(interface[WEST],DIRECTION_IN);
             break;
         case MS_JUNKYARD:
-            interface[NORTH].direction = DIRECTION_IN;
-            interface[EAST].direction = DIRECTION_IN;
-            interface[SOUTH].direction = DIRECTION_IN;
-            interface[WEST].direction = DIRECTION_IN;
+            facade_setDirection(interface[NORTH],DIRECTION_IN);
+            facade_setDirection(interface[EAST],DIRECTION_IN);
+            facade_setDirection(interface[SOUTH],DIRECTION_IN);
+            facade_setDirection(interface[WEST],DIRECTION_IN);
             break;
         default:
             return NULL;
@@ -69,7 +54,6 @@ Machine *machine_create(MachineStuff type) {
     Machine *mach = (Machine *) malloc(sizeof(Machine));
     mach->type = type;
     mach->level = 1;
-    mach->numberFacade = 4; // TODO : Demander #define NUMBER FACADE RAMZY
     mach->interface = facade_defaultFacade(type);
 
     return mach;
@@ -86,27 +70,22 @@ MachineStuff machine_getType(const Machine *machine) { return machine->type; }
 
 int machine_getLevel(const Machine *machine) { return machine->level; }
 
-//Todo ANTOINE Number direction COnstante ?
 void machine_rotateMachine(Machine *machine, int rotation) {
     Box* tmpBox;
     Direction tmpDirection;
 
-    rotation = (rotation % machine->numberFacade) + machine->numberFacade;
-    for (int i = 0; i < (rotation % machine->numberFacade); i++) {
-        tmpDirection = machine->interface[NORTH].direction;
-        tmpBox = machine->interface[NORTH].content;
+    rotation = (rotation % NUMBER_CARDINAL) + NUMBER_CARDINAL;
+    for (int rot = 0; rot < (rotation % NUMBER_CARDINAL); rot++) {
+        tmpDirection = facade_getDirection(machine->interface[0]);
+        tmpBox = facade_getBox(machine->interface[0]);
 
-        machine->interface[NORTH].direction = machine->interface[WEST].direction;
-        machine->interface[NORTH].content = machine->interface[WEST].content;
+        for (Cardinal i = 1; i < NUMBER_CARDINAL; ++i) {
+            facade_setDirection(machine->interface[i-1], facade_getDirection(machine->interface[i]));
+            facade_setBox(machine->interface[i-1], facade_getBox(machine->interface[i]));
+        }
 
-        machine->interface[WEST].direction = machine->interface[SOUTH].direction;
-        machine->interface[WEST].content = machine->interface[SOUTH].content;
-
-        machine->interface[SOUTH].direction = machine->interface[EAST].direction;
-        machine->interface[SOUTH].content = machine->interface[EAST].content;
-
-        machine->interface[EAST].direction = tmpDirection;
-        machine->interface[EAST].content = tmpBox;
+        facade_setDirection(machine->interface[NUMBER_CARDINAL-1], tmpDirection);
+        facade_setBox(machine->interface[NUMBER_CARDINAL-1], tmpBox);
     }
 }
 
@@ -114,7 +93,7 @@ void machine_incrementLevel(Machine *m) { m->level++; }
 
 
 bool machine_isOrientationTop(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, NORTH) == d) {
+    if (machine_getDirection(mach, NORTH) == d) {
         return true;
     } else {
         return false;
@@ -122,7 +101,7 @@ bool machine_isOrientationTop(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationTopRight(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, NORTH) == d && facade_getDirection(mach, EAST) == d) {
+    if (machine_getDirection(mach, NORTH) == d && machine_getDirection(mach, EAST) == d) {
         return true;
     } else {
         return false;
@@ -130,7 +109,7 @@ bool machine_isOrientationTopRight(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationRight(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, EAST) == d) {
+    if (machine_getDirection(mach, EAST) == d) {
         return true;
     } else {
         return false;
@@ -138,7 +117,7 @@ bool machine_isOrientationRight(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationBottomRight(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, SOUTH) == d && facade_getDirection(mach, EAST) == d) {
+    if (machine_getDirection(mach, SOUTH) == d && machine_getDirection(mach, EAST) == d) {
         return true;
     } else {
         return false;
@@ -146,7 +125,7 @@ bool machine_isOrientationBottomRight(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationBottom(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, SOUTH) == d) {
+    if (machine_getDirection(mach, SOUTH) == d) {
         return true;
     } else {
         return false;
@@ -154,7 +133,7 @@ bool machine_isOrientationBottom(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationBottomLeft(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, SOUTH) == d && facade_getDirection(mach, WEST) == d) {
+    if (machine_getDirection(mach, SOUTH) == d && machine_getDirection(mach, WEST) == d) {
         return true;
     } else {
         return false;
@@ -162,7 +141,7 @@ bool machine_isOrientationBottomLeft(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationLeft(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, WEST) == d) {
+    if (machine_getDirection(mach, WEST) == d) {
         return true;
     } else {
         return false;
@@ -170,7 +149,7 @@ bool machine_isOrientationLeft(const Machine *mach, Direction d) {
 }
 
 bool machine_isOrientationTopLeft(const Machine *mach, Direction d) {
-    if (facade_getDirection(mach, NORTH) == d && facade_getDirection(mach, WEST) == d) {
+    if (machine_getDirection(mach, NORTH) == d && machine_getDirection(mach, WEST) == d) {
         return true;
     } else {
         return false;
@@ -178,22 +157,10 @@ bool machine_isOrientationTopLeft(const Machine *mach, Direction d) {
 }
 
 // Struct Facade
-Direction facade_getDirection(const Machine *machine, Cardinal card) {
-    for (int i = 0; i < machine->numberFacade; ++i) {
-        if (machine->interface[i].cardinal == card) {
-            return machine->interface[card].direction;
-        }
-    }
-
-    return DIRECTION_NONE;
+Direction machine_getDirection(const Machine *machine, Cardinal card) {
+    return facade_getDirection(machine->interface[card]);
 }
 
-Box *facade_getBox(const Machine *machine, Cardinal card) {
-    for (int i = 0; i < machine->numberFacade; ++i) {
-        if (machine->interface[i].cardinal == card) {
-            return machine->interface[card].content;
-        }
-    }
-
-    return NULL;
+Box *machine_getBox(const Machine *machine, Cardinal card) {
+    return facade_getBox(machine->interface[card]);
 }

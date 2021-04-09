@@ -14,6 +14,7 @@
     #include "error.h" //! to return error message
     #include "stdbool.h" //! to use bool
     #include "box.h"
+    #include "facade.h"
 
     /*!
      * \enum MachineStuff_S machine.h "headers/data/machine.h"
@@ -30,31 +31,6 @@
         MS_RECYCLING_CENTER = 4, //!< recycling center
         MS_JUNKYARD = 5, //!< junkyard
     } MachineStuff; //!< Link between a machine and a int to recognize them
-
-    /*!
-     * \enum Direction_S machine.h "headers/data/machine.h"
-     * \typedef Direction
-     * \brief IN if it's the direction of the transit, else out, none if it's not a enter and not a exit
-     *
-     * Contains id associate to the machine.
-     *
-     */
-    typedef enum Direction_S {
-        DIRECTION_IN = 0,
-        DIRECTION_OUT = 1,
-        DIRECTION_NONE = 2,
-    } Direction; //!< Direction
-
-    // TODO DOC ANTOINE
-    typedef enum Cardinal_S {
-        NORTH = 0, //!<
-        EAST = 1, //!<
-        SOUTH = 2, //!<
-        WEST = 3, //!<
-    } Cardinal; //!<
-
-    //todo: Antoine documentation
-    typedef struct Facade_S Facade;
 
     /*!
      * \typedef Orientation
@@ -140,7 +116,7 @@
      * </pre>
      * @return a default orientation for a machine
      */
-    Facade *facade_defaultFacade(MachineStuff s);
+    //Facade **facade_defaultFacade(MachineStuff s);
 
     // TODO Antoine Faire la doc + signature + implémentation et trouver un autre nom de fonction
     // une méthode un peu complexe (tu peux me redemander après
@@ -188,8 +164,8 @@
 
     //TODO METTRE NEW SIGNATURES
 
-    Direction facade_getDirection(const Machine *machine, Cardinal card);
-    Box* facade_getBox(const Machine *machine, Cardinal card);
+    Direction machine_getDirection(const Machine *machine, Cardinal card);
+    Box* machine_getBox(const Machine *machine, Cardinal card);
 
 
 #endif //PRIM_MACHINE_H
