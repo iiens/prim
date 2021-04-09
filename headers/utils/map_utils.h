@@ -14,6 +14,7 @@
 #include "translation.h"
 #include "../map.h"
 #include "structures.h"
+#include "../data/facade.h"
 
 /*!
  * \fn int map_utils_getSizeByDifficulty(Difficulty d)
