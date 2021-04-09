@@ -1,16 +1,14 @@
 #include "../headers/interface_ncurses.h"
 #include "../headers/interface_ncurses_utils.h"
 
-void interface_ncurses_showLegend(bool first, int y, Couple entry)
+void interface_ncurses_showLegend(bool first, int y, Couple* entry)
 {
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    if ( first )
-        mvwaddstr(gameWindow, y, 1, entry.keys.content.text);
-    else
-        waddstr(gameWindow, entry.keys.content.text);
+    first ? mvwaddstr(gameWindow, y, 1, entry->keys.content.text) :
+        waddstr(gameWindow, entry->keys.content.text);
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": ");
-    waddstr(gameWindow, entry.values.content.text);
+    waddstr(gameWindow, entry->values.content.text);
     waddstr(gameWindow, " ");
 }
 
