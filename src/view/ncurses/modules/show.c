@@ -69,7 +69,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
     char* p = (char*) malloc(size * sizeof(char)); //!< cost value
     char* pUpgrade = (char*) malloc(size * sizeof(char)); //!< cost upgrade value
     char* pDestroy = (char*) malloc(size * sizeof(char)); //!< cost destroy value
-    int blocLength = 2; //!< number of line per machine
+    int blocLength = 3; //!< number of line per machine
 
     if ( (NUMBER_OF_MACHINES * 3 + 4) < LINES )
         blocLength++;
@@ -91,8 +91,8 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
         int id = machineInfo_getType(m);
         // size is two strings + 1 (size of id)
         char* head = (char*) malloc(
-                (strlen(name) + 1 + strlen(desc) + 1 + 10) * sizeof(char)); //!< header of this machine
-        sprintf(head, " %s (%s=%d) : %s", name, translation_get(TRANSLATE_ID_TAG) ,id, desc);
+                (strlen(name) + 1 + 1 + 10) * sizeof(char)); //!< header of this machine
+        sprintf(head, " %s (%s=%d)", name, translation_get(TRANSLATE_ID_TAG) ,id);
 
         // write prices
         sprintf(p, "%5d E %5d DD", machineInfo_getCostE(m), machineInfo_getCostDD(m));
@@ -106,6 +106,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
         wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
         // machine description
         mvwprintw(mapWindow, 2 + blocLength * i, (int) strlen(translation_get(TRANSLATE_ML_MACHINE_TAG)), head);
+        mvwaddstr(mapWindow, 3 + blocLength * i, 0, desc);
 
         // write in one line
         // >>> cost: vE vDD >>> cost upgrade: vE vDD >>> cost destroy: vE vDD

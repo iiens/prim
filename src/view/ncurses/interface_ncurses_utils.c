@@ -112,11 +112,11 @@ int writeLabel( int i, int j, int blocLength, char* tag, char* content )
 {
     // tag such as cost:
     wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwprintw(mapWindow, 3 + blocLength * i, j, tag);
+    mvwprintw(mapWindow, 4 + blocLength * i, j, tag);
     wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
     j += (int) strlen(tag);
     // value
-    mvwprintw(mapWindow, 3 + blocLength * i, j, content);
+    mvwprintw(mapWindow, 4 + blocLength * i, j, content);
     j += (int) strlen(content);
     return j;
 }
