@@ -19,7 +19,10 @@ Facade **facade_defaultFacade(MachineStuff s) {
 
     switch (s) {
         case MS_COLLECTOR:
+            facade_setDirection(interface[NORTH],DIRECTION_NONE);
+            facade_setDirection(interface[EAST],DIRECTION_NONE);
             facade_setDirection(interface[SOUTH],DIRECTION_IN);
+            facade_setDirection(interface[WEST],DIRECTION_NONE);
             break;
         case MS_CONVEYOR_BELT:
             facade_setDirection(interface[NORTH],DIRECTION_IN);
