@@ -14,7 +14,6 @@ Facade **facade_defaultFacade(MachineStuff s) {
 
     for (Cardinal i = 0; i < NUMBER_CARDINAL; ++i) {
         interface[i] = facade_create(i);
-        facade_setDirection(interface[i],DIRECTION_NONE);
     }
 
     switch (s) {
