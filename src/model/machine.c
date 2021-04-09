@@ -172,3 +172,7 @@ Direction machine_getDirection(const Machine *machine, Cardinal card) {
 Box *machine_getBox(const Machine *machine, Cardinal card) {
     return facade_getBox(machine->interface[card]);
 }
+
+void machine_addBox(Machine*machine, Cardinal card, Box* box) {
+    facade_setBox(machine->interface[card], box);
+}

@@ -361,7 +361,18 @@ int map_getNumberPollution(const Map *m) {
             Case *c = map_getCase(i, j, m);
             if (case_hasBox(c)) {
                 nbGarbage += box_getNumberGarbage(case_getBox(c));
+            } else if (case_getType(c) == CASE_MACHINE) {
+                Machine *machine = case_getMachine(c);
+                MachineStuff machineType = machine_getType(machine);
+                if (machineType != MS_JUNKYARD) {
+                    for (Cardinal k = 0; k < NUMBER_CARDINAL; ++k) {
+                        if (machine_getBox(machine, k) != NULL) {
+                            nbGarbage += box_getNumberGarbage(machine_getBox(machine, k));
+                        }
+                    }
+                };
             }
+            fprintf(stderr,"\n");
         }
     }
     return nbGarbage;
