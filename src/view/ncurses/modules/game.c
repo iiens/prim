@@ -66,13 +66,13 @@ void interface_ncurses_gameMenu( const Map* map )
 
     interface_ncurses_showLegend(true, END_BASE + 7, dictionary_getCoupleByIndex(directions, 0));
     interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 1));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 2));
 
-    interface_ncurses_showLegend(true, END_BASE + 8, dictionary_getCoupleByIndex(directions, 3));
+    interface_ncurses_showLegend(true, END_BASE + 8, dictionary_getCoupleByIndex(directions, 2));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 3));
     interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 4));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 5));
 
-    interface_ncurses_showLegend(true, END_BASE + 9, dictionary_getCoupleByIndex(directions, 6));
+    interface_ncurses_showLegend(true, END_BASE + 9, dictionary_getCoupleByIndex(directions, 5));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 6));
     interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 7));
 
     free(buf);

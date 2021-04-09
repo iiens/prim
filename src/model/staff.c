@@ -419,7 +419,7 @@ Dictionary* staff_createStaffDictionary() {
 int staff_getNumberStaffByID(const Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        return dictionary_getCoupleByIndex(dict, index)->values.content.number;
+        return dictionary_getCoupleByIndex( (Dictionary *) dict, index)->values.content.number;
     } else {
         return -1;
     }
