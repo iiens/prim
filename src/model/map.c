@@ -408,3 +408,12 @@ ErrorCode map_setNumberDD(Map *m, int val) {
         return ERROR_NEGATIVE_RESULT;
     }
 }
+
+ErrorCode map_setNumberScore( Map* m, int val ) {
+    if (m->score + val >= 0) {
+        m->score += val;
+        return NO_ERROR;
+    } else {
+        return ERROR_NEGATIVE_RESULT;
+    }
+}
