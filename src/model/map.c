@@ -53,20 +53,22 @@ Map *map_create(Difficulty dif) {
         }
     }
 
-    srand(time(NULL));
+    srand(time(NULL)); // NOLINT(cert-msc51-cpp)
     // Random gate placement
-    gate_x = (int) (rand() % m->width);
-    gate_y = (int) (rand() % m->height);
+    gate_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
+    gate_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
     case_addGate(m->map[gate_x][gate_y]);
+    fprintf(stderr,"Gate %d %d\n",gate_x,gate_y);
 
     // Random placement of the 2 sources
     for (int i = 0; i < 2; i++) {
         do {
-            source_x = (int) (rand() % m->width);
-            source_y = (int) (rand() % m->height);
+            source_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
+            source_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
         } while (!case_isEmpty(m->map[source_x][source_y]));
 
         case_addSource(m->map[source_x][source_y]);
+        fprintf(stderr,"Source %d %d\n",source_x,source_y);
     }
 
     return m;
@@ -92,10 +94,10 @@ ErrorCode map_hireFISE(Map *m) {
     int costDD = COST_FISE_DD;
 
     // Prendre en compte les effets de staff
-    map_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISE}, m, &costE, &costDD);
+    map_utils_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISE}, m, &costE, &costDD);
 
     // Vérifie que le joueur à les sous
-    ErrorCode e = map_tryBuy(m, costE, costDD);
+    ErrorCode e = map_utils_tryBuy(m, costE, costDD);
     if (e == NO_ERROR) {
         map_setNumberFISE(m, 1);
         return NO_ERROR;
@@ -109,10 +111,10 @@ ErrorCode map_hireFISA(Map *m) {
     int costDD = COST_FISA_DD;
 
     // Prendre en compte les effets de staff
-    map_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISA}, m, &costE, &costDD);
+    map_utils_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISA}, m, &costE, &costDD);
 
     // Vérifie que le joueur à les sous
-    ErrorCode e = map_tryBuy(m, costE, costDD);
+    ErrorCode e = map_utils_tryBuy(m, costE, costDD);
     if (e == NO_ERROR) {
         map_setNumberFISA(m, 1);
         return NO_ERROR;
@@ -133,30 +135,38 @@ ErrorCode map_changeProductionFISA(Map *m) {
 
 ErrorCode map_endTurn(Map *m) {
     // Production of Fise
-    productionFise(m);
+    map_utils_productionFise(m);
 
     // Production of Fisa
-    productionFisa(m);
+    map_utils_productionFisa(m);
 
     // TODO Valentin : Déplacer les ressources
     // Besoin de la listes des tapis
     //moveResources(m);
 
     // Generation of resources
-    generateResources(m);
+    map_utils_generateResources(m);
 
-    // TODO Valentin : La porte produit des déchêts
-    map_sendResourcesToGate(m);
+    // La porte produit des déchêts
+    map_utils_sendResourcesToGate(m);
 
     // TODO Valentin : Faire fonctionner les décheteries
     // Liste des décheteries
     // Déchets sur la case
 
-    // TODO Valentin : Les collecteurs s'activent
-    activateCollectors(m);
+    // Les collecteurs s'activent
+    map_utils_activateCollectors(m);
 
     // Destroy the no-collected resources
-    resetResourcesGarbage(m);
+    map_utils_resetResourcesGarbage(m);
+
+    // Minus pollution to DD
+    int numberPollution = map_getNumberPollution(m);
+    int numberDD = map_getNumberDD(m);
+    if (numberDD < numberPollution) {
+        return ERROR; // TODO Valentin : changer avec error valeur de DD négative
+    }
+    map_setNumberDD(m, numberPollution * -1);
 
     m->turn++;
     return NO_ERROR;
@@ -171,10 +181,10 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             int costDD = machineInfo_getCostDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            map_checkModifyCost(CONSTRUCTION, (Target) {.machine = machType}, m, &costE, &costDD);
+            map_utils_checkModifyCost(CONSTRUCTION, (Target) {.machine = machType}, m, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
-            ErrorCode e = map_tryBuy(m, costE, costDD);
+            ErrorCode e = map_utils_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
                 Machine *machine = machine_create(machType);
                 machine_rotateMachine(machine, rotation);
@@ -206,10 +216,10 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 int costDD = machineInfo_getCostUpgradeDD(machineInfo);
 
                 // Permet de trouver les infos de la machine
-                map_checkModifyCost(UPGRADE, (Target) {.machine = machType}, m, &costE, &costDD);
+                map_utils_checkModifyCost(UPGRADE, (Target) {.machine = machType}, m, &costE, &costDD);
 
                 // Vérifie que le joueur à les sous
-                ErrorCode e = map_tryBuy(m, costE, costDD);
+                ErrorCode e = map_utils_tryBuy(m, costE, costDD);
                 if (e == NO_ERROR) {
                     machine_incrementLevel(machine);
 
@@ -240,10 +250,10 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             int costDD = machineInfo_getCostDestroyDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            map_checkModifyCost(DESTROY, (Target) {.machine = machType}, m, &costE, &costDD);
+            map_utils_checkModifyCost(DESTROY, (Target) {.machine = machType}, m, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
-            ErrorCode e = map_tryBuy(m, costE, costDD);
+            ErrorCode e = map_utils_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
                 case_setEmpty(c);
 
@@ -265,7 +275,7 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
         int costE = staff_getStaffCostE(staff);
         int costDD = staff_getStaffCostDD(staff);
 
-        ErrorCode e = map_tryBuy(m, costE, costDD);
+        ErrorCode e = map_utils_tryBuy(m, costE, costDD);
         if (e == NO_ERROR) {
             Dictionary *dictionary = map_getStaffDictionary(m);
             staff_hireStaff(dictionary, idStaff);
@@ -353,6 +363,7 @@ int map_getNumberPollution(const Map *m) {
             if (case_hasBox(c)) {
                 nbGarbage += box_getNumberGarbage(case_getBox(c));
             }
+            fprintf(stderr,"\n");
         }
     }
     return nbGarbage;
