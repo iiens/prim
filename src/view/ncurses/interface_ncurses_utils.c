@@ -188,10 +188,8 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
     } while ( true );
 }
 
-char* interface_utils_getCaseContent( int x, int y, const Map* map )
+char* interface_utils_getCaseContent( Case* c, CaseType t )
 {
-    Case* c = map_getCase(x, y, map);
-    CaseType t = case_getType(c);
     char* response = translation_fetchCaseTypeName(t);
     if ( response != NULL )
         // it's not a machine
@@ -248,7 +246,14 @@ void interface_ncurses_utils_init_colors()
         // new color as foreground, black as background
         init_pair(i, i, COLOR_BLACK);
     }*/
+    for ( short i = 0; i < 8; i++ ) {
+        init_pair(i,i, COLOR_BLACK);
+    }
 
-    init_pair(ERROR_COLOR, COLOR_RED, COLOR_BLACK);
-    init_pair(SUCCESS_COLOR, COLOR_GREEN, COLOR_BLACK);
+//    init_pair(ERROR_COLOR, COLOR_RED, COLOR_BLACK);
+//    init_pair(SUCCESS_COLOR, COLOR_GREEN, COLOR_BLACK);
+//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
 }

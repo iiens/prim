@@ -25,7 +25,7 @@ int MIN_COL_SAVED = 164;
 ErrorCode interface_ncurses_init()
 {
     // allow UTF-8
-    setlocale(LC_ALL, "fr_FR.UTF-8");
+    setlocale(LC_ALL, "en_US.UTF-8");
 
     // init screen
     if ( initscr() == NULL ) {

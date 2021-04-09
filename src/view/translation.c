@@ -187,7 +187,7 @@ char* translation_fetchCaseTypeName( CaseType t )
         case CASE_VIDE:
             return " ";
         case CASE_GATE:
-            return "G";
+            return "\u2126";
         case CASE_SOURCE:
             return "S";
         case CASE_MACHINE:

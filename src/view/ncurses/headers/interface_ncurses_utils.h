@@ -107,12 +107,11 @@ void* interface_ncurses_showInActionField( Closure init, Closure check );
 
 /**
  * Return one letter with what's inside this case
- * @param x col
- * @param y row
- * @param map map
- * @return
+ * @param t case type
+ * @param c case
+ * @return the text
  */
-char* interface_utils_getCaseContent( int x, int y, const Map* map );
+char* interface_utils_getCaseContent( Case* c, CaseType t );
 
 /**
  * Return orientation as a char

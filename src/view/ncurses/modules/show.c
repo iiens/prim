@@ -19,16 +19,49 @@ void interface_ncurses_showMap( const Map* map )
     //          +  +  +  +  +  +
     //          +  +  +  +  +  +
     for ( int j = 0; j < HEIGHT; j++ ) {
-        mvwprintw(mapWindow, 0, j * 3 + 3, " %2d", j);
+        mvwprintw(mapWindow, 0, j * 4 + 3, " %2d", j);
         if ( j == 0 )
             mvwprintw(mapWindow, 1, 1, "y +"); // starting +
-        mvwprintw(mapWindow, 1, 4 + j * 3, "--+");
+        mvwprintw(mapWindow, 1, 4 + j * 4, "---+");
         for ( int i = 0; i < WIDTH; i++ ) {
-            char* content = interface_utils_getCaseContent(j, i, map); //!< case content
+            Case* c = map_getCase(j, i, map);
+            CaseType t = case_getType(c);
+
+            /*char* content = interface_utils_getCaseContent(j, i, map); //!< case content
             char orientation = interface_utils_parseOrientation(j, i, map); //!< orientation
             mvwaddstr(mapWindow, i + 2, 4 + j * 3, content);
-            mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);
-            mvwaddstr(mapWindow, i + 2, 6 + j * 3, "+");
+            mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);*/
+
+            attr_t color; //!< color
+            switch ( t ) { //todo: legend
+                case CASE_VIDE: color = COLOR_PAIR(COLOR_MAGENTA); break;
+                case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
+                case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
+                case CASE_MACHINE:
+                    switch ( machine_getType(case_getMachine(c)) ) {
+                        case MS_COLLECTOR:
+                            color = COLOR_PAIR(COLOR_GREEN);
+                            break;
+                        case MS_CONVEYOR_BELT:
+                        case MS_CROSS:
+                            color = COLOR_PAIR(COLOR_WHITE);
+                            break;
+                        case MS_RECYCLING_CENTER:
+                            color = COLOR_PAIR(COLOR_RED);
+                            break;
+                        case MS_JUNKYARD:
+                            color = COLOR_PAIR(COLOR_BLUE);
+                            break;
+                    }
+
+                    break;
+            }
+            wattron(mapWindow, color);
+            mvwaddstr(mapWindow, i + 2, 4 + j * 4, interface_utils_getCaseContent(c,t));
+            wattroff(mapWindow, color);
+            wattron(mapWindow, COLOR_PAIR(COLOR_MAGENTA));
+            mvwaddstr(mapWindow, i + 2, 7 + j * 4,  "+");
+            wattroff(mapWindow, COLOR_PAIR(COLOR_MAGENTA));
         }
     }
     mvwprintw(mapWindow, 0, 2, "x");
@@ -56,7 +89,7 @@ void interface_ncurses_showMap( const Map* map )
     //       +--+--+--+--+--+--+
     mvwprintw(mapWindow, HEIGHT + 2, 3, "+");
     for ( int j = 0; j < WIDTH; ++j ) {
-        waddstr(mapWindow, "--+");
+        waddstr(mapWindow, "---+");
     }
 
     // show
@@ -267,7 +300,7 @@ void interface_ncurses_listActions()
     //title
     interface_ncurses_initListWindow(translation_get(TRANSLATE_ACTION_LIST_TITLE));
 
-    for ( int i = 0, j = 2; i < mapping_getSize(); i++, j++ ) {
+    for ( int i = 0, j = 2; i < mapping_getSize(); j++ ) {
         // two per line
         for ( int k = 0; k < 2; k++ ) {
             int start = 0; //!< starting point
