@@ -12,6 +12,9 @@
 #ifndef PRIM_DIFFICULTY_H
 #define PRIM_DIFFICULTY_H
 
+    // A constant to know the number of direction
+    #define NUMBER_DIFFICULTY 3
+
     /*!
      * \typedef Difficulty: rename for enum Difficulty
      * \enum Difficulty difficulty.h "headers/data/difficulty.h"
@@ -30,5 +33,7 @@
         DIFFICULTY_MEDIUM = 2, //!< MEDIUM level : 20 x 20
         DIFFICULTY_HARD = 3, //!< HARD level : 30 x 30
     } Difficulty; //!< Difficulty type
+
+    Difficulty difficulty_getLVL(int id);
 
 #endif //PRIM_DIFFICULTY_H
