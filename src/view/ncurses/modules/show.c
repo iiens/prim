@@ -275,7 +275,9 @@ void interface_ncurses_listActions()
             m = mapping_get(i); // fetch
             actionName = translation_actionFetchName(m->actionID);
             mapping = m->key;
-            // first action
+            // action
+            // we print a name in green then :
+            // then we print in red
             wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
             mvwaddstr(mapWindow, j, start, actionName);
             wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));

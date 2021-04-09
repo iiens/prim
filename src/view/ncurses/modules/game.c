@@ -56,14 +56,11 @@ void interface_ncurses_gameMenu( const Map* map )
     interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 1));
     interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 2));
 
-    interface_ncurses_showLegend(true, END_BASE + 4, dictionary_getCoupleByIndex(machines, 4));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 5));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 6));
+    interface_ncurses_showLegend(true, END_BASE + 4, dictionary_getCoupleByIndex(machines, 3));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 4));
 
-    interface_ncurses_showLegend(true, END_BASE + 5, dictionary_getCoupleByIndex(machines, 7));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 8));
-    // same line ?
-    interface_ncurses_showLegend(true, 0, dictionary_getCoupleByIndex(machines, 9));
+    interface_ncurses_showLegend(true, END_BASE + 5, dictionary_getCoupleByIndex(machines, 5));
+    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 6));
 
     Dictionary* directions = translation_getLegendDirections();
 

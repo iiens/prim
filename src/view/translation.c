@@ -218,9 +218,9 @@ Dictionary* translation_getLegendMachines()
     Dictionary* machines = dictionary_create(7);
     dictionary_addCoupleText(machines, "S", "Source");
     dictionary_addCoupleText(machines, "G", "Gate");
-    dictionary_addCoupleText(machines, "C", "Collector");
     dictionary_addCoupleText(machines, "B", "Conveyor belt");
     dictionary_addCoupleText(machines, "X", "Cross");
+    dictionary_addCoupleText(machines, "C", "Collector");
     dictionary_addCoupleText(machines, "R", "Recycling center");
     dictionary_addCoupleText(machines, "J", "Junkyard");
     return machines;
@@ -228,7 +228,7 @@ Dictionary* translation_getLegendMachines()
 
 Dictionary* translation_getLegendDirections()
 {
-    Dictionary* machines = dictionary_create(7);
+    Dictionary* machines = dictionary_create(8);
     dictionary_addCoupleText(machines, "1", "BOTTOM LEFT");
     dictionary_addCoupleText(machines, "2", "BOTTOM");
     dictionary_addCoupleText(machines, "3", "BOTTOM RIGHT");
