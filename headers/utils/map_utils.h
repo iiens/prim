@@ -36,36 +36,36 @@ int map_utils_getSizeByDifficulty(Difficulty d);
  * @param costDD
  * @return
  */
-ErrorCode map_tryBuy(Map *m, int costE, int costDD);
+ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD);
 
 /**
  *
  * @param mode
  * @param target
  * @param m
- * @param costE
- * @param costDD
+ * @param numberE
+ * @param numberDD
  */
-void map_checkModifyCost(Mode mode, Target target, Map* m, int* costE, int* costDD);
+void map_utils_checkModifyCost(Mode mode, Target target, Map* m, int* numberE, int* numberDD);
 
 /**
  *
  * @param m
  */
-void productionFise(Map *m);
+void map_utils_productionFise(Map *m);
 
 /**
  *
  * @param m
  */
-void productionFisa(Map *m);
+void map_utils_productionFisa(Map *m);
 
 /**
  * Permet de géné des ressources grâce aux sources
  *
  * @param listResources
  */
-void generateResources(Map * m);
+void map_utils_generateResources(Map * m);
 
 /**
  * Permet de faire fonctionner les Tapis
@@ -73,7 +73,7 @@ void generateResources(Map * m);
  *
  * @param listResources
  */
-void moveResources(Map * m);
+void map_utils_moveResources(Map * m);
 
 /**
  *
@@ -85,7 +85,7 @@ void activateRecyclingCenters(Map* m);
  *
  * @param m
  */
-void activateCollectors(Map* m);
+void map_utils_activateCollectors(Map* m);
 
 /**
  * Détruit toutes les ressources non collecté à la fin d'un tour
@@ -95,7 +95,7 @@ void activateCollectors(Map* m);
  *
  * @param listSources
  */
-void resetResourcesGarbage(Map * m);
+void map_utils_resetResourcesGarbage(Map * m);
 
 /**
  * Permet de transformer tous les ressources emmené à la porte en déchets
@@ -104,7 +104,7 @@ void resetResourcesGarbage(Map * m);
  * @param resources
  * @return
  */
-ErrorCode map_sendResourcesToGate(Map *m);
+ErrorCode map_utils_sendResourcesToGate(Map *m);
 
 /**
  *

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
 #include "../../headers/data/box.h"
@@ -16,7 +17,7 @@ int map_utils_getSizeByDifficulty(Difficulty d) {
 }
 
 // TODO Valentin ; faire documentation en anglais
-ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
+ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD) {
     if (map_getNumberE(m) >= costE) {
         if (map_getNumberDD(m) >= costDD) {
             map_setNumberE(m, costE * -1);
@@ -31,7 +32,7 @@ ErrorCode map_tryBuy(Map *m, int costE, int costDD) {
     }
 }
 
-void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
+void map_utils_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
     const Staff *staff = staffInfo_getByModeAndType(mode, target);
     if (staff != NULL) {
         int idStaff = staff_getStaffID(staff);
@@ -77,16 +78,18 @@ void map_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *nu
     }
 }
 
-bool caseHasMachineType(MachineStuff type, Case *c) {
-    Machine *machine = case_getMachine(c);
-    if (machine != NULL && machine_getType(machine) == type) {
-        return true;
-    } else {
-        return false;
+bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
+    CaseType caseType = case_getType(c);
+    if (caseType == CASE_MACHINE) {
+        Machine *machine = case_getMachine(c);
+        if (machine_getType(machine) == type) {
+            return true;
+        }
     }
+    return false;
 }
 
-Case *getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
+Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
     // TODO Valentin : Corriger
     /*Machine *machine = case_getMachine(c);
     Orientation *orientation = machine_getOrientation(machine);
@@ -148,8 +151,28 @@ Case *getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
     return c;*/
 }
 
+Cardinal map_utils_getCardinalWithDirection(const Machine *machine, Direction direction) {
+    Direction dir = facade_getDirection(machine, NORTH);
+    if (dir == direction) {
+
+    }
+    dir = facade_getDirection(machine, EAST);
+    if (dir == direction) {
+
+    }
+    dir = facade_getDirection(machine, SOUTH);
+    if (dir == direction) {
+
+    }
+    dir = facade_getDirection(machine, NORTH);
+    if (dir == direction) {
+
+    }
+
+}
+
 // Fonction EndTurn
-void productionFise(Map *m) {
+void map_utils_productionFise(Map *m) {
     int productionE = PRODUCTION_FISE_E;
     int productionDD = PRODUCTION_FISE_DD;
 
@@ -158,13 +181,13 @@ void productionFise(Map *m) {
     int modifE = 0;
     int modifDD = 0;
     // Prendre en compte les effets de staff
-    map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISE}, m, &modifE, &modifDD);
+    map_utils_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISE}, m, &modifE, &modifDD);
 
     map_setNumberE(m, (productionE + modifE) * numberFise);
     map_setNumberDD(m, (productionDD + modifDD) * numberFise);
 }
 
-void productionFisa(Map *m) {
+void map_utils_productionFisa(Map *m) {
     if (map_getNumberTurn(m) % NB_TURN_FISA == 0) {
         int productionE = PRODUCTION_FISA_E;
         int productionDD = PRODUCTION_FISA_DD;
@@ -174,7 +197,7 @@ void productionFisa(Map *m) {
         int modifE = 0;
         int modifDD = 0;
         // Prendre en compte les effets de staff
-        map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &modifE, &modifDD);
+        map_utils_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &modifE, &modifDD);
 
         if (map_getProductionFISA(m) == E_VALUE) {
             map_setNumberE(m, (productionE + modifE) * numberFisa);
@@ -184,7 +207,10 @@ void productionFisa(Map *m) {
     }
 }
 
-void moveResources(Map *m) {
+void map_utils_moveResources(Map *m) {
+    //Parcourir tous les tapis et déplacer les box de l'interface OUT de la machine sur l'interface IN de la suivante suivant
+    // Création d'une fonction qui process une machine et donc déplace toutes les Box de l'interface IN vers OUT de la même machine
+
     int width = map_getWidth(m);
     int height = map_getHeight(m);
 
@@ -192,9 +218,10 @@ void moveResources(Map *m) {
         for (int y = 0; y < height; ++y) {
             Case *cursor = map_getCase(x, y, m);
 
-            if (caseHasMachineType(MS_CONVEYOR_BELT, cursor) || caseHasMachineType(MS_CROSS, cursor)) {
+            if (map_utils_caseHasMachineType(MS_CONVEYOR_BELT, cursor) ||
+                map_utils_caseHasMachineType(MS_CROSS, cursor)) {
                 // Aller jusqu'à la case qui n'a pas de successeur
-                cursor = getLastConveyorBelt(m, cursor);
+                cursor = map_utils_getLastConveyorBelt(m, cursor);
 
                 // Move carton
                 while (cursor != NULL) {
@@ -205,7 +232,7 @@ void moveResources(Map *m) {
     }
 }
 
-void generateResources(Map *m) {
+void map_utils_generateResources(Map *m) {
     int numberTour = NB_TURN_PRODUCTION_SOURCE;
 
     // TODO Valentin : attendre
@@ -213,7 +240,7 @@ void generateResources(Map *m) {
 
     if (map_getNumberTurn(m) % numberTour == 0) {
         Case *c;
-        int generateResource = 3;
+        int generateResource = NB_RESOURCE_PRODUCT_BY_SOURCE;
 
         // Verifier staff
 
@@ -228,7 +255,7 @@ void generateResources(Map *m) {
     }
 }
 
-ErrorCode map_sendResourcesToGate(Map *m) {
+ErrorCode map_utils_sendResourcesToGate(Map *m) {
     Case *c;
     CaseType type;
     for (int i = 0; i < map_getWidth(m); ++i) {
@@ -237,8 +264,10 @@ ErrorCode map_sendResourcesToGate(Map *m) {
             type = case_getType(c);
             if (type == CASE_GATE && case_hasBox(c)) {
                 Box *box = case_getBox(c);
-                box_setNumberGarbage(box, box_getNumberResource(box));
-                box_setNumberResource(box, box_getNumberResource(box) * -1);
+                int numberR = box_getNumberResource(box);
+                box_setNumberGarbage(box, numberR);
+                map_setNumberScore(m, numberR);
+                box_setNumberResource(box, numberR * -1);
             }
         }
     }
@@ -246,36 +275,77 @@ ErrorCode map_sendResourcesToGate(Map *m) {
     return NO_ERROR;
 }
 
-void activateCollectors(Map *m) {
-    Case *c;
-    for (int i = 0; i < map_getWidth(m); ++i) {
-        for (int j = 0; j < map_getHeight(m); ++j) {
-            c = map_getCase(i, j, m);
-            CaseType type = case_getType(c);
-            Box* cumulative = box_create(0,0);
-            if (type == CASE_MACHINE) {
-                Machine *machine = case_getMachine(c);
-                if (machine_getType(machine) == MS_COLLECTOR) {
-                    int x = case_getX(c);
-                    int y = case_getY(c);
-                    Case *next;
+void map_utils_activateCollectors(Map *m) {
+    MachineStuff machineType = MS_COLLECTOR;
+    const MachineInfo *machineInfo = machineInfo_getMachineStuff(machineType);
+    const Effect *effect = machineInfo_getEffects(machineInfo);
+    int BaseCapacity = machineInfo_getCapacity(machineInfo);
+    int modifiers = effect_getModifierCapacity(effect);
 
-                    if (facade_getDirection(machine, NORTH) == DIRECTION_IN) {
-                        next = map_getCase(x, y+1, m);
-                        if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
-                            Box* tmp = case_getBox(next);
-                            box_addB2toB1(cumulative, tmp);
-                            case_setEmpty(next);
-                            case_addSource(c);
-                        }
+    Case *c;
+    for (int j = 0; j < map_getHeight(m); ++j) {
+        for (int i = 0; i < map_getWidth(m); ++i) {
+            c = map_getCase(i, j, m);
+            if (map_utils_caseHasMachineType(machineType, c)) {
+                Machine *machine = case_getMachine(c);
+                Box *cumulative = box_create(0, 0);
+
+                int capacity = BaseCapacity + modifiers * machine_getLevel(machine);
+                int x = case_getX(c);
+                int y = case_getY(c);
+                Case *next;
+                Direction dir;
+                Cardinal out;
+                List * listSource = NULL;
+
+                dir = facade_getDirection(machine, NORTH);
+                if (dir == DIRECTION_NONE) {
+                    next = map_getCase(x, y + 1, m);
+                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
+                        list_addElement(listSource, {
+                                .type = OBJECT,
+                                .content.object = next
+                        });
                     }
+                } else if (dir == DIRECTION_OUT) {
+                    out = NORTH;
                 }
+                dir = facade_getDirection(machine, NORTH);
+                if (dir == DIRECTION_NONE) {
+                    next = map_getCase(x + 1, y, m);
+                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
+                        //list_addElement(listSource, elem);
+                    }
+                } else if (dir == DIRECTION_OUT) {
+                    out = EAST;
+                }
+                dir = facade_getDirection(machine, NORTH);
+                if (dir == DIRECTION_NONE) {
+                    next = map_getCase(x, y - 1, m);
+                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
+                        //list_addElement(listSource, elem);
+                    }
+                } else if (dir == DIRECTION_OUT) {
+                    out = SOUTH;
+                }
+                dir = facade_getDirection(machine, NORTH);
+                if (dir == DIRECTION_NONE) {
+                    next = map_getCase(x - 1, y, m);
+                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
+                        //list_addElement(listSource, elem);
+                    }
+                } else if (dir == DIRECTION_OUT) {
+                    out = WEST;
+                }
+
+                // temps que capacity > 0 and il reste des ressources
+                // TODO Valentin
             }
         }
     }
 }
 
-void resetResourcesGarbage(Map *m) {
+void map_utils_resetResourcesGarbage(Map *m) {
     Case *c, *gate;
     Box *box = box_create(0, 0);
     Box *tmpBox;
@@ -290,7 +360,7 @@ void resetResourcesGarbage(Map *m) {
                 tmpBox = case_getBox(c);
                 box_setNumberGarbage(box, box_getNumberGarbage(tmpBox));
 
-                case_setEmpty(c);
+                case_deleteBox(c);
             }
         }
     }
@@ -299,7 +369,7 @@ void resetResourcesGarbage(Map *m) {
         box_addB2toB1(case_getBox(gate), box);
         free(box);
     } else {
-        case_addBox(gate, tmpBox);
+        case_addBox(gate, box);
     }
 }
 
@@ -327,7 +397,7 @@ ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {
 
                 box_setNumberGarbage(box, div * -1);
             } else if (type == CASE_MACHINE) {
-                Machine * machine = case_getMachine(c);
+                Machine *machine = case_getMachine(c);
 
                 // Remplacer 4 par define ou getNumberFacade
                 for (int k = 0; k < 4; ++k) {
@@ -395,12 +465,12 @@ ErrorCode staff_actionLaurentPrevel(Map *m, int idStaff) {
                             case_setEmpty(c);
 
                             case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
-                            map_sendResourcesToGate(m);
+                            map_utils_sendResourcesToGate(m);
 
                             case_addBox(c, saveBox);
                         } else {
                             case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
-                            map_sendResourcesToGate(m);
+                            map_utils_sendResourcesToGate(m);
                         }
                     }
                 }
