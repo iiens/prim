@@ -243,20 +243,3 @@ Element dictionary_elementFromText( char* text )
     return e;
 }
 
-int main( void )
-{
-    Dictionary* d = dictionary_create(10);
-    dictionary_addCoupleIntText(d, 10, "aza");
-    dictionary_addCoupleInt(d, 3, 3);
-    dictionary_addCoupleInt(d, 5, 5);
-    dictionary_addCoupleText(d, "toto", "choco");
-
-    dictionary_addElement(d, dictionary_elementFromInt(5), dictionary_elementFromInt(7));
-    dictionary_addElement(d, dictionary_elementFromInt(10), dictionary_elementFromText("ok"));
-
-    printf("%s\n", dictionary_elementToText(*dictionary_getElementInt(d, 10)));
-    printf("%s\n", dictionary_elementToText(*dictionary_getElementText(d, "toto")));
-    printf("%d\n", dictionary_elementToInt(*dictionary_getElementInt(d, 3)));
-    printf("%d\n", dictionary_elementToInt(*dictionary_getElementInt(d, 5)));
-    dictionary_destroy(d);
-}

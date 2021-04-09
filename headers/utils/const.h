@@ -25,6 +25,7 @@
     #define COST_FISA_DD 20 //!< cost in DD of FISA
     #define NB_TURN_FISA 2 //!< number of turns before FISA Production 
     #define NB_TURN_PRODUCTION_SOURCE 10 //!< number of turns before Source Production 
-    #define NB_RESSOURCE_PRODUCT_BY_SOURCE 3  //!< number of ressource produced by Source
+    #define NB_RESOURCE_PRODUCT_BY_SOURCE 3  //!< number of resource produced by Source
+    #define NUMBER_DIRECTION 4 //!< number of direction
 
 #endif //PRIM_CONST_H
