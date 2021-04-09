@@ -302,10 +302,10 @@ void map_utils_activateCollectors(Map *m) {
                 if (dir == DIRECTION_NONE) {
                     next = map_getCase(x, y + 1, m);
                     if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
-                        list_addElement(listSource, {
+                        /*list_addElement(listSource, {
                                 .type = OBJECT,
                                 .content.object = next
-                        });
+                        });*/
                     }
                 } else if (dir == DIRECTION_OUT) {
                     out = NORTH;
