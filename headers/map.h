@@ -443,4 +443,16 @@
     */
     ErrorCode map_setNumberDD( Map* m, int val );
 
+    /*!
+        * \fn ErrorCode map_setNumberScore( Map* m, int val )
+        * @brief a function to set the score
+        * @param[in] m a map
+        * @param[in] val DD value to add/to substract
+        *
+        * This function set the score
+        *
+        * @return an error that specify what is the problem
+        */
+    ErrorCode map_setNumberScore( Map* m, int val );
+
 #endif //PRIM_MAP_H
