@@ -55,7 +55,7 @@ O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o $(OUTPUT_V)mapping.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
 	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
-	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o \
+	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o $(OUTPUT_M)facade.o \
 	$(OUTPUT_U)utils_fun.o
 
 # all off our header files included in interface.h for convenience sake
@@ -163,6 +163,11 @@ $(OUTPUT_M)staff.o: $(SOURCE_M)staff.c $(SOURCE_H_D)staff.h
 # - effect.c and .h
 $(OUTPUT_M)effect.o: $(SOURCE_M)effect.c $(SOURCE_H_D)effect.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)effect.o $(SOURCE_M)effect.c
+
+# facade.o
+# - facade.c and .h
+$(OUTPUT_M)facade.o: $(SOURCE_M)facade.c $(SOURCE_H_D)facade.h
+	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)facade.o $(SOURCE_M)facade.c
 
 # box.o
 # - box.c and .h
