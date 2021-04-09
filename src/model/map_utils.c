@@ -151,26 +151,6 @@ Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursi
     return c;*/
 }
 
-Cardinal map_utils_getCardinalWithDirection(const Machine *machine, Direction direction) {
-    Direction dir = facade_getDirection(machine, NORTH);
-    if (dir == direction) {
-
-    }
-    dir = facade_getDirection(machine, EAST);
-    if (dir == direction) {
-
-    }
-    dir = facade_getDirection(machine, SOUTH);
-    if (dir == direction) {
-
-    }
-    dir = facade_getDirection(machine, NORTH);
-    if (dir == direction) {
-
-    }
-
-}
-
 // Fonction EndTurn
 void map_utils_productionFise(Map *m) {
     int productionE = PRODUCTION_FISE_E;
@@ -296,46 +276,22 @@ void map_utils_activateCollectors(Map *m) {
                 Case *next;
                 Direction dir;
                 Cardinal out;
-                List * listSource = NULL;
+                List * listSource;
 
-                dir = facade_getDirection(machine, NORTH);
-                if (dir == DIRECTION_NONE) {
-                    next = map_getCase(x, y + 1, m);
-                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
-                        /*list_addElement(listSource, {
-                                .type = OBJECT,
-                                .content.object = next
-                        });*/
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    dir = machine_getDirection(machine, card);
+                    if (dir == DIRECTION_NONE) {
+                        next = map_getCase(x, y + 1, m);
+                        if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
+                            Element elt = {
+                                    .type = OBJECT,
+                                    .content.object = next
+                            };
+                            list_addElement(listSource, elt);
+                        }
+                    } else if (dir == DIRECTION_OUT) {
+                        out = card;
                     }
-                } else if (dir == DIRECTION_OUT) {
-                    out = NORTH;
-                }
-                dir = facade_getDirection(machine, NORTH);
-                if (dir == DIRECTION_NONE) {
-                    next = map_getCase(x + 1, y, m);
-                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
-                        //list_addElement(listSource, elem);
-                    }
-                } else if (dir == DIRECTION_OUT) {
-                    out = EAST;
-                }
-                dir = facade_getDirection(machine, NORTH);
-                if (dir == DIRECTION_NONE) {
-                    next = map_getCase(x, y - 1, m);
-                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
-                        //list_addElement(listSource, elem);
-                    }
-                } else if (dir == DIRECTION_OUT) {
-                    out = SOUTH;
-                }
-                dir = facade_getDirection(machine, NORTH);
-                if (dir == DIRECTION_NONE) {
-                    next = map_getCase(x - 1, y, m);
-                    if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
-                        //list_addElement(listSource, elem);
-                    }
-                } else if (dir == DIRECTION_OUT) {
-                    out = WEST;
                 }
 
                 // temps que capacity > 0 and il reste des ressources
@@ -400,8 +356,8 @@ ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {
                 Machine *machine = case_getMachine(c);
 
                 // Remplacer 4 par define ou getNumberFacade
-                for (int k = 0; k < 4; ++k) {
-                    box = facade_getBox(machine, 0);
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    box = machine_getBox(machine, card);
                     numberG = box_getNumberGarbage(box);
 
                     div = (numberG * coefficient) / 100;
