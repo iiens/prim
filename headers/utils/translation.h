@@ -52,6 +52,14 @@
         TRANSLATE_INPUT_MACHINE,
         TRANSLATE_INPUT_ACTION,
         TRANSLATE_INPUT_ORIENTATION,
+
+        // legend and view components
+        TRANSLATE_LEGEND,
+        TRANSLATE_STAFF_TAG,
+        TRANSLATE_TO_TAG,
+        TRANSLATE_ON_TAG,
+        TRANSLATE_ID_TAG,
+        TRANSLATE_OWNED_TAG,
     } Translation;
 
     /*!

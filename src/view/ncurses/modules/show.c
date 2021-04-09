@@ -92,7 +92,7 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
         // size is two strings + 1 (size of id)
         char* head = (char*) malloc(
                 (strlen(name) + 1 + strlen(desc) + 1 + 10) * sizeof(char)); //!< header of this machine
-        sprintf(head, " %s (id=%d) : %s", name, id, desc);
+        sprintf(head, " %s (%s=%d) : %s", name, translation_get(TRANSLATE_ID_TAG) ,id, desc);
 
         // write prices
         sprintf(p, "%5d E %5d DD", machineInfo_getCostE(m), machineInfo_getCostDD(m));
@@ -161,14 +161,19 @@ void interface_ncurses_showStaffList( const Map* map )
         interface_ncurses_initListWindow(translation_get(TRANSLATE_STAFF_LIST_TITLE));
 
         wattron(mapWindow, COLOR_PAIR(COLOR_RED));
-        mvwaddstr(mapWindow, 2, 0, "Staff ");
+        mvwaddstr(mapWindow, 2, 0, translation_get(TRANSLATE_STAFF_TAG));
+        waddstr(mapWindow, " ");
         number = utils_intToString(start);
         waddstr(mapWindow, number);
         free(number);
         number = utils_intToString(min(start + rowPerPage - 1, STAFF_COUNT));
-        waddstr(mapWindow, " to ");
+        waddstr(mapWindow, " ");
+        waddstr(mapWindow, translation_get(TRANSLATE_TO_TAG));
+        waddstr(mapWindow, " ");
         waddstr(mapWindow, number);
-        waddstr(mapWindow, " on ");
+        waddstr(mapWindow, " ");
+        waddstr(mapWindow, translation_get(TRANSLATE_ON_TAG));
+        waddstr(mapWindow, " ");
         free(number);
         number = utils_intToString(STAFF_COUNT);
         waddstr(mapWindow, number);
@@ -181,7 +186,9 @@ void interface_ncurses_showStaffList( const Map* map )
             Staff* s = (Staff*) staff_getStaffByID(j);
             wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
             mvwaddstr(mapWindow, 4 + i * blocLength, 0, staff_getStaffName(s));
-            waddstr(mapWindow, " (id=");
+            waddstr(mapWindow, " (");
+            waddstr(mapWindow, translation_get(TRANSLATE_ID_TAG));
+            waddstr(mapWindow, "=");
             number = utils_intToString(staff_getStaffID(s));
             waddstr(mapWindow, number);
             waddstr(mapWindow, ") (");
@@ -193,7 +200,9 @@ void interface_ncurses_showStaffList( const Map* map )
             number = utils_intToString(staff_getStaffCostDD(s));
             waddstr(mapWindow, number);
             free(number);
-            waddstr(mapWindow, " DD). Owned: ");
+            waddstr(mapWindow, " DD). ");
+            waddstr(mapWindow, translation_get(TRANSLATE_OWNED_TAG));
+            waddstr(mapWindow,": ");
             wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
             wattron(mapWindow, COLOR_PAIR(COLOR_RED));
             number = utils_intToString(staff_getNumberStaffByID(dictionary, staff_getStaffID(s)));
@@ -205,7 +214,6 @@ void interface_ncurses_showStaffList( const Map* map )
 
         wrefresh(mapWindow);
 
-        //todo: check for segfault
         // wait for input
         while ( !input ) {
             ch = getch();

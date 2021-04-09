@@ -21,7 +21,7 @@ char* error_getMessage( ErrorCode e )
         case ERROR_NOT_ENOUGH_DD:
             return "Not enough DD.";
         case ERROR_NEGATIVE_RESULT:
-            return "Result is negative"; //todo: what ?
+            return "A value decreased instead of increasing. Invalid internal state.";
         case ERROR_INIT_INTERFACE:
             return "Cannon init interface";
         case ERROR_INIT_NCURSES_INTERFACE:
@@ -34,7 +34,7 @@ char* error_getMessage( ErrorCode e )
             return "Wrong actionWindow sequence!";
         case ERROR_INVALID_LOCATION_SEQUENCE:
             return "Coordinates format is \"x,y\"";
-        case ERROR_CASE_EMPTY: //todo: empty for destroy, ... ?
+        case ERROR_CASE_EMPTY:
             return "No machine here. Please try again.";
         case ERROR_INVALID_STAFF_NUMBER:
             return "Invalid staff ID.";
@@ -55,7 +55,6 @@ char* translation_get( Translation t )
             return "Choose your difficulty";
         case TRANSLATE_SCREEN_TOO_SMALL:
             return "Press q and restart in a bigger screen.";
-            // todo: we may use constant here
         case TRANSLATE_DIF_E:
             return "Difficulty EASY (10x10)";
         case TRANSLATE_DIF_M:
@@ -85,7 +84,6 @@ char* translation_get( Translation t )
         case TRANSLATE_ACTION_LABEL:
             return "Action: ";
         case TRANSLATE_GO_BACK_B:
-            // todo: constant here ?
             return "(press b to go back)";
         case TRANSLATE_MACHINE_LIST_TITLE:
             return "List of all machines";
@@ -106,19 +104,27 @@ char* translation_get( Translation t )
         case TRANSLATE_INPUT_MACHINE_LOCATION:
             return "Submit machine location. Format is \"x,y\" (without \")";
         case TRANSLATE_INPUT_STAFF:
-            // todo: constant here ?
             return "Input staff ID. You can fetch them using `ls` action. Press `b` to go back.";
         case TRANSLATE_INPUT_MACHINE:
-            // todo: constant here ?
             return "Input machine ID. You can fetch them using `lm` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ORIENTATION:
-            // todo: constants
             return "Input a rotation (0-3) value of the default orientation (check the manual).";
         case TRANSLATE_INPUT_ACTION:
-            // todo: constant here ?
             return "Use `help` to get the list of available actions.";
         case TRANSLATE_ACTION_LIST_TITLE:
             return "List of all actions";
+        case TRANSLATE_LEGEND:
+            return "Legend";
+        case TRANSLATE_STAFF_TAG:
+            return "Staff";
+        case TRANSLATE_TO_TAG:
+            return "to";
+        case TRANSLATE_ON_TAG:
+            return "on";
+       case TRANSLATE_ID_TAG:
+            return "id";
+       case TRANSLATE_OWNED_TAG:
+            return "owned";
     }
     return "Error. Please report it to the developers.";
 }

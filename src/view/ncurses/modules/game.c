@@ -49,7 +49,7 @@ void interface_ncurses_gameMenu( const Map* map )
 
     // then we have
     wattron(gameWindow, COLOR_PAIR(COLOR_RED));
-    mvwaddstr(gameWindow, END_BASE + 2, 1, "Legend");
+    mvwaddstr(gameWindow, END_BASE + 2, 1, translation_get(TRANSLATE_LEGEND));
     wattroff(gameWindow, COLOR_PAIR(COLOR_RED));
 
     interface_ncurses_showLegend(true, END_BASE + 3, dictionary_getCoupleByIndex(machines, 0));
@@ -80,6 +80,8 @@ void interface_ncurses_gameMenu( const Map* map )
 
     free(buf);
     free(format);
+    dictionary_destroy(machines);
+    dictionary_destroy(directions);
 
     wrefresh(gameWindow);
 }
