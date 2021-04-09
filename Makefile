@@ -19,7 +19,7 @@ all: prim
 CC= gcc
 # compilation flags
 CFLAGS= -Wall -Wextra -std=c99
-NCURSES_FLAGS=-lncurses -lform
+NCURSES_FLAGS=-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=700 -lncursesw -lform
 
 # path
 OUTPUT=./obj/
@@ -56,7 +56,7 @@ O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
 	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
 	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o $(OUTPUT_M)facade.o \
-	$(OUTPUT_U)utils_fun.o $(OUTPUT_U)structure.o
+	$(OUTPUT_U)utils_fun.o $(OUTPUT_U)structure.o $(OUTPUT_M)difficulty.o
 
 # all off our header files included in interface.h for convenience sake
 # data ( line 2 - 4 )
@@ -163,6 +163,11 @@ $(OUTPUT_M)staff.o: $(SOURCE_M)staff.c $(SOURCE_H_D)staff.h
 # - effect.c and .h
 $(OUTPUT_M)effect.o: $(SOURCE_M)effect.c $(SOURCE_H_D)effect.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)effect.o $(SOURCE_M)effect.c
+
+# difficulty.o
+# - difficulty.c and .h
+$(OUTPUT_M)difficulty.o: $(SOURCE_M)difficulty.c $(SOURCE_H_D)difficulty.h
+	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)difficulty.o $(SOURCE_M)difficulty.c
 
 # facade.o
 # - facade.c and .h
