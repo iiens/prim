@@ -80,7 +80,7 @@ void map_utils_moveResources(Map * m);
  *
  * @param m
  */
-void activateRecyclingCenters(Map* m);
+void map_utils_activateRecyclingCenters(Map* m);
 
 /**
  *

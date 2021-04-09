@@ -82,9 +82,7 @@ bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
     CaseType caseType = case_getType(c);
     if (caseType == CASE_MACHINE) {
         Machine *machine = case_getMachine(c);
-        if (machine_getType(machine) == type) {
-            return true;
-        }
+        return machine_getType(machine) == type;
     }
     return false;
 }
@@ -149,6 +147,7 @@ Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursi
         return c;
     }
     return c;*/
+    return NULL;
 }
 
 // Fonction EndTurn
@@ -255,6 +254,26 @@ ErrorCode map_utils_sendResourcesToGate(Map *m) {
     return NO_ERROR;
 }
 
+void map_utils_activateRecyclingCenters(Map* m) {
+    MachineStuff machineType = MS_RECYCLING_CENTER;
+    const MachineInfo *machineInfo = machineInfo_getMachineStuff(machineType);
+    const Effect *effect = machineInfo_getEffects(machineInfo);
+    int BaseCapacity = machineInfo_getCapacity(machineInfo);
+    int modifiers = effect_getModifierCapacity(effect);
+
+    Case *c;
+    for (int j = 0; j < map_getHeight(m); ++j) {
+        for (int i = 0; i < map_getWidth(m); ++i) {
+            c = map_getCase(i, j, m);
+            if (map_utils_caseHasMachineType(machineType, c)) {
+                Machine *machine = case_getMachine(c);
+
+
+            }
+        }
+    }
+}
+
 void map_utils_activateCollectors(Map *m) {
     MachineStuff machineType = MS_COLLECTOR;
     const MachineInfo *machineInfo = machineInfo_getMachineStuff(machineType);
@@ -273,19 +292,26 @@ void map_utils_activateCollectors(Map *m) {
                 int capacity = BaseCapacity + modifiers * machine_getLevel(machine);
                 int x = case_getX(c);
                 int y = case_getY(c);
-                Case *next;
+                Case *source;
                 Direction dir;
                 Cardinal out;
-                List * listSource;
+
+                // TODO Valentin DOIT être changer
+                Element tmp = {
+                        .type = OBJECT,
+                        .content.object = NULL
+                };
+
+                List *listSource = list_create(tmp);
 
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                     dir = machine_getDirection(machine, card);
                     if (dir == DIRECTION_NONE) {
-                        next = map_getCase(x, y + 1, m);
-                        if (case_getType(next) == CASE_SOURCE && case_hasBox(c)) {
+                        source = map_getCase(x, y + 1, m);
+                        if (case_getType(source) == CASE_SOURCE && case_hasBox(c)) {
                             Element elt = {
                                     .type = OBJECT,
-                                    .content.object = next
+                                    .content.object = source
                             };
                             list_addElement(listSource, elt);
                         }
@@ -294,8 +320,11 @@ void map_utils_activateCollectors(Map *m) {
                     }
                 }
 
-                // temps que capacity > 0 and il reste des ressources
-                // TODO Valentin
+                int choiceSource;
+                while (capacity > 0 && listSource != NULL) {
+                    // TODO Valentin faire Production
+                    capacity--;
+                }
             }
         }
     }

@@ -151,8 +151,7 @@ ErrorCode map_endTurn(Map *m) {
     map_utils_sendResourcesToGate(m);
 
     // TODO Valentin : Faire fonctionner les décheteries
-    // Liste des décheteries
-    // Déchets sur la case
+    map_utils_activateRecyclingCenters(m);
 
     // Les collecteurs s'activent
     map_utils_activateCollectors(m);
@@ -363,7 +362,6 @@ int map_getNumberPollution(const Map *m) {
             if (case_hasBox(c)) {
                 nbGarbage += box_getNumberGarbage(case_getBox(c));
             }
-            fprintf(stderr,"\n");
         }
     }
     return nbGarbage;
