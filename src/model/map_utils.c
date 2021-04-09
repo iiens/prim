@@ -2,6 +2,7 @@
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
 #include "../../headers/data/box.h"
+#include "../../headers/utils/utils.h"
 
 //todo: Ramzy constant ?
 int map_utils_getSizeByDifficulty(Difficulty d) {
@@ -150,6 +151,46 @@ Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursi
     return NULL;
 }
 
+void map_utils_sendResourcesToGate(Map *m, int resources) {
+    Case *c;
+    for (int i = 0; i < map_getWidth(m); ++i) {
+        for (int j = 0; j < map_getHeight(m); ++j) {
+            c = map_getCase(i, j, m);
+            CaseType type = case_getType(c);
+            if (type == CASE_GATE) {
+                if (case_hasBox(c)) {
+                    Box *saveBox = box_create(0, 0);
+                    box_addB2toB1(saveBox, case_getBox(c));
+                    case_setEmpty(c);
+
+                    case_addBox(c, box_create(0, resources));
+                    map_utils_generateGarbage(m);
+
+                    case_addBox(c, saveBox);
+                } else {
+                    case_addBox(c, box_create(0, resources));
+                    map_utils_generateGarbage(m);
+                }
+            }
+        }
+    }
+}
+
+Vector2D map_utils_modifyXYWithCardinal(Cardinal cardinal) {
+    switch (cardinal) {
+        case NORTH:
+            return (Vector2D) {.x = 0, .y = +1};
+        case EAST:
+            return (Vector2D) {.x = 1, .y = 0};
+        case SOUTH:
+            return (Vector2D) {.x = 0, .y = -1};
+        case WEST:
+            return (Vector2D) {.x = -1, .y = 0};
+        default:
+            return (Vector2D) {.x = 0, .y = 0};
+    }
+}
+
 // Fonction EndTurn
 void map_utils_productionFise(Map *m) {
     int productionE = PRODUCTION_FISE_E;
@@ -234,7 +275,7 @@ void map_utils_generateResources(Map *m) {
     }
 }
 
-ErrorCode map_utils_sendResourcesToGate(Map *m) {
+ErrorCode map_utils_generateGarbage(Map *m) {
     Case *c;
     CaseType type;
     for (int i = 0; i < map_getWidth(m); ++i) {
@@ -254,12 +295,8 @@ ErrorCode map_utils_sendResourcesToGate(Map *m) {
     return NO_ERROR;
 }
 
-void map_utils_activateRecyclingCenters(Map* m) {
+void map_utils_activateRecyclingCenters(Map *m) {
     MachineStuff machineType = MS_RECYCLING_CENTER;
-    const MachineInfo *machineInfo = machineInfo_getMachineStuff(machineType);
-    const Effect *effect = machineInfo_getEffects(machineInfo);
-    int BaseCapacity = machineInfo_getCapacity(machineInfo);
-    int modifiers = effect_getModifierCapacity(effect);
 
     Case *c;
     for (int j = 0; j < map_getHeight(m); ++j) {
@@ -268,7 +305,32 @@ void map_utils_activateRecyclingCenters(Map* m) {
             if (map_utils_caseHasMachineType(machineType, c)) {
                 Machine *machine = case_getMachine(c);
 
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    if (machine_getDirection(machine, card) == DIRECTION_OUT) {
+                        Box *machineBox = machine_getBox(machine, card);
+                        int numberGarbage = box_getNumberGarbage(machineBox);
+                        int numberResource = numberGarbage / NUMBER_WASTE_TO_PRODUCT_RESOURCE;
+                        int rest = numberGarbage % NUMBER_WASTE_TO_PRODUCT_RESOURCE;
+                        box_setNumberGarbage(machineBox, rest - numberGarbage);
 
+                        int x = case_getX(c);
+                        int y = case_getY(c);
+                        Vector2D modifier = map_utils_modifyXYWithCardinal(card);
+                        Case *outputCase = map_getCase(x + modifier.x, y + modifier.y, m);
+                        if (case_getType(outputCase) != CASE_MACHINE) {
+                            Box *outputBox = box_create(numberResource, 0);
+
+                            if (case_hasBox(outputCase)) {
+                                box_addB2toB1(case_getBox(outputCase), outputBox);
+                                free(outputBox);
+                            }  else {
+                                case_addBox(outputCase, outputBox);
+                            }
+                        }
+
+                        break;
+                    }
+                }
             }
         }
     }
@@ -281,37 +343,30 @@ void map_utils_activateCollectors(Map *m) {
     int BaseCapacity = machineInfo_getCapacity(machineInfo);
     int modifiers = effect_getModifierCapacity(effect);
 
-    Case *c;
+    Case *collectorCase;
     for (int j = 0; j < map_getHeight(m); ++j) {
         for (int i = 0; i < map_getWidth(m); ++i) {
-            c = map_getCase(i, j, m);
-            if (map_utils_caseHasMachineType(machineType, c)) {
-                Machine *machine = case_getMachine(c);
-                Box *cumulative = box_create(0, 0);
+            collectorCase = map_getCase(i, j, m);
+            if (map_utils_caseHasMachineType(machineType, collectorCase)) {
+                Machine *collectorMachine = case_getMachine(collectorCase);
 
-                int capacity = BaseCapacity + modifiers * machine_getLevel(machine);
-                int x = case_getX(c);
-                int y = case_getY(c);
-                Case *source;
+                int capacity = BaseCapacity + modifiers * machine_getLevel(collectorMachine);
+                int x = case_getX(collectorCase);
+                int y = case_getY(collectorCase);
+                Case *sourceCase;
                 Direction dir;
                 Cardinal out;
 
-                // TODO Valentin DOIT être changer
-                Element tmp = {
-                        .type = OBJECT,
-                        .content.object = NULL
-                };
-
-                List *listSource = list_create(tmp);
-
+                List *listSource = NULL;
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                    dir = machine_getDirection(machine, card);
+                    dir = machine_getDirection(collectorMachine, card);
                     if (dir == DIRECTION_NONE) {
-                        source = map_getCase(x, y + 1, m);
-                        if (case_getType(source) == CASE_SOURCE && case_hasBox(c)) {
+                        Vector2D modifier = map_utils_modifyXYWithCardinal(card);
+                        sourceCase = map_getCase(x + modifier.x, y + modifier.y, m);
+                        if (case_getType(sourceCase) == CASE_SOURCE && case_hasBox(sourceCase)) {
                             Element elt = {
                                     .type = OBJECT,
-                                    .content.object = source
+                                    .content.object = sourceCase
                             };
                             list_addElement(listSource, elt);
                         }
@@ -321,9 +376,22 @@ void map_utils_activateCollectors(Map *m) {
                 }
 
                 int choiceSource;
+                Box *cumulative = box_create(0, 0);
                 while (capacity > 0 && listSource != NULL) {
                     // TODO Valentin faire Production
                     capacity--;
+                }
+
+                if (box_getNumberResource(cumulative) > 0) {
+                    Box *boxCollector = machine_getBox(collectorMachine, out);
+                    if (boxCollector != NULL) {
+                        box_addB2toB1(boxCollector, cumulative);
+                        free(cumulative);
+                    } else {
+                        machine_addBox(collectorMachine, out, cumulative);
+                    }
+                } else {
+                    free(cumulative);
                 }
             }
         }
@@ -438,28 +506,7 @@ ErrorCode staff_actionLaurentPrevel(Map *m, int idStaff) {
             map_setNumberFISA(m, (fisaGraduate * -1));
 
             // Envoie des ressource à la porte
-            Case *c;
-            for (int i = 0; i < map_getWidth(m); ++i) {
-                for (int j = 0; j < map_getHeight(m); ++j) {
-                    c = map_getCase(i, j, m);
-                    CaseType type = case_getType(c);
-                    if (type == CASE_GATE) {
-                        if (case_hasBox(c)) {
-                            Box *saveBox = box_create(0, 0);
-                            box_addB2toB1(saveBox, case_getBox(c));
-                            case_setEmpty(c);
-
-                            case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
-                            map_utils_sendResourcesToGate(m);
-
-                            case_addBox(c, saveBox);
-                        } else {
-                            case_addBox(c, box_create(0, fiseGraduate + fisaGraduate));
-                            map_utils_sendResourcesToGate(m);
-                        }
-                    }
-                }
-            }
+            map_utils_sendResourcesToGate(m, fiseGraduate + fisaGraduate);
         } else {
             // TODO VAlentin : Changer avec erreur de pas assez de fisa
             return ERROR_NOT_ENOUGH_DD;

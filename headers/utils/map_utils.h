@@ -52,6 +52,13 @@ void map_utils_checkModifyCost(Mode mode, Target target, Map* m, int* numberE, i
 /**
  *
  * @param m
+ * @param resources
+ */
+void map_utils_sendResourcesToGate(Map *m, int resources);
+
+/**
+ *
+ * @param m
  */
 void map_utils_productionFise(Map *m);
 
@@ -105,7 +112,7 @@ void map_utils_resetResourcesGarbage(Map * m);
  * @param resources
  * @return
  */
-ErrorCode map_utils_sendResourcesToGate(Map *m);
+ErrorCode map_utils_generateGarbage(Map *m);
 
 /**
  *

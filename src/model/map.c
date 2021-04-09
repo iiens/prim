@@ -148,9 +148,9 @@ ErrorCode map_endTurn(Map *m) {
     map_utils_generateResources(m);
 
     // La porte produit des déchêts
-    map_utils_sendResourcesToGate(m);
+    map_utils_generateGarbage(m);
 
-    // TODO Valentin : Faire fonctionner les décheteries
+    // Faire fonctionner les décheteries
     map_utils_activateRecyclingCenters(m);
 
     // Les collecteurs s'activent
@@ -254,6 +254,14 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             // Vérifie que le joueur à les sous
             ErrorCode e = map_utils_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
+                // Envouyer à la porte les déchets
+                Box* checkBox;
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    checkBox = machine_getBox(machine, card);
+                    if (checkBox != NULL) {
+                        map_utils_sendResourcesToGate(m, box_getNumberGarbage(checkBox));
+                    }
+                }
                 case_setEmpty(c);
 
                 return NO_ERROR;
