@@ -91,20 +91,12 @@ Case* case_create(int x, int y) {
 }
 
 bool case_isEmpty(const Case* c) {
-    if (c->type == CASE_VIDE) {
-        return true;
-    } else {
-        return false;
-    }
+    return c->type == CASE_VIDE;
 }
 
 // TODO DOC
 bool case_hasBox(const Case* c){
-    if ((c->type & 0x01) == 0x01) {
-        return true;
-    } else {
-        return false;
-    }
+    return (c->type & 0x01) == 0x01;
 }
 
 ErrorCode case_destroy(Case* c) {

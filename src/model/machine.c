@@ -95,75 +95,39 @@ void machine_incrementLevel(Machine *m) { m->level++; }
 
 
 bool machine_isOrientationTop(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, NORTH) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, NORTH) == d;
 }
 
 bool machine_isOrientationTopRight(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, NORTH) == d && machine_getDirection(mach, EAST) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, NORTH) == d && machine_getDirection(mach, EAST) == d;
 }
 
 bool machine_isOrientationRight(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, EAST) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, EAST) == d;
 }
 
 bool machine_isOrientationBottomRight(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, SOUTH) == d && machine_getDirection(mach, EAST) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, SOUTH) == d && machine_getDirection(mach, EAST) == d;
 }
 
 bool machine_isOrientationBottom(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, SOUTH) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, SOUTH) == d;
 }
 
 bool machine_isOrientationBottomLeft(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, SOUTH) == d && machine_getDirection(mach, WEST) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, SOUTH) == d && machine_getDirection(mach, WEST) == d;
 }
 
 bool machine_isOrientationLeft(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, WEST) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, WEST) == d;
 }
 
 bool machine_isOrientationTopLeft(const Machine *mach, Direction d) {
-    if (machine_getDirection(mach, NORTH) == d && machine_getDirection(mach, WEST) == d) {
-        return true;
-    } else {
-        return false;
-    }
+    return machine_getDirection(mach, NORTH) == d && machine_getDirection(mach, WEST) == d;
 }
 
 bool machine_isRotationCorrect(int rotation) {
-    if (rotation >= 0 && rotation <NUMBER_CARDINAL) {
-        return true;
-    } else {
-        return false;
-    }
+    return rotation >= 0 && rotation < NUMBER_CARDINAL;
 }
 
 // Struct Facade
