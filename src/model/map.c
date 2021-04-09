@@ -58,7 +58,6 @@ Map *map_create(Difficulty dif) {
     gate_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
     gate_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
     case_addGate(m->map[gate_x][gate_y]);
-    fprintf(stderr,"Gate %d %d\n",gate_x,gate_y);
 
     // Random placement of the 2 sources
     for (int i = 0; i < 2; i++) {
@@ -68,7 +67,6 @@ Map *map_create(Difficulty dif) {
         } while (!case_isEmpty(m->map[source_x][source_y]));
 
         case_addSource(m->map[source_x][source_y]);
-        fprintf(stderr,"Source %d %d\n",source_x,source_y);
     }
 
     return m;
@@ -380,7 +378,6 @@ int map_getNumberPollution(const Map *m) {
                     }
                 };
             }
-            fprintf(stderr,"\n");
         }
     }
     return nbGarbage;
