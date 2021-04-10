@@ -7,7 +7,7 @@ const MachineInfo machine_list[] = {
                 MS_COLLECTOR,200,20,500,100,60,200,
                 "Sends a resource produced by the source to the "
                 "neighboring cell indicated by its orientation.",
-                                                                                   1,1, .effects  =
+                1," Collector Out is South by default",1, .effects  =
                 {
                         .mode = PRODUCTION,
                         .onOther = 0,
@@ -18,14 +18,17 @@ const MachineInfo machine_list[] = {
         },
         {MS_CONVEYOR_BELT,60,20,-1,-1,60,200,
                 "A carpet has one exit and three entrances, the resource or waste exits",
-                                                                                   0,0, .effects = {}},
+                0," Conveyor Belt Out is South by default, In is North, East, West"
+                  ,0, .effects = {}},
         {MS_CROSS,160,20,-1,-1,60,200,
                 "The cross has 2 inlets and 2 outlets "
                 "which depend on the orientation of the cross",0,
-                                                                                     0, .effects = {}},
+                " Cross Out is South and West by default, In is North, East",
+                0, .effects = {}},
         {MS_RECYCLING_CENTER,500,40,1500,100,100,500,
                 "The recycling center has 3 entrances and one exit. The center can store up to 100 "
                 "waste",100,
+                "Recycling Center Out is South by default, In is North, East, West",
                                                                                      1, .effects =
                 {
                         .mode = PRODUCTION,
@@ -38,6 +41,7 @@ const MachineInfo machine_list[] = {
         {MS_JUNKYARD,100,100,200,600,100,200,
                 "The junkyard"
                 " has 4 entrances and 0 exits. Can store up to 50 pieces of waste",50,
+                "Junkyard In is North, East, South, West by default",
                                                                                      1, .effects = {
                 .mode = PRODUCTION,
                 .onOther = 0,
