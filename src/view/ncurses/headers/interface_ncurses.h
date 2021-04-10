@@ -6,7 +6,6 @@
  * This header contains any functions related to the interactions
  * between the player and the game, using ncurses.
  */
-
 #ifndef PRIM_INTERFACE_NCURSES_H
 #define PRIM_INTERFACE_NCURSES_H
 

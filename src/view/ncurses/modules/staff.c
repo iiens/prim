@@ -22,7 +22,7 @@ int interface_ncurses_askBuyStaff()
 
 void* interface_ncurses_askBuyStaffClosureInit()
 {
-    if ( lastMessage == NULL )
+    if ( interface_ncurses_utils_hasLastMessage() )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_STAFF));
     return NULL;
 }

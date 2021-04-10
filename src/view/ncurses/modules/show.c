@@ -105,7 +105,7 @@ void interface_ncurses_showMachinesList()
         blocLength++;
 
     WINDOW* window;
-    if ( SCREEN_IS_MEDIUM ) {
+    if ( NC_SCREEN_IS_MEDIUM ) {
         window = fullWindow; // we print in all the window (hiding game window)
     } else {
         window = mapWindow; // or just in the map window
@@ -157,10 +157,12 @@ void interface_ncurses_showMachinesList()
         // with v the value
         // cost:, ... are put in green
         //cost:
-        j = writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_TAG), p); //cost
+        j = interface_ncurses_utils_writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_TAG), p); //cost
         if ( machineInfo_getCanUpgrade(m) )
-            j = writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_UP_TAG), pUpgrade); //cost upgrade
-        writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_DESTROY_TAG), pDestroy); // cost destroy
+            j = interface_ncurses_utils_writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_UP_TAG),
+                                                   pUpgrade); //cost upgrade
+        interface_ncurses_utils_writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_DESTROY_TAG),
+                                           pDestroy); // cost destroy
 
         // free
         free(head);
@@ -176,7 +178,7 @@ void interface_ncurses_showMachinesList()
 
 void interface_ncurses_showStaffList( const Map* map )
 {
-    const int TAKEN = ACTION_HEIGHT + 2; // title + space right after
+    const int TAKEN = NC_ACTION_HEIGHT + 2; // title + space right after
     const int STAFF_COUNT = NUMBER_OF_STAFFS; //!< number of staff
     int rowPerPage = 4; //!< number of row per page
     int start = 1; //!< we are starting from this index
@@ -188,7 +190,7 @@ void interface_ncurses_showStaffList( const Map* map )
     bool leave = false; //!< stop this menu and go back ?
 
     WINDOW* window;
-    if ( SCREEN_IS_MEDIUM ) {
+    if ( NC_SCREEN_IS_MEDIUM ) {
         window = fullWindow; // we print in all the window (hiding game window)
     } else {
         window = mapWindow; // or just in the map window
@@ -318,7 +320,7 @@ void interface_ncurses_listActions()
     int cols = 2; //!< number of columns
 
     WINDOW* window;
-    if ( SCREEN_IS_MEDIUM ) {
+    if ( NC_SCREEN_IS_MEDIUM ) {
         window = fullWindow; // we print in all the window (hiding game window)
         cols = 1;
     } else {

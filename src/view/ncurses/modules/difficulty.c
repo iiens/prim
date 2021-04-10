@@ -30,7 +30,7 @@ Difficulty interface_ncurses_chooseDifficulty()
     int ch; //!< current char read
     bool leave = false; //!< leave branch
     const int MIN_HEIGHT = 21; //!< min height
-    const int HEIGHT_FIXED = ACTION_HEIGHT + 3; //!< fixed part of the height
+    const int HEIGHT_FIXED = NC_ACTION_HEIGHT + 3; //!< fixed part of the height
     const int WIDTH_FIXED = GAME_WIDTH; //!< fixed part of the width
 
     // write title, centered
@@ -83,9 +83,9 @@ Difficulty interface_ncurses_chooseDifficulty()
             // add red message and disabled
             disabled[i] = i;
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
-            attron(COLOR_PAIR(ERROR_COLOR));
+            attron(COLOR_PAIR(NC_ERROR_COLOR));
             mvprintw(i + 1 + CONTENT_LINE_START, 2 + max + 2, " %s", translation_get(TRANSLATE_SCREEN_TOO_SMALL));
-            attroff(COLOR_PAIR(ERROR_COLOR));
+            attroff(COLOR_PAIR(NC_ERROR_COLOR));
         } else {
             // normal print
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);

@@ -9,33 +9,20 @@
 #define PRIM_INTERFACE_NCURSES_UTILS_H
 
 #include <curses.h> //!< curse library
-#include "../../../../headers/map.h" //!< map, since we are using the Map (show, ...)
-
-#define ERROR_COLOR 1 //!< error color code
-#define SUCCESS_COLOR 2 //!< success color code
-
-#define ACTION_HEIGHT 2 //!< height of action window
-int GAME_WIDTH; //!< height of action window
-
-#define SCREEN_IS_SMALL COLS < 109
-#define SCREEN_IS_MEDIUM COLS < 164
-
-#define ACTION_BUF_SIZE 30 //!< maximum size of an action mapping
-
-#define ERROR_LINE 0 //!< error line in action window
+#include "interface_ncurses_constants.h" //!< all of our constants
 
 WINDOW* gameWindow; //!< score, turn, ... information window
 WINDOW* mapWindow; //!< game map window
 WINDOW* actionWindow; //!< input action window
 WINDOW* fullWindow; //!< full screen window (without action window ofc)
 
-extern int MIN_ROW_SAVED; //!< number of row saved
-extern int MIN_COL_SAVED; //!< number of cols saved
-extern char* lastMessage; //!< last printed message
-
 typedef void* (* Closure)( char* buff, bool* leave, ErrorCode* error ); //!< closure function
 
 // utilities functions
+
+/*! true is there is a last message, false else */
+bool interface_ncurses_utils_hasLastMessage();
+
 /*!
  * Show/Fill action field window
  */
@@ -87,7 +74,7 @@ void interface_ncurses_show_menu_wait(WINDOW* window);
 * @param content content put right after the label
 * @return x value after adding the label+text
 */
-int writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content );
+int interface_ncurses_utils_writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content );
 
 /**
  * Clean mapWindow and put in a title in the center. This method

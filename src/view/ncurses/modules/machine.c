@@ -44,7 +44,7 @@ MachineSpec interface_ncurses_askAddMachine()
 
 void* interface_ncurses_askBuyMachineClosureInit()
 {
-    if ( lastMessage == NULL )
+    if ( interface_ncurses_utils_hasLastMessage() )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_MACHINE));
     return NULL;
 }
@@ -80,7 +80,7 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
 
 void* interface_ncurses_askOrientationClosureInit()
 {
-    if ( lastMessage == NULL )
+    if ( interface_ncurses_utils_hasLastMessage() )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_ORIENTATION));
     return NULL;
 }

@@ -1,9 +1,15 @@
 #include "headers/interface_ncurses.h" //!< base interface
 #include "headers/interface_ncurses_utils.h" //!< this header
-#include "../../../headers/utils/translation.h"
 #include <string.h> //!< strlen, ...
 
+#define ERROR_LINE 0 //!< error line in action window
+
 char* lastMessage = NULL; //!< last message that we printed
+
+bool interface_ncurses_utils_hasLastMessage()
+{
+    return lastMessage == NULL;
+}
 
 void interface_ncurses_showActionField()
 {
@@ -36,13 +42,13 @@ void interface_ncurses_showError( ErrorCode e )
     char* message; //!< error message
     message = error_getMessage(e); // fetch message
     // show
-    interface_ncurses_showMessageWithColor(message, ERROR_COLOR);
+    interface_ncurses_showMessageWithColor(message, NC_ERROR_COLOR);
 }
 
 void interface_ncurses_showMessage( char* message )
 {
     // show
-    interface_ncurses_showMessageWithColor(message, SUCCESS_COLOR);
+    interface_ncurses_showMessageWithColor(message, NC_SUCCESS_COLOR);
 }
 
 
@@ -108,7 +114,7 @@ void interface_ncurses_show_menu_wait(WINDOW* window)
     keypad(window, FALSE);
 }
 
-int writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content )
+int interface_ncurses_utils_writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content )
 {
     // tag such as cost:
     wattron(window, A_BOLD);
@@ -142,14 +148,14 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
     if ( init != NULL )
         init(NULL, NULL, NULL);
     do {
-        char buf[ACTION_BUF_SIZE] = "";
+        char buf[NC_ACTION_BUF_SIZE] = "";
         int read;
         int cursor = 0; //read <-> buf cursor
 
         // move at bottom left
         attron(A_BOLD); // bold
         mvwprintw(actionWindow, 1, 1, translation_get(TRANSLATE_ACTION_LABEL));
-        move(MIN_ROW_SAVED - 1, strlen(translation_get(TRANSLATE_ACTION_LABEL)) + 1);
+        move(LINES - 1, strlen(translation_get(TRANSLATE_ACTION_LABEL)) + 1);
         attroff(A_BOLD);
         wrefresh(gameWindow);
         wrefresh(actionWindow);
@@ -161,7 +167,7 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
                 buf[cursor] = (char) read;
             }
             cursor++;
-            if ( cursor == ACTION_BUF_SIZE - 1 ) { // same as enter
+            if ( cursor == NC_ACTION_BUF_SIZE - 1 ) { // same as enter
                 break;
             }
         } while ( read != '\n' );
