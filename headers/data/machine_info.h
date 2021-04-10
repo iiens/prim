@@ -71,4 +71,7 @@ int machineInfo_isMachineStuffValid(int id);
 
 const MachineInfo *machineInfo_getMachineStuff(int id);
 
+//todo: code and comment please
+char* machineInfo_getDefaultOrientationMessage(const MachineInfo* m);
+
 #endif //PRIM_MACHINE_INFO_H

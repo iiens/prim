@@ -98,3 +98,5 @@ const MachineInfo* machineInfo_getMachineStuff(int id) {
         return NULL;
     }
 }
+
+char* machineInfo_getDefaultOrientationMessage(const MachineInfo* m) { return m->orientationInfo; }
