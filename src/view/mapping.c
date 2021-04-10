@@ -2,7 +2,7 @@
 #include <string.h>
 
 /** @see interface_chooseAction, count of available actions */
-#define USER_MAPPING_SIZE 15 //!< to iterates user_mapping
+#define USER_MAPPING_SIZE 16 //!< to iterates user_mapping
 
 /*!
  * This array length is predetermined by {@link USER_MAPPING_SIZE}
