@@ -36,8 +36,10 @@ void* interface_ncurses_askMachineLocationClosureCheck( char* buff, bool* leave,
 
         if ( length < 10 ) { // not some weird long number
             // creates buffers
-            n1 = (char*) malloc(MAX_NUMBER_LENGTH * sizeof(char));
-            n2 = (char*) malloc(MAX_NUMBER_LENGTH * sizeof(char));
+            n1 = (char*) calloc(MAX_NUMBER_LENGTH, sizeof(char));
+            n2 = (char*) calloc(MAX_NUMBER_LENGTH, sizeof(char));
+            // memset(n1,'\0',MAX_NUMBER_LENGTH);
+            // memset(n2,'\0',MAX_NUMBER_LENGTH);
 
             // first number
             for ( i = 0; i < length && buff[i] != ','; i++, j++ ) {
