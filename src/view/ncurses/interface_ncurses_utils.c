@@ -257,3 +257,39 @@ void interface_ncurses_utils_init_colors()
 //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
 //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
 }
+
+attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t)
+{
+    attr_t color = COLOR_PAIR(COLOR_WHITE);
+    switch ( t ) { // show color NOLINT(hicpp-multiway-paths-covered)
+        case CASE_VIDE: color = COLOR_PAIR(COLOR_MAGENTA); break;
+        case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
+        case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
+        case CASE_MACHINE:
+            if (c != NULL )
+                color = interface_ncurses_utils_getMachineColor(machine_getType(case_getMachine(c)));
+            break;
+    }
+    return color;
+}
+
+attr_t interface_ncurses_utils_getMachineColor(MachineStuff t)
+{
+    attr_t color = COLOR_PAIR(COLOR_WHITE);
+    switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
+        case MS_COLLECTOR:
+            color = COLOR_PAIR(COLOR_GREEN);
+            break;
+        case MS_CONVEYOR_BELT:
+        case MS_CROSS:
+            color = COLOR_PAIR(COLOR_WHITE);
+            break;
+        case MS_RECYCLING_CENTER:
+            color = COLOR_PAIR(COLOR_RED);
+            break;
+        case MS_JUNKYARD:
+            color = COLOR_PAIR(COLOR_BLUE);
+            break;
+    }
+    return color;
+}

@@ -37,30 +37,7 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
             Case* c = map_getCase(j, i, map); //!< get case
             CaseType t = case_getType(c); //!< get case type to choose color
 
-            attr_t color; //!< color
-            switch ( t ) { // show color todo: put in legend too
-                case CASE_VIDE: color = COLOR_PAIR(COLOR_MAGENTA); break;
-                case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
-                case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
-                case CASE_MACHINE:
-                    switch ( machine_getType(case_getMachine(c)) ) {
-                        case MS_COLLECTOR:
-                            color = COLOR_PAIR(COLOR_GREEN);
-                            break;
-                        case MS_CONVEYOR_BELT:
-                        case MS_CROSS:
-                            color = COLOR_PAIR(COLOR_WHITE);
-                            break;
-                        case MS_RECYCLING_CENTER:
-                            color = COLOR_PAIR(COLOR_RED);
-                            break;
-                        case MS_JUNKYARD:
-                            color = COLOR_PAIR(COLOR_BLUE);
-                            break;
-                    }
-
-                    break;
-            }
+            attr_t color = interface_ncurses_utils_getCaseColor(c, t); //!< color
 
             if ( showResourceSaved || showGarbageSaved ){
                 if ( showResource ) number = utils_intToString(case_getNumberResourcesByCase(c));

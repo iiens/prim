@@ -131,6 +131,21 @@ char interface_utils_parseOrientation( int x, int y, const Map* map );
  */
 void interface_ncurses_utils_init_colors();
 
+/**
+ * Get a color for a case
+ * @param c a case
+ * @param t the type of the content
+ * @return a color
+ */
+attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t);
+
+/**
+ * Returns the color a of machine
+ * @param t a machine
+ * @return the color
+ */
+attr_t interface_ncurses_utils_getMachineColor(MachineStuff t);
+
 // view
 /*! Show game menu
  * @param map for the game info */

@@ -197,7 +197,23 @@ char* translation_fetchCaseTypeName( CaseType t )
         case CASE_MACHINE:
             return NULL;
     }
-    return "Error. Please report it to the developers.";
+    return NULL;
+}
+
+
+char* translation_fetchCaseTypeFullName( CaseType t )
+{
+    switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
+        case CASE_VIDE:
+            return " ";
+        case CASE_GATE:
+            return "Gate";
+        case CASE_SOURCE:
+            return "Source";
+        case CASE_MACHINE:
+            return NULL;
+    }
+    return NULL;
 }
 
 char* translation_fetchMachineTypeName( MachineStuff s )
@@ -217,16 +233,33 @@ char* translation_fetchMachineTypeName( MachineStuff s )
     return "Error. Please report it to the developers.";
 }
 
-Dictionary* translation_getLegendMachines()
+char* translation_fetchMachineTypeFullName( MachineStuff s )
 {
-    Dictionary* machines = dictionary_create(7);
-    dictionary_addCoupleText(machines, "S", "Source");
-    dictionary_addCoupleText(machines, "G", "Gate");
-    dictionary_addCoupleText(machines, "B", "Conveyor belt");
-    dictionary_addCoupleText(machines, "X", "Cross");
-    dictionary_addCoupleText(machines, "C", "Collector");
-    dictionary_addCoupleText(machines, "R", "Recycling center");
-    dictionary_addCoupleText(machines, "J", "Junkyard");
+    switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
+        case MS_COLLECTOR:
+            return "Collector";
+        case MS_CONVEYOR_BELT:
+            return "Conveyor belt";
+        case MS_CROSS:
+            return "Cross";
+        case MS_RECYCLING_CENTER:
+            return "Recycling center";
+        case MS_JUNKYARD:
+            return "Junkyard";
+    }
+    return "Error. Please report it to the developers.";
+}
+
+List* translation_getLegendMachines()
+{
+    List* machines = list_createEmpty();
+    list_addCoupleInt(machines, !IS_MACHINE, CASE_SOURCE);
+    list_addCoupleInt(machines, !IS_MACHINE, CASE_GATE);
+    list_addCoupleInt(machines, IS_MACHINE, MS_CONVEYOR_BELT);
+    list_addCoupleInt(machines, IS_MACHINE, MS_CROSS);
+    list_addCoupleInt(machines, IS_MACHINE, MS_COLLECTOR);
+    list_addCoupleInt(machines, IS_MACHINE, MS_RECYCLING_CENTER);
+    list_addCoupleInt(machines, IS_MACHINE, MS_JUNKYARD);
     return machines;
 }
 

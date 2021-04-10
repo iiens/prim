@@ -98,11 +98,35 @@
      */
     char* translation_fetchMachineTypeName( MachineStuff s );
 
+    /**
+     * Full name version of translation_fetchCaseTypeName
+     * @param t see {@link translation_fetchCaseTypeName}
+     * @return see {@link translation_fetchCaseTypeName} */
+    char* translation_fetchCaseTypeFullName( CaseType t );
+
+    /**
+    * Full name version of translation_fetchMachineTypeName
+    * @param t see {@link translation_fetchMachineTypeName}
+    * @return see {@link translation_fetchMachineTypeName} */
+    char* translation_fetchMachineTypeFullName( MachineStuff s );
+
+    #define IS_MACHINE true //!< used in Legend Machine, true is value is machine type
+
     /*!
-     * Returns the dictionary of the legend of the machines
-     * @return the dictionary
+     * Returns the list of the legend of the machines.
+     *
+     * Each element is a couple, the key is a boolean
+     * <ul><li>true : value is MachineStuff</li>
+     * <li>false: machine is a CaseType</li></ul>
+     *
+     * And value is ether a MachineStuff/CaseType.
+     *
+     * @return the list
+     * @see MachineStuff
+     * @see CaseType
+     * @see Couple
      */
-    Dictionary* translation_getLegendMachines();
+    List* translation_getLegendMachines();
 
     /*!
      * Returns the dictionary of the legend of the directions
