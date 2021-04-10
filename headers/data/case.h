@@ -106,6 +106,11 @@
     */
     Box* case_getBox(const Case* c);
 
+    //TODO ANTOINE
+    int case_getNumberResourcesByCase(const Case* c);
+
+    int case_getNumberGarbageByCase(const Case* c);
+
     /*!
     * \fn Case* case_create(nt x, int y)
     * @brief a function to create a new case

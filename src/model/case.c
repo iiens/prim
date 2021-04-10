@@ -35,6 +35,49 @@ Box* case_getBox(const Case* c) {
     }
 }
 
+int case_getNumberResourcesByCase(const Case* c) {
+    int nbResources = 0;
+    Box *box;
+    CaseType type = case_getType(c);
+
+    if (case_hasBox(c)) {
+        box = case_getBox(c);
+        return box_getNumberResource(box);
+
+    } else if (type == CASE_MACHINE) {
+        Machine *machine = case_getMachine(c);
+        for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+            box = machine_getBox(machine, card);
+            if (box != NULL) {
+                nbResources += box_getNumberResource(box);
+            }
+        }
+        return nbResources;
+    }
+}
+
+int case_getNumberGarbageByCase(const Case* c) {
+    int nbGarbage = 0;
+    Box *box;
+    CaseType type = case_getType(c);
+
+    if (case_hasBox(c)) {
+        box = case_getBox(c);
+        return box_getNumberGarbage(box);
+
+    } else if (type == CASE_MACHINE) {
+        Machine *machine = case_getMachine(c);
+        for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+            box = machine_getBox(machine, card);
+            if (box != NULL) {
+                nbGarbage += box_getNumberGarbage(box);
+            }
+        }
+        return nbGarbage;
+    }
+}
+
+
 void case_addMachine(Case* c, Machine* mach) {
     if(case_isEmpty(c) && c->in == NULL) {
         c->type = CASE_MACHINE;
