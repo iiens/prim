@@ -42,7 +42,7 @@ int case_getNumberResourcesByCase(const Case* c) {
 
     if (case_hasBox(c)) {
         box = case_getBox(c);
-        return box_getNumberResource(box);
+        nbResources = box_getNumberResource(box);
 
     } else if (type == CASE_MACHINE) {
         Machine *machine = case_getMachine(c);
@@ -52,9 +52,8 @@ int case_getNumberResourcesByCase(const Case* c) {
                 nbResources += box_getNumberResource(box);
             }
         }
-        return nbResources;
     }
-    return -1;
+    return nbResources;
 }
 
 int case_getNumberGarbageByCase(const Case* c) {
@@ -64,7 +63,7 @@ int case_getNumberGarbageByCase(const Case* c) {
 
     if (case_hasBox(c)) {
         box = case_getBox(c);
-        return box_getNumberGarbage(box);
+        nbGarbage = box_getNumberGarbage(box);
 
     } else if (type == CASE_MACHINE) {
         Machine *machine = case_getMachine(c);
@@ -74,9 +73,8 @@ int case_getNumberGarbageByCase(const Case* c) {
                 nbGarbage += box_getNumberGarbage(box);
             }
         }
-        return nbGarbage;
     }
-    return -1;
+    return nbGarbage;
 }
 
 
