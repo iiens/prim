@@ -136,23 +136,6 @@ char* translation_get( Translation t )
     return "Error. Please report it to the developers.";
 }
 
-char* translation_getMachineType( MachineStuff s )
-{
-    switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
-        case MS_COLLECTOR:
-            return "Collector";
-        case MS_CONVEYOR_BELT:
-            return "Conveyor belt";
-        case MS_CROSS:
-            return "Cross";
-        case MS_RECYCLING_CENTER:
-            return "Recycling center";
-        case MS_JUNKYARD:
-            return "Junkyard";
-    }
-    return "Error. Please report it to the developers.";
-}
-
 char* translation_actionFetchName( Action action )
 {
     switch ( action ) { // NOLINT(hicpp-multiway-paths-covered)

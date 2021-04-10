@@ -111,9 +111,9 @@ void interface_ncurses_show_menu_wait()
 int writeLabel( int i, int j, int blocLength, char* tag, char* content )
 {
     // tag such as cost:
-    wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
+    wattron(mapWindow, A_BOLD);
     mvwprintw(mapWindow, 4 + blocLength * i, j, tag);
-    wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
+    wattroff(mapWindow, A_BOLD);
     j += (int) strlen(tag);
     // value
     mvwprintw(mapWindow, 4 + blocLength * i, j, content);
@@ -282,7 +282,7 @@ attr_t interface_ncurses_utils_getMachineColor(MachineStuff t)
             break;
         case MS_CONVEYOR_BELT:
         case MS_CROSS:
-            color = COLOR_PAIR(COLOR_WHITE);
+            color = COLOR_PAIR(COLOR_MAGENTA);
             break;
         case MS_RECYCLING_CENTER:
             color = COLOR_PAIR(COLOR_RED);

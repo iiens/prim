@@ -93,7 +93,7 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
     wrefresh(mapWindow);
 }
 
-void interface_ncurses_showMachinesList() //todo: remake without buffers
+void interface_ncurses_showMachinesList()
 {
     const int size = 5 + 5 + 3 + 3; //!< we allow 5 number as, result is "n E n DD" (3 are spaces and 3 are letters)
     char* p = (char*) malloc(size * sizeof(char)); //!< cost value
@@ -117,12 +117,15 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
         int j = 0; //!< in which column we should add the next part, see below with cost line
         const MachineInfo* m = machineInfo_getMachineStuff(i + 1);
         char* desc = machineInfo_getDescription(m);
-        char* name = translation_getMachineType(machineInfo_getType(m));
+        char* name = translation_fetchMachineTypeFullName(machineInfo_getType(m));
+        attr_t color = interface_ncurses_utils_getMachineColor(machineInfo_getType(m));
+        char* orientation = machineInfo_getDefaultOrientationMessage(m);
         int id = machineInfo_getType(m);
         // size is two strings + 1 (size of id)
-        char* head = (char*) malloc(
-                (strlen(name) + 1 + 1 + 10) * sizeof(char)); //!< header of this machine
-        sprintf(head, " %s (%s=%d)", name, translation_get(TRANSLATE_ID_TAG) ,id);
+        char* head = (char*) malloc((
+                strlen(translation_get(TRANSLATE_ID_TAG)) + 2 /* 2 digits */
+                + 5 /*(=). */ + 1 /* \0 */ ) * sizeof(char)); //!< header of this machine
+        sprintf(head, "(%s=%d). ",  translation_get(TRANSLATE_ID_TAG), id);
 
         // write prices
         sprintf(p, "%5d E %5d DD", machineInfo_getCostE(m), machineInfo_getCostDD(m));
@@ -130,12 +133,16 @@ void interface_ncurses_showMachinesList() //todo: remake without buffers
             sprintf(pUpgrade, "%5d E %5d DD", machineInfo_getCostUpgradeE(m), machineInfo_getCostUpgradeDD(m));
         sprintf(pDestroy, "%5d E %5d DD", machineInfo_getCostDestroyE(m), machineInfo_getCostDestroyDD(m));
 
-        // "Machine:" - in red
-        wattron(mapWindow, COLOR_PAIR(COLOR_RED));
-        mvwprintw(mapWindow, 2 + blocLength * i, 0, translation_get(TRANSLATE_ML_MACHINE_TAG));
-        wattroff(mapWindow, COLOR_PAIR(COLOR_RED));
+        // machine header (in the right color)
+        wattron(mapWindow, color);
+        mvwaddstr(mapWindow, 2 + blocLength * i, 0, name);
+        wattroff(mapWindow, color);
+        waddstr(mapWindow, " ");
+        waddstr(mapWindow, head);
+        wattron(mapWindow, COLOR_PAIR(COLOR_YELLOW));
+        waddstr(mapWindow, orientation);
+        wattroff(mapWindow, COLOR_PAIR(COLOR_YELLOW));
         // machine description
-        mvwprintw(mapWindow, 2 + blocLength * i, (int) strlen(translation_get(TRANSLATE_ML_MACHINE_TAG)), head);
         mvwaddstr(mapWindow, 3 + blocLength * i, 0, desc);
 
         // write in one line

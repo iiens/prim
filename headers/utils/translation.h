@@ -75,13 +75,6 @@
     char* translation_getDifficulty(Difficulty d);
 
     /*!
-     * Convenience method, return machine name
-     * @param s machine stuff
-     * @return translation
-     */
-    char* translation_getMachineType(MachineStuff s);
-
-    /*!
      * Returns action name by enum value
      * @param action action id
      * @return action as a string

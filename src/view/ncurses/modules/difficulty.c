@@ -16,8 +16,7 @@
 
 Difficulty interface_ncurses_chooseDifficulty()
 {
-    //todo: replace with function
-    const int N_DIFFICULTIES = NUMBER_DIFFICULTY; //!< number of difficulties
+    const int N_DIFFICULTIES = difficulty_getNumberOfDifficulties(); //!< number of difficulties
     const int TITLE_LINE = 2; //!< y of title line
     const int CONTENT_LINE_START = 4; //!< y of content line (first line)
     int* disabled; //!< disabled difficulties since screen is to small
