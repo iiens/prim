@@ -15,3 +15,7 @@ Difficulty difficulty_getLVL(int id)  {
             return -1;
     }
 }
+
+int difficulty_getNumberOfDifficulties() {
+    return NUMBER_DIFFICULTY;
+}
