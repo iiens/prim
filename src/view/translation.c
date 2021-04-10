@@ -177,6 +177,10 @@ char* translation_actionFetchName( Action action )
             return "Upgrade machine";
         case ACTION_DESTROY_MACHINE:
             return "Destroy machine";
+        case ACTION_SHOW_CASE_RESOURCE:
+            return "Switch map case content to resources";
+        case ACTION_SHOW_CASE_GARBAGE:
+            return "Switch map case content to garbage";
     }
     return "Error. Please report it to the developers.";
 }

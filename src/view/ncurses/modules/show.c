@@ -6,10 +6,20 @@
 #include "../headers/interface_ncurses_utils.h"
 #include "../../../utils/utils_fun.h"
 
-void interface_ncurses_showMap( const Map* map )
+bool showResourceSaved;
+bool showGarbageSaved;
+
+void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarbage, bool save )
 {
     const int HEIGHT = map_getHeight(map); //!< height
     const int WIDTH = map_getWidth(map); //!< width
+    char* number;
+
+    if ( save ) {
+        // save show resource
+        showResourceSaved = showResource;
+        showGarbageSaved = showGarbage;
+    }
 
     wclear(mapWindow); //reset
 
@@ -24,16 +34,11 @@ void interface_ncurses_showMap( const Map* map )
             mvwprintw(mapWindow, 1, 1, "y +"); // starting +
         mvwprintw(mapWindow, 1, 4 + j * 4, "---+");
         for ( int i = 0; i < WIDTH; i++ ) {
-            Case* c = map_getCase(j, i, map);
-            CaseType t = case_getType(c);
-
-            /*char* content = interface_utils_getCaseContent(j, i, map); //!< case content
-            char orientation = interface_utils_parseOrientation(j, i, map); //!< orientation
-            mvwaddstr(mapWindow, i + 2, 4 + j * 3, content);
-            mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);*/
+            Case* c = map_getCase(j, i, map); //!< get case
+            CaseType t = case_getType(c); //!< get case type to choose color
 
             attr_t color; //!< color
-            switch ( t ) { //todo: legend
+            switch ( t ) { // show color todo: put in legend too
                 case CASE_VIDE: color = COLOR_PAIR(COLOR_MAGENTA); break;
                 case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
                 case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
@@ -56,12 +61,27 @@ void interface_ncurses_showMap( const Map* map )
 
                     break;
             }
-            wattron(mapWindow, color);
-            mvwaddstr(mapWindow, i + 2, 4 + j * 4, interface_utils_getCaseContent(c,t));
-            wattroff(mapWindow, color);
-            wattron(mapWindow, COLOR_PAIR(COLOR_MAGENTA));
+
+            if ( showResourceSaved || showGarbageSaved ){
+                if ( showResource ) number = utils_intToString(case_getNumberResourcesByCase(c));
+                else number = utils_intToString(case_getNumberGarbageByCase(c));
+                // content
+                wattron(mapWindow, color);
+                mvwaddstr(mapWindow, i + 2, 4 + j * 4, number);
+                free(number);
+                wattroff(mapWindow, color);
+            } else {
+                char orientation = interface_utils_parseOrientation(j, i, map); //!< orientation
+                // content
+                wattron(mapWindow, color);
+                mvwaddstr(mapWindow, i + 2, 4 + j * 4, interface_utils_getCaseContent(c,t));
+                wattroff(mapWindow, color);
+                // orientation
+                mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);
+            }
+
+            // trailing +
             mvwaddstr(mapWindow, i + 2, 7 + j * 4,  "+");
-            wattroff(mapWindow, COLOR_PAIR(COLOR_MAGENTA));
         }
     }
     mvwprintw(mapWindow, 0, 2, "x");

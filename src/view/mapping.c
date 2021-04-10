@@ -2,7 +2,7 @@
 #include <string.h>
 
 /** @see interface_chooseAction, count of available actions */
-#define USER_MAPPING_SIZE 14 //!< to iterates user_mapping
+#define USER_MAPPING_SIZE 15 //!< to iterates user_mapping
 
 /*!
  * This array length is predetermined by {@link USER_MAPPING_SIZE}
@@ -13,6 +13,8 @@
 const UserActionMapping user_mapping[] = {
         // actions related to the game in general
         {ACTION_SHOW_MAP,         "m"}, //!< show map with m
+        {ACTION_SHOW_CASE_RESOURCE,  "x"}, //!< show case resources on x
+        {ACTION_SHOW_CASE_GARBAGE,  "g"}, //!< show case garbage on g
         {ACTION_END_TURN,         "n"}, //!< end turn with n
         {ACTION_CANCEL_ACTION,    "b"}, //!< cancel action with b
         {ACTION_LIST_ACTIONS,     "help"}, //!< list actions with help

@@ -79,8 +79,10 @@ bool main_handlingActions(Action act, Map* map, bool* exit) {
 
     switch ( act ) {
         case ACTION_SHOW_MAP:
+        case ACTION_SHOW_CASE_RESOURCE:
+        case ACTION_SHOW_CASE_GARBAGE:
             // Update interface with the new map
-            interface_showMap(map);
+            interface_showMap(map, act == ACTION_SHOW_CASE_RESOURCE, act == ACTION_SHOW_CASE_GARBAGE);
             break;
         case ACTION_EXIT:
             // Update variable to left the game

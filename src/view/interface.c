@@ -49,10 +49,10 @@ ErrorCode interface_close()
 //\/ Show related functions
 //\////////////////////////////\//
 
-void interface_showMap( const Map* map )
+void interface_showMap( const Map* map, bool showResource, bool showGarbage )
 {
     if ( useNCurses ) {
-        interface_ncurses_showMap(map);
+        interface_ncurses_showMap(map, showResource, showGarbage, true);
         return;
     }
 }

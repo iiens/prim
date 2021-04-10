@@ -84,7 +84,7 @@ ErrorCode interface_ncurses_init()
 ErrorCode interface_ncurses_reload( const Map* map )
 {
     interface_ncurses_gameMenu(map); // 1
-    interface_ncurses_showMap(map); // 2
+    interface_ncurses_showMap(map, false, false, false); // 2
     interface_ncurses_showActionField(); // 3
     return NO_ERROR;
 }

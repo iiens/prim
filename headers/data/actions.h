@@ -28,6 +28,8 @@
 
         // actions related to the game in general
         ACTION_SHOW_MAP = 143, //!< show map
+        ACTION_SHOW_CASE_RESOURCE = 1430, //!< show resources instead of case content
+        ACTION_SHOW_CASE_GARBAGE = 1431, //!< show garbage instead of case content
         ACTION_CANCEL_ACTION = 144, //!< cancel action so go back
         ACTION_EXIT = 145, //!< exit so leave the program
         ACTION_LIST_ACTIONS = 146, //!< list all actions

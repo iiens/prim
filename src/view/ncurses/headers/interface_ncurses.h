@@ -40,7 +40,7 @@ Difficulty interface_ncurses_chooseDifficulty();
 
 /*! @see interface_showMap
  * @param map see interface_showStaffList */
-void interface_ncurses_showMap( const Map* map );
+void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarbage, bool save );
 
 /*! @see interface_showStaffList
  * @param map see interface_showStaffList */

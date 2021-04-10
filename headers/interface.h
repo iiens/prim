@@ -120,7 +120,7 @@
      * @param[in] map a map
      * @see Map type
      */
-    void interface_showMap( const Map* map );
+    void interface_showMap( const Map* map, bool showResource, bool showGarbage );
 
     /**
      * Should take a map and print the list of the staff.
