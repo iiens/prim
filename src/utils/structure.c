@@ -8,7 +8,6 @@
  * Contains structures
  */
 #include <string.h>
-#include <stdio.h>
 #include "../../headers/utils/structures.h"
 
 List* list_createEmpty( )
@@ -51,6 +50,25 @@ ErrorCode list_addElement( List* l, Element e )
         c->next = list_create(e);
     }
     return NO_ERROR;
+}
+
+ErrorCode list_addCoupleIntText(List* l, int number, char* text)
+{
+    Element e;
+    Couple c;
+    c.keys = dictionary_elementFromNumber(number);
+    c.values = dictionary_elementFromText(text);
+    e.content.object = &c;
+    e.type = OBJECT;
+    return list_addElement(l, e);
+}
+
+ErrorCode list_addCoupleInt(List* l, int n1, int n2)
+{
+    Couple* c = (Couple*) malloc(sizeof(Couple));
+    c->keys = dictionary_elementFromNumber(n1);
+    c->values = dictionary_elementFromNumber(n2);
+    return list_addElement(l, dictionary_elementFromObject(c));
 }
 
 // advance list => next and return current
