@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../../headers/data/machine_info.h"
+#include "../../headers/data/machine.h"
 
 struct Machine_S {
     MachineStuff type; //!< number associate to the type of the machine
@@ -141,4 +141,12 @@ Box *machine_getBox(const Machine *machine, Cardinal card) {
 
 void machine_addBox(Machine*machine, Cardinal card, Box* box) {
     facade_setBox(machine->interface[card], box);
+}
+
+void machine_destroyBox(Machine*machine, Cardinal card) {
+    Box *tmp = facade_getBox(machine->interface[card]);
+    if (tmp != NULL) {
+        free(tmp);
+        facade_setBox(machine->interface[card], NULL);
+    }
 }
