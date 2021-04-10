@@ -77,7 +77,7 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
                 mvwaddstr(mapWindow, i + 2, 4 + j * 4, interface_utils_getCaseContent(c,t));
                 wattroff(mapWindow, color);
                 // orientation
-                mvwaddch(mapWindow, i + 2, 5 + j * 3, orientation);
+                mvwaddch(mapWindow, i + 2, 5 + j * 4, orientation);
             }
 
             // trailing +
