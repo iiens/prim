@@ -172,4 +172,6 @@ Box *machine_getBox(const Machine *machine, Cardinal card);
 
 void machine_addBox(Machine*machine, Cardinal card, Box* box);
 
+void machine_destroyBox(Machine*machine, Cardinal card);
+
 #endif //PRIM_MACHINE_H
