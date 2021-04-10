@@ -54,6 +54,7 @@ int case_getNumberResourcesByCase(const Case* c) {
         }
         return nbResources;
     }
+    return -1;
 }
 
 int case_getNumberGarbageByCase(const Case* c) {
@@ -75,6 +76,7 @@ int case_getNumberGarbageByCase(const Case* c) {
         }
         return nbGarbage;
     }
+    return -1;
 }
 
 
