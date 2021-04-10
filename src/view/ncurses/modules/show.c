@@ -302,7 +302,7 @@ void interface_ncurses_listActions()
         for ( int k = 0; k < 2; k++ ) {
             int start = 0; //!< starting point
             if ( k == 1 )
-                start = getmaxx(mapWindow) / 2; // second start at the middle of the screen
+                start = getmaxx(mapWindow) / 3; // second start at the middle of the screen
             m = mapping_get(i); // fetch
             actionName = translation_actionFetchName(m->actionID);
             mapping = m->key;
