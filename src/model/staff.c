@@ -1,7 +1,6 @@
 #include "../../headers/data/staff.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 
 struct Staff_S {
     int id; //!< id of the character
@@ -12,6 +11,8 @@ struct Staff_S {
     Effect effects; //!< array which contains the target of the effect
 }; //!< information about staff
 
+//todo: use .id = 1 and not directly 1
+// and finish inputting values
 const Staff staff_list[] = {
         {1, "Fetia Bannour", 100, 30, "The cost of constructing collectors"
                                       " decreases by 10E and 1DD ", .effects = {
@@ -389,6 +390,7 @@ char* staff_getStaffDescription(const Staff *staff) { return staff->description;
 
 const Effect* staff_getStaffEffect(const Staff *staff) { return &(staff->effects); }
 
+//todo: a comment maybe ?
 const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
     int check;
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {

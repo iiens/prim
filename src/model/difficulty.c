@@ -1,8 +1,6 @@
 #include "../../headers/data/difficulty.h"
 
-#include "stdlib.h"
-#include "stdio.h"
-
+//todo: Rename, LVL isn't inside our voc. Use `difficulty_get(int id)` or something else
 Difficulty difficulty_getLVL(int id)  {
     switch (id) {
         case 1:

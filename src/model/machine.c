@@ -7,8 +7,9 @@ struct Machine_S {
     MachineStuff type; //!< number associate to the type of the machine
     int level; //!< Represent the level of improvement of the machineFacade
     Facade **interface; //!< Represent the orientation of the machine
-}; //!< Machine
+}; //!< Machine todo: write a little more
 
+//todo: too much code without a comment
 Facade **facade_defaultFacade(MachineStuff s) {
     Facade **interface = (Facade **) malloc(NUMBER_CARDINAL * sizeof(Facade *));
 
@@ -50,15 +51,16 @@ Facade **facade_defaultFacade(MachineStuff s) {
     return interface;
 }
 
+//todo: 1 may be a constant ?
 Machine *machine_create(MachineStuff type) {
     Machine *mach = (Machine *) malloc(sizeof(Machine));
     mach->type = type;
     mach->level = 1;
     mach->interface = facade_defaultFacade(type);
-
     return mach;
 }
 
+//todo: french comment
 ErrorCode machine_destroyMachine(Machine *mach) {
     // free tous les composants de machine, y compris Carton
     for (Cardinal i = 0; i < NUMBER_CARDINAL; ++i) {
@@ -72,6 +74,8 @@ MachineStuff machine_getType(const Machine *machine) { return machine->type; }
 
 int machine_getLevel(const Machine *machine) { return machine->level; }
 
+//todo: too much code without a comment
+// rot is a a good name but well that's okay
 void machine_rotateMachine(Machine *machine, int rotation) {
     Box* tmpBox;
     Direction tmpDirection;
@@ -91,8 +95,15 @@ void machine_rotateMachine(Machine *machine, int rotation) {
     }
 }
 
-void machine_incrementLevel(Machine *m) { m->level++; }
+//todo: too much methods without a "comment"
+// please use a method block comment
+// such as
+// /*
+// * these methods are used for ...
+// */
+// then some methods again and again. To split since it's unreadable :-(
 
+void machine_incrementLevel(Machine *m) { m->level++; }
 
 bool machine_isOrientationTop(const Machine *mach, Direction d) {
     return machine_getDirection(mach, NORTH) == d;

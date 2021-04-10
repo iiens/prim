@@ -4,6 +4,8 @@
 \version 0.1
 \date 27/02/2021
 
+todo: missing documentation here
+
 Contains all utilities classes such as
 - utils.h : contains new types such as Vector2D
 */

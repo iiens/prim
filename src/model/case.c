@@ -19,6 +19,7 @@ CaseType case_getType(const Case* c) {
     return c->type & 0xFFFFFFFE;
 }
 
+//todo: you may use a inline condition?ok:ko
 Machine* case_getMachine(const Case* c) {
     if (case_getType(c) == CASE_MACHINE) {
         return (Machine*) c->in;
@@ -27,6 +28,7 @@ Machine* case_getMachine(const Case* c) {
     }
 }
 
+//todo: you may use a inline condition?ok:ko
 Box* case_getBox(const Case* c) {
     if (case_hasBox(c)) {
         return (Box*) c->in;
@@ -35,6 +37,8 @@ Box* case_getBox(const Case* c) {
     }
 }
 
+//todo: too much code without a comment.
+// Please comment variables (with //!<) or something like if branch
 int case_getNumberResourcesByCase(const Case* c) {
     int nbResources = 0;
     Box *box;
@@ -43,7 +47,6 @@ int case_getNumberResourcesByCase(const Case* c) {
     if (case_hasBox(c)) {
         box = case_getBox(c);
         nbResources = box_getNumberResource(box);
-
     } else if (type == CASE_MACHINE) {
         Machine *machine = case_getMachine(c);
         for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
@@ -56,6 +59,8 @@ int case_getNumberResourcesByCase(const Case* c) {
     return nbResources;
 }
 
+//todo: too much code without a comment.
+// Please comment variables (with //!<) or something like if branch
 int case_getNumberGarbageByCase(const Case* c) {
     int nbGarbage = 0;
     Box *box;

@@ -3,11 +3,12 @@
 
 #include "../../headers/data/facade.h" //! to use bool
 
+//todo: laking comment
 struct Facade_S {
     Cardinal cardinal;
     Direction direction;
     Box *content;
-}; //!< Facade
+}; //!< Facade todo: write a little more
 
 Facade *facade_create(Cardinal card) {
     // Allocate resources in memory to stock the facade
@@ -26,6 +27,14 @@ void facade_destroy(Facade *facade) {
     }
     free(facade);
 }
+
+//todo: too much methods without a "comment"
+// please use a method block comment
+// such as
+// /*
+// * these methods are used for ...
+// */
+// then some methods again and again. To split since it's unreadable :-(
 
 Direction facade_getDirection(Facade *facade) { return facade->direction; }
 

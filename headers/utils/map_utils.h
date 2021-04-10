@@ -10,11 +10,11 @@
 #ifndef PRIM_MAP_UTILS_H
 #define PRIM_MAP_UTILS_H
 
+#include "../map.h"
+#include "../data/facade.h"
 #include "../data/difficulty.h" // contains difficulty type
 #include "translation.h"
-#include "../map.h"
 #include "structures.h"
-#include "../data/facade.h"
 
 /*!
  * \fn int map_utils_getSizeByDifficulty(Difficulty d)
@@ -29,7 +29,8 @@
  */
 int map_utils_getSizeByDifficulty(Difficulty d);
 
-// TODO Valentin ; faire documentation
+// TODO Valentin ; faire documentation in ENGLISH :)
+//  and add yourself to the file and package authors (see top of the file/package.dox)
 /**
  *
  * @param m

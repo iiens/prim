@@ -10,6 +10,8 @@
 #ifndef PRIM_STRUCTURES_H
 #define PRIM_STRUCTURES_H
 
+//todo: Ramzy comment all
+
 #include "../data/effect.h" // effect.h : information about effect
 #include "../data/error.h" // todo: ...
 
@@ -29,7 +31,7 @@ typedef enum ElementType_S {
 * \union Element_S effect.h "headers/data/structures.h"
 * \brief Represent a list
 */
-//todo: documentation
+//todo: Ramzy documentation and move to element.h
 typedef struct Element_S {
     union {
         int number;

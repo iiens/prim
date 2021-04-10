@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+// todo: please use .type, .costE and not simply
+//  inserting a value
 const MachineInfo machine_list[] = {
         {
                 MS_COLLECTOR,200,20,500,100,60,200,
@@ -62,6 +64,13 @@ const MachineInfo *machineInfo_getMachineInfoByType(MachineStuff type) {
         return &(machine_list[indexM]);
     }
 }
+//todo: too much methods lined without a comment
+// please use a method block comment
+// such as
+// /*
+// * these methods are used for ...
+// */
+// then some methods again and again. To split since it's unreadable :-(
 
 MachineStuff machineInfo_getType(const MachineInfo *machine){ return machine->type; }
 

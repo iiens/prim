@@ -1,7 +1,12 @@
 #include "../../headers/data/effect.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+//todo: too much methods without a "comment"
+// please use a method block comment
+// such as
+// /*
+// * these methods are used for ...
+// */
+// then some methods again and again. To split since it's unreadable :-(
 
 Mode effect_getMode(const Effect *effect) { return effect->mode; }
 
@@ -9,6 +14,7 @@ Target effect_getWhat(const Effect *effect){ return effect->what; }
 
 bool effect_getOnOther(const Effect *effect){ return effect->onOther; }
 
+//todo: modifierRes is a float, please cast it to int
 int effect_getModifierRes(const Effect *effect){ return effect->modifierRes; }
 
 int effect_getModifierFISA(const Effect *effect){ return effect->modifierFISA; }

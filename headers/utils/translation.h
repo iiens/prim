@@ -8,6 +8,8 @@
     #include "../data/case.h"
     #include "../utils/structures.h"
 
+    #define IS_MACHINE true //!< used in Legend Machine, true is value is machine type
+
     /*!
      * \typedef Translation
      * \struct Translation_S translation.h "src/view/translation.h"
@@ -107,8 +109,6 @@
     * @param t see {@link translation_fetchMachineTypeName}
     * @return see {@link translation_fetchMachineTypeName} */
     char* translation_fetchMachineTypeFullName( MachineStuff s );
-
-    #define IS_MACHINE true //!< used in Legend Machine, true is value is machine type
 
     /*!
      * Returns the list of the legend of the machines.

@@ -33,6 +33,7 @@ ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD) {
     }
 }
 
+//todo: too much code without a comment
 void map_utils_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
     const Staff *staff = staffInfo_getByModeAndType(mode, target);
     if (staff != NULL) {
@@ -89,7 +90,7 @@ bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
 }
 
 Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
-    // TODO Valentin : Corriger
+    // TODO Valentin : Corriger and comment ^^
     /*Machine *machine = case_getMachine(c);
     Orientation *orientation = machine_getOrientation(machine);
     int x = case_getX(c);
@@ -151,6 +152,7 @@ Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursi
     return NULL;
 }
 
+//todo: comment
 void map_utils_sendResourcesToGate(Map *m, int resources) {
     Case *c;
     for (int i = 0; i < map_getWidth(m); ++i) {
@@ -227,6 +229,7 @@ void map_utils_productionFisa(Map *m) {
     }
 }
 
+//todo: comment
 void map_utils_moveResources(Map *m) {
     //Parcourir tous les tapis et déplacer les box de l'interface OUT de la machine sur l'interface IN de la suivante suivant
     // Création d'une fonction qui process une machine et donc déplace toutes les Box de l'interface IN vers OUT de la même machine
@@ -252,6 +255,7 @@ void map_utils_moveResources(Map *m) {
     }
 }
 
+//todo: comment
 void map_utils_generateResources(Map *m) {
     int numberTour = NB_TURN_PRODUCTION_SOURCE;
 
@@ -275,6 +279,7 @@ void map_utils_generateResources(Map *m) {
     }
 }
 
+//todo: comment
 ErrorCode map_utils_generateGarbage(Map *m) {
     Case *c;
     CaseType type;
@@ -295,6 +300,7 @@ ErrorCode map_utils_generateGarbage(Map *m) {
     return NO_ERROR;
 }
 
+//todo: too much code without a comment
 void map_utils_activateRecyclingCenters(Map *m) {
     MachineStuff machineType = MS_RECYCLING_CENTER;
 
@@ -336,6 +342,7 @@ void map_utils_activateRecyclingCenters(Map *m) {
     }
 }
 
+//todo: too much code without a comment
 void map_utils_activateCollectors(Map *m) {
     MachineStuff machineType = MS_COLLECTOR;
     const MachineInfo *machineInfo = machineInfo_getMachineStuff(machineType);
@@ -398,6 +405,7 @@ void map_utils_activateCollectors(Map *m) {
     }
 }
 
+//todo: too much code without a comment
 void map_utils_resetResourcesGarbage(Map *m) {
     Case *c, *gate;
     Box *box = box_create(0, 0);
@@ -425,6 +433,8 @@ void map_utils_resetResourcesGarbage(Map *m) {
         case_addBox(gate, box);
     }
 }
+
+//todo: comment and translate
 
 // Fonction specifique Staff
 ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {

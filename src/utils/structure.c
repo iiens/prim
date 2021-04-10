@@ -21,7 +21,7 @@ List* list_createEmpty( )
 List* list_create( Element first )
 {
     List* l = (List*) malloc(sizeof(List));
-    //todo: do better
+    //todo: Ramzy do better and a it's not a name
     Element* a = (Element*) malloc(sizeof(Element));
     *a = first;
     l->current = a;
@@ -30,6 +30,7 @@ List* list_create( Element first )
 }
 
 // at the end
+//todo: Ramzy check l not null, return ERROR_LIST_NULL...
 ErrorCode list_addElement( List* l, Element e )
 {
     if (l->current == NULL){
@@ -63,6 +64,7 @@ ErrorCode list_addCoupleIntText(List* l, int number, char* text)
     return list_addElement(l, e);
 }
 
+// todo: Ramzy rename Int to Number
 ErrorCode list_addCoupleInt(List* l, int n1, int n2)
 {
     Couple* c = (Couple*) malloc(sizeof(Couple));
@@ -72,6 +74,7 @@ ErrorCode list_addCoupleInt(List* l, int n1, int n2)
 }
 
 // advance list => next and return current
+//todo: Ramzy don't forgot to free list
 Element list_next( List** current )
 {
     Element* e = (*current)->current;
@@ -85,8 +88,8 @@ Element list_get( List* list )
     return *list->current;
 }
 
+//todo: check list not null
 ErrorCode list_removeByIndex(List* list,int index){
-
     int pos=0;
     if(list->next == NULL) {
         free(list->current); //todo: delete
@@ -102,9 +105,9 @@ ErrorCode list_removeByIndex(List* list,int index){
     }
 
     return NO_ERROR;
-
 }
 
+//todo: check list not null
 Element* list_getByIndex(List* list, int index){
     int pos = 0;
     while (list->current !=NULL){
@@ -116,6 +119,7 @@ Element* list_getByIndex(List* list, int index){
     return NULL;
 }
 
+//todo: check list not null
 int list_getSize(List* list){
     int sz = 0;
     if(list->current == NULL)
@@ -128,10 +132,9 @@ int list_getSize(List* list){
 }
 
 // destroy
+//todo: Ramzy each element should be free
 ErrorCode list_destroy( List* list )
 {
-    //todo: no a real free (check list->next)
-    //todo: and free elements
     if ( list != NULL )
         free(list);
     return NO_ERROR;
@@ -179,7 +182,7 @@ Element* dictionary_getElement( Dictionary* d, Element key )
 ErrorCode dictionary_addElement( Dictionary* d, Element key, Element value )
 {
     if ( d == NULL )
-        return ERROR; //todo: create and use ERROR_DICTIONARY_NULL
+        return ERROR; //todo: Ramzy create and use ERROR_DICTIONARY_NULL
 
     // verify that the key don't exist before insert
     for ( int i = 0; i < d->numberOfElement; i++ ) {
@@ -250,6 +253,7 @@ ErrorCode dictionary_addCoupleText( Dictionary* d, char* key, char* value )
     return dictionary_addElement(d, e_key, e_value);
 }
 
+//todo: Ramzy rename Int to Number
 ErrorCode dictionary_addCoupleInt( Dictionary* d, int key, int value )
 {
     Element e_key;// rename name of variable
@@ -263,6 +267,7 @@ ErrorCode dictionary_addCoupleInt( Dictionary* d, int key, int value )
     return dictionary_addElement(d, e_key, e_value);
 }
 
+//todo: Ramzy rename Int to Number
 ErrorCode dictionary_addCoupleIntText( Dictionary* d, int key, char* value )
 {
     Element e_key;// rename name of variable
@@ -285,12 +290,15 @@ Element* dictionary_getElementText( Dictionary* d, char* key )
     return dictionary_getElement(d, e_key);
 }
 
+//todo: Ramzy Int rename to Number
 Element* dictionary_getElementInt( Dictionary* d, int key )
 {
     // create element
     return dictionary_getElement(d, dictionary_elementFromNumber(key));
 }
 
+//todo: Ramzy rename and element.h
+// and rename Int to Number
 int dictionary_elementToInt( Element e )
 {
     if ( e.type == NUMBER ) {
@@ -299,6 +307,7 @@ int dictionary_elementToInt( Element e )
     return -1;
 }
 
+//todo: Ramzy rename and element.h
 void* dictionary_elementToObject( Element e )
 {
     if ( e.type == OBJECT ) {
@@ -307,6 +316,7 @@ void* dictionary_elementToObject( Element e )
     return NULL;
 }
 
+//todo: Ramzy rename and element.h
 char* dictionary_elementToText( Element e )
 {
     if ( e.type == TEXT ) {
@@ -315,6 +325,7 @@ char* dictionary_elementToText( Element e )
     return "";
 }
 
+//todo: Ramzy rename and element.h
 Element dictionary_elementFromNumber( int number )
 {
     Element e;
@@ -323,6 +334,7 @@ Element dictionary_elementFromNumber( int number )
     return e;
 }
 
+//todo: Ramzy rename and element.h
 Element dictionary_elementFromText( char* text )
 {
     Element e;
@@ -331,6 +343,7 @@ Element dictionary_elementFromText( char* text )
     return e;
 }
 
+//todo: Ramzy rename and element.h
 Element dictionary_elementFromObject( void* object )
 {
     Element e;

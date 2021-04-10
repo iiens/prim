@@ -9,7 +9,6 @@
  * A facade correspond to a machine wall.
  *
  */
-
 #ifndef PRIM_FACADE_H
 #define PRIM_FACADE_H
 
