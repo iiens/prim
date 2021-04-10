@@ -15,7 +15,10 @@
 #define SUCCESS_COLOR 2 //!< success color code
 
 #define ACTION_HEIGHT 2 //!< height of action window
-#define GAME_WIDTH (COLS/4) //!< height of action window
+int GAME_WIDTH; //!< height of action window
+
+#define SCREEN_IS_SMALL COLS < 109
+#define SCREEN_IS_MEDIUM COLS < 164
 
 #define ACTION_BUF_SIZE 30 //!< maximum size of an action mapping
 
@@ -24,10 +27,11 @@
 WINDOW* gameWindow; //!< score, turn, ... information window
 WINDOW* mapWindow; //!< game map window
 WINDOW* actionWindow; //!< input action window
+WINDOW* fullWindow; //!< full screen window (without action window ofc)
 
 extern int MIN_ROW_SAVED; //!< number of row saved
 extern int MIN_COL_SAVED; //!< number of cols saved
-extern char* lastMessage;
+extern char* lastMessage; //!< last printed message
 
 typedef void* (* Closure)( char* buff, bool* leave, ErrorCode* error ); //!< closure function
 
@@ -68,12 +72,14 @@ void interface_ncurses_clearAction( char* buf );
  * Wait function.
  * This function is waiting the user to press 'b' (back code).
  * It got created to be used in show_... like functions.
+ * @param window the window we are waiting for
  */
-void interface_ncurses_show_menu_wait();
+void interface_ncurses_show_menu_wait(WINDOW* window);
 
 /**
 * Write some label in green in mapWindow
 * frame at i,j coordinates
+* @param window the window
 * @param i y value
 * @param j x value
 * @param blocLength size of a bloc
@@ -81,14 +87,15 @@ void interface_ncurses_show_menu_wait();
 * @param content content put right after the label
 * @return x value after adding the label+text
 */
-int writeLabel( int i, int j, int blocLength, char* tag, char* content );
+int writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content );
 
 /**
  * Clean mapWindow and put in a title in the center. This method
  * is used when showing a list of something. We will use 'b' to go back.
+ * @param window since the new version, mapWindow can be replaced by fullWindow
  * @param title a title
  */
-void interface_ncurses_initListWindow( char* title );
+void interface_ncurses_initListWindow( WINDOW* window, char* title );
 
 /**
  * Show some message

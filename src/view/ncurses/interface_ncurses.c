@@ -12,7 +12,7 @@
 //\////////////////////////////\//
 
 int MIN_ROW_SAVED = 23;
-int MIN_COL_SAVED = 164;
+int MIN_COL_SAVED = 90;
 
 // we init the main screen
 // 3 sub windows :
@@ -33,25 +33,33 @@ ErrorCode interface_ncurses_init()
         return ERROR_INIT_NCURSES_INTERFACE;
     }
 
-    // increase value if we can have a greater height
-    // we actually don't care about width
-    if ( LINES > MIN_ROW_SAVED )
-        MIN_ROW_SAVED = LINES;
-
-    // here resize the term
-    if ( resize_term(MIN_ROW_SAVED, MIN_COL_SAVED) == -1 ) {
+    // too small
+    if ( LINES < MIN_ROW_SAVED ||  COLS < MIN_COL_SAVED ){
         interface_close();
         return ERROR_INIT_NCURSES_INTERFACE_SIZE;
     }
+
+    // save and adapt to the screen
+    MIN_ROW_SAVED = LINES;
+    MIN_COL_SAVED = COLS;
+    // left menu (game menu) should not be too big nor too small
+    if ( SCREEN_IS_SMALL )
+        GAME_WIDTH = COLS / 2;
+    else if ( SCREEN_IS_MEDIUM )
+        GAME_WIDTH = (int) (COLS * 0.35);
+    else
+        GAME_WIDTH = (int) (COLS * 0.25);
 
     // create windows
     gameWindow = subwin(stdscr, LINES - ACTION_HEIGHT, GAME_WIDTH, 0, 0);
     mapWindow = subwin(stdscr, LINES - ACTION_HEIGHT, COLS - GAME_WIDTH, 0, GAME_WIDTH);
     actionWindow = subwin(stdscr, ACTION_HEIGHT, COLS, LINES - ACTION_HEIGHT, 0);
+    fullWindow = subwin(stdscr, LINES - ACTION_HEIGHT, COLS, 0, 0);
     // seems useless but boxing them
     box(gameWindow, ACS_VLINE, ACS_HLINE);
     box(actionWindow, ACS_VLINE, ACS_HLINE);
     box(mapWindow, ACS_VLINE, ACS_HLINE);
+    box(fullWindow, ACS_VLINE, ACS_HLINE);
 
     //init colors
     if ( has_colors() == FALSE ) {

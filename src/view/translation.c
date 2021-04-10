@@ -48,6 +48,19 @@ char* error_getMessage( ErrorCode e )
     return "Error. Please report it to the developers.";
 }
 
+char* translation_getDifficulty(Difficulty d)
+{
+    switch ( d ) { // NOLINT(hicpp-multiway-paths-covered)
+        case DIFFICULTY_EASY:
+            return "Difficulty EASY (10x10)";
+        case DIFFICULTY_MEDIUM:
+            return "Difficulty MEDIUM (20x20)";
+        case DIFFICULTY_HARD:
+            return "Difficulty HARD (30x30)";
+    }
+    return NULL;
+}
+
 char* translation_get( Translation t )
 {
     switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
@@ -55,12 +68,6 @@ char* translation_get( Translation t )
             return "Choose your difficulty";
         case TRANSLATE_SCREEN_TOO_SMALL:
             return "Press q and restart in a bigger screen.";
-        case TRANSLATE_DIF_E:
-            return "Difficulty EASY (10x10)";
-        case TRANSLATE_DIF_M:
-            return "Difficulty MEDIUM (20x20)";
-        case TRANSLATE_DIF_H:
-            return "Difficulty HARD (30x30)";
         case TRANSLATE_GAME_NAME:
             return "Prim, environment line";
         case TRANSLATE_GAME_TURN:
@@ -129,23 +136,6 @@ char* translation_get( Translation t )
     return "Error. Please report it to the developers.";
 }
 
-char* translation_getMachineType( MachineStuff s )
-{
-    switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
-        case MS_COLLECTOR:
-            return "Collector";
-        case MS_CONVEYOR_BELT:
-            return "Conveyor belt";
-        case MS_CROSS:
-            return "Cross";
-        case MS_RECYCLING_CENTER:
-            return "Recycling center";
-        case MS_JUNKYARD:
-            return "Junkyard";
-    }
-    return "Error. Please report it to the developers.";
-}
-
 char* translation_actionFetchName( Action action )
 {
     switch ( action ) { // NOLINT(hicpp-multiway-paths-covered)
@@ -178,9 +168,9 @@ char* translation_actionFetchName( Action action )
         case ACTION_DESTROY_MACHINE:
             return "Destroy machine";
         case ACTION_SHOW_CASE_RESOURCE:
-            return "Switch map case content to resources";
+            return "Show resources";
         case ACTION_SHOW_CASE_GARBAGE:
-            return "Switch map case content to garbage";
+            return "Show garbage";
     }
     return "Error. Please report it to the developers.";
 }

@@ -91,47 +91,47 @@ void interface_ncurses_clearAction( char* buf )
     wrefresh(actionWindow);
 }
 
-void interface_ncurses_show_menu_wait()
+void interface_ncurses_show_menu_wait(WINDOW* window)
 {
-    wrefresh(mapWindow);
+    wrefresh(window);
     // hide cursor
     noecho();
     cbreak();
     curs_set(FALSE);
-    keypad(mapWindow, TRUE);
+    keypad(window, TRUE);
     // wait for input, only the first char since noecho
     while ( getch() != mapping_getBackMapping()->key[0] );
     // reset
     echo();
     nocbreak();
     curs_set(TRUE);
-    keypad(mapWindow, FALSE);
+    keypad(window, FALSE);
 }
 
-int writeLabel( int i, int j, int blocLength, char* tag, char* content )
+int writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content )
 {
     // tag such as cost:
-    wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwprintw(mapWindow, 4 + blocLength * i, j, tag);
-    wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
+    wattron(window, A_BOLD);
+    mvwprintw(window, 4 + blocLength * i, j, tag);
+    wattroff(window, A_BOLD);
     j += (int) strlen(tag);
     // value
-    mvwprintw(mapWindow, 4 + blocLength * i, j, content);
+    mvwprintw(window, 4 + blocLength * i, j, content);
     j += (int) strlen(content);
     return j;
 }
 
-void interface_ncurses_initListWindow( char* title )
+void interface_ncurses_initListWindow( WINDOW* window, char* title )
 {
     //clear
-    wclear(mapWindow);
-    wrefresh(mapWindow);
+    wclear(window);
+    wrefresh(window);
     interface_ncurses_clearAction(" ");
 
     //title centered
-    mvwaddstr(mapWindow, 0, 0, title);
-    waddstr(mapWindow, " ");
-    waddstr(mapWindow, translation_get(TRANSLATE_GO_BACK_B));
+    mvwaddstr(window, 0, 0, title);
+    waddstr(window, " ");
+    waddstr(window, translation_get(TRANSLATE_GO_BACK_B));
 }
 
 void* interface_ncurses_showInActionField( Closure init, Closure check )
@@ -282,7 +282,7 @@ attr_t interface_ncurses_utils_getMachineColor(MachineStuff t)
             break;
         case MS_CONVEYOR_BELT:
         case MS_CROSS:
-            color = COLOR_PAIR(COLOR_WHITE);
+            color = COLOR_PAIR(COLOR_MAGENTA);
             break;
         case MS_RECYCLING_CENTER:
             color = COLOR_PAIR(COLOR_RED);

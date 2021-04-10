@@ -4,6 +4,7 @@
     #include "../data/error.h"
     #include "../data/machine.h"
     #include "../data/actions.h"
+    #include "../data/difficulty.h"
     #include "../data/case.h"
     #include "../utils/structures.h"
 
@@ -16,9 +17,6 @@
     typedef enum Translation_S {
         TRANSLATE_CHOICE_DIFF,
         TRANSLATE_SCREEN_TOO_SMALL,
-        TRANSLATE_DIF_E,
-        TRANSLATE_DIF_M,
-        TRANSLATE_DIF_H,
 
         TRANSLATE_GAME_NAME,
         TRANSLATE_GAME_TURN,
@@ -70,11 +68,11 @@
     char* translation_get(Translation t);
 
     /*!
-     * Convenience method, return machine name
-     * @param s machine stuff
-     * @return translation
+     * Returns a translation for a difficulty
+     * @param d a difficulty
+     * @return the translation
      */
-    char* translation_getMachineType(MachineStuff s);
+    char* translation_getDifficulty(Difficulty d);
 
     /*!
      * Returns action name by enum value
