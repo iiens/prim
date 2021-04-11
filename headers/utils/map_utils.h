@@ -60,6 +60,12 @@ void map_utils_sendResourcesToGate(Map *m, int resources);
  *
  * @param m
  */
+void map_utils_moveResourcesInMachine(Map *m);
+
+/**
+ *
+ * @param m
+ */
 void map_utils_productionFise(Map *m);
 
 /**

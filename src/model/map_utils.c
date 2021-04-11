@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
-#include "../../headers/data/box.h"
 #include "../../headers/utils/utils.h"
 
 //todo: Ramzy constant ?
@@ -79,78 +78,6 @@ void map_utils_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, i
     }
 }
 
-bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
-    CaseType caseType = case_getType(c);
-    if (caseType == CASE_MACHINE) {
-        Machine *machine = case_getMachine(c);
-        return machine_getType(machine) == type;
-    }
-    return false;
-}
-
-Case *map_utils_getLastConveyorBelt(Map *m, Case *c) { // NOLINT(misc-no-recursion)
-    // TODO Valentin : Corriger
-    /*Machine *machine = case_getMachine(c);
-    Orientation *orientation = machine_getOrientation(machine);
-    int x = case_getX(c);
-    int y = case_getY(c);
-
-    int nextX, nextY, dSave;
-
-    if (machine_getOrientationBottom(orientation) == DIRECTION_OUT) {
-        nextX = x;
-        nextY = y - 1;
-        dSave = 0;
-    } else if (machine_getOrientationLeft(orientation) == DIRECTION_OUT) {
-        nextX = x - 1;
-        nextY = y;
-        dSave = 1;
-    } else if (machine_getOrientationTop(orientation) == DIRECTION_OUT) {
-        nextX = x;
-        nextY = y + 1;
-        dSave = 2;
-    } else if (machine_getOrientationRight(orientation) == DIRECTION_OUT) {
-        nextX = x + 1;
-        nextY = y;
-        dSave = 3;
-    } else return NULL;
-
-    Case *next = map_getCase(nextX, nextY, m);
-    if (next != NULL) {
-        if (caseHasMachineType(MS_CONVEYOR_BELT, next) || caseHasMachineType(MS_CROSS, next)) {
-            Machine *nextMachine = case_getMachine(next);
-            Orientation *nextOrientation = machine_getOrientation(nextMachine);
-
-            switch (dSave) { // NOLINT(hicpp-multiway-paths-covered)
-                case 0:
-                    if (machine_getOrientationBottom(nextOrientation) == DIRECTION_IN) {
-                        return getLastConveyorBelt(m, next);
-                    }
-                    return c;
-                case 1:
-                    if (machine_getOrientationLeft(nextOrientation) == DIRECTION_IN) {
-                        return getLastConveyorBelt(m, next);
-                    }
-                    return c;
-                case 2:
-                    if (machine_getOrientationTop(nextOrientation) == DIRECTION_IN) {
-                        return getLastConveyorBelt(m, next);
-                    }
-                    return c;
-                case 3:
-                    if (machine_getOrientationRight(nextOrientation) == DIRECTION_IN) {
-                        return getLastConveyorBelt(m, next);
-                    }
-                    return c;
-            }
-
-        }
-        return c;
-    }
-    return c;*/
-    return NULL;
-}
-
 void map_utils_sendResourcesToGate(Map *m, int resources) {
     Case *c;
     for (int i = 0; i < map_getWidth(m); ++i) {
@@ -176,14 +103,39 @@ void map_utils_sendResourcesToGate(Map *m, int resources) {
     }
 }
 
+// Code factorization function for this file
+/**
+ * This function allows you to check if a machine of a specific type is present in a space
+ *
+ * @param type of machine
+ * @param c c the box to check
+ * @return returns boolean if there is a machine of the right type
+ */
+bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
+    CaseType caseType = case_getType(c);
+    if (caseType == CASE_MACHINE) {
+        Machine *machine = case_getMachine(c);
+        return machine_getType(machine) == type;
+    }
+    return false;
+}
+
+// TODO Valentin : peut être déplacer dans interface qui gères les cardinals ??
+// TODO Valentin : Possibilité de rendre générique ??
+/**
+ * Allows in relation to a cardinal to return the modifications to be made on the coordinates
+ *
+ * @param cardinal
+ * @return Vector2D
+ */
 Vector2D map_utils_modifyXYWithCardinal(Cardinal cardinal) {
     switch (cardinal) {
         case NORTH:
-            return (Vector2D) {.x = 0, .y = +1};
+            return (Vector2D) {.x = 0, .y = -1};
         case EAST:
             return (Vector2D) {.x = 1, .y = 0};
         case SOUTH:
-            return (Vector2D) {.x = 0, .y = -1};
+            return (Vector2D) {.x = 0, .y = +1};
         case WEST:
             return (Vector2D) {.x = -1, .y = 0};
         default:
@@ -191,7 +143,49 @@ Vector2D map_utils_modifyXYWithCardinal(Cardinal cardinal) {
     }
 }
 
-// Fonction EndTurn
+// TODO Valentin : modifier pour ne plus avoir à passer la box
+ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
+    int x = case_getX(c);
+    int y = case_getY(c);
+    Vector2D modifier = map_utils_modifyXYWithCardinal(card);
+    Case *outputCase = map_getCase(x + modifier.x, y + modifier.y, m);
+
+    if (outputCase != NULL) {
+        if (case_getType(outputCase) != CASE_MACHINE) {
+            if (case_hasBox(outputCase)) {
+                box_addB2toB1(case_getBox(outputCase), outputBox);
+                return ERROR; // TODO change Error
+            } else {
+                case_addBox(outputCase, outputBox);
+            }
+        } else {
+            Machine *outputMachine = case_getMachine(outputCase);
+            Cardinal outputCardinal = (card + (NUMBER_CARDINAL / 2)) % NUMBER_CARDINAL;
+            if (machine_getDirection(outputMachine, outputCardinal) == DIRECTION_IN) {
+                Box *existBox = machine_getBox(outputMachine, card);
+                if (existBox != NULL) {
+                    box_addB2toB1(existBox, outputBox);
+                    return ERROR; // TODO change Error
+                } else {
+                    machine_addBox(outputMachine, outputCardinal, outputBox);
+                }
+            } else {
+                return ERROR; // TODO change Error
+            }
+        }
+    } else {
+        return ERROR_CASE_NOT_FOUND;
+    }
+
+    return NO_ERROR;
+}
+
+// Required function for endTurn
+/**
+ * Produce DD and E by fise
+ *
+ * @param m
+ */
 void map_utils_productionFise(Map *m) {
     int productionE = PRODUCTION_FISE_E;
     int productionDD = PRODUCTION_FISE_DD;
@@ -207,6 +201,11 @@ void map_utils_productionFise(Map *m) {
     map_setNumberDD(m, (productionDD + modifDD) * numberFise);
 }
 
+/**
+ * Produce DD or E by fisa
+ *
+ * @param m
+ */
 void map_utils_productionFisa(Map *m) {
     if (map_getNumberTurn(m) % NB_TURN_FISA == 0) {
         int productionE = PRODUCTION_FISA_E;
@@ -228,32 +227,36 @@ void map_utils_productionFisa(Map *m) {
 }
 
 void map_utils_moveResources(Map *m) {
-    //Parcourir tous les tapis et déplacer les box de l'interface OUT de la machine sur l'interface IN de la suivante suivant
-    // Création d'une fonction qui process une machine et donc déplace toutes les Box de l'interface IN vers OUT de la même machine
-
     int width = map_getWidth(m);
     int height = map_getHeight(m);
 
     for (int x = 0; x < width; ++x) {
         for (int y = 0; y < height; ++y) {
-            Case *cursor = map_getCase(x, y, m);
+            Case *conveyorCase = map_getCase(x, y, m);
 
-            if (map_utils_caseHasMachineType(MS_CONVEYOR_BELT, cursor) ||
-                map_utils_caseHasMachineType(MS_CROSS, cursor)) {
-                // Aller jusqu'à la case qui n'a pas de successeur
-                cursor = map_utils_getLastConveyorBelt(m, cursor);
+            if (map_utils_caseHasMachineType(MS_CONVEYOR_BELT, conveyorCase) ||
+                map_utils_caseHasMachineType(MS_CROSS, conveyorCase)) {
+                Machine *conveyorMachine = case_getMachine(conveyorCase);
 
-                // Move carton
-                while (cursor != NULL) {
-                    // Récupérer le précédent
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    if (machine_getDirection(conveyorMachine, card) == DIRECTION_OUT) {
+                        Box *conveyorBox = machine_getBox(conveyorMachine, card);
+                        if (conveyorBox != NULL) {
+                            if (map_utils_moveBox(m, conveyorCase, conveyorBox, card) != NO_ERROR) {
+                                free(conveyorBox);
+                            }
+                        }
+                    }
                 }
             }
         }
     }
+
+    //map_utils_moveResourcesInMachine(m);
 }
 
 void map_utils_generateResources(Map *m) {
-    int numberTour = NB_TURN_PRODUCTION_SOURCE;
+    int numberTour = 1;
 
     // TODO Valentin : attendre
     //map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &numberTour, NULL);
@@ -268,6 +271,7 @@ void map_utils_generateResources(Map *m) {
             for (int j = 0; j < map_getHeight(m); ++j) {
                 c = map_getCase(i, j, m);
                 if (case_getType(c) == CASE_SOURCE) {
+                    fprintf(stderr, "Sources généré : \n");
                     case_addBox(c, box_create(generateResource, 0));
                 }
             }
@@ -313,27 +317,68 @@ void map_utils_activateRecyclingCenters(Map *m) {
                         int rest = numberGarbage % NUMBER_WASTE_TO_PRODUCT_RESOURCE;
                         box_setNumberGarbage(machineBox, rest - numberGarbage);
 
-                        int x = case_getX(c);
-                        int y = case_getY(c);
-                        Vector2D modifier = map_utils_modifyXYWithCardinal(card);
-                        Case *outputCase = map_getCase(x + modifier.x, y + modifier.y, m);
-                        if (case_getType(outputCase) != CASE_MACHINE) {
+                        if (numberResource > 0) {
                             Box *outputBox = box_create(numberResource, 0);
-
-                            if (case_hasBox(outputCase)) {
-                                box_addB2toB1(case_getBox(outputCase), outputBox);
+                            if (map_utils_moveBox(m, c, outputBox, card) != NO_ERROR) {
                                 free(outputBox);
-                            }  else {
-                                case_addBox(outputCase, outputBox);
                             }
                         }
-
-                        break;
                     }
                 }
             }
         }
     }
+
+    /* for (int j = 0; j < map_getHeight(m); ++j) {
+         for (int i = 0; i < map_getWidth(m); ++i) {
+             c = map_getCase(i, j, m);
+             if (case_getType(c) == CASE_MACHINE) {
+                 Machine *machine = case_getMachine(c);
+                 Direction direction;
+                 Cardinal out;
+
+                 if (machine_getType(machine) == MS_CROSS) {
+                     for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                         direction = machine_getDirection(machine, card);
+                         if (direction == DIRECTION_IN) {
+                             Box *inBox = machine_getBox(machine, card);
+                             if (inBox != NULL) {
+                                 Box *outputBox = machine_getBox(machine,
+                                                                 (card + (NUMBER_CARDINAL / 2)) % NUMBER_CARDINAL);
+                                 if (outputBox == NULL) {
+                                     outputBox = box_create(0, 0);
+                                 }
+                                 box_addB2toB1(outputBox, inBox);
+                                 machine_destroyBox(machine, card);
+                             }
+                         }
+                     }
+                 } else {
+                     Box *cumulBox = box_create(0, 0);
+                     for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                         direction = machine_getDirection(machine, card);
+                         if (direction == DIRECTION_OUT) {
+                             out = card;
+                         } else if (direction == DIRECTION_IN) {
+                             Box *tmp = machine_getBox(machine, card);
+                             if (tmp != NULL) {
+                                 box_addB2toB1(cumulBox, tmp);
+                                 machine_destroyBox(machine, card);
+                             }
+                         }
+                     }
+
+                     Box *tmp = machine_getBox(machine, out);
+                     if (tmp != NULL) {
+                         box_addB2toB1(tmp, cumulBox);
+                         free(cumulBox);
+                     } else {
+                         machine_addBox(machine, out, cumulBox);
+                     }
+                 }
+             }
+         }
+     }*/
 }
 
 void map_utils_activateCollectors(Map *m) {
@@ -350,25 +395,41 @@ void map_utils_activateCollectors(Map *m) {
             if (map_utils_caseHasMachineType(machineType, collectorCase)) {
                 Machine *collectorMachine = case_getMachine(collectorCase);
 
-                int capacity = BaseCapacity + modifiers * machine_getLevel(collectorMachine);
+                int capacity = BaseCapacity + modifiers * (machine_getLevel(collectorMachine) - 1);
                 int x = case_getX(collectorCase);
                 int y = case_getY(collectorCase);
                 Case *sourceCase;
+                Box *sourceBox;
                 Direction dir;
                 Cardinal out;
 
-                List *listSource = NULL;
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    Box *boxCollector = machine_getBox(collectorMachine, card);
+                    if (boxCollector != NULL) {
+                        fprintf(stderr, "Collector face %d => Resources %d Garbage %d\n", card,
+                                box_getNumberResource(boxCollector), box_getNumberGarbage(boxCollector));
+                    }
+                }
+
+                List *listSource = list_createEmpty();
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                     dir = machine_getDirection(collectorMachine, card);
                     if (dir == DIRECTION_NONE) {
+                        fprintf(stderr, "Direction None %d x:%d y:%d\n", list_getSize(listSource), x, y);
                         Vector2D modifier = map_utils_modifyXYWithCardinal(card);
+                        fprintf(stderr, "Modif coord x:%d y:%d\n", x + modifier.x, y + modifier.y);
                         sourceCase = map_getCase(x + modifier.x, y + modifier.y, m);
-                        if (case_getType(sourceCase) == CASE_SOURCE && case_hasBox(sourceCase)) {
-                            Element elt = {
-                                    .type = OBJECT,
-                                    .content.object = sourceCase
-                            };
-                            list_addElement(listSource, elt);
+                        if (sourceCase != NULL) {
+                            if (case_getType(sourceCase) == CASE_SOURCE && case_hasBox(sourceCase)) {
+                                sourceBox = case_getBox(sourceCase);
+                                if (box_getNumberResource(sourceBox) > 0 || box_getNumberGarbage(sourceBox) > 0) {
+                                    Element elt = {
+                                            .type = OBJECT,
+                                            .content.object = (void*) sourceCase
+                                    };
+                                    list_addElement(listSource, elt);
+                                }
+                            }
                         }
                     } else if (dir == DIRECTION_OUT) {
                         out = card;
@@ -377,19 +438,28 @@ void map_utils_activateCollectors(Map *m) {
 
                 int choiceSource;
                 Box *cumulative = box_create(0, 0);
-                while (capacity > 0 && listSource != NULL) {
-                    // TODO Valentin faire Production
+                //fprintf(stderr, "liste source %d\n", list_getSize(listSource));
+                while (capacity > 0 && list_getSize(listSource) > 0) {
+                    choiceSource = rand() % list_getSize(listSource); // NOLINT(cert-msc50-cpp)
+
+                    Element *elt = list_getByIndex(listSource, choiceSource);
+                    sourceBox = case_getBox((Case *) elt->content.object);
+                    //fprintf(stderr, "Source x:%d y:%d => Resources %d\n", case_getX((Case *) elt->content.object),
+                            //case_getY((Case *) elt->content.object), box_getNumberResource(sourceBox));
+                    box_setNumberResource(cumulative, 1);
+                    box_setNumberResource(sourceBox, -1);
+
+                    if (box_getNumberResource(sourceBox) <= 0) {
+                        list_removeByIndex(listSource, choiceSource);
+                    }
+
                     capacity--;
                 }
+                list_destroy(listSource);
 
+                //fprintf(stderr, "Cumulative => Resources %d\n", box_getNumberResource(cumulative));
                 if (box_getNumberResource(cumulative) > 0) {
-                    Box *boxCollector = machine_getBox(collectorMachine, out);
-                    if (boxCollector != NULL) {
-                        box_addB2toB1(boxCollector, cumulative);
-                        free(cumulative);
-                    } else {
-                        machine_addBox(collectorMachine, out, cumulative);
-                    }
+                    map_utils_moveBox(m, collectorCase, cumulative, out);
                 } else {
                     free(cumulative);
                 }
@@ -399,7 +469,7 @@ void map_utils_activateCollectors(Map *m) {
 }
 
 void map_utils_resetResourcesGarbage(Map *m) {
-    Case *c, *gate;
+    Case *c, *gate = NULL;
     Box *box = box_create(0, 0);
     Box *tmpBox;
 
@@ -407,22 +477,86 @@ void map_utils_resetResourcesGarbage(Map *m) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             CaseType type = case_getType(c);
+            //fprintf(stderr, "Case Type x:%d y:%d => type %d\n", i, j, type);
             if (type == CASE_GATE) {
                 gate = c;
             } else if (case_hasBox(c)) {
+                //fprintf(stderr, "Case Reset x:%d y:%d\n", i, j);
                 tmpBox = case_getBox(c);
                 box_setNumberGarbage(box, box_getNumberGarbage(tmpBox));
+                //fprintf(stderr, " => Resources %d / Garbage : %d\n", box_getNumberResource(tmpBox),
+                //        box_getNumberGarbage(tmpBox));
 
                 case_deleteBox(c);
             }
         }
     }
 
-    if (case_hasBox(gate)) {
-        box_addB2toB1(case_getBox(gate), box);
-        free(box);
+    if (gate != NULL) {
+        if (case_hasBox(gate)) {
+            box_addB2toB1(case_getBox(gate), box);
+            free(box);
+        } else {
+            case_addBox(gate, box);
+        }
     } else {
-        case_addBox(gate, box);
+        fprintf(stderr, "Gate non trouvé !!\n");
+    }
+}
+
+void map_utils_moveResourcesInMachine(Map *m) {
+    Case *c;
+    Direction direction;
+
+    for (int j = 0; j < map_getHeight(m); ++j) {
+        for (int i = 0; i < map_getWidth(m); ++i) {
+            c = map_getCase(i, j, m);
+
+            if (case_getType(c) == CASE_MACHINE) {
+                Machine *machine = case_getMachine(c);
+
+                if (machine_getType(machine) == MS_CROSS) {
+                    for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                        direction = machine_getDirection(machine, card);
+                        if (direction == DIRECTION_IN) {
+                            Box *inBox = machine_getBox(machine, card);
+                            if (inBox != NULL) {
+                                Box *outputBox = machine_getBox(machine,
+                                                                (card + (NUMBER_CARDINAL / 2)) % NUMBER_CARDINAL);
+                                if (outputBox == NULL) {
+                                    outputBox = box_create(0, 0);
+                                }
+                                box_addB2toB1(outputBox, inBox);
+                                machine_destroyBox(machine, card);
+                            }
+                        }
+                    }
+                } else {
+                    Box *cumulBox = box_create(0, 0);
+                    Cardinal out;
+                    for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                        direction = machine_getDirection(machine, card);
+                        if (direction == DIRECTION_OUT) {
+                            out = card;
+                        } else if (direction == DIRECTION_IN) {
+                            Box *tmp = machine_getBox(machine, card);
+                            if (tmp != NULL) {
+                                box_addB2toB1(cumulBox, tmp);
+                                machine_destroyBox(machine, card);
+                            }
+                        }
+                    }
+
+                    Box *tmp = machine_getBox(machine, out);
+                    if (tmp != NULL) {
+                        box_addB2toB1(tmp, cumulBox);
+                        free(cumulBox);
+                    } else {
+                        machine_addBox(machine, out, cumulBox);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -435,7 +569,7 @@ ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {
 
     // Parcourir toutes les cases pour supprimer la moitie des déchets
     Case *c;
-    int numberG, rest, div;
+    int numberG, div;
     for (int i = 0; i < map_getWidth(m); ++i) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             Box *box;
@@ -455,11 +589,13 @@ ErrorCode staff_actionAnneLaureLigozat(Map *m, int idStaff) {
                 // Remplacer 4 par define ou getNumberFacade
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                     box = machine_getBox(machine, card);
-                    numberG = box_getNumberGarbage(box);
+                    if (box != NULL) {
+                        numberG = box_getNumberGarbage(box);
 
-                    div = (numberG * coefficient) / 100;
+                        div = (numberG * coefficient) / 100;
 
-                    box_setNumberGarbage(box, div * -1);
+                        box_setNumberGarbage(box, div * -1);
+                    }
                 }
             }
         }

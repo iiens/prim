@@ -57,17 +57,20 @@ Map *map_create(Difficulty dif) {
     // Random gate placement
     gate_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
     gate_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
-    case_addGate(m->map[gate_x][gate_y]);
+    case_addGate(m->map[0][0]);
 
     // Random placement of the 2 sources
-    for (int i = 0; i < 2; i++) {
+    /*for (int i = 0; i < 2; i++) {
         do {
             source_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
             source_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
         } while (!case_isEmpty(m->map[source_x][source_y]));
 
         case_addSource(m->map[source_x][source_y]);
-    }
+    }*/
+
+    case_addSource(m->map[0][5]);
+    case_addSource(m->map[1][4]);
 
     return m;
 }
@@ -138,9 +141,8 @@ ErrorCode map_endTurn(Map *m) {
     // Production of Fisa
     map_utils_productionFisa(m);
 
-    // TODO Valentin : Déplacer les ressources
-    // Besoin de la listes des tapis
-    //moveResources(m);
+    // Déplacer les ressources
+    map_utils_moveResources(m);
 
     // Generation of resources
     map_utils_generateResources(m);
@@ -156,6 +158,8 @@ ErrorCode map_endTurn(Map *m) {
 
     // Destroy the no-collected resources
     map_utils_resetResourcesGarbage(m);
+
+    map_utils_moveResourcesInMachine(m);
 
     // Minus pollution to DD
     int numberPollution = map_getNumberPollution(m);
@@ -253,7 +257,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             ErrorCode e = map_utils_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
                 // Envouyer à la porte les déchets
-                Box* checkBox;
+                Box *checkBox;
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                     checkBox = machine_getBox(machine, card);
                     if (checkBox != NULL) {
@@ -423,7 +427,7 @@ ErrorCode map_setNumberDD(Map *m, int val) {
     }
 }
 
-ErrorCode map_setNumberScore( Map* m, int val ) {
+ErrorCode map_setNumberScore(Map *m, int val) {
     if (m->score + val >= 0) {
         m->score += val;
         return NO_ERROR;

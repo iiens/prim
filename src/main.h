@@ -3,6 +3,7 @@
 
 #include "../headers/interface.h" //!< contains actions
 #include "../headers/data/effect.h"
+#include "../headers/map.h"
 
 bool back = false; //!< Allow to cancel the current action
 
