@@ -237,7 +237,7 @@ char interface_utils_parseOrientation( int x, int y, const Map* map )
                     return L'9';
                 break;
             case MS_JUNKYARD:
-                return 'A'; // all
+                return ' '; // all
         }
     }
     return L' ';

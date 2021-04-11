@@ -18,7 +18,7 @@ all: prim
 # compiler
 CC= gcc
 # compilation flags
-CFLAGS= -Wall -Wextra -std=c99
+CFLAGS= -Wall -Wextra -std=c99 -g
 NCURSES_FLAGS=-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=700 -lncursesw -lform
 
 # path
