@@ -40,7 +40,7 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
             attr_t color = interface_ncurses_utils_getCaseColor(c, t); //!< color
 
             if ( showResourceSaved || showGarbageSaved ){
-                if ( showResource ) number = utils_intToString(case_getNumberResourcesByCase(c));
+                if ( showResourceSaved ) number = utils_intToString(case_getNumberResourcesByCase(c));
                 else number = utils_intToString(case_getNumberGarbageByCase(c));
                 // content
                 wattron(mapWindow, color);
