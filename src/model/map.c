@@ -175,7 +175,7 @@ ErrorCode map_endTurn(Map *m) {
     int numberPollution = map_getNumberPollution(m);
     int numberDD = map_getNumberDD(m);
     if (numberDD < numberPollution) {
-        //return ERROR; // TODO Valentin : changer avec error valeur de DD négative
+        return ERROR; // TODO Valentin : changer avec error valeur de DD négative
     }
     map_setNumberDD(m, numberPollution * -1);
 
