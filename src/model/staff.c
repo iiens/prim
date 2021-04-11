@@ -430,8 +430,8 @@ int staff_getNumberStaffByID(const Dictionary* dict, int id) {
 void staff_hireStaff(Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        Couple * couple = dictionary_getCoupleByIndex(dict, index);
-        dictionary_addCoupleInt(dict, staff_list[index].id, couple->values.content.number++);
+        Couple* couple = dictionary_getCoupleByIndex(dict, index);
+        dictionary_addCoupleInt(dict, staff_list[index].id, couple->values.content.number+1);
     }
 }
 

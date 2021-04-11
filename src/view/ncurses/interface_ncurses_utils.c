@@ -4,11 +4,11 @@
 
 #define ERROR_LINE 0 //!< error line in action window
 
-char* lastMessage = NULL; //!< last message that we printed
+int lastMessageLength = -1; //!< last message that we printed
 
 bool interface_ncurses_utils_hasLastMessage()
 {
-    return lastMessage == NULL;
+    return lastMessageLength == -1;
 }
 
 void interface_ncurses_showActionField()
@@ -31,7 +31,7 @@ void interface_ncurses_showMessageWithColor( char* message, int color )
     wattroff(actionWindow, COLOR_PAIR(color));
 
     // save
-    lastMessage = message;
+    lastMessageLength = (int) strlen(message) + 1;
 
     // refresh
     wrefresh(actionWindow);
@@ -54,16 +54,16 @@ void interface_ncurses_showMessage( char* message )
 
 void interface_ncurses_hideError()
 {
-    if ( lastMessage == NULL )
+    if ( lastMessageLength == -1 )
         return;
     // delete line
     // we remove the first one, until there is no character
-    for ( int i = 0; i < (int) strlen(lastMessage) + 1; ++i ) {
+    for ( int i = 0; i < lastMessageLength ; ++i ) {
         mvwdelch(actionWindow, ERROR_LINE, 0); //
     }
     // refresh
     wrefresh(actionWindow);
-    lastMessage = NULL;
+    lastMessageLength = -1;
 }
 
 char* interface_ncurses_gameTag( char* text, int value, char* buf, char* format )

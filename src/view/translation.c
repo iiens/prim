@@ -111,11 +111,11 @@ char* translation_get( Translation t )
         case TRANSLATE_INPUT_MACHINE_LOCATION:
             return "Submit machine location. Format is \"x,y\" (without \")";
         case TRANSLATE_INPUT_STAFF:
-            return "Input staff ID. You can fetch them using `ls` action. Press `b` to go back.";
+            return "Input staff ID. You could have fetched them using `ls` action. Press `b` to go back.";
         case TRANSLATE_INPUT_MACHINE:
-            return "Input machine ID. You can fetch them using `lm` action. Press `b` to go back.";
+            return "Input machine ID. You could have fetched them using `lm` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ORIENTATION:
-            return "Input a rotation (0-3).";
+            return "Input a rotation (0-3), clockwise.";
         case TRANSLATE_INPUT_ACTION:
             return "Use `help` to get the list of available actions.";
         case TRANSLATE_ACTION_LIST_TITLE:

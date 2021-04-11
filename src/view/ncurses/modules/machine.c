@@ -93,6 +93,7 @@ void* interface_ncurses_askOrientationClosureInit()
         char* buffer = (char*) malloc(size * sizeof(char));
         sprintf(buffer, "%s %s", message, desc);
         interface_ncurses_showMessage(buffer);
+        free(buffer); // free
     }
     return NULL;
 }
