@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
 #include "../../headers/utils/utils.h"
@@ -176,6 +177,16 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
             // Sinon récupérer la machine
             Machine *outputMachine = case_getMachine(outputCase);
 
+            const MachineInfo *machineInfo = machineInfo_getMachineStuff(machine_getType(outputMachine));
+            int BaseCapacity = machineInfo_getCapacity(machineInfo);
+            fprintf(stderr, "   Capacity %d\n", BaseCapacity);
+            if (machineInfo_getCanUpgrade(machineInfo)) {
+                const Effect *effect = machineInfo_getEffects(machineInfo);
+                int modifiers = effect_getModifierCapacity(effect);
+                BaseCapacity = BaseCapacity + modifiers * (machine_getLevel(outputMachine) - 1);
+                fprintf(stderr, "   Capacity %d\n", BaseCapacity);
+            }
+
             // Calcule du cardinal opposé à la sortie
             Cardinal outputCardinal = (card + (NUMBER_CARDINAL / 2)) % NUMBER_CARDINAL;
 
@@ -190,6 +201,15 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
                     machine_addBox(outputMachine, outputCardinal, existBox);
                 }
                 box_addB2toB1(existBox, outputBox);
+
+                fprintf(stderr, "   Capacity %d Stock %d\n", BaseCapacity, case_getNumberGarbageByCase(outputCase));
+                if (case_getNumberGarbageByCase(outputCase) > BaseCapacity) {
+                    map_utils_sendResourcesToGate(m, (BaseCapacity - case_getNumberGarbageByCase(outputCase)) * -1);
+                    box_setNumberGarbage(existBox, BaseCapacity - case_getNumberGarbageByCase(outputCase));
+                }
+                if (case_getNumberResourcesByCase(outputCase) > BaseCapacity) {
+                    box_setNumberResource(existBox, BaseCapacity - case_getNumberResourcesByCase(outputCase));
+                }
 
                 return ERROR;
             } else {
@@ -485,31 +505,40 @@ void map_utils_activateCollectors(Map *m) {
                     }
                 }
 
+                srand(time(NULL)); // NOLINT(cert-msc51-cpp)
                 // Création d'une box temporaire pour stocker le nombre de ressource récupéré
                 int choiceSource;
                 Box *cumulative = box_create(0, 0);
                 // Temps qu'il y a encore possibilité de récupérer des ressources
                 // Et qu'il y a encore des ressources à récupéré
                 while (capacity > 0 && list_getSize(listSource) > 0) {
+                    fprintf(stderr, "While\n");
                     // Choisir un source aléatoirement
                     choiceSource = rand() % list_getSize(listSource); // NOLINT(cert-msc50-cpp)
+                    fprintf(stderr, "Size\n");
 
                     // Récupérer la box sur la source
                     Element *elt = list_getByIndex(listSource, choiceSource);
+                    fprintf(stderr, "Index\n");
                     sourceBox = case_getBox((Case *) elt->content.object);
+                    fprintf(stderr, "Box\n");
 
                     // Prendre une ressource de la source
                     if (case_getType((Case *) elt->content.object) == CASE_SOURCE) {
                         box_setNumberResource(cumulative, 1);
                         box_setNumberResource(sourceBox, -1);
+                        fprintf(stderr, "Source\n");
                     } else {
                         box_setNumberGarbage(cumulative, 1);
                         box_setNumberGarbage(sourceBox, -1);
+                        fprintf(stderr, "Garbage\n");
                     }
 
                     // Supprimer la source de la liste si elle est vide
                     if (box_getNumberResource(sourceBox) <= 0 && box_getNumberGarbage(sourceBox) <= 0) {
+                        fprintf(stderr, "Rem\n");
                         list_removeByIndex(listSource, choiceSource);
+                        fprintf(stderr, "Remove\n");
                     }
 
                     // Diminué la capacité du collecteur
@@ -518,7 +547,8 @@ void map_utils_activateCollectors(Map *m) {
                 // Détruire la liste de source
                 list_destroy(listSource);
 
-                fprintf(stderr, "Cumulative => Resources %d Garbage %d\n", box_getNumberResource(cumulative), box_getNumberGarbage(cumulative));
+                fprintf(stderr, "Cumulative => Resources %d Garbage %d\n", box_getNumberResource(cumulative),
+                        box_getNumberGarbage(cumulative));
                 // Si il y a des ressources qui ont été récupéré alors envoyer la box vers
                 // la sortie du collecteur
                 if (box_getNumberResource(cumulative) > 0 || box_getNumberGarbage(cumulative) > 0) {
@@ -626,7 +656,8 @@ void map_utils_moveResourcesInMachine(Map *m) {
                     }
 
                     // Verification de la présence de ressources
-                    fprintf(stderr, "Case x:%d y:%d Cumul => r:%d g:%d => ", case_getX(c), case_getY(c), box_getNumberResource(cumulBox),
+                    fprintf(stderr, "Case x:%d y:%d Cumul => r:%d g:%d => ", case_getX(c), case_getY(c),
+                            box_getNumberResource(cumulBox),
                             box_getNumberGarbage(cumulBox));
                     if (box_getNumberGarbage(cumulBox) > 0 || box_getNumberResource(cumulBox) > 0) {
                         // Vérification de la présence d'un Box sur la sortie
