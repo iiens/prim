@@ -86,18 +86,11 @@ void map_utils_sendResourcesToGate(Map *m, int resources) {
             CaseType type = case_getType(c);
             if (type == CASE_GATE) {
                 if (case_hasBox(c)) {
-                    Box *saveBox = box_create(0, 0);
-                    box_addB2toB1(saveBox, case_getBox(c));
-                    case_setEmpty(c);
-
-                    case_addBox(c, box_create(0, resources));
-                    map_utils_generateGarbage(m);
-
-                    case_addBox(c, saveBox);
+                    box_setNumberResource(case_getBox(c), resources);
                 } else {
                     case_addBox(c, box_create(0, resources));
-                    map_utils_generateGarbage(m);
                 }
+                map_utils_generateGarbage(m);
             }
         }
     }
