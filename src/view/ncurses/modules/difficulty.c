@@ -123,7 +123,7 @@ Difficulty interface_ncurses_chooseDifficulty()
                 break;
             case KEY_DOWN: //arrow down
                 current++;
-                current = min(current, N_DIFFICULTIES);
+                current = min(current, N_DIFFICULTIES-1);
                 break;
             case KEY_SEND: // enter, send, etc.
             case KEY_ENTER:
