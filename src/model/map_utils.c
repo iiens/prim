@@ -156,6 +156,7 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
     // Calcul des modifications des coordonnées par rapport au cardinal de la nouvelle
     Vector2D modifier = map_utils_modifyXYWithCardinal(card);
     Case *outputCase = map_getCase(x + modifier.x, y + modifier.y, m);
+    Box* inputBox;
 
     // Vérification de léxistence de la case
     if (outputCase != NULL) {
@@ -167,14 +168,16 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
             if (case_hasBox(outputCase)) {
                 fprintf(stderr, "   => Case avec Box\n");
                 // Si oui ajouter à la box déjà présente les données de la nouvelle box
-                box_addB2toB1(case_getBox(outputCase), outputBox);
-                return ERROR; // TODO change Error
+                inputBox = case_getBox(outputCase);
             } else {
                 fprintf(stderr, "   => Case sans Box\n");
                 // Si non ajouter la box à la machine
-                case_addBox(outputCase, outputBox);
-                return NO_ERROR;
+                inputBox = box_create(0,0);
+                case_addBox(outputCase, inputBox);
             }
+            box_addB2toB1(inputBox, outputBox);
+
+            return ERROR;
         } else {
             fprintf(stderr, "   => Case machine\n");
             // Sinon récupérer la machine
@@ -185,24 +188,17 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
 
             // Vérification que l'on est bien sur l'ntré de la machine
             if (machine_getDirection(outputMachine, outputCardinal) == DIRECTION_IN) {
+                fprintf(stderr, "   => Case In\n");
                 // Verification de l'existence d'une box
                 Box *existBox = machine_getBox(outputMachine, outputCardinal);
-                if (existBox != NULL) {
-                    fprintf(stderr, "   => Case avec Box\n");
-                    // Si oui ajouter les données à la box déjà existente
-                    box_addB2toB1(existBox, outputBox);
-                    fprintf(stderr, "       Case x:%d y:%d Card:%d R:%d G:%d\n", case_getX(outputCase), case_getY(outputCase),
-                            card,
-                            box_getNumberResource(existBox), box_getNumberGarbage(existBox));
-                    return ERROR; // TODO change Error
-                } else {
-                    fprintf(stderr, "   => Case sans Box\n");
+                if (existBox == NULL) {
                     // Sinon ajouter la box à la case
-                    machine_addBox(outputMachine, outputCardinal, outputBox);
-                    fprintf(stderr, "       Case x:%d y:%d Card:%d R:%d G:%d\n", case_getX(c), case_getY(c), card,
-                            box_getNumberResource(outputBox), box_getNumberGarbage(outputBox));
-                    return NO_ERROR;
+                    existBox = box_create(0,0);
+                    machine_addBox(outputMachine, outputCardinal, existBox);
                 }
+                box_addB2toB1(existBox, outputBox);
+
+                return ERROR;
             } else {
                 return ERROR; // TODO change Error
             }
@@ -285,7 +281,7 @@ void map_utils_moveResources(Map *m) {
                         if (conveyorBox != NULL) {
                             // Si il y a une box la déplacer sur la case suivante
                             if (map_utils_moveBox(m, conveyorCase, conveyorBox, card) != NO_ERROR) {
-                                box_destroy(conveyorBox);
+                                machine_destroyBox(conveyorMachine, card);
                             }
                         }
                     }
@@ -294,7 +290,7 @@ void map_utils_moveResources(Map *m) {
         }
     }
 
-    //map_utils_moveResourcesInMachine(m);
+    map_utils_moveResourcesInMachine(m);
 }
 
 void map_utils_generateResources(Map *m) {
@@ -633,9 +629,6 @@ void map_utils_moveResourcesInMachine(Map *m) {
                         }
                     }
 
-                    fprintf(stderr, "Case x:%d y:%d R:%d G:%d\n", i, j, box_getNumberResource(cumulBox),
-                            box_getNumberGarbage(cumulBox));
-
                     // Verification de la présence de ressources
                     if (box_getNumberGarbage(cumulBox) > 0 || box_getNumberResource(cumulBox) > 0) {
                         // Vérification de la présence d'un Box sur la sortie
@@ -659,7 +652,8 @@ void map_utils_moveResourcesInMachine(Map *m) {
                         fprintf(stderr,"Case x:%d y:%d card:%d dir:%d => ", case_getX(c), case_getY(c), card, direction);
                         Box *tmp = machine_getBox(machine, card);
                         if (tmp != NULL) {
-                            fprintf(stderr, "Ok\n");
+                            fprintf(stderr, "Ok R:%d G:%d\n", box_getNumberResource(tmp),
+                                    box_getNumberGarbage(tmp));
                         } else {
                             fprintf(stderr, "Non Ok\n");
                         }

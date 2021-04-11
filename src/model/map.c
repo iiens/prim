@@ -146,7 +146,7 @@ ErrorCode map_endTurn(Map *m) {
 
     // Déplacer les ressources
     fprintf(stderr, "Move RG\n");
-    //map_utils_moveResources(m);
+    map_utils_moveResources(m);
 
     // Generation of resources
     fprintf(stderr, "\nGenerate R\n");
