@@ -145,6 +145,9 @@ Vector2D map_utils_modifyXYWithCardinal(Cardinal cardinal) {
 
 // TODO Valentin : modifier pour ne plus avoir à passer la box
 ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
+    fprintf(stderr, "=> map_utils_moveBox\n");
+    fprintf(stderr, "Case x:%d y:%d Card:%d R:%d G:%d\n", case_getX(c), case_getY(c), card,
+            box_getNumberResource(outputBox), box_getNumberGarbage(outputBox));
     int x = case_getX(c);
     int y = case_getY(c);
     Vector2D modifier = map_utils_modifyXYWithCardinal(card);
@@ -227,6 +230,7 @@ void map_utils_productionFisa(Map *m) {
 }
 
 void map_utils_moveResources(Map *m) {
+    fprintf(stderr, "=> map_utils_moveResources\n");
     int width = map_getWidth(m);
     int height = map_getHeight(m);
 
@@ -256,6 +260,7 @@ void map_utils_moveResources(Map *m) {
 }
 
 void map_utils_generateResources(Map *m) {
+    fprintf(stderr, "=> map_utils_generateResources\n");
     int numberTour = 1;
 
     // TODO Valentin : attendre
@@ -382,6 +387,7 @@ void map_utils_activateRecyclingCenters(Map *m) {
 }
 
 void map_utils_activateCollectors(Map *m) {
+    fprintf(stderr, "=> map_utils_activateCollectors\n");
     MachineStuff machineType = MS_COLLECTOR;
     const MachineInfo *machineInfo = machineInfo_getMachineStuff(machineType);
     const Effect *effect = machineInfo_getEffects(machineInfo);
@@ -403,21 +409,11 @@ void map_utils_activateCollectors(Map *m) {
                 Direction dir;
                 Cardinal out;
 
-                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                    Box *boxCollector = machine_getBox(collectorMachine, card);
-                    if (boxCollector != NULL) {
-                        fprintf(stderr, "Collector face %d => Resources %d Garbage %d\n", card,
-                                box_getNumberResource(boxCollector), box_getNumberGarbage(boxCollector));
-                    }
-                }
-
                 List *listSource = list_createEmpty();
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                     dir = machine_getDirection(collectorMachine, card);
                     if (dir == DIRECTION_NONE) {
-                        fprintf(stderr, "Direction None %d x:%d y:%d\n", list_getSize(listSource), x, y);
                         Vector2D modifier = map_utils_modifyXYWithCardinal(card);
-                        fprintf(stderr, "Modif coord x:%d y:%d\n", x + modifier.x, y + modifier.y);
                         sourceCase = map_getCase(x + modifier.x, y + modifier.y, m);
                         if (sourceCase != NULL) {
                             if (case_getType(sourceCase) == CASE_SOURCE && case_hasBox(sourceCase)) {
@@ -425,7 +421,7 @@ void map_utils_activateCollectors(Map *m) {
                                 if (box_getNumberResource(sourceBox) > 0 || box_getNumberGarbage(sourceBox) > 0) {
                                     Element elt = {
                                             .type = OBJECT,
-                                            .content.object = (void*) sourceCase
+                                            .content.object = (void *) sourceCase
                                     };
                                     list_addElement(listSource, elt);
                                 }
@@ -445,7 +441,7 @@ void map_utils_activateCollectors(Map *m) {
                     Element *elt = list_getByIndex(listSource, choiceSource);
                     sourceBox = case_getBox((Case *) elt->content.object);
                     //fprintf(stderr, "Source x:%d y:%d => Resources %d\n", case_getX((Case *) elt->content.object),
-                            //case_getY((Case *) elt->content.object), box_getNumberResource(sourceBox));
+                    //case_getY((Case *) elt->content.object), box_getNumberResource(sourceBox));
                     box_setNumberResource(cumulative, 1);
                     box_setNumberResource(sourceBox, -1);
 
@@ -457,7 +453,7 @@ void map_utils_activateCollectors(Map *m) {
                 }
                 list_destroy(listSource);
 
-                //fprintf(stderr, "Cumulative => Resources %d\n", box_getNumberResource(cumulative));
+                fprintf(stderr, "Cumulative => Resources %d\n", box_getNumberResource(cumulative));
                 if (box_getNumberResource(cumulative) > 0) {
                     map_utils_moveBox(m, collectorCase, cumulative, out);
                 } else {
@@ -469,6 +465,7 @@ void map_utils_activateCollectors(Map *m) {
 }
 
 void map_utils_resetResourcesGarbage(Map *m) {
+    fprintf(stderr, "=> map_utils_resetResourcesGarbage\n");
     Case *c, *gate = NULL;
     Box *box = box_create(0, 0);
     Box *tmpBox;
@@ -481,11 +478,11 @@ void map_utils_resetResourcesGarbage(Map *m) {
             if (type == CASE_GATE) {
                 gate = c;
             } else if (case_hasBox(c)) {
-                //fprintf(stderr, "Case Reset x:%d y:%d\n", i, j);
+                fprintf(stderr, "Case Reset x:%d y:%d\n", i, j);
                 tmpBox = case_getBox(c);
                 box_setNumberGarbage(box, box_getNumberGarbage(tmpBox));
-                //fprintf(stderr, " => Resources %d / Garbage : %d\n", box_getNumberResource(tmpBox),
-                //        box_getNumberGarbage(tmpBox));
+                fprintf(stderr, " => Resources %d / Garbage : %d\n", box_getNumberResource(tmpBox),
+                        box_getNumberGarbage(tmpBox));
 
                 case_deleteBox(c);
             }
@@ -505,6 +502,7 @@ void map_utils_resetResourcesGarbage(Map *m) {
 }
 
 void map_utils_moveResourcesInMachine(Map *m) {
+    fprintf(stderr, "=> map_utils_moveResourcesInMachine\n");
     Case *c;
     Direction direction;
 
@@ -547,6 +545,8 @@ void map_utils_moveResourcesInMachine(Map *m) {
                         }
                     }
 
+                    fprintf(stderr, "Case x:%d y:%d R:%d G:%d\n", i, j, box_getNumberResource(cumulBox),
+                            box_getNumberGarbage(cumulBox));
                     Box *tmp = machine_getBox(machine, out);
                     if (tmp != NULL) {
                         box_addB2toB1(tmp, cumulBox);

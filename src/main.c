@@ -25,6 +25,8 @@ int main( void ) {
         // Reset end turn
         endTurn = false;
 
+        fprintf(stderr, "Turn : %d\n", map_getNumberTurn(map));
+
         // While the user doesn't want the turn to end
         while ( !endTurn ) {
             // Interface update
@@ -38,7 +40,9 @@ int main( void ) {
         }
 
         // Process end turn
+        fprintf(stderr, "EndTurn : %d\n", map_getNumberTurn(map));
         map_endTurn(map);
+        fprintf(stderr, "\n");
     }
 
     // Destroy map
