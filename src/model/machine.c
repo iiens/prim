@@ -79,19 +79,23 @@ int machine_getLevel(const Machine *machine) { return machine->level; }
 void machine_rotateMachine(Machine *machine, int rotation) {
     Box* tmpBox;
     Direction tmpDirection;
-
     rotation = (rotation % NUMBER_CARDINAL) + NUMBER_CARDINAL;
+
     for (int rot = 0; rot < (rotation % NUMBER_CARDINAL); rot++) {
-        tmpDirection = facade_getDirection(machine->interface[0]);
-        tmpBox = facade_getBox(machine->interface[0]);
+        tmpDirection = facade_getDirection(machine->interface[NORTH]);
+        tmpBox = facade_getBox(machine->interface[NORTH]);
 
-        for (Cardinal i = 1; i < NUMBER_CARDINAL; ++i) {
-            facade_setDirection(machine->interface[i-1], facade_getDirection(machine->interface[i]));
-            facade_setBox(machine->interface[i-1], facade_getBox(machine->interface[i]));
-        }
+        facade_setDirection(machine->interface[NORTH], facade_getDirection(machine->interface[WEST]));
+        facade_setBox(machine->interface[NORTH], facade_getBox(machine->interface[WEST]));
 
-        facade_setDirection(machine->interface[NUMBER_CARDINAL-1], tmpDirection);
-        facade_setBox(machine->interface[NUMBER_CARDINAL-1], tmpBox);
+        facade_setDirection(machine->interface[WEST], facade_getDirection(machine->interface[SOUTH]));
+        facade_setBox(machine->interface[WEST], facade_getBox(machine->interface[SOUTH]));
+
+        facade_setDirection(machine->interface[SOUTH], facade_getDirection(machine->interface[EAST]));
+        facade_setBox(machine->interface[SOUTH], facade_getBox(machine->interface[EAST]));
+
+        facade_setDirection(machine->interface[EAST], tmpDirection);
+        facade_setBox(machine->interface[EAST], tmpBox);
     }
 }
 
