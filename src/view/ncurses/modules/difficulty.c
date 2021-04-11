@@ -3,11 +3,6 @@
 #include "../headers/interface_ncurses_utils.h"
 #include <string.h>
 
-// TL;DR
-//
-// This is made while thinking that we will always have 32 difficulties.
-// because I need to translate them and nothing tells me how much difficulties they are
-// so I can't iterate the enum. And it's an enum so I can't iterates it.
 //
 // So we will show the 3 difficulties
 // easy
@@ -17,49 +12,60 @@
 // and some of them may be disabled if the screen is too small.
 //
 // Selected one is highlighted.
+//
 
 Difficulty interface_ncurses_chooseDifficulty()
 {
-    const int N_DIFFICULTIES = 3; //!< number of difficulties
+    const int N_DIFFICULTIES = difficulty_getNumberOfDifficulties(); //!< number of difficulties
     const int TITLE_LINE = 2; //!< y of title line
     const int CONTENT_LINE_START = 4; //!< y of content line (first line)
     int* disabled; //!< disabled difficulties since screen is to small
-    int max; //!< will contains the size of the biggest word, used for style
+    int* widths; //!< size of a difficulty
+    int* heights; //!< size of a difficulty
+    int max = -1; //!< will contains the size of the biggest word, used for style
     char** difficulties = NULL; //!< will contains the difficulties as text that we will show
     char* item = NULL; //!< buffer of current item, used for style
     char* format; //!< format of the difficulty
     int current = 0; //!< current selected difficulty
     int ch; //!< current char read
     bool leave = false; //!< leave branch
-    const int TOP = ACTION_HEIGHT + 8; //!< min height
-    // sizes
-    int EASY_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_EASY); //!< size of map for EASY
-    int MEDIUM_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_MEDIUM); //!< size of map for MEDIUM
-    int HARD_SIZE = map_utils_getSizeByDifficulty(DIFFICULTY_HARD); //!< size of map for HARD
-
-    // find biggest value
-    max = max((int) strlen(translation_get(TRANSLATE_DIF_M)), (int) strlen(translation_get(TRANSLATE_DIF_H)));
-    max = max((int) strlen(translation_get(TRANSLATE_DIF_E)), (int) max);
+    const int MIN_HEIGHT = 21; //!< min height
+    const int HEIGHT_FIXED = NC_ACTION_HEIGHT + 3; //!< fixed part of the height
+    const int WIDTH_FIXED = GAME_WIDTH; //!< fixed part of the width
 
     // write title, centered
     mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2,
              translation_get(TRANSLATE_CHOICE_DIFF));
 
-    // fill difficulties
+    // fill difficulties, sizes, disabled
     difficulties = (char**) malloc(N_DIFFICULTIES * sizeof(char*));
-    difficulties[0] = translation_get(TRANSLATE_DIF_E);
-    difficulties[1] = translation_get(TRANSLATE_DIF_M);
-    difficulties[2] = translation_get(TRANSLATE_DIF_H);
-
-    // disabled
+    widths = (int*) malloc(N_DIFFICULTIES * sizeof(int));
+    heights = (int*) malloc(N_DIFFICULTIES * sizeof(int));
     disabled = (int*) malloc(N_DIFFICULTIES * sizeof(int));
-    for ( int i = 0; i < N_DIFFICULTIES; ++i )
-        disabled[i] = -1;
+    for ( int i = 1; i <= N_DIFFICULTIES; ++i ) {
+        Difficulty d = difficulty_getLVL(i); //!< get difficulty
+        // get translation
+        char* translation = translation_getDifficulty(d);
+        difficulties[i-1] = translation;
+        // get the max size
+        max = max( (int) strlen(translation), max);
+        // get size (map)
+        int size = map_utils_getSizeByDifficulty(d);
+        // 3 columns per size unit and the rest
+        widths[i-1] = WIDTH_FIXED + (size+1) * 3 + size;
+        heights[i-1] = max(HEIGHT_FIXED + (size+1), MIN_HEIGHT);
+        // disabled
+        disabled[i-1] = -1;
+    }
 
     // init item
     item = (char*) malloc(max * sizeof(char));
 
+    //
     // show difficulties menu
+    //
+
+    // 10 is the size of the format
     format = (char*) malloc(10 * sizeof(char));
     sprintf(format, "%s%d%s", "%-", max, "s");
 
@@ -70,15 +76,18 @@ Difficulty interface_ncurses_chooseDifficulty()
             attroff(A_STANDOUT);
         // put in buffer, same spacing for all
         sprintf(item, format, difficulties[i]);
+        fprintf(stderr, "%d,", LINES);
+        fprintf(stderr, "%d\n", heights[i]);
         // put in the screen
-        if ( (LINES <= EASY_SIZE + TOP && i == 0) || (LINES <= MEDIUM_SIZE && i == 1) ||
-             (LINES <= HARD_SIZE && i == 2) ) {
+        if ( LINES < heights[i] || COLS < widths[i] ) {
+            // add red message and disabled
             disabled[i] = i;
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
-            attron(COLOR_PAIR(ERROR_COLOR));
+            attron(COLOR_PAIR(NC_ERROR_COLOR));
             mvprintw(i + 1 + CONTENT_LINE_START, 2 + max + 2, " %s", translation_get(TRANSLATE_SCREEN_TOO_SMALL));
-            attroff(COLOR_PAIR(ERROR_COLOR));
+            attroff(COLOR_PAIR(NC_ERROR_COLOR));
         } else {
+            // normal print
             mvprintw(i + 1 + CONTENT_LINE_START, 2, "%s", item);
         }
     }
@@ -151,6 +160,8 @@ Difficulty interface_ncurses_chooseDifficulty()
     free(difficulties);
     free(item);
     free(format);
+    free(widths);
+    free(heights);
 
     switch ( current ) {
         case 0:

@@ -1,5 +1,4 @@
 #include "../../../../headers/interface.h"
-#include "../../../../headers/utils/translation.h"
 #include "../headers/interface_ncurses.h"
 #include "../headers/interface_ncurses_utils.h"
 #include <string.h>
@@ -22,7 +21,7 @@ int interface_ncurses_askBuyStaff()
 
 void* interface_ncurses_askBuyStaffClosureInit()
 {
-    if ( lastMessage == NULL )
+    if ( interface_ncurses_utils_hasLastMessage() )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_STAFF));
     return NULL;
 }

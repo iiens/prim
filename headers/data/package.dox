@@ -16,4 +16,5 @@ Contains all program data (such as structures defining how our data are
 - machine.h and machine_info.h : machine information
 - mapping.h : keys associated with actions
 - staff.h : staff information
+todo: missing authors and files
 */

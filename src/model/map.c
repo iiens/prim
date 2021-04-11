@@ -90,6 +90,7 @@ ErrorCode map_destroy(Map *m) {
     return NO_ERROR;
 }
 
+//todo: english comment plz
 ErrorCode map_hireFISE(Map *m) {
     int costE = COST_FISE_E;
     int costDD = COST_FISE_DD;
@@ -107,6 +108,7 @@ ErrorCode map_hireFISE(Map *m) {
     }
 }
 
+//todo: english comment plz
 ErrorCode map_hireFISA(Map *m) {
     int costE = COST_FISA_E;
     int costDD = COST_FISA_DD;
@@ -134,6 +136,7 @@ ErrorCode map_changeProductionFISA(Map *m) {
     return NO_ERROR;
 }
 
+//todo: english comment plz
 ErrorCode map_endTurn(Map *m) {
     // Production of Fise
     map_utils_productionFise(m);
@@ -173,6 +176,7 @@ ErrorCode map_endTurn(Map *m) {
     return NO_ERROR;
 }
 
+//todo: maybe add one/two more comments since the method is big
 ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case *c = map_getCase(x, y, m);
@@ -203,6 +207,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
     }
 }
 
+// todo: same as before, laking comment (english ^^)
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case *c = map_getCase(x, y, m);
@@ -239,6 +244,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     }
 }
 
+// todo: same as before, laking comment (english ^^)
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case *c = map_getCase(x, y, m);
@@ -278,6 +284,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
     }
 }
 
+// todo: same as before, laking comment (english ^^)
 ErrorCode map_buyStaff(int idStaff, Map *m) {
     const Staff *staff = staff_getStaffByID(idStaff);
     if (staff != NULL) {

@@ -24,230 +24,230 @@
 #ifndef PRIM_INTERFACE_H
 #define PRIM_INTERFACE_H
 
-    #include "data/actions.h" // contains all actions
-    #include "data/difficulty.h" // contains difficulty type
-    #include "data/mapping.h" // contains mappings type
-    #include "data/error.h" // error codes that we would have to show
-    #include "map.h" // contains map type
-    #include "utils/utils.h" // utilities functions
-    #include "utils/translation.h" // translation related functions
+#include "data/actions.h" // contains all actions
+#include "data/difficulty.h" // contains difficulty type
+#include "data/mapping.h" // contains mappings type
+#include "data/error.h" // error codes that we would have to show
+#include "map.h" // contains map type
+#include "utils/utils.h" // utilities functions
+#include "utils/translation.h" // translation related functions
 
-    extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
+extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
 
-    /*!
-     * @typedef MachineSpec: machine that the user requested
-     * @struct MachineSpec_S interface.h "headers/interface.h"
-     *
-     * Convenience structure for the user to request
-     * a machine.
-     */
-    typedef struct MachineSpec_S {
-        MachineStuff type; //!< machine type
-        int rotation; //!< how much should we rotate the machine
-    } MachineSpec; //!< machine that the user requested
+/*!
+ * @typedef MachineSpec: machine that the user requested
+ * @struct MachineSpec_S interface.h "headers/interface.h"
+ *
+ * Convenience structure for the user to request
+ * a machine.
+ */
+typedef struct MachineSpec_S {
+    MachineStuff type; //!< machine type
+    int rotation; //!< how much should we rotate the machine
+} MachineSpec; //!< machine that the user requested
 
-    //\////////////////////////////\//
-    //\/ interface declarations
-    //\////////////////////////////\//
+//\////////////////////////////\//
+//\/ interface declarations
+//\////////////////////////////\//
 
-    /*!
-     * Supposed to init interface.
-     *
-     * Can be used to show a message with the name of the
-     * game, the version, ... and/or display difficulties.
-     *
-     * @return NO_ERROR ok or an error
-     */
-    ErrorCode interface_init();
+/*!
+ * Supposed to init interface.
+ *
+ * Can be used to show a message with the name of the
+ * game, the version, ... and/or display difficulties.
+ *
+ * @return NO_ERROR ok or an error
+ */
+ErrorCode interface_init();
 
-    /**
-     * Reload interface. We should use this
-     * to update the map, the E,DD,... values
-     * that are shown.
-     *
-     * @param map game map
-     * @return NO_ERROR ok or an error
-     */
-    ErrorCode interface_reload( const Map* map );
+/**
+ * Reload interface. We should use this
+ * to update the map, the E,DD,... values
+ * that are shown.
+ *
+ * @param map game map
+ * @return NO_ERROR ok or an error
+ */
+ErrorCode interface_reload( const Map* map );
 
-    /**
-     * Dispose of interface and clean everything.
-     * @return NO_ERROR ok or an error
-     */
-    ErrorCode interface_close();
+/**
+ * Dispose of interface and clean everything.
+ * @return NO_ERROR ok or an error
+ */
+ErrorCode interface_close();
 
-    //\////////////////////////////\//
-    //\/ game interface declarations
-    //\////////////////////////////\//
+//\////////////////////////////\//
+//\/ game interface declarations
+//\////////////////////////////\//
 
-    /*!
-     * \fn Difficulty interface_chooseDifficulty
-     * @brief Ask for the user difficulty
-     *
-     * To process the size of the map.
-     * Should be a valid difficulty, if not ask again.
-     *
-     * @return a valid difficulty chosen by the user.
-     * @see Difficulty enum
-     */
-    Difficulty interface_chooseDifficulty();
+/*!
+ * \fn Difficulty interface_chooseDifficulty
+ * @brief Ask for the user difficulty
+ *
+ * To process the size of the map.
+ * Should be a valid difficulty, if not ask again.
+ *
+ * @return a valid difficulty chosen by the user.
+ * @see Difficulty enum
+ */
+Difficulty interface_chooseDifficulty();
 
-    /*!
-     * @brief Show the map
-     *
-     * We are waiting for a grid, like
-     * <pre>
-     *      0     1
-     *   +----++----+
-     * 0 | M  |     |
-     *   +----++----+
-     * </pre>
-     * Where 0,1 are the column indexes and 0 is the row index. M is the first
-     * letter for machine, but well no need to write a lot, just enough so that the
-     * player can guess whether he would want to check this case or not.
-     *
-     * At the end, we want to find basic information such as
-     * <ul>
-     * <li>E value</li>
-     * <li>DD value</li>
-     * <li>which turn is it</li>
-     * <li>number of FISE</li>
-     * <li>number of FISA</li>
-     * <li>the production mode</li>
-     * <li>the number of hired staffs (or their names followed by the count if different of one)</li>
-     * </ul>
-     *
-     * @param[in] map a map
-     * @see Map type
-     */
-    void interface_showMap( const Map* map, bool showResource, bool showGarbage );
+/*!
+ * @brief Show the map
+ *
+ * We are waiting for a grid, like
+ * <pre>
+ *      0     1
+ *   +----++----+
+ * 0 | M  |     |
+ *   +----++----+
+ * </pre>
+ * Where 0,1 are the column indexes and 0 is the row index. M is the first
+ * letter for machine, but well no need to write a lot, just enough so that the
+ * player can guess whether he would want to check this case or not.
+ *
+ * At the end, we want to find basic information such as
+ * <ul>
+ * <li>E value</li>
+ * <li>DD value</li>
+ * <li>which turn is it</li>
+ * <li>number of FISE</li>
+ * <li>number of FISA</li>
+ * <li>the production mode</li>
+ * <li>the number of hired staffs (or their names followed by the count if different of one)</li>
+ * </ul>
+ *
+ * @param[in] map a map
+ * @see Map type
+ */
+void interface_showMap( const Map* map, bool showResource, bool showGarbage );
 
-    /**
-     * Should take a map and print the list of the staff.
-     * Please do take note that this method use a global
-     * variable containing all data about the staff.
-     *
-     * This method should be a catalog of available staffs.
-     * You must add right after a staff name the count of this staff
-     * that the user have already bought.
-     *
-     * <pre>
-     * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
-     * ...
-     * </pre>
-     *
-     * @pre staff list must be set
-     * @pre map must contains the list of staff that the player bought
-     * @param map used to fetch staff bought
-     * @see Map
-     */
-    void interface_showStaffList( const Map* map );
+/**
+ * Should take a map and print the list of the staff.
+ * Please do take note that this method use a global
+ * variable containing all data about the staff.
+ *
+ * This method should be a catalog of available staffs.
+ * You must add right after a staff name the count of this staff
+ * that the user have already bought.
+ *
+ * <pre>
+ * --> ({n°}) Name E:{cost} DD:{cost} Desc:"perks"
+ * ...
+ * </pre>
+ *
+ * @pre staff list must be set
+ * @pre map must contains the list of staff that the player bought
+ * @param map used to fetch staff bought
+ * @see Map
+ */
+void interface_showStaffList( const Map* map );
 
-    /**
-     * Show machine list.
-     * Should use global variable {@link machine_list} in {@link machine.h}.
-     */
-    void interface_showMachinesList();
+/**
+ * Show machine list.
+ * Should use global variable {@link machine_list} in {@link machine.h}.
+ */
+void interface_showMachinesList();
 
-    /**
-     * Show actions list.
-     * Should use global variable.
-     */
-    void interface_listActions();
+/**
+ * Show actions list.
+ * Should use global variable.
+ */
+void interface_listActions();
 
-    /*!
-     * @brief Ask for the user action
-     *
-     * Ask for the user action
-     * Should be a valid action, if not ask again.
-     *
-     * Actions returned should be implemented by
-     *
-     * <ul>
-     * <li>{@link ACTION_SHOW_MAP}: {@link interface_showMap}</li>
-     * <li>{@link ACTION_CANCEL_ACTION}: no function, can't be used here ! (only when an action got chosen)</li>
-     * <li>{@link ACTION_EXIT} : caller should ends the program</li>
-     * <li>{@link ACTION_LIST_ACTIONS} : call {@link interface_listActions}</li>
-     * <li>{@link ACTION_END_TURN} : next turn, call of {@link map_endTurn}</li>
-     *
-     * <li>{@link ACTION_HIRE_FISE} : hire fise, call of {@link map_hireFISE}</li>
-     * <li>{@link ACTION_HIRE_FISA} : hire fisa, call of {@link map_hireFISA}</li>
-     * <li>{@link ACTION_CHANGE_FISA_MODE} : change fisa production mode, call of {@link map_changeProductionFISA}</li>
-     *
-     * <li>{@link ACTION_LIST_MACHINES} : should call {@link interface_showMachinesList}</li>
-     * <li>{@link ACTION_BUY_MACHINE} : should ask {@link interface_askAddMachine} and {@link interface_askMachineLocation}</li>
-     * then call {@link map_addMachine}
-     * <li>{@link ACTION_BUY_STAFF} : should ask {@link interface_askBuyStaff} then {@link map_buyStaff}</li>
-     * <li>{@link ACTION_ASK_STAFF_LIST} : should call {@link interface_showStaffList}</li>
-     *
-     * <li>{@link ACTION_UPGRADE_MACHINE} : {@link interface_askMachineLocation} then {@link map_upgradeMachine}</li>
-     * <li>{@link ACTION_DESTROY_MACHINE} : {@link interface_askMachineLocation} then {@link map_destroyMachine}</li>
-     * </ul>
-     *
-     * @return a valid action chosen by the user.
-     * @see Action enum
-     */
-    Action interface_chooseAction();
+/*!
+ * @brief Ask for the user action
+ *
+ * Ask for the user action
+ * Should be a valid action, if not ask again.
+ *
+ * Actions returned should be implemented by
+ *
+ * <ul>
+ * <li>{@link ACTION_SHOW_MAP}: {@link interface_showMap}</li>
+ * <li>{@link ACTION_CANCEL_ACTION}: no function, can't be used here ! (only when an action got chosen)</li>
+ * <li>{@link ACTION_EXIT} : caller should ends the program</li>
+ * <li>{@link ACTION_LIST_ACTIONS} : call {@link interface_listActions}</li>
+ * <li>{@link ACTION_END_TURN} : next turn, call of {@link map_endTurn}</li>
+ *
+ * <li>{@link ACTION_HIRE_FISE} : hire fise, call of {@link map_hireFISE}</li>
+ * <li>{@link ACTION_HIRE_FISA} : hire fisa, call of {@link map_hireFISA}</li>
+ * <li>{@link ACTION_CHANGE_FISA_MODE} : change fisa production mode, call of {@link map_changeProductionFISA}</li>
+ *
+ * <li>{@link ACTION_LIST_MACHINES} : should call {@link interface_showMachinesList}</li>
+ * <li>{@link ACTION_BUY_MACHINE} : should ask {@link interface_askAddMachine} and {@link interface_askMachineLocation}</li>
+ * then call {@link map_addMachine}
+ * <li>{@link ACTION_BUY_STAFF} : should ask {@link interface_askBuyStaff} then {@link map_buyStaff}</li>
+ * <li>{@link ACTION_ASK_STAFF_LIST} : should call {@link interface_showStaffList}</li>
+ *
+ * <li>{@link ACTION_UPGRADE_MACHINE} : {@link interface_askMachineLocation} then {@link map_upgradeMachine}</li>
+ * <li>{@link ACTION_DESTROY_MACHINE} : {@link interface_askMachineLocation} then {@link map_destroyMachine}</li>
+ * </ul>
+ *
+ * @return a valid action chosen by the user.
+ * @see Action enum
+ */
+Action interface_chooseAction();
 
-    /*!
-     * @brief ask user machine specific details
-     *
-     * @pre this method should be called after (or before) asking
-     * the user where the machine should be put
-     *
-     * If the user wants to go back, then he can using
-     * ACTION_CANCEL_ACTION action.
-     *
-     * We must fill each value inside our machine, for that
-     * check {@link Machine} type.
-     *
-     * @return the machine that the user wanted to add.
-     *
-     * @see ACTION_BUY_MACHINE
-     */
-    MachineSpec interface_askAddMachine();
+/*!
+ * @brief ask user machine specific details
+ *
+ * @pre this method should be called after (or before) asking
+ * the user where the machine should be put
+ *
+ * If the user wants to go back, then he can using
+ * ACTION_CANCEL_ACTION action.
+ *
+ * We must fill each value inside our machine, for that
+ * check {@link Machine} type.
+ *
+ * @return the machine that the user wanted to add.
+ *
+ * @see ACTION_BUY_MACHINE
+ */
+MachineSpec interface_askAddMachine();
 
-    /*!
-     * @brief Ask for machine location
-     *
-     * Ask for machine location, this function should
-     * be used when the user triggered upgrade/delete machine action
-     *
-     * The programmer won't have to check whether this location is a valid
-     * machine location, that would have to be done by the one calling it.
-     *
-     * If the user wants to go back, then he can using
-     * ACTION_CANCEL_ACTION action.
-     *
-     * @return a two dimensions vector that should contains a positive
-     * x and a positive y.
-     *
-     * @see ACTION_UPGRADE_MACHINE
-     * @see ACTION_DESTROY_MACHINE
-     */
-    Vector2D* interface_askMachineLocation();
+/*!
+ * @brief Ask for machine location
+ *
+ * Ask for machine location, this function should
+ * be used when the user triggered upgrade/delete machine action
+ *
+ * The programmer won't have to check whether this location is a valid
+ * machine location, that would have to be done by the one calling it.
+ *
+ * If the user wants to go back, then he can using
+ * ACTION_CANCEL_ACTION action.
+ *
+ * @return a two dimensions vector that should contains a positive
+ * x and a positive y.
+ *
+ * @see ACTION_UPGRADE_MACHINE
+ * @see ACTION_DESTROY_MACHINE
+ */
+Vector2D* interface_askMachineLocation();
 
-    /*!
-     * @brief Ask which Staff the user wants to buy.
-     *
-     * The user input an id (that he could find using list staff action)
-     * and we returns the staff in the global staff array that match the given id.
-     *
-     * If the user wants to go back, then he can using
-     * ACTION_CANCEL_ACTION action.
-     *
-     * @return a valid Staff that the user chosen. Or null if he asked to cancel.
-     *
-     * @see ACTION_BUY_STAFF
-     * @see ACTION_ASK_STAFF_LIST (action enum)
-     */
-    int interface_askBuyStaff();
+/*!
+ * @brief Ask which Staff the user wants to buy.
+ *
+ * The user input an id (that he could find using list staff action)
+ * and we returns the staff in the global staff array that match the given id.
+ *
+ * If the user wants to go back, then he can using
+ * ACTION_CANCEL_ACTION action.
+ *
+ * @return a valid Staff that the user chosen. Or null if he asked to cancel.
+ *
+ * @see ACTION_BUY_STAFF
+ * @see ACTION_ASK_STAFF_LIST (action enum)
+ */
+int interface_askBuyStaff();
 
-    /**
-     * Show an error
-     * @param e an error code
-     * @see ErrorCode
-     */
-    void interface_showError( ErrorCode e );
+/**
+ * Show an error
+ * @param e an error code
+ * @see ErrorCode
+ */
+void interface_showError( ErrorCode e );
 
 #endif //PRIM_INTERFACE_H

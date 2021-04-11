@@ -10,6 +10,8 @@
 #ifndef PRIM_STRUCTURES_H
 #define PRIM_STRUCTURES_H
 
+//todo: Ramzy comment all
+
 #include "../data/effect.h" // effect.h : information about effect
 #include "../data/error.h" // todo: ...
 
@@ -29,7 +31,7 @@ typedef enum ElementType_S {
 * \union Element_S effect.h "headers/data/structures.h"
 * \brief Represent a list
 */
-//todo: documentation
+//todo: Ramzy documentation and move to element.h
 typedef struct Element_S {
     union {
         int number;
@@ -68,6 +70,8 @@ Element* list_getByIndex(List* list, int index);
 int list_getSize(List* list);
 // at the end
 ErrorCode list_addElement(List* l, Element e);
+ErrorCode list_addCoupleIntText(List* l, int number, char* text);
+ErrorCode list_addCoupleInt(List* l, int n1, int n2);
 // advance list => next and return current
 Element list_next(List** current);
 // get Element
@@ -98,6 +102,7 @@ Element* dictionary_getElementInt(Dictionary *d, int key);
 
 int dictionary_elementToInt(Element e);
 char* dictionary_elementToText( Element e);
+void* dictionary_elementToObject( Element e);
 Element dictionary_elementFromNumber(int number);
 Element dictionary_elementFromText( char* text);
 Element dictionary_elementFromObject (void* object);

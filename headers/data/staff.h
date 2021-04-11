@@ -180,6 +180,4 @@
 
     void staff_destroyStaffDictionary(Dictionary* dict);
 
-
-
 #endif //PRIM_STAFF_H

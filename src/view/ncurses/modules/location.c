@@ -9,7 +9,7 @@
 /** Callback on init  */
 void* interface_ncurses_askMachineLocationClosureInit()
 {
-    if ( lastMessage == NULL )
+    if ( interface_ncurses_utils_hasLastMessage() )
         interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_MACHINE_LOCATION));
     return NULL;
 }

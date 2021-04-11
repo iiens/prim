@@ -1,16 +1,11 @@
 #include "../headers/interface_ncurses.h"
 #include "../headers/interface_ncurses_utils.h"
 
-void interface_ncurses_showLegend(bool first, int y, Couple* entry)
-{
-    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    first ? mvwaddstr(gameWindow, y, 1, entry->keys.content.text) :
-        waddstr(gameWindow, entry->keys.content.text);
-    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    waddstr(gameWindow, ": ");
-    waddstr(gameWindow, entry->values.content.text);
-    waddstr(gameWindow, " ");
-}
+// show the legend
+// here using translation and colors according to tag
+void interface_ncurses_showLegendOrientation(bool first, int y, Couple* entry);
+// only printing all tags in greens
+void interface_ncurses_showLegendMachine(bool first, int y, Couple* entry);
 
 void interface_ncurses_gameMenu( const Map* map )
 {
@@ -20,6 +15,8 @@ void interface_ncurses_gameMenu( const Map* map )
     char* production = //!< string for the production mode
             map_getProductionFISA(map) == E_VALUE ? translation_get(TRANSLATE_GAME_E) : translation_get(
                     TRANSLATE_GAME_DD);
+    int NUMBER_OF_LINES = 3; //!< number of lines
+    int lineMAX[] = {3, 2, 2}; //!< max per line
 
     wclear(gameWindow); //reset
 
@@ -45,40 +42,79 @@ void interface_ncurses_gameMenu( const Map* map )
                                         format));
 
     // show legend
-    Dictionary* machines = translation_getLegendMachines();
+    List* machines = translation_getLegendMachines();
 
     // then we have
     wattron(gameWindow, COLOR_PAIR(COLOR_RED));
     mvwaddstr(gameWindow, END_BASE + 2, 1, translation_get(TRANSLATE_LEGEND));
     wattroff(gameWindow, COLOR_PAIR(COLOR_RED));
 
-    interface_ncurses_showLegend(true, END_BASE + 3, dictionary_getCoupleByIndex(machines, 0));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 1));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 2));
-
-    interface_ncurses_showLegend(true, END_BASE + 4, dictionary_getCoupleByIndex(machines, 3));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 4));
-
-    interface_ncurses_showLegend(true, END_BASE + 5, dictionary_getCoupleByIndex(machines, 5));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(machines, 6));
+    // show machine legend
+    for ( int i = 0; i < NUMBER_OF_LINES; i++ ) {
+        int max = lineMAX[i]; //!< current max per line
+        int y = END_BASE + 3 + i; //!< first y
+        for ( int j = 0; j < max; ++j ) {
+            interface_ncurses_showLegendMachine(y != 0, y, dictionary_elementToObject(list_next(&machines)));
+            y = 0;
+        }
+    }
 
     Dictionary* directions = translation_getLegendDirections();
 
-    interface_ncurses_showLegend(true, END_BASE + 7, dictionary_getCoupleByIndex(directions, 0));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 1));
+    interface_ncurses_showLegendOrientation(true, END_BASE + 7, dictionary_getCoupleByIndex(directions, 0));
+    interface_ncurses_showLegendOrientation(false, 0, dictionary_getCoupleByIndex(directions, 1));
 
-    interface_ncurses_showLegend(true, END_BASE + 8, dictionary_getCoupleByIndex(directions, 2));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 3));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 4));
+    interface_ncurses_showLegendOrientation(true, END_BASE + 8, dictionary_getCoupleByIndex(directions, 2));
+    interface_ncurses_showLegendOrientation(false, 0, dictionary_getCoupleByIndex(directions, 3));
+    interface_ncurses_showLegendOrientation(false, 0, dictionary_getCoupleByIndex(directions, 4));
 
-    interface_ncurses_showLegend(true, END_BASE + 9, dictionary_getCoupleByIndex(directions, 5));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 6));
-    interface_ncurses_showLegend(false, 0, dictionary_getCoupleByIndex(directions, 7));
+    interface_ncurses_showLegendOrientation(true, END_BASE + 9, dictionary_getCoupleByIndex(directions, 5));
+    interface_ncurses_showLegendOrientation(false, 0, dictionary_getCoupleByIndex(directions, 6));
+    interface_ncurses_showLegendOrientation(false, 0, dictionary_getCoupleByIndex(directions, 7));
 
     free(buf);
     free(format);
-    dictionary_destroy(machines);
+    list_destroy(machines);
     dictionary_destroy(directions);
 
     wrefresh(gameWindow);
+}
+
+void interface_ncurses_showLegendMachine(bool first, int y, Couple* entry)
+{
+    char* tag; //!< S, G, ... a tag that we will explain
+    char* content; //!< Gate for G, explain the tag
+    attr_t color; //!< tag color
+
+    // it's a machine
+    if ( entry->keys.content.number == IS_MACHINE ) {
+        MachineStuff s = entry->values.content.number; // machine type
+        tag = translation_fetchMachineTypeName(s);
+        color = interface_ncurses_utils_getMachineColor(s);
+        content = translation_fetchMachineTypeFullName(s);
+    } else { // it's not a machine
+        CaseType t = entry->values.content.number; // case type
+        tag = translation_fetchCaseTypeName(t);
+        color = interface_ncurses_utils_getCaseColor(NULL, t);
+        content = translation_fetchCaseTypeFullName(t);
+    }
+
+    // print \color{color}{tag}: content
+    wattron(gameWindow, color);
+    first ? mvwaddstr(gameWindow, y, 1, tag) : waddstr(gameWindow, tag);
+    wattroff(gameWindow, color);
+    waddstr(gameWindow, ": ");
+    waddstr(gameWindow, content);
+    waddstr(gameWindow, " ");
+}
+
+void interface_ncurses_showLegendOrientation(bool first, int y, Couple* entry)
+{
+    wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    first ? mvwaddstr(gameWindow, y, 1, entry->keys.content.text) :
+    waddstr(gameWindow, entry->keys.content.text);
+    wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
+    waddstr(gameWindow, ": ");
+    waddstr(gameWindow, entry->values.content.text);
+    waddstr(gameWindow, " ");
 }

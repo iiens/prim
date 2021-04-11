@@ -1,19 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "utils_fun.h"
-
-/**
- * Some power function, fix me plz
- */
-int utils_power( int n, int e )
-{
-    int r = 1;
-    while ( e > 0 ) {
-        r *= n;
-        e--;
-    }
-    return r;
-}
+#include <stdlib.h> //!< malloc
+#include <stdio.h> //!< sprintf
+#include "utils_fun.h" //!< .c header
 
 /**
  * Some aton function

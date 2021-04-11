@@ -48,6 +48,19 @@ char* error_getMessage( ErrorCode e )
     return "Error. Please report it to the developers.";
 }
 
+char* translation_getDifficulty(Difficulty d)
+{
+    switch ( d ) { // NOLINT(hicpp-multiway-paths-covered)
+        case DIFFICULTY_EASY:
+            return "Difficulty EASY (10x10)";
+        case DIFFICULTY_MEDIUM:
+            return "Difficulty MEDIUM (20x20)";
+        case DIFFICULTY_HARD:
+            return "Difficulty HARD (30x30)";
+    }
+    return NULL;
+}
+
 char* translation_get( Translation t )
 {
     switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
@@ -55,12 +68,6 @@ char* translation_get( Translation t )
             return "Choose your difficulty";
         case TRANSLATE_SCREEN_TOO_SMALL:
             return "Press q and restart in a bigger screen.";
-        case TRANSLATE_DIF_E:
-            return "Difficulty EASY (10x10)";
-        case TRANSLATE_DIF_M:
-            return "Difficulty MEDIUM (20x20)";
-        case TRANSLATE_DIF_H:
-            return "Difficulty HARD (30x30)";
         case TRANSLATE_GAME_NAME:
             return "Prim, environment line";
         case TRANSLATE_GAME_TURN:
@@ -104,11 +111,11 @@ char* translation_get( Translation t )
         case TRANSLATE_INPUT_MACHINE_LOCATION:
             return "Submit machine location. Format is \"x,y\" (without \")";
         case TRANSLATE_INPUT_STAFF:
-            return "Input staff ID. You can fetch them using `ls` action. Press `b` to go back.";
+            return "Input staff ID. You could have fetched them using `ls` action. Press `b` to go back.";
         case TRANSLATE_INPUT_MACHINE:
-            return "Input machine ID. You can fetch them using `lm` action. Press `b` to go back.";
+            return "Input machine ID. You could have fetched them using `lm` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ORIENTATION:
-            return "Input a rotation (0-3) value of the default orientation (check the manual).";
+            return "Input a rotation (0-3), clockwise.";
         case TRANSLATE_INPUT_ACTION:
             return "Use `help` to get the list of available actions.";
         case TRANSLATE_ACTION_LIST_TITLE:
@@ -125,23 +132,6 @@ char* translation_get( Translation t )
             return "id";
        case TRANSLATE_OWNED_TAG:
             return "owned";
-    }
-    return "Error. Please report it to the developers.";
-}
-
-char* translation_getMachineType( MachineStuff s )
-{
-    switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
-        case MS_COLLECTOR:
-            return "Collector";
-        case MS_CONVEYOR_BELT:
-            return "Conveyor belt";
-        case MS_CROSS:
-            return "Cross";
-        case MS_RECYCLING_CENTER:
-            return "Recycling center";
-        case MS_JUNKYARD:
-            return "Junkyard";
     }
     return "Error. Please report it to the developers.";
 }
@@ -178,9 +168,9 @@ char* translation_actionFetchName( Action action )
         case ACTION_DESTROY_MACHINE:
             return "Destroy machine";
         case ACTION_SHOW_CASE_RESOURCE:
-            return "Switch map case content to resources";
+            return "Show resources";
         case ACTION_SHOW_CASE_GARBAGE:
-            return "Switch map case content to garbage";
+            return "Show garbage";
     }
     return "Error. Please report it to the developers.";
 }
@@ -197,7 +187,23 @@ char* translation_fetchCaseTypeName( CaseType t )
         case CASE_MACHINE:
             return NULL;
     }
-    return "Error. Please report it to the developers.";
+    return NULL;
+}
+
+
+char* translation_fetchCaseTypeFullName( CaseType t )
+{
+    switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
+        case CASE_VIDE:
+            return " ";
+        case CASE_GATE:
+            return "Gate";
+        case CASE_SOURCE:
+            return "Source";
+        case CASE_MACHINE:
+            return NULL;
+    }
+    return NULL;
 }
 
 char* translation_fetchMachineTypeName( MachineStuff s )
@@ -217,16 +223,33 @@ char* translation_fetchMachineTypeName( MachineStuff s )
     return "Error. Please report it to the developers.";
 }
 
-Dictionary* translation_getLegendMachines()
+char* translation_fetchMachineTypeFullName( MachineStuff s )
 {
-    Dictionary* machines = dictionary_create(7);
-    dictionary_addCoupleText(machines, "S", "Source");
-    dictionary_addCoupleText(machines, "G", "Gate");
-    dictionary_addCoupleText(machines, "B", "Conveyor belt");
-    dictionary_addCoupleText(machines, "X", "Cross");
-    dictionary_addCoupleText(machines, "C", "Collector");
-    dictionary_addCoupleText(machines, "R", "Recycling center");
-    dictionary_addCoupleText(machines, "J", "Junkyard");
+    switch ( s ) { // NOLINT(hicpp-multiway-paths-covered)
+        case MS_COLLECTOR:
+            return "Collector";
+        case MS_CONVEYOR_BELT:
+            return "Conveyor belt";
+        case MS_CROSS:
+            return "Cross";
+        case MS_RECYCLING_CENTER:
+            return "Recycling center";
+        case MS_JUNKYARD:
+            return "Junkyard";
+    }
+    return "Error. Please report it to the developers.";
+}
+
+List* translation_getLegendMachines()
+{
+    List* machines = list_createEmpty();
+    list_addCoupleInt(machines, !IS_MACHINE, CASE_SOURCE);
+    list_addCoupleInt(machines, !IS_MACHINE, CASE_GATE);
+    list_addCoupleInt(machines, IS_MACHINE, MS_CONVEYOR_BELT);
+    list_addCoupleInt(machines, IS_MACHINE, MS_CROSS);
+    list_addCoupleInt(machines, IS_MACHINE, MS_COLLECTOR);
+    list_addCoupleInt(machines, IS_MACHINE, MS_RECYCLING_CENTER);
+    list_addCoupleInt(machines, IS_MACHINE, MS_JUNKYARD);
     return machines;
 }
 

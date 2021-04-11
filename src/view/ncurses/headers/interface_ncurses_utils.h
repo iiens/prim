@@ -9,29 +9,20 @@
 #define PRIM_INTERFACE_NCURSES_UTILS_H
 
 #include <curses.h> //!< curse library
-#include "../../../../headers/map.h" //!< map, since we are using the Map (show, ...)
-
-#define ERROR_COLOR 1 //!< error color code
-#define SUCCESS_COLOR 2 //!< success color code
-
-#define ACTION_HEIGHT 2 //!< height of action window
-#define GAME_WIDTH (COLS/4) //!< height of action window
-
-#define ACTION_BUF_SIZE 30 //!< maximum size of an action mapping
-
-#define ERROR_LINE 0 //!< error line in action window
+#include "interface_ncurses_constants.h" //!< all of our constants
 
 WINDOW* gameWindow; //!< score, turn, ... information window
 WINDOW* mapWindow; //!< game map window
 WINDOW* actionWindow; //!< input action window
-
-extern int MIN_ROW_SAVED; //!< number of row saved
-extern int MIN_COL_SAVED; //!< number of cols saved
-extern char* lastMessage;
+WINDOW* fullWindow; //!< full screen window (without action window ofc)
 
 typedef void* (* Closure)( char* buff, bool* leave, ErrorCode* error ); //!< closure function
 
 // utilities functions
+
+/*! true is there is a last message, false else */
+bool interface_ncurses_utils_hasLastMessage();
+
 /*!
  * Show/Fill action field window
  */
@@ -68,12 +59,14 @@ void interface_ncurses_clearAction( char* buf );
  * Wait function.
  * This function is waiting the user to press 'b' (back code).
  * It got created to be used in show_... like functions.
+ * @param window the window we are waiting for
  */
-void interface_ncurses_show_menu_wait();
+void interface_ncurses_show_menu_wait(WINDOW* window);
 
 /**
 * Write some label in green in mapWindow
 * frame at i,j coordinates
+* @param window the window
 * @param i y value
 * @param j x value
 * @param blocLength size of a bloc
@@ -81,14 +74,15 @@ void interface_ncurses_show_menu_wait();
 * @param content content put right after the label
 * @return x value after adding the label+text
 */
-int writeLabel( int i, int j, int blocLength, char* tag, char* content );
+int interface_ncurses_utils_writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content );
 
 /**
  * Clean mapWindow and put in a title in the center. This method
  * is used when showing a list of something. We will use 'b' to go back.
+ * @param window since the new version, mapWindow can be replaced by fullWindow
  * @param title a title
  */
-void interface_ncurses_initListWindow( char* title );
+void interface_ncurses_initListWindow( WINDOW* window, char* title );
 
 /**
  * Show some message
@@ -130,6 +124,21 @@ char interface_utils_parseOrientation( int x, int y, const Map* map );
  * @see NCursesColors
  */
 void interface_ncurses_utils_init_colors();
+
+/**
+ * Get a color for a case
+ * @param c a case
+ * @param t the type of the content
+ * @return a color
+ */
+attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t);
+
+/**
+ * Returns the color a of machine
+ * @param t a machine
+ * @return the color
+ */
+attr_t interface_ncurses_utils_getMachineColor(MachineStuff t);
 
 // view
 /*! Show game menu

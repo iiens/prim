@@ -1,9 +1,15 @@
 #include "headers/interface_ncurses.h" //!< base interface
 #include "headers/interface_ncurses_utils.h" //!< this header
-#include "../../../headers/utils/translation.h"
 #include <string.h> //!< strlen, ...
 
-char* lastMessage = NULL; //!< last message that we printed
+#define ERROR_LINE 0 //!< error line in action window
+
+int lastMessageLength = -1; //!< last message that we printed
+
+bool interface_ncurses_utils_hasLastMessage()
+{
+    return lastMessageLength == -1;
+}
 
 void interface_ncurses_showActionField()
 {
@@ -25,7 +31,7 @@ void interface_ncurses_showMessageWithColor( char* message, int color )
     wattroff(actionWindow, COLOR_PAIR(color));
 
     // save
-    lastMessage = message;
+    lastMessageLength = (int) strlen(message) + 1;
 
     // refresh
     wrefresh(actionWindow);
@@ -36,28 +42,28 @@ void interface_ncurses_showError( ErrorCode e )
     char* message; //!< error message
     message = error_getMessage(e); // fetch message
     // show
-    interface_ncurses_showMessageWithColor(message, ERROR_COLOR);
+    interface_ncurses_showMessageWithColor(message, NC_ERROR_COLOR);
 }
 
 void interface_ncurses_showMessage( char* message )
 {
     // show
-    interface_ncurses_showMessageWithColor(message, SUCCESS_COLOR);
+    interface_ncurses_showMessageWithColor(message, NC_SUCCESS_COLOR);
 }
 
 
 void interface_ncurses_hideError()
 {
-    if ( lastMessage == NULL )
+    if ( lastMessageLength == -1 )
         return;
     // delete line
     // we remove the first one, until there is no character
-    for ( int i = 0; i < (int) strlen(lastMessage) + 1; ++i ) {
+    for ( int i = 0; i < lastMessageLength ; ++i ) {
         mvwdelch(actionWindow, ERROR_LINE, 0); //
     }
     // refresh
     wrefresh(actionWindow);
-    lastMessage = NULL;
+    lastMessageLength = -1;
 }
 
 char* interface_ncurses_gameTag( char* text, int value, char* buf, char* format )
@@ -91,47 +97,47 @@ void interface_ncurses_clearAction( char* buf )
     wrefresh(actionWindow);
 }
 
-void interface_ncurses_show_menu_wait()
+void interface_ncurses_show_menu_wait(WINDOW* window)
 {
-    wrefresh(mapWindow);
+    wrefresh(window);
     // hide cursor
     noecho();
     cbreak();
     curs_set(FALSE);
-    keypad(mapWindow, TRUE);
+    keypad(window, TRUE);
     // wait for input, only the first char since noecho
     while ( getch() != mapping_getBackMapping()->key[0] );
     // reset
     echo();
     nocbreak();
     curs_set(TRUE);
-    keypad(mapWindow, FALSE);
+    keypad(window, FALSE);
 }
 
-int writeLabel( int i, int j, int blocLength, char* tag, char* content )
+int interface_ncurses_utils_writeLabel( WINDOW* window, int i, int j, int blocLength, char* tag, char* content )
 {
     // tag such as cost:
-    wattron(mapWindow, COLOR_PAIR(COLOR_GREEN));
-    mvwprintw(mapWindow, 4 + blocLength * i, j, tag);
-    wattroff(mapWindow, COLOR_PAIR(COLOR_GREEN));
+    wattron(window, A_BOLD);
+    mvwprintw(window, 4 + blocLength * i, j, tag);
+    wattroff(window, A_BOLD);
     j += (int) strlen(tag);
     // value
-    mvwprintw(mapWindow, 4 + blocLength * i, j, content);
+    mvwprintw(window, 4 + blocLength * i, j, content);
     j += (int) strlen(content);
     return j;
 }
 
-void interface_ncurses_initListWindow( char* title )
+void interface_ncurses_initListWindow( WINDOW* window, char* title )
 {
     //clear
-    wclear(mapWindow);
-    wrefresh(mapWindow);
+    wclear(window);
+    wrefresh(window);
     interface_ncurses_clearAction(" ");
 
     //title centered
-    mvwaddstr(mapWindow, 0, 0, title);
-    waddstr(mapWindow, " ");
-    waddstr(mapWindow, translation_get(TRANSLATE_GO_BACK_B));
+    mvwaddstr(window, 0, 0, title);
+    waddstr(window, " ");
+    waddstr(window, translation_get(TRANSLATE_GO_BACK_B));
 }
 
 void* interface_ncurses_showInActionField( Closure init, Closure check )
@@ -142,14 +148,14 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
     if ( init != NULL )
         init(NULL, NULL, NULL);
     do {
-        char buf[ACTION_BUF_SIZE] = "";
+        char buf[NC_ACTION_BUF_SIZE] = "";
         int read;
         int cursor = 0; //read <-> buf cursor
 
         // move at bottom left
         attron(A_BOLD); // bold
         mvwprintw(actionWindow, 1, 1, translation_get(TRANSLATE_ACTION_LABEL));
-        move(MIN_ROW_SAVED - 1, strlen(translation_get(TRANSLATE_ACTION_LABEL)) + 1);
+        move(LINES - 1, strlen(translation_get(TRANSLATE_ACTION_LABEL)) + 1);
         attroff(A_BOLD);
         wrefresh(gameWindow);
         wrefresh(actionWindow);
@@ -161,7 +167,7 @@ void* interface_ncurses_showInActionField( Closure init, Closure check )
                 buf[cursor] = (char) read;
             }
             cursor++;
-            if ( cursor == ACTION_BUF_SIZE - 1 ) { // same as enter
+            if ( cursor == NC_ACTION_BUF_SIZE - 1 ) { // same as enter
                 break;
             }
         } while ( read != '\n' );
@@ -256,4 +262,40 @@ void interface_ncurses_utils_init_colors()
 //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
 //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
 //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+}
+
+attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t)
+{
+    attr_t color = COLOR_PAIR(COLOR_WHITE);
+    switch ( t ) { // show color NOLINT(hicpp-multiway-paths-covered)
+        case CASE_VIDE: color = COLOR_PAIR(COLOR_MAGENTA); break;
+        case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
+        case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
+        case CASE_MACHINE:
+            if (c != NULL )
+                color = interface_ncurses_utils_getMachineColor(machine_getType(case_getMachine(c)));
+            break;
+    }
+    return color;
+}
+
+attr_t interface_ncurses_utils_getMachineColor(MachineStuff t)
+{
+    attr_t color = COLOR_PAIR(COLOR_WHITE);
+    switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)
+        case MS_COLLECTOR:
+            color = COLOR_PAIR(COLOR_GREEN);
+            break;
+        case MS_CONVEYOR_BELT:
+        case MS_CROSS:
+            color = COLOR_PAIR(COLOR_MAGENTA);
+            break;
+        case MS_RECYCLING_CENTER:
+            color = COLOR_PAIR(COLOR_RED);
+            break;
+        case MS_JUNKYARD:
+            color = COLOR_PAIR(COLOR_BLUE);
+            break;
+    }
+    return color;
 }

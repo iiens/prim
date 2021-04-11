@@ -11,9 +11,6 @@
 //\/ interface related
 //\////////////////////////////\//
 
-int MIN_ROW_SAVED = 23;
-int MIN_COL_SAVED = 164;
-
 // we init the main screen
 // 3 sub windows :
 // - gameWindow : game info (turn, ...)
@@ -25,7 +22,7 @@ int MIN_COL_SAVED = 164;
 ErrorCode interface_ncurses_init()
 {
     // allow UTF-8
-    setlocale(LC_ALL, "en_US.UTF-8");
+    setlocale(LC_ALL, NC_DEFAULT_LOCALE);
 
     // init screen
     if ( initscr() == NULL ) {
@@ -33,25 +30,30 @@ ErrorCode interface_ncurses_init()
         return ERROR_INIT_NCURSES_INTERFACE;
     }
 
-    // increase value if we can have a greater height
-    // we actually don't care about width
-    if ( LINES > MIN_ROW_SAVED )
-        MIN_ROW_SAVED = LINES;
-
-    // here resize the term
-    if ( resize_term(MIN_ROW_SAVED, MIN_COL_SAVED) == -1 ) {
+    // too small
+    if ( LINES < NC_MIN_ROW ||  COLS < NC_MIN_COL ){
         interface_close();
         return ERROR_INIT_NCURSES_INTERFACE_SIZE;
     }
 
+    // left menu (game menu) should not be too big nor too small
+    if ( NC_SCREEN_IS_SMALL )
+        GAME_WIDTH = COLS / 2;
+    else if ( NC_SCREEN_IS_MEDIUM )
+        GAME_WIDTH = (int) (COLS * 0.35);
+    else
+        GAME_WIDTH = (int) (COLS * 0.25);
+
     // create windows
-    gameWindow = subwin(stdscr, LINES - ACTION_HEIGHT, GAME_WIDTH, 0, 0);
-    mapWindow = subwin(stdscr, LINES - ACTION_HEIGHT, COLS - GAME_WIDTH, 0, GAME_WIDTH);
-    actionWindow = subwin(stdscr, ACTION_HEIGHT, COLS, LINES - ACTION_HEIGHT, 0);
+    gameWindow = subwin(stdscr, LINES - NC_ACTION_HEIGHT, GAME_WIDTH, 0, 0);
+    mapWindow = subwin(stdscr, LINES - NC_ACTION_HEIGHT, COLS - GAME_WIDTH, 0, GAME_WIDTH);
+    actionWindow = subwin(stdscr, NC_ACTION_HEIGHT, COLS, LINES - NC_ACTION_HEIGHT, 0);
+    fullWindow = subwin(stdscr, LINES - NC_ACTION_HEIGHT, COLS, 0, 0);
     // seems useless but boxing them
     box(gameWindow, ACS_VLINE, ACS_HLINE);
     box(actionWindow, ACS_VLINE, ACS_HLINE);
     box(mapWindow, ACS_VLINE, ACS_HLINE);
+    box(fullWindow, ACS_VLINE, ACS_HLINE);
 
     //init colors
     if ( has_colors() == FALSE ) {
@@ -65,7 +67,7 @@ ErrorCode interface_ncurses_init()
     // declare colors
     interface_ncurses_utils_init_colors();
 
-    // ...
+    // enable keyboard
     keypad(stdscr, TRUE);
     // cbreak(); // don't save into buffer until <enter> pressed
     nocbreak();

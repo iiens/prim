@@ -2,12 +2,14 @@
 
 #include <stdio.h>
 
+// todo: please use .type, .costE and not simply
+//  inserting a value
 const MachineInfo machine_list[] = {
         {
                 MS_COLLECTOR,200,20,500,100,60,200,
                 "Sends a resource produced by the source to the "
                 "neighboring cell indicated by its orientation.",
-                                                                                   1,1, .effects  =
+                1," Collector Out is South by default",1, .effects  =
                 {
                         .mode = PRODUCTION,
                         .onOther = 0,
@@ -18,14 +20,17 @@ const MachineInfo machine_list[] = {
         },
         {MS_CONVEYOR_BELT,60,20,-1,-1,60,200,
                 "A carpet has one exit and three entrances, the resource or waste exits",
-                                                                                   0,0, .effects = {}},
+                0," Conveyor Belt Out is South by default"
+                  ,0, .effects = {}},
         {MS_CROSS,160,20,-1,-1,60,200,
                 "The cross has 2 inlets and 2 outlets "
                 "which depend on the orientation of the cross",0,
-                                                                                     0, .effects = {}},
+                " Cross Out is South and West by default",
+                0, .effects = {}},
         {MS_RECYCLING_CENTER,500,40,1500,100,100,500,
                 "The recycling center has 3 entrances and one exit. The center can store up to 100 "
                 "waste",100,
+                "Recycling Center Out is South by default",
                                                                                      1, .effects =
                 {
                         .mode = PRODUCTION,
@@ -38,6 +43,7 @@ const MachineInfo machine_list[] = {
         {MS_JUNKYARD,100,100,200,600,100,200,
                 "The junkyard"
                 " has 4 entrances and 0 exits. Can store up to 50 pieces of waste",50,
+                "Junkyard hasn't any Out",
                                                                                      1, .effects = {
                 .mode = PRODUCTION,
                 .onOther = 0,
@@ -58,6 +64,13 @@ const MachineInfo *machineInfo_getMachineInfoByType(MachineStuff type) {
         return &(machine_list[indexM]);
     }
 }
+//todo: too much methods lined without a comment
+// please use a method block comment
+// such as
+// /*
+// * these methods are used for ...
+// */
+// then some methods again and again. To split since it's unreadable :-(
 
 MachineStuff machineInfo_getType(const MachineInfo *machine){ return machine->type; }
 
@@ -98,3 +111,5 @@ const MachineInfo* machineInfo_getMachineStuff(int id) {
         return NULL;
     }
 }
+
+char* machineInfo_getDefaultOrientationMessage(const MachineInfo* m) { return m->defaultOrientation; }

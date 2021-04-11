@@ -1,20 +1,17 @@
-//
-// Created by mana on 08/04/2021.
-//
-
+//todo: missing documentation header here
 #ifndef PRIM_BOX_H
 #define PRIM_BOX_H
 
-#include "error.h"
+    #include "error.h"
 
     /*!
-         * \typedef Box
-         * \struct Box_S map.h "headers/map.h"
-         *
-         * Struct that contains all the information concerning a box
-         * It contain resources and garbage on a case
-         *
-         */
+    * \typedef Box
+    * \struct Box_S map.h "headers/map.h"
+    *
+    * Struct that contains all the information concerning a box
+    * It contain resources and garbage on a case
+    *
+    */
     typedef struct Box_S Box;
 
     /*!
