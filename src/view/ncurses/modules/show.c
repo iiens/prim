@@ -4,7 +4,7 @@
 #include <string.h>
 #include "../headers/interface_ncurses.h"
 #include "../headers/interface_ncurses_utils.h"
-#include "../../../utils/utils_fun.h"
+#include "../../../../headers/utils/utils_fun.h"
 
 bool showResourceSaved;
 bool showGarbageSaved;
@@ -40,8 +40,9 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
             attr_t color = interface_ncurses_utils_getCaseColor(c, t); //!< color
 
             if ( showResourceSaved || showGarbageSaved ){
-                if ( showResourceSaved ) number = utils_intToString(case_getNumberResourcesByCase(c));
-                else number = utils_intToString(case_getNumberGarbageByCase(c));
+                if ( showResourceSaved ) number = translation_getNumber(case_getNumberResourcesByCase(c));
+                else number = translation_getNumber(case_getNumberGarbageByCase(c));
+
                 // content
                 wattron(mapWindow, color);
                 mvwaddstr(mapWindow, i + 2, 4 + j * 4, number);

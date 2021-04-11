@@ -1,6 +1,6 @@
 #include <stdlib.h> //!< malloc
 #include <stdio.h> //!< sprintf
-#include "utils_fun.h" //!< .c header
+#include "../../headers/utils/utils_fun.h" //!< .c header
 
 /**
  * Some aton function

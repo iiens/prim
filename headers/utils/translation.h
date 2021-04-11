@@ -133,4 +133,11 @@ List* translation_getLegendMachines();
  */
 Dictionary* translation_getLegendDirections();
 
+/**
+ * Translate a number into 3 characters
+ * @param number a number
+ * @return char[3] with the number
+ */
+char* translation_getNumber(int number);
+
 #endif //PRIM_TRANSLATION_H

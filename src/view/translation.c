@@ -1,5 +1,6 @@
 // get all of our variables to translate
 #include "../../headers/utils/translation.h"
+#include "../../headers/utils/utils_fun.h"
 
 char* error_getMessage( ErrorCode e )
 {
@@ -265,4 +266,25 @@ Dictionary* translation_getLegendDirections()
     dictionary_addCoupleText(machines, "8", "TOP");
     dictionary_addCoupleText(machines, "9", "TOP RIGHT");
     return machines;
+}
+
+char* translation_getNumber(int number)
+{
+    if (number < 1000) return utils_intToString(number);
+    else if (number > 10000) {
+        char* message = (char*) malloc(4 * sizeof(char));
+        message[0] = 'B';
+        message[1] = 'I';
+        message[2] = 'G';
+        message[3] = '\0';
+        return message;
+    }
+    else {
+        // number that can be writen as 1K
+        char* message = (char*) malloc(3 * sizeof(char));
+        message[0] = (char) ('0' + number / 1000);
+        message[1] = 'K';
+        message[2] = '\0';
+        return message;
+    }
 }

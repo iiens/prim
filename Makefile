@@ -141,7 +141,7 @@ $(OUTPUT_V)mapping.o: $(SOURCE_V)mapping.c $(SOURCE_H_D)mapping.h
 
 # utils_fun.o
 # - utils_fun.c and .h
-$(OUTPUT_U)utils_fun.o: $(SOURCE_U)utils_fun.c $(SOURCE_U)utils_fun.h
+$(OUTPUT_U)utils_fun.o: $(SOURCE_U)utils_fun.c $(SOURCE_H_U)utils_fun.h
 	mkdir -p $(OUTPUT_U) && $(CC) $(CFLAGS) -c -o $(OUTPUT_U)utils_fun.o $(SOURCE_U)utils_fun.c
 
 # structure.o

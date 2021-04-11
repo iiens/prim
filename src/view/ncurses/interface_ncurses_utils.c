@@ -268,7 +268,7 @@ attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t)
 {
     attr_t color = COLOR_PAIR(COLOR_WHITE);
     switch ( t ) { // show color NOLINT(hicpp-multiway-paths-covered)
-        case CASE_VIDE: color = COLOR_PAIR(COLOR_MAGENTA); break;
+        case CASE_VIDE: color = COLOR_PAIR(COLOR_WHITE); break;
         case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
         case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
         case CASE_MACHINE:
