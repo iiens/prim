@@ -506,11 +506,16 @@ void map_utils_activateCollectors(Map *m) {
                     sourceBox = case_getBox((Case *) elt->content.object);
 
                     // Prendre une ressource de la source
-                    box_setNumberResource(cumulative, 1);
-                    box_setNumberResource(sourceBox, -1);
+                    if (case_getType((Case *) elt->content.object) == CASE_SOURCE) {
+                        box_setNumberResource(cumulative, 1);
+                        box_setNumberResource(sourceBox, -1);
+                    } else {
+                        box_setNumberGarbage(cumulative, 1);
+                        box_setNumberGarbage(sourceBox, -1);
+                    }
 
                     // Supprimer la source de la liste si elle est vide
-                    if (box_getNumberResource(sourceBox) <= 0) {
+                    if (box_getNumberResource(sourceBox) <= 0 && box_getNumberGarbage(sourceBox) <= 0) {
                         list_removeByIndex(listSource, choiceSource);
                     }
 
@@ -520,10 +525,10 @@ void map_utils_activateCollectors(Map *m) {
                 // Détruire la liste de source
                 list_destroy(listSource);
 
-                fprintf(stderr, "Cumulative => Resources %d\n", box_getNumberResource(cumulative));
+                fprintf(stderr, "Cumulative => Resources %d Garbage %d\n", box_getNumberResource(cumulative), box_getNumberGarbage(cumulative));
                 // Si il y a des ressources qui ont été récupéré alors envoyer la box vers
                 // la sortie du collecteur
-                if (box_getNumberResource(cumulative) > 0) {
+                if (box_getNumberResource(cumulative) > 0 || box_getNumberGarbage(cumulative) > 0) {
                     map_utils_moveBox(m, collectorCase, cumulative, out);
                 }
                 box_destroy(cumulative);
@@ -603,24 +608,10 @@ void map_utils_moveResourcesInMachine(Map *m) {
                             }
                         }
                     }
-
-                    // TODO Valentin : Temporaire
-                    for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                        direction = machine_getDirection(machine, card);
-                        fprintf(stderr, "Cross x:%d y:%d card:%d dir:%d => ", case_getX(c), case_getY(c), card,
-                                direction);
-                        Box *tmp = machine_getBox(machine, card);
-                        if (tmp != NULL) {
-                            fprintf(stderr, "Ok R:%d G:%d\n", box_getNumberResource(tmp),
-                                    box_getNumberGarbage(tmp));
-                        } else {
-                            fprintf(stderr, "Non Ok\n");
-                        }
-                    }
                 } else {
                     // Création d'un box temporaire afin de stocker l'ensemble des Ressources / garbages
                     Box *cumulBox = box_create(0, 0);
-                    Cardinal out;
+                    Cardinal out = NORTH;
 
                     // Parcours de toutes les face
                     for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
@@ -642,6 +633,8 @@ void map_utils_moveResourcesInMachine(Map *m) {
                     }
 
                     // Verification de la présence de ressources
+                    fprintf(stderr, "Case x:%d y:%d Cumul => r:%d g:%d => ", case_getX(c), case_getY(c), box_getNumberResource(cumulBox),
+                            box_getNumberGarbage(cumulBox));
                     if (box_getNumberGarbage(cumulBox) > 0 || box_getNumberResource(cumulBox) > 0) {
                         // Vérification de la présence d'un Box sur la sortie
                         Box *tmp = machine_getBox(machine, out);
@@ -657,19 +650,19 @@ void map_utils_moveResourcesInMachine(Map *m) {
                         // Destruction de la box
                         box_destroy(cumulBox);
                     }
+                }
 
-                    // TODO Valentin : Temporaire
-                    for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                        direction = machine_getDirection(machine, card);
-                        fprintf(stderr, "Case x:%d y:%d card:%d dir:%d => ", case_getX(c), case_getY(c), card,
-                                direction);
-                        Box *tmp = machine_getBox(machine, card);
-                        if (tmp != NULL) {
-                            fprintf(stderr, "Ok R:%d G:%d\n", box_getNumberResource(tmp),
-                                    box_getNumberGarbage(tmp));
-                        } else {
-                            fprintf(stderr, "Non Ok\n");
-                        }
+                // TODO Valentin : Temporaire
+                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    direction = machine_getDirection(machine, card);
+                    fprintf(stderr, "Case x:%d y:%d card:%d dir:%d => ", case_getX(c), case_getY(c), card,
+                            direction);
+                    Box *tmp = machine_getBox(machine, card);
+                    if (tmp != NULL) {
+                        fprintf(stderr, "Ok R:%d G:%d\n", box_getNumberResource(tmp),
+                                box_getNumberGarbage(tmp));
+                    } else {
+                        fprintf(stderr, "Non Ok\n");
                     }
                 }
             }
