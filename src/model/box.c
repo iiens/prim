@@ -44,3 +44,5 @@ void box_addB2toB1(Box *b1, Box *b2) {
         box_setNumberGarbage(b1, box_getNumberGarbage(b2));
     }
 }
+
+void box_destroy(Box *b) { free(b); }
