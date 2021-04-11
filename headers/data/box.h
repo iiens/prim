@@ -65,4 +65,7 @@
 
     void box_addB2toB1(Box *b1, Box *b2);
 
+    //TODO ANTOINE DOC
+    void box_destroy(Box *b);
+
 #endif //PRIM_BOX_H
