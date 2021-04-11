@@ -115,7 +115,7 @@ char* translation_get( Translation t )
         case TRANSLATE_INPUT_MACHINE:
             return "Input machine ID. You can fetch them using `lm` action. Press `b` to go back.";
         case TRANSLATE_INPUT_ORIENTATION:
-            return "Input a rotation (0-3) value of the default orientation (check the manual).";
+            return "Input a rotation (0-3).";
         case TRANSLATE_INPUT_ACTION:
             return "Use `help` to get the list of available actions.";
         case TRANSLATE_ACTION_LIST_TITLE:

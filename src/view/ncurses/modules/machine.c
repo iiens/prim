@@ -3,6 +3,8 @@
 #include "../headers/interface_ncurses_utils.h"
 #include <string.h>
 
+MachineStuff lastSelected;
+
 /** init buy machine interface **/
 void* interface_ncurses_askBuyMachineClosureInit();
 
@@ -22,9 +24,13 @@ MachineSpec interface_ncurses_askAddMachine()
 
     int* rotation = NULL;
 
-    if ( !back )
+    if ( !back ) {
+        // save
+        lastSelected = *m;
+        // ask for rotation
         rotation = (int*) interface_ncurses_showInActionField(interface_ncurses_askOrientationClosureInit,
                                                               interface_ncurses_askOrientationCheck);
+    }
 
     // we need to do that since we use void* and Action* to match this constraint
     if ( !back && rotation != NULL && m != NULL ) {
@@ -80,8 +86,14 @@ void* interface_ncurses_askBuyMachineCheck( char* buff, bool* leave, ErrorCode* 
 
 void* interface_ncurses_askOrientationClosureInit()
 {
-    if ( interface_ncurses_utils_hasLastMessage() )
-        interface_ncurses_showMessage(translation_get(TRANSLATE_INPUT_ORIENTATION));
+    if ( interface_ncurses_utils_hasLastMessage() ) {
+        char* message = translation_get(TRANSLATE_INPUT_ORIENTATION);
+        char* desc = machineInfo_getDefaultOrientationMessage(machineInfo_getMachineInfoByType(lastSelected));
+        int size = (int) strlen(message) + (int) strlen(desc) + 1;
+        char* buffer = (char*) malloc(size * sizeof(char));
+        sprintf(buffer, "%s %s", message, desc);
+        interface_ncurses_showMessage(buffer);
+    }
     return NULL;
 }
 
