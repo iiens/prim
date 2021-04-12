@@ -76,6 +76,14 @@ ErrorCode interface_reload( const Map* map );
  */
 ErrorCode interface_close();
 
+/**
+ * Show win/loose screen
+ * @param map the map just in case
+ * @param e did we
+ * @return error code
+ */
+ErrorCode interface_endGame( const Map* map, ErrorCode e );
+
 //\////////////////////////////\//
 //\/ game interface declarations
 //\////////////////////////////\//

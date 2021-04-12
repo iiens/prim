@@ -45,6 +45,14 @@ ErrorCode interface_close()
     return ERROR_INIT_INTERFACE;
 }
 
+ErrorCode interface_endGame( const Map* map, ErrorCode e )
+{
+    if ( useNCurses ) {
+        return interface_ncurses_endGame(map, e);
+    }
+    return ERROR;
+}
+
 //\////////////////////////////\//
 //\/ Show related functions
 //\////////////////////////////\//

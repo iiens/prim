@@ -104,8 +104,8 @@ Difficulty interface_ncurses_chooseDifficulty()
         ch = getch();
         if ( ch == 'q' ) {
             // we leave
-            interface_close();
-            exit(0); // todo: this ends program on q
+            back = true;
+            return DIFFICULTY_EASY;
         }
         // un-highlight current
         attron(A_NORMAL);

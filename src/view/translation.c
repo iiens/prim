@@ -45,6 +45,10 @@ char* error_getMessage( ErrorCode e )
             return "Cannot init interface, screen too small.";
         case ERROR_INVALID_ORIENTATION_NUMBER:
             return "This is not a valid rotation number.";
+        case ERROR_LIST_NULL:
+            return "Error list is null";
+        case ERROR_DICTIONARY_NULL:
+            return "Error dictionary is null";
     }
     return "Error. Please report it to the developers.";
 }
@@ -133,6 +137,10 @@ char* translation_get( Translation t )
             return "id";
        case TRANSLATE_OWNED_TAG:
             return "owned";
+        case TRANSLATE_WIN:
+            return "Victory";
+        case TRANSLATE_LOST:
+            return "Defeat";
     }
     return "Error. Please report it to the developers.";
 }

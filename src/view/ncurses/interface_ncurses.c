@@ -99,3 +99,23 @@ ErrorCode interface_ncurses_close()
         return ERROR_CLOSE_INTERFACE;
     return NO_ERROR;
 }
+
+ErrorCode interface_ncurses_endGame( const __attribute__((unused)) Map* map, ErrorCode e )
+{
+    clear(); // clear
+
+    char* message; //!< show message
+
+    if ( e == ERROR_GAME_WIN )
+        message = translation_get(TRANSLATE_WIN);
+    else
+        message = translation_get(TRANSLATE_LOST);
+
+    mvaddstr(LINES/2, 0, message);
+
+    getch(); // wait
+
+    refresh(); // show
+
+    return NO_ERROR;
+}

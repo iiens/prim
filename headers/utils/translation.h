@@ -61,6 +61,9 @@ typedef enum Translation_S {
     TRANSLATE_ON_TAG,
     TRANSLATE_ID_TAG,
     TRANSLATE_OWNED_TAG,
+
+    TRANSLATE_WIN,
+    TRANSLATE_LOST,
 } Translation;
 
 /*!

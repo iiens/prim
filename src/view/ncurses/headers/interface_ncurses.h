@@ -29,6 +29,10 @@ ErrorCode interface_ncurses_reload( const Map* map );
  * @return see interface_close */
 ErrorCode interface_ncurses_close();
 
+/*! @see interface_endGame
+ * @return see interface_endGame */
+ErrorCode interface_ncurses_endGame( const Map* map, ErrorCode e );
+
 //\////////////////////////////\//
 //\/ game interface declarations
 //\////////////////////////////\//

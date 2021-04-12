@@ -27,6 +27,9 @@
         NO_ERROR = 0,
         ERROR = 1,
 
+        ERROR_GAME_WIN = 10,
+        ERROR_GAME_LOST = 11,
+
         ERROR_CASE_EMPTY = 2,
         ERROR_CASE_MACHINE = 21,
         ERROR_CASE_SOURCE = 22,
