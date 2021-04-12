@@ -214,7 +214,7 @@ const Staff staff_list[] = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.other = DESTROY_GARBAGE,
-                .modifierRes = 1/2, // multiply for each case this number of garbage by this number
+                .modifierRes = 50, //!< multiply for each case this number of garbage by this number, means 50%
                 .description = "Half garbage of each case are remove"
         }
 
@@ -248,10 +248,10 @@ const Staff staff_list[] = {
 
         {17, "Gael Thomas", 1000, 400, "When a garbage leave the door it has a one"
                                        " in 10 chance of disappearing ",10, .effects = {
-                .mode = DOOR_OUT,//<!todo : not implement yet make a variable with a randomize if = 1 remove
-                //garbage
-                .onOther = 0,
-                .what.machine = MS_RECYCLING_CENTER,
+                .mode = DOOR_OUT,
+                .onOther = 1,
+                .what.other = DESTROY_GARBAGE,
+                .modifierRes = 10, //!< means 10 %
                 .description = "When a garbage leave the door it has a one"
                                "in 10 chance of disappearing"
         }
@@ -343,9 +343,9 @@ const Staff staff_list[] = {
                 .mode = LEAVE,
                 .onOther = 1,
                 .what.other = SUB_HIRE && SOURCE,
-                .modifierFISA = 1/10,
-                .modifierFISE = 1/10,
-                .modifierRes = +1, //<! modify resource only for source
+                .modifierFISA = 10, //!< means  10%
+                .modifierFISE = 10,//!< means 10%
+                .modifierRes = +1, //!< modify resource only for source
                 .description = "1/10 of FISA and FISE leave the school but they send a resource to the gate"
         }
 

@@ -68,8 +68,9 @@
         Mode mode; //!< represent the mode applied to the machine
         Target what; //!< represent the target of the effect
         bool onOther; //!< to know if what is a machine or other
-        float modifierRes; //!< if SEND_DOOR, resource put in multiply by this
-        int modifierFISA; //!< update the number of FISA, if LEAVE fisa put in multiply by this
+        float modifierRes; //!< if SEND_DOOR, resource put in multiply by this, if DOOR_OUT it's the probability
+                          //!< that a garbage disappear when it's leave the door
+        int modifierFISA; //!< update the number of FISA, if LEAVE fisa put in multiply by this,
         int modifierFISE; //!< update the number of FISE, if LEAVE fise put in multiply by this
         int modifierE; //!< update the E cost
         int modifierDD; //!< update the DD cost
