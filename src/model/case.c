@@ -105,9 +105,6 @@ void case_addSource(Case* c) {
 //TODO DOC
 void case_addBox(Case* c, Box* box) {
     if (c->type != CASE_MACHINE && !(case_hasBox(c))) {
-        fprintf(stderr, "Case Box add x:%d y:%d\n", c->x, c->y);
-        fprintf(stderr, " => Resources %d / Garbage : %d\n", box_getNumberResource(box),
-                box_getNumberGarbage(box));
         c->type = c->type | 0x01;
         c->in = box;
     }
@@ -116,7 +113,6 @@ void case_addBox(Case* c, Box* box) {
 //TODO DOC
 ErrorCode case_deleteBox(Case* c) {
     if (case_hasBox(c)) {
-        fprintf(stderr, "Case Box delete x:%d y:%d\n", c->x, c->y);
         free(c->in);
         c->type = c->type & 0xFFFFFFFE;
         c->in = NULL;

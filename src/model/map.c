@@ -57,20 +57,17 @@ Map *map_create(Difficulty dif) {
     // Random gate placement
     gate_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
     gate_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
-    case_addGate(m->map[0][0]);
+    case_addGate(m->map[gate_x][gate_y]);
 
     // Random placement of the 2 sources
-    /*for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 2; i++) {
         do {
             source_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
             source_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)
         } while (!case_isEmpty(m->map[source_x][source_y]));
 
         case_addSource(m->map[source_x][source_y]);
-    }*/
-
-    case_addSource(m->map[0][5]);
-    case_addSource(m->map[1][4]);
+    }
 
     return m;
 }
@@ -145,39 +142,36 @@ ErrorCode map_endTurn(Map *m) {
     map_utils_productionFisa(m);
 
     // Déplacer les ressources
-    fprintf(stderr, "Move RG\n");
     map_utils_moveResources(m);
 
     // Generation of resources
-    fprintf(stderr, "\nGenerate R\n");
     map_utils_generateResources(m);
 
     // La porte produit des déchêts
-    fprintf(stderr, "\nGenerate G\n");
     map_utils_generateGarbage(m);
 
     // Faire fonctionner les décheteries
     map_utils_activateRecyclingCenters(m);
 
     // Les collecteurs s'activent
-    fprintf(stderr, "\nCollect\n");
     map_utils_activateCollectors(m);
 
     // Destroy the no-collected resources
-    fprintf(stderr, "\nReset\n");
     map_utils_resetResourcesGarbage(m);
 
-    fprintf(stderr, "\nIn machine\n");
     map_utils_moveResourcesInMachine(m);
 
     // Minus pollution to DD
-    fprintf(stderr, "\nSoustraction DD\n");
     int numberPollution = map_getNumberPollution(m);
     int numberDD = map_getNumberDD(m);
     if (numberDD < numberPollution) {
-        return ERROR; // TODO Valentin : changer avec error valeur de DD négative
+        return ERROR;
     }
     map_setNumberDD(m, numberPollution * -1);
+
+    if (map_getPlayerScore(m) > 10000){
+        return ERROR;
+    }
 
     m->turn++;
     return NO_ERROR;
@@ -379,14 +373,11 @@ Case *map_getCase(const int x, const int y, const Map *m) {
 }
 
 int map_getNumberPollution(const Map *m) {
-    fprintf(stderr, "Pollution : \n");
     int nbGarbage = 0;
     for (int i = 0; i < m->height; ++i) {
         for (int j = 0; j < m->width; ++j) {
             Case *c = map_getCase(i, j, m);
             if (case_hasBox(c)) {
-                fprintf(stderr, "Case x:%d y:%d G:%d R:%d\n", i, j,
-                        box_getNumberGarbage(case_getBox(c)), box_getNumberResource(case_getBox(c)));
                 nbGarbage += box_getNumberGarbage(case_getBox(c));
             } else if (case_getType(c) == CASE_MACHINE) {
                 Machine *machine = case_getMachine(c);
@@ -394,9 +385,6 @@ int map_getNumberPollution(const Map *m) {
                 if (machineType != MS_JUNKYARD) {
                     for (Cardinal k = 0; k < NUMBER_CARDINAL; ++k) {
                         if (machine_getBox(machine, k) != NULL) {
-                            fprintf(stderr, "Case x:%d y:%d Card:%d G:%d R:%d\n", i, j, k,
-                                    box_getNumberGarbage(machine_getBox(machine, k)),
-                                    box_getNumberResource(machine_getBox(machine, k)));
                             nbGarbage += box_getNumberGarbage(machine_getBox(machine, k));
                         }
                     }

@@ -9,6 +9,7 @@ int main( void ) {
     Map* map = NULL; //!< Allows you to store the state of the game
     bool exit = false; //!< flag to detect the choice to close the game
     bool endTurn = false; //!< flag to the end of a tour
+    ErrorCode error;
     Action act; //!< Allows you to know the action that the player chooses
 
     // Initializes the game
@@ -25,8 +26,6 @@ int main( void ) {
         // Reset end turn
         endTurn = false;
 
-        fprintf(stderr, "Turn : %d\n", map_getNumberTurn(map));
-
         // While the user doesn't want the turn to end
         while ( !endTurn ) {
             // Interface update
@@ -40,9 +39,11 @@ int main( void ) {
         }
 
         // Process end turn
-        fprintf(stderr, "EndTurn : %d\n", map_getNumberTurn(map));
-        map_endTurn(map);
-        fprintf(stderr, "\n");
+        error = map_endTurn(map);
+        if (error != NO_ERROR) {
+            interface_endGame(map, error);
+            exit = true;
+        }
     }
 
     // Destroy map
@@ -72,6 +73,9 @@ Map* main_initGame() {
 
     // Ask difficulty
     d = interface_chooseDifficulty();
+    if (back) {
+        return NULL;
+    }
 
     // Creates map
     return map_create(d);

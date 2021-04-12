@@ -139,10 +139,6 @@ Vector2D map_utils_modifyXYWithCardinal(Cardinal cardinal) {
 
 // TODO Valentin : modifier pour ne plus avoir à passer la box
 ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
-    fprintf(stderr, "=> map_utils_moveBox\n");
-    fprintf(stderr, "Case x:%d y:%d Card:%d R:%d G:%d\n", case_getX(c), case_getY(c), card,
-            box_getNumberResource(outputBox), box_getNumberGarbage(outputBox));
-
     // Récupération des coordonnées de la case
     int x = case_getX(c);
     int y = case_getY(c);
@@ -156,15 +152,12 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
     if (outputCase != NULL) {
         // Vérification du type de la case
         if (case_getType(outputCase) != CASE_MACHINE) {
-            fprintf(stderr, "   => Case non machine\n");
             // Si case n'est pas une machine
             // Vérification de la présence d'une box
             if (case_hasBox(outputCase)) {
-                fprintf(stderr, "   => Case avec Box\n");
                 // Si oui ajouter à la box déjà présente les données de la nouvelle box
                 inputBox = case_getBox(outputCase);
             } else {
-                fprintf(stderr, "   => Case sans Box\n");
                 // Si non ajouter la box à la machine
                 inputBox = box_create(0, 0);
                 case_addBox(outputCase, inputBox);
@@ -173,18 +166,15 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
 
             return ERROR;
         } else {
-            fprintf(stderr, "   => Case machine\n");
             // Sinon récupérer la machine
             Machine *outputMachine = case_getMachine(outputCase);
 
             const MachineInfo *machineInfo = machineInfo_getMachineStuff(machine_getType(outputMachine));
             int BaseCapacity = machineInfo_getCapacity(machineInfo);
-            fprintf(stderr, "   Capacity %d\n", BaseCapacity);
             if (machineInfo_getCanUpgrade(machineInfo)) {
                 const Effect *effect = machineInfo_getEffects(machineInfo);
                 int modifiers = effect_getModifierCapacity(effect);
                 BaseCapacity = BaseCapacity + modifiers * (machine_getLevel(outputMachine) - 1);
-                fprintf(stderr, "   Capacity %d\n", BaseCapacity);
             }
 
             // Calcule du cardinal opposé à la sortie
@@ -192,7 +182,6 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
 
             // Vérification que l'on est bien sur l'ntré de la machine
             if (machine_getDirection(outputMachine, outputCardinal) == DIRECTION_IN) {
-                fprintf(stderr, "   => Case In\n");
                 // Verification de l'existence d'une box
                 Box *existBox = machine_getBox(outputMachine, outputCardinal);
                 if (existBox == NULL) {
@@ -202,7 +191,6 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
                 }
                 box_addB2toB1(existBox, outputBox);
 
-                fprintf(stderr, "   Capacity %d Stock %d\n", BaseCapacity, case_getNumberGarbageByCase(outputCase));
                 if (case_getNumberGarbageByCase(outputCase) > BaseCapacity) {
                     map_utils_sendResourcesToGate(m, (BaseCapacity - case_getNumberGarbageByCase(outputCase)) * -1);
                     box_setNumberGarbage(existBox, BaseCapacity - case_getNumberGarbageByCase(outputCase));
@@ -268,7 +256,6 @@ void map_utils_productionFisa(Map *m) {
 }
 
 void map_utils_moveResources(Map *m) {
-    fprintf(stderr, "=> map_utils_moveResources\n");
     int width = map_getWidth(m);
     int height = map_getHeight(m);
 
@@ -304,8 +291,7 @@ void map_utils_moveResources(Map *m) {
 }
 
 void map_utils_generateResources(Map *m) {
-    fprintf(stderr, "=> map_utils_generateResources\n");
-    int numberTour = 1;
+    int numberTour = NB_TURN_PRODUCTION_SOURCE;
 
     // TODO Valentin : attendre
     //map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &numberTour, NULL);
@@ -322,7 +308,6 @@ void map_utils_generateResources(Map *m) {
             for (int j = 0; j < map_getHeight(m); ++j) {
                 c = map_getCase(i, j, m);
                 if (case_getType(c) == CASE_SOURCE) { // Si source alors
-                    fprintf(stderr, "Sources généré : \n");
                     // Ajouter une box avec le nombre de ressources généré
                     case_addBox(c, box_create(generateResource, 0));
                 }
@@ -409,7 +394,6 @@ void map_utils_activateRecyclingCenters(Map *m) {
 }
 
 void map_utils_activateCollectors(Map *m) {
-    fprintf(stderr, "=> map_utils_activateCollectors\n");
     MachineStuff machineType = MS_COLLECTOR;
 
     // Récupération des information de base des collecteur
@@ -452,6 +436,7 @@ void map_utils_activateCollectors(Map *m) {
                             CaseType caseType = case_getType(sourceCase);
                             if ((caseType == CASE_SOURCE || caseType == CASE_GATE) && case_hasBox(sourceCase)) {
                                 sourceBox = case_getBox(sourceCase);
+
                                 // Vérification de la présence de ressource dans la box
                                 // TODO Valentin : Possiblement à enlever
                                 if (box_getNumberResource(sourceBox) > 0 || box_getNumberGarbage(sourceBox) > 0) {
@@ -478,33 +463,25 @@ void map_utils_activateCollectors(Map *m) {
                 // Temps qu'il y a encore possibilité de récupérer des ressources
                 // Et qu'il y a encore des ressources à récupéré
                 while (capacity > 0 && list_getSize(listSource) > 0) {
-                    fprintf(stderr, "While\n");
                     // Choisir un source aléatoirement
                     choiceSource = rand() % list_getSize(listSource); // NOLINT(cert-msc50-cpp)
-                    fprintf(stderr, "Size\n");
 
                     // Récupérer la box sur la source
                     Element *elt = list_getByIndex(listSource, choiceSource);
-                    fprintf(stderr, "Index\n");
                     sourceBox = case_getBox((Case *) elt->content.object);
-                    fprintf(stderr, "Box\n");
 
                     // Prendre une ressource de la source
                     if (case_getType((Case *) elt->content.object) == CASE_SOURCE) {
                         box_setNumberResource(cumulative, 1);
                         box_setNumberResource(sourceBox, -1);
-                        fprintf(stderr, "Source\n");
                     } else {
                         box_setNumberGarbage(cumulative, 1);
                         box_setNumberGarbage(sourceBox, -1);
-                        fprintf(stderr, "Garbage\n");
                     }
 
                     // Supprimer la source de la liste si elle est vide
                     if (box_getNumberResource(sourceBox) <= 0 && box_getNumberGarbage(sourceBox) <= 0) {
-                        fprintf(stderr, "Rem\n");
-                        list_removeByIndex(listSource, choiceSource);
-                        fprintf(stderr, "Remove\n");
+                        list_removeByIndex(&listSource, choiceSource);
                     }
 
                     // Diminué la capacité du collecteur
@@ -513,8 +490,6 @@ void map_utils_activateCollectors(Map *m) {
                 // Détruire la liste de source
                 list_destroy(listSource);
 
-                fprintf(stderr, "Cumulative => Resources %d Garbage %d\n", box_getNumberResource(cumulative),
-                        box_getNumberGarbage(cumulative));
                 // Si il y a des ressources qui ont été récupéré alors envoyer la box vers
                 // la sortie du collecteur
                 if (box_getNumberResource(cumulative) > 0 || box_getNumberGarbage(cumulative) > 0) {
@@ -527,7 +502,6 @@ void map_utils_activateCollectors(Map *m) {
 }
 
 void map_utils_resetResourcesGarbage(Map *m) {
-    fprintf(stderr, "=> map_utils_resetResourcesGarbage\n");
     Case *c, *gate = NULL;
     Box *box = box_create(0, 0);
     Box *tmpBox;
@@ -536,15 +510,11 @@ void map_utils_resetResourcesGarbage(Map *m) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             CaseType type = case_getType(c);
-            //fprintf(stderr, "Case Type x:%d y:%d => type %d\n", i, j, type);
             if (type == CASE_GATE) {
                 gate = c;
             } else if (case_hasBox(c)) {
-                fprintf(stderr, "Case Reset x:%d y:%d\n", i, j);
                 tmpBox = case_getBox(c);
                 box_setNumberGarbage(box, box_getNumberGarbage(tmpBox));
-                fprintf(stderr, " => Resources %d / Garbage : %d\n", box_getNumberResource(tmpBox),
-                        box_getNumberGarbage(tmpBox));
 
                 case_deleteBox(c);
             }
@@ -558,8 +528,6 @@ void map_utils_resetResourcesGarbage(Map *m) {
         } else {
             case_addBox(gate, box);
         }
-    } else {
-        fprintf(stderr, "Gate non trouvé !!\n");
     }
 }
 
@@ -571,7 +539,6 @@ void map_utils_resetResourcesGarbage(Map *m) {
  * @param m la map de jeu
  */
 void map_utils_moveResourcesInMachine(Map *m) {
-    fprintf(stderr, "=> map_utils_moveResourcesInMachine\n");
     Case *c;
     Direction direction;
 
@@ -589,10 +556,8 @@ void map_utils_moveResourcesInMachine(Map *m) {
                     for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                         direction = machine_getDirection(machine, card);
                         if (direction == DIRECTION_IN) {
-                            fprintf(stderr, "Cross  In => ");
                             Box *inBox = machine_getBox(machine, card);
                             if (inBox != NULL) {
-                                fprintf(stderr, "Cross  In => Box\n");
                                 Cardinal out = (card + (NUMBER_CARDINAL / 2)) % NUMBER_CARDINAL;
                                 Box *outputBox = machine_getBox(machine, out);
                                 if (outputBox == NULL) {
@@ -629,9 +594,6 @@ void map_utils_moveResourcesInMachine(Map *m) {
                     }
 
                     // Verification de la présence de ressources
-                    fprintf(stderr, "Case x:%d y:%d Cumul => r:%d g:%d => ", case_getX(c), case_getY(c),
-                            box_getNumberResource(cumulBox),
-                            box_getNumberGarbage(cumulBox));
                     if (box_getNumberGarbage(cumulBox) > 0 || box_getNumberResource(cumulBox) > 0) {
                         // Vérification de la présence d'un Box sur la sortie
                         Box *tmp = machine_getBox(machine, out);
@@ -646,20 +608,6 @@ void map_utils_moveResourcesInMachine(Map *m) {
                     } else {
                         // Destruction de la box
                         box_destroy(cumulBox);
-                    }
-                }
-
-                // TODO Valentin : Temporaire
-                for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                    direction = machine_getDirection(machine, card);
-                    fprintf(stderr, "Case x:%d y:%d card:%d dir:%d => ", case_getX(c), case_getY(c), card,
-                            direction);
-                    Box *tmp = machine_getBox(machine, card);
-                    if (tmp != NULL) {
-                        fprintf(stderr, "Ok R:%d G:%d\n", box_getNumberResource(tmp),
-                                box_getNumberGarbage(tmp));
-                    } else {
-                        fprintf(stderr, "Non Ok\n");
                     }
                 }
             }
