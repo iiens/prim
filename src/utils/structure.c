@@ -22,15 +22,15 @@ List* list_create( Element first )
 {
     List* l = (List*) malloc(sizeof(List));
     //todo: Ramzy do better and a it's not a name
-    Element* a = (Element*) malloc(sizeof(Element));
-    *a = first;
-    l->current = a;
+    Element* elm = (Element*) malloc(sizeof(Element));
+    *elm = first;
+    l->current = elm;
     l->next = NULL;
     return l;
 }
 
 // at the end
-//todo: Ramzy check l not null, return ERROR_LIST_NULL...
+
 ErrorCode list_addElement( List* l, Element e )
 {
     if (l->current == NULL){
@@ -38,7 +38,7 @@ ErrorCode list_addElement( List* l, Element e )
         Element* a = (Element*) malloc(sizeof(Element));
         *a = e;
         l->current = a;
-        return NO_ERROR;
+        return ERROR_LIST_NULL;
     }
 
     if ( l->next == NULL ) {
@@ -64,8 +64,7 @@ ErrorCode list_addCoupleIntText(List* l, int number, char* text)
     return list_addElement(l, e);
 }
 
-// todo: Ramzy rename Int to Number
-ErrorCode list_addCoupleInt(List* l, int n1, int n2)
+ErrorCode list_addCoupleNumber(List* l, int n1, int n2)
 {
     Couple* c = (Couple*) malloc(sizeof(Couple));
     c->keys = dictionary_elementFromNumber(n1);
@@ -88,9 +87,11 @@ Element list_get( List* list )
     return *list->current;
 }
 
-//todo: check list not null
 ErrorCode list_removeByIndex(List* list,int index){
     int pos=0;
+    if(list->current ==NULL)
+        return ERROR_LIST_NULL;
+
     if(list->next == NULL) {
         free(list->current); //todo: delete
         list->current = NULL;
@@ -107,9 +108,12 @@ ErrorCode list_removeByIndex(List* list,int index){
     return NO_ERROR;
 }
 
-//todo: check list not null
+
 Element* list_getByIndex(List* list, int index){
     int pos = 0;
+    if(list->current ==NULL)
+        return NULL;
+
     while (list->current !=NULL){
         if(pos == index)
             return list->current;
@@ -119,9 +123,11 @@ Element* list_getByIndex(List* list, int index){
     return NULL;
 }
 
-//todo: check list not null
 int list_getSize(List* list){
     int sz = 0;
+    if(list->current ==NULL)
+        return ERROR_LIST_NULL;
+
     if(list->current == NULL)
         return 0;
     while (list !=NULL){
@@ -182,7 +188,7 @@ Element* dictionary_getElement( Dictionary* d, Element key )
 ErrorCode dictionary_addElement( Dictionary* d, Element key, Element value )
 {
     if ( d == NULL )
-        return ERROR; //todo: Ramzy create and use ERROR_DICTIONARY_NULL
+        return ERROR_DICTIONARY_NULL;
 
     // verify that the key don't exist before insert
     for ( int i = 0; i < d->numberOfElement; i++ ) {
@@ -253,8 +259,7 @@ ErrorCode dictionary_addCoupleText( Dictionary* d, char* key, char* value )
     return dictionary_addElement(d, e_key, e_value);
 }
 
-//todo: Ramzy rename Int to Number
-ErrorCode dictionary_addCoupleInt( Dictionary* d, int key, int value )
+ErrorCode dictionary_addCoupleNumber( Dictionary* d, int key, int value )
 {
     Element e_key;// rename name of variable
     Element e_value;
@@ -267,8 +272,7 @@ ErrorCode dictionary_addCoupleInt( Dictionary* d, int key, int value )
     return dictionary_addElement(d, e_key, e_value);
 }
 
-//todo: Ramzy rename Int to Number
-ErrorCode dictionary_addCoupleIntText( Dictionary* d, int key, char* value )
+ErrorCode dictionary_addCoupleNumberText( Dictionary* d, int key, char* value )
 {
     Element e_key;// rename name of variable
     Element e_value;
@@ -290,16 +294,15 @@ Element* dictionary_getElementText( Dictionary* d, char* key )
     return dictionary_getElement(d, e_key);
 }
 
-//todo: Ramzy Int rename to Number
-Element* dictionary_getElementInt( Dictionary* d, int key )
+Element* dictionary_getElementNumber( Dictionary* d, int key )
 {
     // create element
     return dictionary_getElement(d, dictionary_elementFromNumber(key));
 }
 
 //todo: Ramzy rename and element.h
-// and rename Int to Number
-int dictionary_elementToInt( Element e )
+
+int dictionary_elementToNumber(Element e )
 {
     if ( e.type == NUMBER ) {
         return e.content.number;

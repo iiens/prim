@@ -71,7 +71,7 @@ int list_getSize(List* list);
 // at the end
 ErrorCode list_addElement(List* l, Element e);
 ErrorCode list_addCoupleIntText(List* l, int number, char* text);
-ErrorCode list_addCoupleInt(List* l, int n1, int n2);
+ErrorCode list_addCoupleNumber(List* l, int n1, int n2);
 // advance list => next and return current
 Element list_next(List** current);
 // get Element
@@ -95,12 +95,12 @@ Element* dictionary_getElement(Dictionary* d, Element key);
 ErrorCode dictionary_addElement(Dictionary* d, Element key, Element value);
 Couple* dictionary_getCoupleByIndex( Dictionary *d, int index);
 ErrorCode dictionary_addCoupleText(Dictionary *d,char* key, char* value);
-ErrorCode dictionary_addCoupleIntText(Dictionary* d,int key, char* value);
+ErrorCode dictionary_addCoupleNumberText(Dictionary* d,int key, char* value);
 Element* dictionary_getElementText(Dictionary *d, char* key);
-ErrorCode dictionary_addCoupleInt( Dictionary* d, int key, int value );
-Element* dictionary_getElementInt(Dictionary *d, int key);
+ErrorCode dictionary_addCoupleNumber( Dictionary* d, int key, int value );
+Element* dictionary_getElementNumber(Dictionary *d, int key);
 
-int dictionary_elementToInt(Element e);
+int dictionary_elementToNumber(Element e);
 char* dictionary_elementToText( Element e);
 void* dictionary_elementToObject( Element e);
 Element dictionary_elementFromNumber(int number);

@@ -244,13 +244,13 @@ char* translation_fetchMachineTypeFullName( MachineStuff s )
 List* translation_getLegendMachines()
 {
     List* machines = list_createEmpty();
-    list_addCoupleInt(machines, !IS_MACHINE, CASE_SOURCE);
-    list_addCoupleInt(machines, !IS_MACHINE, CASE_GATE);
-    list_addCoupleInt(machines, IS_MACHINE, MS_CONVEYOR_BELT);
-    list_addCoupleInt(machines, IS_MACHINE, MS_CROSS);
-    list_addCoupleInt(machines, IS_MACHINE, MS_COLLECTOR);
-    list_addCoupleInt(machines, IS_MACHINE, MS_RECYCLING_CENTER);
-    list_addCoupleInt(machines, IS_MACHINE, MS_JUNKYARD);
+    list_addCoupleNumber(machines, !IS_MACHINE, CASE_SOURCE);
+    list_addCoupleNumber(machines, !IS_MACHINE, CASE_GATE);
+    list_addCoupleNumber(machines, IS_MACHINE, MS_CONVEYOR_BELT);
+    list_addCoupleNumber(machines, IS_MACHINE, MS_CROSS);
+    list_addCoupleNumber(machines, IS_MACHINE, MS_COLLECTOR);
+    list_addCoupleNumber(machines, IS_MACHINE, MS_RECYCLING_CENTER);
+    list_addCoupleNumber(machines, IS_MACHINE, MS_JUNKYARD);
     return machines;
 }
 

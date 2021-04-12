@@ -284,7 +284,48 @@ const Staff staff_list[] = {
 
         },
 
-        {20, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
+        {20, "Katrin Salhab", 1500, 300, "The cost of staff"
+                                            " decreases by 50E and 20DD (min 10E and 10DD) ", .effects = {
+                .mode = ON_BUY,
+                .onOther = 1,
+                .what.other = SUB_HIRE,
+                .modifierE = -50,
+                .modifierDD = -20,
+                .min_costE = 10,
+                .min_costDD = 10,
+                .description = "The cost of staff decreases by 50E and 20DD (min 10E\n"
+                               " and 10DD)."
+        }
+
+        },
+
+        {21, "Julien Forest", 100, 200, "FISE produce 1E and 1DD more per turn "
+                                            , .effects = {
+                .mode = ON_TURN,
+                .onOther = 1,
+                .what.other = SUB_FISE,
+                .modifierE = +1,
+                .modifierDD = +1,
+                .description = "FISE produce 1E and 1DD more per turn"
+        }
+
+        },
+
+        {22, "Thomas Lim", 1000, 400, "The cost of destroying recycling center"
+                                            " decreases by 5E and 25DD ", .effects = {
+                .mode = DESTROY,
+                .onOther = 0,
+                .what.machine = MS_RECYCLING_CENTER,
+                .modifierE = -5,
+                .modifierDD = -25,
+                .min_costE = 5,
+                .min_costDD = 25,
+                .description = "The cost of destroying recycling center decreases by 5E and 25DD (min 5E\n"
+                               "and 25DD)."
+        }
+
+        },
+        {21, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
                                             " decreases by 5E and 25DD ", .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
@@ -413,7 +454,7 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
 Dictionary* staff_createStaffDictionary() {
     Dictionary* dict = dictionary_create(NUMBER_OF_STAFFS);
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
-        dictionary_addCoupleInt(dict, staff_list[i].id, 0);
+        dictionary_addCoupleNumber(dict, staff_list[i].id, 0);
     }
     return dict;
 }
@@ -431,7 +472,7 @@ void staff_hireStaff(Dictionary* dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
         Couple* couple = dictionary_getCoupleByIndex(dict, index);
-        dictionary_addCoupleInt(dict, staff_list[index].id, couple->values.content.number+1);
+        dictionary_addCoupleNumber(dict, staff_list[index].id, couple->values.content.number+1);
     }
 }
 

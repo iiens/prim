@@ -48,6 +48,9 @@
         ERROR_INIT_NCURSES_INTERFACE_SIZE = 102,
         ERROR_NO_NCURSES_COLORS_INTERFACE = 11,
         ERROR_CLOSE_INTERFACE = 12,
+
+        ERROR_LIST_NULL = 4,
+        ERROR_DICTIONARY_NULL = 41,
     } ErrorCode; //!< Error type
 
     /*!
