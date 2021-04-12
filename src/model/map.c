@@ -157,7 +157,7 @@ ErrorCode map_endTurn(Map *m) {
     map_utils_generateGarbage(m);
 
     // Faire fonctionner les décheteries
-    //map_utils_activateRecyclingCenters(m);
+    map_utils_activateRecyclingCenters(m);
 
     // Les collecteurs s'activent
     fprintf(stderr, "\nCollect\n");
