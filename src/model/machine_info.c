@@ -1,6 +1,7 @@
 #include "../../headers/data/machine_info.h"
 
 #include <stdio.h>
+#include "limits.h"
 
 // todo: please use .type, .costE and not simply
 //  inserting a value
@@ -20,11 +21,11 @@ const MachineInfo machine_list[] = {
         },
         {MS_CONVEYOR_BELT,60,20,-1,-1,60,200,
                 "A carpet has one exit and three entrances, the resource or waste exits",
-                0," Conveyor Belt Out is South by default"
+                INT_MAX," Conveyor Belt Out is South by default"
                   ,0, .effects = {}},
         {MS_CROSS,160,20,-1,-1,60,200,
                 "The cross has 2 inlets and 2 outlets "
-                "which depend on the orientation of the cross",0,
+                "which depend on the orientation of the cross",INT_MAX,
                 " Cross Out is South and West by default",
                 0, .effects = {}},
         {MS_RECYCLING_CENTER,500,40,1500,100,100,500,
