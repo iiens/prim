@@ -17,3 +17,15 @@ Difficulty difficulty_getLVL(int id)  {
 int difficulty_getNumberOfDifficulties() {
     return NUMBER_DIFFICULTY;
 }
+
+int map_utils_getSizeByDifficulty(Difficulty d) {
+    switch (d) { // NOLINT(hicpp-multiway-paths-covered)
+        case DIFFICULTY_EASY:
+            return 10;
+        case DIFFICULTY_MEDIUM:
+            return 20;
+        case DIFFICULTY_HARD:
+            return 30;
+    }
+    return -1;
+}

@@ -87,27 +87,33 @@ Element list_get( List* list )
     return *list->current;
 }
 
-ErrorCode list_removeByIndex(List* list,int index){
-    int pos=0;
-    if(list->current ==NULL)
+ErrorCode list_removeByIndex(List **list, int index) {
+    int pos = 0;
+    if (list == NULL || (*list)->current == NULL)
         return ERROR_LIST_NULL;
 
-    if(list->next == NULL) {
-        free(list->current); //todo: delete
-        list->current = NULL;
+    if ((*list)->next == NULL || index == 0) {
+        List *tmp = (*list);
+        *list = (*list)->next;
+        list_destroyFirst(tmp);
+        return NO_ERROR;
     }
 
-    while (list->next !=NULL){
-        if(pos+1 == index) {
-            list->next = list->next->next;
+    pos++;
+    List *cursor = *list;
+    while (cursor->next != NULL) {
+        if (pos == index) {
+            List *tmp = cursor->next->next;
+            list_destroyFirst(cursor->next);
+            cursor->next = tmp;
             return NO_ERROR;
         }
+        cursor = cursor->next;
         pos++;
     }
 
     return NO_ERROR;
 }
-
 
 Element* list_getByIndex(List* list, int index){
     int pos = 0;
@@ -139,8 +145,19 @@ int list_getSize(List* list){
 //todo: Ramzy each element should be free
 ErrorCode list_destroy( List* list )
 {
-    if ( list != NULL )
+    if ( list != NULL ) {
+        // recursive
+        list_destroy(list->next);
         free(list);
+    }
+    return NO_ERROR;
+}
+
+ErrorCode list_destroyFirst(List* list)
+{
+    if ( list != NULL ) {
+        free(list);
+    }
     return NO_ERROR;
 }
 

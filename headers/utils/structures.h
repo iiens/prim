@@ -77,9 +77,11 @@ Element list_next(List** current);
 // get Element
 Element list_get(List* list);
 // remove Element by Index
-ErrorCode list_removeByIndex(List* list,int index);
-// destroy
+ErrorCode list_removeByIndex(List** list,int index);
+// destroy all (next included)
 ErrorCode list_destroy(List* list);
+// destroy only this list
+ErrorCode list_destroyFirst(List* list);
 /*!
  * \fn Dictionary* createDictionary()
  * @brief Create a Dictionary of ElementType and Element

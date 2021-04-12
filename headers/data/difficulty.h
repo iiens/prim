@@ -38,4 +38,17 @@ Difficulty difficulty_getLVL(int id);
 
 int difficulty_getNumberOfDifficulties();
 
+/*!
+ * \fn int map_utils_getSizeByDifficulty(Difficulty d)
+ * @brief a function to get the map size according to the difficulty
+ *
+ * This function get this size of the map
+ * in order to create the map type
+ *
+ * @param[in] d a valid difficulty chosen by the user
+ * @return int : map size
+ * @see Difficulty enum
+ */
+int map_utils_getSizeByDifficulty(Difficulty d);
+
 #endif //PRIM_DIFFICULTY_H

@@ -4,19 +4,6 @@
 #include "../../headers/utils/const.h"
 #include "../../headers/utils/utils.h"
 
-//todo: Ramzy constant ?
-int map_utils_getSizeByDifficulty(Difficulty d) {
-    switch (d) { // NOLINT(hicpp-multiway-paths-covered)
-        case DIFFICULTY_EASY:
-            return 10;
-        case DIFFICULTY_MEDIUM:
-            return 20;
-        case DIFFICULTY_HARD:
-            return 30;
-    }
-    return -1;
-}
-
 // TODO Valentin ; faire documentation en anglais
 ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD) {
     if (map_getNumberE(m) >= costE) {

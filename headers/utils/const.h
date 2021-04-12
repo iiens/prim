@@ -29,5 +29,6 @@
     //todo: remove ?
     #define NUMBER_DIRECTION 4 //!< number of direction
     #define NUMBER_WASTE_TO_PRODUCT_RESOURCE 10 //!< number of waste to product a resource in a recycling center
+    #define NUMBER_RESOURCE_WIN 10000 //!< number of resource to win
 
 #endif //PRIM_CONST_H

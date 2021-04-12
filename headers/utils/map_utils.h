@@ -16,19 +16,6 @@
 #include "translation.h"
 #include "structures.h"
 
-/*!
- * \fn int map_utils_getSizeByDifficulty(Difficulty d)
- * @brief a function to get the map size according to the difficulty
- *
- * This function get this size of the map
- * in order to create the map type
- *
- * @param[in] d a valid difficulty chosen by the user
- * @return int : map size
- * @see Difficulty enum
- */
-int map_utils_getSizeByDifficulty(Difficulty d);
-
 // TODO Valentin ; faire documentation in ENGLISH :)
 //  and add yourself to the file and package authors (see top of the file/package.dox)
 /**
