@@ -2,7 +2,6 @@
 #include <time.h>
 #include "../../headers/utils/map_utils.h"
 #include "../../headers/utils/const.h"
-#include "../../headers/utils/utils.h"
 
 // TODO Valentin ; faire documentation en anglais
 ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD) {
@@ -20,7 +19,7 @@ ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD) {
     }
 }
 
-void map_utils_checkModifyCost(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
+void map_utils_checkModificationStaff(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
     const Staff *staff = staffInfo_getByModeAndType(mode, target);
     if (staff != NULL) {
         int idStaff = staff_getStaffID(staff);
@@ -101,29 +100,6 @@ bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
     return false;
 }
 
-// TODO Valentin : peut être déplacer dans interface qui gères les cardinals ??
-// TODO Valentin : Possibilité de rendre générique ??
-/**
- * Allows in relation to a cardinal to return the modifications to be made on the coordinates
- *
- * @param cardinal
- * @return Vector2D
- */
-Vector2D map_utils_modifyXYWithCardinal(Cardinal cardinal) {
-    switch (cardinal) {
-        case NORTH:
-            return (Vector2D) {.x = 0, .y = -1};
-        case EAST:
-            return (Vector2D) {.x = 1, .y = 0};
-        case SOUTH:
-            return (Vector2D) {.x = 0, .y = +1};
-        case WEST:
-            return (Vector2D) {.x = -1, .y = 0};
-        default:
-            return (Vector2D) {.x = 0, .y = 0};
-    }
-}
-
 // TODO Valentin : modifier pour ne plus avoir à passer la box
 ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
     // Récupération des coordonnées de la case
@@ -131,7 +107,7 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
     int y = case_getY(c);
 
     // Calcul des modifications des coordonnées par rapport au cardinal de la nouvelle
-    Vector2D modifier = map_utils_modifyXYWithCardinal(card);
+    Vector2D modifier = cardinal_modifyXYWithCardinal(card);
     Case *outputCase = map_getCase(x + modifier.x, y + modifier.y, m);
     Box *inputBox;
 
@@ -188,7 +164,7 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
 
                 return ERROR;
             } else {
-                return ERROR; // TODO change Error
+                return ERROR;
             }
         }
     } else {
@@ -211,7 +187,7 @@ void map_utils_productionFise(Map *m) {
     int modifE = 0;
     int modifDD = 0;
     // Prendre en compte les effets de staff
-    map_utils_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISE}, m, &modifE, &modifDD);
+    map_utils_checkModificationStaff(PRODUCTION, (Target) {.other = SUB_FISE}, m, &modifE, &modifDD);
 
     map_setNumberE(m, (productionE + modifE) * numberFise);
     map_setNumberDD(m, (productionDD + modifDD) * numberFise);
@@ -232,7 +208,7 @@ void map_utils_productionFisa(Map *m) {
         int modifE = 0;
         int modifDD = 0;
         // Prendre en compte les effets de staff
-        map_utils_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &modifE, &modifDD);
+        map_utils_checkModificationStaff(PRODUCTION, (Target) {.other = SUB_FISA}, m, &modifE, &modifDD);
 
         if (map_getProductionFISA(m) == E_VALUE) {
             map_setNumberE(m, (productionE + modifE) * numberFisa);
@@ -280,8 +256,15 @@ void map_utils_moveResources(Map *m) {
 void map_utils_generateResources(Map *m) {
     int numberTour = NB_TURN_PRODUCTION_SOURCE;
 
-    // TODO Valentin : attendre
-    //map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &numberTour, NULL);
+    const Staff *staff = staffInfo_getByModeAndType(PRODUCTION, (Target) {.other = SOURCE});
+    const Dictionary *dicoStaff = map_getStaffDictionary(m);
+    const Effect *effect = staff_getStaffEffect(staff);
+    numberTour = numberTour + (effect_getTurnProduction(effect) *
+                               (staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staff)) - 1));
+
+    if (numberTour < effect_getMinTurnProduction(effect)) {
+        numberTour = effect_getMinTurnProduction(effect);
+    }
 
     // Vérification du tours
     if (map_getNumberTurn(m) % numberTour == 0) {
@@ -303,9 +286,15 @@ void map_utils_generateResources(Map *m) {
     }
 }
 
-ErrorCode map_utils_generateGarbage(Map *m) {
+void map_utils_generateGarbage(Map *m) {
     Case *c;
     CaseType type;
+
+    const Staff *staff = staffInfo_getByModeAndType(SEND_DOOR, (Target) {.other = NONE});
+    const Dictionary *dicoStaff = map_getStaffDictionary(m);
+    const Effect *effect = staff_getStaffEffect(staff);
+    int modifierRes =
+            effect_getModifierRes(effect) * (staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staff)) - 1);
 
     //Parcours des case jusqu'à trouver la porte
     for (int i = 0; i < map_getWidth(m); ++i) {
@@ -321,15 +310,11 @@ ErrorCode map_utils_generateGarbage(Map *m) {
                 box_setNumberGarbage(box, numberR);
                 box_setNumberResource(box, numberR * -1);
 
-                // TODO Valentin : Gestion staff
-
                 // augmentation du score
-                map_setNumberScore(m, numberR);
+                map_setNumberScore(m, numberR * modifierRes);
             }
         }
     }
-
-    return NO_ERROR;
 }
 
 void map_utils_activateRecyclingCenters(Map *m) {
@@ -415,7 +400,7 @@ void map_utils_activateCollectors(Map *m) {
                     // Si la direction est NONE
                     if (dir == DIRECTION_NONE) {
                         // Calcule des coordonnées de la case adjacente
-                        Vector2D modifier = map_utils_modifyXYWithCardinal(card);
+                        Vector2D modifier = cardinal_modifyXYWithCardinal(card);
                         sourceCase = map_getCase(x + modifier.x, y + modifier.y, m);
                         // Vérifiacation de l'exitence de la case adjacente
                         if (sourceCase != NULL) {
@@ -425,7 +410,6 @@ void map_utils_activateCollectors(Map *m) {
                                 sourceBox = case_getBox(sourceCase);
 
                                 // Vérification de la présence de ressource dans la box
-                                // TODO Valentin : Possiblement à enlever
                                 if (box_getNumberResource(sourceBox) > 0 || box_getNumberGarbage(sourceBox) > 0) {
                                     // Ajour=t de la case à la liste de source
                                     Element elt = {
@@ -687,11 +671,9 @@ ErrorCode staff_actionLaurentPrevel(Map *m, int idStaff) {
             // Envoie des ressource à la porte
             map_utils_sendResourcesToGate(m, fiseGraduate + fisaGraduate);
         } else {
-            // TODO VAlentin : Changer avec erreur de pas assez de fisa
             return ERROR_NOT_ENOUGH_DD;
         }
     } else {
-        // TODO VAlentin : Changer avec erreur de pas assez de fise
         return ERROR_NOT_ENOUGH_E;
     }
 

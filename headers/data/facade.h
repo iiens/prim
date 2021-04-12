@@ -13,6 +13,7 @@
 #define PRIM_FACADE_H
 
 #include "box.h"
+#include "../../headers/utils/utils.h"
 
 // A constant to know the number of direction
 #define NUMBER_CARDINAL 4
@@ -114,5 +115,7 @@ Cardinal facade_getCardinal(Facade *facade);
  * @param card
  */
 void facade_setCardinal(Facade *facade, Cardinal card);
+
+Vector2D cardinal_modifyXYWithCardinal(Cardinal cardinal);
 
 #endif //PRIM_FACADE_H

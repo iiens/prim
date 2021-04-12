@@ -22,7 +22,7 @@
  */
 typedef struct Staff_S Staff;
 
-#define NUMBER_OF_STAFFS 21 //!< number of staff in staff_list
+#define NUMBER_OF_STAFFS 24 //!< number of staff in staff_list
 
 /*!
 * \fn int staff_isIDValid(int id)

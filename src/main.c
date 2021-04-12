@@ -17,7 +17,10 @@ int main( void ) {
 
     // Check the return of the function
     if ( map == NULL ) {
-        // Quit the program because the interface does not work
+        if (back) {
+            // Close interface
+            interface_close();
+        }
         return EXIT_SUCCESS;
     }
 

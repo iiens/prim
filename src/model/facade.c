@@ -47,3 +47,24 @@ void facade_setCardinal(Facade *facade, Cardinal card) { facade->cardinal = card
 Box *facade_getBox(Facade *facade) { return facade->content; }
 
 void facade_setBox(Facade *facade, Box *box) { facade->content = box; }
+
+/**
+ * Allows in relation to a cardinal to return the modifications to be made on the coordinates
+ *
+ * @param cardinal
+ * @return Vector2D
+ */
+Vector2D cardinal_modifyXYWithCardinal(Cardinal cardinal) {
+    switch (cardinal) {
+        case NORTH:
+            return (Vector2D) {.x = 0, .y = -1};
+        case EAST:
+            return (Vector2D) {.x = 1, .y = 0};
+        case SOUTH:
+            return (Vector2D) {.x = 0, .y = +1};
+        case WEST:
+            return (Vector2D) {.x = -1, .y = 0};
+        default:
+            return (Vector2D) {.x = 0, .y = 0};
+    }
+}

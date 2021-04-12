@@ -93,7 +93,7 @@ ErrorCode map_hireFISE(Map *m) {
     int costDD = COST_FISE_DD;
 
     // Prendre en compte les effets de staff
-    map_utils_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISE}, m, &costE, &costDD);
+    map_utils_checkModificationStaff(ON_BUY, (Target) {.other = SUB_FISE}, m, &costE, &costDD);
 
     // Vérifie que le joueur à les sous
     ErrorCode e = map_utils_tryBuy(m, costE, costDD);
@@ -111,7 +111,7 @@ ErrorCode map_hireFISA(Map *m) {
     int costDD = COST_FISA_DD;
 
     // Prendre en compte les effets de staff
-    map_utils_checkModifyCost(ON_BUY, (Target) {.other = SUB_FISA}, m, &costE, &costDD);
+    map_utils_checkModificationStaff(ON_BUY, (Target) {.other = SUB_FISA}, m, &costE, &costDD);
 
     // Vérifie que le joueur à les sous
     ErrorCode e = map_utils_tryBuy(m, costE, costDD);
@@ -165,12 +165,12 @@ ErrorCode map_endTurn(Map *m) {
     int numberPollution = map_getNumberPollution(m);
     int numberDD = map_getNumberDD(m);
     if (numberDD < numberPollution) {
-        return ERROR;
+        return ERROR_GAME_LOST;
     }
     map_setNumberDD(m, numberPollution * -1);
 
-    if (map_getPlayerScore(m) > 10000){
-        return ERROR;
+    if (map_getPlayerScore(m) > NUMBER_RESOURCE_WIN){
+        return ERROR_GAME_WIN;
     }
 
     m->turn++;
@@ -187,7 +187,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
             int costDD = machineInfo_getCostDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            map_utils_checkModifyCost(CONSTRUCTION, (Target) {.machine = machType}, m, &costE, &costDD);
+            map_utils_checkModificationStaff(CONSTRUCTION, (Target) {.machine = machType}, m, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_utils_tryBuy(m, costE, costDD);
@@ -223,7 +223,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 int costDD = machineInfo_getCostUpgradeDD(machineInfo);
 
                 // Permet de trouver les infos de la machine
-                map_utils_checkModifyCost(UPGRADE, (Target) {.machine = machType}, m, &costE, &costDD);
+                map_utils_checkModificationStaff(UPGRADE, (Target) {.machine = machType}, m, &costE, &costDD);
 
                 // Vérifie que le joueur à les sous
                 ErrorCode e = map_utils_tryBuy(m, costE, costDD);
@@ -258,7 +258,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
             int costDD = machineInfo_getCostDestroyDD(machineInfo);
 
             // Permet de trouver les infos de la machine
-            map_utils_checkModifyCost(DESTROY, (Target) {.machine = machType}, m, &costE, &costDD);
+            map_utils_checkModificationStaff(DESTROY, (Target) {.machine = machType}, m, &costE, &costDD);
 
             // Vérifie que le joueur à les sous
             ErrorCode e = map_utils_tryBuy(m, costE, costDD);

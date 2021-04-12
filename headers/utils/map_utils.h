@@ -35,7 +35,7 @@ ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD);
  * @param numberE
  * @param numberDD
  */
-void map_utils_checkModifyCost(Mode mode, Target target, Map* m, int* numberE, int* numberDD);
+void map_utils_checkModificationStaff(Mode mode, Target target, Map* m, int* numberE, int* numberDD);
 
 /**
  *
@@ -103,10 +103,8 @@ void map_utils_resetResourcesGarbage(Map * m);
  * Permet de transformer tous les ressources emmené à la porte en déchets
  *
  * @param m
- * @param resources
- * @return
  */
-ErrorCode map_utils_generateGarbage(Map *m);
+void map_utils_generateGarbage(Map *m);
 
 /**
  *
