@@ -362,84 +362,50 @@ ErrorCode map_utils_generateGarbage(Map *m) {
 
 void map_utils_activateRecyclingCenters(Map *m) {
     MachineStuff machineType = MS_RECYCLING_CENTER;
+    int numberWasteToResource = NUMBER_WASTE_TO_PRODUCT_RESOURCE;
 
+    //map_checkModifyCost(PRODUCTION, (Target) {.other = SUB_FISA}, m, &numberTour, NULL);
+
+    // Parcours des cases pour trouver les centres de recyclages
     Case *c;
     for (int j = 0; j < map_getHeight(m); ++j) {
         for (int i = 0; i < map_getWidth(m); ++i) {
             c = map_getCase(i, j, m);
+            // Vérifiacation de la présence des centre de recyclage
             if (map_utils_caseHasMachineType(machineType, c)) {
                 Machine *machine = case_getMachine(c);
 
+                // Recherche de la sortie où son présentes les ressources
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
+                    // Vérification de la sortie
                     if (machine_getDirection(machine, card) == DIRECTION_OUT) {
                         Box *machineBox = machine_getBox(machine, card);
-                        int numberGarbage = box_getNumberGarbage(machineBox);
-                        int numberResource = numberGarbage / NUMBER_WASTE_TO_PRODUCT_RESOURCE;
-                        int rest = numberGarbage % NUMBER_WASTE_TO_PRODUCT_RESOURCE;
-                        box_setNumberGarbage(machineBox, rest - numberGarbage);
 
-                        if (numberResource > 0) {
-                            Box *outputBox = box_create(numberResource, 0);
-                            if (map_utils_moveBox(m, c, outputBox, card) != NO_ERROR) {
-                                free(outputBox);
+                        // Vérification de la présence d'une box
+                        if (machineBox != NULL) {
+                            // Calcule du nombre de ressources généré
+                            int numberGarbage = box_getNumberGarbage(machineBox);
+                            int numberResource = numberGarbage / numberWasteToResource;
+                            int rest = numberGarbage % numberWasteToResource;
+
+                            // Vérification que des ressources sont générés
+                            if (numberResource > 0) {
+                                // Transformation des déchet en ressources
+                                box_setNumberGarbage(machineBox, rest - numberGarbage);
+                                Box *outputBox = box_create(numberResource, 0);
+
+                                // Envoie des ressources sur la sortie
+                                map_utils_moveBox(m, c, outputBox, card);
+                                box_destroy(outputBox);
                             }
                         }
+
+                        break;
                     }
                 }
             }
         }
     }
-
-    /* for (int j = 0; j < map_getHeight(m); ++j) {
-         for (int i = 0; i < map_getWidth(m); ++i) {
-             c = map_getCase(i, j, m);
-             if (case_getType(c) == CASE_MACHINE) {
-                 Machine *machine = case_getMachine(c);
-                 Direction direction;
-                 Cardinal out;
-
-                 if (machine_getType(machine) == MS_CROSS) {
-                     for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                         direction = machine_getDirection(machine, card);
-                         if (direction == DIRECTION_IN) {
-                             Box *inBox = machine_getBox(machine, card);
-                             if (inBox != NULL) {
-                                 Box *outputBox = machine_getBox(machine,
-                                                                 (card + (NUMBER_CARDINAL / 2)) % NUMBER_CARDINAL);
-                                 if (outputBox == NULL) {
-                                     outputBox = box_create(0, 0);
-                                 }
-                                 box_addB2toB1(outputBox, inBox);
-                                 machine_destroyBox(machine, card);
-                             }
-                         }
-                     }
-                 } else {
-                     Box *cumulBox = box_create(0, 0);
-                     for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
-                         direction = machine_getDirection(machine, card);
-                         if (direction == DIRECTION_OUT) {
-                             out = card;
-                         } else if (direction == DIRECTION_IN) {
-                             Box *tmp = machine_getBox(machine, card);
-                             if (tmp != NULL) {
-                                 box_addB2toB1(cumulBox, tmp);
-                                 machine_destroyBox(machine, card);
-                             }
-                         }
-                     }
-
-                     Box *tmp = machine_getBox(machine, out);
-                     if (tmp != NULL) {
-                         box_addB2toB1(tmp, cumulBox);
-                         free(cumulBox);
-                     } else {
-                         machine_addBox(machine, out, cumulBox);
-                     }
-                 }
-             }
-         }
-     }*/
 }
 
 void map_utils_activateCollectors(Map *m) {
@@ -597,6 +563,13 @@ void map_utils_resetResourcesGarbage(Map *m) {
     }
 }
 
+/**
+ * Cette fonction permet de déplacer toutes les ressource sur les facade out des machines
+ * Elle est appelé en fin de tour et permet de s'assurer qu'à chaque fin de tour et chaque début de tour
+ * que tous les déchets et ressources soit sur des facades out
+ *
+ * @param m la map de jeu
+ */
 void map_utils_moveResourcesInMachine(Map *m) {
     fprintf(stderr, "=> map_utils_moveResourcesInMachine\n");
     Case *c;
