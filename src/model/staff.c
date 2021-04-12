@@ -4,10 +4,10 @@
 
 struct Staff_S {
     int id; //!< id of the character
-    char* name; //!< name of the character
+    char *name; //!< name of the character
     int costE; //!< Price in E of the character
     int costDD; //!< Price in DD of the character
-    char* description; //!< description of character effects
+    char *description; //!< description of character effects
     int turn_productionSource; //!< turn before production of a source
     Effect effects; //!< array which contains the target of the effect
 }; //!< information about staff
@@ -15,8 +15,8 @@ struct Staff_S {
 //todo: use .id = 1 and not directly 1
 // and finish inputting values
 const Staff staff_list[] = {
-        {1, "Fetia Bannour", 100, 30, "The cost of constructing collectors"
-                                      " decreases by 10E and 1DD ",10, .effects = {
+        {1,  "Fetia Bannour",         100,  30,   "The cost of constructing collectors"
+                                                  " decreases by 10E and 1DD ",                     10, .effects = {
                 .mode = CONSTRUCTION,
                 .onOther = 0,
                 .what.machine = MS_COLLECTOR,
@@ -29,8 +29,8 @@ const Staff staff_list[] = {
         }
 
         },
-        {2, "Kevin Goilard", 100, 30, "The cost of constructing conveyor belt"
-                                      " decreases by 3E and 1DD ",10, .effects = {
+        {2,  "Kevin Goilard",         100,  30,   "The cost of constructing conveyor belt"
+                                                  " decreases by 3E and 1DD ",                      10, .effects = {
                 .mode = CONSTRUCTION,
                 .onOther = 0,
                 .what.machine = MS_CONVEYOR_BELT,
@@ -43,8 +43,8 @@ const Staff staff_list[] = {
         }
 
         },
-        {3, "Vincent Jeannas", 100, 30, "The cost of constructing cross"
-                                        " decreases by 8E and 1DD ",10, .effects = {
+        {3,  "Vincent Jeannas",       100,  30,   "The cost of constructing cross"
+                                                  " decreases by 8E and 1DD ",                      10, .effects = {
                 .mode = CONSTRUCTION,
                 .onOther = 0,
                 .what.machine = MS_CROSS,
@@ -57,8 +57,8 @@ const Staff staff_list[] = {
         }
 
         },
-        {4, "Thomas Laurent", 100, 30, "The cost of constructing recycling center"
-                                       " decreases by 25E and 2DD ",10, .effects = {
+        {4,  "Thomas Laurent",        100,  30,   "The cost of constructing recycling center"
+                                                  " decreases by 25E and 2DD ",                     10, .effects = {
                 .mode = CONSTRUCTION,
                 .onOther = 0,
                 .what.machine = MS_RECYCLING_CENTER,
@@ -72,8 +72,8 @@ const Staff staff_list[] = {
 
         },
 
-        {5, "Massinissa Merabet", 100, 30, "The cost of constructing junkyard"
-                                           " decreases by 5E and 5DD ",10, .effects = {
+        {5,  "Massinissa Merabet",    100,  30,   "The cost of constructing junkyard"
+                                                  " decreases by 5E and 5DD ",                      10, .effects = {
                 .mode = CONSTRUCTION,
                 .onOther = 0,
                 .what.machine = MS_JUNKYARD,
@@ -88,8 +88,8 @@ const Staff staff_list[] = {
         },
 
 
-        {6, "Stefi Nouleho", 200, 100, "The cost of upgrading collectors"
-                                       " decreases by 25E and 5DD ",10, .effects = {
+        {6,  "Stefi Nouleho",         200,  100,  "The cost of upgrading collectors"
+                                                  " decreases by 25E and 5DD ",                     10, .effects = {
                 .mode = UPGRADE,
                 .onOther = 0,
                 .what.machine = MS_COLLECTOR,
@@ -104,8 +104,8 @@ const Staff staff_list[] = {
         },
 
 
-        {7, "Vitera Y", 200, 100, "The cost of upgrading recycling center"
-                                  " decreases by 75E and 5DD ",10, .effects = {
+        {7,  "Vitera Y",              200,  100,  "The cost of upgrading recycling center"
+                                                  " decreases by 75E and 5DD ",                     10, .effects = {
                 .mode = UPGRADE,
                 .onOther = 0,
                 .what.machine = MS_RECYCLING_CENTER,
@@ -119,8 +119,8 @@ const Staff staff_list[] = {
 
         },
 
-        {8, "Laurence Bourard", 200, 100, "The cost of upgrading junkyard"
-                                          " decreases by 10E and 30DD ",10, .effects = {
+        {8,  "Laurence Bourard",      200,  100,  "The cost of upgrading junkyard"
+                                                  " decreases by 10E and 30DD ",                    10, .effects = {
                 .mode = UPGRADE,
                 .onOther = 0,
                 .what.machine = MS_JUNKYARD,
@@ -134,8 +134,8 @@ const Staff staff_list[] = {
 
         },
 
-        {9, "Nicolas Brunel", 100, 200, "The cost of destroying collectors"
-                                        " decreases by 3E and 10DD ",10, .effects = {
+        {9,  "Nicolas Brunel",        100,  200,  "The cost of destroying collectors"
+                                                  " decreases by 3E and 10DD ",                     10, .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.machine = MS_COLLECTOR,
@@ -149,8 +149,8 @@ const Staff staff_list[] = {
 
         },
 
-        {10, "Anastase Charantonis", 100, 200, "The cost of destroying conveyor"
-                                               " belt decreases by 3E and 10DD ",10, .effects = {
+        {10, "Anastase Charantonis",  100,  200,  "The cost of destroying conveyor"
+                                                  " belt decreases by 3E and 10DD ",                10, .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.machine = MS_CONVEYOR_BELT,
@@ -164,8 +164,8 @@ const Staff staff_list[] = {
 
         },
 
-        {11, "Catherine Dubois", 100, 200, "The cost of destroying cross"
-                                           " decreases by 3E and 10DD ",10, .effects = {
+        {11, "Catherine Dubois",      100,  200,  "The cost of destroying cross"
+                                                  " decreases by 3E and 10DD ",                     10, .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.machine = MS_CROSS,
@@ -179,8 +179,8 @@ const Staff staff_list[] = {
 
         },
 
-        {12, "Stefiana Dumbrava", 100, 200, "The cost of destroying recycling center"
-                                            " decreases by 5E and 25DD ",10, .effects = {
+        {12, "Stefiana Dumbrava",     100,  200,  "The cost of destroying recycling center"
+                                                  " decreases by 5E and 25DD ",                     10, .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.machine = MS_RECYCLING_CENTER,
@@ -194,8 +194,8 @@ const Staff staff_list[] = {
 
         },
 
-        {13, "Alain Faye", 100, 200, "The cost of destroying junkyard"
-                                     " decreases by 5E and 10DD ",10, .effects = {
+        {13, "Alain Faye",            100,  200,  "The cost of destroying junkyard"
+                                                  " decreases by 5E and 10DD ",                     10, .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.machine = MS_JUNKYARD,
@@ -209,8 +209,7 @@ const Staff staff_list[] = {
 
         },
 
-        {14, "Anne-Laure Ligozat", 1000, 10, "Half garbage of each case are remove"
-                ,10, .effects = {
+        {14, "Anne-Laure Ligozat",    1000, 10,   "Half garbage of each case are remove",           10, .effects = {
                 .mode = DESTROY,
                 .onOther = 0,
                 .what.other = DESTROY_GARBAGE,
@@ -220,8 +219,7 @@ const Staff staff_list[] = {
 
         },
 
-        {15, "Christophe Mouilleron", 1000, 400, "School hire 20 FISE and 10 FISA"
-                ,10, .effects = {
+        {15, "Christophe Mouilleron", 1000, 400,  "School hire 20 FISE and 10 FISA",                10, .effects = {
                 .mode = HIRE,
                 .onOther = 1,
                 .what.other = SUB_HIRE,
@@ -233,21 +231,21 @@ const Staff staff_list[] = {
 
         },
 
-        {16, "Marie Szafranski", 1000, 400, "When a resource is send at the gate"
-                                            " it count for 2 but number of garbage is 1 ",10,
-                                            .effects = {
-                .mode = SEND_DOOR,
-                .onOther = 1,
-                .what.other = NONE,
-                .modifierRes = 2,
-                .description = "When a resource is send at the gate it count for 2 but number of garbage "
-                               " is 1"
-        }
+        {16, "Marie Szafranski",      1000, 400,  "When a resource is send at the gate"
+                                                  " it count for 2 but number of garbage is 1 ",    10,
+                .effects = {
+                        .mode = SEND_DOOR,
+                        .onOther = 1,
+                        .what.other = NONE,
+                        .modifierRes = 2,
+                        .description = "When a resource is send at the gate it count for 2 but number of garbage "
+                                       " is 1"
+                }
 
         },
 
-        {17, "Gael Thomas", 1000, 400, "When a garbage leave the door it has a one"
-                                       " in 10 chance of disappearing ",10, .effects = {
+        {17, "Gael Thomas",           1000, 400,  "When a garbage leave the door it has a one"
+                                                  " in 10 chance of disappearing ",                 10, .effects = {
                 .mode = DOOR_OUT,
                 .onOther = 1,
                 .what.other = DESTROY_GARBAGE,
@@ -258,8 +256,8 @@ const Staff staff_list[] = {
 
         },
 
-        {18, "Eric Lejeune", 1000, 200, "The cost of FISE decreases by 5E and 2DD"
-                                        " (min 5E and 2DD)",10, .effects = {
+        {18, "Eric Lejeune",          1000, 200,  "The cost of FISE decreases by 5E and 2DD"
+                                                  " (min 5E and 2DD)",                              10, .effects = {
                 .mode = ON_BUY,
                 .onOther = 1,
                 .what.other = SUB_FISE,
@@ -272,8 +270,8 @@ const Staff staff_list[] = {
 
         },
 
-        {19, "Christine Mathias", 1000, 200, "The cost of FISA decreases by 5E and 2DD"
-                                             " (min 5E and 2DD)",10, .effects = {
+        {19, "Christine Mathias",     1000, 200,  "The cost of FISA decreases by 5E and 2DD"
+                                                  " (min 5E and 2DD)",                              10, .effects = {
                 .mode = ON_BUY,
                 .onOther = 1,
                 .what.other = SUB_FISA,
@@ -286,24 +284,23 @@ const Staff staff_list[] = {
 
         },
 
-        {20, "Katrin Salhab", 1500, 300, "The cost of staff"
-                                            " decreases by 50E and 20DD (min 10E and 10DD) ", 10,
-                                            .effects = {
-                .mode = ON_BUY,
-                .onOther = 1,
-                .what.other = SUB_HIRE,
-                .modifierE = -50,
-                .modifierDD = -20,
-                .min_costE = 10,
-                .min_costDD = 10,
-                .description = "The cost of staff decreases by 50E and 20DD (min 10E\n"
-                               " and 10DD)."
-        }
+        {20, "Katrin Salhab",         1500, 300,  "The cost of staff"
+                                                  " decreases by 50E and 20DD (min 10E and 10DD) ", 10,
+                .effects = {
+                        .mode = ON_BUY,
+                        .onOther = 1,
+                        .what.other = SUB_HIRE,
+                        .modifierE = -50,
+                        .modifierDD = -20,
+                        .min_costE = 10,
+                        .min_costDD = 10,
+                        .description = "The cost of staff decreases by 50E and 20DD (min 10E\n"
+                                       " and 10DD)."
+                }
 
         },
 
-        {21, "Julien Forest", 100, 200, "FISE produce 1E and 1DD more per turn "
-                                            ,10, .effects = {
+        {21, "Julien Forest",         100,  200,  "FISE produce 1E and 1DD more per turn ",         10, .effects = {
                 .mode = ON_TURN,
                 .onOther = 1,
                 .what.other = SUB_FISE,
@@ -314,8 +311,8 @@ const Staff staff_list[] = {
 
         },
 
-        {22, "Thomas Lim", 1000, 400, "Turn before source production decreases by 1"
-                                            " (min 1 turn) ", 10,.effects = {
+        {22, "Thomas Lim",            1000, 400,  "Turn before source production decreases by 1"
+                                                  " (min 1 turn) ",                                 10, .effects = {
                 .mode = PRODUCTION,
                 .onOther = 1,
                 .what.other = SOURCE,
@@ -325,8 +322,7 @@ const Staff staff_list[] = {
         }
 
         },
-        {23, "Dimitri Watel", 2000, 500, "FISA product 4E or 4DD more each 2 turns"
-                                            ,10, .effects = {
+        {23, "Dimitri Watel",         2000, 500,  "FISA product 4E or 4DD more each 2 turns",       10, .effects = {
                 .mode = HIRE,
                 .onOther = 1,
                 .what.other = SUB_FISA,
@@ -338,8 +334,8 @@ const Staff staff_list[] = {
 
         },
 
-        {24, "Laurent Prével", 3000, 1000, "1/10 of FISA and FISE leave the school"
-                                            " but they send a resource to the gate ",10, .effects = {
+        {24, "Laurent Prével",        3000, 1000, "1/10 of FISA and FISE leave the school"
+                                                  " but they send a resource to the gate ",         10, .effects = {
                 .mode = LEAVE,
                 .onOther = 1,
                 .what.other = SUB_HIRE && SOURCE,
@@ -361,7 +357,7 @@ int staff_isIDValid(int id) {
     return -1;
 }
 
-const Staff* staff_getStaffByID(int id) {
+const Staff *staff_getStaffByID(int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
         return &(staff_list[index]);
@@ -370,76 +366,80 @@ const Staff* staff_getStaffByID(int id) {
     }
 }
 
-char* staff_getStaffNameByID(int id) {
-    const Staff* member = staff_getStaffByID(id);
+char *staff_getStaffNameByID(int id) {
+    const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
         return member->name;
-    }else {
+    } else {
         return NULL;
     }
 }
 
 int staff_getStaffCostEByID(int id) {
-    const Staff* member = staff_getStaffByID(id);
+    const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
         return member->costE;
-    }else {
+    } else {
         return -1;
     }
 }
 
 int staff_getStaffCostDDByID(int id) {
-    const Staff* member = staff_getStaffByID(id);
+    const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
         return member->costDD;
-    }else {
+    } else {
         return -1;
     }
 }
 
-char* staff_getStaffDescriptionByID(int id) {
-    const Staff* member = staff_getStaffByID(id);
+int effect_getTurnProduction(const Effect *effect) { return effect->turn_production; }
+
+int effect_getMinTurnProduction(const Effect *effect) { return effect->min_turn_production; }
+
+char *staff_getStaffDescriptionByID(int id) {
+    const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
         return member->description;
-    }else {
+    } else {
         return NULL;
     }
 }
 
-const Effect* staff_getStaffEffectByID(int id) {
-    const Staff* member = staff_getStaffByID(id);
+const Effect *staff_getStaffEffectByID(int id) {
+    const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
         return &(member->effects);
-    }else {
+    } else {
         return NULL;
     }
 }
 
 int staff_getStaffID(const Staff *staff) { return staff->id; }
 
-char* staff_getStaffName(const Staff *staff) { return staff->name; }
+char *staff_getStaffName(const Staff *staff) { return staff->name; }
 
 int staff_getStaffCostE(const Staff *staff) { return staff->costE; }
 
 int staff_getStaffCostDD(const Staff *staff) { return staff->costDD; }
 
-char* staff_getStaffDescription(const Staff *staff) { return staff->description; }
+char *staff_getStaffDescription(const Staff *staff) { return staff->description; }
 
-const Effect* staff_getStaffEffect(const Staff *staff) { return &(staff->effects); }
+const Effect *staff_getStaffEffect(const Staff *staff) { return &(staff->effects); }
 
 //todo: a comment maybe ?
-const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
+const Staff *staffInfo_getByModeAndType(Mode mode, Target type) {
     int check;
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
-        if(staff_list[i].effects.mode == mode){
+        if (staff_list[i].effects.mode == mode) {
 
-            if(staff_list[i].effects.onOther){
+            if (staff_list[i].effects.onOther) {
                 check = staff_list[i].effects.what.other == type.other;
             } else {
                 check = staff_list[i].effects.what.machine == type.machine;
             }
 
-            if(check){
+            if (check) {
                 return &(staff_list[i]);
             }
         }
@@ -447,31 +447,31 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type){
     return NULL;
 }
 
-Dictionary* staff_createStaffDictionary() {
-    Dictionary* dict = dictionary_create(NUMBER_OF_STAFFS);
+Dictionary *staff_createStaffDictionary() {
+    Dictionary *dict = dictionary_create(NUMBER_OF_STAFFS);
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
         dictionary_addCoupleNumber(dict, staff_list[i].id, 0);
     }
     return dict;
 }
 
-int staff_getNumberStaffByID(const Dictionary* dict, int id) {
+int staff_getNumberStaffByID(const Dictionary *dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        return dictionary_getCoupleByIndex( (Dictionary *) dict, index)->values.content.number;
+        return dictionary_getCoupleByIndex((Dictionary *) dict, index)->values.content.number;
     } else {
         return -1;
     }
 }
 
-void staff_hireStaff(Dictionary* dict, int id) {
+void staff_hireStaff(Dictionary *dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
-        Couple* couple = dictionary_getCoupleByIndex(dict, index);
-        dictionary_addCoupleNumber(dict, staff_list[index].id, couple->values.content.number+1);
+        Couple *couple = dictionary_getCoupleByIndex(dict, index);
+        dictionary_addCoupleNumber(dict, staff_list[index].id, couple->values.content.number + 1);
     }
 }
 
-void staff_destroyStaffDictionary(Dictionary* dict) {
+void staff_destroyStaffDictionary(Dictionary *dict) {
     dictionary_destroy(dict);
 }
