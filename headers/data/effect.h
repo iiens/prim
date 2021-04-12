@@ -30,6 +30,7 @@
             SUB_HIRE, //!< if we want to apply something to all hire related functions
             SUB_FISE, //!< if we want to apply something to hire fise related
             SUB_FISA, //!< if we want to apply something to hire fisa related
+            SOURCE, //!< if we want to apply something to the source
             DESTROY_GARBAGE //!< if we want to check destroy related effects
         } other; //!< represent all targets that are not a machine
     } Target; //!< target of the effect
@@ -52,7 +53,8 @@
         SEND_DOOR = 5, //!< called when garbage are sent to the door
         DOOR_OUT = 6, //!< called when garbage are leaving the door
         PRODUCTION = 7, //!< called when we will create something (E, DD, ...)
-        ON_TURN = 8 //!< apply each turn
+        ON_TURN = 8, //!< apply each turn
+        LEAVE = 9, //!< apply when fise or fisa leave the school
     } Mode; //!< what do we do in our effect
 
     /*!
@@ -67,14 +69,17 @@
         Target what; //!< represent the target of the effect
         bool onOther; //!< to know if what is a machine or other
         float modifierRes; //!< if SEND_DOOR, resource put in multiply by this
-        int modifierFISA; //!< update the number of FISA
-        int modifierFISE; //!< update the number of FISE
+        int modifierFISA; //!< update the number of FISA, if LEAVE fisa put in multiply by this
+        int modifierFISE; //!< update the number of FISE, if LEAVE fise put in multiply by this
         int modifierE; //!< update the E cost
         int modifierDD; //!< update the DD cost
         int modifierCapacity; //!< update the capacity of the machine
         int min_costE; //!< check after update of E with min_cost_E
         int min_costDD;//!< check after update of DD with min_cost_DD
         char* description; //!< describe the effect
+        int turn_production; //!< if HIRE turn before increase of FISA production, if PRODUCTION turn before
+                             //!< production of the source
+        int min_turn_production; //!< check after update of turn_production
     } Effect; //!< Struct which contains the target and the of the effect
 
     // TODO ANtoine Faire toute la doc
