@@ -36,7 +36,7 @@ add_executable(AllTests
         tests/AllTests.c
         tests/testMap.h
         tests/testMap.c
-        tests/listSuite.h headers/data/box.h headers/data/facade.h)
+        tests/listSuite.h headers/data/box.h headers/data/facade.h headers/utils/element.h)
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
 add_executable(toto src/utils/structure.c)

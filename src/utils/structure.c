@@ -315,7 +315,7 @@ Element* dictionary_getElementNumber( Dictionary* d, int key )
     return dictionary_getElement(d, dictionary_elementFromNumber(key));
 }
 
-//todo: Ramzy rename and element.h
+
 
 int dictionary_elementToNumber(Element e )
 {
@@ -325,7 +325,7 @@ int dictionary_elementToNumber(Element e )
     return -1;
 }
 
-//todo: Ramzy rename and element.h
+
 void* dictionary_elementToObject( Element e )
 {
     if ( e.type == OBJECT ) {
@@ -334,7 +334,7 @@ void* dictionary_elementToObject( Element e )
     return NULL;
 }
 
-//todo: Ramzy rename and element.h
+
 char* dictionary_elementToText( Element e )
 {
     if ( e.type == TEXT ) {
@@ -343,7 +343,7 @@ char* dictionary_elementToText( Element e )
     return "";
 }
 
-//todo: Ramzy rename and element.h
+
 Element dictionary_elementFromNumber( int number )
 {
     Element e;
@@ -352,7 +352,7 @@ Element dictionary_elementFromNumber( int number )
     return e;
 }
 
-//todo: Ramzy rename and element.h
+
 Element dictionary_elementFromText( char* text )
 {
     Element e;
@@ -361,7 +361,7 @@ Element dictionary_elementFromText( char* text )
     return e;
 }
 
-//todo: Ramzy rename and element.h
+
 Element dictionary_elementFromObject( void* object )
 {
     Element e;

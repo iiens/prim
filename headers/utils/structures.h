@@ -14,37 +14,7 @@
 
 #include "../data/effect.h" // effect.h : information about effect
 #include "../data/error.h" // todo: ...
-
-/*!
- * \typedef ElementType
- * \enum ElementType_S
- * \brief todo : do a comment
- */
-typedef enum ElementType_S {
-    NUMBER,
-    TEXT,
-    OBJECT
-} ElementType;
-
-/*!
-* \typedef Element
-* \union Element_S effect.h "headers/data/structures.h"
-* \brief Represent a list
-*/
-//todo: Ramzy documentation and move to element.h
-typedef struct Element_S {
-    union {
-        int number;
-        char* text;
-        void* object;
-    } content;
-    ElementType type; //!< in witch field we got our value
-} Element;
-
-typedef struct Couple_S{
-    Element keys;
-    Element values;
-} Couple;
+#include "element.h"
 
 /*!
  * \typedef Dictionary
@@ -102,12 +72,7 @@ Element* dictionary_getElementText(Dictionary *d, char* key);
 ErrorCode dictionary_addCoupleNumber( Dictionary* d, int key, int value );
 Element* dictionary_getElementNumber(Dictionary *d, int key);
 
-int dictionary_elementToNumber(Element e);
-char* dictionary_elementToText( Element e);
-void* dictionary_elementToObject( Element e);
-Element dictionary_elementFromNumber(int number);
-Element dictionary_elementFromText( char* text);
-Element dictionary_elementFromObject (void* object);
+
 
 /*!
  * \fn destroyStructuresTab
