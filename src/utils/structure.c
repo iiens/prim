@@ -53,7 +53,7 @@ ErrorCode list_addElement( List* l, Element e )
     return NO_ERROR;
 }
 
-ErrorCode list_addCoupleIntText(List* l, int number, char* text)
+ErrorCode list_addCoupleNumberText(List* l, int number, char* text)
 {
     Element e;
     Couple c;
@@ -82,7 +82,7 @@ Element list_next( List** current )
 }
 
 // get Element
-Element list_get( List* list )
+Element list_getCurrent( List* list )
 {
     return *list->current;
 }
