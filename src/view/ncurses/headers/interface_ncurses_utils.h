@@ -61,7 +61,7 @@ void interface_ncurses_clearAction( char* buf );
  * It got created to be used in show_... like functions.
  * @param window the window we are waiting for
  */
-void interface_ncurses_show_menu_wait(WINDOW* window);
+void interface_ncurses_show_menu_wait( WINDOW* window );
 
 /**
 * Write some label in green in mapWindow
@@ -131,14 +131,14 @@ void interface_ncurses_utils_init_colors();
  * @param t the type of the content
  * @return a color
  */
-attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t);
+attr_t interface_ncurses_utils_getCaseColor( Case* c, CaseType t );
 
 /**
  * Returns the color a of machine
  * @param t a machine
  * @return the color
  */
-attr_t interface_ncurses_utils_getMachineColor(MachineStuff t);
+attr_t interface_ncurses_utils_getMachineColor( MachineStuff t );
 
 // view
 /*! Show game menu

@@ -3,9 +3,10 @@
 
 // show the legend
 // here using translation and colors according to tag
-void interface_ncurses_showLegendOrientation(bool first, int y, Couple* entry);
+void interface_ncurses_showLegendOrientation( bool first, int y, Couple* entry );
+
 // only printing all tags in greens
-void interface_ncurses_showLegendMachine(bool first, int y, Couple* entry);
+void interface_ncurses_showLegendMachine( bool first, int y, Couple* entry );
 
 void interface_ncurses_gameMenu( const Map* map )
 {
@@ -80,7 +81,7 @@ void interface_ncurses_gameMenu( const Map* map )
     wrefresh(gameWindow);
 }
 
-void interface_ncurses_showLegendMachine(bool first, int y, Couple* entry)
+void interface_ncurses_showLegendMachine( bool first, int y, Couple* entry )
 {
     char* tag; //!< S, G, ... a tag that we will explain
     char* content; //!< Gate for G, explain the tag
@@ -108,11 +109,10 @@ void interface_ncurses_showLegendMachine(bool first, int y, Couple* entry)
     waddstr(gameWindow, " ");
 }
 
-void interface_ncurses_showLegendOrientation(bool first, int y, Couple* entry)
+void interface_ncurses_showLegendOrientation( bool first, int y, Couple* entry )
 {
     wattron(gameWindow, COLOR_PAIR(COLOR_GREEN));
-    first ? mvwaddstr(gameWindow, y, 1, entry->keys.content.text) :
-    waddstr(gameWindow, entry->keys.content.text);
+    first ? mvwaddstr(gameWindow, y, 1, entry->keys.content.text) : waddstr(gameWindow, entry->keys.content.text);
     wattroff(gameWindow, COLOR_PAIR(COLOR_GREEN));
     waddstr(gameWindow, ": ");
     waddstr(gameWindow, entry->values.content.text);

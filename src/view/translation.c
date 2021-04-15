@@ -53,7 +53,7 @@ char* error_getMessage( ErrorCode e )
     return "Error. Please report it to the developers.";
 }
 
-char* translation_getDifficulty(Difficulty d)
+char* translation_getDifficulty( Difficulty d )
 {
     switch ( d ) { // NOLINT(hicpp-multiway-paths-covered)
         case DIFFICULTY_EASY:
@@ -133,9 +133,9 @@ char* translation_get( Translation t )
             return "to";
         case TRANSLATE_ON_TAG:
             return "on";
-       case TRANSLATE_ID_TAG:
+        case TRANSLATE_ID_TAG:
             return "id";
-       case TRANSLATE_OWNED_TAG:
+        case TRANSLATE_OWNED_TAG:
             return "owned";
         case TRANSLATE_WIN:
             return "Victory";
@@ -249,7 +249,7 @@ char* translation_fetchMachineTypeFullName( MachineStuff s )
     return "Error. Please report it to the developers.";
 }
 
-List* translation_getLegendMachines()
+List* translation_getLegendMachines( void )
 {
     List* machines = list_createEmpty();
     list_addCoupleNumber(machines, !IS_MACHINE, CASE_SOURCE);
@@ -262,7 +262,7 @@ List* translation_getLegendMachines()
     return machines;
 }
 
-Dictionary* translation_getLegendDirections()
+Dictionary* translation_getLegendDirections( void )
 {
     Dictionary* machines = dictionary_create(8);
     dictionary_addCoupleText(machines, "1", "BOTTOM LEFT");
@@ -276,18 +276,18 @@ Dictionary* translation_getLegendDirections()
     return machines;
 }
 
-char* translation_getNumber(int number)
+char* translation_getNumber( int number )
 {
-    if (number < 1000) return utils_intToString(number);
-    else if (number > 10000) {
+    if ( number < 1000 )
+        return utils_intToString(number);
+    else if ( number > 10000 ) {
         char* message = (char*) malloc(4 * sizeof(char));
         message[0] = 'B';
         message[1] = 'I';
         message[2] = 'G';
         message[3] = '\0';
         return message;
-    }
-    else {
+    } else {
         // number that can be writen as 1K
         char* message = (char*) malloc(3 * sizeof(char));
         message[0] = (char) ('0' + number / 1000);

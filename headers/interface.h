@@ -58,7 +58,7 @@ typedef struct MachineSpec_S {
  *
  * @return NO_ERROR ok or an error
  */
-ErrorCode interface_init();
+ErrorCode interface_init(void);
 
 /**
  * Reload interface. We should use this
@@ -74,7 +74,7 @@ ErrorCode interface_reload( const Map* map );
  * Dispose of interface and clean everything.
  * @return NO_ERROR ok or an error
  */
-ErrorCode interface_close();
+ErrorCode interface_close(void);
 
 /**
  * Show win/loose screen
@@ -98,7 +98,7 @@ ErrorCode interface_endGame( const Map* map, ErrorCode e );
  * @return a valid difficulty chosen by the user.
  * @see Difficulty enum
  */
-Difficulty interface_chooseDifficulty();
+Difficulty interface_chooseDifficulty(void);
 
 /*!
  * @brief Show the map
@@ -155,13 +155,13 @@ void interface_showStaffList( const Map* map );
  * Show machine list.
  * Should use global variable {@link machine_list} in {@link machine.h}.
  */
-void interface_showMachinesList();
+void interface_showMachinesList(void);
 
 /**
  * Show actions list.
  * Should use global variable.
  */
-void interface_listActions();
+void interface_listActions(void);
 
 /*!
  * @brief Ask for the user action
@@ -195,7 +195,7 @@ void interface_listActions();
  * @return a valid action chosen by the user.
  * @see Action enum
  */
-Action interface_chooseAction();
+Action interface_chooseAction(void);
 
 /*!
  * @brief ask user machine specific details
@@ -213,7 +213,7 @@ Action interface_chooseAction();
  *
  * @see ACTION_BUY_MACHINE
  */
-MachineSpec interface_askAddMachine();
+MachineSpec interface_askAddMachine(void);
 
 /*!
  * @brief Ask for machine location
@@ -233,7 +233,7 @@ MachineSpec interface_askAddMachine();
  * @see ACTION_UPGRADE_MACHINE
  * @see ACTION_DESTROY_MACHINE
  */
-Vector2D* interface_askMachineLocation();
+Vector2D* interface_askMachineLocation(void);
 
 /*!
  * @brief Ask which Staff the user wants to buy.
@@ -249,7 +249,7 @@ Vector2D* interface_askMachineLocation();
  * @see ACTION_BUY_STAFF
  * @see ACTION_ASK_STAFF_LIST (action enum)
  */
-int interface_askBuyStaff();
+int interface_askBuyStaff(void);
 
 /**
  * Show an error

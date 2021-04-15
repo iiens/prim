@@ -39,9 +39,11 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
 
             attr_t color = interface_ncurses_utils_getCaseColor(c, t); //!< color
 
-            if ( showResourceSaved || showGarbageSaved ){
-                if ( showResourceSaved ) number = translation_getNumber(case_getNumberResourcesByCase(c));
-                else number = translation_getNumber(case_getNumberGarbageByCase(c));
+            if ( showResourceSaved || showGarbageSaved ) {
+                if ( showResourceSaved )
+                    number = translation_getNumber(case_getNumberResourcesByCase(c));
+                else
+                    number = translation_getNumber(case_getNumberGarbageByCase(c));
 
                 // content
                 wattron(mapWindow, color);
@@ -52,14 +54,14 @@ void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarb
                 char orientation = interface_utils_parseOrientation(j, i, map); //!< orientation
                 // content
                 wattron(mapWindow, color);
-                mvwaddstr(mapWindow, i + 2, 4 + j * 4, interface_utils_getCaseContent(c,t));
+                mvwaddstr(mapWindow, i + 2, 4 + j * 4, interface_utils_getCaseContent(c, t));
                 wattroff(mapWindow, color);
                 // orientation
                 mvwaddch(mapWindow, i + 2, 5 + j * 4, orientation);
             }
 
             // trailing +
-            mvwaddstr(mapWindow, i + 2, 7 + j * 4,  "+");
+            mvwaddstr(mapWindow, i + 2, 7 + j * 4, "+");
         }
     }
     mvwprintw(mapWindow, 0, 2, "x");
@@ -130,10 +132,9 @@ void interface_ncurses_showMachinesList()
         char* orientation = machineInfo_getDefaultOrientationMessage(m);
         int id = machineInfo_getType(m);
         // size is two strings + 1 (size of id)
-        char* head = (char*) malloc((
-                strlen(translation_get(TRANSLATE_ID_TAG)) + 2 /* 2 digits */
-                + 5 /*(=). */ + 1 /* \0 */ ) * sizeof(char)); //!< header of this machine
-        sprintf(head, "(%s=%d). ",  translation_get(TRANSLATE_ID_TAG), id);
+        char* head = (char*) malloc((strlen(translation_get(TRANSLATE_ID_TAG)) + 2 /* 2 digits */
+                                     + 5 /*(=). */ + 1 /* \0 */ ) * sizeof(char)); //!< header of this machine
+        sprintf(head, "(%s=%d). ", translation_get(TRANSLATE_ID_TAG), id);
 
         // write prices
         sprintf(p, "%5d E %5d DD", machineInfo_getCostE(m), machineInfo_getCostDD(m));
@@ -158,7 +159,8 @@ void interface_ncurses_showMachinesList()
         // with v the value
         // cost:, ... are put in green
         //cost:
-        j = interface_ncurses_utils_writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_TAG), p); //cost
+        j = interface_ncurses_utils_writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_TAG),
+                                               p); //cost
         if ( machineInfo_getCanUpgrade(m) )
             j = interface_ncurses_utils_writeLabel(window, i, j, blocLength, translation_get(TRANSLATE_ML_COST_UP_TAG),
                                                    pUpgrade); //cost upgrade
@@ -200,7 +202,7 @@ void interface_ncurses_showStaffList( const Map* map )
     if ( (rowPerPage * 3 + 6) < LINES )
         blocLength++; //increase since we can
 
-    while ( (rowPerPage+1)*blocLength < LINES - TAKEN )
+    while ( (rowPerPage + 1) * blocLength < LINES - TAKEN )
         rowPerPage++;
 
     // hide cursor
@@ -262,7 +264,7 @@ void interface_ncurses_showStaffList( const Map* map )
             free(number);
             waddstr(window, " DD). ");
             waddstr(window, translation_get(TRANSLATE_OWNED_TAG));
-            waddstr(window,": ");
+            waddstr(window, ": ");
             wattroff(window, COLOR_PAIR(COLOR_GREEN));
             wattron(window, COLOR_PAIR(COLOR_RED));
             number = utils_intToString(staff_getNumberStaffByID(dictionary, staff_getStaffID(s)));

@@ -128,13 +128,13 @@ char* translation_fetchMachineTypeFullName( MachineStuff s );
  * @see CaseType
  * @see Couple
  */
-List* translation_getLegendMachines();
+List* translation_getLegendMachines(void);
 
 /*!
  * Returns the dictionary of the legend of the directions
  * @return the dictionary
  */
-Dictionary* translation_getLegendDirections();
+Dictionary* translation_getLegendDirections(void);
 
 /**
  * Translate a number into 3 characters

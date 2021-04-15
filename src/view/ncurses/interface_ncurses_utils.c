@@ -3,15 +3,21 @@
 #include <string.h> //!< strlen, ...
 
 #define ERROR_LINE 0 //!< error line in action window
-
 int lastMessageLength = -1; //!< last message that we printed
 
-bool interface_ncurses_utils_hasLastMessage()
+/**
+ * Show a message in a color
+ * @param message a message
+ * @param color a ncurses color
+ */
+void interface_ncurses_showMessageWithColor( char* message, int color );
+
+bool interface_ncurses_utils_hasLastMessage( void )
 {
     return lastMessageLength == -1;
 }
 
-void interface_ncurses_showActionField()
+void interface_ncurses_showActionField( void )
 {
     // move at bottom left
     attron(A_BOLD); // bold
@@ -52,13 +58,13 @@ void interface_ncurses_showMessage( char* message )
 }
 
 
-void interface_ncurses_hideError()
+void interface_ncurses_hideError( void )
 {
     if ( lastMessageLength == -1 )
         return;
     // delete line
     // we remove the first one, until there is no character
-    for ( int i = 0; i < lastMessageLength ; ++i ) {
+    for ( int i = 0; i < lastMessageLength; ++i ) {
         mvwdelch(actionWindow, ERROR_LINE, 0); //
     }
     // refresh
@@ -97,7 +103,7 @@ void interface_ncurses_clearAction( char* buf )
     wrefresh(actionWindow);
 }
 
-void interface_ncurses_show_menu_wait(WINDOW* window)
+void interface_ncurses_show_menu_wait( WINDOW* window )
 {
     wrefresh(window);
     // hide cursor
@@ -243,7 +249,7 @@ char interface_utils_parseOrientation( int x, int y, const Map* map )
     return L' ';
 }
 
-void interface_ncurses_utils_init_colors()
+void interface_ncurses_utils_init_colors( void )
 {
     // colors goes from 0 to 255
     /*for ( short i = 0; i < 255; i++ ) {
@@ -253,33 +259,39 @@ void interface_ncurses_utils_init_colors()
         init_pair(i, i, COLOR_BLACK);
     }*/
     for ( short i = 0; i < 8; i++ ) {
-        init_pair(i,i, COLOR_BLACK);
+        init_pair(i, i, COLOR_BLACK);
     }
 
-//    init_pair(ERROR_COLOR, COLOR_RED, COLOR_BLACK);
-//    init_pair(SUCCESS_COLOR, COLOR_GREEN, COLOR_BLACK);
-//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
-//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
-//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
-//    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+    //    init_pair(ERROR_COLOR, COLOR_RED, COLOR_BLACK);
+    //    init_pair(SUCCESS_COLOR, COLOR_GREEN, COLOR_BLACK);
+    //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+    //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+    //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+    //    init_pair(3, COLOR_WHITE, COLOR_BLACK);
 }
 
-attr_t interface_ncurses_utils_getCaseColor(Case* c, CaseType t)
+attr_t interface_ncurses_utils_getCaseColor( Case* c, CaseType t )
 {
     attr_t color = COLOR_PAIR(COLOR_WHITE);
     switch ( t ) { // show color NOLINT(hicpp-multiway-paths-covered)
-        case CASE_VIDE: color = COLOR_PAIR(COLOR_WHITE); break;
-        case CASE_GATE: color = COLOR_PAIR(COLOR_CYAN); break;
-        case CASE_SOURCE: color = COLOR_PAIR(COLOR_YELLOW); break;
+        case CASE_VIDE:
+            color = COLOR_PAIR(COLOR_WHITE);
+            break;
+        case CASE_GATE:
+            color = COLOR_PAIR(COLOR_CYAN);
+            break;
+        case CASE_SOURCE:
+            color = COLOR_PAIR(COLOR_YELLOW);
+            break;
         case CASE_MACHINE:
-            if (c != NULL )
+            if ( c != NULL )
                 color = interface_ncurses_utils_getMachineColor(machine_getType(case_getMachine(c)));
             break;
     }
     return color;
 }
 
-attr_t interface_ncurses_utils_getMachineColor(MachineStuff t)
+attr_t interface_ncurses_utils_getMachineColor( MachineStuff t )
 {
     attr_t color = COLOR_PAIR(COLOR_WHITE);
     switch ( t ) { // NOLINT(hicpp-multiway-paths-covered)

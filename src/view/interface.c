@@ -19,7 +19,7 @@ bool useNCurses = true; //!< true if we will use ncurses
 //\////////////////////////////\//
 
 // init
-ErrorCode interface_init()
+ErrorCode interface_init( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_init();
@@ -37,7 +37,7 @@ ErrorCode interface_reload( const Map* map )
 }
 
 // close
-ErrorCode interface_close()
+ErrorCode interface_close( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_close();
@@ -73,7 +73,7 @@ void interface_showStaffList( const Map* map )
     }
 }
 
-void interface_showMachinesList()
+void interface_showMachinesList( void )
 {
     if ( useNCurses ) {
         interface_ncurses_showMachinesList();
@@ -81,7 +81,7 @@ void interface_showMachinesList()
     }
 }
 
-void interface_listActions()
+void interface_listActions( void )
 {
     if ( useNCurses ) {
         interface_ncurses_listActions();
@@ -94,7 +94,7 @@ void interface_listActions()
 //\////////////////////////////\//
 
 // action
-Action interface_chooseAction()
+Action interface_chooseAction( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_chooseAction();
@@ -103,7 +103,7 @@ Action interface_chooseAction()
 }
 
 // difficulty
-Difficulty interface_chooseDifficulty()
+Difficulty interface_chooseDifficulty( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_chooseDifficulty();
@@ -111,7 +111,7 @@ Difficulty interface_chooseDifficulty()
     return DIFFICULTY_EASY;
 }
 
-MachineSpec interface_askAddMachine()
+MachineSpec interface_askAddMachine( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_askAddMachine();
@@ -120,7 +120,7 @@ MachineSpec interface_askAddMachine()
     return (MachineSpec) {};
 }
 
-Vector2D* interface_askMachineLocation()
+Vector2D* interface_askMachineLocation( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_askMachineLocation();
@@ -129,7 +129,7 @@ Vector2D* interface_askMachineLocation()
     return NULL;
 }
 
-int interface_askBuyStaff()
+int interface_askBuyStaff( void )
 {
     if ( useNCurses ) {
         return interface_ncurses_askBuyStaff();

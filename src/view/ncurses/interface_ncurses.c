@@ -31,7 +31,7 @@ ErrorCode interface_ncurses_init()
     }
 
     // too small
-    if ( LINES < NC_MIN_ROW ||  COLS < NC_MIN_COL ){
+    if ( LINES < NC_MIN_ROW || COLS < NC_MIN_COL ) {
         interface_close();
         return ERROR_INIT_NCURSES_INTERFACE_SIZE;
     }
@@ -111,7 +111,7 @@ ErrorCode interface_ncurses_endGame( const __attribute__((unused)) Map* map, Err
     else
         message = translation_get(TRANSLATE_LOST);
 
-    mvaddstr(LINES/2, 0, message);
+    mvaddstr(LINES / 2, 0, message);
 
     getch(); // wait
 

@@ -28,7 +28,7 @@ typedef struct UserActionMapping_S {
  * returns the number of mappings
  * @return a size, to iterates the array of mappings
  */
-int mapping_getSize();
+int mapping_getSize(void);
 
 /**
  * Returns a mapping or null if not found by an index
@@ -57,6 +57,6 @@ const UserActionMapping* mapping_getMapping( const char* seq );
  * this mapping is used in a lot a places.
  * @return
  */
-const UserActionMapping* mapping_getBackMapping();
+const UserActionMapping* mapping_getBackMapping(void);
 
 #endif //PRIM_MAPPING_H

@@ -46,16 +46,16 @@ Difficulty interface_ncurses_chooseDifficulty()
         Difficulty d = difficulty_getLVL(i); //!< get difficulty
         // get translation
         char* translation = translation_getDifficulty(d);
-        difficulties[i-1] = translation;
+        difficulties[i - 1] = translation;
         // get the max size
-        max = max( (int) strlen(translation), max);
+        max = max((int) strlen(translation), max);
         // get size (map)
         int size = map_utils_getSizeByDifficulty(d);
         // 3 columns per size unit and the rest
-        widths[i-1] = WIDTH_FIXED + (size+1) * 3 + size;
-        heights[i-1] = max(HEIGHT_FIXED + (size+1), MIN_HEIGHT);
+        widths[i - 1] = WIDTH_FIXED + (size + 1) * 3 + size;
+        heights[i - 1] = max(HEIGHT_FIXED + (size + 1), MIN_HEIGHT);
         // disabled
-        disabled[i-1] = -1;
+        disabled[i - 1] = -1;
     }
 
     // init item
@@ -123,7 +123,7 @@ Difficulty interface_ncurses_chooseDifficulty()
                 break;
             case KEY_DOWN: //arrow down
                 current++;
-                current = min(current, N_DIFFICULTIES-1);
+                current = min(current, N_DIFFICULTIES - 1);
                 break;
             case KEY_SEND: // enter, send, etc.
             case KEY_ENTER:

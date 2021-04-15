@@ -4,7 +4,7 @@
 # Authors Quentin Ra, Antoine MAN, Ramzy ZEBRIR and Valentin DREANO
 #
 # This makefile can be used instead of our CMakeLists.
-# Version 1.0.8, Usage :
+# Version 1.2.1, Usage :
 # - `make` : creates project, put executable in ./bin/prim
 # - `make all` : same as make
 # - `make clean` : clean .o files
@@ -18,7 +18,9 @@ all: prim
 # compiler
 CC= gcc
 # compilation flags
+# https://stackoverflow.com/questions/154630/recommended-gcc-warning-options-for-c
 CFLAGS= -Wall -Wextra -std=c99 -g
+# -m64 -pedantic -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
 NCURSES_FLAGS=-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=700 -lncursesw -lform
 
 # path
@@ -42,15 +44,20 @@ SOURCE_V_N=$(SOURCE_V)ncurses/
 SOURCE_V_N_H=$(SOURCE_V_N)headers/
 SOURCE_V_N_M=$(SOURCE_V_N)modules/
 
+########################
+######### DEPENDENCIES
+########################
+
 # all interface modules object files
 # we got 7 target to do
-INTERFACE_MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT_V_N_M)location.o $(OUTPUT_V_N_M)machine.o \
-	$(OUTPUT_V_N_M)show.o $(OUTPUT_V_N_M)staff.o $(OUTPUT_V_N_M)game.o
+INTERFACE_MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT_V_N_M)location.o \
+ 	$(OUTPUT_V_N_M)machine.o $(OUTPUT_V_N_M)show.o $(OUTPUT_V_N_M)staff.o $(OUTPUT_V_N_M)game.o
 
 # all off our project files
 # 2-3 : we got our interface and 2 ncurses related and translation and our modules of course. Also a translation file.
 # 4-5 : there related to the map
 # 6 : utils
+# todo: structure.o => structures.o
 O_FILES= $(OUTPUT)main.o \
 	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o $(OUTPUT_V)mapping.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
@@ -61,11 +68,13 @@ O_FILES= $(OUTPUT)main.o \
 # all off our header files included in interface.h for convenience sake
 # data ( line 2 - 4 )
 # utils ( line 5 )
+# todo: element.h => elements.h
 INTERFACE_DEP= $(SOURCE_H)map.h \
 	$(SOURCE_H_D)difficulty.h $(SOURCE_H_D)actions.h $(SOURCE_H_D)case.h $(SOURCE_H_D)effect.h \
 	$(SOURCE_H_D)machine.h $(SOURCE_H_D)machine_info.h $(SOURCE_H_D)staff.h $(SOURCE_H_D)error.h \
 	$(SOURCE_H_D)mapping.h $(SOURCE_H_D)box.h \
-	$(SOURCE_H_U)const.h $(SOURCE_H_U)map_utils.h $(SOURCE_H_U)structures.h $(SOURCE_H_U)translation.h $(SOURCE_H_U)utils.h
+	$(SOURCE_H_U)const.h $(SOURCE_H_U)map_utils.h $(SOURCE_H_U)structures.h $(SOURCE_H_U)element.h  \
+	$(SOURCE_H_U)translation.h $(SOURCE_H_U)utils.h
 
 # 3. Dependencies
 
@@ -194,6 +203,10 @@ $(OUTPUT_M)machine_info.o: $(SOURCE_M)machine_info.c $(SOURCE_H_D)machine_info.h
 # - machine_info.c and .h
 $(OUTPUT_M)machine.o: $(SOURCE_M)machine.c $(SOURCE_H_D)machine.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)machine.o $(SOURCE_M)machine.c
+
+####################
+######### TASKS
+####################
 
 prim: $(O_FILES)
 	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(NCURSES_FLAGS)
