@@ -113,7 +113,19 @@ ErrorCode interface_ncurses_endGame( const __attribute__((unused)) Map* map, Err
 
     mvaddstr(LINES / 2, 0, message);
 
-    getch(); // wait
+    refresh(); // show
+
+    // hide cursor
+    noecho();
+    cbreak();
+    curs_set(FALSE);
+    keypad(stdscr, TRUE);
+    // wait for input, only the first char since noecho
+    getch();
+    // reset
+    echo();
+    nocbreak();
+    curs_set(TRUE);
 
     refresh(); // show
 
