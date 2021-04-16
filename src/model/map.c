@@ -73,6 +73,7 @@ Map *map_create(Difficulty dif) {
 }
 
 ErrorCode map_destroy(Map *m) {
+    // Destruction of the different arguments of the map
     free(m->team);
 
     for (int i = 0; i < m->width; i++) {
@@ -83,19 +84,20 @@ ErrorCode map_destroy(Map *m) {
     }
     free(m->map);
 
+    // Destroy map
     free(m);
     return NO_ERROR;
 }
 
-//todo: english comment plz
 ErrorCode map_hireFISE(Map *m) {
+    // Initialize base values
     int costE = COST_FISE_E;
     int costDD = COST_FISE_DD;
 
-    // Prendre en compte les effets de staff
+    // Take into account the effects of staff
     map_utils_checkModificationStaff(ON_BUY, (Target) {.other = SUB_FISE}, m, &costE, &costDD);
 
-    // Vérifie que le joueur à les sous
+    // Check that the player has the money
     ErrorCode e = map_utils_tryBuy(m, costE, costDD);
     if (e == NO_ERROR) {
         map_setNumberFISE(m, 1);
@@ -105,15 +107,15 @@ ErrorCode map_hireFISE(Map *m) {
     }
 }
 
-//todo: english comment plz
 ErrorCode map_hireFISA(Map *m) {
+    // Initialize base values
     int costE = COST_FISA_E;
     int costDD = COST_FISA_DD;
 
-    // Prendre en compte les effets de staff
+    // Take into account the effects of staff
     map_utils_checkModificationStaff(ON_BUY, (Target) {.other = SUB_FISA}, m, &costE, &costDD);
 
-    // Vérifie que le joueur à les sous
+    // Check that the player has the money
     ErrorCode e = map_utils_tryBuy(m, costE, costDD);
     if (e == NO_ERROR) {
         map_setNumberFISA(m, 1);
@@ -124,6 +126,7 @@ ErrorCode map_hireFISA(Map *m) {
 }
 
 ErrorCode map_changeProductionFISA(Map *m) {
+    // Check the previous production
     if (m->productionFISA == E_VALUE) {
         m->productionFISA = DD_VALUE;
     } else {
@@ -133,7 +136,6 @@ ErrorCode map_changeProductionFISA(Map *m) {
     return NO_ERROR;
 }
 
-//todo: english comment plz
 ErrorCode map_endTurn(Map *m) {
     // Production of Fise
     map_utils_productionFise(m);
@@ -141,19 +143,19 @@ ErrorCode map_endTurn(Map *m) {
     // Production of Fisa
     map_utils_productionFisa(m);
 
-    // Déplacer les ressources
+    // Move resources
     map_utils_moveResources(m);
 
     // Generation of resources
     map_utils_generateResources(m);
 
-    // La porte produit des déchêts
+    // The door produces waste
     map_utils_generateGarbage(m);
 
-    // Faire fonctionner les décheteries
+    // Operate waste reception centers
     map_utils_activateRecyclingCenters(m);
 
-    // Les collecteurs s'activent
+    // The collectors activate
     map_utils_activateCollectors(m);
 
     // Destroy the no-collected resources
@@ -169,31 +171,38 @@ ErrorCode map_endTurn(Map *m) {
     }
     map_setNumberDD(m, numberPollution * -1);
 
+    // Checking if the player has won
     if (map_getPlayerScore(m) > NUMBER_RESOURCE_WIN){
         return ERROR_GAME_WIN;
     }
 
+    // Turn increment
     m->turn++;
     return NO_ERROR;
 }
 
-//todo: maybe add one/two more comments since the method is big
 ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map *m) {
+    // Check that the box exists
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case *c = map_getCase(x, y, m);
+        // Check that the box is empty
         if (case_isEmpty(c)) {
+            //Retrieving Machine Information
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
             int costE = machineInfo_getCostE(machineInfo);
             int costDD = machineInfo_getCostDD(machineInfo);
 
-            // Permet de trouver les infos de la machine
+            // Allows you to find machine info
             map_utils_checkModificationStaff(CONSTRUCTION, (Target) {.machine = machType}, m, &costE, &costDD);
 
-            // Vérifie que le joueur à les sous
+            // Check that the player has the money
             ErrorCode e = map_utils_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
+                // Created the machine
                 Machine *machine = machine_create(machType);
+                // Turn the machine the right way
                 machine_rotateMachine(machine, rotation);
+                // Add machine to box
                 case_addMachine(c, machine);
 
                 return NO_ERROR;
@@ -208,26 +217,31 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
     }
 }
 
-// todo: same as before, laking comment (english ^^)
 ErrorCode map_upgradeMachine(int x, int y, Map *m) {
+    // Check that the box exists
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case *c = map_getCase(x, y, m);
+        // Check that there is a machine on the square
         if (case_getType(c) == CASE_MACHINE) {
+            // Recovery of the machine and its information
             Machine *machine = case_getMachine(c);
             MachineStuff machType = machine_getType(machine);
 
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
 
+            // Checking that the machine can be improved
             if (machineInfo_getCanUpgrade(machineInfo)) {
+                // Recovering the base upgrade cost
                 int costE = machineInfo_getCostUpgradeE(machineInfo);
                 int costDD = machineInfo_getCostUpgradeDD(machineInfo);
 
-                // Permet de trouver les infos de la machine
+                // Allows you to apply staff changes
                 map_utils_checkModificationStaff(UPGRADE, (Target) {.machine = machType}, m, &costE, &costDD);
 
-                // Vérifie que le joueur à les sous
+                // Check that the player has the money
                 ErrorCode e = map_utils_tryBuy(m, costE, costDD);
                 if (e == NO_ERROR) {
+                    // Improve the machine
                     machine_incrementLevel(machine);
 
                     return NO_ERROR;
@@ -245,25 +259,28 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
     }
 }
 
-// todo: same as before, laking comment (english ^^)
 ErrorCode map_destroyMachine(int x, int y, Map *m) {
+    // Check that the box exists
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         Case *c = map_getCase(x, y, m);
+        // Check that there is a machine on the square
         if (case_getType(c) == CASE_MACHINE) {
+            // Recovery of the machine and its information
             Machine *machine = case_getMachine(c);
             MachineStuff machType = machine_getType(machine);
 
+            // Recovering the base destroy cost
             const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(machType);
             int costE = machineInfo_getCostDestroyE(machineInfo);
             int costDD = machineInfo_getCostDestroyDD(machineInfo);
 
-            // Permet de trouver les infos de la machine
+            // Allows you to apply staff changes
             map_utils_checkModificationStaff(DESTROY, (Target) {.machine = machType}, m, &costE, &costDD);
 
-            // Vérifie que le joueur à les sous
+            // Check that the player has the money
             ErrorCode e = map_utils_tryBuy(m, costE, costDD);
             if (e == NO_ERROR) {
-                // Envouyer à la porte les déchets
+                // Send the waste to the door
                 Box *checkBox;
                 for (Cardinal card = 0; card < NUMBER_CARDINAL; ++card) {
                     checkBox = machine_getBox(machine, card);
@@ -271,6 +288,8 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
                         map_utils_sendResourcesToGate(m, box_getNumberGarbage(checkBox));
                     }
                 }
+
+                // Destroy machine
                 case_setEmpty(c);
 
                 return NO_ERROR;
@@ -285,18 +304,22 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
     }
 }
 
-// todo: same as before, laking comment (english ^^)
 ErrorCode map_buyStaff(int idStaff, Map *m) {
     const Staff *staff = staff_getStaffByID(idStaff);
+    // Check the existence of staff
     if (staff != NULL) {
+        // Recovery of the basic price of the staff
         int costE = staff_getStaffCostE(staff);
         int costDD = staff_getStaffCostDD(staff);
 
+        // Check that the player has the money
         ErrorCode e = map_utils_tryBuy(m, costE, costDD);
         if (e == NO_ERROR) {
+            // Add staff to player
             Dictionary *dictionary = map_getStaffDictionary(m);
             staff_hireStaff(dictionary, idStaff);
 
+            // If the staff takes immediate action, do so
             switch (idStaff) {
                 case 14:
                     // Parourir toutes les cases
@@ -315,9 +338,11 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
                     break;
             }
 
+            // If the action of the staff to fail reimburse the player
             if (e != NO_ERROR) {
                 map_setNumberE(m, costE);
                 map_setNumberDD(m, costDD);
+                return e;
             }
 
             return NO_ERROR;

@@ -1,6 +1,6 @@
 /*!
  * \file map_utils.h
- * \author Antoine Man
+ * \author Valentin DREANO
  * \version 0.1
  * \date 26/03/2021
  *
@@ -16,114 +16,126 @@
 #include "translation.h"
 #include "structures.h"
 
-// TODO Valentin ; faire documentation in ENGLISH :)
-//  and add yourself to the file and package authors (see top of the file/package.dox)
 /**
+ * This function was created for the purpose of factorization of the code
+ * It allows you to check that you can buy at a certain price and if so to debit the sub
  *
- * @param m
- * @param costE
- * @param costDD
- * @return
+ * @param m La Map with current game information
+ * @param costE The price in E
+ * @param costDD The price in DD
+ * @return An error code allowing to know if we succeeded or what is missing
  */
 ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD);
 
 /**
+ * This function is used to generalize and factorize code
+ * It is used to apply the modifications of a staff on a price or a quantity
  *
- * @param mode
- * @param target
- * @param m
- * @param numberE
- * @param numberDD
+ * @param mode Allows you to know what the staff acts on
+ * @param target Allows you to know what the staff acts on
+ * @param m Map with current game information
+ * @param numberE Price
+ * @param numberDD Price
  */
 void map_utils_checkModificationStaff(Mode mode, Target target, Map* m, int* numberE, int* numberDD);
 
 /**
+ * Allows you to send resources to the door
  *
- * @param m
- * @param resources
+ * @param m Map with current game information
+ * @param resources Number of resources
  */
 void map_utils_sendResourcesToGate(Map *m, int resources);
 
 /**
+ * Produce DD and E by fise
  *
- * @param m
- */
-void map_utils_moveResourcesInMachine(Map *m);
-
-/**
- *
- * @param m
+ * @param m Map with current game information
  */
 void map_utils_productionFise(Map *m);
 
 /**
+ * Produce DD or E by fisa
  *
- * @param m
+ * @param m Map with current game information
  */
 void map_utils_productionFisa(Map *m);
 
 /**
- * Permet de géné des ressources grâce aux sources
+ * Allows you to move resources on crosses and mats
  *
- * @param listResources
- */
-void map_utils_generateResources(Map * m);
-
-/**
- * Permet de faire fonctionner les Tapis
- * Attention à ne déplacer les ressources que d'une case
- *
- * @param listResources
+ * @param m Map with current game information
  */
 void map_utils_moveResources(Map * m);
 
 /**
+ * Allows to generate resources
  *
- * @param m
+ * @param m Map with current game information
  */
-void map_utils_activateRecyclingCenters(Map* m);
+void map_utils_generateResources(Map * m);
 
 /**
+ * Allows you to generate waste at the door
  *
- * @param m
- */
-void map_utils_activateCollectors(Map* m);
-
-/**
- * Détruit toutes les ressources non collecté à la fin d'un tour
- *  check :
- *      - sources
- *      - décheterie
- *
- * @param listSources
- */
-void map_utils_resetResourcesGarbage(Map * m);
-
-/**
- * Permet de transformer tous les ressources emmené à la porte en déchets
- *
- * @param m
+ * @param m Map with current game information
  */
 void map_utils_generateGarbage(Map *m);
 
 /**
+ * Allows you to activate recycling centers
  *
- * @param m
- * @return
+ * @param m Map with current game information
+ */
+void map_utils_activateRecyclingCenters(Map* m);
+
+/**
+ * Allows you to activate collectors
+ *
+ * @param m Map with current game information
+ */
+void map_utils_activateCollectors(Map* m);
+
+/**
+ * Allows you to delete all uncollected resources and bring all ground trash to the door
+ *
+ * @param m Map with current game information
+ */
+void map_utils_resetResourcesGarbage(Map * m);
+
+/**
+ * This function allows you to move all the resources on the facades out of the machines.
+ * It is called at the end of the turn and ensures that at the end of each turn and
+ * at the start of each turn that all waste and resources are on the facades out
+ *
+ * @param m Map with current game information
+ */
+void map_utils_moveResourcesInMachine(Map *m);
+
+/**
+ * His function allows the staff to take action Anne Laure Ligozat
+ *
+ * @param m Map with current game information
+ * @param idStaff Staff Id
+ * @return A ErrorCode to know if everything went well or not
  */
 ErrorCode staff_actionAnneLaureLigozat(Map* m, int idStaff);
 
 /**
+ * His function allows the staff to take action Christophe Mouilleron
  *
- * @param m
- * @return
+ * @param m Map with current game information
+ * @param idStaff Staff Id
+ * @return A ErrorCode to know if everything went well or not
  */
 ErrorCode staff_actionChristopheMouilleron(Map* m, int idStaff);
 
 /**
+ * His function allows the staff to take action Laurent Prevel
  *
- * @param m
- * @return
+ * @param m Map with current game information
+ * @param idStaff Staff Id
+ * @return A ErrorCode to know if everything went well or not
  */
 ErrorCode staff_actionLaurentPrevel(Map* m, int idStaff);
 
