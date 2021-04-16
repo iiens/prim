@@ -1,19 +1,44 @@
-#include "../../headers/data/box.h"
+/*!
+ * \file box.c
+ * \author Antoine Man
+ * \version 0.6
+ * \date 07/04/2021
+ *
+ * Resources and garbage are stocked in a box in order
+ * to facilitate resources moves
+ * \see error.h
+ *
+ */
 
+#include "../../headers/data/box.h"
 #include "stdio.h"
 #include "stdlib.h"
 
+/**
+ * \struct Box_S box.h "headers/data/box.h"
+ *
+ * nbResource : number of resource on the machine
+ * nbGarbage : number of garbage on the machine
+ */
 struct Box_S {
-    int nbResource; //!< number of resource on the machine
-    int nbGarbage; //!< number of garbage on the machine
-}; //!< todo: comment here
+    int nbResource;
+    int nbGarbage;
+};
 
-int box_getNumberResource(const Box * b) { return b->nbResource; }
+/*
+ * This function get the number of resources of the box.
+ */
+int box_getNumberResource(const Box *b) { return b->nbResource; }
 
-int box_getNumberGarbage(const  Box * b) { return b->nbGarbage; }
+/*
+ * This function set the number of resources of the box
+ */
+ErrorCode box_setNumberResource(Box *b, int val) {
 
-ErrorCode box_setNumberResource(Box * b, int val ) {
+    // Verify if the result of the addition/substract is not negative
     if (box_getNumberResource(b) + val >= 0) {
+
+        // Set number resources of the box
         b->nbResource += val;
         return NO_ERROR;
     } else {
@@ -21,8 +46,20 @@ ErrorCode box_setNumberResource(Box * b, int val ) {
     }
 }
 
-ErrorCode box_setNumberGarbage(Box* b, int val ) {
+/*
+ * This function get the number of garbage of the box.
+ */
+int box_getNumberGarbage(const Box *b) { return b->nbGarbage; }
+
+/*
+ * This function set the number of garbage of the box.
+ */
+ErrorCode box_setNumberGarbage(Box *b, int val) {
+
+    // Verify if the result of the addition/substract is not negative
     if (box_getNumberGarbage(b) + val >= 0) {
+
+        // Set number garbage of the box
         b->nbGarbage += val;
         return NO_ERROR;
     } else {
@@ -30,19 +67,31 @@ ErrorCode box_setNumberGarbage(Box* b, int val ) {
     }
 }
 
-Box* box_create(int numberR, int numberG) {
-    Box *box = (Box*)malloc(sizeof (Box));
+/*
+ * This function create a new box in a case or in a facade machine
+ */
+Box *box_create(int numberR, int numberG) {
+
+    // Allocate resources in memory to create a new box
+    Box *box = (Box *) malloc(sizeof(Box));
     box->nbResource = numberR;
     box->nbGarbage = numberG;
     return box;
 }
 
-//todo: you may use Box instead of B
-void box_addB2toB1(Box *b1, Box *b2) {
-    if (b1 != NULL && b2 != NULL) {
-        box_setNumberResource(b1, box_getNumberResource(b2));
-        box_setNumberGarbage(b1, box_getNumberGarbage(b2));
+/*
+ * This function add resources and garbage of the first box in the second
+ */
+void box_addB2toB1(Box *box1, Box *box2) {
+    if (box1 != NULL && box2 != NULL) {
+
+        // We move box2 resources and garbage in the first box
+        box_setNumberResource(box1, box_getNumberResource(box2));
+        box_setNumberGarbage(box1, box_getNumberGarbage(box2));
     }
 }
 
+/*
+ * This function free resources allocated in memory used to stock the box
+ */
 void box_destroy(Box *b) { free(b); }

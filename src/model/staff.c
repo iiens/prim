@@ -1,5 +1,16 @@
-#include "../../headers/data/staff.h"
+/*!
+ * \file staff.c
+ * \author Ramzy ZEBRIR and Antoine MAn
+ * \version 0.1
+ * \date 04/03/2021
+ * \see effect.h
+ * \see error.h
+ *
+ * Contains all information about the character of the Staff
+ */
 
+
+#include "../../headers/data/staff.h"
 #include <stdio.h>
 
 struct Staff_S {
@@ -348,6 +359,11 @@ const Staff staff_list[] = {
         },
 };
 
+/*
+ * A function to verify if the id given in argument correspond to a staff id
+ * If id exist, return the tab index
+ * If not -1
+ */
 int staff_isIDValid(int id) {
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
         if (staff_list[i].id == id) {
@@ -357,6 +373,10 @@ int staff_isIDValid(int id) {
     return -1;
 }
 
+/*
+ * This function get the staff according to the id in order
+ * to get all the information about him.
+ */
 const Staff *staff_getStaffByID(int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
@@ -366,6 +386,10 @@ const Staff *staff_getStaffByID(int id) {
     }
 }
 
+//TODO REMOVE FONCTION INUTILE
+/*
+ * This function get the staff name attribute according to the id
+ */
 char *staff_getStaffNameByID(int id) {
     const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
@@ -393,10 +417,6 @@ int staff_getStaffCostDDByID(int id) {
     }
 }
 
-int effect_getTurnProduction(const Effect *effect) { return effect->turn_production; }
-
-int effect_getMinTurnProduction(const Effect *effect) { return effect->min_turn_production; }
-
 char *staff_getStaffDescriptionByID(int id) {
     const Staff *member = staff_getStaffByID(id);
     if (member != NULL) {
@@ -415,21 +435,54 @@ const Effect *staff_getStaffEffectByID(int id) {
     }
 }
 
+
+/*
+ * This function get the staff id attribute from a staff
+ */
 int staff_getStaffID(const Staff *staff) { return staff->id; }
 
+/*
+ * This function get the staff name attribute from a staff
+ */
 char *staff_getStaffName(const Staff *staff) { return staff->name; }
 
+/*
+ * This function get the staff cost E attribute from a staff
+ */
 int staff_getStaffCostE(const Staff *staff) { return staff->costE; }
 
+/*
+ * This function get the staff CostDD attribute from a staff
+ */
 int staff_getStaffCostDD(const Staff *staff) { return staff->costDD; }
 
+/*
+ * This function get the staff description attribute from a staff
+ */
 char *staff_getStaffDescription(const Staff *staff) { return staff->description; }
 
+/*
+ * This function get the staff effect attribute from a staff
+ */
 const Effect *staff_getStaffEffect(const Staff *staff) { return &(staff->effects); }
 
-//todo: a comment maybe ?
+/*
+ * This function get the TurnProduction attribute from a effect
+ */
+int effect_getTurnProduction(const Effect *effect) { return effect->turn_production; }
+
+/*
+ * This function get the MinTurnProduction attribute from a effect
+ */
+int effect_getMinTurnProduction(const Effect *effect) { return effect->min_turn_production; }
+
+/*
+ * A function to get a specific staff according to his Mode and his Target
+ * in order to get all the information about a staff
+ */
 const Staff *staffInfo_getByModeAndType(Mode mode, Target type) {
     int check;
+    // Verify all the staff
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
         if (staff_list[i].effects.mode == mode) {
 
@@ -447,14 +500,21 @@ const Staff *staffInfo_getByModeAndType(Mode mode, Target type) {
     return NULL;
 }
 
+/*
+ * A function to create a staff dictionnary which for each staff, his id and the number of staff hired
+ */
 Dictionary *staff_createStaffDictionary() {
     Dictionary *dict = dictionary_create(NUMBER_OF_STAFFS);
     for (int i = 0; i < NUMBER_OF_STAFFS; ++i) {
+        // Couple of if and the number of this staff hired
         dictionary_addCoupleNumber(dict, staff_list[i].id, 0);
     }
     return dict;
 }
 
+/*
+ * A function to get the number of staff hired according to the id staff
+ */
 int staff_getNumberStaffByID(const Dictionary *dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
@@ -464,6 +524,9 @@ int staff_getNumberStaffByID(const Dictionary *dict, int id) {
     }
 }
 
+/*
+ * A function to incremente the number of a specific staff (hire)
+ */
 void staff_hireStaff(Dictionary *dict, int id) {
     int index = staff_isIDValid(id);
     if (index >= 0) {
@@ -472,6 +535,10 @@ void staff_hireStaff(Dictionary *dict, int id) {
     }
 }
 
+/*
+ * A function to free allocated resources in memory in order to
+ * stock the staff dictionnary
+ */
 void staff_destroyStaffDictionary(Dictionary *dict) {
     dictionary_destroy(dict);
 }

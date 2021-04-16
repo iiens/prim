@@ -1,35 +1,72 @@
+/*!
+ * \file effect.c
+ * \author Ramzy ZEBRIR and Antoine Man
+ * \version 0.1
+ * \date 04/03/2021
+ * \see staff.h
+ *
+ * Contains information about effects
+ */
+
 #include "../../headers/data/effect.h"
 
-//todo: too much methods without a "comment"
-// please use a method block comment
-// such as
-// /*
-// * these methods are used for ...
-// */
-// then some methods again and again. To split since it's unreadable :-(
-
+/*
+ * Function to get Mode attribute from an effect
+ */
 Mode effect_getMode(const Effect *effect) { return effect->mode; }
 
-Target effect_getWhat(const Effect *effect){ return effect->what; }
+/*
+ * Function to get What attribute from an effect
+ */
+Target effect_getWhat(const Effect *effect) { return effect->what; }
 
-bool effect_getOnOther(const Effect *effect){ return effect->onOther; }
+/*
+ * Function to get OnOther attribute from an effect
+ */
+bool effect_getOnOther(const Effect *effect) { return effect->onOther; }
 
-//todo: modifierRes is a float, please cast it to int
-int effect_getModifierRes(const Effect *effect){ return effect->modifierRes; }
+/*
+ * Function to get ModifierRes attribute from an effect
+ */
+int effect_getModifierRes(const Effect *effect) { return (int) effect->modifierRes; }
 
-int effect_getModifierFISA(const Effect *effect){ return effect->modifierFISA; }
+/*
+ * Function to get ModifierFISA attribute from an effect
+ */
+int effect_getModifierFISA(const Effect *effect) { return effect->modifierFISA; }
 
-int effect_getModifierFISE(const Effect *effect){ return effect->modifierFISE; }
+/*
+ * Function to get ModifierFISE attribute from an effect
+ */
+int effect_getModifierFISE(const Effect *effect) { return effect->modifierFISE; }
 
-int effect_getModifierE(const Effect *effect){ return effect->modifierE; }
+/*
+ * Function to get ModifierE attribute from an effect
+ */
+int effect_getModifierE(const Effect *effect) { return effect->modifierE; }
 
-int effect_getModifierDD(const Effect *effect){ return effect->modifierDD; }
+/*
+ * Function to get ModifierDD attribute from an effect
+ */
+int effect_getModifierDD(const Effect *effect) { return effect->modifierDD; }
 
-int effect_getModifierCapacity(const Effect *effect){ return effect->modifierCapacity; }
+/*
+ * Function to get ModifierCapacity attribute from an effect
+ */
+int effect_getModifierCapacity(const Effect *effect) { return effect->modifierCapacity; }
 
-int effect_getMinCostE(const Effect *effect){ return effect->min_costE; }
+/*
+ * Function to get MinCostE attribute from an effect
+ */
+int effect_getMinCostE(const Effect *effect) { return effect->min_costE; }
 
-int effect_getMinCostDD(const Effect *effect){ return effect->min_costDD; }
+/*
+ * Function to get MinCostDD attribute from an effect
+ */
+int effect_getMinCostDD(const Effect *effect) { return effect->min_costDD; }
 
-char* effect_getDescription(const Effect *effect){ return effect->description; }
+/*
+ * Function to get Description attribute from an effect
+ */
+char *effect_getDescription(const Effect *effect) { return effect->description; }
 
