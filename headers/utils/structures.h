@@ -10,18 +10,17 @@
 #ifndef PRIM_STRUCTURES_H
 #define PRIM_STRUCTURES_H
 
-//todo: Ramzy comment all
 
 #include "../data/effect.h" // effect.h : information about effect
 #include "../data/error.h" // error.h : need to exit status
-#include "element.h" // element.h : structures contains Element
+#include "elements.h" // element.h : structures contains Element
 
 /*!
  * \typedef Dictionary
  * \struct Dictionary_S structures.h "headers/data/structures.h"
  * \brief Struct which contains a dictionary of ElementType
  */
-//todo: documentation
+
 typedef struct Dictionary_S {
     int length;
     int numberOfElement;
@@ -168,7 +167,6 @@ ErrorCode list_destroy(List* list);
  */
 ErrorCode list_destroyFirst(List* list);
 
-// todo : do the documentation
 
 /*!
  * \fn Dictionary* dictionary_create(int length)

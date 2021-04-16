@@ -36,10 +36,10 @@ add_executable(AllTests
         tests/AllTests.c
         tests/testMap.h
         tests/testMap.c
-        tests/listSuite.h headers/data/box.h headers/data/facade.h headers/utils/element.h)
+        tests/listSuite.h headers/data/box.h headers/data/facade.h headers/utils/elements.h)
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
-add_executable(toto src/utils/structure.c)
+add_executable(toto src/utils/structures.c)
 target_include_directories(toto PUBLIC /headers)
 
 add_executable(main
@@ -64,7 +64,7 @@ add_executable(main
         src/model/map_utils.c
 
         headers/utils/structures.h
-        src/utils/structure.c src/model/case.c src/model/box.c src/view/mapping.c src/model/facade.c src/model/difficulty.c)
+        src/utils/structures.c src/model/case.c src/model/box.c src/view/mapping.c src/model/facade.c src/model/difficulty.c)
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )

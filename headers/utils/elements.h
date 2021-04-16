@@ -1,14 +1,20 @@
-//
-// Created by ramzy on 13/04/2021.
-//
+/*!
+ * \file elements.h
+ * \author Ramzy ZEBRIR
+ * \version 0.1
+ * \date 13/04/2021
+ * \see structures.h
+ *
+ * Contains elements
+ */
 
-#ifndef PRIM_ELEMENT_H
-#define PRIM_ELEMENT_H
+#ifndef PRIM_ELEMENTS_H
+#define PRIM_ELEMENTS_H
 
 /*!
  * \typedef ElementType
  * \enum ElementType_S
- * \brief todo : do a comment
+ * \brief it's a number, a text or a object
  */
 typedef enum ElementType_S {
     NUMBER,
@@ -45,4 +51,4 @@ Element dictionary_elementFromNumber(int number);
 Element dictionary_elementFromText( char* text);
 Element dictionary_elementFromObject (void* object);
 
-#endif //PRIM_ELEMENT_H
+#endif //PRIM_ELEMENTS_H
