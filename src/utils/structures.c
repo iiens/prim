@@ -57,8 +57,8 @@ ErrorCode list_addCoupleNumberText(List* l, int number, char* text)
 {
     Element e;
     Couple c;
-    c.keys = dictionary_elementFromNumber(number);
-    c.values = dictionary_elementFromText(text);
+    c.keys = elements_fromNumber(number);
+    c.values = elements_fromText(text);
     e.content.object = &c;
     e.type = OBJECT;
     return list_addElement(l, e);
@@ -67,9 +67,9 @@ ErrorCode list_addCoupleNumberText(List* l, int number, char* text)
 ErrorCode list_addCoupleNumber(List* l, int n1, int n2)
 {
     Couple* c = (Couple*) malloc(sizeof(Couple));
-    c->keys = dictionary_elementFromNumber(n1);
-    c->values = dictionary_elementFromNumber(n2);
-    return list_addElement(l, dictionary_elementFromObject(c));
+    c->keys = elements_fromNumber(n1);
+    c->values = elements_fromNumber(n2);
+    return list_addElement(l, elements_fromObject(c));
 }
 
 // advance list => next and return current
@@ -312,61 +312,10 @@ Element* dictionary_getElementText( Dictionary* d, char* key )
 Element* dictionary_getElementNumber( Dictionary* d, int key )
 {
     // create element
-    return dictionary_getElement(d, dictionary_elementFromNumber(key));
+    return dictionary_getElement(d, elements_fromNumber(key));
 }
 
 
 
-int dictionary_elementToNumber(Element e )
-{
-    if ( e.type == NUMBER ) {
-        return e.content.number;
-    }
-    return -1;
-}
 
-
-void* dictionary_elementToObject( Element e )
-{
-    if ( e.type == OBJECT ) {
-        return e.content.object;
-    }
-    return NULL;
-}
-
-
-char* dictionary_elementToText( Element e )
-{
-    if ( e.type == TEXT ) {
-        return e.content.text;
-    }
-    return "";
-}
-
-
-Element dictionary_elementFromNumber( int number )
-{
-    Element e;
-    e.type = NUMBER;
-    e.content.number = number;
-    return e;
-}
-
-
-Element dictionary_elementFromText( char* text )
-{
-    Element e;
-    e.type = TEXT;
-    e.content.text = text;
-    return e;
-}
-
-
-Element dictionary_elementFromObject( void* object )
-{
-    Element e;
-    e.type = OBJECT;
-    e.content.object = object;
-    return e;
-}
 

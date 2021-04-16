@@ -64,7 +64,7 @@ add_executable(main
         src/model/map_utils.c
 
         headers/utils/structures.h
-        src/utils/structures.c src/model/case.c src/model/box.c src/view/mapping.c src/model/facade.c src/model/difficulty.c)
+        src/utils/structures.c src/model/case.c src/model/box.c src/view/mapping.c src/model/facade.c src/model/difficulty.c src/utils/elements.c)
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )

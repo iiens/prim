@@ -17,7 +17,7 @@
 
 /*!
  * \typedef Dictionary
- * \struct Dictionary_S structures.h "headers/data/structures.h"
+ * \struct Dictionary_S structures.h "headers/utils/structures.h"
  * \brief Struct which contains a dictionary of ElementType
  */
 
@@ -29,7 +29,7 @@ typedef struct Dictionary_S {
 
 /*!
  * \typedef List
- * \struct List_S structures.h "headers/data/structures.h"
+ * \struct List_S structures.h "headers/utils/structures.h"
  * \brief Struct which represent a linked list
  */
 typedef struct List_S {

@@ -55,7 +55,7 @@ void interface_ncurses_gameMenu( const Map* map )
         int max = lineMAX[i]; //!< current max per line
         int y = END_BASE + 3 + i; //!< first y
         for ( int j = 0; j < max; ++j ) {
-            interface_ncurses_showLegendMachine(y != 0, y, dictionary_elementToObject(list_next(&machines)));
+            interface_ncurses_showLegendMachine(y != 0, y, elements_toObject(list_next(&machines)));
             y = 0;
         }
     }
