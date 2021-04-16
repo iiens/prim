@@ -4,21 +4,47 @@
 #include "../../headers/utils/const.h"
 
 // TODO Valentin ; faire documentation en anglais
+/**
+ * Cette fonction a été créé dans un but de factorisation du code
+ * Elle permet de vérifier que l'on peut acheter à un ertainprix et
+ * si oui de débiter les sous
+ *
+ * @param m La Map avec tous les infos du joueur
+ * @param costE Le prix en E
+ * @param costDD Le prix en DD
+ * @return un code d'erreur permettant de si on a réussi ou ce qu'il manque
+ */
 ErrorCode map_utils_tryBuy(Map *m, int costE, int costDD) {
+    // Verifie que le joueura suffisament de E
     if (map_getNumberE(m) >= costE) {
+        // Verifie que le joueur à suffisament de DD
         if (map_getNumberDD(m) >= costDD) {
+            // Débite le joueur
             map_setNumberE(m, costE * -1);
             map_setNumberDD(m, costDD * -1);
 
+            // Informe que tout c'est bien passé
             return NO_ERROR;
         } else {
+            // Informa qu'il mabque de DD
             return ERROR_NOT_ENOUGH_DD;
         }
     } else {
+        // Informa qu'il manque de E
         return ERROR_NOT_ENOUGH_E;
     }
 }
 
+/**
+ * Cette fonction permet de généraliser et de factorise du code
+ * Elle est utilisé pour appliquer les modifications d'un staff sur un prix ou une quantité
+ *
+ * @param mode Permet de connaitre sur quoi agit le staff
+ * @param target Permet de connaitre sur quoi agit le staff
+ * @param m Map avec toutes les informatons du joueur
+ * @param numberE Prix
+ * @param numberDD Prix
+ */
 void map_utils_checkModificationStaff(Mode mode, Target target, Map *m, int *numberE, int *numberDD) {
     const Staff *staff = staffInfo_getByModeAndType(mode, target);
     if (staff != NULL) {
@@ -92,15 +118,28 @@ void map_utils_sendResourcesToGate(Map *m, int resources) {
  * @return returns boolean if there is a machine of the right type
  */
 bool map_utils_caseHasMachineType(MachineStuff type, Case *c) {
+    // Récupération du type de case
     CaseType caseType = case_getType(c);
+    // Vérification De la présence d'une machine
     if (caseType == CASE_MACHINE) {
+        // Récupération du type de la machine
         Machine *machine = case_getMachine(c);
+        // retourne le resultat de la comparaison entre le type de la machine et type voulu
         return machine_getType(machine) == type;
     }
+    // Retourne faux si il n'y a pas de machine
     return false;
 }
 
-// TODO Valentin : modifier pour ne plus avoir à passer la box
+/**
+ * Cette fonction permet de déplacer une box sur une case adjacente d'une une certaine direction
+ *
+ * @param m Map avec toutes les information du jau actielle
+ * @param c Case de départ
+ * @param outputBox Box à déplacer
+ * @param card Direction dans laquelle déplacer la box
+ * @return Une erreur afin de prévenir d'une eventuelle erreur
+ */
 ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
     // Récupération des coordonnées de la case
     int x = case_getX(c);
@@ -179,16 +218,20 @@ ErrorCode map_utils_moveBox(Map *m, Case *c, Box *outputBox, Cardinal card) {
  * @param m
  */
 void map_utils_productionFise(Map *m) {
+    // Initialisation de la production de base des fises
     int productionE = PRODUCTION_FISE_E;
     int productionDD = PRODUCTION_FISE_DD;
 
+    // Récupération du nombre de fises possédé
     int numberFise = map_getNumberFISE(m);
 
+    // Récupération des modification possible sur la production des fises
     int modifE = 0;
     int modifDD = 0;
     // Prendre en compte les effets de staff
     map_utils_checkModificationStaff(PRODUCTION, (Target) {.other = SUB_FISE}, m, &modifE, &modifDD);
 
+    // Ajoute la production des fises au joueur
     map_setNumberE(m, (productionE + modifE) * numberFise);
     map_setNumberDD(m, (productionDD + modifDD) * numberFise);
 }
@@ -199,17 +242,22 @@ void map_utils_productionFise(Map *m) {
  * @param m
  */
 void map_utils_productionFisa(Map *m) {
+    // Vérification que c'est bien le tour de produire
     if (map_getNumberTurn(m) % NB_TURN_FISA == 0) {
+        // Initialisation de la production de base des fisas
         int productionE = PRODUCTION_FISA_E;
         int productionDD = PRODUCTION_FISA_DD;
 
+        // Récupération du nombre de fisas possédé
         int numberFisa = map_getNumberFISA(m);
 
+        // Récupération des modification possible sur la production des fisas
         int modifE = 0;
         int modifDD = 0;
         // Prendre en compte les effets de staff
         map_utils_checkModificationStaff(PRODUCTION, (Target) {.other = SUB_FISA}, m, &modifE, &modifDD);
 
+        // Vérifie la ressources à produire et credite le joueur
         if (map_getProductionFISA(m) == E_VALUE) {
             map_setNumberE(m, (productionE + modifE) * numberFisa);
         } else {
@@ -218,7 +266,13 @@ void map_utils_productionFisa(Map *m) {
     }
 }
 
+/**
+ * Permet de déplacer les ressources sur les croix et les tapis
+ *
+ * @param m Map avec les information du jeu actuel
+ */
 void map_utils_moveResources(Map *m) {
+    // Récupération dela taille du plateau
     int width = map_getWidth(m);
     int height = map_getHeight(m);
 
@@ -253,15 +307,23 @@ void map_utils_moveResources(Map *m) {
     }
 }
 
+/**
+ * Oermet de générer des Ressources
+ *
+ * @param m Map du jeu actuel
+ */
 void map_utils_generateResources(Map *m) {
+    // Initialisation du nombre de tour avant proction
     int numberTour = NB_TURN_PRODUCTION_SOURCE;
 
+    // Application d'éventuelle modification par des staffs
     const Staff *staff = staffInfo_getByModeAndType(PRODUCTION, (Target) {.other = SOURCE});
     const Dictionary *dicoStaff = map_getStaffDictionary(m);
     const Effect *effect = staff_getStaffEffect(staff);
     numberTour = numberTour + (effect_getTurnProduction(effect) *
                                (staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staff)) - 1));
 
+    // Vérification de la validité des modification
     if (numberTour < effect_getMinTurnProduction(effect)) {
         numberTour = effect_getMinTurnProduction(effect);
     }
@@ -286,29 +348,59 @@ void map_utils_generateResources(Map *m) {
     }
 }
 
+/**
+ * Permet de générer les déchêt à la porte
+ *
+ * @param m
+ */
 void map_utils_generateGarbage(Map *m) {
     Case *c;
     CaseType type;
 
-    const Staff *staff = staffInfo_getByModeAndType(SEND_DOOR, (Target) {.other = NONE});
     const Dictionary *dicoStaff = map_getStaffDictionary(m);
-    const Effect *effect = staff_getStaffEffect(staff);
+    // Récupération du multiplicateur du nombre de déchêt
+    const Staff *staffIn = staffInfo_getByModeAndType(SEND_DOOR, (Target) {.other = NONE});
+    const Effect *effectIn = staff_getStaffEffect(staffIn);
     int modifierRes =
-            effect_getModifierRes(effect) * (staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staff)) - 1);
+             * staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staffIn));
 
-    //Parcours des case jusqu'à trouver la porte
+    // Vérification du minimum pour le multiplicateur
+    if (modifierRes <= 0) modifierRes = 1;
+
+    // Récupération du multiplicateur du nombre de déchêt
+    const Staff *staffOut = staffInfo_getByModeAndType(DOOR_OUT, (Target) {.other = DESTROY_GARBAGE});
+    const Effect *effectOut = staff_getStaffEffect(staffOut);
+    int modifierThomas = effect_getModifierRes(effectOut);
+    int numberThomas = staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staffOut));
+
+    // Vérification du minimum pour le multiplicateur
+    if (modifierRes <= 0) modifierRes = 1;
+
+    // Parcours des case jusqu'à trouver la porte
     for (int i = 0; i < map_getWidth(m); ++i) {
         for (int j = 0; j < map_getHeight(m); ++j) {
             c = map_getCase(i, j, m);
             type = case_getType(c);
             if (type == CASE_GATE && case_hasBox(c)) { // Si porte avec box alors
-                // Récupération du nombre de la box
+                // Récupération de la box
                 Box *box = case_getBox(c);
-                // Récupération du nombre de resdources
+                // Récupération du nombre de ressources
                 int numberR = box_getNumberResource(box);
                 // Transformation des ressources en déchets
-                box_setNumberGarbage(box, numberR);
                 box_setNumberResource(box, numberR * -1);
+
+                srand(time(NULL)); // NOLINT(cert-msc51-cpp)
+                for (int k = 0; k < numberR; ++k) {
+                    for (int l = 0; l < numberThomas; ++l) {
+                        int deVal = rand() % modifierThomas; // NOLINT(cert-msc50-cpp)
+                        if (deVal == 0) {
+                            numberR--;
+                            break;
+                        }
+                    }
+                }
+
+                box_setNumberGarbage(box, numberR);
 
                 // augmentation du score
                 map_setNumberScore(m, numberR * modifierRes);
