@@ -22,9 +22,10 @@ CC= gcc
 # compilation flags
 # https://stackoverflow.com/questions/154630/recommended-gcc-warning-options-for-c
 CFLAGS= -Wall -Wextra -std=c99 -g
-C_TESTS_FLAGS=$(CFLAGS) -lcunit
+C_TESTS_FLAGS=$(CFLAGS)
 # -m64 -pedantic -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
 NCURSES_FLAGS=-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=700 -lncursesw -lform
+CUNIT_FLAGS=-lcunit
 
 # path
 OUTPUT=./obj/
@@ -252,7 +253,7 @@ prim: $(O_FILES)
 	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(NCURSES_FLAGS)
 
 tests: $(O_TESTS_FILES)
-	$(CC) $(C_TESTS_FLAGS) -o bin/tests $(O_TESTS_FILES)
+	$(CC) $(C_TESTS_FLAGS) -o bin/tests $(O_TESTS_FILES) $(CUNIT_FLAGS) $(NCURSES_FLAGS)
 
 # compile before run
 # then run

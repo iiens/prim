@@ -3,6 +3,7 @@ doxygen/*
 *.o
 *.out
 bin/prim
+bin/tests
 !.idea/prim.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/clion+all
