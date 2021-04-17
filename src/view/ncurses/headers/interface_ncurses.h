@@ -30,8 +30,10 @@ ErrorCode interface_ncurses_reload( const Map* map );
 ErrorCode interface_ncurses_close();
 
 /*! @see interface_endGame
+ * @param map game map
+ * @param e a code for the victory/defeat
  * @return see interface_endGame */
-ErrorCode interface_ncurses_endGame( const Map* map, ErrorCode e );
+ErrorCode interface_ncurses_endGame( const __attribute__((unused)) Map* map, ErrorCode e );
 
 //\////////////////////////////\//
 //\/ game interface declarations

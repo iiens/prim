@@ -20,7 +20,7 @@ typedef void* (* Closure)( char* buff, bool* leave, ErrorCode* error ); //!< clo
 
 // utilities functions
 
-/*! true is there is a last message, false else */
+/*! @return true is there is a last message, false else */
 bool interface_ncurses_utils_hasLastMessage();
 
 /*!

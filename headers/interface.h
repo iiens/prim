@@ -35,7 +35,7 @@
 extern bool back; //!< @brief Allow to cancel the current action, check in main after each cancelable action
 
 /*!
- * @typedef MachineSpec: machine that the user requested
+ * @typedef MachineSpec
  * @struct MachineSpec_S interface.h "headers/interface.h"
  *
  * Convenience structure for the user to request
@@ -126,6 +126,8 @@ Difficulty interface_chooseDifficulty(void);
  * </ul>
  *
  * @param[in] map a map
+ * @param showResource true if we show a map of resources
+ * @param showGarbage true if we show a map of garbage
  * @see Map type
  */
 void interface_showMap( const Map* map, bool showResource, bool showGarbage );
