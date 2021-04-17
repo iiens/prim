@@ -1,3 +1,13 @@
+/*!
+ * \file AllTests.c
+ * \author Valentin DREANO
+ * \version 0.1
+ * \date 17/04/2021
+ *
+ * Contains the hand to initialize and run all tests
+ *
+ */
+
 #include "CUnit/Basic.h"
 #include "CUnit/Console.h"
 #include "CUnit/Automated.h"

@@ -33,14 +33,35 @@ include_directories(${CURSES_INCLUDE_DIR})
 ###########
 
 add_executable(AllTests
-        tests/AllTests.c
+        tests/listSuite.h
+        tests/testStructure.h
         tests/testMap.h
+        tests/testMachine.h
+
+        tests/AllTests.c
+        tests/testStructure.c
         tests/testMap.c
-        tests/listSuite.h headers/data/box.h headers/data/facade.h headers/utils/elements.h)
+        tests/testMachine.c
+
+        src/model/map.c
+        src/model/staff.c
+        src/model/effect.c
+        src/model/machine_info.c
+        src/model/machine.c
+        src/model/map_utils.c
+
+        headers/utils/structures.h
+        src/utils/structures.c
+        src/model/case.c
+        src/model/box.c
+        src/view/mapping.c
+        src/model/facade.c
+        src/model/difficulty.c
+        src/utils/elements.c tests/testCase.c tests/testCase.h tests/StructureListTest.h)
+
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
-add_executable(toto src/utils/structures.c)
-target_include_directories(toto PUBLIC /headers)
+target_include_directories(AllTests PUBLIC /headers)
 
 add_executable(main
         src/main.c
@@ -64,7 +85,13 @@ add_executable(main
         src/model/map_utils.c
 
         headers/utils/structures.h
-        src/utils/structures.c src/model/case.c src/model/box.c src/view/mapping.c src/model/facade.c src/model/difficulty.c src/utils/elements.c)
+        src/utils/structures.c
+        src/model/case.c
+        src/model/box.c
+        src/view/mapping.c
+        src/model/facade.c
+        src/model/difficulty.c
+        src/utils/elements.c)
 
 target_include_directories(main PUBLIC /headers)
 target_link_libraries( main ${CURSES_LIBRARIES} )
