@@ -42,7 +42,11 @@ ErrorCode interface_ncurses_endGame( const Map* map, ErrorCode e );
 Difficulty interface_ncurses_chooseDifficulty();
 
 /*! @see interface_showMap
- * @param map see interface_showStaffList */
+ * @param map see interface_showStaffList
+ * @param showResource true if we show a map of resources
+ * @param showGarbage true if we show a map of garbage
+ * @param save true if we save our choice for showResource/showGarbage
+ * */
 void interface_ncurses_showMap( const Map* map, bool showResource, bool showGarbage, bool save );
 
 /*! @see interface_showStaffList

@@ -8,6 +8,8 @@ GENERATE_XML            = YES
 
 INPUT += docs/userdoc.md
 
+EXCLUDE                = tests
+
 XML_PROGRAMLISTING     = NO
 XML_NS_MEMB_FILE_SCOPE = YES
 

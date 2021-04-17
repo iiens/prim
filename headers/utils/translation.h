@@ -18,52 +18,50 @@
  * All translations constants
  */
 typedef enum Translation_S {
-    TRANSLATE_CHOICE_DIFF,
-    TRANSLATE_SCREEN_TOO_SMALL,
+    TRANSLATE_CHOICE_DIFF, //!< difficulty menu header
+    TRANSLATE_SCREEN_TOO_SMALL, //!< screen too small message
 
-    TRANSLATE_GAME_NAME,
-    TRANSLATE_GAME_TURN,
-    TRANSLATE_GAME_E,
-    TRANSLATE_GAME_DD,
-    TRANSLATE_GAME_FISE,
-    TRANSLATE_GAME_FISA,
-    TRANSLATE_GAME_FISA_MODE,
-    TRANSLATE_GAME_STAFFS,
-    TRANSLATE_GAME_SCORE,
-    TRANSLATE_GAME_GARBAGE,
+    TRANSLATE_GAME_NAME, //!< name:
+    TRANSLATE_GAME_TURN, //!< turn:
+    TRANSLATE_GAME_E, //!< E:
+    TRANSLATE_GAME_DD, //!< DD:
+    TRANSLATE_GAME_FISE, //!< FISE:
+    TRANSLATE_GAME_FISA, //!< FISA:
+    TRANSLATE_GAME_FISA_MODE, //!< FISA MODE:
+    TRANSLATE_GAME_SCORE, //!< Score:
+    TRANSLATE_GAME_GARBAGE, //!< Garbage:
 
-    TRANSLATE_ACTION_LABEL,
-    TRANSLATE_GO_BACK_B,
+    TRANSLATE_ACTION_LABEL, //!< Action:
+    TRANSLATE_GO_BACK_B, //!< go back message
 
-    TRANSLATE_MACHINE_LIST_TITLE,
-    TRANSLATE_ML_MACHINE_TAG,
-    TRANSLATE_ML_COST_TAG,
-    TRANSLATE_ML_COST_UP_TAG,
-    TRANSLATE_ML_COST_DESTROY_TAG,
+    TRANSLATE_MACHINE_LIST_TITLE, //!< list machines header
+    TRANSLATE_ML_COST_TAG, //!< cost
+    TRANSLATE_ML_COST_UP_TAG, //!< cost upgrade
+    TRANSLATE_ML_COST_DESTROY_TAG, //!< cost destroy
 
-    TRANSLATE_STAFF_LIST_TITLE,
-    TRANSLATION_LIST_STAFF_INDEX,
-    TRANSLATION_PRESS_ARROW_CHANGE_PAGE,
+    TRANSLATE_STAFF_LIST_TITLE, //!< list staff header
+    TRANSLATE_STAFF_TAG, //!< see below, part of header
+    TRANSLATE_TO_TAG, //!< see below, part of header
+    TRANSLATE_ON_TAG, //!< see below, part of header
+    TRANSLATE_ID_TAG, //!< see below, part of header
+    TRANSLATE_OWNED_TAG, //!< number of this staff
+    TRANSLATION_LIST_STAFF_INDEX, //!< from when to when
+    TRANSLATION_PRESS_ARROW_CHANGE_PAGE, //!< move page message
 
-    TRANSLATE_ACTION_LIST_TITLE,
+    TRANSLATE_ACTION_LIST_TITLE, //!< list actions header
 
     // actions
-    TRANSLATE_INPUT_MACHINE_LOCATION,
-    TRANSLATE_INPUT_STAFF,
-    TRANSLATE_INPUT_MACHINE,
-    TRANSLATE_INPUT_ACTION,
-    TRANSLATE_INPUT_ORIENTATION,
+    TRANSLATE_INPUT_MACHINE_LOCATION, //!< ask Location
+    TRANSLATE_INPUT_STAFF, //!< ask Staff ID
+    TRANSLATE_INPUT_MACHINE, //!< ask Machine ID
+    TRANSLATE_INPUT_ACTION, //!< Action help
+    TRANSLATE_INPUT_ORIENTATION, //!< ask orientation
 
     // legend and view components
-    TRANSLATE_LEGEND,
-    TRANSLATE_STAFF_TAG,
-    TRANSLATE_TO_TAG,
-    TRANSLATE_ON_TAG,
-    TRANSLATE_ID_TAG,
-    TRANSLATE_OWNED_TAG,
+    TRANSLATE_LEGEND, //!< Legend:
 
-    TRANSLATE_WIN,
-    TRANSLATE_LOST,
+    TRANSLATE_WIN, //!< win
+    TRANSLATE_LOST, //!< loose
 } Translation;
 
 /*!
@@ -102,15 +100,15 @@ char* translation_fetchCaseTypeName( CaseType t );
  */
 char* translation_fetchMachineTypeName( MachineStuff s );
 
-/**
+/*!
  * Full name version of translation_fetchCaseTypeName
  * @param t see {@link translation_fetchCaseTypeName}
  * @return see {@link translation_fetchCaseTypeName} */
 char* translation_fetchCaseTypeFullName( CaseType t );
 
-/**
+/*!
 * Full name version of translation_fetchMachineTypeName
-* @param t see {@link translation_fetchMachineTypeName}
+* @param s see {@link translation_fetchMachineTypeName}
 * @return see {@link translation_fetchMachineTypeName} */
 char* translation_fetchMachineTypeFullName( MachineStuff s );
 
@@ -136,7 +134,7 @@ List* translation_getLegendMachines(void);
  */
 Dictionary* translation_getLegendDirections(void);
 
-/**
+/*!
  * Translate a number into 3 characters
  * @param number a number
  * @return char[3] with the number

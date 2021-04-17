@@ -87,8 +87,6 @@ char* translation_get( Translation t )
             return "FISA";
         case TRANSLATE_GAME_FISA_MODE:
             return "FISA MODE";
-        case TRANSLATE_GAME_STAFFS:
-            return "Staffs";
         case TRANSLATE_GAME_SCORE:
             return "Score";
         case TRANSLATE_GAME_GARBAGE:
@@ -99,8 +97,6 @@ char* translation_get( Translation t )
             return "(press b to go back)";
         case TRANSLATE_MACHINE_LIST_TITLE:
             return "List of all machines";
-        case TRANSLATE_ML_MACHINE_TAG:
-            return "Machine:";
         case TRANSLATE_ML_COST_TAG:
             return ">>> cost: ";
         case TRANSLATE_ML_COST_UP_TAG:
