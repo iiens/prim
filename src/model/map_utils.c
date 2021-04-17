@@ -355,7 +355,6 @@ void map_utils_generateGarbage(Map *m) {
                 map_setNumberScore(m, numberR * modifierRes);
 
                 // Taking into account Gaël Thomas
-                srand(time(NULL)); // NOLINT(cert-msc51-cpp)
                 for (int k = 0; k < numberR; ++k) {
                     for (int l = 0; l < numberThomas; ++l) {
                         // Roll the dice
@@ -485,7 +484,6 @@ void map_utils_activateCollectors(Map *m) {
                     }
                 }
 
-                srand(time(NULL)); // NOLINT(cert-msc51-cpp)
                 // Creation of a temporary box to store the number of recovered resources
                 int choiceSource;
                 Box *cumulative = box_create(0, 0);

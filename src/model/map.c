@@ -53,7 +53,6 @@ Map *map_create(Difficulty dif) {
         }
     }
 
-    srand(time(NULL)); // NOLINT(cert-msc51-cpp)
     // Random gate placement
     gate_x = (int) (rand() % m->width); // NOLINT(cert-msc50-cpp)
     gate_y = (int) (rand() % m->height); // NOLINT(cert-msc50-cpp)

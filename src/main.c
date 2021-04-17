@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <time.h>
 #include "main.h"
 
 int main( void ) {
@@ -13,6 +14,7 @@ int main( void ) {
     Action act; //!< Allows you to know the action that the player chooses
 
     // Initializes the game
+    srand(time(NULL)); // NOLINT(cert-msc51-cpp)
     map = main_initGame();
 
     // Check the return of the function
