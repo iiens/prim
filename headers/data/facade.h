@@ -63,7 +63,7 @@ typedef struct Facade_S Facade;
 
 /**
  * A function to initialize a facade type.
- * @param Cardinal
+ * @param card
  * @return the facade
  */
 Facade *facade_create(Cardinal card);

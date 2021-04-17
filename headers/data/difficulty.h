@@ -12,7 +12,6 @@
 #ifndef PRIM_DIFFICULTY_H
 #define PRIM_DIFFICULTY_H
 
-// A constant to know the number of direction
 #define NUMBER_DIFFICULTY 3
 
 /*!

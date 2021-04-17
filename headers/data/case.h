@@ -58,15 +58,15 @@ typedef struct Case_S Case;
 
 /**
  * A function to get the case abscissa
- * @param c, a case
+ * @param c case
  * @return the case abscissa
  */
 int case_getX(const Case *c);
 
 /**
  * A function to get the case ordinate
- * @param c, a case
- * @returnthe the case ordinate
+ * @param c case
+ * @return the case ordinate
  */
 int case_getY(const Case *c);
 
@@ -78,35 +78,35 @@ int case_getY(const Case *c);
  *   <li> CASE_SOURCE = 2, a case that contain resources
  *   <li> CASE_MACHINE = 3, a case that contain a machine
  * </ul>
- * @param c, a case
+ * @param c a case
  * @return the type case if case exist, if not -1
  */
 CaseType case_getType(const Case *c);
 
 /**
  * This function get a located machine on the map
- * @param c, a case
+ * @param c case
  * @return a located machine on the map if exist
  */
 Machine *case_getMachine(const Case *c);
 
 /**
  * This function get a located box on the map
- * @param c, a case
+ * @param c case
  * @return a located box on the map if exist
  */
 Box *case_getBox(const Case *c);
 
 /**
  * This function get number of resources from a case
- * @param c, a case
+ * @param c case
  * @return resources from a case if exist
  */
 int case_getNumberResourcesByCase(const Case *c);
 
 /**
  * This function get number of garbage from a case
- * @param c, a case
+ * @param c case
  * @return garbage from a case if exist
  */
 int case_getNumberGarbageByCase(const Case *c);
@@ -121,33 +121,33 @@ Case *case_create(int x, int y);
 
 /**
  * A function to add a machine on an empty case
- * @param c, a case
- * @param mach, a machine
+ * @param c case
+ * @param mach machine
  */
 void case_addMachine(Case *c, Machine *mach);
 
 /**
  * A function to add a gate on an empty case
- * @param c, a case
+ * @param c case
  */
 void case_addGate(Case *c);
 
 /**
  * A function to add a source on an empty case
- * @param c, a case
+ * @param c case
  */
 void case_addSource(Case *c);
 
 /**
  * A function to add a box on an empty case
- * @param c, a case
- * @param box, a box
+ * @param c case
+ * @param box box
  */
 void case_addBox(Case *c, Box *box);
 
 /**
  * A function to remove the box on a located case
- * @param c, case
+ * @param c case
  * @return an error code to know what happen
  */
 ErrorCode case_deleteBox(Case *c);
@@ -155,14 +155,14 @@ ErrorCode case_deleteBox(Case *c);
 /**
  * A function to remove everything on the case
  * if there is a box or a machine
- * @param c, a case
+ * @param c case
  */
 void case_setEmpty(Case *c);
 
 /**
  * A function to know if there is something on the case (box, machine)
  * To know if we are allowed to create something on
- * @param c, a case
+ * @param c case
  * @return true if there is nothing on, if not false
  */
 bool case_isEmpty(const Case *c);
@@ -172,7 +172,7 @@ bool case_isEmpty(const Case *c);
  * In order to know it, we have to analyze the first bit of the type case.
  * If the number is odd, there is a box
  * If the number is even, there is nothing
- * @param c, a case
+ * @param c case
  * @return true if there is a box, if not false
  */
 bool case_hasBox(const Case *c);
@@ -181,7 +181,7 @@ bool case_hasBox(const Case *c);
  * A function to free allocated resources in memory in order to
  * stock the case.
  * A case can contain a box or a machine.
- * @param c
+ * @param c case
  */
 void case_destroy(Case *c);
 

@@ -77,56 +77,56 @@ const Effect *staff_getStaffEffectByID(int id);
 
 /**
  * This function get the staff id attribute from a staff
- * @param id
+ * @param staff
  * @return the staff id from a staff
  */
 int staff_getStaffID(const Staff *staff);
 
 /**
  * This function get the staff name attribute from a staff
- * @param id
+ * @param staff
  * @return the staff name from a staff
  */
 char *staff_getStaffName(const Staff *staff);
 
 /**
  * This function get the staff cost E attribute from a staff
- * @param id
+ * @param staff
  * @return the staff cost E from a staff
  */
 int staff_getStaffCostE(const Staff *staff);
 
 /**
  * This function get the staff CostDD attribute from a staff
- * @param id
+ * @param staff
  * @return the staff CostDD from a staff
  */
 int staff_getStaffCostDD(const Staff *staff);
 
 /**
  * This function get the staff description attribute from a staff
- * @param id
+ * @param staff
  * @return the staff description from a staff
  */
 char *staff_getStaffDescription(const Staff *staff);
 
 /**
  * This function get the staff effect attribute from a staff
- * @param id
+ * @param staff
  * @return the staff effect from a staff
  */
 const Effect *staff_getStaffEffect(const Staff *staff);
 
 /**
  * This function get the TurnProduction attribute from a effect
- * @param id
+ * @param staff
  * @return the TurnProduction from a effect
  */
 int effect_getTurnProduction(const Effect *effect);
 
 /**
  * This function get the MinTurnProduction attribute from a effect
- * @param id
+ * @param staff
  * @return the MinTurnProduction from a effect
  */
 int effect_getMinTurnProduction(const Effect *effect);
@@ -141,7 +141,7 @@ int effect_getMinTurnProduction(const Effect *effect);
 const Staff *staffInfo_getByModeAndType(Mode mode, Target type);
 
 /**
- * A function to create a staff dictionnary which for each staff, his id and the number of staff hired
+ * A function to create a staff dictionary which for each staff, his id and the number of staff hired
  * @return Dictionary
  */
 Dictionary *staff_createStaffDictionary();

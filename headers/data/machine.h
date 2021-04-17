@@ -59,7 +59,7 @@ int machine_getLevel(const Machine *machine);
 
 /*!
  * @brief a function to get a default orientation for a machine
- * @param[in] MachineStuff a type machine
+ * @param[in] s a type machine
  *
  * This fonction get D:
  * MS_COLLECTOR = 1, collector machine
@@ -115,12 +115,12 @@ Machine *machine_create(MachineStuff type);
  */
 ErrorCode machine_destroyMachine(Machine *mach);
 
- /**
-  * This function rotate the orientation of a machine in clockwise
-  * The int rotation can be a negative value.
-  * @param machine
-  * @param rotation
-  */
+/**
+ * This function rotate the orientation of a machine in clockwise
+ * The int rotation can be a negative value.
+ * @param machine
+ * @param rotation
+ */
 void machine_rotateMachine(Machine *machine, int rotation);
 
 /**
@@ -231,13 +231,13 @@ Box *machine_getBox(const Machine *machine, Cardinal card);
  * @param card
  * @param box
  */
-void machine_addBox(Machine*machine, Cardinal card, Box* box);
+void machine_addBox(Machine *machine, Cardinal card, Box *box);
 
 /**
  * A function to destroy a box of the facade machine according to the cardinal
  * @param machine
  * @param card
  */
-void machine_destroyBox(Machine*machine, Cardinal card);
+void machine_destroyBox(Machine *machine, Cardinal card);
 
 #endif //PRIM_MACHINE_H
