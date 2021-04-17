@@ -9,13 +9,13 @@
  *
  */
 
-#include "testMachine.h"
+#include "test_machine.h"
 
 test_List testMachine_listTests[TESTMACHINE_NUMBERTESTS] = {
         {"Instantiation_Machine\0",   testMachine_create}
 };
 
-int testCase_createSuite(CU_pSuite pSuite) {
+int testMachine_createSuite(CU_pSuite pSuite) {
 
     /* add a suite to the registry */
     pSuite = CU_add_suite("Test_Type_Machine", testMachine_initSuite, testMachine_cleanSuite);
@@ -49,6 +49,23 @@ void testMachine_create() {
     // Checking values
     CU_ASSERT_EQUAL(machine_getLevel(machine), MACHINE_DEFAULT_LVL);
     CU_ASSERT_EQUAL(machine_getType(machine), type);
+    // Check that the exit is to the South
+    CU_ASSERT_EQUAL(machine_getDirection(machine, SOUTH), DIRECTION_OUT);
+
+    // Destroy map
+    machine_destroyMachine(machine);
+}
+
+void testMachine_rotation() {
+    // Principle that the creation of a machine to work previously
+    // Case creation
+    MachineStuff type = MS_COLLECTOR;
+    Machine *machine = machine_create(type);
+
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getDirection(machine, SOUTH), DIRECTION_OUT);
+
+    machine_rotateMachine(machine, 1);
 
     // Destroy map
     machine_destroyMachine(machine);

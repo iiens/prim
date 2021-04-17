@@ -1,4 +1,4 @@
-#include "testMap.h"
+#include "test_map.h"
 
 test_List testMap_listTests[TESTMAP_NUMBERTESTS] = {
         {"Instantiation_Map_Easy\0",   testMap_createMapEasy},
@@ -28,6 +28,7 @@ int testMap_createSuite(CU_pSuite pSuite) {
 }
 
 int testMap_initSuite() {
+    srand(1); // NOLINT(cert-msc51-cpp)
     return 0;
 }
 

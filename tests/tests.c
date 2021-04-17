@@ -14,7 +14,7 @@
 #include "CUnit/CUCurses.h" /* only on systems having curses */
 
 // Tests files
-#include "listSuite.h"
+#include "list_suite.h"
 
 int main()
 {

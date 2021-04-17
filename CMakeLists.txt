@@ -33,15 +33,15 @@ include_directories(${CURSES_INCLUDE_DIR})
 ###########
 
 add_executable(AllTests
-        tests/listSuite.h
-        tests/testStructure.h
-        tests/testMap.h
-        tests/testMachine.h
+        tests/list_suite.h
+        tests/test_structure.h
+        tests/test_map.h
+        tests/test_machine.h
 
-        tests/AllTests.c
-        tests/testStructure.c
-        tests/testMap.c
-        tests/testMachine.c
+        tests/tests.c
+        tests/test_structure.c
+        tests/test_map.c
+        tests/test_machine.c
 
         src/model/map.c
         src/model/staff.c
@@ -57,7 +57,7 @@ add_executable(AllTests
         src/view/mapping.c
         src/model/facade.c
         src/model/difficulty.c
-        src/utils/elements.c tests/testCase.c tests/testCase.h tests/StructureListTest.h)
+        src/utils/elements.c tests/test_case.c tests/test_case.h tests/structure_list_test.h)
 
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 

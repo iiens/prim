@@ -2,11 +2,11 @@
 #define TEST_STRUCTURE_H
 
 #include "CUnit/Basic.h"
-#include "StructureListTest.h"
+#include "structure_list_test.h"
 #include "../headers/utils/structures.h"
 
-#define TESTDICTIONARY_NUMBERTESTS 3
-#define TESTLIST_NUMBERTESTS 3
+#define TESTDICTIONARY_NUMBERTESTS 0
+#define TESTLIST_NUMBERTESTS 0
 
 /**
  * This function is used to create the "Test Structure" suite
@@ -20,12 +20,14 @@ int testStructure_initSuite();
 int testStructure_cleanSuite();
 
 void testDictionary_create();
-void testDictionary_destroy();
-void testDictionary_search();
+void testDictionary_addElement();
+void testDictionary_removeElement();
+void testDictionary_indexElement();
 
 void testList_create();
 void testList_createEmpty();
-void testList_destroy();
+void testList_addElement();
+void testList_indexElement();
 void testList_index();
 void testList_removeIndex();
 

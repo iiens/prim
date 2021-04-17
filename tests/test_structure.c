@@ -2,7 +2,7 @@
 // Created by doe on 09/04/2021.
 //
 
-#include "testStructure.h"
+#include "test_structure.h"
 
 test_List testDictionary_listTests[TESTDICTIONARY_NUMBERTESTS] = {
 
@@ -52,6 +52,6 @@ int testStructure_cleanSuite() {
     return 0;
 }
 
-void testList_create() {
+void testDictionary_create() {
 
 }

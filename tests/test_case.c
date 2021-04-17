@@ -9,7 +9,7 @@
  *
  */
 
-#include "testCase.h"
+#include "test_case.h"
 
 test_List testCase_listTests[TESTCASE_NUMBERTESTS] = {
         {"Instantiation_Case\0",   testCase_create}

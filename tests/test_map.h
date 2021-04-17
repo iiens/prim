@@ -2,7 +2,7 @@
 #define TESTS_MAP
 
 #include "CUnit/Basic.h"
-#include "StructureListTest.h"
+#include "structure_list_test.h"
 #include "../headers/map.h"
 
 #define TESTMAP_NUMBERTESTS 6

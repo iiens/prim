@@ -9,11 +9,11 @@
  *
  */
 
-#ifndef PRIM_TESTCASE_H
-#define PRIM_TESTCASE_H
+#ifndef PRIM_TEST_CASE_H
+#define PRIM_TEST_CASE_H
 
 #include "CUnit/Basic.h"
-#include "StructureListTest.h"
+#include "structure_list_test.h"
 #include "../headers/data/case.h"
 
 #define TESTCASE_NUMBERTESTS 1
@@ -34,4 +34,4 @@ int testCase_cleanSuite();
  */
 void testCase_create();
 
-#endif //PRIM_TESTCASE_H
+#endif //PRIM_TEST_CASE_H
