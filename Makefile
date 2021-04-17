@@ -58,20 +58,21 @@ SOURCE_T=tests/
 INTERFACE_MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT_V_N_M)location.o \
  	$(OUTPUT_V_N_M)machine.o $(OUTPUT_V_N_M)show.o $(OUTPUT_V_N_M)staff.o $(OUTPUT_V_N_M)game.o
 
-# all off our project files
-# 2-3 : we got our interface and 2 ncurses related and translation and our modules of course. Also a translation file.
-# 4-5 : there related to the map
-# 6 : utils
-O_FILES= $(OUTPUT_V)interface.o $(OUTPUT_V)translation.o $(OUTPUT_V)mapping.o \
-	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
-	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
+# map
+BASIC_FILES= $(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
 	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o $(OUTPUT_M)facade.o \
 	$(OUTPUT_U)utils_fun.o $(OUTPUT_U)structures.o $(OUTPUT_U)elements.o $(OUTPUT_M)difficulty.o
+
+# all off our project files
+O_FILES= $(OUTPUT)main.o \
+	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o $(OUTPUT_V)mapping.o \
+	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
+	$(BASIC_FILES)
 
 # tests files
 # all normal files
 # and all tests files
-O_TESTS_FILES= $(O_FILES) \
+O_TESTS_FILES= $(OUTPUT_T)tests.o $(BASIC_FILES) \
 	$(OUTPUT_T)test_case.o $(OUTPUT_T)test_machine.o $(OUTPUT_T)test_map.o \
 	$(OUTPUT_T)test_structure.o
 
@@ -247,11 +248,11 @@ $(OUTPUT_T)test_structure.o: $(SOURCE_T)test_structure.c $(SOURCE_T)test_structu
 # Note: we don't put main inside our variable since having two main
 # can mess up everything
 
-prim: $(O_FILES) $(OUTPUT)main.o
-	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(OUTPUT)main.o $(NCURSES_FLAGS)
+prim: $(O_FILES)
+	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(NCURSES_FLAGS)
 
-tests: $(O_TESTS_FILES) $(OUTPUT_T)tests.o
-	$(CC) $(C_TESTS_FLAGS) -o bin/tests $(O_TESTS_FILES) $(OUTPUT_T)tests.o $(NCURSES_FLAGS)
+tests: $(O_TESTS_FILES)
+	$(CC) $(C_TESTS_FLAGS) -o bin/tests $(O_TESTS_FILES)
 
 # compile before run
 # then run

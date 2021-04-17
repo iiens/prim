@@ -15,7 +15,6 @@
 
 // Tests files
 #include "list_suite.h"
-#include "../src/main.h"
 
 int main(void)
 {
