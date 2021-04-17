@@ -7,6 +7,8 @@
 # Version 1.2.1, Usage :
 # - `make` : creates project, put executable in ./bin/prim
 # - `make all` : same as make
+# - `make prim` : same as make
+# - `make tests` : make all tests, put executable in ./bin/tests
 # - `make clean` : clean .o files
 # - `make run` : run ./a.out
 ###############################
@@ -20,6 +22,7 @@ CC= gcc
 # compilation flags
 # https://stackoverflow.com/questions/154630/recommended-gcc-warning-options-for-c
 CFLAGS= -Wall -Wextra -std=c99 -g
+C_TESTS_FLAGS=$(CFLAGS) -lcunit
 # -m64 -pedantic -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
 NCURSES_FLAGS=-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=700 -lncursesw -lform
 
@@ -27,6 +30,7 @@ NCURSES_FLAGS=-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=700 -lncursesw -lform
 OUTPUT=./obj/
 OUTPUT_V=$(OUTPUT)view/
 OUTPUT_M=$(OUTPUT)model/
+OUTPUT_T=$(OUTPUT)tests/
 OUTPUT_U=$(OUTPUT)utils/
 OUTPUT_V_N=$(OUTPUT_V)ncurses/
 OUTPUT_V_N_M=$(OUTPUT_V_N)modules/
@@ -43,6 +47,7 @@ SOURCE_V_N=$(SOURCE_V)ncurses/
 # ncurses module
 SOURCE_V_N_H=$(SOURCE_V_N)headers/
 SOURCE_V_N_M=$(SOURCE_V_N)modules/
+SOURCE_T=tests/
 
 ########################
 ######### DEPENDENCIES
@@ -57,12 +62,18 @@ INTERFACE_MODULES = $(OUTPUT_V_N_M)action.o $(OUTPUT_V_N_M)difficulty.o $(OUTPUT
 # 2-3 : we got our interface and 2 ncurses related and translation and our modules of course. Also a translation file.
 # 4-5 : there related to the map
 # 6 : utils
-O_FILES= $(OUTPUT)main.o \
-	$(OUTPUT_V)interface.o $(OUTPUT_V)translation.o $(OUTPUT_V)mapping.o \
+O_FILES= $(OUTPUT_V)interface.o $(OUTPUT_V)translation.o $(OUTPUT_V)mapping.o \
 	$(OUTPUT_V_N)interface_ncurses.o $(OUTPUT_V_N)interface_ncurses_utils.o $(INTERFACE_MODULES) \
 	$(OUTPUT_M)map.o $(OUTPUT_M)map_utils.o $(OUTPUT_M)staff.o $(OUTPUT_M)effect.o \
 	$(OUTPUT_M)machine.o $(OUTPUT_M)machine_info.o $(OUTPUT_M)case.o $(OUTPUT_M)box.o $(OUTPUT_M)facade.o \
 	$(OUTPUT_U)utils_fun.o $(OUTPUT_U)structures.o $(OUTPUT_U)elements.o $(OUTPUT_M)difficulty.o
+
+# tests files
+# all normal files
+# and all tests files
+O_TESTS_FILES= $(O_FILES) \
+	$(OUTPUT_T)test_case.o $(OUTPUT_T)test_machine.o $(OUTPUT_T)test_map.o \
+	$(OUTPUT_T)test_structure.o
 
 # all off our header files included in interface.h for convenience sake
 # data ( line 2 - 4 )
@@ -74,7 +85,9 @@ INTERFACE_DEP= $(SOURCE_H)map.h \
 	$(SOURCE_H_U)const.h $(SOURCE_H_U)map_utils.h $(SOURCE_H_U)structures.h $(SOURCE_H_U)elements.h  \
 	$(SOURCE_H_U)translation.h $(SOURCE_H_U)utils.h
 
+##################
 # 3. Dependencies
+##################
 
 # main.o
 $(OUTPUT)main.o: $(SOURCE)main.c $(SOURCE)main.h $(SOURCE_H)interface.h $(INTERFACE_DEP)
@@ -207,20 +220,49 @@ $(OUTPUT_M)machine_info.o: $(SOURCE_M)machine_info.c $(SOURCE_H_D)machine_info.h
 $(OUTPUT_M)machine.o: $(SOURCE_M)machine.c $(SOURCE_H_D)machine.h
 	mkdir -p $(OUTPUT_M) && $(CC) $(CFLAGS) -c -o $(OUTPUT_M)machine.o $(SOURCE_M)machine.c
 
+#################################
+######### DEPENDENCIES (tests)
+################################
+
+$(OUTPUT_T)tests.o: $(SOURCE_T)tests.c  $(SOURCE_T)list_suite.h $(SOURCE_T)structure_list_test.h \
+		$(SOURCE)main.h $(SOURCE_H)interface.h $(INTERFACE_DEP)
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)tests.o $(SOURCE_T)tests.c
+
+$(OUTPUT_T)test_case.o: $(SOURCE_T)test_case.c $(SOURCE_T)test_case.h
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_case.o $(SOURCE_T)test_case.c
+
+$(OUTPUT_T)test_machine.o: $(SOURCE_T)test_machine.c $(SOURCE_T)test_machine.h
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_machine.o $(SOURCE_T)test_machine.c
+
+$(OUTPUT_T)test_map.o: $(SOURCE_T)test_map.c $(SOURCE_T)test_map.h
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_map.o $(SOURCE_T)test_map.c
+
+$(OUTPUT_T)test_structure.o: $(SOURCE_T)test_structure.c $(SOURCE_T)test_structure.h
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_structure.o $(SOURCE_T)test_structure.c
+
 ####################
 ######### TASKS
 ####################
 
-prim: $(O_FILES)
-	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(NCURSES_FLAGS)
+# Note: we don't put main inside our variable since having two main
+# can mess up everything
+
+prim: $(O_FILES) $(OUTPUT)main.o
+	$(CC) $(CFLAGS) -o bin/prim $(O_FILES) $(OUTPUT)main.o $(NCURSES_FLAGS)
+
+tests: $(O_TESTS_FILES) $(OUTPUT_T)tests.o
+	$(CC) $(C_TESTS_FLAGS) -o bin/tests $(O_TESTS_FILES) $(OUTPUT_T)tests.o $(NCURSES_FLAGS)
 
 # compile before run
 # then run
 run: prim
 	./bin/prim
 
+run_tests: tests
+	./bin/tests
+
 # 4. helpers
 clean :
-	rm -f $(O_FILES) bin/prim 2> /dev/null
+	rm -f $(O_FILES) bin/prim bin/tests 2> /dev/null
 
 .PHONY : clean

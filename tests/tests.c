@@ -15,8 +15,9 @@
 
 // Tests files
 #include "list_suite.h"
+#include "../src/main.h"
 
-int main()
+int main(void)
 {
     int res;
     CU_pSuite pSuite = NULL;
