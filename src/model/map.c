@@ -353,6 +353,9 @@ ErrorCode map_buyStaff(int idStaff, Map *m) {
     }
 }
 
+/*
+ * A function to verify if the located case exist
+ */
 ErrorCode map_isCaseExist(const int x, const int y, const Map *m) {
     if (x >= 0 && x < m->width) {
         if (y >= 0 && y < m->height) {
@@ -362,32 +365,64 @@ ErrorCode map_isCaseExist(const int x, const int y, const Map *m) {
     return ERROR_CASE_NOT_FOUND;
 }
 
-//\////////////////////////////\//
-//\/ Functions Getters
-//\////////////////////////////\//
-
+/*
+ * a function to get the number of FISE
+ */
 int map_getNumberFISE(const Map *m) { return m->numberFISE; }
 
+/*
+ * a function to get the number of FISA
+ */
 int map_getNumberFISA(const Map *m) { return m->numberFISA; }
 
+/*
+ * a function to get the number of E
+ */
 int map_getNumberE(const Map *m) { return m->E; }
 
+/*
+ * a function to get the number of DD
+ */
 int map_getNumberDD(const Map *m) { return m->DD; }
 
+/*
+ * a function to get the player score
+ */
 int map_getPlayerScore(const Map *m) { return m->score; }
 
+/*
+ * a function to get the difficulty of the map
+ */
 Difficulty map_getDifficulty(const Map *m) { return m->difficulty; }
 
+/*
+ * a function to get map width
+ */
 int map_getWidth(const Map *m) { return m->width; }
 
+/*
+ * a function to get map height
+ */
 int map_getHeight(const Map *m) { return m->height; }
 
+/*
+ * a function to get the number of turn
+ */
 int map_getNumberTurn(const Map *m) { return m->turn; }
 
+/*
+ * a function to get the production of FISA
+ */
 int map_getProductionFISA(const Map *m) { return m->productionFISA; }
 
+/*
+ * a function to get the staff dictionary
+ */
 Dictionary *map_getStaffDictionary(const Map *m) { return m->team; }
 
+/*
+ * a function to get a case of the map
+ */
 Case *map_getCase(const int x, const int y, const Map *m) {
     if (map_isCaseExist(x, y, m) == NO_ERROR) {
         return m->map[x][y];
@@ -396,16 +431,29 @@ Case *map_getCase(const int x, const int y, const Map *m) {
     }
 }
 
+/*
+ * This function get the pollution number
+ * In order to have this information, we have to sum each case garbage
+ * A garbage is contained on the case (in a box) or in a facade machine (in a box)
+ */
 int map_getNumberPollution(const Map *m) {
     int nbGarbage = 0;
+    // Process each case of the map
     for (int i = 0; i < m->height; ++i) {
         for (int j = 0; j < m->width; ++j) {
             Case *c = map_getCase(i, j, m);
+
+            // Garbage contained in a box on the case
             if (case_hasBox(c)) {
                 nbGarbage += box_getNumberGarbage(case_getBox(c));
+
+            // Garbage contained in a machine
+            // We have to sum garbage of each facade of the machine
             } else if (case_getType(c) == CASE_MACHINE) {
                 Machine *machine = case_getMachine(c);
                 MachineStuff machineType = machine_getType(machine);
+
+                // We don't take garbage from a junkyard into account
                 if (machineType != MS_JUNKYARD) {
                     for (Cardinal k = 0; k < NUMBER_CARDINAL; ++k) {
                         if (machine_getBox(machine, k) != NULL) {
@@ -419,10 +467,9 @@ int map_getNumberPollution(const Map *m) {
     return nbGarbage;
 }
 
-//\////////////////////////////\//
-//\/ Functions Setters
-//\////////////////////////////\//
-
+/*
+ * This function set the number of FISE recruited by the player.
+ */
 ErrorCode map_setNumberFISE(Map *m, int val) {
     if (m->numberFISE + val >= 0) {
         m->numberFISE += val;
@@ -432,6 +479,9 @@ ErrorCode map_setNumberFISE(Map *m, int val) {
     }
 }
 
+/*
+ * This function set the number of FISA recruited by the player.
+ */
 ErrorCode map_setNumberFISA(Map *m, int val) {
     if (m->numberFISA + val >= 0) {
         m->numberFISA += val;
@@ -441,6 +491,9 @@ ErrorCode map_setNumberFISA(Map *m, int val) {
     }
 }
 
+/*
+ * This function set the number of E posseded by the player.
+ */
 ErrorCode map_setNumberE(Map *m, int val) {
     if (m->E + val >= 0) {
         m->E += val;
@@ -450,6 +503,9 @@ ErrorCode map_setNumberE(Map *m, int val) {
     }
 }
 
+/*
+ * This function set the number of DD posseded by the player.
+ */
 ErrorCode map_setNumberDD(Map *m, int val) {
     if (m->DD + val >= 0) {
         m->DD += val;
@@ -459,6 +515,9 @@ ErrorCode map_setNumberDD(Map *m, int val) {
     }
 }
 
+/*
+ * This function set the score
+ */
 ErrorCode map_setNumberScore(Map *m, int val) {
     if (m->score + val >= 0) {
         m->score += val;
