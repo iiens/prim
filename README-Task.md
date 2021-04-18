@@ -1,4 +1,4 @@
-# Tâche A
+# Tâche B
 
 Le dossier `docs/` contient nos document et la dernière version
 officielle de la documentation.
@@ -15,11 +15,15 @@ sachant que le résultat se trouve dans `doxygen/`
 et que la deuxième commande génère une belle
 interface pour notre documentation.
   
-La tâche A compile avec
-`gcc -Wall -Wextra -std=c99 -c src/main.c -o obj/main.o`
-(à la racine).
+La tâche B compile avec
+`make`
+(à la racine) et se lance avec `make run`.
+Attention à avoir ncurses d'installé
 
-Le projet compile aussi avec un CMakeList, même s'il 
-y a un erreur pour le moment car il n'arrive
-pas à assembler l'exécutable (ce qui est normal
-car les fonctions n'ont pas été codées).
+  * `sudo apt-get install libncurses5-dev libncursesw5-dev`
+  * on peut vérifier son installation
+    en regardant si le fichier `ls -la /usr/include/ncurses.h` existe
+
+Le projet compile aussi avec un CMakeList, ou encore
+avec un docker. Pour la docker, les instructions
+sont dans le Dockerfile.
