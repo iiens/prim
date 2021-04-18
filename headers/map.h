@@ -39,6 +39,7 @@
 /*!
  * \typedef Map
  * \struct Map_S map.h "headers/map.h"
+ * \brief Struct which contains the map information
  *
  * Struct that contains all the map information concerning machines
  * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
