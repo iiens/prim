@@ -1,3 +1,14 @@
+/*!
+ * \file test_map.h
+ * \author Valentin DREANO
+ * \version 0.1
+ * \date 17/04/2021
+ *
+ * Contains all the suite for Map.c tests
+ * The assumption is made that the setters and getter are functional
+ *
+ */
+
 #ifndef TESTS_MAP
 #define TESTS_MAP
 
@@ -5,17 +16,30 @@
 #include "structure_list_test.h"
 #include "../headers/map.h"
 
-#define TESTMAP_NUMBERTESTS 6
+/**
+ * Number of tests in the suite
+ */
+#define TESTMAP_NUMBERTESTS 10
 
 /**
  * This function is used to create the "Test Map" suite
  * with the test set on the Map type and its manipulation functions
  *
  * @param pSuite test suite
+ * @return 0 if it was successful and 1 otherwise
  */
 int testMap_createSuite(CU_pSuite pSuite);
 
+/**
+ * This function is used to initialize the sequence
+ * @return 0 if it was successful and 1 otherwise
+ */
 int testMap_initSuite();
+
+/**
+ * This function is used to close the suite
+ * @return 0 if it was successful and 1 otherwise
+ */
 int testMap_cleanSuite();
 
 /**
@@ -52,18 +76,20 @@ void testMap_changeProductionFISA();
  * This function makes it possible to test the purchase order of any type of machine with the correct positioning.
  */
 void testMap_machineBuy();
+
+/**
+ * This function allows you to test the update command of any type of machine
+ */
 void testMap_machineUpgrade();
+
+/**
+ * This function is used to test the destruction command of any type of machine.
+ */
 void testMap_machineDestroy();
 
+/**
+ * This function allows to test the purchase order of all the different staff
+ */
 void testMap_staffBuy();
-
-void testEndTurn_productionFise();
-void testEndTurn_productionFisa();
-void testEndTurn_productionResources();
-
-void testEndTurn_destroyResourcesAndMoveGarbage();
-void tesEndTurn_resourcesToGate();
-
-void testMap_movingResources();
 
 #endif //TESTS_MAP

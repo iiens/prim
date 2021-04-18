@@ -1,5 +1,4 @@
 /*!
- * \file testCase.c
  * \author Valentin DREANO
  * \version 0.1
  * \date 17/04/2021
@@ -12,11 +11,13 @@
 #include "test_machine.h"
 
 test_List testMachine_listTests[TESTMACHINE_NUMBERTESTS] = {
-        {"Instantiation_Machine\0",   testMachine_create}
+        {"Machine_Instantiation\0", testMachine_create},
+        {"Machine_Rotation\0", testMachine_rotation},
+        {"Machine_Update\0", testMachine_LevelUp},
+        {"Machine_Add_Delete_Box\0", testMachine_AddDeleteBox}
 };
 
 int testMachine_createSuite(CU_pSuite pSuite) {
-
     /* add a suite to the registry */
     pSuite = CU_add_suite("Test_Type_Machine", testMachine_initSuite, testMachine_cleanSuite);
     if (NULL == pSuite) {
@@ -42,7 +43,7 @@ int testMachine_cleanSuite() {
 }
 
 void testMachine_create() {
-    // Case creation
+    // Machine creation
     MachineStuff type = MS_COLLECTOR;
     Machine *machine = machine_create(type);
 
@@ -57,7 +58,7 @@ void testMachine_create() {
 }
 
 void testMachine_rotation() {
-    // Principle that the creation of a machine to work previously
+    // Assumption that the creation of a machine has been tested beforehand
     // Case creation
     MachineStuff type = MS_COLLECTOR;
     Machine *machine = machine_create(type);
@@ -65,8 +66,80 @@ void testMachine_rotation() {
     // Checking values
     CU_ASSERT_EQUAL(machine_getDirection(machine, SOUTH), DIRECTION_OUT);
 
+    // Calls the function to test
     machine_rotateMachine(machine, 1);
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getDirection(machine, WEST), DIRECTION_OUT);
+
+    // Calls the function to test
+    machine_rotateMachine(machine, 1);
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getDirection(machine, NORTH), DIRECTION_OUT);
+
+    // Calls the function to test
+    machine_rotateMachine(machine, 1);
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getDirection(machine, EAST), DIRECTION_OUT);
+
+    // Calls the function to test
+    machine_rotateMachine(machine, 2);
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getDirection(machine, WEST), DIRECTION_OUT);
+
+    // Calls the function to test
+    machine_rotateMachine(machine, 4);
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getDirection(machine, WEST), DIRECTION_OUT);
 
     // Destroy map
+    machine_destroyMachine(machine);
+}
+
+void testMachine_LevelUp() {
+    // Assumption that the creation of a machine has been tested beforehand
+    // Create machine
+    MachineStuff type = MS_COLLECTOR;
+    Machine *machine = machine_create(MS_COLLECTOR);
+
+    // Recovery of value before purchase
+    int level = machine_getLevel(machine);
+
+    // Calls the function to test
+    machine_incrementLevel(machine);
+
+    // Checking values
+    CU_ASSERT_EQUAL(machine_getLevel(machine), level + 1);
+
+    // Destroy machine
+    machine_destroyMachine(machine);
+}
+
+void testMachine_AddDeleteBox() {
+    // Assumption that the creation of a machine has been tested beforehand
+    // Machine creation
+    MachineStuff type = MS_COLLECTOR;
+    Machine *machine = machine_create(type);
+
+    // Assumption that the operation of a box has been tested beforehand
+    // Box creation
+    int numberR = 10;
+    int numberG = 10;
+    Box *box = box_create(numberR, numberG);
+
+    // Calls the function to test
+    machine_addBox(machine, NORTH, box);
+
+    // Checking values
+    Box*tmp = machine_getBox(machine, NORTH);
+    CU_ASSERT_EQUAL(tmp, box);
+
+    // Calls the function to test
+    machine_destroyBox(machine, NORTH);
+
+    // Checking values
+    tmp = machine_getBox(machine, NORTH);
+    CU_ASSERT_EQUAL(tmp, NULL);
+
+    // Destroy machine
     machine_destroyMachine(machine);
 }

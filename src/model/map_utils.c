@@ -288,7 +288,7 @@ void map_utils_generateResources(Map *m) {
     const Dictionary *dicoStaff = map_getStaffDictionary(m);
     const Effect *effect = staff_getStaffEffect(staff);
     numberTour = numberTour + (effect_getTurnProduction(effect) *
-                               (staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staff)) - 1));
+                               (staff_getNumberStaffByID(dicoStaff, staff_getStaffID(staff))));
 
     // Checking the validity of modifications
     if (numberTour < effect_getMinTurnProduction(effect)) {

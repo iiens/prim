@@ -1,12 +1,20 @@
 #include "test_map.h"
 
+Vector2D testMap_gate;
+Vector2D testMap_source1;
+Vector2D testMap_source2;
+
 test_List testMap_listTests[TESTMAP_NUMBERTESTS] = {
-        {"Instantiation_Map_Easy\0",   testMap_createMapEasy},
-        {"Instantiation_Map_Medium\0", testMap_createMapMedium},
-        {"Instantiation_Map_Hard\0",   testMap_createMapHard},
-        {"Buy_Fisa\0",                 testMap_hireFisa},
-        {"Buy_Fise\0",                 testMap_hireFise},
-        {"Change_Fisa_Production\0",   testMap_changeProductionFISA}
+        {"Map_Instantiation_Easy\0",     testMap_createMapEasy},
+        {"Map_Instantiation_Medium\0",   testMap_createMapMedium},
+        {"Map_Instantiation_Hard\0",     testMap_createMapHard},
+        {"Map_Buy_Fisa\0",               testMap_hireFisa},
+        {"Map_Buy_Fise\0",               testMap_hireFise},
+        {"Map_Change_Fisa_Production\0", testMap_changeProductionFISA},
+        {"Map_Buy_Machine\0",            testMap_machineBuy},
+        {"Map_Update_Machine\0",         testMap_machineUpgrade},
+        {"Map_Destroy_Machine\0",        testMap_machineDestroy},
+        {"Map_Buy_Staff\0", testMap_staffBuy}
 };
 
 int testMap_createSuite(CU_pSuite pSuite) {
@@ -29,6 +37,12 @@ int testMap_createSuite(CU_pSuite pSuite) {
 
 int testMap_initSuite() {
     srand(1); // NOLINT(cert-msc51-cpp)
+    testMap_gate.x = 3;
+    testMap_gate.y = 6;
+    testMap_source1.x = 3;
+    testMap_source1.y = 5;
+    testMap_source2.x = 7;
+    testMap_source2.y = 5;
     return 0;
 }
 
@@ -131,7 +145,7 @@ void testMap_createMapHard() {
 }
 
 void testMap_hireFise() {
-    // Principle that the creation of a map to work previously
+    // Assumption that the creation of a map has been tested beforehand
     // Map creation
     Map *map = map_create(DIFFICULTY_EASY);
 
@@ -155,7 +169,7 @@ void testMap_hireFise() {
 }
 
 void testMap_hireFisa() {
-    // Principle that the creation of a map to work previously
+    // Assumption that the creation of a map has been tested beforehand
     // Map creation
     Map *map = map_create(DIFFICULTY_EASY);
 
@@ -179,7 +193,7 @@ void testMap_hireFisa() {
 }
 
 void testMap_changeProductionFISA() {
-    // Principle that the creation of a map to work previously
+    // Assumption that the creation of a map has been tested beforehand
     // Map creation
     Map *map = map_create(DIFFICULTY_EASY);
 
@@ -195,6 +209,225 @@ void testMap_changeProductionFISA() {
     } else {
         CU_ASSERT_EQUAL(map_getProductionFISA(map), E_VALUE);
     }
+
+    // Destroy map
+    map_destroy(map);
+}
+
+void testMap_machineBuy() {
+    ErrorCode e;
+
+    // Assumption that the creation of a map has been tested beforehand
+    // Create map
+    Map *map = map_create(DIFFICULTY_EASY);
+
+    MachineStuff type = MS_RECYCLING_CENTER;
+    const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(type);
+    int costE = machineInfo_getCostE(machineInfo);
+    int costDD = machineInfo_getCostDD(machineInfo);
+
+    int numberE = map_getNumberE(map);
+    int numberDD = map_getNumberDD(map);
+
+    // This function uses functions of another implemented type.
+    // Each of the functions has been tested in the previous tests.
+    // Calls the function to test
+    e = map_addMachine(type, 0, -1, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_CASE_NOT_FOUND);
+
+    map_setNumberE(map, -numberE);
+    map_setNumberDD(map, -numberDD);
+    // Calls the function to test
+    e = map_addMachine(type, 0, 0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_E);
+
+    map_setNumberE(map, costE);
+    // Calls the function to test
+    e = map_addMachine(type, 0, 0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_DD);
+
+    map_setNumberDD(map, costDD);
+    // Calls the function to test
+    e = map_addMachine(type, 0, 0, 0, map);
+
+    // Checking values
+    Case *ca = map_getCase(0, 0, map);
+    Machine *machine = case_getMachine(ca);
+
+    CU_ASSERT_EQUAL(e, NO_ERROR);
+    CU_ASSERT_NOT_EQUAL(machine, NULL);
+    CU_ASSERT_EQUAL(machine_getType(machine), type);
+
+    // Destroy map
+    map_destroy(map);
+}
+
+void testMap_machineUpgrade() {
+    ErrorCode e;
+
+    // Assumption that the creation of a map has been tested beforehand
+    // Create map
+    Map *map = map_create(DIFFICULTY_EASY);
+
+    MachineStuff type = MS_RECYCLING_CENTER;
+    const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(type);
+    int costE = machineInfo_getCostUpgradeE(machineInfo);
+    int costDD = machineInfo_getCostUpgradeDD(machineInfo);
+
+    int numberE = map_getNumberE(map);
+    int numberDD = map_getNumberDD(map);
+
+    // This function uses functions of another implemented type.
+    // Each of the functions has been tested in the previous tests.
+    // Calls the function to test
+    e = map_upgradeMachine(-1, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_CASE_NOT_FOUND);
+
+    // Calls the function to test
+    e = map_upgradeMachine(0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_CASE_CANT_BE_UPGRADED);
+
+    // Assumption that the operation of a machine and case has been tested beforehand
+    // Machine creation
+    Case *ca = map_getCase(0, 0, map);
+    Machine *machine = machine_create(type);
+    case_addMachine(ca, machine);
+    int level = machine_getLevel(machine);
+
+    map_setNumberE(map, -numberE);
+    map_setNumberDD(map, -numberDD);
+    // Calls the function to test
+    e = map_upgradeMachine(0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_E);
+
+    map_setNumberE(map, costE);
+    // Calls the function to test
+    e = map_upgradeMachine(0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_DD);
+
+    map_setNumberDD(map, costDD);
+    // Calls the function to test
+    e = map_upgradeMachine(0, 0, map);
+
+    // Checking values
+    CU_ASSERT_EQUAL(e, NO_ERROR);
+    CU_ASSERT_EQUAL(machine_getLevel(machine), level + 1);
+
+    // Destroy map
+    map_destroy(map);
+}
+
+void testMap_machineDestroy() {
+    ErrorCode e;
+
+    // Assumption that the creation of a map has been tested beforehand
+    // Create map
+    Map *map = map_create(DIFFICULTY_EASY);
+
+    MachineStuff type = MS_RECYCLING_CENTER;
+    const MachineInfo *machineInfo = machineInfo_getMachineInfoByType(type);
+    int costE = machineInfo_getCostDestroyE(machineInfo);
+    int costDD = machineInfo_getCostDestroyDD(machineInfo);
+
+    int numberE = map_getNumberE(map);
+    int numberDD = map_getNumberDD(map);
+
+    // This function uses functions of another implemented type.
+    // Each of the functions has been tested in the previous tests.
+    // Calls the function to test
+    e = map_destroyMachine(-1, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_CASE_NOT_FOUND);
+
+    // Calls the function to test
+    e = map_destroyMachine(0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_CASE_CANT_BE_DESTROYED);
+
+    // Assumption that the operation of a machine and case has been tested beforehand
+    // Machine creation
+    Case *ca = map_getCase(0, 0, map);
+    Machine *machine = machine_create(type);
+    case_addMachine(ca, machine);
+    int level = machine_getLevel(machine);
+
+    map_setNumberE(map, -numberE);
+    map_setNumberDD(map, -numberDD);
+    // Calls the function to test
+    e = map_destroyMachine(0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_E);
+
+    map_setNumberE(map, costE);
+    // Calls the function to test
+    e = map_destroyMachine(0, 0, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_DD);
+
+    map_setNumberDD(map, costDD);
+    // Calls the function to test
+    e = map_destroyMachine(0, 0, map);
+
+    // Checking values
+    CU_ASSERT_EQUAL(e, NO_ERROR);
+    CU_ASSERT_EQUAL(case_getMachine(ca), NULL);
+
+    // Destroy map
+    map_destroy(map);
+}
+
+void testMap_staffBuy() {
+    ErrorCode e;
+
+    // Assumption that the creation of a map has been tested beforehand
+    // Create map
+    Map *map = map_create(DIFFICULTY_EASY);
+
+    int idStaff = 1;
+    const Staff *staff = staff_getStaffByID(idStaff);
+    int costE = staff_getStaffCostE(staff);
+    int costDD = staff_getStaffCostDD(staff);
+
+    Dictionary *dictionary = map_getStaffDictionary(map);
+    int numberStaff = staff_getNumberStaffByID(dictionary, idStaff);
+
+    int numberE = map_getNumberE(map);
+    int numberDD = map_getNumberDD(map);
+
+    // This function uses functions of another implemented type.
+    // Each of the functions has been tested in the previous tests.
+    // Calls the function to test
+    e = map_buyStaff(-1, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_INVALID_STAFF_NUMBER);
+
+    map_setNumberE(map, -numberE);
+    map_setNumberDD(map, -numberDD);
+    // Calls the function to test
+    e = map_buyStaff(idStaff, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_E);
+
+    map_setNumberE(map, costE);
+    // Calls the function to test
+    e = map_buyStaff(idStaff, map);
+    // Checking values
+    CU_ASSERT_EQUAL(e, ERROR_NOT_ENOUGH_DD);
+
+    map_setNumberDD(map, costDD);
+    // Calls the function to test
+    e = map_buyStaff(idStaff, map);
+
+    // Checking values
+    CU_ASSERT_EQUAL(e, NO_ERROR);
+    CU_ASSERT_EQUAL(staff_getNumberStaffByID(dictionary, idStaff), numberStaff + 1);
 
     // Destroy map
     map_destroy(map);

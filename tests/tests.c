@@ -1,5 +1,4 @@
 /*!
- * \file AllTests.c
  * \author Valentin DREANO
  * \version 0.1
  * \date 17/04/2021

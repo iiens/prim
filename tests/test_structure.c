@@ -5,11 +5,15 @@
 #include "test_structure.h"
 
 test_List testDictionary_listTests[TESTDICTIONARY_NUMBERTESTS] = {
-
+        {"Dictionary_Initialisation\0", testDictionary_create},
+        {"Dictionary_Add_Element\0", testDictionary_addElement},
+        {"Dictionary_Index_Element\0", testDictionary_indexElement}
 };
 
 test_List testList_listTests[TESTLIST_NUMBERTESTS] = {
-
+        {"List_Initialisation\0", testList_create},
+        {"List_Initialisation_Empty\0", testList_createEmpty},
+        {"List_Add_Element\0", testList_addElement}
 };
 
 int testStructure_createSuite(CU_pSuite pSuite) {
@@ -52,6 +56,50 @@ int testStructure_cleanSuite() {
     return 0;
 }
 
-void testDictionary_create() {
+void testList_create() {
+    // Create List
+    Element elt1 = elements_fromNumber(5);
+    List *list = list_create(elt1);
 
+    // Checking values
+    Element* elt2 = list_getCurrent(list);
+    CU_ASSERT_EQUAL(elt2->type, elt1.type);
+    CU_ASSERT_EQUAL(elements_toNumber(*elt2), elements_toNumber(elt1));
+
+    // Destroy list
+    list_destroy(list);
+}
+
+void testList_createEmpty() {
+    List *list = list_createEmpty();
+    CU_ASSERT_EQUAL(list_getCurrent(list), NULL);
+    // Destroy list
+    list_destroy(list);
+}
+
+void testList_addElement() {
+    List *list = list_createEmpty();
+    list_addElement(list, elements_fromNumber(15));
+    list_addElement(list, elements_fromText("texte"));
+    list_addElement(list, elements_fromNumber(27));
+    list_addElement(list, elements_fromObject(NULL));
+    CU_ASSERT_EQUAL(elements_toNumber(*list_next(&list)), 15);
+    CU_ASSERT_STRING_EQUAL(elements_toText(*list_next(&list)), "texte");
+    CU_ASSERT_EQUAL(elements_toNumber(*list_next(&list)), 27);
+    CU_ASSERT_PTR_EQUAL(elements_toObject(*list_next(&list)), NULL);
+    CU_ASSERT_PTR_EQUAL(list_next(&list), NULL);
+    // Destroy list
+    list_destroy(list);
+}
+
+void testDictionary_create() {
+    // Create dictionary
+    int length = 10;
+    Dictionary *dico = dictionary_create(length);
+
+    // Checked value
+    CU_ASSERT_EQUAL(dico->length, length);
+
+    // Destroy dictionary
+    dictionary_destroy(dico);
 }

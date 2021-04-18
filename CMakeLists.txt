@@ -57,7 +57,10 @@ add_executable(AllTests
         src/view/mapping.c
         src/model/facade.c
         src/model/difficulty.c
-        src/utils/elements.c tests/test_case.c tests/test_case.h tests/structure_list_test.h)
+        src/utils/elements.c
+        tests/test_case.c
+        tests/test_case.h
+        tests/structure_list_test.h tests/test_box.c tests/test_box.h tests/test_endTurn.c tests/test_endTurn.h)
 
 target_link_libraries(AllTests cunit ${CUNIT_LIBRARIES})
 
