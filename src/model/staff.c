@@ -357,7 +357,7 @@ const Staff staff_list[] = {
         }
 
         },
-};
+}; //!< represent all of the staff
 
 /*
  * A function to verify if the id given in argument correspond to a staff id

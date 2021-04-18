@@ -20,7 +20,7 @@ typedef enum ElementType_S {
     NUMBER,
     TEXT,
     OBJECT
-} ElementType;
+} ElementType; //!< represent the different type of an Element
 
 
 /*!
@@ -34,9 +34,9 @@ typedef struct Element_S {
         int number;
         char* text;
         void* object;
-    } content;
+    } content; //!< represent the content of the Element
     ElementType type; //!< in witch field we got our value
-} Element;
+} Element; //!< represent an Element
 
 /*!
 * \typedef Couple
@@ -44,9 +44,9 @@ typedef struct Element_S {
 * \brief Represent a couple composed by it's key and it's value
 */
 typedef struct Couple_S{
-    Element keys;
-    Element values;
-} Couple;
+    Element keys; //!< represent the key of the Couple
+    Element values; //!< represent the values of the Couple
+} Couple; //!< composed by it's key and it's value
 
 /*!
  * int elements_toNumber(Element e)

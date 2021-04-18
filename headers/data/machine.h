@@ -41,7 +41,7 @@ typedef enum MachineStuff_S {
  * Struct which contains the main information about a machine
  *
  */
-typedef struct Machine_S Machine;
+typedef struct Machine_S Machine; //!< contains the main information about a machine
 
 /**
  * function to get the type of the machine

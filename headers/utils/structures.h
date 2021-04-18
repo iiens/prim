@@ -22,10 +22,10 @@
  */
 
 typedef struct Dictionary_S {
-    int length;
-    int numberOfElement;
-    Couple* entries;
-} Dictionary;
+    int length; //!< represent the length of a dictionary
+    int numberOfElement; //!< represent the number of element in the dictionary
+    Couple* entries; //!< represent a couple
+} Dictionary; //!< a dictionary composed by it's length it's number of element and a couple
 
 /*!
  * \typedef List
@@ -33,9 +33,9 @@ typedef struct Dictionary_S {
  * \brief Struct which represent a linked list
  */
 typedef struct List_S {
-    Element* current;
-    struct List_S* next;
-} List;
+    Element* current; //!< represent the head of the linked list
+    struct List_S* next; //!< represent the queue of the linked list
+} List; //!< represent a linked list
 
 // create list
 
