@@ -34,7 +34,7 @@ List* list_create( Element first )
 ErrorCode list_addElement( List* l, Element e )
 {
     if (l->current == NULL){
-        //todo: do better
+        //todo: try to optimize this a is useless
         Element* a = (Element*) malloc(sizeof(Element));
         *a = e;
         l->current = a;
