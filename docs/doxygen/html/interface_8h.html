@@ -55,19 +55,38 @@ Line</span></a>
             <li>
               Reference
               <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
                 <li><a href="#func-members">Functions</a></li>
                 <li><a href="#var-members">Variables</a></li>
-                <li><a href="#define-members">Defines</a></li>
               </ul>
             </li>
           </ul>
         </div>
-<aside class="m-note m-default"><h4>Author</h4><p>Quentin Ra</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.7</p></aside><aside class="m-note m-default"><h4>Date</h4><p>20/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a></p><p><a href="difficulty_8h.html#a3d65c3a550541de7ed8d9678a18c2de8" class="m-doc">Difficulty</a></p><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a></p><p><a href="actions_8h.html" class="m-doc">data/<wbr />actions.h</a></p><p><a href="mapping_8h.html" class="m-doc">data/<wbr />mapping.h</a></p></aside><p>This header contains any functions related to the interactions between the player and the game.</p><ul><li>print map</li><li>ask for level (see Difficulty)</li><li>ask for an action</li><li>ask for machine information for creation (see Machine)</li><li>ask for machine information for update/delete</li><li>ask for Staff information</li></ul>
+<aside class="m-note m-default"><h4>Author</h4><p>Quentin Ra</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.7</p></aside><aside class="m-note m-default"><h4>Date</h4><p>20/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a></p><p><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a></p><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a></p><p><a href="actions_8h.html" class="m-doc">data/<wbr />actions.h</a></p><p><a href="mapping_8h.html" class="m-doc">data/<wbr />mapping.h</a></p></aside><p>This header contains any functions related to the interactions between the player and the game.</p><ul><li>print map</li><li>ask for level (see Difficulty)</li><li>ask for an action</li><li>ask for machine information for creation (see Machine)</li><li>ask for machine information for update/delete</li><li>ask for Staff information</li></ul>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="struct_machine_spec___s.html" class="m-doc">MachineSpec_S</a>
+            </dt>
+            <dd>Convenience structure for the user to request a machine.</dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a9c9a9af6a12d289aac69907f5dfa1c0d">
+              using <a href="#a9c9a9af6a12d289aac69907f5dfa1c0d" class="m-doc-self">MachineSpec</a> = struct <a href="struct_machine_spec___s.html" class="m-doc">MachineSpec_<wbr />S</a>
+            </dt>
+            <dd>machine that the user requested</dd>
+          </dl>
+        </section>
         <section id="func-members">
           <h2><a href="#func-members">Functions</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#ab47d5d899f3409a45d7d1fde4f9fb549" class="m-doc">interface_init</a>(</span><span class="m-doc-wrap">) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#ad9f2c1ca9a5a45dbb44fdc563226448e" class="m-doc">interface_init</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
             </dt>
             <dd></dd>
             <dt>
@@ -75,15 +94,22 @@ Line</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#ab7c13ec570fb8fd038aab0ff35d839f2" class="m-doc">interface_close</a>(</span><span class="m-doc-wrap">) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4ee8e79a42ac0e14f7b571c4dbe45276" class="m-doc">interface_close</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a7aba8b0ed18d9a5bf8ada77a8be580c8" class="m-doc">interface_chooseDifficulty</a>(</span><span class="m-doc-wrap">) -&gt; <a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac8eb59c03d043401fd7b958f3b933ae7" class="m-doc">interface_endGame</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map,
+              <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> e) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a1fbf6f85b1bda25103dfe17f57d8fc65" class="m-doc">interface_chooseDifficulty</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a></span>
             </dt>
             <dd>Ask for the user difficulty.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a042cdfc50356b5668d4b708763152e22" class="m-doc">interface_showMap</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a98ccfe7867eb92d69e73c1abbc8a08b5" class="m-doc">interface_showMap</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map,
+              bool showResource,
+              bool showGarbage)</span>
             </dt>
             <dd>Show the map.</dd>
             <dt>
@@ -91,27 +117,27 @@ Line</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a8d5d9afbd5faf995cf2214bd27ab5406" class="m-doc">interface_showMachinesList</a>(</span><span class="m-doc-wrap">)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a7787006d14f81b21f9470999dd146604" class="m-doc">interface_showMachinesList</a>(</span><span class="m-doc-wrap">void)</span>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a3d693e2a4cac185898862f1f6f7d6fde" class="m-doc">interface_list_actions</a>(</span><span class="m-doc-wrap">)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a3fe4849bd84943b21b788f6e653800cd" class="m-doc">interface_listActions</a>(</span><span class="m-doc-wrap">void)</span>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#aab40b3b555768d71fd3a2ee102ed0b15" class="m-doc">interface_chooseAction</a>(</span><span class="m-doc-wrap">) -&gt; <a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2fdf95b0a854cc304a382ca545c60009" class="m-doc">interface_chooseAction</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a></span>
             </dt>
             <dd>Ask for the user action.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#abb9d06aa05eb64c1f76228d14747326a" class="m-doc">interface_askAddMachine</a>(</span><span class="m-doc-wrap">) -&gt; <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>*</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6680a7ff04653155d2214027f2fec93f" class="m-doc">interface_askAddMachine</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="interface_8h.html#a9c9a9af6a12d289aac69907f5dfa1c0d" class="m-doc">MachineSpec</a></span>
             </dt>
             <dd>ask user machine specific details</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a2f606771c73271192fc4ba8567ea83d9" class="m-doc">interface_askMachineLocation</a>(</span><span class="m-doc-wrap">) -&gt; <a href="utils_8h.html#acfafb36b3d421d90e2aa61c8076d117d" class="m-doc">Vector2D</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae46f5deb1b12d59c8cf857c579fd56fe" class="m-doc">interface_askMachineLocation</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="utils_8h.html#acfafb36b3d421d90e2aa61c8076d117d" class="m-doc">Vector2D</a>*</span>
             </dt>
             <dd>Ask for machine location.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a6b8107acc0f275a1316d3eeb0d298d69" class="m-doc">interface_askBuyStaff</a>(</span><span class="m-doc-wrap">) -&gt; <a href="staff_8h.html#a1c4df51d412ce9322d732b1eccbd3ea4" class="m-doc">Staff</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#acfd169c3c396bf9f56218f7dd49d3ffe" class="m-doc">interface_askBuyStaff</a>(</span><span class="m-doc-wrap">void) -&gt; int</span>
             </dt>
             <dd>Ask which Staff the user wants to buy.</dd>
             <dt>
@@ -129,20 +155,11 @@ Line</span></a>
             <dd>Allow to cancel the current action, check in main after each cancelable action.</dd>
           </dl>
         </section>
-        <section id="define-members">
-          <h2><a href="#define-members">Defines</a></h2>
-          <dl class="m-doc">
-            <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="#a9fa9dae540c5a4392eed8131340524e0" class="m-doc">USER_MAPPING_SIZE</a></span>
-            </dt>
-            <dd>to iterates user_mapping</dd>
-          </dl>
-        </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="ab47d5d899f3409a45d7d1fde4f9fb549"><div>
+          <section class="m-doc-details" id="ad9f2c1ca9a5a45dbb44fdc563226448e"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab47d5d899f3409a45d7d1fde4f9fb549" class="m-doc-self">interface_init</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad9f2c1ca9a5a45dbb44fdc563226448e" class="m-doc-self">interface_init</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
@@ -177,9 +194,9 @@ Line</span></a>
             </table>
 <p>Reload interface. We should use this to update the map, the E,DD,... values that are shown.</p>
           </div></section>
-          <section class="m-doc-details" id="ab7c13ec570fb8fd038aab0ff35d839f2"><div>
+          <section class="m-doc-details" id="a4ee8e79a42ac0e14f7b571c4dbe45276"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab7c13ec570fb8fd038aab0ff35d839f2" class="m-doc-self">interface_close</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4ee8e79a42ac0e14f7b571c4dbe45276" class="m-doc-self">interface_close</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
@@ -191,9 +208,37 @@ Line</span></a>
             </table>
 <p>Dispose of interface and clean everything.</p>
           </div></section>
-          <section class="m-doc-details" id="a7aba8b0ed18d9a5bf8ada77a8be580c8"><div>
+          <section class="m-doc-details" id="ac8eb59c03d043401fd7b958f3b933ae7"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7aba8b0ed18d9a5bf8ada77a8be580c8" class="m-doc-self">interface_chooseDifficulty</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac8eb59c03d043401fd7b958f3b933ae7" class="m-doc-self">interface_endGame</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map,
+              <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> e)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>the map just in case</td>
+                </tr>
+                <tr>
+                  <td>e</td>
+                  <td>did we</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>error code</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Show win/loose screen</p>
+          </div></section>
+          <section class="m-doc-details" id="a1fbf6f85b1bda25103dfe17f57d8fc65"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1fbf6f85b1bda25103dfe17f57d8fc65" class="m-doc-self">interface_chooseDifficulty</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <p>Ask for the user difficulty.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -204,11 +249,13 @@ Line</span></a>
                 </tr>
               </tfoot>
             </table>
-<p>To process the size of the map. Should be a valid difficulty, if not ask again.</p><aside class="m-note m-default"><h4>See also</h4><p><a href="difficulty_8h.html#a3d65c3a550541de7ed8d9678a18c2de8" class="m-doc">Difficulty</a> enum</p></aside>
+<p>To process the size of the map. Should be a valid difficulty, if not ask again.</p><aside class="m-note m-default"><h4>See also</h4><p><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> enum</p></aside>
           </div></section>
-          <section class="m-doc-details" id="a042cdfc50356b5668d4b708763152e22"><div>
+          <section class="m-doc-details" id="a98ccfe7867eb92d69e73c1abbc8a08b5"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a042cdfc50356b5668d4b708763152e22" class="m-doc-self">interface_showMap</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a98ccfe7867eb92d69e73c1abbc8a08b5" class="m-doc-self">interface_showMap</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map,
+              bool showResource,
+              bool showGarbage)</span></span>
             </h3>
             <p>Show the map.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -219,6 +266,14 @@ Line</span></a>
                 <tr>
                   <td style="width: 1%">map&nbsp;<span class="m-label m-flat m-info">in</span></td>
                   <td>a map</td>
+                </tr>
+                <tr>
+                  <td>showResource</td>
+                  <td>true if we show a map of resources</td>
+                </tr>
+                <tr>
+                  <td>showGarbage</td>
+                  <td>true if we show a map of garbage</td>
                 </tr>
               </tbody>
             </table>
@@ -249,21 +304,21 @@ Line</span></a>
 ...
 </pre><aside class="m-note m-success"><h4>Precondition</h4><p>staff list must be set</p><p>map must contains the list of staff that the player bought</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a></p></aside>
           </div></section>
-          <section class="m-doc-details" id="a8d5d9afbd5faf995cf2214bd27ab5406"><div>
+          <section class="m-doc-details" id="a7787006d14f81b21f9470999dd146604"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8d5d9afbd5faf995cf2214bd27ab5406" class="m-doc-self">interface_showMachinesList</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7787006d14f81b21f9470999dd146604" class="m-doc-self">interface_showMachinesList</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
-<p>Show machine list. Should use global variable <a href="machine_8h.html#a138aa1fe7b34ae22fafde583debd6339" class="m-doc">machine_<wbr />list</a> in <a href="machine_8h.html" class="m-doc">machine.h</a>.</p>
+<p>Show machine list. Should use global variable <a href="machine__info_8c.html#a138aa1fe7b34ae22fafde583debd6339" class="m-doc">machine_<wbr />list</a> in <a href="machine_8h.html" class="m-doc">machine.h</a>.</p>
           </div></section>
-          <section class="m-doc-details" id="a3d693e2a4cac185898862f1f6f7d6fde"><div>
+          <section class="m-doc-details" id="a3fe4849bd84943b21b788f6e653800cd"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3d693e2a4cac185898862f1f6f7d6fde" class="m-doc-self">interface_list_actions</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3fe4849bd84943b21b788f6e653800cd" class="m-doc-self">interface_listActions</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
 <p>Show actions list. Should use global variable.</p>
           </div></section>
-          <section class="m-doc-details" id="aab40b3b555768d71fd3a2ee102ed0b15"><div>
+          <section class="m-doc-details" id="a2fdf95b0a854cc304a382ca545c60009"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aab40b3b555768d71fd3a2ee102ed0b15" class="m-doc-self">interface_chooseAction</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2fdf95b0a854cc304a382ca545c60009" class="m-doc-self">interface_chooseAction</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <p>Ask for the user action.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -274,11 +329,11 @@ Line</span></a>
                 </tr>
               </tfoot>
             </table>
-<p>Ask for the user action Should be a valid action, if not ask again.</p><p>Actions returned should be implemented by</p><ul><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" class="m-doc">ACTION_<wbr />SHOW_<wbr />MAP</a>: <a href="interface_8h.html#a042cdfc50356b5668d4b708763152e22" class="m-doc">interface_<wbr />showMap</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5af9e90e85d0624fd3c5ad8e9b27a53836" class="m-doc">ACTION_<wbr />CANCEL_<wbr />ACTION</a>: no function, can&#x27;t be used here ! (only when an action got chosen)</li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a3a6e4bf0ba87fe533448728a5bf312eb" class="m-doc">ACTION_<wbr />EXIT</a> : caller should ends the program</li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a98db311aedbc9b9840983f714af32069" class="m-doc">ACTION_<wbr />LIST_<wbr />ACTIONS</a> : call <a href="interface_8h.html#a3d693e2a4cac185898862f1f6f7d6fde" class="m-doc">interface_<wbr />list_<wbr />actions</a></li><li><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5ae7e458358ff1cd44ed9b4e96c06848a8" class="m-doc">ACTION_<wbr />END_<wbr />TURN</a> : next turn, call of <a href="map_8h.html#a53a7bbdc123e6910eae6d12fe5613b9e" class="m-doc">map_<wbr />endTurn</a></p></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a04f4e4d525b5aad96b3b9f1876868571" class="m-doc">ACTION_<wbr />HIRE_<wbr />FISE</a> : hire fise, call of <a href="map_8h.html#a514859d4195b0b85d207527ac8d60cd8" class="m-doc">map_<wbr />hireFISE</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5ade022643266e243c86fc3342f14b40a5" class="m-doc">ACTION_<wbr />HIRE_<wbr />FISA</a> : hire fisa, call of <a href="map_8h.html#a494e28227f59873f32789af312072d0f" class="m-doc">map_<wbr />hireFISA</a></li><li><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a6e5676061baed7440639fbe180b382f9" class="m-doc">ACTION_<wbr />CHANGE_<wbr />FISA_<wbr />MODE</a> : change fisa production mode, call of <a href="map_8h.html#a93c14b54276fd898c14cdeafb563390b" class="m-doc">map_<wbr />changeProductionFISA</a></p></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a006d500ef19364dfb71614d8457d92d2" class="m-doc">ACTION_<wbr />LIST_<wbr />MACHINES</a> : should call <a href="interface_8h.html#a8d5d9afbd5faf995cf2214bd27ab5406" class="m-doc">interface_<wbr />showMachinesList</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" class="m-doc">ACTION_<wbr />BUY_<wbr />MACHINE</a> : should ask <a href="interface_8h.html#abb9d06aa05eb64c1f76228d14747326a" class="m-doc">interface_<wbr />askAddMachine</a> and <a href="interface_8h.html#a2f606771c73271192fc4ba8567ea83d9" class="m-doc">interface_<wbr />askMachineLocation</a> then call <a href="map_8h.html#ac7285f5ac0c920bfb6205a936a9d73fb" class="m-doc">map_<wbr />addMachine</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a3fffebaaadf38024a0372cac589fa753" class="m-doc">ACTION_<wbr />BUY_<wbr />STAFF</a> : should ask <a href="interface_8h.html#a6b8107acc0f275a1316d3eeb0d298d69" class="m-doc">interface_<wbr />askBuyStaff</a> then <a href="map_8h.html#a4114f8b400614d5c3d314400a0ae3dfc" class="m-doc">map_<wbr />buyStaff</a></li><li><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a76469902bf9e246574a3e0f89fbfae42" class="m-doc">ACTION_<wbr />ASK_<wbr />STAFF_<wbr />LIST</a> : should call <a href="interface_8h.html#a2b94e06c8e1c55d25b6049fd49df2384" class="m-doc">interface_<wbr />showStaffList</a></p></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" class="m-doc">ACTION_<wbr />UPGRADE_<wbr />MACHINE</a> : <a href="interface_8h.html#a2f606771c73271192fc4ba8567ea83d9" class="m-doc">interface_<wbr />askMachineLocation</a> then <a href="map_8h.html#ab8a693d3743e8c207fa5fdcbbada46cb" class="m-doc">map_<wbr />upgradeMachine</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" class="m-doc">ACTION_<wbr />DESTROY_<wbr />MACHINE</a> : <a href="interface_8h.html#a2f606771c73271192fc4ba8567ea83d9" class="m-doc">interface_<wbr />askMachineLocation</a> then <a href="map_8h.html#adb43592cf0c517b7eafaabd2038b891c" class="m-doc">map_<wbr />destroyMachine</a></li></ul><aside class="m-note m-default"><h4>See also</h4><p><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> enum</p></aside>
+<p>Ask for the user action Should be a valid action, if not ask again.</p><p>Actions returned should be implemented by</p><ul><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" class="m-doc">ACTION_<wbr />SHOW_<wbr />MAP</a>: <a href="interface_8h.html#a98ccfe7867eb92d69e73c1abbc8a08b5" class="m-doc">interface_<wbr />showMap</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5af9e90e85d0624fd3c5ad8e9b27a53836" class="m-doc">ACTION_<wbr />CANCEL_<wbr />ACTION</a>: no function, can&#x27;t be used here ! (only when an action got chosen)</li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a3a6e4bf0ba87fe533448728a5bf312eb" class="m-doc">ACTION_<wbr />EXIT</a> : caller should ends the program</li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a98db311aedbc9b9840983f714af32069" class="m-doc">ACTION_<wbr />LIST_<wbr />ACTIONS</a> : call <a href="interface_8h.html#a3fe4849bd84943b21b788f6e653800cd" class="m-doc">interface_<wbr />listActions</a></li><li><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5ae7e458358ff1cd44ed9b4e96c06848a8" class="m-doc">ACTION_<wbr />END_<wbr />TURN</a> : next turn, call of <a href="map_8h.html#ac5afbade09d76883b34af177d1fab779" class="m-doc">map_<wbr />endTurn</a></p></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a04f4e4d525b5aad96b3b9f1876868571" class="m-doc">ACTION_<wbr />HIRE_<wbr />FISE</a> : hire fise, call of <a href="map_8h.html#abe0ed98eac0f7ea8a1b5f0dc5d84b7e6" class="m-doc">map_<wbr />hireFISE</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5ade022643266e243c86fc3342f14b40a5" class="m-doc">ACTION_<wbr />HIRE_<wbr />FISA</a> : hire fisa, call of <a href="map_8h.html#acc0640b51eee5fec16c1204fe3412ae1" class="m-doc">map_<wbr />hireFISA</a></li><li><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a6e5676061baed7440639fbe180b382f9" class="m-doc">ACTION_<wbr />CHANGE_<wbr />FISA_<wbr />MODE</a> : change fisa production mode, call of <a href="map_8h.html#aee3a56ca6c2550698425dd612744a62b" class="m-doc">map_<wbr />changeProductionFISA</a></p></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a006d500ef19364dfb71614d8457d92d2" class="m-doc">ACTION_<wbr />LIST_<wbr />MACHINES</a> : should call <a href="interface_8h.html#a7787006d14f81b21f9470999dd146604" class="m-doc">interface_<wbr />showMachinesList</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" class="m-doc">ACTION_<wbr />BUY_<wbr />MACHINE</a> : should ask <a href="interface_8h.html#a6680a7ff04653155d2214027f2fec93f" class="m-doc">interface_<wbr />askAddMachine</a> and <a href="interface_8h.html#ae46f5deb1b12d59c8cf857c579fd56fe" class="m-doc">interface_<wbr />askMachineLocation</a> then call <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">map_<wbr />addMachine( MachineStuff type, int x, int y, Map* m )</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a3fffebaaadf38024a0372cac589fa753" class="m-doc">ACTION_<wbr />BUY_<wbr />STAFF</a> : should ask <a href="interface_8h.html#acfd169c3c396bf9f56218f7dd49d3ffe" class="m-doc">interface_<wbr />askBuyStaff</a> then <a href="map_8h.html#a3d4a6310f7751060d96595fb279d8a15" class="m-doc">map_<wbr />buyStaff</a></li><li><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a76469902bf9e246574a3e0f89fbfae42" class="m-doc">ACTION_<wbr />ASK_<wbr />STAFF_<wbr />LIST</a> : should call <a href="interface_8h.html#a2b94e06c8e1c55d25b6049fd49df2384" class="m-doc">interface_<wbr />showStaffList</a></p></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" class="m-doc">ACTION_<wbr />UPGRADE_<wbr />MACHINE</a> : <a href="interface_8h.html#ae46f5deb1b12d59c8cf857c579fd56fe" class="m-doc">interface_<wbr />askMachineLocation</a> then <a href="map_8h.html#ab8a693d3743e8c207fa5fdcbbada46cb" class="m-doc">map_<wbr />upgradeMachine</a></li><li><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" class="m-doc">ACTION_<wbr />DESTROY_<wbr />MACHINE</a> : <a href="interface_8h.html#ae46f5deb1b12d59c8cf857c579fd56fe" class="m-doc">interface_<wbr />askMachineLocation</a> then <a href="map_8h.html#adb43592cf0c517b7eafaabd2038b891c" class="m-doc">map_<wbr />destroyMachine</a></li></ul><aside class="m-note m-default"><h4>See also</h4><p><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> enum</p></aside>
           </div></section>
-          <section class="m-doc-details" id="abb9d06aa05eb64c1f76228d14747326a"><div>
+          <section class="m-doc-details" id="a6680a7ff04653155d2214027f2fec93f"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abb9d06aa05eb64c1f76228d14747326a" class="m-doc-self">interface_askAddMachine</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="interface_8h.html#a9c9a9af6a12d289aac69907f5dfa1c0d" class="m-doc">MachineSpec</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6680a7ff04653155d2214027f2fec93f" class="m-doc-self">interface_askAddMachine</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <p>ask user machine specific details</p>
             <table class="m-table m-fullwidth m-flat">
@@ -291,9 +346,9 @@ Line</span></a>
             </table>
 <aside class="m-note m-success"><h4>Precondition</h4><p>this method should be called after (or before) asking the user where the machine should be put</p></aside><p>If the user wants to go back, then he can using ACTION_CANCEL_ACTION action.</p><p>We must fill each value inside our machine, for that check <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a> type.</p><aside class="m-note m-default"><h4>See also</h4><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" class="m-doc">ACTION_<wbr />BUY_<wbr />MACHINE</a></p></aside>
           </div></section>
-          <section class="m-doc-details" id="a2f606771c73271192fc4ba8567ea83d9"><div>
+          <section class="m-doc-details" id="ae46f5deb1b12d59c8cf857c579fd56fe"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="utils_8h.html#acfafb36b3d421d90e2aa61c8076d117d" class="m-doc">Vector2D</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2f606771c73271192fc4ba8567ea83d9" class="m-doc-self">interface_askMachineLocation</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="utils_8h.html#acfafb36b3d421d90e2aa61c8076d117d" class="m-doc">Vector2D</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae46f5deb1b12d59c8cf857c579fd56fe" class="m-doc-self">interface_askMachineLocation</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <p>Ask for machine location.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -306,9 +361,9 @@ Line</span></a>
             </table>
 <p>Ask for machine location, this function should be used when the user triggered upgrade/delete machine action</p><p>The programmer won&#x27;t have to check whether this location is a valid machine location, that would have to be done by the one calling it.</p><p>If the user wants to go back, then he can using ACTION_CANCEL_ACTION action.</p><aside class="m-note m-default"><h4>See also</h4><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" class="m-doc">ACTION_<wbr />UPGRADE_<wbr />MACHINE</a></p><p><a href="actions_8h.html#a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" class="m-doc">ACTION_<wbr />DESTROY_<wbr />MACHINE</a></p></aside>
           </div></section>
-          <section class="m-doc-details" id="a6b8107acc0f275a1316d3eeb0d298d69"><div>
+          <section class="m-doc-details" id="acfd169c3c396bf9f56218f7dd49d3ffe"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="staff_8h.html#a1c4df51d412ce9322d732b1eccbd3ea4" class="m-doc">Staff</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6b8107acc0f275a1316d3eeb0d298d69" class="m-doc-self">interface_askBuyStaff</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acfd169c3c396bf9f56218f7dd49d3ffe" class="m-doc-self">interface_askBuyStaff</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
             <p>Ask which Staff the user wants to buy.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -347,16 +402,6 @@ Line</span></a>
             </h3>
             <p>Allow to cancel the current action, check in main after each cancelable action.</p>
 <p>Allow to cancel the current action, check in main after each cancelable action.</p><p>Allow to cancel the current action</p>
-          </div></section>
-        </section>
-        <section>
-          <h2>Define documentation</h2>
-          <section class="m-doc-details" id="a9fa9dae540c5a4392eed8131340524e0"><div>
-            <h3>
-              <span class="m-doc-wrap-bumper">#define <a href="#a9fa9dae540c5a4392eed8131340524e0" class="m-doc-self">USER_MAPPING_SIZE</a></span>
-            </h3>
-            <p>to iterates user_mapping</p>
-<aside class="m-note m-default"><h4>See also</h4><p><a href="interface_8h.html#aab40b3b555768d71fd3a2ee102ed0b15" class="m-doc">interface_<wbr />chooseAction</a>, count of available actions</p></aside>
           </div></section>
         </section>
       </div>

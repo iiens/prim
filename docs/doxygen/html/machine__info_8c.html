@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/model/machine_info.c file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_userdoc.html">User documentation</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_5dd65160827af56e6353642206b80129.html">model</a>/</span>machine_info.c <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Ramzy ZEBRIR and Antoine man</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>01/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="machine_8h.html" class="m-doc">machine.h</a></p></aside><p>Contains all information about machine</p>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aba3b46c7e80f829e55b8c568d3f357bb" class="m-doc">machineInfo_getMachineInfoByType</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> type) -&gt; const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2f9da11acbbb18c761337b7c944eaad0" class="m-doc">machineInfo_getType</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; <a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ad309e654e4120cc1b5a59faf4604e7fb" class="m-doc">machineInfo_getCostE</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a80472930c013c3f19e76a67d45a5256a" class="m-doc">machineInfo_getCostDD</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9cf12cff08cc252c553dd62c1f85d065" class="m-doc">machineInfo_getCostUpgradeE</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#afc293ff394ce280e0e9b0c27e35cf47b" class="m-doc">machineInfo_getCostUpgradeDD</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a5a82d5b11d3861841bf622e6a4a76363" class="m-doc">machineInfo_getCostDestroyE</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af543f70d9216073dd42fef4b884ecca5" class="m-doc">machineInfo_getCostDestroyDD</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a093c09c300992675574527c3eff08afe" class="m-doc">machineInfo_getDescription</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a0726ae96218b81aaa75da6ab196cfbd9" class="m-doc">machineInfo_getCapacity</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a86ea3754f5c050057f291f154b14229c" class="m-doc">machineInfo_getCanUpgrade</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a62d2df1d8cbe0830a492c71f9c51204c" class="m-doc">machineInfo_getEffects</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine) -&gt; const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9dfeee7987b498463ea287c4b0102067" class="m-doc">machineInfo_getDefaultOrientationMessage</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* m) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a90569d00f4ceeae2b7b627e6a5d8a0eb" class="m-doc">machineInfo_isMachineStuffValid</a>(</span><span class="m-doc-wrap">int id) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a24fdfb9c0e0a41fe4c0a7b1fffb67a55" class="m-doc">machineInfo_getMachineStuff</a>(</span><span class="m-doc-wrap">int id) -&gt; const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>*</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a138aa1fe7b34ae22fafde583debd6339">
+              const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a> <a href="#a138aa1fe7b34ae22fafde583debd6339" class="m-doc-self">machine_list</a>
+            </dt>
+            <dd>Array with information about all machine.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="aba3b46c7e80f829e55b8c568d3f357bb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aba3b46c7e80f829e55b8c568d3f357bb" class="m-doc-self">machineInfo_getMachineInfoByType</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> type)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">type</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>MachineInfo</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to return all the information about a specific type of machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a2f9da11acbbb18c761337b7c944eaad0"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2f9da11acbbb18c761337b7c944eaad0" class="m-doc-self">machineInfo_getType</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>machine type</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the machine type attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="ad309e654e4120cc1b5a59faf4604e7fb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad309e654e4120cc1b5a59faf4604e7fb" class="m-doc-self">machineInfo_getCostE</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>CostE</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CostE attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a80472930c013c3f19e76a67d45a5256a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a80472930c013c3f19e76a67d45a5256a" class="m-doc-self">machineInfo_getCostDD</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>CostDD</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CostDD attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a9cf12cff08cc252c553dd62c1f85d065"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9cf12cff08cc252c553dd62c1f85d065" class="m-doc-self">machineInfo_getCostUpgradeE</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>CostUpgradeE</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CostUpgradeE attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="afc293ff394ce280e0e9b0c27e35cf47b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afc293ff394ce280e0e9b0c27e35cf47b" class="m-doc-self">machineInfo_getCostUpgradeDD</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>CostUpgradeDD</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CostUpgradeDD attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a5a82d5b11d3861841bf622e6a4a76363"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5a82d5b11d3861841bf622e6a4a76363" class="m-doc-self">machineInfo_getCostDestroyE</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>CostDestroyE</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CostDestroyE attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="af543f70d9216073dd42fef4b884ecca5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af543f70d9216073dd42fef4b884ecca5" class="m-doc-self">machineInfo_getCostDestroyDD</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>CostDestroyDD</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CostDestroyDD attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a093c09c300992675574527c3eff08afe"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a093c09c300992675574527c3eff08afe" class="m-doc-self">machineInfo_getDescription</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Description</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the Description attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a0726ae96218b81aaa75da6ab196cfbd9"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0726ae96218b81aaa75da6ab196cfbd9" class="m-doc-self">machineInfo_getCapacity</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Capacity</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the Capacity attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a86ea3754f5c050057f291f154b14229c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a86ea3754f5c050057f291f154b14229c" class="m-doc-self">machineInfo_getCanUpgrade</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if it can be upgrade, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the CanUpgrade attribute from a MachineInfo in order to know if a specific machine can be upgraded</p>
+          </div></section>
+          <section class="m-doc-details" id="a62d2df1d8cbe0830a492c71f9c51204c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a62d2df1d8cbe0830a492c71f9c51204c" class="m-doc-self">machineInfo_getEffects</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Effects</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the Effects type attribute from a MachineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a9dfeee7987b498463ea287c4b0102067"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9dfeee7987b498463ea287c4b0102067" class="m-doc-self">machineInfo_getDefaultOrientationMessage</a>(</span><span class="m-doc-wrap">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* m)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">m</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to get the DefaultOrientationMessage attribute from a machineInfo. It explain to the user on the interface, the default orientation of the machine in order to help him during the machine purchase</p>
+          </div></section>
+          <section class="m-doc-details" id="a90569d00f4ceeae2b7b627e6a5d8a0eb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a90569d00f4ceeae2b7b627e6a5d8a0eb" class="m-doc-self">machineInfo_isMachineStuffValid</a>(</span><span class="m-doc-wrap">int id)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">id</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>If id exist, return the tab index, If not -1</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to verify if the id given in argument correspond to a machineInfo</p>
+          </div></section>
+          <section class="m-doc-details" id="a24fdfb9c0e0a41fe4c0a7b1fffb67a55"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="machine__info_8h.html#a61e24053e0bb9c5272cd6b2186e285fa" class="m-doc">MachineInfo</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a24fdfb9c0e0a41fe4c0a7b1fffb67a55" class="m-doc-self">machineInfo_getMachineStuff</a>(</span><span class="m-doc-wrap">int id)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">id</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>machineInfo</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to return all the information about a machineInfo according to the id</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

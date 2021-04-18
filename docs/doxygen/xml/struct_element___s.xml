@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_element___s" kind="union" language="C++" prot="public">
+    <compoundname>Element_S</compoundname>
+    <includes refid="elements_8h" local="yes">headers/utils/elements.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_element___s_1a68897284f5a04ae87a9dff4d887b1c2f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Element_S::number</definition>
+        <argsstring></argsstring>
+        <name>number</name>
+        <briefdescription>
+<para>represent a number </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="34" column="13" bodyfile="headers/utils/elements.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_element___s_1a74975a989e9b07881cf416ba5395522d" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* Element_S::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+<para>represent a text </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="35" column="14" bodyfile="headers/utils/elements.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_element___s_1ae7d85d1210e520c29ce98ce93983af2d" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* Element_S::object</definition>
+        <argsstring></argsstring>
+        <name>object</name>
+        <briefdescription>
+<para>represent a object </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="36" column="14" bodyfile="headers/utils/elements.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_element___s_1a1e51b8e1355ade906f2284c3133f8c83" prot="public" static="no" mutable="no">
+        <type>union Element_S::@0</type>
+        <definition>union Element_S::@0 Element_S::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <briefdescription>
+<para>represent the content of the Element </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="37" column="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_element___s_1a212798be20d0053f735aae5aeda07d0a" prot="public" static="no" mutable="no">
+        <type><ref refid="elements_8h_1a16b11be27a8e9362dd122c4d879e01ae" kindref="member">ElementType</ref></type>
+        <definition>ElementType Element_S::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>in witch field we got our value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="38" column="17" bodyfile="headers/utils/elements.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represent a list. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Element_S</label>
+        <link refid="struct_element___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="headers/utils/elements.h" line="32" column="1" bodyfile="headers/utils/elements.h" bodystart="32" bodyend="39"/>
+    <listofallmembers>
+      <member refid="struct_element___s_1a1e51b8e1355ade906f2284c3133f8c83" prot="public" virt="non-virtual"><scope>Element_S</scope><name>content</name></member>
+      <member refid="struct_element___s_1a68897284f5a04ae87a9dff4d887b1c2f" prot="public" virt="non-virtual"><scope>Element_S</scope><name>number</name></member>
+      <member refid="struct_element___s_1ae7d85d1210e520c29ce98ce93983af2d" prot="public" virt="non-virtual"><scope>Element_S</scope><name>object</name></member>
+      <member refid="struct_element___s_1a74975a989e9b07881cf416ba5395522d" prot="public" virt="non-virtual"><scope>Element_S</scope><name>text</name></member>
+      <member refid="struct_element___s_1a212798be20d0053f735aae5aeda07d0a" prot="public" virt="non-virtual"><scope>Element_S</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

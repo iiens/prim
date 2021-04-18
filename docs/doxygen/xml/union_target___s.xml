@@ -39,6 +39,14 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ac7b0313c97a80040c1a057ca620b43d3" prot="public">
+          <name>SOURCE</name>
+          <briefdescription>
+<para>if we want to apply something to the source </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <enumvalue id="union_target___s_1a024e8d256499fa2033c21ffe93a8be82a0dae9b970216bd282750b108c13dc7b4" prot="public">
           <name>DESTROY_GARBAGE</name>
           <briefdescription>
@@ -54,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="27" column="9" bodyfile="headers/data/effect.h" bodystart="27" bodyend="33"/>
+        <location file="headers/data/effect.h" line="30" column="5" bodyfile="headers/data/effect.h" bodystart="30" bodyend="37"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -70,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="21" column="22" bodyfile="headers/data/effect.h" bodystart="21" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="23" column="18" bodyfile="headers/data/effect.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="union_target___s_1a6763d10062c6e036762826aab4f86ec5" prot="public" static="no" mutable="no">
         <type>enum <ref refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82" kindref="member">Target_S::SubTargets_S</ref></type>
@@ -84,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="33" column="21"/>
+        <location file="headers/data/effect.h" line="37" column="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -98,12 +106,13 @@
         <link refid="union_target___s"/>
       </node>
     </collaborationgraph>
-    <location file="headers/data/effect.h" line="20" column="5" bodyfile="headers/data/effect.h" bodystart="20" bodyend="34"/>
+    <location file="headers/data/effect.h" line="22" column="1" bodyfile="headers/data/effect.h" bodystart="22" bodyend="38"/>
     <listofallmembers>
       <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82a0dae9b970216bd282750b108c13dc7b4" prot="public" virt="non-virtual"><scope>Target_S</scope><name>DESTROY_GARBAGE</name></member>
       <member refid="union_target___s_1afb52de3399e747e02e512edf3a6ad1b2" prot="public" virt="non-virtual"><scope>Target_S</scope><name>machine</name></member>
       <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ad4669e6666bf624d9db382de6a456580" prot="public" virt="non-virtual"><scope>Target_S</scope><name>NONE</name></member>
       <member refid="union_target___s_1a6763d10062c6e036762826aab4f86ec5" prot="public" virt="non-virtual"><scope>Target_S</scope><name>other</name></member>
+      <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ac7b0313c97a80040c1a057ca620b43d3" prot="public" virt="non-virtual"><scope>Target_S</scope><name>SOURCE</name></member>
       <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ab1d817e7690952e7d21ecafb188f5b6c" prot="public" virt="non-virtual"><scope>Target_S</scope><name>SUB_FISA</name></member>
       <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ade254abb415dfad57011d9a6f4ca9447" prot="public" virt="non-virtual"><scope>Target_S</scope><name>SUB_FISE</name></member>
       <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ac0d07b2330615bb5e3325b79c9e68b68" prot="public" virt="non-virtual"><scope>Target_S</scope><name>SUB_HIRE</name></member>

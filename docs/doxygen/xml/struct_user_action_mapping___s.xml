@@ -4,19 +4,19 @@
     <compoundname>UserActionMapping_S</compoundname>
     <includes refid="mapping_8h" local="yes">headers/data/mapping.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="struct_user_action_mapping___s_1ad5fe89e8119e71132a97c6cb12631d96" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_user_action_mapping___s_1ab42876551ebbd4aa148d9bd859ed7787" prot="public" static="no" mutable="no">
         <type><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref></type>
-        <definition>Action UserActionMapping_S::action_id</definition>
+        <definition>Action UserActionMapping_S::actionID</definition>
         <argsstring></argsstring>
-        <name>action_id</name>
+        <name>actionID</name>
         <briefdescription>
-<para>action_id: int, see <ref refid="actions_8h" kindref="compound">actions.h</ref> </para>
+<para>actionID: int, see <ref refid="actions_8h" kindref="compound">actions.h</ref> </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/mapping.h" line="23" column="16" bodyfile="headers/data/mapping.h" bodystart="23" bodyend="-1"/>
+        <location file="headers/data/mapping.h" line="24" column="12" bodyfile="headers/data/mapping.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_user_action_mapping___s_1a665f38c07a180ba9c7eaa310ee881e45" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -30,10 +30,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/mapping.h" line="24" column="14" bodyfile="headers/data/mapping.h" bodystart="24" bodyend="-1"/>
+        <location file="headers/data/mapping.h" line="25" column="10" bodyfile="headers/data/mapping.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>Struct of an action mapping. </para>
     </briefdescription>
     <detaileddescription>
 <para>Struct of an action mapping. Each action is mapped with a string. </para>
@@ -44,9 +45,9 @@
         <link refid="struct_user_action_mapping___s"/>
       </node>
     </collaborationgraph>
-    <location file="headers/data/mapping.h" line="22" column="5" bodyfile="headers/data/mapping.h" bodystart="22" bodyend="25"/>
+    <location file="headers/data/mapping.h" line="23" column="1" bodyfile="headers/data/mapping.h" bodystart="23" bodyend="26"/>
     <listofallmembers>
-      <member refid="struct_user_action_mapping___s_1ad5fe89e8119e71132a97c6cb12631d96" prot="public" virt="non-virtual"><scope>UserActionMapping_S</scope><name>action_id</name></member>
+      <member refid="struct_user_action_mapping___s_1ab42876551ebbd4aa148d9bd859ed7787" prot="public" virt="non-virtual"><scope>UserActionMapping_S</scope><name>actionID</name></member>
       <member refid="struct_user_action_mapping___s_1a665f38c07a180ba9c7eaa310ee881e45" prot="public" virt="non-virtual"><scope>UserActionMapping_S</scope><name>key</name></member>
     </listofallmembers>
   </compounddef>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="65" column="14" bodyfile="headers/data/effect.h" bodystart="65" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="70" column="10" bodyfile="headers/data/effect.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_effect___s_1a03dac7069e16e9807c636e19e4419e16" prot="public" static="no" mutable="no">
         <type><ref refid="effect_8h_1a31488d29805a596498c0234ae392d35d" kindref="member">Target</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="66" column="16" bodyfile="headers/data/effect.h" bodystart="66" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="71" column="12" bodyfile="headers/data/effect.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_effect___s_1a2191706dbf071792921cacd274a6c8b8" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -44,55 +44,55 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="67" column="14" bodyfile="headers/data/effect.h" bodystart="67" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="72" column="10" bodyfile="headers/data/effect.h" bodystart="72" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1a134218293538ac2673ebf8ca2e48bc9b" prot="public" static="no" mutable="no">
-        <type>int</type>
-        <definition>int Effect_S::modifier_res</definition>
+      <memberdef kind="variable" id="struct_effect___s_1a81896bcf806bc3294c9790d8c6c71e27" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Effect_S::modifierRes</definition>
         <argsstring></argsstring>
-        <name>modifier_res</name>
+        <name>modifierRes</name>
         <briefdescription>
-<para>if SEND_DOOR, resource put in multiply by this </para>
+<para>if SEND_DOOR, resource put in multiply by this, if DOOR_OUT it&apos;s the probability that a garbage disappear when it&apos;s leave the door </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="68" column="13" bodyfile="headers/data/effect.h" bodystart="68" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="73" column="11" bodyfile="headers/data/effect.h" bodystart="73" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1a0a5458f2dd2d29a43b6ab4d1d3fe5bcf" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_effect___s_1a91cd3e21e5ef145eff189e18db03dbef" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int Effect_S::modifier_FISA</definition>
+        <definition>int Effect_S::modifierFISA</definition>
         <argsstring></argsstring>
-        <name>modifier_FISA</name>
+        <name>modifierFISA</name>
         <briefdescription>
-<para>update the number of FISA </para>
+<para>update the number of FISA, if LEAVE fisa put in multiply by this, </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="69" column="13" bodyfile="headers/data/effect.h" bodystart="69" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="77" column="9" bodyfile="headers/data/effect.h" bodystart="77" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1a75566b2d7249a513721aca7d2e58f2dd" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_effect___s_1a89f873ca0646aa486d0289796fdbf5dc" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int Effect_S::modifier_FISE</definition>
+        <definition>int Effect_S::modifierFISE</definition>
         <argsstring></argsstring>
-        <name>modifier_FISE</name>
+        <name>modifierFISE</name>
         <briefdescription>
-<para>update the number of FISE </para>
+<para>update the number of FISE, if LEAVE fise put in multiply by this </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="70" column="13" bodyfile="headers/data/effect.h" bodystart="70" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="78" column="9" bodyfile="headers/data/effect.h" bodystart="78" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1a1023bf60bacb8bd429a455d7ac9ec1d8" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_effect___s_1a08e21d4a519205f74bdbf0b9c5ddc370" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int Effect_S::modifier_E</definition>
+        <definition>int Effect_S::modifierE</definition>
         <argsstring></argsstring>
-        <name>modifier_E</name>
+        <name>modifierE</name>
         <briefdescription>
 <para>update the E cost </para>
         </briefdescription>
@@ -100,13 +100,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="71" column="13" bodyfile="headers/data/effect.h" bodystart="71" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="79" column="9" bodyfile="headers/data/effect.h" bodystart="79" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1a5f63fe0877baf76f9b4faca63d945206" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_effect___s_1af950b15b3503633b8790d26f337d2d8b" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int Effect_S::modifier_DD</definition>
+        <definition>int Effect_S::modifierDD</definition>
         <argsstring></argsstring>
-        <name>modifier_DD</name>
+        <name>modifierDD</name>
         <briefdescription>
 <para>update the DD cost </para>
         </briefdescription>
@@ -114,13 +114,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="72" column="13" bodyfile="headers/data/effect.h" bodystart="72" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="80" column="9" bodyfile="headers/data/effect.h" bodystart="80" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1a01f977a3bf21b193f255d501c3b8921d" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_effect___s_1a93beef5a80099039b3c78b4aa0a24d99" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int Effect_S::min_cost_E</definition>
+        <definition>int Effect_S::modifierCapacity</definition>
         <argsstring></argsstring>
-        <name>min_cost_E</name>
+        <name>modifierCapacity</name>
+        <briefdescription>
+<para>update the capacity of the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="81" column="9" bodyfile="headers/data/effect.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_effect___s_1a4f47b26109abfd9d1a42809f41cf3dcc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Effect_S::min_costE</definition>
+        <argsstring></argsstring>
+        <name>min_costE</name>
         <briefdescription>
 <para>check after update of E with min_cost_E </para>
         </briefdescription>
@@ -128,13 +142,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="73" column="13" bodyfile="headers/data/effect.h" bodystart="73" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="82" column="9" bodyfile="headers/data/effect.h" bodystart="82" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_effect___s_1aeac56be0eb1149965dd717ddf5f6ae98" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_effect___s_1a2404c128a501aeb9311a92d0e781f1db" prot="public" static="no" mutable="no">
         <type>int</type>
-        <definition>int Effect_S::min_cost_DD</definition>
+        <definition>int Effect_S::min_costDD</definition>
         <argsstring></argsstring>
-        <name>min_cost_DD</name>
+        <name>min_costDD</name>
         <briefdescription>
 <para>check after update of DD with min_cost_DD </para>
         </briefdescription>
@@ -142,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="74" column="13" bodyfile="headers/data/effect.h" bodystart="74" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="83" column="9" bodyfile="headers/data/effect.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_effect___s_1a2102a459b0957428f7f9dfb9bfa0e5ea" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -156,13 +170,41 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/data/effect.h" line="75" column="14" bodyfile="headers/data/effect.h" bodystart="75" bodyend="-1"/>
+        <location file="headers/data/effect.h" line="84" column="10" bodyfile="headers/data/effect.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_effect___s_1ade7c8b27467150dcfd1ad53dbdc42635" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Effect_S::turn_production</definition>
+        <argsstring></argsstring>
+        <name>turn_production</name>
+        <briefdescription>
+<para>if HIRE turn before increase of FISA production, if PRODUCTION turn before production of the source </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="85" column="9" bodyfile="headers/data/effect.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_effect___s_1a93f1e04574570cba01fdb9fd0710cae1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Effect_S::min_turn_production</definition>
+        <argsstring></argsstring>
+        <name>min_turn_production</name>
+        <briefdescription>
+<para>check after update of turn_production </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/effect.h" line="88" column="9" bodyfile="headers/data/effect.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>contains different settings of the effects Struct which contains the target of the effect </para>
     </briefdescription>
     <detaileddescription>
-<para>Struct which contains the target of the effect </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="1">
@@ -177,18 +219,21 @@
         <link refid="union_target___s"/>
       </node>
     </collaborationgraph>
-    <location file="headers/data/effect.h" line="64" column="5" bodyfile="headers/data/effect.h" bodystart="64" bodyend="76"/>
+    <location file="headers/data/effect.h" line="69" column="1" bodyfile="headers/data/effect.h" bodystart="69" bodyend="89"/>
     <listofallmembers>
       <member refid="struct_effect___s_1a2102a459b0957428f7f9dfb9bfa0e5ea" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>description</name></member>
-      <member refid="struct_effect___s_1aeac56be0eb1149965dd717ddf5f6ae98" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>min_cost_DD</name></member>
-      <member refid="struct_effect___s_1a01f977a3bf21b193f255d501c3b8921d" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>min_cost_E</name></member>
+      <member refid="struct_effect___s_1a2404c128a501aeb9311a92d0e781f1db" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>min_costDD</name></member>
+      <member refid="struct_effect___s_1a4f47b26109abfd9d1a42809f41cf3dcc" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>min_costE</name></member>
+      <member refid="struct_effect___s_1a93f1e04574570cba01fdb9fd0710cae1" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>min_turn_production</name></member>
       <member refid="struct_effect___s_1a73a0342e475ce48edaf862b15e4f2b29" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>mode</name></member>
-      <member refid="struct_effect___s_1a5f63fe0877baf76f9b4faca63d945206" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifier_DD</name></member>
-      <member refid="struct_effect___s_1a1023bf60bacb8bd429a455d7ac9ec1d8" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifier_E</name></member>
-      <member refid="struct_effect___s_1a0a5458f2dd2d29a43b6ab4d1d3fe5bcf" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifier_FISA</name></member>
-      <member refid="struct_effect___s_1a75566b2d7249a513721aca7d2e58f2dd" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifier_FISE</name></member>
-      <member refid="struct_effect___s_1a134218293538ac2673ebf8ca2e48bc9b" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifier_res</name></member>
+      <member refid="struct_effect___s_1a93beef5a80099039b3c78b4aa0a24d99" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifierCapacity</name></member>
+      <member refid="struct_effect___s_1af950b15b3503633b8790d26f337d2d8b" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifierDD</name></member>
+      <member refid="struct_effect___s_1a08e21d4a519205f74bdbf0b9c5ddc370" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifierE</name></member>
+      <member refid="struct_effect___s_1a91cd3e21e5ef145eff189e18db03dbef" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifierFISA</name></member>
+      <member refid="struct_effect___s_1a89f873ca0646aa486d0289796fdbf5dc" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifierFISE</name></member>
+      <member refid="struct_effect___s_1a81896bcf806bc3294c9790d8c6c71e27" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>modifierRes</name></member>
       <member refid="struct_effect___s_1a2191706dbf071792921cacd274a6c8b8" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>onOther</name></member>
+      <member refid="struct_effect___s_1ade7c8b27467150dcfd1ad53dbdc42635" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>turn_production</name></member>
       <member refid="struct_effect___s_1a03dac7069e16e9807c636e19e4419e16" prot="public" virt="non-virtual"><scope>Effect_S</scope><name>what</name></member>
     </listofallmembers>
   </compounddef>

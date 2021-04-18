@@ -1,33 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="struct_box___s" kind="struct"><name>Box_S</name>
+    <member refid="struct_box___s_1a1cfe1f7b161e04c8ab88c22da2714eee" kind="variable"><name>nbResource</name></member>
+    <member refid="struct_box___s_1a9ac7e2d0c2c417c87d8c2cd82ee2bdcf" kind="variable"><name>nbGarbage</name></member>
+  </compound>
   <compound refid="struct_case___s" kind="struct"><name>Case_S</name>
     <member refid="struct_case___s_1a14ad05fbc4d5dc1b7de4bdb7860c6c26" kind="variable"><name>x</name></member>
     <member refid="struct_case___s_1a72e78a2d351713f6b123a4e25bf1f14d" kind="variable"><name>y</name></member>
-    <member refid="struct_case___s_1a2f7b4a7ac9b98b5efa6791556cb1abd8" kind="variable"><name>mach</name></member>
-    <member refid="struct_case___s_1a791de108ca2c08939a5b162269e2b747" kind="variable"><name>other</name></member>
-    <member refid="struct_case___s_1ae6642975be630a5157b9ece0c1c37bbb" kind="variable"><name>in</name></member>
+    <member refid="struct_case___s_1a19d55129725007b84dad99e387a00cbe" kind="variable"><name>in</name></member>
     <member refid="struct_case___s_1a3d7992a4e9740211d81f322d73250e5c" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="struct_couple___s" kind="union"><name>Couple_S</name>
+    <member refid="struct_couple___s_1a1e37df1bcdda0dcbf83470e6806d88a6" kind="variable"><name>keys</name></member>
+    <member refid="struct_couple___s_1a0f9294dfff8a476240d8943d6a6cdf18" kind="variable"><name>values</name></member>
+  </compound>
+  <compound refid="struct_dictionary___s" kind="struct"><name>Dictionary_S</name>
+    <member refid="struct_dictionary___s_1aa5531b8c7f23848abfafd148a054cc15" kind="variable"><name>length</name></member>
+    <member refid="struct_dictionary___s_1a053f8e7b8b9ebbe4e0fe8b3599031acd" kind="variable"><name>numberOfElement</name></member>
+    <member refid="struct_dictionary___s_1a309d4eed5935c8462535a8404486bb89" kind="variable"><name>entries</name></member>
   </compound>
   <compound refid="struct_effect___s" kind="struct"><name>Effect_S</name>
     <member refid="struct_effect___s_1a73a0342e475ce48edaf862b15e4f2b29" kind="variable"><name>mode</name></member>
     <member refid="struct_effect___s_1a03dac7069e16e9807c636e19e4419e16" kind="variable"><name>what</name></member>
     <member refid="struct_effect___s_1a2191706dbf071792921cacd274a6c8b8" kind="variable"><name>onOther</name></member>
-    <member refid="struct_effect___s_1a134218293538ac2673ebf8ca2e48bc9b" kind="variable"><name>modifier_res</name></member>
-    <member refid="struct_effect___s_1a0a5458f2dd2d29a43b6ab4d1d3fe5bcf" kind="variable"><name>modifier_FISA</name></member>
-    <member refid="struct_effect___s_1a75566b2d7249a513721aca7d2e58f2dd" kind="variable"><name>modifier_FISE</name></member>
-    <member refid="struct_effect___s_1a1023bf60bacb8bd429a455d7ac9ec1d8" kind="variable"><name>modifier_E</name></member>
-    <member refid="struct_effect___s_1a5f63fe0877baf76f9b4faca63d945206" kind="variable"><name>modifier_DD</name></member>
-    <member refid="struct_effect___s_1a01f977a3bf21b193f255d501c3b8921d" kind="variable"><name>min_cost_E</name></member>
-    <member refid="struct_effect___s_1aeac56be0eb1149965dd717ddf5f6ae98" kind="variable"><name>min_cost_DD</name></member>
+    <member refid="struct_effect___s_1a81896bcf806bc3294c9790d8c6c71e27" kind="variable"><name>modifierRes</name></member>
+    <member refid="struct_effect___s_1a91cd3e21e5ef145eff189e18db03dbef" kind="variable"><name>modifierFISA</name></member>
+    <member refid="struct_effect___s_1a89f873ca0646aa486d0289796fdbf5dc" kind="variable"><name>modifierFISE</name></member>
+    <member refid="struct_effect___s_1a08e21d4a519205f74bdbf0b9c5ddc370" kind="variable"><name>modifierE</name></member>
+    <member refid="struct_effect___s_1af950b15b3503633b8790d26f337d2d8b" kind="variable"><name>modifierDD</name></member>
+    <member refid="struct_effect___s_1a93beef5a80099039b3c78b4aa0a24d99" kind="variable"><name>modifierCapacity</name></member>
+    <member refid="struct_effect___s_1a4f47b26109abfd9d1a42809f41cf3dcc" kind="variable"><name>min_costE</name></member>
+    <member refid="struct_effect___s_1a2404c128a501aeb9311a92d0e781f1db" kind="variable"><name>min_costDD</name></member>
     <member refid="struct_effect___s_1a2102a459b0957428f7f9dfb9bfa0e5ea" kind="variable"><name>description</name></member>
+    <member refid="struct_effect___s_1ade7c8b27467150dcfd1ad53dbdc42635" kind="variable"><name>turn_production</name></member>
+    <member refid="struct_effect___s_1a93f1e04574570cba01fdb9fd0710cae1" kind="variable"><name>min_turn_production</name></member>
+  </compound>
+  <compound refid="struct_element___s" kind="union"><name>Element_S</name>
+    <member refid="struct_element___s_1a68897284f5a04ae87a9dff4d887b1c2f" kind="variable"><name>number</name></member>
+    <member refid="struct_element___s_1a74975a989e9b07881cf416ba5395522d" kind="variable"><name>text</name></member>
+    <member refid="struct_element___s_1ae7d85d1210e520c29ce98ce93983af2d" kind="variable"><name>object</name></member>
+    <member refid="struct_element___s_1a1e51b8e1355ade906f2284c3133f8c83" kind="variable"><name>content</name></member>
+    <member refid="struct_element___s_1a212798be20d0053f735aae5aeda07d0a" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="struct_facade___s" kind="struct"><name>Facade_S</name>
+    <member refid="struct_facade___s_1af45934219bf5e96055a268f022cc7165" kind="variable"><name>cardinal</name></member>
+    <member refid="struct_facade___s_1a4245c1b967b042ffb8af65e19feeedd9" kind="variable"><name>direction</name></member>
+    <member refid="struct_facade___s_1a97d582b4020bc8bc5e9f00f99b0e0151" kind="variable"><name>content</name></member>
+  </compound>
+  <compound refid="struct_list___s" kind="struct"><name>List_S</name>
+    <member refid="struct_list___s_1a7e3a3bad8669dc4a820cb8dc7e72b7ff" kind="variable"><name>current</name></member>
+    <member refid="struct_list___s_1ac5516ddcff5fd4642cf317fb3c9f5cc6" kind="variable"><name>next</name></member>
   </compound>
   <compound refid="struct_machine___s" kind="struct"><name>Machine_S</name>
     <member refid="struct_machine___s_1a87d7b76ce1f9b526bf963a0783a60443" kind="variable"><name>type</name></member>
     <member refid="struct_machine___s_1a6a6494128ad890e92d78489d5152672b" kind="variable"><name>level</name></member>
-    <member refid="struct_machine___s_1a16a3a276757dc01a73169e5ef7f284ae" kind="variable"><name>orientation</name></member>
-    <member refid="struct_machine___s_1acefe8b0f91dada4e00d03f4a8ce2bdcc" kind="variable"><name>nb_resource</name></member>
-    <member refid="struct_machine___s_1afa027080dd91efa8977fba3bf08154a2" kind="variable"><name>nb_garbage</name></member>
-    <member refid="struct_machine___s_1aee7c451ec90f68f9a31e9b442f42e411" kind="variable"><name>capacity</name></member>
+    <member refid="struct_machine___s_1a8aee22f62f71e0b6bbe53ba369e6f516" kind="variable"><name>interface</name></member>
   </compound>
   <compound refid="struct_machine_info___s" kind="struct"><name>MachineInfo_S</name>
     <member refid="struct_machine_info___s_1a90503c8853ac78b3bc052d03ce37a766" kind="variable"><name>type</name></member>
@@ -38,29 +65,28 @@
     <member refid="struct_machine_info___s_1a9eaff2be1e6a35cc58284cd118dbdf3b" kind="variable"><name>costDestroyE</name></member>
     <member refid="struct_machine_info___s_1abe7e8c2e229d5c431428c0b39ce3a5a5" kind="variable"><name>costDestroyDD</name></member>
     <member refid="struct_machine_info___s_1a8664eb7c06628ab29c3fb6d1f7a2a068" kind="variable"><name>description</name></member>
+    <member refid="struct_machine_info___s_1a48b6277c62203a9bbe40592dbdab5764" kind="variable"><name>capacity</name></member>
+    <member refid="struct_machine_info___s_1a2cdfa5cb10fca33ae6692defc054030f" kind="variable"><name>defaultOrientation</name></member>
     <member refid="struct_machine_info___s_1ab0afe6070c3ad464562c910fce23bbef" kind="variable"><name>canUpgrade</name></member>
-    <member refid="struct_machine_info___s_1ab296d74dadbe6a44db1fb6e8fdcbe5d3" kind="variable"><name>effect</name></member>
+    <member refid="struct_machine_info___s_1a7b25d18790f372e1859cdfc011d71ce6" kind="variable"><name>effects</name></member>
+  </compound>
+  <compound refid="struct_machine_spec___s" kind="struct"><name>MachineSpec_S</name>
+    <member refid="struct_machine_spec___s_1a45fe05d6bed61df24bb0e2d7ef450795" kind="variable"><name>type</name></member>
+    <member refid="struct_machine_spec___s_1afb5cfaa95d818aa761a666dd13271653" kind="variable"><name>rotation</name></member>
   </compound>
   <compound refid="struct_map___s" kind="struct"><name>Map_S</name>
     <member refid="struct_map___s_1a51e8cf17daad9eeb7a3e2815fc180aad" kind="variable"><name>difficulty</name></member>
     <member refid="struct_map___s_1a4148fbf59972eb3359c93753deb17755" kind="variable"><name>width</name></member>
     <member refid="struct_map___s_1a38aed228778cce34f9b6642ee925977a" kind="variable"><name>height</name></member>
-    <member refid="struct_map___s_1ac741b3997587bb7e60500ab1f927a235" kind="variable"><name>map</name></member>
+    <member refid="struct_map___s_1a452a1f9f0227265cabf1836e9780da30" kind="variable"><name>map</name></member>
     <member refid="struct_map___s_1a8d6e6ba81273f4d3ff2474e76f201414" kind="variable"><name>turn</name></member>
     <member refid="struct_map___s_1aeb3e9d7f8acc9391ef2ea44e46a71651" kind="variable"><name>numberFISE</name></member>
     <member refid="struct_map___s_1aec30236776c689078bdc47320b267836" kind="variable"><name>numberFISA</name></member>
     <member refid="struct_map___s_1a5128537bb3d0fcb6d8ceaa50e6849c19" kind="variable"><name>E</name></member>
     <member refid="struct_map___s_1a3c09ebd91469984c37f25b9bbcb24007" kind="variable"><name>DD</name></member>
     <member refid="struct_map___s_1a43440c6e42863430362c698c6403883e" kind="variable"><name>productionFISA</name></member>
-    <member refid="struct_map___s_1a4c2e10b2dc6cd6125bcf56fa4f2e0cc7" kind="variable"><name>team</name></member>
+    <member refid="struct_map___s_1a4fefbf6c3a4e090229902e855a898e0e" kind="variable"><name>team</name></member>
     <member refid="struct_map___s_1af46473d27af95312151aa18f74d1b51f" kind="variable"><name>score</name></member>
-    <member refid="struct_map___s_1a10a730d9ae97ea81c000473794cf912c" kind="variable"><name>pollution</name></member>
-  </compound>
-  <compound refid="struct_orientation___s" kind="struct"><name>Orientation_S</name>
-    <member refid="struct_orientation___s_1a9a5e2acfd3e1b533ba98889757dec0be" kind="variable"><name>top</name></member>
-    <member refid="struct_orientation___s_1ad662342226b055bf813e9a8e4f8bedf1" kind="variable"><name>left</name></member>
-    <member refid="struct_orientation___s_1a9b818cd1d9979b3a314645dda46cf5e5" kind="variable"><name>bottom</name></member>
-    <member refid="struct_orientation___s_1a53c305c10f0f2b5be2827326a480accc" kind="variable"><name>right</name></member>
   </compound>
   <compound refid="struct_staff___s" kind="struct"><name>Staff_S</name>
     <member refid="struct_staff___s_1a9ce214bbf72bd43415c9a4e52a659bf6" kind="variable"><name>id</name></member>
@@ -68,7 +94,8 @@
     <member refid="struct_staff___s_1a6a68ef1f380347a930f089ae4070bbd4" kind="variable"><name>costE</name></member>
     <member refid="struct_staff___s_1a18874fd0410f489283e3af7bd99ba0de" kind="variable"><name>costDD</name></member>
     <member refid="struct_staff___s_1af9fc87fd9376d385b278758bd3888680" kind="variable"><name>description</name></member>
-    <member refid="struct_staff___s_1a1497d98838f42d24d4a6326161ca9472" kind="variable"><name>effects</name></member>
+    <member refid="struct_staff___s_1a36be6fce19c5e2ee03f7b5af06c8f963" kind="variable"><name>turn_productionSource</name></member>
+    <member refid="struct_staff___s_1ad8e4f76c8530ce4d43a840fece806fc8" kind="variable"><name>effects</name></member>
   </compound>
   <compound refid="union_target___s" kind="union"><name>Target_S</name>
     <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82" kind="enum"><name>SubTargets_S</name></member>
@@ -76,12 +103,17 @@
     <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ac0d07b2330615bb5e3325b79c9e68b68" kind="enumvalue"><name>SUB_HIRE</name></member>
     <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ade254abb415dfad57011d9a6f4ca9447" kind="enumvalue"><name>SUB_FISE</name></member>
     <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ab1d817e7690952e7d21ecafb188f5b6c" kind="enumvalue"><name>SUB_FISA</name></member>
+    <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82ac7b0313c97a80040c1a057ca620b43d3" kind="enumvalue"><name>SOURCE</name></member>
     <member refid="union_target___s_1a024e8d256499fa2033c21ffe93a8be82a0dae9b970216bd282750b108c13dc7b4" kind="enumvalue"><name>DESTROY_GARBAGE</name></member>
     <member refid="union_target___s_1afb52de3399e747e02e512edf3a6ad1b2" kind="variable"><name>machine</name></member>
     <member refid="union_target___s_1a6763d10062c6e036762826aab4f86ec5" kind="variable"><name>other</name></member>
   </compound>
+  <compound refid="structtest___list___s" kind="struct"><name>test_List_S</name>
+    <member refid="structtest___list___s_1add497dcb569c31a14704ec86a959bcda" kind="variable"><name>description</name></member>
+    <member refid="structtest___list___s_1afc539e5bfcdfc22181b0dfa460cde10d" kind="variable"><name>function</name></member>
+  </compound>
   <compound refid="struct_user_action_mapping___s" kind="struct"><name>UserActionMapping_S</name>
-    <member refid="struct_user_action_mapping___s_1ad5fe89e8119e71132a97c6cb12631d96" kind="variable"><name>action_id</name></member>
+    <member refid="struct_user_action_mapping___s_1ab42876551ebbd4aa148d9bd859ed7787" kind="variable"><name>actionID</name></member>
     <member refid="struct_user_action_mapping___s_1a665f38c07a180ba9c7eaa310ee881e45" kind="variable"><name>key</name></member>
   </compound>
   <compound refid="struct_vector2_d___s" kind="struct"><name>Vector2D_S</name>
@@ -93,6 +125,8 @@
   <compound refid="actions_8h" kind="file"><name>actions.h</name>
     <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5" kind="enum"><name>Action_S</name></member>
     <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" kind="enumvalue"><name>ACTION_SHOW_MAP</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a29a8012d7de26ab834493a63098e26b6" kind="enumvalue"><name>ACTION_SHOW_CASE_RESOURCE</name></member>
+    <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a8a30177e60d4d3e4a6331bcbddfa8adb" kind="enumvalue"><name>ACTION_SHOW_CASE_GARBAGE</name></member>
     <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5af9e90e85d0624fd3c5ad8e9b27a53836" kind="enumvalue"><name>ACTION_CANCEL_ACTION</name></member>
     <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3a6e4bf0ba87fe533448728a5bf312eb" kind="enumvalue"><name>ACTION_EXIT</name></member>
     <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a98db311aedbc9b9840983f714af32069" kind="enumvalue"><name>ACTION_LIST_ACTIONS</name></member>
@@ -108,20 +142,52 @@
     <member refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" kind="enumvalue"><name>ACTION_DESTROY_MACHINE</name></member>
     <member refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kind="typedef"><name>Action</name></member>
   </compound>
-  <compound refid="case__type_8h" kind="file"><name>case_type.h</name>
-    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390ec" kind="enum"><name>CaseType_S</name></member>
-    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" kind="enumvalue"><name>CASE_VIDE</name></member>
-    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" kind="enumvalue"><name>CASE_GATE</name></member>
-    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" kind="enumvalue"><name>CASE_SOURCE</name></member>
-    <member refid="case__type_8h_1a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" kind="enumvalue"><name>CASE_MACHINE</name></member>
-    <member refid="case__type_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kind="typedef"><name>CaseType</name></member>
+  <compound refid="box_8h" kind="file"><name>box.h</name>
+    <member refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kind="typedef"><name>Box</name></member>
+    <member refid="box_8h_1a7432c5c54d1aa5debdb5e6813ba04fbf" kind="function"><name>box_getNumberResource</name></member>
+    <member refid="box_8h_1a221dac4f03cfe15be44c5530ebc62ad7" kind="function"><name>box_setNumberResource</name></member>
+    <member refid="box_8h_1af023f5194c796569153af868a39faee1" kind="function"><name>box_getNumberGarbage</name></member>
+    <member refid="box_8h_1abc1c6bbb3200a106773bbf8e7f8b363b" kind="function"><name>box_setNumberGarbage</name></member>
+    <member refid="box_8h_1a32a11db5c561bdef9c32e4c32a9a6aa4" kind="function"><name>box_create</name></member>
+    <member refid="box_8h_1ab07e85e27a0ae3cb36846d7856023e91" kind="function"><name>box_addB2toB1</name></member>
+    <member refid="box_8h_1ab7622660d88a2a1cfc1e8fb41982a833" kind="function"><name>box_destroy</name></member>
+  </compound>
+  <compound refid="case_8h" kind="file"><name>case.h</name>
+    <member refid="case_8h_1a843306d07280ade14d7b25d66d1390ec" kind="enum"><name>CaseType_S</name></member>
+    <member refid="case_8h_1a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" kind="enumvalue"><name>CASE_VIDE</name></member>
+    <member refid="case_8h_1a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" kind="enumvalue"><name>CASE_GATE</name></member>
+    <member refid="case_8h_1a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" kind="enumvalue"><name>CASE_SOURCE</name></member>
+    <member refid="case_8h_1a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" kind="enumvalue"><name>CASE_MACHINE</name></member>
+    <member refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kind="typedef"><name>CaseType</name></member>
+    <member refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kind="typedef"><name>Case</name></member>
+    <member refid="case_8h_1a3ebd1245adcc50c785ff4ee28209b111" kind="function"><name>case_getX</name></member>
+    <member refid="case_8h_1a7bf278371a86bec8d7227b2e5d2bb8b2" kind="function"><name>case_getY</name></member>
+    <member refid="case_8h_1adff1ffd6fad1d380b3dc0c936a582474" kind="function"><name>case_getType</name></member>
+    <member refid="case_8h_1a109102cc11345b4041224ef73ddbf6af" kind="function"><name>case_getMachine</name></member>
+    <member refid="case_8h_1ae705f8c1b656d8a05571374375015c8c" kind="function"><name>case_getBox</name></member>
+    <member refid="case_8h_1aff0b8574cae438a1f64b3996f8f5bced" kind="function"><name>case_getNumberResourcesByCase</name></member>
+    <member refid="case_8h_1a6719d8b38e74c4d224a604239dcd5996" kind="function"><name>case_getNumberGarbageByCase</name></member>
+    <member refid="case_8h_1a02e1bd809dcdd826ca64fd81347a0e05" kind="function"><name>case_create</name></member>
+    <member refid="case_8h_1a098b0543abe86ee43a22237da45f762f" kind="function"><name>case_addMachine</name></member>
+    <member refid="case_8h_1af4547baf18fde300dbe54672987499d8" kind="function"><name>case_addGate</name></member>
+    <member refid="case_8h_1aaa47aea6d931873dbd1957d4490cbfc6" kind="function"><name>case_addSource</name></member>
+    <member refid="case_8h_1a1f0cdb8404ecd2ac1f3997216710a246" kind="function"><name>case_addBox</name></member>
+    <member refid="case_8h_1a507096f06bf3e413f6b0b440a4aff0dc" kind="function"><name>case_deleteBox</name></member>
+    <member refid="case_8h_1af5c9504009524a0c02f9cdc2737b906c" kind="function"><name>case_setEmpty</name></member>
+    <member refid="case_8h_1a19f862d764f2a9a1218412ee9d294384" kind="function"><name>case_isEmpty</name></member>
+    <member refid="case_8h_1a6c227f089015d7a3562a092fc2c1c398" kind="function"><name>case_hasBox</name></member>
+    <member refid="case_8h_1a5fb47cbafca144700ca34aa27800464c" kind="function"><name>case_destroy</name></member>
   </compound>
   <compound refid="difficulty_8h" kind="file"><name>difficulty.h</name>
-    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kind="enum"><name>Difficulty</name></member>
-    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3a95f48065472a7866854a3c9b9ea8347e" kind="enumvalue"><name>DIFFICULTY_EASY</name></member>
-    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3acd9bd660438188b3fcbed6efc3deb92d" kind="enumvalue"><name>DIFFICULTY_MEDIUM</name></member>
-    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3a0d7385205eaa38cd67abe052bc39e431" kind="enumvalue"><name>DIFFICULTY_HARD</name></member>
-    <member refid="difficulty_8h_1a3d65c3a550541de7ed8d9678a18c2de8" kind="typedef"><name>Difficulty</name></member>
+    <member refid="difficulty_8h_1ac9c99ae399e5ba6e2eacfb63f69ef3c1" kind="define"><name>NUMBER_DIFFICULTY</name></member>
+    <member refid="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6" kind="enum"><name>Difficulty_S</name></member>
+    <member refid="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6a95f48065472a7866854a3c9b9ea8347e" kind="enumvalue"><name>DIFFICULTY_EASY</name></member>
+    <member refid="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6acd9bd660438188b3fcbed6efc3deb92d" kind="enumvalue"><name>DIFFICULTY_MEDIUM</name></member>
+    <member refid="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6a0d7385205eaa38cd67abe052bc39e431" kind="enumvalue"><name>DIFFICULTY_HARD</name></member>
+    <member refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kind="typedef"><name>Difficulty</name></member>
+    <member refid="difficulty_8h_1a9cb5bc6466673007104850f1684baeb1" kind="function"><name>difficulty_getLVL</name></member>
+    <member refid="difficulty_8h_1a094edc3baeeec6527d7d77af3e014359" kind="function"><name>difficulty_getNumberOfDifficulties</name></member>
+    <member refid="difficulty_8h_1a03b297ee896f409b8186cbde863419c5" kind="function"><name>map_utils_getSizeByDifficulty</name></member>
   </compound>
   <compound refid="effect_8h" kind="file"><name>effect.h</name>
     <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807f" kind="enum"><name>Mode_S</name></member>
@@ -134,15 +200,78 @@
     <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa2445c6427bd5e1763097b93f45a601e1" kind="enumvalue"><name>DOOR_OUT</name></member>
     <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fa602e518a6561abffa3c4e23e171ad26b" kind="enumvalue"><name>PRODUCTION</name></member>
     <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fad91e3016183edc3a8e1e2b07de265cb4" kind="enumvalue"><name>ON_TURN</name></member>
+    <member refid="effect_8h_1a7591bf41d16a317b822948ae5bcc807fae09e07839103de682cb13fa773793fc0" kind="enumvalue"><name>LEAVE</name></member>
     <member refid="effect_8h_1a31488d29805a596498c0234ae392d35d" kind="typedef"><name>Target</name></member>
     <member refid="effect_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911" kind="typedef"><name>Mode</name></member>
     <member refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kind="typedef"><name>Effect</name></member>
+    <member refid="effect_8h_1a345bd756d7dc10dc098e342d8e434afb" kind="function"><name>effect_getMode</name></member>
+    <member refid="effect_8h_1a671a16f946d2dad0ce29a5197cec036f" kind="function"><name>effect_getWhat</name></member>
+    <member refid="effect_8h_1a4acfe01ec317cda0309c7ef76e2d02b7" kind="function"><name>effect_getOnOther</name></member>
+    <member refid="effect_8h_1a7ef2c8dbf31bffb08b099cf8ff886017" kind="function"><name>effect_getModifierRes</name></member>
+    <member refid="effect_8h_1a35de45afb1114e532e8b7eb02008dd61" kind="function"><name>effect_getModifierFISA</name></member>
+    <member refid="effect_8h_1a78559a54577a479d9e25d0cfc09fddee" kind="function"><name>effect_getModifierFISE</name></member>
+    <member refid="effect_8h_1a56be91bb079108130867c00964687c86" kind="function"><name>effect_getModifierE</name></member>
+    <member refid="effect_8h_1aa881d8151ab7c64fa0f0cccd4d5880b7" kind="function"><name>effect_getModifierDD</name></member>
+    <member refid="effect_8h_1a5c0ad0d13d9e9ad8ad993227cc86ed44" kind="function"><name>effect_getModifierCapacity</name></member>
+    <member refid="effect_8h_1a4f1e2e9491756de6d8d789055391e55a" kind="function"><name>effect_getMinCostE</name></member>
+    <member refid="effect_8h_1a10e766128ae6bc857c90c6f4fd657d2a" kind="function"><name>effect_getMinCostDD</name></member>
+    <member refid="effect_8h_1ad7794766e5911687dfaf5f53a6c11ee3" kind="function"><name>effect_getDescription</name></member>
   </compound>
   <compound refid="error_8h" kind="file"><name>error.h</name>
     <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dc" kind="enum"><name>ErrorCode_S</name></member>
     <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcabf350750d0d4fabd8954c0f1e9bbae94" kind="enumvalue"><name>NO_ERROR</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca2fd6f336d08340583bd620a7f5694c90" kind="enumvalue"><name>ERROR</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaefbc4b8c8ed528d5e318e78cc882ea6f" kind="enumvalue"><name>ERROR_GAME_WIN</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcace83e8d904bf5aa96ff47321b56ef4d8" kind="enumvalue"><name>ERROR_GAME_LOST</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaa15aca463f76f6f19a50753b091cd7e5" kind="enumvalue"><name>ERROR_CASE_EMPTY</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca65efab6470a0ad6f53db6e427dccdeac" kind="enumvalue"><name>ERROR_CASE_MACHINE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaa385cfef21d5e08446f1c3794e079d32" kind="enumvalue"><name>ERROR_CASE_SOURCE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaea2c3d9303bda67f6790427bd3cb8402" kind="enumvalue"><name>ERROR_CASE_GATE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca6115ee8d045c7083d98fc244cf501f9a" kind="enumvalue"><name>ERROR_CASE_NOT_FOUND</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca3ea60f523df45fcffcde3ff2aa72aee9" kind="enumvalue"><name>ERROR_CASE_NOT_EMPTY</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca3a9e6ad012c2582ee918dc94bd9a4ae5" kind="enumvalue"><name>ERROR_CASE_CANT_BE_DESTROYED</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca1edb662c2c480242f4b087b43072c179" kind="enumvalue"><name>ERROR_CASE_CANT_BE_UPGRADED</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca85d67d34235e3d4853c70db4f616c2f2" kind="enumvalue"><name>ERROR_NOT_ENOUGH_E</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca7971c053ebabbbf59a2cd10c47a7626e" kind="enumvalue"><name>ERROR_NOT_ENOUGH_DD</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcab11f74959c091e28b7241750cfa7ec84" kind="enumvalue"><name>ERROR_NEGATIVE_RESULT</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca0eb579d7460bfd7dfc690379b4f1cb36" kind="enumvalue"><name>ERROR_INVALID_ACTION_SEQUENCE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca15974c0e7d9b7aa777a578a3177bf7b7" kind="enumvalue"><name>ERROR_INVALID_LOCATION_SEQUENCE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca218114b3831c08daaaf0ae1ced4ad5af" kind="enumvalue"><name>ERROR_INVALID_STAFF_NUMBER</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcae3836a1c8f9476fa03cd14735b570570" kind="enumvalue"><name>ERROR_INVALID_MACHINE_NUMBER</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcac2f27cc72d5f937461dd07e86966ff64" kind="enumvalue"><name>ERROR_INVALID_ORIENTATION_NUMBER</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca7741fcae94a08a49033eab3f233ad09d" kind="enumvalue"><name>ERROR_INIT_INTERFACE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcad7171b85777c0b68b917c874136a156e" kind="enumvalue"><name>ERROR_INIT_NCURSES_INTERFACE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcafda19c76ea6984a837c378125b3afbc1" kind="enumvalue"><name>ERROR_INIT_NCURSES_INTERFACE_SIZE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca0a58382d2c0b613984325f8c571b3a17" kind="enumvalue"><name>ERROR_NO_NCURSES_COLORS_INTERFACE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcacf45d6786609895fd1ed09f8f77b6db7" kind="enumvalue"><name>ERROR_CLOSE_INTERFACE</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcad53987bdf2dd3f6dc96a11e18e599572" kind="enumvalue"><name>ERROR_LIST_NULL</name></member>
+    <member refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca448a31c2fee8b9e3345bb6e8ef8b0c31" kind="enumvalue"><name>ERROR_DICTIONARY_NULL</name></member>
     <member refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kind="typedef"><name>ErrorCode</name></member>
-    <member refid="error_8h_1a0781923c96e57619d712e566bcb00de9" kind="function"><name>get_Error_Msg</name></member>
+    <member refid="error_8h_1a5227e8c37c69588962b21e6c88d74879" kind="function"><name>error_getMessage</name></member>
+  </compound>
+  <compound refid="facade_8h" kind="file"><name>facade.h</name>
+    <member refid="facade_8h_1a4632199e9cb78b690df9d44f6fec3716" kind="define"><name>NUMBER_CARDINAL</name></member>
+    <member refid="facade_8h_1ad85ffaf92a8202b1a6c59762071771be" kind="enum"><name>Cardinal_S</name></member>
+    <member refid="facade_8h_1ad85ffaf92a8202b1a6c59762071771bead0611de6f28d4a9c9eac959f5344698e" kind="enumvalue"><name>NORTH</name></member>
+    <member refid="facade_8h_1ad85ffaf92a8202b1a6c59762071771beab5b3793b961949c817c7c0d99c05dad7" kind="enumvalue"><name>EAST</name></member>
+    <member refid="facade_8h_1ad85ffaf92a8202b1a6c59762071771bea8ef5c0bce69283a9986011a63eea8a6b" kind="enumvalue"><name>SOUTH</name></member>
+    <member refid="facade_8h_1ad85ffaf92a8202b1a6c59762071771beae9449e8683a8199dad36b07a63b2f523" kind="enumvalue"><name>WEST</name></member>
+    <member refid="facade_8h_1a97f8fb799ae13007f658bbcf024096b2" kind="enum"><name>Direction_S</name></member>
+    <member refid="facade_8h_1a97f8fb799ae13007f658bbcf024096b2a66a3c638b3f4a3d2e144245311b29241" kind="enumvalue"><name>DIRECTION_IN</name></member>
+    <member refid="facade_8h_1a97f8fb799ae13007f658bbcf024096b2a110d8bc2cf7464da0e5b438dc51ee183" kind="enumvalue"><name>DIRECTION_OUT</name></member>
+    <member refid="facade_8h_1a97f8fb799ae13007f658bbcf024096b2a8014a4c7dd2e1ab266e6b98e7c9b5780" kind="enumvalue"><name>DIRECTION_NONE</name></member>
+    <member refid="facade_8h_1a6fe04539374de416fbc486013b9c17e0" kind="typedef"><name>Cardinal</name></member>
+    <member refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kind="typedef"><name>Direction</name></member>
+    <member refid="facade_8h_1a1dd89c2df15b41c12a97d9ee528ee56c" kind="typedef"><name>Facade</name></member>
+    <member refid="facade_8h_1aa47fe4dbb0e737797931008575d6922f" kind="function"><name>facade_create</name></member>
+    <member refid="facade_8h_1a76059d1545c6311e2c77ad97e16fde58" kind="function"><name>facade_destroy</name></member>
+    <member refid="facade_8h_1abfd888b33817597295adc2aa2d883e1c" kind="function"><name>facade_getDirection</name></member>
+    <member refid="facade_8h_1afe66fc18e24f32dee3f057dae134ac79" kind="function"><name>facade_setDirection</name></member>
+    <member refid="facade_8h_1a265ecedddb6f6cb634b4024e1b7be2a4" kind="function"><name>facade_getBox</name></member>
+    <member refid="facade_8h_1a4608ce8e473c0cdb431efba59aecc0ce" kind="function"><name>facade_setBox</name></member>
+    <member refid="facade_8h_1a12b9ff953c1753cb1a0554e3ffbdd9ed" kind="function"><name>facade_getCardinal</name></member>
+    <member refid="facade_8h_1ad53b0e7ee3e9f7916a325f4dd882e220" kind="function"><name>facade_setCardinal</name></member>
+    <member refid="facade_8h_1a0554303e70f48ff6b634b2acaa9c0a5b" kind="function"><name>cardinal_modifyXYWithCardinal</name></member>
   </compound>
   <compound refid="machine_8h" kind="file"><name>machine.h</name>
     <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16" kind="enum"><name>MachineStuff_S</name></member>
@@ -151,77 +280,823 @@
     <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43" kind="enumvalue"><name>MS_CROSS</name></member>
     <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2" kind="enumvalue"><name>MS_RECYCLING_CENTER</name></member>
     <member refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557" kind="enumvalue"><name>MS_JUNKYARD</name></member>
-    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2" kind="enum"><name>Direction_S</name></member>
-    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a66a3c638b3f4a3d2e144245311b29241" kind="enumvalue"><name>DIRECTION_IN</name></member>
-    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a110d8bc2cf7464da0e5b438dc51ee183" kind="enumvalue"><name>DIRECTION_OUT</name></member>
-    <member refid="machine_8h_1a97f8fb799ae13007f658bbcf024096b2a8014a4c7dd2e1ab266e6b98e7c9b5780" kind="enumvalue"><name>DIRECTION_NONE</name></member>
     <member refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kind="typedef"><name>MachineStuff</name></member>
-    <member refid="machine_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kind="typedef"><name>Direction</name></member>
-    <member refid="machine_8h_1a871118a09520247c78a71ecd7b0abd58" kind="typedef"><name>Orientation</name></member>
     <member refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kind="typedef"><name>Machine</name></member>
-    <member refid="machine_8h_1a138aa1fe7b34ae22fafde583debd6339" kind="variable"><name>machine_list</name></member>
+    <member refid="machine_8h_1a7928d83376348f2690b4b870506ef8e2" kind="function"><name>machine_getType</name></member>
+    <member refid="machine_8h_1af016231f4c5d0ca951b67cf570eb7d0b" kind="function"><name>machine_getLevel</name></member>
+    <member refid="machine_8h_1afa5dec80d819cf7c263e03e02992f842" kind="function"><name>facade_defaultFacade</name></member>
+    <member refid="machine_8h_1a96cedf400b162a0784c6f6f6dcb063bf" kind="function"><name>machine_create</name></member>
+    <member refid="machine_8h_1a84b9ca5b1095fb0a17e32b7f272d96c7" kind="function"><name>machine_destroyMachine</name></member>
+    <member refid="machine_8h_1adc6cbb26ac8976b5ac1429153225ef39" kind="function"><name>machine_rotateMachine</name></member>
+    <member refid="machine_8h_1a5cb32f8fdeabbe783c45d7287119965b" kind="function"><name>machine_incrementLevel</name></member>
+    <member refid="machine_8h_1a8db3d0988cf3f7b18eab9143f721eee2" kind="function"><name>machine_isOrientationTop</name></member>
+    <member refid="machine_8h_1ae0c6d238141d4abaef7b19af6d5d9b13" kind="function"><name>machine_isOrientationTopRight</name></member>
+    <member refid="machine_8h_1ae47c21e9c6be3376bd7bf8a11dba8aea" kind="function"><name>machine_isOrientationRight</name></member>
+    <member refid="machine_8h_1a9e600771112027b2d7fd4a673d11958b" kind="function"><name>machine_isOrientationBottomRight</name></member>
+    <member refid="machine_8h_1a6bcdad0b7ba52172d4faa5a355b7c63c" kind="function"><name>machine_isOrientationBottom</name></member>
+    <member refid="machine_8h_1a480c6baf8396b09765c630ac426772c3" kind="function"><name>machine_isOrientationBottomLeft</name></member>
+    <member refid="machine_8h_1a7dd885cd9ae873a61dd2263028c06fac" kind="function"><name>machine_isOrientationLeft</name></member>
+    <member refid="machine_8h_1a274852247d2f74f9e7817123dc99b973" kind="function"><name>machine_isOrientationTopLeft</name></member>
+    <member refid="machine_8h_1a094117e76a87e841b60d10c59ed9e78e" kind="function"><name>machine_isRotationCorrect</name></member>
+    <member refid="machine_8h_1a06ab270bade8738858c49ac03a62bb89" kind="function"><name>machine_getDirection</name></member>
+    <member refid="machine_8h_1a0583f2b429fea62d7753f54986b0a49e" kind="function"><name>machine_getBox</name></member>
+    <member refid="machine_8h_1ade1d50d31707676dec83f071eb731140" kind="function"><name>machine_addBox</name></member>
+    <member refid="machine_8h_1a037b7f8f212ddcec44680ba0aa6ef334" kind="function"><name>machine_destroyBox</name></member>
   </compound>
   <compound refid="machine__info_8h" kind="file"><name>machine_info.h</name>
+    <member refid="machine__info_8h_1a1e2c381e16005347f1e481c12f50a4c4" kind="define"><name>NUMBER_OF_MACHINES</name></member>
     <member refid="machine__info_8h_1a61e24053e0bb9c5272cd6b2186e285fa" kind="typedef"><name>MachineInfo</name></member>
+    <member refid="machine__info_8h_1aba3b46c7e80f829e55b8c568d3f357bb" kind="function"><name>machineInfo_getMachineInfoByType</name></member>
+    <member refid="machine__info_8h_1a2f9da11acbbb18c761337b7c944eaad0" kind="function"><name>machineInfo_getType</name></member>
+    <member refid="machine__info_8h_1ad309e654e4120cc1b5a59faf4604e7fb" kind="function"><name>machineInfo_getCostE</name></member>
+    <member refid="machine__info_8h_1a80472930c013c3f19e76a67d45a5256a" kind="function"><name>machineInfo_getCostDD</name></member>
+    <member refid="machine__info_8h_1a9cf12cff08cc252c553dd62c1f85d065" kind="function"><name>machineInfo_getCostUpgradeE</name></member>
+    <member refid="machine__info_8h_1afc293ff394ce280e0e9b0c27e35cf47b" kind="function"><name>machineInfo_getCostUpgradeDD</name></member>
+    <member refid="machine__info_8h_1a5a82d5b11d3861841bf622e6a4a76363" kind="function"><name>machineInfo_getCostDestroyE</name></member>
+    <member refid="machine__info_8h_1af543f70d9216073dd42fef4b884ecca5" kind="function"><name>machineInfo_getCostDestroyDD</name></member>
+    <member refid="machine__info_8h_1a093c09c300992675574527c3eff08afe" kind="function"><name>machineInfo_getDescription</name></member>
+    <member refid="machine__info_8h_1a0726ae96218b81aaa75da6ab196cfbd9" kind="function"><name>machineInfo_getCapacity</name></member>
+    <member refid="machine__info_8h_1a86ea3754f5c050057f291f154b14229c" kind="function"><name>machineInfo_getCanUpgrade</name></member>
+    <member refid="machine__info_8h_1a62d2df1d8cbe0830a492c71f9c51204c" kind="function"><name>machineInfo_getEffects</name></member>
+    <member refid="machine__info_8h_1a9dfeee7987b498463ea287c4b0102067" kind="function"><name>machineInfo_getDefaultOrientationMessage</name></member>
+    <member refid="machine__info_8h_1a90569d00f4ceeae2b7b627e6a5d8a0eb" kind="function"><name>machineInfo_isMachineStuffValid</name></member>
+    <member refid="machine__info_8h_1a24fdfb9c0e0a41fe4c0a7b1fffb67a55" kind="function"><name>machineInfo_getMachineStuff</name></member>
   </compound>
   <compound refid="mapping_8h" kind="file"><name>mapping.h</name>
     <member refid="mapping_8h_1a1a750232e533867d6e3e4b4b781cacb4" kind="typedef"><name>UserActionMapping</name></member>
-    <member refid="mapping_8h_1abc28c4a370b4cdacc05015ccd4fc580b" kind="variable"><name>user_mapping</name></member>
+    <member refid="mapping_8h_1a065fad754b08e943be62dd3430aac8a8" kind="function"><name>mapping_getSize</name></member>
+    <member refid="mapping_8h_1a167a5917da6014ca3c2eec9c0ee33fab" kind="function"><name>mapping_get</name></member>
+    <member refid="mapping_8h_1a749f0291a1d02976b3e0d98d796ef4b0" kind="function"><name>mapping_getMappingByAction</name></member>
+    <member refid="mapping_8h_1a3fb0f71d5b1dc3b3d68848a80fb5be2d" kind="function"><name>mapping_getMapping</name></member>
+    <member refid="mapping_8h_1a8bc45b96fc8c22b2304743cc37f5a4c3" kind="function"><name>mapping_getBackMapping</name></member>
   </compound>
-  <compound refid="data_2package_8dox" kind="file"><name>package.dox</name>
+  <compound refid="headers_2data_2package_8dox" kind="file"><name>package.dox</name>
   </compound>
-  <compound refid="package_8dox" kind="file"><name>package.dox</name>
+  <compound refid="headers_2package_8dox" kind="file"><name>package.dox</name>
   </compound>
-  <compound refid="utils_2package_8dox" kind="file"><name>package.dox</name>
+  <compound refid="headers_2utils_2package_8dox" kind="file"><name>package.dox</name>
+  </compound>
+  <compound refid="src_2view_2ncurses_2nc__headers_2package_8dox" kind="file"><name>package.dox</name>
   </compound>
   <compound refid="staff_8h" kind="file"><name>staff.h</name>
+    <member refid="staff_8h_1a399af870a0cdd739adc25363e145017e" kind="define"><name>NUMBER_OF_STAFFS</name></member>
     <member refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kind="typedef"><name>Staff</name></member>
-    <member refid="staff_8h_1a223cd533693dc1c64c992e0b6bb03f46" kind="variable"><name>staff_list</name></member>
+    <member refid="staff_8h_1a0b52c6f66f2cbf9c43afaf41ed40cdd2" kind="function"><name>staff_isIDValid</name></member>
+    <member refid="staff_8h_1a926193e4b9b4f1a9a965399418e3b0d2" kind="function"><name>staff_getStaffByID</name></member>
+    <member refid="staff_8h_1aaa58a1f8892ceadd371a622dfbcf31cf" kind="function"><name>staff_getStaffNameByID</name></member>
+    <member refid="staff_8h_1a30b68bd571805ee37182b00f107c14be" kind="function"><name>staff_getStaffCostEByID</name></member>
+    <member refid="staff_8h_1a4d216c34f9872c62bda6c5240b305114" kind="function"><name>staff_getStaffCostDDByID</name></member>
+    <member refid="staff_8h_1af5d5000d12e3e3f3e7181be21696a42f" kind="function"><name>staff_getStaffDescriptionByID</name></member>
+    <member refid="staff_8h_1a57cfb7571feb5b37eece0e34ffdf3fd5" kind="function"><name>staff_getStaffEffectByID</name></member>
+    <member refid="staff_8h_1a514d3d1a894d315bf1eefe285ae60e3c" kind="function"><name>staff_getStaffID</name></member>
+    <member refid="staff_8h_1a64907c86f1d977d506596eedabbe50d3" kind="function"><name>staff_getStaffName</name></member>
+    <member refid="staff_8h_1a00c42fab438abecba09a8f198cd29719" kind="function"><name>staff_getStaffCostE</name></member>
+    <member refid="staff_8h_1a02a6c88929a508ccc186f6c86d64fdbd" kind="function"><name>staff_getStaffCostDD</name></member>
+    <member refid="staff_8h_1a6e2fdd942ee80a84bcc1448834636ac8" kind="function"><name>staff_getStaffDescription</name></member>
+    <member refid="staff_8h_1a2ab3f2babab67a6e3c9f0496d0b4e703" kind="function"><name>staff_getStaffEffect</name></member>
+    <member refid="staff_8h_1a07caa75fbb60b7cad1f223d9df1a6690" kind="function"><name>effect_getTurnProduction</name></member>
+    <member refid="staff_8h_1a635eb32a9010374fd0e90ff03ad2e68b" kind="function"><name>effect_getMinTurnProduction</name></member>
+    <member refid="staff_8h_1af431da3ffd19b2a1f14873900c218481" kind="function"><name>staffInfo_getByModeAndType</name></member>
+    <member refid="staff_8h_1a914d9f0b67914443ac2d802651f00cc8" kind="function"><name>staff_createStaffDictionary</name></member>
+    <member refid="staff_8h_1a6ba9a668601cb6a2d3636d86ccf519e1" kind="function"><name>staff_getNumberStaffByID</name></member>
+    <member refid="staff_8h_1ae7e2a37e146f2a6791e9152a62994e4a" kind="function"><name>staff_hireStaff</name></member>
+    <member refid="staff_8h_1a48f31c65f3ddf1c22cfde2541c4b9c7a" kind="function"><name>staff_destroyStaffDictionary</name></member>
   </compound>
   <compound refid="interface_8h" kind="file"><name>interface.h</name>
-    <member refid="interface_8h_1a9fa9dae540c5a4392eed8131340524e0" kind="define"><name>USER_MAPPING_SIZE</name></member>
+    <member refid="interface_8h_1a9c9a9af6a12d289aac69907f5dfa1c0d" kind="typedef"><name>MachineSpec</name></member>
     <member refid="interface_8h_1ad0e6b6213a172f1d71e8738bb156e7ea" kind="variable"><name>back</name></member>
-    <member refid="interface_8h_1ab47d5d899f3409a45d7d1fde4f9fb549" kind="function"><name>interface_init</name></member>
+    <member refid="interface_8h_1ad9f2c1ca9a5a45dbb44fdc563226448e" kind="function"><name>interface_init</name></member>
     <member refid="interface_8h_1ac0f88a694b00721fb252a1dd792a61bc" kind="function"><name>interface_reload</name></member>
-    <member refid="interface_8h_1ab7c13ec570fb8fd038aab0ff35d839f2" kind="function"><name>interface_close</name></member>
-    <member refid="interface_8h_1a7aba8b0ed18d9a5bf8ada77a8be580c8" kind="function"><name>interface_chooseDifficulty</name></member>
-    <member refid="interface_8h_1a042cdfc50356b5668d4b708763152e22" kind="function"><name>interface_showMap</name></member>
+    <member refid="interface_8h_1a4ee8e79a42ac0e14f7b571c4dbe45276" kind="function"><name>interface_close</name></member>
+    <member refid="interface_8h_1ac8eb59c03d043401fd7b958f3b933ae7" kind="function"><name>interface_endGame</name></member>
+    <member refid="interface_8h_1a1fbf6f85b1bda25103dfe17f57d8fc65" kind="function"><name>interface_chooseDifficulty</name></member>
+    <member refid="interface_8h_1a98ccfe7867eb92d69e73c1abbc8a08b5" kind="function"><name>interface_showMap</name></member>
     <member refid="interface_8h_1a2b94e06c8e1c55d25b6049fd49df2384" kind="function"><name>interface_showStaffList</name></member>
-    <member refid="interface_8h_1a8d5d9afbd5faf995cf2214bd27ab5406" kind="function"><name>interface_showMachinesList</name></member>
-    <member refid="interface_8h_1a3d693e2a4cac185898862f1f6f7d6fde" kind="function"><name>interface_list_actions</name></member>
-    <member refid="interface_8h_1aab40b3b555768d71fd3a2ee102ed0b15" kind="function"><name>interface_chooseAction</name></member>
-    <member refid="interface_8h_1abb9d06aa05eb64c1f76228d14747326a" kind="function"><name>interface_askAddMachine</name></member>
-    <member refid="interface_8h_1a2f606771c73271192fc4ba8567ea83d9" kind="function"><name>interface_askMachineLocation</name></member>
-    <member refid="interface_8h_1a6b8107acc0f275a1316d3eeb0d298d69" kind="function"><name>interface_askBuyStaff</name></member>
+    <member refid="interface_8h_1a7787006d14f81b21f9470999dd146604" kind="function"><name>interface_showMachinesList</name></member>
+    <member refid="interface_8h_1a3fe4849bd84943b21b788f6e653800cd" kind="function"><name>interface_listActions</name></member>
+    <member refid="interface_8h_1a2fdf95b0a854cc304a382ca545c60009" kind="function"><name>interface_chooseAction</name></member>
+    <member refid="interface_8h_1a6680a7ff04653155d2214027f2fec93f" kind="function"><name>interface_askAddMachine</name></member>
+    <member refid="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" kind="function"><name>interface_askMachineLocation</name></member>
+    <member refid="interface_8h_1acfd169c3c396bf9f56218f7dd49d3ffe" kind="function"><name>interface_askBuyStaff</name></member>
     <member refid="interface_8h_1a968f7f6a7683a9126d3279d6f34f10f0" kind="function"><name>interface_showError</name></member>
   </compound>
   <compound refid="map_8h" kind="file"><name>map.h</name>
     <member refid="map_8h_1acd23bf67dcb04a6103def6305cea6d42" kind="define"><name>E_VALUE</name></member>
     <member refid="map_8h_1ae85b18a68c0e20acd021fc9a582854e9" kind="define"><name>DD_VALUE</name></member>
-    <member refid="map_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kind="typedef"><name>Case</name></member>
     <member refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kind="typedef"><name>Map</name></member>
     <member refid="map_8h_1a4f81eda0b27a71f5d56ec75ab740efce" kind="function"><name>map_create</name></member>
-    <member refid="map_8h_1a52abbbca8d3a430d5a929bc17618e12b" kind="function"><name>map_destroy</name></member>
-    <member refid="map_8h_1a514859d4195b0b85d207527ac8d60cd8" kind="function"><name>map_hireFISE</name></member>
-    <member refid="map_8h_1a494e28227f59873f32789af312072d0f" kind="function"><name>map_hireFISA</name></member>
-    <member refid="map_8h_1a93c14b54276fd898c14cdeafb563390b" kind="function"><name>map_changeProductionFISA</name></member>
-    <member refid="map_8h_1a53a7bbdc123e6910eae6d12fe5613b9e" kind="function"><name>map_endTurn</name></member>
-    <member refid="map_8h_1ac7285f5ac0c920bfb6205a936a9d73fb" kind="function"><name>map_addMachine</name></member>
+    <member refid="map_8h_1a9677c3da4d4827a97fcd8202df6fa946" kind="function"><name>map_destroy</name></member>
+    <member refid="map_8h_1abe0ed98eac0f7ea8a1b5f0dc5d84b7e6" kind="function"><name>map_hireFISE</name></member>
+    <member refid="map_8h_1acc0640b51eee5fec16c1204fe3412ae1" kind="function"><name>map_hireFISA</name></member>
+    <member refid="map_8h_1aee3a56ca6c2550698425dd612744a62b" kind="function"><name>map_changeProductionFISA</name></member>
+    <member refid="map_8h_1ac5afbade09d76883b34af177d1fab779" kind="function"><name>map_endTurn</name></member>
+    <member refid="map_8h_1a761f7bd9e8c5db96fd993ea1243effd5" kind="function"><name>map_addMachine</name></member>
     <member refid="map_8h_1ab8a693d3743e8c207fa5fdcbbada46cb" kind="function"><name>map_upgradeMachine</name></member>
     <member refid="map_8h_1adb43592cf0c517b7eafaabd2038b891c" kind="function"><name>map_destroyMachine</name></member>
-    <member refid="map_8h_1a4114f8b400614d5c3d314400a0ae3dfc" kind="function"><name>map_buyStaff</name></member>
+    <member refid="map_8h_1a3d4a6310f7751060d96595fb279d8a15" kind="function"><name>map_buyStaff</name></member>
+    <member refid="map_8h_1ac9352b96f909517d51aa4ddd8d577512" kind="function"><name>map_isCaseExist</name></member>
+    <member refid="map_8h_1a8c9a56d7f84bafd6dad04c902ed45c19" kind="function"><name>map_getNumberFISE</name></member>
+    <member refid="map_8h_1a188b44c3c3ee863577adba357992c30f" kind="function"><name>map_getNumberFISA</name></member>
+    <member refid="map_8h_1a8d2b39722ce616a6becb3242855b985e" kind="function"><name>map_getNumberE</name></member>
+    <member refid="map_8h_1a6615cd94071f85055fb26ca33ff60c00" kind="function"><name>map_getNumberDD</name></member>
+    <member refid="map_8h_1a48cb03c29b48bb09754c5603db1324e0" kind="function"><name>map_getPlayerScore</name></member>
+    <member refid="map_8h_1a35beb41f9588cb572a677efeff4aeb9f" kind="function"><name>map_getDifficulty</name></member>
+    <member refid="map_8h_1aad19b94928b3ccae9d65ab99d31e7a76" kind="function"><name>map_getWidth</name></member>
+    <member refid="map_8h_1ac08162dce73ec6329fe0f9b72fa0afe8" kind="function"><name>map_getHeight</name></member>
+    <member refid="map_8h_1ab49e08d3de8a5ad25c4a568140d1431e" kind="function"><name>map_getNumberTurn</name></member>
+    <member refid="map_8h_1a54ff0bf9064231f2919de335021ccf4f" kind="function"><name>map_getProductionFISA</name></member>
+    <member refid="map_8h_1ab259b4ad88c607f40fed6bb4d6b7a1cc" kind="function"><name>map_getStaffDictionary</name></member>
+    <member refid="map_8h_1a0a48ea1b7297db364d84badfba22dd40" kind="function"><name>map_getCase</name></member>
+    <member refid="map_8h_1a2a0c8879271eb1329b458344aae6d7c2" kind="function"><name>map_getNumberPollution</name></member>
+    <member refid="map_8h_1a70d379bf95f36cc7132ad1484ba919b3" kind="function"><name>map_setNumberFISE</name></member>
+    <member refid="map_8h_1a50a870e4fc665553728ebefbf3f98fd8" kind="function"><name>map_setNumberFISA</name></member>
+    <member refid="map_8h_1aab42a633b5ec42cc42fcbfd321e1ca3f" kind="function"><name>map_setNumberE</name></member>
+    <member refid="map_8h_1aea92e678fc1da23f8301898887c86597" kind="function"><name>map_setNumberDD</name></member>
+    <member refid="map_8h_1a2d4cc797765eff642aaa482ac7ffcd11" kind="function"><name>map_setNumberScore</name></member>
+    <member refid="map_8h_1af62419f8a20642347258b90b8ca4c39c" kind="function"><name>map_setNumberTurn</name></member>
+  </compound>
+  <compound refid="const_8h" kind="file"><name>const.h</name>
+    <member refid="const_8h_1a93e5faefb3958a5f168b9daffabec8f7" kind="define"><name>NUMBER_DD_DEPART</name></member>
+    <member refid="const_8h_1ab5de5e21b086dff46167d1abf200214a" kind="define"><name>NUMBER_E_DEPART</name></member>
+    <member refid="const_8h_1ae41c1affb2c709e162200c30f41e1921" kind="define"><name>PRODUCTION_FISA_E</name></member>
+    <member refid="const_8h_1a7ec5c41991b5a6cbf05158932e3af9cd" kind="define"><name>PRODUCTION_FISA_DD</name></member>
+    <member refid="const_8h_1a3c630f9116266dafcc0958fba21bc5c1" kind="define"><name>PRODUCTION_FISE_E</name></member>
+    <member refid="const_8h_1a9799a66e7a5da3d1c05049b0c0e45f40" kind="define"><name>PRODUCTION_FISE_DD</name></member>
+    <member refid="const_8h_1ae77900bff818da5267b2622942f8caa1" kind="define"><name>NUMBER_FISE</name></member>
+    <member refid="const_8h_1a738a17289a0feb8c7a649fd0c0ad0ed1" kind="define"><name>NUMBER_FISA</name></member>
+    <member refid="const_8h_1a62190bd1ce860546c2440f8ccb4e10da" kind="define"><name>COST_FISE_E</name></member>
+    <member refid="const_8h_1a7e7d4e78af2cf5bf6176f2f26c86ce42" kind="define"><name>COST_FISE_DD</name></member>
+    <member refid="const_8h_1abcda8821dd5390d2357317cc78f96800" kind="define"><name>COST_FISA_E</name></member>
+    <member refid="const_8h_1a6780e344621928ef0232ba2f41741d42" kind="define"><name>COST_FISA_DD</name></member>
+    <member refid="const_8h_1a6f527441889eb6d21dbdd582a563b6ef" kind="define"><name>NB_TURN_FISA</name></member>
+    <member refid="const_8h_1aff56f73a3baf0de223636e7d9cfd0a21" kind="define"><name>NB_TURN_PRODUCTION_SOURCE</name></member>
+    <member refid="const_8h_1aca8baa90b45356a18f555c209d523510" kind="define"><name>NB_RESOURCE_PRODUCT_BY_SOURCE</name></member>
+    <member refid="const_8h_1a1485108874df64665ef85a5ba78271ff" kind="define"><name>NUMBER_WASTE_TO_PRODUCT_RESOURCE</name></member>
+    <member refid="const_8h_1a49038c88927687b4f503dab603777acc" kind="define"><name>NUMBER_RESOURCE_WIN</name></member>
+    <member refid="const_8h_1a19611b6343921feaa8bc90981878d64c" kind="define"><name>MACHINE_DEFAULT_LVL</name></member>
+  </compound>
+  <compound refid="elements_8h" kind="file"><name>elements.h</name>
+    <member refid="elements_8h_1aa5fd85b1e056b3ff3445327643ba25ef" kind="enum"><name>ElementType_S</name></member>
+    <member refid="elements_8h_1aa5fd85b1e056b3ff3445327643ba25efa12a90dfe20486bbe3e075afcd19ef2d0" kind="enumvalue"><name>NUMBER</name></member>
+    <member refid="elements_8h_1aa5fd85b1e056b3ff3445327643ba25efa9a4a47c1606e295076055a9cc4373197" kind="enumvalue"><name>TEXT</name></member>
+    <member refid="elements_8h_1aa5fd85b1e056b3ff3445327643ba25efa6f78e99ade8d62ec44d30013723e6e75" kind="enumvalue"><name>OBJECT</name></member>
+    <member refid="elements_8h_1a16b11be27a8e9362dd122c4d879e01ae" kind="typedef"><name>ElementType</name></member>
+    <member refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kind="typedef"><name>Element</name></member>
+    <member refid="elements_8h_1a811c807f274f44c0646c5f4fad32a3b8" kind="typedef"><name>Couple</name></member>
+    <member refid="elements_8h_1af116ab4a7070130e044e635328f984c4" kind="function"><name>elements_toNumber</name></member>
+    <member refid="elements_8h_1a75a1d53fcca62d3d2be6735172e27ddd" kind="function"><name>elements_toText</name></member>
+    <member refid="elements_8h_1a114edcca0b5d525f78ecc2abe9c9fe5e" kind="function"><name>elements_toObject</name></member>
+    <member refid="elements_8h_1ad59c8047968f720fedce5e84cf44a331" kind="function"><name>elements_fromNumber</name></member>
+    <member refid="elements_8h_1a37dcd6c86dcdd0886b2a6ee019bb1501" kind="function"><name>elements_fromText</name></member>
+    <member refid="elements_8h_1a8f42cf7cfb54716a218542e65d3e1ab8" kind="function"><name>elements_fromObject</name></member>
+  </compound>
+  <compound refid="map__utils_8h" kind="file"><name>map_utils.h</name>
+    <member refid="map__utils_8h_1a97efe4aba96cab310cfdb2401fdadccc" kind="function"><name>map_utils_tryBuy</name></member>
+    <member refid="map__utils_8h_1a685d499f52c0356a2886accd2bd70028" kind="function"><name>map_utils_checkModificationStaff</name></member>
+    <member refid="map__utils_8h_1a657506793e17824b22db0a23a48e0ab5" kind="function"><name>map_utils_sendResourcesToGate</name></member>
+    <member refid="map__utils_8h_1ada7cac95532fc94ec0a0c1e767b321f3" kind="function"><name>map_utils_productionFise</name></member>
+    <member refid="map__utils_8h_1a2ba72aa74b8d4a70acf0eb10b6fbaec2" kind="function"><name>map_utils_productionFisa</name></member>
+    <member refid="map__utils_8h_1a7bb62698db5a5a1e1298146ee58f5d8c" kind="function"><name>map_utils_moveResources</name></member>
+    <member refid="map__utils_8h_1a7339ca0fe7a9bd4d89b07c672aae21da" kind="function"><name>map_utils_generateResources</name></member>
+    <member refid="map__utils_8h_1a813ef27a0c3ee8809f228e5a9431f6ad" kind="function"><name>map_utils_generateGarbage</name></member>
+    <member refid="map__utils_8h_1a0dee879005ae67405e31e5627bf9f101" kind="function"><name>map_utils_activateRecyclingCenters</name></member>
+    <member refid="map__utils_8h_1a777f54699623234b3c1070e0dfdf90ab" kind="function"><name>map_utils_activateCollectors</name></member>
+    <member refid="map__utils_8h_1a6d56054c00085e1ae4bb8e297cfe6bed" kind="function"><name>map_utils_resetResourcesGarbage</name></member>
+    <member refid="map__utils_8h_1a121ea914c3d77d8892bf0677d803ea84" kind="function"><name>map_utils_moveResourcesInMachine</name></member>
+    <member refid="map__utils_8h_1a25f46a892ba4b31b4e64e87998dd0f13" kind="function"><name>staff_actionAnneLaureLigozat</name></member>
+    <member refid="map__utils_8h_1aaef635f93ffbc9b7c94f39e960a02f4a" kind="function"><name>staff_actionChristopheMouilleron</name></member>
+    <member refid="map__utils_8h_1ab19e7876c1773688f4b1f7d47dc5e5dd" kind="function"><name>staff_actionLaurentPrevel</name></member>
+  </compound>
+  <compound refid="structures_8h" kind="file"><name>structures.h</name>
+    <member refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kind="typedef"><name>Dictionary</name></member>
+    <member refid="structures_8h_1a17b4022430bcb8cf112cada5d768cdd4" kind="typedef"><name>List</name></member>
+    <member refid="structures_8h_1ab491ddfd4c97a3e831fee54040627836" kind="function"><name>list_create</name></member>
+    <member refid="structures_8h_1a41ebbeea76fea9802f236d0bdefb1507" kind="function"><name>list_createEmpty</name></member>
+    <member refid="structures_8h_1a61e52bd4917f43bbfbfb935de181ae24" kind="function"><name>list_getByIndex</name></member>
+    <member refid="structures_8h_1a7de6b846951ef5b7fe7d34233ece1e2d" kind="function"><name>list_getSize</name></member>
+    <member refid="structures_8h_1a3e492a87ab4b5e779633839f55ce4adc" kind="function"><name>list_addElement</name></member>
+    <member refid="structures_8h_1af6f2851143eb298ee9e4e713a172ac85" kind="function"><name>list_addCoupleNumberText</name></member>
+    <member refid="structures_8h_1a605b13fb1d21ac87ba2a8bc41a1a0f41" kind="function"><name>list_addCoupleNumber</name></member>
+    <member refid="structures_8h_1a918888d8cc32c221491d83a41dc161f1" kind="function"><name>list_next</name></member>
+    <member refid="structures_8h_1a7f04d3c2b386066e5981ee3c8a42ead0" kind="function"><name>list_getCurrent</name></member>
+    <member refid="structures_8h_1a8f0b02775c43c68047f288c45bfb6c38" kind="function"><name>list_removeByIndex</name></member>
+    <member refid="structures_8h_1af68596009432f0d0b481aee8e88dae85" kind="function"><name>list_destroy</name></member>
+    <member refid="structures_8h_1ab879f8c161399f217419aa2c02ef14e0" kind="function"><name>list_destroyFirst</name></member>
+    <member refid="structures_8h_1a20f2a6a7dfc2006694d7b60c00caa16d" kind="function"><name>dictionary_create</name></member>
+    <member refid="structures_8h_1ae533255a651a6d7a46048295023a73bc" kind="function"><name>dictionary_destroy</name></member>
+    <member refid="structures_8h_1a9a0c435e75a9bacb2f81f31a26e4ba0c" kind="function"><name>dictionary_getElement</name></member>
+    <member refid="structures_8h_1ac977daa392acb5ad830020bbae557a4f" kind="function"><name>dictionary_addElement</name></member>
+    <member refid="structures_8h_1af5b7abf3d6853545e4a717b7e81ce7f9" kind="function"><name>dictionary_getCoupleByIndex</name></member>
+    <member refid="structures_8h_1a71abab50b857c5fc0f9ca4b3e7d828b9" kind="function"><name>dictionary_addCoupleText</name></member>
+    <member refid="structures_8h_1a4cd363198ff02b6179d77852b1752682" kind="function"><name>dictionary_addCoupleNumberText</name></member>
+    <member refid="structures_8h_1af8bc518fcf854ea825256f9609715bee" kind="function"><name>dictionary_getElementText</name></member>
+    <member refid="structures_8h_1a6f4c1fa01984f36b0370e5d0ec272f32" kind="function"><name>dictionary_addCoupleNumber</name></member>
+    <member refid="structures_8h_1a6d823f873402734b5f96b6bd3ddc8e4a" kind="function"><name>dictionary_getElementNumber</name></member>
+  </compound>
+  <compound refid="translation_8h" kind="file"><name>translation.h</name>
+    <member refid="translation_8h_1a86f5031d1fa1371bfb2a10b135497162" kind="define"><name>IS_MACHINE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27" kind="enum"><name>Translation_S</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a15f4122173994058a181ea334b0dfdf0" kind="enumvalue"><name>TRANSLATE_CHOICE_DIFF</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27af2724b060f6a5e5f94bd6621ee8c577b" kind="enumvalue"><name>TRANSLATE_SCREEN_TOO_SMALL</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27afd540d14c433be5fbd8041eeeb252d8c" kind="enumvalue"><name>TRANSLATE_GAME_NAME</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27abf549957e4dd0f33051a39ab51374a81" kind="enumvalue"><name>TRANSLATE_GAME_TURN</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27abeb0613213200bb3f55efbc50c0e3205" kind="enumvalue"><name>TRANSLATE_GAME_E</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27ac7edb3be5321dde75857f0c4ba052645" kind="enumvalue"><name>TRANSLATE_GAME_DD</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a45bf5ca156268b9a236eb43c46bc701e" kind="enumvalue"><name>TRANSLATE_GAME_FISE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27abaf34842209d7e68c359aa4bdeecfef8" kind="enumvalue"><name>TRANSLATE_GAME_FISA</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27ace7cbfd7b7785c20af2467658d18a16b" kind="enumvalue"><name>TRANSLATE_GAME_FISA_MODE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a85f36f85790786f8dcfa569245c6cbbc" kind="enumvalue"><name>TRANSLATE_GAME_SCORE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a2eab79429b3c1820e6c66a62c18ca4e2" kind="enumvalue"><name>TRANSLATE_GAME_GARBAGE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a3367e1bbdac335c64d59562b4b451c62" kind="enumvalue"><name>TRANSLATE_ACTION_LABEL</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a6c173a6386c4ebaa449fdff857dd2515" kind="enumvalue"><name>TRANSLATE_GO_BACK_B</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a04ac99f6a8adcec1f6fd0287fa47cbfd" kind="enumvalue"><name>TRANSLATE_MACHINE_LIST_TITLE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a2a0066a89ce30413e3b7a701128ef5ef" kind="enumvalue"><name>TRANSLATE_ML_COST_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a0176e227ad77283bee692e5bc6022cd2" kind="enumvalue"><name>TRANSLATE_ML_COST_UP_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a28ae3ca1d50e4dd8d61473dd1a4e83be" kind="enumvalue"><name>TRANSLATE_ML_COST_DESTROY_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27aa6258488748e9817f282a8a00b1d5360" kind="enumvalue"><name>TRANSLATE_STAFF_LIST_TITLE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27adf7e5cda8db84ba2884022f82b0d4783" kind="enumvalue"><name>TRANSLATE_STAFF_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a239bb465f571b2be03d986506344b815" kind="enumvalue"><name>TRANSLATE_TO_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27aae3d4022cc76a61d5d08b92fcd1fc5df" kind="enumvalue"><name>TRANSLATE_ON_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a0085a49604d9a500ee6d4be3b1ea74c6" kind="enumvalue"><name>TRANSLATE_ID_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a112e7ec9935c328605ec5684f236a125" kind="enumvalue"><name>TRANSLATE_OWNED_TAG</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27ab73d505139cf5becf0d25a1839a53718" kind="enumvalue"><name>TRANSLATION_LIST_STAFF_INDEX</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a4cec7d82f72f650a59ceb06eeadef9b3" kind="enumvalue"><name>TRANSLATION_PRESS_ARROW_CHANGE_PAGE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a70856cac5202e25f6191a9f6b4f29918" kind="enumvalue"><name>TRANSLATE_ACTION_LIST_TITLE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a3528519be278a0ba7ff4948d54ef3c65" kind="enumvalue"><name>TRANSLATE_INPUT_MACHINE_LOCATION</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a530ec4b048a669e2ba1dc7020e6d6145" kind="enumvalue"><name>TRANSLATE_INPUT_STAFF</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a6eb9edcd46db8f03ea86d00f571f34bc" kind="enumvalue"><name>TRANSLATE_INPUT_MACHINE</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a7445a08f176f5fbdac367dc568a35d76" kind="enumvalue"><name>TRANSLATE_INPUT_ACTION</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a27d3dcc892c30e0b8ed292a81b9c1c45" kind="enumvalue"><name>TRANSLATE_INPUT_ORIENTATION</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a1ae03ff47ab11a0754e553d9ebc674bf" kind="enumvalue"><name>TRANSLATE_LEGEND</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27acb5b360add189b7469a4bc39dc027974" kind="enumvalue"><name>TRANSLATE_WIN</name></member>
+    <member refid="translation_8h_1a7e32ed157952138cc15c52e74f31fd27a14c2da3da35a1d165253675d3a1836df" kind="enumvalue"><name>TRANSLATE_LOST</name></member>
+    <member refid="translation_8h_1ac57d1d88324b492cfad23adceb799c41" kind="typedef"><name>Translation</name></member>
+    <member refid="translation_8h_1aeff6d1c05bec1b71506ed00dbd3bf348" kind="function"><name>translation_get</name></member>
+    <member refid="translation_8h_1adbc7f379c587fd06e90be40c01f5ece4" kind="function"><name>translation_getDifficulty</name></member>
+    <member refid="translation_8h_1a4ba18b0bb53d4dc015fe09a60bd2ebc1" kind="function"><name>translation_actionFetchName</name></member>
+    <member refid="translation_8h_1a3c0ec9e5546c89e43b63b2ecb78bcbca" kind="function"><name>translation_fetchCaseTypeName</name></member>
+    <member refid="translation_8h_1ae44deb48631c05f39e2a863a291c83dc" kind="function"><name>translation_fetchMachineTypeName</name></member>
+    <member refid="translation_8h_1a6324ae3740352032347f4c51fecf8881" kind="function"><name>translation_fetchCaseTypeFullName</name></member>
+    <member refid="translation_8h_1a99e4921c3d9be1fa039e1814c63e023c" kind="function"><name>translation_fetchMachineTypeFullName</name></member>
+    <member refid="translation_8h_1a83d7a21f019200c120c2438ef6033898" kind="function"><name>translation_getLegendMachines</name></member>
+    <member refid="translation_8h_1a958d3e879c5f4b9ab457325ca97c6560" kind="function"><name>translation_getLegendDirections</name></member>
+    <member refid="translation_8h_1a77d322aadee2cc1b6f21bd8328b5ff97" kind="function"><name>translation_getNumber</name></member>
   </compound>
   <compound refid="utils_8h" kind="file"><name>utils.h</name>
+    <member refid="utils_8h_1affe776513b24d84b39af8ab0930fef7f" kind="define"><name>max</name></member>
+    <member refid="utils_8h_1ac6afabdc09a49a433ee19d8a9486056d" kind="define"><name>min</name></member>
     <member refid="utils_8h_1acfafb36b3d421d90e2aa61c8076d117d" kind="typedef"><name>Vector2D</name></member>
+  </compound>
+  <compound refid="utils__fun_8h" kind="file"><name>utils_fun.h</name>
+    <member refid="utils__fun_8h_1adc33a11b696748ed5c02f696860d5be4" kind="function"><name>utils_intToString</name></member>
   </compound>
   <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
   </compound>
   <compound refid="main_8c" kind="file"><name>main.c</name>
     <member refid="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+    <member refid="main_8c_1a35a77c055b90f949bdbd2f17d82a5449" kind="function"><name>main_initGame</name></member>
+    <member refid="main_8c_1a7dc11e6e603fbdec0e607f685f6281f7" kind="function"><name>main_handlingActions</name></member>
+    <member refid="main_8c_1a2e93c7674e08e06eb25e737ce819bebb" kind="function"><name>main_buyMachineAction</name></member>
+    <member refid="main_8c_1ae11390d4c2c23da06ff27c05d61768c7" kind="function"><name>main_buyStaffAction</name></member>
+    <member refid="main_8c_1a5de70701eb2be31880128ff5d06d2c27" kind="function"><name>main_upgradeMachineAction</name></member>
+    <member refid="main_8c_1af294056fe5aa6a21ca6e2667a766421d" kind="function"><name>main_destroyMachineAction</name></member>
   </compound>
   <compound refid="main_8h" kind="file"><name>main.h</name>
     <member refid="main_8h_1ad0e6b6213a172f1d71e8738bb156e7ea" kind="variable"><name>back</name></member>
-    <member refid="main_8h_1abc28c4a370b4cdacc05015ccd4fc580b" kind="variable"><name>user_mapping</name></member>
+    <member refid="main_8h_1a35a77c055b90f949bdbd2f17d82a5449" kind="function"><name>main_initGame</name></member>
+    <member refid="main_8h_1a7dc11e6e603fbdec0e607f685f6281f7" kind="function"><name>main_handlingActions</name></member>
+    <member refid="main_8h_1a2e93c7674e08e06eb25e737ce819bebb" kind="function"><name>main_buyMachineAction</name></member>
+    <member refid="main_8h_1ae11390d4c2c23da06ff27c05d61768c7" kind="function"><name>main_buyStaffAction</name></member>
+    <member refid="main_8h_1a5de70701eb2be31880128ff5d06d2c27" kind="function"><name>main_upgradeMachineAction</name></member>
+    <member refid="main_8h_1af294056fe5aa6a21ca6e2667a766421d" kind="function"><name>main_destroyMachineAction</name></member>
+  </compound>
+  <compound refid="box_8c" kind="file"><name>box.c</name>
+    <member refid="box_8c_1a2aebc90a9db537946984d1b9111f699f" kind="function"><name>box_getNumberResource</name></member>
+    <member refid="box_8c_1ad81ac5c3de753d4ff809e76b57b1b485" kind="function"><name>box_setNumberResource</name></member>
+    <member refid="box_8c_1a6f951e98678b23c08fbb0a5153534252" kind="function"><name>box_getNumberGarbage</name></member>
+    <member refid="box_8c_1a770678e664781c2717ead8890af2cec0" kind="function"><name>box_setNumberGarbage</name></member>
+    <member refid="box_8c_1a32a11db5c561bdef9c32e4c32a9a6aa4" kind="function"><name>box_create</name></member>
+    <member refid="box_8c_1ab9a5ee1feeaabf37a656a53ca277d468" kind="function"><name>box_addB2toB1</name></member>
+    <member refid="box_8c_1ab7622660d88a2a1cfc1e8fb41982a833" kind="function"><name>box_destroy</name></member>
+  </compound>
+  <compound refid="case_8c" kind="file"><name>case.c</name>
+    <member refid="case_8c_1a3ebd1245adcc50c785ff4ee28209b111" kind="function"><name>case_getX</name></member>
+    <member refid="case_8c_1a7bf278371a86bec8d7227b2e5d2bb8b2" kind="function"><name>case_getY</name></member>
+    <member refid="case_8c_1adff1ffd6fad1d380b3dc0c936a582474" kind="function"><name>case_getType</name></member>
+    <member refid="case_8c_1a109102cc11345b4041224ef73ddbf6af" kind="function"><name>case_getMachine</name></member>
+    <member refid="case_8c_1ae705f8c1b656d8a05571374375015c8c" kind="function"><name>case_getBox</name></member>
+    <member refid="case_8c_1aff0b8574cae438a1f64b3996f8f5bced" kind="function"><name>case_getNumberResourcesByCase</name></member>
+    <member refid="case_8c_1a6719d8b38e74c4d224a604239dcd5996" kind="function"><name>case_getNumberGarbageByCase</name></member>
+    <member refid="case_8c_1a098b0543abe86ee43a22237da45f762f" kind="function"><name>case_addMachine</name></member>
+    <member refid="case_8c_1af4547baf18fde300dbe54672987499d8" kind="function"><name>case_addGate</name></member>
+    <member refid="case_8c_1aaa47aea6d931873dbd1957d4490cbfc6" kind="function"><name>case_addSource</name></member>
+    <member refid="case_8c_1a1f0cdb8404ecd2ac1f3997216710a246" kind="function"><name>case_addBox</name></member>
+    <member refid="case_8c_1a507096f06bf3e413f6b0b440a4aff0dc" kind="function"><name>case_deleteBox</name></member>
+    <member refid="case_8c_1af5c9504009524a0c02f9cdc2737b906c" kind="function"><name>case_setEmpty</name></member>
+    <member refid="case_8c_1a02e1bd809dcdd826ca64fd81347a0e05" kind="function"><name>case_create</name></member>
+    <member refid="case_8c_1a19f862d764f2a9a1218412ee9d294384" kind="function"><name>case_isEmpty</name></member>
+    <member refid="case_8c_1a6c227f089015d7a3562a092fc2c1c398" kind="function"><name>case_hasBox</name></member>
+    <member refid="case_8c_1a5fb47cbafca144700ca34aa27800464c" kind="function"><name>case_destroy</name></member>
+  </compound>
+  <compound refid="model_2difficulty_8c" kind="file"><name>difficulty.c</name>
+    <member refid="model_2difficulty_8c_1a9cb5bc6466673007104850f1684baeb1" kind="function"><name>difficulty_getLVL</name></member>
+    <member refid="model_2difficulty_8c_1a094edc3baeeec6527d7d77af3e014359" kind="function"><name>difficulty_getNumberOfDifficulties</name></member>
+    <member refid="model_2difficulty_8c_1a03b297ee896f409b8186cbde863419c5" kind="function"><name>map_utils_getSizeByDifficulty</name></member>
+  </compound>
+  <compound refid="view_2ncurses_2modules_2difficulty_8c" kind="file"><name>difficulty.c</name>
+    <member refid="view_2ncurses_2modules_2difficulty_8c_1a5b34f9f1b347ce30c7f96dc815571f98" kind="function"><name>interface_ncurses_chooseDifficulty</name></member>
+  </compound>
+  <compound refid="effect_8c" kind="file"><name>effect.c</name>
+    <member refid="effect_8c_1a345bd756d7dc10dc098e342d8e434afb" kind="function"><name>effect_getMode</name></member>
+    <member refid="effect_8c_1a671a16f946d2dad0ce29a5197cec036f" kind="function"><name>effect_getWhat</name></member>
+    <member refid="effect_8c_1a4acfe01ec317cda0309c7ef76e2d02b7" kind="function"><name>effect_getOnOther</name></member>
+    <member refid="effect_8c_1a7ef2c8dbf31bffb08b099cf8ff886017" kind="function"><name>effect_getModifierRes</name></member>
+    <member refid="effect_8c_1a35de45afb1114e532e8b7eb02008dd61" kind="function"><name>effect_getModifierFISA</name></member>
+    <member refid="effect_8c_1a78559a54577a479d9e25d0cfc09fddee" kind="function"><name>effect_getModifierFISE</name></member>
+    <member refid="effect_8c_1a56be91bb079108130867c00964687c86" kind="function"><name>effect_getModifierE</name></member>
+    <member refid="effect_8c_1aa881d8151ab7c64fa0f0cccd4d5880b7" kind="function"><name>effect_getModifierDD</name></member>
+    <member refid="effect_8c_1a5c0ad0d13d9e9ad8ad993227cc86ed44" kind="function"><name>effect_getModifierCapacity</name></member>
+    <member refid="effect_8c_1a4f1e2e9491756de6d8d789055391e55a" kind="function"><name>effect_getMinCostE</name></member>
+    <member refid="effect_8c_1a10e766128ae6bc857c90c6f4fd657d2a" kind="function"><name>effect_getMinCostDD</name></member>
+    <member refid="effect_8c_1ad7794766e5911687dfaf5f53a6c11ee3" kind="function"><name>effect_getDescription</name></member>
+  </compound>
+  <compound refid="facade_8c" kind="file"><name>facade.c</name>
+    <member refid="facade_8c_1aa47fe4dbb0e737797931008575d6922f" kind="function"><name>facade_create</name></member>
+    <member refid="facade_8c_1a76059d1545c6311e2c77ad97e16fde58" kind="function"><name>facade_destroy</name></member>
+    <member refid="facade_8c_1abfd888b33817597295adc2aa2d883e1c" kind="function"><name>facade_getDirection</name></member>
+    <member refid="facade_8c_1afe66fc18e24f32dee3f057dae134ac79" kind="function"><name>facade_setDirection</name></member>
+    <member refid="facade_8c_1a12b9ff953c1753cb1a0554e3ffbdd9ed" kind="function"><name>facade_getCardinal</name></member>
+    <member refid="facade_8c_1ad53b0e7ee3e9f7916a325f4dd882e220" kind="function"><name>facade_setCardinal</name></member>
+    <member refid="facade_8c_1a265ecedddb6f6cb634b4024e1b7be2a4" kind="function"><name>facade_getBox</name></member>
+    <member refid="facade_8c_1a4608ce8e473c0cdb431efba59aecc0ce" kind="function"><name>facade_setBox</name></member>
+    <member refid="facade_8c_1a0554303e70f48ff6b634b2acaa9c0a5b" kind="function"><name>cardinal_modifyXYWithCardinal</name></member>
+  </compound>
+  <compound refid="model_2machine_8c" kind="file"><name>machine.c</name>
+    <member refid="model_2machine_8c_1a7928d83376348f2690b4b870506ef8e2" kind="function"><name>machine_getType</name></member>
+    <member refid="model_2machine_8c_1af016231f4c5d0ca951b67cf570eb7d0b" kind="function"><name>machine_getLevel</name></member>
+    <member refid="model_2machine_8c_1afa5dec80d819cf7c263e03e02992f842" kind="function"><name>facade_defaultFacade</name></member>
+    <member refid="model_2machine_8c_1a96cedf400b162a0784c6f6f6dcb063bf" kind="function"><name>machine_create</name></member>
+    <member refid="model_2machine_8c_1a84b9ca5b1095fb0a17e32b7f272d96c7" kind="function"><name>machine_destroyMachine</name></member>
+    <member refid="model_2machine_8c_1adc6cbb26ac8976b5ac1429153225ef39" kind="function"><name>machine_rotateMachine</name></member>
+    <member refid="model_2machine_8c_1a5cb32f8fdeabbe783c45d7287119965b" kind="function"><name>machine_incrementLevel</name></member>
+    <member refid="model_2machine_8c_1a8db3d0988cf3f7b18eab9143f721eee2" kind="function"><name>machine_isOrientationTop</name></member>
+    <member refid="model_2machine_8c_1ae0c6d238141d4abaef7b19af6d5d9b13" kind="function"><name>machine_isOrientationTopRight</name></member>
+    <member refid="model_2machine_8c_1ae47c21e9c6be3376bd7bf8a11dba8aea" kind="function"><name>machine_isOrientationRight</name></member>
+    <member refid="model_2machine_8c_1a9e600771112027b2d7fd4a673d11958b" kind="function"><name>machine_isOrientationBottomRight</name></member>
+    <member refid="model_2machine_8c_1a6bcdad0b7ba52172d4faa5a355b7c63c" kind="function"><name>machine_isOrientationBottom</name></member>
+    <member refid="model_2machine_8c_1a480c6baf8396b09765c630ac426772c3" kind="function"><name>machine_isOrientationBottomLeft</name></member>
+    <member refid="model_2machine_8c_1a7dd885cd9ae873a61dd2263028c06fac" kind="function"><name>machine_isOrientationLeft</name></member>
+    <member refid="model_2machine_8c_1a274852247d2f74f9e7817123dc99b973" kind="function"><name>machine_isOrientationTopLeft</name></member>
+    <member refid="model_2machine_8c_1a094117e76a87e841b60d10c59ed9e78e" kind="function"><name>machine_isRotationCorrect</name></member>
+    <member refid="model_2machine_8c_1a06ab270bade8738858c49ac03a62bb89" kind="function"><name>machine_getDirection</name></member>
+    <member refid="model_2machine_8c_1a0583f2b429fea62d7753f54986b0a49e" kind="function"><name>machine_getBox</name></member>
+    <member refid="model_2machine_8c_1ade1d50d31707676dec83f071eb731140" kind="function"><name>machine_addBox</name></member>
+    <member refid="model_2machine_8c_1a037b7f8f212ddcec44680ba0aa6ef334" kind="function"><name>machine_destroyBox</name></member>
+  </compound>
+  <compound refid="view_2ncurses_2modules_2machine_8c" kind="file"><name>machine.c</name>
+    <member refid="view_2ncurses_2modules_2machine_8c_1a395496c653a4443b574700c0a35abab8" kind="variable"><name>lastSelected</name></member>
+    <member refid="view_2ncurses_2modules_2machine_8c_1a802577b74fdd0849e69509c2997b6f11" kind="function"><name>interface_ncurses_askBuyMachineClosureInit</name></member>
+    <member refid="view_2ncurses_2modules_2machine_8c_1a8e0b8e7d6d8f35f34a2eefb7ae2e68a9" kind="function"><name>interface_ncurses_askOrientationClosureInit</name></member>
+    <member refid="view_2ncurses_2modules_2machine_8c_1afbfd6deffcad30b4c9185aa85ce50eca" kind="function"><name>interface_ncurses_askBuyMachineCheck</name></member>
+    <member refid="view_2ncurses_2modules_2machine_8c_1a537b8d60ad3bb8990d70aec5a0298254" kind="function"><name>interface_ncurses_askOrientationCheck</name></member>
+    <member refid="view_2ncurses_2modules_2machine_8c_1a391eff9541e29a6b4a808e449035d0b4" kind="function"><name>interface_ncurses_askAddMachine</name></member>
+  </compound>
+  <compound refid="machine__info_8c" kind="file"><name>machine_info.c</name>
+    <member refid="machine__info_8c_1a138aa1fe7b34ae22fafde583debd6339" kind="variable"><name>machine_list</name></member>
+    <member refid="machine__info_8c_1aba3b46c7e80f829e55b8c568d3f357bb" kind="function"><name>machineInfo_getMachineInfoByType</name></member>
+    <member refid="machine__info_8c_1a2f9da11acbbb18c761337b7c944eaad0" kind="function"><name>machineInfo_getType</name></member>
+    <member refid="machine__info_8c_1ad309e654e4120cc1b5a59faf4604e7fb" kind="function"><name>machineInfo_getCostE</name></member>
+    <member refid="machine__info_8c_1a80472930c013c3f19e76a67d45a5256a" kind="function"><name>machineInfo_getCostDD</name></member>
+    <member refid="machine__info_8c_1a9cf12cff08cc252c553dd62c1f85d065" kind="function"><name>machineInfo_getCostUpgradeE</name></member>
+    <member refid="machine__info_8c_1afc293ff394ce280e0e9b0c27e35cf47b" kind="function"><name>machineInfo_getCostUpgradeDD</name></member>
+    <member refid="machine__info_8c_1a5a82d5b11d3861841bf622e6a4a76363" kind="function"><name>machineInfo_getCostDestroyE</name></member>
+    <member refid="machine__info_8c_1af543f70d9216073dd42fef4b884ecca5" kind="function"><name>machineInfo_getCostDestroyDD</name></member>
+    <member refid="machine__info_8c_1a093c09c300992675574527c3eff08afe" kind="function"><name>machineInfo_getDescription</name></member>
+    <member refid="machine__info_8c_1a0726ae96218b81aaa75da6ab196cfbd9" kind="function"><name>machineInfo_getCapacity</name></member>
+    <member refid="machine__info_8c_1a86ea3754f5c050057f291f154b14229c" kind="function"><name>machineInfo_getCanUpgrade</name></member>
+    <member refid="machine__info_8c_1a62d2df1d8cbe0830a492c71f9c51204c" kind="function"><name>machineInfo_getEffects</name></member>
+    <member refid="machine__info_8c_1a9dfeee7987b498463ea287c4b0102067" kind="function"><name>machineInfo_getDefaultOrientationMessage</name></member>
+    <member refid="machine__info_8c_1a90569d00f4ceeae2b7b627e6a5d8a0eb" kind="function"><name>machineInfo_isMachineStuffValid</name></member>
+    <member refid="machine__info_8c_1a24fdfb9c0e0a41fe4c0a7b1fffb67a55" kind="function"><name>machineInfo_getMachineStuff</name></member>
+  </compound>
+  <compound refid="map_8c" kind="file"><name>map.c</name>
+    <member refid="map_8c_1ade646925544cac295a8271bf27943297" kind="function"><name>map_create</name></member>
+    <member refid="map_8c_1a9677c3da4d4827a97fcd8202df6fa946" kind="function"><name>map_destroy</name></member>
+    <member refid="map_8c_1abe0ed98eac0f7ea8a1b5f0dc5d84b7e6" kind="function"><name>map_hireFISE</name></member>
+    <member refid="map_8c_1acc0640b51eee5fec16c1204fe3412ae1" kind="function"><name>map_hireFISA</name></member>
+    <member refid="map_8c_1aee3a56ca6c2550698425dd612744a62b" kind="function"><name>map_changeProductionFISA</name></member>
+    <member refid="map_8c_1ac5afbade09d76883b34af177d1fab779" kind="function"><name>map_endTurn</name></member>
+    <member refid="map_8c_1af4e6c4139f7701a6896695e24ec99730" kind="function"><name>map_addMachine</name></member>
+    <member refid="map_8c_1ab8a693d3743e8c207fa5fdcbbada46cb" kind="function"><name>map_upgradeMachine</name></member>
+    <member refid="map_8c_1adb43592cf0c517b7eafaabd2038b891c" kind="function"><name>map_destroyMachine</name></member>
+    <member refid="map_8c_1a3d4a6310f7751060d96595fb279d8a15" kind="function"><name>map_buyStaff</name></member>
+    <member refid="map_8c_1a6d6ce3bc81d4b305384765a6fd6a0e83" kind="function"><name>map_isCaseExist</name></member>
+    <member refid="map_8c_1a8c9a56d7f84bafd6dad04c902ed45c19" kind="function"><name>map_getNumberFISE</name></member>
+    <member refid="map_8c_1a188b44c3c3ee863577adba357992c30f" kind="function"><name>map_getNumberFISA</name></member>
+    <member refid="map_8c_1a8d2b39722ce616a6becb3242855b985e" kind="function"><name>map_getNumberE</name></member>
+    <member refid="map_8c_1a6615cd94071f85055fb26ca33ff60c00" kind="function"><name>map_getNumberDD</name></member>
+    <member refid="map_8c_1a48cb03c29b48bb09754c5603db1324e0" kind="function"><name>map_getPlayerScore</name></member>
+    <member refid="map_8c_1a35beb41f9588cb572a677efeff4aeb9f" kind="function"><name>map_getDifficulty</name></member>
+    <member refid="map_8c_1aad19b94928b3ccae9d65ab99d31e7a76" kind="function"><name>map_getWidth</name></member>
+    <member refid="map_8c_1ac08162dce73ec6329fe0f9b72fa0afe8" kind="function"><name>map_getHeight</name></member>
+    <member refid="map_8c_1ab49e08d3de8a5ad25c4a568140d1431e" kind="function"><name>map_getNumberTurn</name></member>
+    <member refid="map_8c_1a54ff0bf9064231f2919de335021ccf4f" kind="function"><name>map_getProductionFISA</name></member>
+    <member refid="map_8c_1a7cd83f1a9d1d2ea3769f9304617098f6" kind="function"><name>map_getStaffDictionary</name></member>
+    <member refid="map_8c_1a8353eb90ecfbddf515c918f7f5432af5" kind="function"><name>map_getCase</name></member>
+    <member refid="map_8c_1a2a0c8879271eb1329b458344aae6d7c2" kind="function"><name>map_getNumberPollution</name></member>
+    <member refid="map_8c_1a70d379bf95f36cc7132ad1484ba919b3" kind="function"><name>map_setNumberFISE</name></member>
+    <member refid="map_8c_1a50a870e4fc665553728ebefbf3f98fd8" kind="function"><name>map_setNumberFISA</name></member>
+    <member refid="map_8c_1aab42a633b5ec42cc42fcbfd321e1ca3f" kind="function"><name>map_setNumberE</name></member>
+    <member refid="map_8c_1aea92e678fc1da23f8301898887c86597" kind="function"><name>map_setNumberDD</name></member>
+    <member refid="map_8c_1a2d4cc797765eff642aaa482ac7ffcd11" kind="function"><name>map_setNumberScore</name></member>
+    <member refid="map_8c_1af62419f8a20642347258b90b8ca4c39c" kind="function"><name>map_setNumberTurn</name></member>
+  </compound>
+  <compound refid="map__utils_8c" kind="file"><name>map_utils.c</name>
+    <member refid="map__utils_8c_1a97efe4aba96cab310cfdb2401fdadccc" kind="function"><name>map_utils_tryBuy</name></member>
+    <member refid="map__utils_8c_1a685d499f52c0356a2886accd2bd70028" kind="function"><name>map_utils_checkModificationStaff</name></member>
+    <member refid="map__utils_8c_1a657506793e17824b22db0a23a48e0ab5" kind="function"><name>map_utils_sendResourcesToGate</name></member>
+    <member refid="map__utils_8c_1a928f44bd00c4aa3ab634a0894501b87e" kind="function"><name>map_utils_caseHasMachineType</name></member>
+    <member refid="map__utils_8c_1a0099a329ac6ef28236a9367c704f9e32" kind="function"><name>map_utils_moveBox</name></member>
+    <member refid="map__utils_8c_1ada7cac95532fc94ec0a0c1e767b321f3" kind="function"><name>map_utils_productionFise</name></member>
+    <member refid="map__utils_8c_1a2ba72aa74b8d4a70acf0eb10b6fbaec2" kind="function"><name>map_utils_productionFisa</name></member>
+    <member refid="map__utils_8c_1a7bb62698db5a5a1e1298146ee58f5d8c" kind="function"><name>map_utils_moveResources</name></member>
+    <member refid="map__utils_8c_1a7339ca0fe7a9bd4d89b07c672aae21da" kind="function"><name>map_utils_generateResources</name></member>
+    <member refid="map__utils_8c_1a813ef27a0c3ee8809f228e5a9431f6ad" kind="function"><name>map_utils_generateGarbage</name></member>
+    <member refid="map__utils_8c_1a0dee879005ae67405e31e5627bf9f101" kind="function"><name>map_utils_activateRecyclingCenters</name></member>
+    <member refid="map__utils_8c_1a777f54699623234b3c1070e0dfdf90ab" kind="function"><name>map_utils_activateCollectors</name></member>
+    <member refid="map__utils_8c_1a6d56054c00085e1ae4bb8e297cfe6bed" kind="function"><name>map_utils_resetResourcesGarbage</name></member>
+    <member refid="map__utils_8c_1a121ea914c3d77d8892bf0677d803ea84" kind="function"><name>map_utils_moveResourcesInMachine</name></member>
+    <member refid="map__utils_8c_1a25f46a892ba4b31b4e64e87998dd0f13" kind="function"><name>staff_actionAnneLaureLigozat</name></member>
+    <member refid="map__utils_8c_1aaef635f93ffbc9b7c94f39e960a02f4a" kind="function"><name>staff_actionChristopheMouilleron</name></member>
+    <member refid="map__utils_8c_1ab19e7876c1773688f4b1f7d47dc5e5dd" kind="function"><name>staff_actionLaurentPrevel</name></member>
+  </compound>
+  <compound refid="model_2staff_8c" kind="file"><name>staff.c</name>
+    <member refid="model_2staff_8c_1a223cd533693dc1c64c992e0b6bb03f46" kind="variable"><name>staff_list</name></member>
+    <member refid="model_2staff_8c_1a0b52c6f66f2cbf9c43afaf41ed40cdd2" kind="function"><name>staff_isIDValid</name></member>
+    <member refid="model_2staff_8c_1a926193e4b9b4f1a9a965399418e3b0d2" kind="function"><name>staff_getStaffByID</name></member>
+    <member refid="model_2staff_8c_1aaa58a1f8892ceadd371a622dfbcf31cf" kind="function"><name>staff_getStaffNameByID</name></member>
+    <member refid="model_2staff_8c_1a30b68bd571805ee37182b00f107c14be" kind="function"><name>staff_getStaffCostEByID</name></member>
+    <member refid="model_2staff_8c_1a4d216c34f9872c62bda6c5240b305114" kind="function"><name>staff_getStaffCostDDByID</name></member>
+    <member refid="model_2staff_8c_1af5d5000d12e3e3f3e7181be21696a42f" kind="function"><name>staff_getStaffDescriptionByID</name></member>
+    <member refid="model_2staff_8c_1a57cfb7571feb5b37eece0e34ffdf3fd5" kind="function"><name>staff_getStaffEffectByID</name></member>
+    <member refid="model_2staff_8c_1a514d3d1a894d315bf1eefe285ae60e3c" kind="function"><name>staff_getStaffID</name></member>
+    <member refid="model_2staff_8c_1a64907c86f1d977d506596eedabbe50d3" kind="function"><name>staff_getStaffName</name></member>
+    <member refid="model_2staff_8c_1a00c42fab438abecba09a8f198cd29719" kind="function"><name>staff_getStaffCostE</name></member>
+    <member refid="model_2staff_8c_1a02a6c88929a508ccc186f6c86d64fdbd" kind="function"><name>staff_getStaffCostDD</name></member>
+    <member refid="model_2staff_8c_1a6e2fdd942ee80a84bcc1448834636ac8" kind="function"><name>staff_getStaffDescription</name></member>
+    <member refid="model_2staff_8c_1a2ab3f2babab67a6e3c9f0496d0b4e703" kind="function"><name>staff_getStaffEffect</name></member>
+    <member refid="model_2staff_8c_1a07caa75fbb60b7cad1f223d9df1a6690" kind="function"><name>effect_getTurnProduction</name></member>
+    <member refid="model_2staff_8c_1a635eb32a9010374fd0e90ff03ad2e68b" kind="function"><name>effect_getMinTurnProduction</name></member>
+    <member refid="model_2staff_8c_1af431da3ffd19b2a1f14873900c218481" kind="function"><name>staffInfo_getByModeAndType</name></member>
+    <member refid="model_2staff_8c_1a914d9f0b67914443ac2d802651f00cc8" kind="function"><name>staff_createStaffDictionary</name></member>
+    <member refid="model_2staff_8c_1a6ba9a668601cb6a2d3636d86ccf519e1" kind="function"><name>staff_getNumberStaffByID</name></member>
+    <member refid="model_2staff_8c_1ae7e2a37e146f2a6791e9152a62994e4a" kind="function"><name>staff_hireStaff</name></member>
+    <member refid="model_2staff_8c_1a48f31c65f3ddf1c22cfde2541c4b9c7a" kind="function"><name>staff_destroyStaffDictionary</name></member>
+  </compound>
+  <compound refid="view_2ncurses_2modules_2staff_8c" kind="file"><name>staff.c</name>
+    <member refid="view_2ncurses_2modules_2staff_8c_1a45f3bd2b9113b06a18dc9022f872b0d2" kind="function"><name>interface_ncurses_askBuyStaffClosureInit</name></member>
+    <member refid="view_2ncurses_2modules_2staff_8c_1ad77b598482d82ee9edc0a7e67f50df9f" kind="function"><name>interface_ncurses_askBuyStaffCheck</name></member>
+    <member refid="view_2ncurses_2modules_2staff_8c_1a379b581b7d9bcb414a44d10afb709507" kind="function"><name>interface_ncurses_askBuyStaff</name></member>
+  </compound>
+  <compound refid="elements_8c" kind="file"><name>elements.c</name>
+    <member refid="elements_8c_1af116ab4a7070130e044e635328f984c4" kind="function"><name>elements_toNumber</name></member>
+    <member refid="elements_8c_1a114edcca0b5d525f78ecc2abe9c9fe5e" kind="function"><name>elements_toObject</name></member>
+    <member refid="elements_8c_1a75a1d53fcca62d3d2be6735172e27ddd" kind="function"><name>elements_toText</name></member>
+    <member refid="elements_8c_1ad59c8047968f720fedce5e84cf44a331" kind="function"><name>elements_fromNumber</name></member>
+    <member refid="elements_8c_1a37dcd6c86dcdd0886b2a6ee019bb1501" kind="function"><name>elements_fromText</name></member>
+    <member refid="elements_8c_1a8f42cf7cfb54716a218542e65d3e1ab8" kind="function"><name>elements_fromObject</name></member>
+  </compound>
+  <compound refid="structures_8c" kind="file"><name>structures.c</name>
+    <member refid="structures_8c_1acb2578616b7717fd90653ba8c1d8b626" kind="function"><name>list_createEmpty</name></member>
+    <member refid="structures_8c_1ae61e4c3859d0b2de5aa3634e251bc420" kind="function"><name>list_create</name></member>
+    <member refid="structures_8c_1a3e492a87ab4b5e779633839f55ce4adc" kind="function"><name>list_addElement</name></member>
+    <member refid="structures_8c_1af6f2851143eb298ee9e4e713a172ac85" kind="function"><name>list_addCoupleNumberText</name></member>
+    <member refid="structures_8c_1a605b13fb1d21ac87ba2a8bc41a1a0f41" kind="function"><name>list_addCoupleNumber</name></member>
+    <member refid="structures_8c_1afc22e863b1ddb468fd1a67a2dd373f75" kind="function"><name>list_next</name></member>
+    <member refid="structures_8c_1adf8544c8e9a9e61f48864b0054383eb6" kind="function"><name>list_getCurrent</name></member>
+    <member refid="structures_8c_1a8f0b02775c43c68047f288c45bfb6c38" kind="function"><name>list_removeByIndex</name></member>
+    <member refid="structures_8c_1aada28b81d1f3188c90ca812296a5b0f5" kind="function"><name>list_getByIndex</name></member>
+    <member refid="structures_8c_1a7de6b846951ef5b7fe7d34233ece1e2d" kind="function"><name>list_getSize</name></member>
+    <member refid="structures_8c_1af68596009432f0d0b481aee8e88dae85" kind="function"><name>list_destroy</name></member>
+    <member refid="structures_8c_1ab879f8c161399f217419aa2c02ef14e0" kind="function"><name>list_destroyFirst</name></member>
+    <member refid="structures_8c_1aee2179df8a0d0731a2f85c02c9cb5bb7" kind="function"><name>dictionary_create</name></member>
+    <member refid="structures_8c_1ae533255a651a6d7a46048295023a73bc" kind="function"><name>dictionary_destroy</name></member>
+    <member refid="structures_8c_1a9a0c435e75a9bacb2f81f31a26e4ba0c" kind="function"><name>dictionary_getElement</name></member>
+    <member refid="structures_8c_1ac977daa392acb5ad830020bbae557a4f" kind="function"><name>dictionary_addElement</name></member>
+    <member refid="structures_8c_1af5b7abf3d6853545e4a717b7e81ce7f9" kind="function"><name>dictionary_getCoupleByIndex</name></member>
+    <member refid="structures_8c_1a71abab50b857c5fc0f9ca4b3e7d828b9" kind="function"><name>dictionary_addCoupleText</name></member>
+    <member refid="structures_8c_1a6f4c1fa01984f36b0370e5d0ec272f32" kind="function"><name>dictionary_addCoupleNumber</name></member>
+    <member refid="structures_8c_1a4cd363198ff02b6179d77852b1752682" kind="function"><name>dictionary_addCoupleNumberText</name></member>
+    <member refid="structures_8c_1af8bc518fcf854ea825256f9609715bee" kind="function"><name>dictionary_getElementText</name></member>
+    <member refid="structures_8c_1a6d823f873402734b5f96b6bd3ddc8e4a" kind="function"><name>dictionary_getElementNumber</name></member>
+  </compound>
+  <compound refid="utils__fun_8c" kind="file"><name>utils_fun.c</name>
+    <member refid="utils__fun_8c_1adc33a11b696748ed5c02f696860d5be4" kind="function"><name>utils_intToString</name></member>
+  </compound>
+  <compound refid="interface_8c" kind="file"><name>interface.c</name>
+    <member refid="interface_8c_1acc507f4665110376f7c8f1e0461d7ed5" kind="variable"><name>useNCurses</name></member>
+    <member refid="interface_8c_1ad9f2c1ca9a5a45dbb44fdc563226448e" kind="function"><name>interface_init</name></member>
+    <member refid="interface_8c_1ac0f88a694b00721fb252a1dd792a61bc" kind="function"><name>interface_reload</name></member>
+    <member refid="interface_8c_1a4ee8e79a42ac0e14f7b571c4dbe45276" kind="function"><name>interface_close</name></member>
+    <member refid="interface_8c_1ac8eb59c03d043401fd7b958f3b933ae7" kind="function"><name>interface_endGame</name></member>
+    <member refid="interface_8c_1a98ccfe7867eb92d69e73c1abbc8a08b5" kind="function"><name>interface_showMap</name></member>
+    <member refid="interface_8c_1a2b94e06c8e1c55d25b6049fd49df2384" kind="function"><name>interface_showStaffList</name></member>
+    <member refid="interface_8c_1a7787006d14f81b21f9470999dd146604" kind="function"><name>interface_showMachinesList</name></member>
+    <member refid="interface_8c_1a3fe4849bd84943b21b788f6e653800cd" kind="function"><name>interface_listActions</name></member>
+    <member refid="interface_8c_1a2fdf95b0a854cc304a382ca545c60009" kind="function"><name>interface_chooseAction</name></member>
+    <member refid="interface_8c_1a1fbf6f85b1bda25103dfe17f57d8fc65" kind="function"><name>interface_chooseDifficulty</name></member>
+    <member refid="interface_8c_1a6680a7ff04653155d2214027f2fec93f" kind="function"><name>interface_askAddMachine</name></member>
+    <member refid="interface_8c_1ae46f5deb1b12d59c8cf857c579fd56fe" kind="function"><name>interface_askMachineLocation</name></member>
+    <member refid="interface_8c_1acfd169c3c396bf9f56218f7dd49d3ffe" kind="function"><name>interface_askBuyStaff</name></member>
+    <member refid="interface_8c_1a968f7f6a7683a9126d3279d6f34f10f0" kind="function"><name>interface_showError</name></member>
+  </compound>
+  <compound refid="mapping_8c" kind="file"><name>mapping.c</name>
+    <member refid="mapping_8c_1a9fa9dae540c5a4392eed8131340524e0" kind="define"><name>USER_MAPPING_SIZE</name></member>
+    <member refid="mapping_8c_1abc28c4a370b4cdacc05015ccd4fc580b" kind="variable"><name>user_mapping</name></member>
+    <member refid="mapping_8c_1a3fb0f71d5b1dc3b3d68848a80fb5be2d" kind="function"><name>mapping_getMapping</name></member>
+    <member refid="mapping_8c_1a749f0291a1d02976b3e0d98d796ef4b0" kind="function"><name>mapping_getMappingByAction</name></member>
+    <member refid="mapping_8c_1a065fad754b08e943be62dd3430aac8a8" kind="function"><name>mapping_getSize</name></member>
+    <member refid="mapping_8c_1a167a5917da6014ca3c2eec9c0ee33fab" kind="function"><name>mapping_get</name></member>
+    <member refid="mapping_8c_1a8bc45b96fc8c22b2304743cc37f5a4c3" kind="function"><name>mapping_getBackMapping</name></member>
+  </compound>
+  <compound refid="interface__ncurses_8c" kind="file"><name>interface_ncurses.c</name>
+    <member refid="interface__ncurses_8c_1ac283acba0b19ccaf9f9a855c80e5a4c6" kind="function"><name>interface_ncurses_init</name></member>
+    <member refid="interface__ncurses_8c_1a50f9763d3710e033790ce38e502e9729" kind="function"><name>interface_ncurses_reload</name></member>
+    <member refid="interface__ncurses_8c_1a734e8e0b0991b2f6ceb653f0fc1865a7" kind="function"><name>interface_ncurses_close</name></member>
+    <member refid="interface__ncurses_8c_1a7303901fe3f0bc6a1b75dabfb916ff43" kind="function"><name>interface_ncurses_endGame</name></member>
+  </compound>
+  <compound refid="interface__ncurses__utils_8c" kind="file"><name>interface_ncurses_utils.c</name>
+    <member refid="interface__ncurses__utils_8c_1aa8eb0ea69576396000ea9a91bdbeeba5" kind="define"><name>ERROR_LINE</name></member>
+    <member refid="interface__ncurses__utils_8c_1a5a019db02c38c85fb1809652d5c62c2b" kind="variable"><name>lastMessageLength</name></member>
+    <member refid="interface__ncurses__utils_8c_1ae917405f231ed840036672ee371e9b6f" kind="function"><name>interface_ncurses_showMessageWithColor</name></member>
+    <member refid="interface__ncurses__utils_8c_1afaeae728a5168356f270eeb5c5623670" kind="function"><name>interface_ncurses_utils_hasLastMessage</name></member>
+    <member refid="interface__ncurses__utils_8c_1a3ab2cdcd098428bf91961e5c6f1354d6" kind="function"><name>interface_ncurses_showActionField</name></member>
+    <member refid="interface__ncurses__utils_8c_1a636453026f1649e194ed0dac699fb574" kind="function"><name>interface_ncurses_showError</name></member>
+    <member refid="interface__ncurses__utils_8c_1a42f83246011a71bd8e45367ca5ddc0b3" kind="function"><name>interface_ncurses_showMessage</name></member>
+    <member refid="interface__ncurses__utils_8c_1a1e84114d592aa5f185116c1cec13ec6e" kind="function"><name>interface_ncurses_hideError</name></member>
+    <member refid="interface__ncurses__utils_8c_1a8fe3cebcc0e81571bd1767f6f4246dcb" kind="function"><name>interface_ncurses_gameTag</name></member>
+    <member refid="interface__ncurses__utils_8c_1a2bd1314fe06c20de888e887d069156dc" kind="function"><name>interface_ncurses_gameTag_type</name></member>
+    <member refid="interface__ncurses__utils_8c_1ac2798025591b087b6b3b58cca335cc09" kind="function"><name>interface_ncurses_clearAction</name></member>
+    <member refid="interface__ncurses__utils_8c_1a316d73b82dcafc1ddb0d1c10970608db" kind="function"><name>interface_ncurses_show_menu_wait</name></member>
+    <member refid="interface__ncurses__utils_8c_1a1d7e72c8aa591c78731f27370a2e63ba" kind="function"><name>interface_ncurses_utils_writeLabel</name></member>
+    <member refid="interface__ncurses__utils_8c_1af600055edb0e4cc58c83b4c1af184252" kind="function"><name>interface_ncurses_initListWindow</name></member>
+    <member refid="interface__ncurses__utils_8c_1a9c893be4edb9f5dfc3227bb8ebc5de87" kind="function"><name>interface_ncurses_showInActionField</name></member>
+    <member refid="interface__ncurses__utils_8c_1a64cb2c5ecbabba12a469d40e1ac9bafa" kind="function"><name>interface_utils_getCaseContent</name></member>
+    <member refid="interface__ncurses__utils_8c_1a916aa65ffa5546e70e0f42dce41174e5" kind="function"><name>interface_utils_parseOrientation</name></member>
+    <member refid="interface__ncurses__utils_8c_1a7377ea5fa1c0cedae32343bfa011a5fc" kind="function"><name>interface_ncurses_utils_init_colors</name></member>
+    <member refid="interface__ncurses__utils_8c_1a35d3ece4d81d8d40c6dfe7e04b518ed1" kind="function"><name>interface_ncurses_utils_getCaseColor</name></member>
+    <member refid="interface__ncurses__utils_8c_1af42484348998cb0e6a1c3d418fb4fbb7" kind="function"><name>interface_ncurses_utils_getMachineColor</name></member>
+  </compound>
+  <compound refid="action_8c" kind="file"><name>action.c</name>
+    <member refid="action_8c_1af14c444874f197ff447e4dfe896c09a1" kind="function"><name>interface_ncurses_chooseActionClosureInit</name></member>
+    <member refid="action_8c_1a2c57df9f018c442ccc5ada7df5404b12" kind="function"><name>interface_ncurses_chooseActionClosureCheck</name></member>
+    <member refid="action_8c_1a30c7b16f01ba4b1c6ca164c31fd7c162" kind="function"><name>interface_ncurses_chooseAction</name></member>
+  </compound>
+  <compound refid="game_8c" kind="file"><name>game.c</name>
+    <member refid="game_8c_1ad947c7d63f0deb59737ccbcae39da26e" kind="function"><name>interface_ncurses_showLegendOrientation</name></member>
+    <member refid="game_8c_1a743a9740ffbca234898bb4628a4b7fb5" kind="function"><name>interface_ncurses_showLegendMachine</name></member>
+    <member refid="game_8c_1a0e7bb947b926bedd2adc59377031b10b" kind="function"><name>interface_ncurses_gameMenu</name></member>
+  </compound>
+  <compound refid="location_8c" kind="file"><name>location.c</name>
+    <member refid="location_8c_1a20ccc5b3b4f85735466310f7da848372" kind="function"><name>interface_ncurses_askMachineLocationClosureInit</name></member>
+    <member refid="location_8c_1adb778f8af5f6124e4209cd974c433f75" kind="function"><name>interface_ncurses_askMachineLocationClosureCheck</name></member>
+    <member refid="location_8c_1ac1e532c3dfc15157bce23ba6f403f92a" kind="function"><name>interface_ncurses_askMachineLocation</name></member>
+  </compound>
+  <compound refid="show_8c" kind="file"><name>show.c</name>
+    <member refid="show_8c_1af9182f70587637d32bfa2479a52d79fd" kind="variable"><name>showResourceSaved</name></member>
+    <member refid="show_8c_1abacee9778a0f03787406e48a69615a67" kind="variable"><name>showGarbageSaved</name></member>
+    <member refid="show_8c_1a854bf4d7103ace821ddb34c045e200cf" kind="function"><name>interface_ncurses_showMap</name></member>
+    <member refid="show_8c_1a8936d8e19945c105278894b1c176f761" kind="function"><name>interface_ncurses_showMachinesList</name></member>
+    <member refid="show_8c_1a0399883063eed48da7bc3202764ab552" kind="function"><name>interface_ncurses_showStaffList</name></member>
+    <member refid="show_8c_1a3a2e41930fcdb70c8a51475e950dbb7e" kind="function"><name>interface_ncurses_listActions</name></member>
+  </compound>
+  <compound refid="interface__ncurses_8h" kind="file"><name>interface_ncurses.h</name>
+    <member refid="interface__ncurses_8h_1ac283acba0b19ccaf9f9a855c80e5a4c6" kind="function"><name>interface_ncurses_init</name></member>
+    <member refid="interface__ncurses_8h_1a50f9763d3710e033790ce38e502e9729" kind="function"><name>interface_ncurses_reload</name></member>
+    <member refid="interface__ncurses_8h_1a734e8e0b0991b2f6ceb653f0fc1865a7" kind="function"><name>interface_ncurses_close</name></member>
+    <member refid="interface__ncurses_8h_1a7303901fe3f0bc6a1b75dabfb916ff43" kind="function"><name>interface_ncurses_endGame</name></member>
+    <member refid="interface__ncurses_8h_1a5b34f9f1b347ce30c7f96dc815571f98" kind="function"><name>interface_ncurses_chooseDifficulty</name></member>
+    <member refid="interface__ncurses_8h_1a854bf4d7103ace821ddb34c045e200cf" kind="function"><name>interface_ncurses_showMap</name></member>
+    <member refid="interface__ncurses_8h_1a0399883063eed48da7bc3202764ab552" kind="function"><name>interface_ncurses_showStaffList</name></member>
+    <member refid="interface__ncurses_8h_1a8936d8e19945c105278894b1c176f761" kind="function"><name>interface_ncurses_showMachinesList</name></member>
+    <member refid="interface__ncurses_8h_1a3a2e41930fcdb70c8a51475e950dbb7e" kind="function"><name>interface_ncurses_listActions</name></member>
+    <member refid="interface__ncurses_8h_1a30c7b16f01ba4b1c6ca164c31fd7c162" kind="function"><name>interface_ncurses_chooseAction</name></member>
+    <member refid="interface__ncurses_8h_1a391eff9541e29a6b4a808e449035d0b4" kind="function"><name>interface_ncurses_askAddMachine</name></member>
+    <member refid="interface__ncurses_8h_1ac1e532c3dfc15157bce23ba6f403f92a" kind="function"><name>interface_ncurses_askMachineLocation</name></member>
+    <member refid="interface__ncurses_8h_1a379b581b7d9bcb414a44d10afb709507" kind="function"><name>interface_ncurses_askBuyStaff</name></member>
+    <member refid="interface__ncurses_8h_1a636453026f1649e194ed0dac699fb574" kind="function"><name>interface_ncurses_showError</name></member>
+    <member refid="interface__ncurses_8h_1aff08dbb8f7735c42c82218a1a08c926c" kind="function"><name>interface_ncurses_hideError</name></member>
+  </compound>
+  <compound refid="interface__ncurses__constants_8h" kind="file"><name>interface_ncurses_constants.h</name>
+    <member refid="interface__ncurses__constants_8h_1a9eda324010ad3e2034b18429655e10fc" kind="define"><name>NC_DEFAULT_LOCALE</name></member>
+    <member refid="interface__ncurses__constants_8h_1af049d15e91d036d842cb4d3b03c7c780" kind="define"><name>NC_MIN_ROW</name></member>
+    <member refid="interface__ncurses__constants_8h_1aac0c4f33421ceed91beec401c4e63c5e" kind="define"><name>NC_MIN_COL</name></member>
+    <member refid="interface__ncurses__constants_8h_1ae2f89f592f48c10ae80395a4f3690c54" kind="define"><name>NC_ACTION_HEIGHT</name></member>
+    <member refid="interface__ncurses__constants_8h_1a7b2da3113f6fd50493f336a26cb0e4d8" kind="define"><name>NC_ACTION_BUF_SIZE</name></member>
+    <member refid="interface__ncurses__constants_8h_1a1335a1ec8178d3b3c43d16597866772f" kind="define"><name>NC_SCREEN_IS_SMALL</name></member>
+    <member refid="interface__ncurses__constants_8h_1a4c7e4168641256872855caaa9a1590d1" kind="define"><name>NC_SCREEN_IS_MEDIUM</name></member>
+    <member refid="interface__ncurses__constants_8h_1a22a46b3b2cbae7155b04ef525dacd948" kind="define"><name>NC_ERROR_COLOR</name></member>
+    <member refid="interface__ncurses__constants_8h_1a8de4382b8bff15b658e5a6d1841445bb" kind="define"><name>NC_SUCCESS_COLOR</name></member>
+    <member refid="interface__ncurses__constants_8h_1a790268a4e52d650a749a6676e0502813" kind="variable"><name>GAME_WIDTH</name></member>
+  </compound>
+  <compound refid="interface__ncurses__utils_8h" kind="file"><name>interface_ncurses_utils.h</name>
+    <member refid="interface__ncurses__utils_8h_1ad2839bd9101c41aba9cb58c3f3404e01" kind="typedef"><name>Closure</name></member>
+    <member refid="interface__ncurses__utils_8h_1ac8d4957163a9b705ba2c48e8c270e7aa" kind="variable"><name>gameWindow</name></member>
+    <member refid="interface__ncurses__utils_8h_1aa0d4da0883ff8a819fa53a38579b2925" kind="variable"><name>mapWindow</name></member>
+    <member refid="interface__ncurses__utils_8h_1afecf42c27170a38bed877daecf6eb8d5" kind="variable"><name>actionWindow</name></member>
+    <member refid="interface__ncurses__utils_8h_1a4f545cf7845ebe38fabb77e9daff07bc" kind="variable"><name>fullWindow</name></member>
+    <member refid="interface__ncurses__utils_8h_1af377830c25281498225cb455ede85323" kind="function"><name>interface_ncurses_utils_hasLastMessage</name></member>
+    <member refid="interface__ncurses__utils_8h_1a59f7ac30231498801c89922c5f58b032" kind="function"><name>interface_ncurses_showActionField</name></member>
+    <member refid="interface__ncurses__utils_8h_1a8fe3cebcc0e81571bd1767f6f4246dcb" kind="function"><name>interface_ncurses_gameTag</name></member>
+    <member refid="interface__ncurses__utils_8h_1a2bd1314fe06c20de888e887d069156dc" kind="function"><name>interface_ncurses_gameTag_type</name></member>
+    <member refid="interface__ncurses__utils_8h_1ac2798025591b087b6b3b58cca335cc09" kind="function"><name>interface_ncurses_clearAction</name></member>
+    <member refid="interface__ncurses__utils_8h_1a316d73b82dcafc1ddb0d1c10970608db" kind="function"><name>interface_ncurses_show_menu_wait</name></member>
+    <member refid="interface__ncurses__utils_8h_1a1d7e72c8aa591c78731f27370a2e63ba" kind="function"><name>interface_ncurses_utils_writeLabel</name></member>
+    <member refid="interface__ncurses__utils_8h_1af600055edb0e4cc58c83b4c1af184252" kind="function"><name>interface_ncurses_initListWindow</name></member>
+    <member refid="interface__ncurses__utils_8h_1a42f83246011a71bd8e45367ca5ddc0b3" kind="function"><name>interface_ncurses_showMessage</name></member>
+    <member refid="interface__ncurses__utils_8h_1a9c893be4edb9f5dfc3227bb8ebc5de87" kind="function"><name>interface_ncurses_showInActionField</name></member>
+    <member refid="interface__ncurses__utils_8h_1a64cb2c5ecbabba12a469d40e1ac9bafa" kind="function"><name>interface_utils_getCaseContent</name></member>
+    <member refid="interface__ncurses__utils_8h_1a916aa65ffa5546e70e0f42dce41174e5" kind="function"><name>interface_utils_parseOrientation</name></member>
+    <member refid="interface__ncurses__utils_8h_1a049f087169abc07794415dd6f61a4658" kind="function"><name>interface_ncurses_utils_init_colors</name></member>
+    <member refid="interface__ncurses__utils_8h_1a35d3ece4d81d8d40c6dfe7e04b518ed1" kind="function"><name>interface_ncurses_utils_getCaseColor</name></member>
+    <member refid="interface__ncurses__utils_8h_1af42484348998cb0e6a1c3d418fb4fbb7" kind="function"><name>interface_ncurses_utils_getMachineColor</name></member>
+    <member refid="interface__ncurses__utils_8h_1a0e7bb947b926bedd2adc59377031b10b" kind="function"><name>interface_ncurses_gameMenu</name></member>
+  </compound>
+  <compound refid="translation_8c" kind="file"><name>translation.c</name>
+    <member refid="translation_8c_1af317d02d83bb9c65464850a616cb7a4d" kind="function"><name>error_getMessage</name></member>
+    <member refid="translation_8c_1adbc7f379c587fd06e90be40c01f5ece4" kind="function"><name>translation_getDifficulty</name></member>
+    <member refid="translation_8c_1aeff6d1c05bec1b71506ed00dbd3bf348" kind="function"><name>translation_get</name></member>
+    <member refid="translation_8c_1a4ba18b0bb53d4dc015fe09a60bd2ebc1" kind="function"><name>translation_actionFetchName</name></member>
+    <member refid="translation_8c_1a3c0ec9e5546c89e43b63b2ecb78bcbca" kind="function"><name>translation_fetchCaseTypeName</name></member>
+    <member refid="translation_8c_1a6324ae3740352032347f4c51fecf8881" kind="function"><name>translation_fetchCaseTypeFullName</name></member>
+    <member refid="translation_8c_1ae44deb48631c05f39e2a863a291c83dc" kind="function"><name>translation_fetchMachineTypeName</name></member>
+    <member refid="translation_8c_1a99e4921c3d9be1fa039e1814c63e023c" kind="function"><name>translation_fetchMachineTypeFullName</name></member>
+    <member refid="translation_8c_1a83d7a21f019200c120c2438ef6033898" kind="function"><name>translation_getLegendMachines</name></member>
+    <member refid="translation_8c_1a958d3e879c5f4b9ab457325ca97c6560" kind="function"><name>translation_getLegendDirections</name></member>
+    <member refid="translation_8c_1a77d322aadee2cc1b6f21bd8328b5ff97" kind="function"><name>translation_getNumber</name></member>
+  </compound>
+  <compound refid="list__suite_8h" kind="file"><name>list_suite.h</name>
+    <member refid="list__suite_8h_1a1b306f57512bf5c94037783e3087bb4c" kind="define"><name>NUMBERSUITE</name></member>
+    <member refid="list__suite_8h_1ac13bd4b693157c2cf1b60bfe6f087c30" kind="variable"><name>listSuit</name></member>
+  </compound>
+  <compound refid="structure__list__test_8h" kind="file"><name>structure_list_test.h</name>
+    <member refid="structure__list__test_8h_1aa7fe687e4e22bec51adb4918fe83aa1f" kind="typedef"><name>test_List</name></member>
+  </compound>
+  <compound refid="test__box_8c" kind="file"><name>test_box.c</name>
+    <member refid="test__box_8c_1a2e8ea3dc54849665e719448501fec1d2" kind="variable"><name>testBox_listTests</name></member>
+    <member refid="test__box_8c_1ac9dad9d7e0f9e57f24e118d7b80b6f63" kind="function"><name>testBox_createSuite</name></member>
+    <member refid="test__box_8c_1a8261f0378287ed58db81700cfc356a63" kind="function"><name>testBox_initSuite</name></member>
+    <member refid="test__box_8c_1a8884fc63b8e637ed00d2a255804aa873" kind="function"><name>testBox_cleanSuite</name></member>
+    <member refid="test__box_8c_1aefa7e2ef7bfeb62d6739aa6134b93f4e" kind="function"><name>testBox_create</name></member>
+    <member refid="test__box_8c_1a25d8f98861acb9d056dec1176e10095b" kind="function"><name>testBox_addition</name></member>
+  </compound>
+  <compound refid="test__box_8h" kind="file"><name>test_box.h</name>
+    <member refid="test__box_8h_1a66c379dea6c6b1093d485f1e707e314f" kind="define"><name>TESTBOX_NUMBERTESTS</name></member>
+    <member refid="test__box_8h_1ac9dad9d7e0f9e57f24e118d7b80b6f63" kind="function"><name>testBox_createSuite</name></member>
+    <member refid="test__box_8h_1a8261f0378287ed58db81700cfc356a63" kind="function"><name>testBox_initSuite</name></member>
+    <member refid="test__box_8h_1a8884fc63b8e637ed00d2a255804aa873" kind="function"><name>testBox_cleanSuite</name></member>
+    <member refid="test__box_8h_1aefa7e2ef7bfeb62d6739aa6134b93f4e" kind="function"><name>testBox_create</name></member>
+    <member refid="test__box_8h_1a25d8f98861acb9d056dec1176e10095b" kind="function"><name>testBox_addition</name></member>
+  </compound>
+  <compound refid="test__case_8c" kind="file"><name>test_case.c</name>
+    <member refid="test__case_8c_1a0912feee573061ab2bacbf8b5f3190b2" kind="variable"><name>testCase_listTests</name></member>
+    <member refid="test__case_8c_1af14a476324e276e5d1713301141c0238" kind="function"><name>testCase_createSuite</name></member>
+    <member refid="test__case_8c_1a6cd4b9ef6f42b6375069ddfcc2e348e2" kind="function"><name>testCase_initSuite</name></member>
+    <member refid="test__case_8c_1aced3b13d4be9e924138f6941768b26c6" kind="function"><name>testCase_cleanSuite</name></member>
+    <member refid="test__case_8c_1a84779fac36c7c40bbe36262463a8dfa0" kind="function"><name>testCase_create</name></member>
+    <member refid="test__case_8c_1a6f6d79c5eed339904f735cb5da39a3d9" kind="function"><name>testCase_AddDeleteBox</name></member>
+    <member refid="test__case_8c_1aa5c073db89706f69b272d30525ce69da" kind="function"><name>testCase_AddSource</name></member>
+    <member refid="test__case_8c_1ab284c3647a54f88f54efd89e5d90803f" kind="function"><name>testCase_AddGate</name></member>
+    <member refid="test__case_8c_1a820ce7e1b253d4548be0a561cfa8e0da" kind="function"><name>testCase_AddMachine</name></member>
+    <member refid="test__case_8c_1a388a6374baf0182278f9419312d4759c" kind="function"><name>testCase_Empty</name></member>
+  </compound>
+  <compound refid="test__case_8h" kind="file"><name>test_case.h</name>
+    <member refid="test__case_8h_1ab44b53f57cebd101b57f58a83dcc3ae1" kind="define"><name>TESTCASE_NUMBERTESTS</name></member>
+    <member refid="test__case_8h_1af14a476324e276e5d1713301141c0238" kind="function"><name>testCase_createSuite</name></member>
+    <member refid="test__case_8h_1a6cd4b9ef6f42b6375069ddfcc2e348e2" kind="function"><name>testCase_initSuite</name></member>
+    <member refid="test__case_8h_1aced3b13d4be9e924138f6941768b26c6" kind="function"><name>testCase_cleanSuite</name></member>
+    <member refid="test__case_8h_1a84779fac36c7c40bbe36262463a8dfa0" kind="function"><name>testCase_create</name></member>
+    <member refid="test__case_8h_1a6f6d79c5eed339904f735cb5da39a3d9" kind="function"><name>testCase_AddDeleteBox</name></member>
+    <member refid="test__case_8h_1aa5c073db89706f69b272d30525ce69da" kind="function"><name>testCase_AddSource</name></member>
+    <member refid="test__case_8h_1ab284c3647a54f88f54efd89e5d90803f" kind="function"><name>testCase_AddGate</name></member>
+    <member refid="test__case_8h_1a820ce7e1b253d4548be0a561cfa8e0da" kind="function"><name>testCase_AddMachine</name></member>
+    <member refid="test__case_8h_1a388a6374baf0182278f9419312d4759c" kind="function"><name>testCase_Empty</name></member>
+  </compound>
+  <compound refid="test__end_turn_8c" kind="file"><name>test_endTurn.c</name>
+    <member refid="test__end_turn_8c_1a59685eb116d1283465be71ea90f227f1" kind="variable"><name>testEndTurn_gate</name></member>
+    <member refid="test__end_turn_8c_1a3c0be7beb7136c97c49a0c9c7df477e4" kind="variable"><name>testEndTurn_source1</name></member>
+    <member refid="test__end_turn_8c_1a223dc94e003f0d62f9d90f547cd023c0" kind="variable"><name>testEndTurn_source2</name></member>
+    <member refid="test__end_turn_8c_1a04b1bf70c3e0635878cabb7645b1c49b" kind="variable"><name>testEndTurn_listTests</name></member>
+    <member refid="test__end_turn_8c_1ae47e76efa88790987479e6a95b6e936e" kind="function"><name>testEndTurn_createSuite</name></member>
+    <member refid="test__end_turn_8c_1a130aa59d6186cbf002909b47c79a2bcb" kind="function"><name>testEndTurn_initSuite</name></member>
+    <member refid="test__end_turn_8c_1a76d97453a8a4f00b7e2a81827d8ce162" kind="function"><name>testEndTurn_cleanSuite</name></member>
+    <member refid="test__end_turn_8c_1a7e4c4255a7e2a56acd504b072a5d10ee" kind="function"><name>testEndTurn_productionFise</name></member>
+    <member refid="test__end_turn_8c_1a212218968cc88081b34935c27b28453e" kind="function"><name>testEndTurn_productionFisa</name></member>
+    <member refid="test__end_turn_8c_1a7b0f16f123b8bd6fa5ca631730224ed0" kind="function"><name>testEndTurn_moveResource</name></member>
+    <member refid="test__end_turn_8c_1a2e796b051b2fcb9e0bd8ac0baa578590" kind="function"><name>testEndTurn_generateResource</name></member>
+    <member refid="test__end_turn_8c_1a1a3f12892971b5c66961118b2f7196ed" kind="function"><name>testEndTurn_generateGarbage</name></member>
+    <member refid="test__end_turn_8c_1abec94e6c9eadf686da270798199b624a" kind="function"><name>testEndTurn_RecyclingCenters</name></member>
+    <member refid="test__end_turn_8c_1a6ccde332ec0c8115ee9ac0fa1ac72d34" kind="function"><name>testEndTurn_Collector</name></member>
+    <member refid="test__end_turn_8c_1abdf4c53c62311072a7e46f0ad32c2f38" kind="function"><name>testEndTurn_resetResourceGarbage</name></member>
+  </compound>
+  <compound refid="test__end_turn_8h" kind="file"><name>test_endTurn.h</name>
+    <member refid="test__end_turn_8h_1ac73b01feaefa7e5a1e377fb697005d9f" kind="define"><name>TESTENDTURN_NUMBERTESTS</name></member>
+    <member refid="test__end_turn_8h_1ae47e76efa88790987479e6a95b6e936e" kind="function"><name>testEndTurn_createSuite</name></member>
+    <member refid="test__end_turn_8h_1a130aa59d6186cbf002909b47c79a2bcb" kind="function"><name>testEndTurn_initSuite</name></member>
+    <member refid="test__end_turn_8h_1a76d97453a8a4f00b7e2a81827d8ce162" kind="function"><name>testEndTurn_cleanSuite</name></member>
+    <member refid="test__end_turn_8h_1a7e4c4255a7e2a56acd504b072a5d10ee" kind="function"><name>testEndTurn_productionFise</name></member>
+    <member refid="test__end_turn_8h_1a212218968cc88081b34935c27b28453e" kind="function"><name>testEndTurn_productionFisa</name></member>
+    <member refid="test__end_turn_8h_1a7b0f16f123b8bd6fa5ca631730224ed0" kind="function"><name>testEndTurn_moveResource</name></member>
+    <member refid="test__end_turn_8h_1a2e796b051b2fcb9e0bd8ac0baa578590" kind="function"><name>testEndTurn_generateResource</name></member>
+    <member refid="test__end_turn_8h_1a1a3f12892971b5c66961118b2f7196ed" kind="function"><name>testEndTurn_generateGarbage</name></member>
+    <member refid="test__end_turn_8h_1abec94e6c9eadf686da270798199b624a" kind="function"><name>testEndTurn_RecyclingCenters</name></member>
+    <member refid="test__end_turn_8h_1a6ccde332ec0c8115ee9ac0fa1ac72d34" kind="function"><name>testEndTurn_Collector</name></member>
+    <member refid="test__end_turn_8h_1abdf4c53c62311072a7e46f0ad32c2f38" kind="function"><name>testEndTurn_resetResourceGarbage</name></member>
+  </compound>
+  <compound refid="test__machine_8c" kind="file"><name>test_machine.c</name>
+    <member refid="test__machine_8c_1a1cba5c1ae1344616226f0162a8582fdb" kind="variable"><name>testMachine_listTests</name></member>
+    <member refid="test__machine_8c_1a1fbb408b2766e13bd0e084a7d1f92c26" kind="function"><name>testMachine_createSuite</name></member>
+    <member refid="test__machine_8c_1abaa6535a5147f73625341ba2729f0011" kind="function"><name>testMachine_initSuite</name></member>
+    <member refid="test__machine_8c_1a2869d818f96f3246dd3b0e88ff2fec66" kind="function"><name>testMachine_cleanSuite</name></member>
+    <member refid="test__machine_8c_1a9449334f4f419a07ca9d0c709c6d8564" kind="function"><name>testMachine_create</name></member>
+    <member refid="test__machine_8c_1ac0c90d0129b10096f7f6126777fca9a9" kind="function"><name>testMachine_rotation</name></member>
+    <member refid="test__machine_8c_1afde9ca55e5e7483f56b39724f68715ee" kind="function"><name>testMachine_LevelUp</name></member>
+    <member refid="test__machine_8c_1a62ab2653175760914e4f324237002b6c" kind="function"><name>testMachine_AddDeleteBox</name></member>
+  </compound>
+  <compound refid="test__machine_8h" kind="file"><name>test_machine.h</name>
+    <member refid="test__machine_8h_1a8fa8820c788e3a0562d0c7dc7b7999ac" kind="define"><name>TESTMACHINE_NUMBERTESTS</name></member>
+    <member refid="test__machine_8h_1a1fbb408b2766e13bd0e084a7d1f92c26" kind="function"><name>testMachine_createSuite</name></member>
+    <member refid="test__machine_8h_1abaa6535a5147f73625341ba2729f0011" kind="function"><name>testMachine_initSuite</name></member>
+    <member refid="test__machine_8h_1a2869d818f96f3246dd3b0e88ff2fec66" kind="function"><name>testMachine_cleanSuite</name></member>
+    <member refid="test__machine_8h_1a9449334f4f419a07ca9d0c709c6d8564" kind="function"><name>testMachine_create</name></member>
+    <member refid="test__machine_8h_1ac0c90d0129b10096f7f6126777fca9a9" kind="function"><name>testMachine_rotation</name></member>
+    <member refid="test__machine_8h_1afde9ca55e5e7483f56b39724f68715ee" kind="function"><name>testMachine_LevelUp</name></member>
+    <member refid="test__machine_8h_1a62ab2653175760914e4f324237002b6c" kind="function"><name>testMachine_AddDeleteBox</name></member>
+  </compound>
+  <compound refid="test__map_8c" kind="file"><name>test_map.c</name>
+    <member refid="test__map_8c_1a69a7590a2a157545f26ab03edf2df5e5" kind="variable"><name>testMap_gate</name></member>
+    <member refid="test__map_8c_1a37f33a88a4b6d916af540984ec63605d" kind="variable"><name>testMap_source1</name></member>
+    <member refid="test__map_8c_1adf70228bc7c935a9043fa984c718324e" kind="variable"><name>testMap_source2</name></member>
+    <member refid="test__map_8c_1a17312c679d1212a009cdba126457cac7" kind="variable"><name>testMap_listTests</name></member>
+    <member refid="test__map_8c_1ac4a24127e4db0f6516fc52152f74d17d" kind="function"><name>testMap_createSuite</name></member>
+    <member refid="test__map_8c_1a1d9de079366549814261b20f6f21e4dd" kind="function"><name>testMap_initSuite</name></member>
+    <member refid="test__map_8c_1aaf230ff895e77d72b22a7b7351474007" kind="function"><name>testMap_cleanSuite</name></member>
+    <member refid="test__map_8c_1a6ff1e2840f7ddcc324b547b3a42f4ecc" kind="function"><name>testMap_factorisation_verificationGateAndSource</name></member>
+    <member refid="test__map_8c_1a93177d989900697c06339ecd493a5a7e" kind="function"><name>testMap_createMapEasy</name></member>
+    <member refid="test__map_8c_1a7c6422b029d7260afc3536786157898e" kind="function"><name>testMap_createMapMedium</name></member>
+    <member refid="test__map_8c_1aa6ab7cc6937ae949c0809bb452a7a04f" kind="function"><name>testMap_createMapHard</name></member>
+    <member refid="test__map_8c_1a6277b266fd175e3f8578e512d4ec2cf6" kind="function"><name>testMap_hireFise</name></member>
+    <member refid="test__map_8c_1ab22b36963d6bd84156366be40127dda0" kind="function"><name>testMap_hireFisa</name></member>
+    <member refid="test__map_8c_1af7f83f01cf58e6dc5aede769a4b773d5" kind="function"><name>testMap_changeProductionFISA</name></member>
+    <member refid="test__map_8c_1af7ffa6e20819f8ca6b0b1d0b0c30c0c0" kind="function"><name>testMap_machineBuy</name></member>
+    <member refid="test__map_8c_1a93ca6c687c318d4b121034f5cbf49c02" kind="function"><name>testMap_machineUpgrade</name></member>
+    <member refid="test__map_8c_1a6b3a67d2786434a97e9b971b6cfdd712" kind="function"><name>testMap_machineDestroy</name></member>
+    <member refid="test__map_8c_1ad1955ed68cd1067dbe8ddd843ac20c47" kind="function"><name>testMap_staffBuy</name></member>
+  </compound>
+  <compound refid="test__map_8h" kind="file"><name>test_map.h</name>
+    <member refid="test__map_8h_1a2cf6ae3acfc1c390128ed58c244cbd47" kind="define"><name>TESTMAP_NUMBERTESTS</name></member>
+    <member refid="test__map_8h_1ac4a24127e4db0f6516fc52152f74d17d" kind="function"><name>testMap_createSuite</name></member>
+    <member refid="test__map_8h_1a1d9de079366549814261b20f6f21e4dd" kind="function"><name>testMap_initSuite</name></member>
+    <member refid="test__map_8h_1aaf230ff895e77d72b22a7b7351474007" kind="function"><name>testMap_cleanSuite</name></member>
+    <member refid="test__map_8h_1a93177d989900697c06339ecd493a5a7e" kind="function"><name>testMap_createMapEasy</name></member>
+    <member refid="test__map_8h_1a7c6422b029d7260afc3536786157898e" kind="function"><name>testMap_createMapMedium</name></member>
+    <member refid="test__map_8h_1aa6ab7cc6937ae949c0809bb452a7a04f" kind="function"><name>testMap_createMapHard</name></member>
+    <member refid="test__map_8h_1a6277b266fd175e3f8578e512d4ec2cf6" kind="function"><name>testMap_hireFise</name></member>
+    <member refid="test__map_8h_1ab22b36963d6bd84156366be40127dda0" kind="function"><name>testMap_hireFisa</name></member>
+    <member refid="test__map_8h_1af7f83f01cf58e6dc5aede769a4b773d5" kind="function"><name>testMap_changeProductionFISA</name></member>
+    <member refid="test__map_8h_1af7ffa6e20819f8ca6b0b1d0b0c30c0c0" kind="function"><name>testMap_machineBuy</name></member>
+    <member refid="test__map_8h_1a93ca6c687c318d4b121034f5cbf49c02" kind="function"><name>testMap_machineUpgrade</name></member>
+    <member refid="test__map_8h_1a6b3a67d2786434a97e9b971b6cfdd712" kind="function"><name>testMap_machineDestroy</name></member>
+    <member refid="test__map_8h_1ad1955ed68cd1067dbe8ddd843ac20c47" kind="function"><name>testMap_staffBuy</name></member>
+  </compound>
+  <compound refid="test__structure_8c" kind="file"><name>test_structure.c</name>
+    <member refid="test__structure_8c_1ae9b6b8221b6ae469fd9d8244c45e1b1a" kind="variable"><name>testDictionary_listTests</name></member>
+    <member refid="test__structure_8c_1a898243140430f3a8406f0087f7cdc3cb" kind="variable"><name>testList_listTests</name></member>
+    <member refid="test__structure_8c_1a96b8abd79c0cfb70c34632e67be845dc" kind="function"><name>testStructure_createSuite</name></member>
+    <member refid="test__structure_8c_1a77d34cc4b5c607c3becdf6d63e532e74" kind="function"><name>testStructure_initSuite</name></member>
+    <member refid="test__structure_8c_1a58bf4717ef06a258d4a5b507b0fc731e" kind="function"><name>testStructure_cleanSuite</name></member>
+    <member refid="test__structure_8c_1a3cd4894fbb67d4af69c83faf5b9e368b" kind="function"><name>testList_create</name></member>
+    <member refid="test__structure_8c_1aa7898720fc569b37c2717500f24b19c9" kind="function"><name>testList_createEmpty</name></member>
+    <member refid="test__structure_8c_1aedf68caf1f8704fcda65db1b95e188ae" kind="function"><name>testList_addElement</name></member>
+    <member refid="test__structure_8c_1aa3725ca19bb4cf96424fee34e8179371" kind="function"><name>testDictionary_create</name></member>
+    <member refid="test__structure_8c_1a2650fe8c2097f18da937f1648abe8acb" kind="function"><name>testDictionary_addElement</name></member>
+    <member refid="test__structure_8c_1ad0263fb6ab4bbcf535282b4e1c75641b" kind="function"><name>testDictionary_indexElement</name></member>
+  </compound>
+  <compound refid="test__structure_8h" kind="file"><name>test_structure.h</name>
+    <member refid="test__structure_8h_1a2775f02bc4f69e7d96d3e4eeef10bd1a" kind="define"><name>TESTDICTIONARY_NUMBERTESTS</name></member>
+    <member refid="test__structure_8h_1a30a1cd9c3a0f8d45f91351a1d9bba59a" kind="define"><name>TESTLIST_NUMBERTESTS</name></member>
+    <member refid="test__structure_8h_1a96b8abd79c0cfb70c34632e67be845dc" kind="function"><name>testStructure_createSuite</name></member>
+    <member refid="test__structure_8h_1a77d34cc4b5c607c3becdf6d63e532e74" kind="function"><name>testStructure_initSuite</name></member>
+    <member refid="test__structure_8h_1a58bf4717ef06a258d4a5b507b0fc731e" kind="function"><name>testStructure_cleanSuite</name></member>
+    <member refid="test__structure_8h_1aa3725ca19bb4cf96424fee34e8179371" kind="function"><name>testDictionary_create</name></member>
+    <member refid="test__structure_8h_1a2650fe8c2097f18da937f1648abe8acb" kind="function"><name>testDictionary_addElement</name></member>
+    <member refid="test__structure_8h_1ad0263fb6ab4bbcf535282b4e1c75641b" kind="function"><name>testDictionary_indexElement</name></member>
+    <member refid="test__structure_8h_1a3cd4894fbb67d4af69c83faf5b9e368b" kind="function"><name>testList_create</name></member>
+    <member refid="test__structure_8h_1aa7898720fc569b37c2717500f24b19c9" kind="function"><name>testList_createEmpty</name></member>
+    <member refid="test__structure_8h_1aedf68caf1f8704fcda65db1b95e188ae" kind="function"><name>testList_addElement</name></member>
+  </compound>
+  <compound refid="tests_8c" kind="file"><name>tests.c</name>
+    <member refid="tests_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
   </compound>
   <compound refid="md_docs_userdoc" kind="page"><name>md_docs_userdoc</name>
   </compound>
@@ -231,9 +1106,23 @@
   </compound>
   <compound refid="dir_7f57b1e41c5acd0e859ae5f3a2b075a9" kind="dir"><name>headers</name>
   </compound>
+  <compound refid="dir_5dd65160827af56e6353642206b80129" kind="dir"><name>src/model</name>
+  </compound>
+  <compound refid="dir_7026447697705ddbe51a177002a63f26" kind="dir"><name>src/view/ncurses/modules</name>
+  </compound>
+  <compound refid="dir_68ad008ae5bd0b737c3adefb6e7ddfa8" kind="dir"><name>src/view/ncurses/nc_headers</name>
+  </compound>
+  <compound refid="dir_696e367b75a6efe6f0e6226ae3d12afa" kind="dir"><name>src/view/ncurses</name>
+  </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
   </compound>
+  <compound refid="dir_59425e443f801f1f2fd8bbe4959a3ccf" kind="dir"><name>tests</name>
+  </compound>
   <compound refid="dir_ad9c8ef6ea60145de6c7db0776cbabd6" kind="dir"><name>headers/utils</name>
+  </compound>
+  <compound refid="dir_313caf1132e152dd9b58bea13a4052ca" kind="dir"><name>src/utils</name>
+  </compound>
+  <compound refid="dir_b39b5091e8d1d2be4b7fc59d57749634" kind="dir"><name>src/view</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

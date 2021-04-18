@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="location_8c" kind="file" language="C++">
+    <compoundname>location.c</compoundname>
+    <includes refid="interface_8h" local="yes">../../../../headers/interface.h</includes>
+    <includes refid="interface__ncurses_8h" local="yes">../nc_headers/interface_ncurses.h</includes>
+    <includes refid="interface__ncurses__utils_8h" local="yes">../nc_headers/interface_ncurses_utils.h</includes>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>src/view/ncurses/modules/location.c</label>
+        <link refid="location_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdlib.h</label>
+      </node>
+      <node id="24">
+        <label>../nc_headers/interface_ncurses_utils.h</label>
+        <link refid="interface__ncurses__utils_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../../../../headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="9">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="4">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="7">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>../nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>curses.h</label>
+      </node>
+      <node id="14">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="3">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="26">
+        <label>string.h</label>
+      </node>
+      <node id="25">
+        <label>interface_ncurses_constants.h</label>
+        <link refid="interface__ncurses__constants_8h_source"/>
+      </node>
+      <node id="11">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="17">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="location_8c_1a20ccc5b3b4f85735466310f7da848372" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* interface_ncurses_askMachineLocationClosureInit</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_askMachineLocationClosureInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback on init <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/modules/location.c" line="10" column="6" bodyfile="src/view/ncurses/modules/location.c" bodystart="10" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="location_8c_1adb778f8af5f6124e4209cd974c433f75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* interface_ncurses_askMachineLocationClosureCheck</definition>
+        <argsstring>(char *buff, bool *leave, ErrorCode *error)</argsstring>
+        <name>interface_ncurses_askMachineLocationClosureCheck</name>
+        <param>
+          <type>char *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>leave</declname>
+        </param>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref> *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback on check <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; 2^MAX_NUMBER_LENGTH is the max int length</para>
+<para>&lt; position in buffer</para>
+<para>&lt; position in each number n1,n2</para>
+<para>&lt; int length</para>
+<para>&lt; will contains number1</para>
+<para>&lt; will contains number2</para>
+<para>&lt; error pointer</para>
+<para>&lt; first value</para>
+<para>&lt; second value</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/modules/location.c" line="18" column="6" bodyfile="src/view/ncurses/modules/location.c" bodystart="18" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="location_8c_1ac1e532c3dfc15157bce23ba6f403f92a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="utils_8h_1acfafb36b3d421d90e2aa61c8076d117d" kindref="member">Vector2D</ref> *</type>
+        <definition>Vector2D* interface_ncurses_askMachineLocation</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_askMachineLocation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" kindref="member">interface_askMachineLocation</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_askMachineLocation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/modules/location.c" line="85" column="10" bodyfile="src/view/ncurses/modules/location.c" bodystart="85" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/view/ncurses/modules/location.c"/>
+  </compounddef>
+</doxygen>

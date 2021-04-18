@@ -50,6 +50,7 @@ Line</span></a>
           MachineInfo_S <span class="m-thin">struct</span>
           <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="machine__info_8h.html">&lt;headers/data/machine_info.h&gt;</a></div>
         </h1>
+        <p>Represent all information about a machine Struct which contains all information about a machine.</p>
         <div class="m-block m-default">
           <h3>Contents</h3>
           <ul>
@@ -61,7 +62,7 @@ Line</span></a>
             </li>
           </ul>
         </div>
-<p>Struct which contains all information about a machine</p><p>Only machines that have canUpgrade=true can upgrade. This value must be checked before applying effect or increase level.</p>
+<p>Only machines that have canUpgrade=true can upgrade. This value must be checked before applying effect or increase level.</p>
         <section id="pub-attribs">
           <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
@@ -97,12 +98,20 @@ Line</span></a>
               char* <a href="#a8664eb7c06628ab29c3fb6d1f7a2a068" class="m-doc-self">description</a>
             </dt>
             <dd>description of the machine</dd>
+            <dt id="a48b6277c62203a9bbe40592dbdab5764">
+              int <a href="#a48b6277c62203a9bbe40592dbdab5764" class="m-doc-self">capacity</a>
+            </dt>
+            <dd>-1 it don&#x27;t have capacity</dd>
+            <dt id="a2cdfa5cb10fca33ae6692defc054030f">
+              char* <a href="#a2cdfa5cb10fca33ae6692defc054030f" class="m-doc-self">defaultOrientation</a>
+            </dt>
+            <dd>get the default orientation of the machine</dd>
             <dt id="ab0afe6070c3ad464562c910fce23bbef">
               bool <a href="#ab0afe6070c3ad464562c910fce23bbef" class="m-doc-self">canUpgrade</a>
             </dt>
             <dd>1 if it&#x27;s upgradable, else 0</dd>
-            <dt id="ab296d74dadbe6a44db1fb6e8fdcbe5d3">
-              <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a> <a href="#ab296d74dadbe6a44db1fb6e8fdcbe5d3" class="m-doc-self">effect</a>
+            <dt id="a7b25d18790f372e1859cdfc011d71ce6">
+              <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a> <a href="#a7b25d18790f372e1859cdfc011d71ce6" class="m-doc-self">effects</a>
             </dt>
             <dd>An effect for the machine if it&#x27;s upgrade.</dd>
           </dl>

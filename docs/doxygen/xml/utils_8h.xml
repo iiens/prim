@@ -2,16 +2,95 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="utils_8h" kind="file" language="C++">
     <compoundname>utils.h</compoundname>
+    <includedby refid="facade_8h" local="yes">headers/data/facade.h</includedby>
     <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
     <invincdepgraph>
-      <node id="3">
+      <node id="10">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
         <label>src/main.h</label>
         <link refid="main_8h_source"/>
       </node>
-      <node id="2">
+      <node id="6">
         <label>headers/interface.h</label>
         <link refid="interface_8h"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="27">
+        <label>src/model/machine.c</label>
+        <link refid="model_2machine_8c"/>
+      </node>
+      <node id="19">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="16">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>src/utils/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="5">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+      </node>
+      <node id="20">
+        <label>src/model/machine_info.c</label>
+        <link refid="machine__info_8c"/>
+      </node>
+      <node id="28">
+        <label>tests/test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -19,9 +98,149 @@
         <link refid="utils_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/model/case.c</label>
+        <link refid="case_8c"/>
+      </node>
+      <node id="26">
+        <label>src/model/effect.c</label>
+        <link refid="effect_8c"/>
+      </node>
+      <node id="11">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="21">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="struct_vector2_d___s" prot="public">Vector2D_S</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="utils_8h_1affe776513b24d84b39af8ab0930fef7f" prot="public" static="no">
+        <name>max</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>    ({ __typeof__ (a) _a = (a); \
+     __typeof__ (b) _b = (b); \
+     _a &gt; _b ? _a : _b; })</initializer>
+        <briefdescription>
+<para>return the max between two numbers </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/utils.h" line="29" column="9" bodyfile="headers/utils/utils.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="utils_8h_1ac6afabdc09a49a433ee19d8a9486056d" prot="public" static="no">
+        <name>min</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>    ({ __typeof__ (a) _a = (a); \
+     __typeof__ (b) _b = (b); \
+    _a &gt; _b ? _b : _a; })</initializer>
+        <briefdescription>
+<para>return the min between two numbers </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/utils.h" line="34" column="9" bodyfile="headers/utils/utils.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="typedef">
       <memberdef kind="typedef" id="utils_8h_1acfafb36b3d421d90e2aa61c8076d117d" prot="public" static="no">
         <type>struct <ref refid="struct_vector2_d___s" kindref="compound">Vector2D_S</ref></type>
@@ -35,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="headers/utils/utils.h" line="26" column="20"/>
+        <location file="headers/utils/utils.h" line="27" column="16"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

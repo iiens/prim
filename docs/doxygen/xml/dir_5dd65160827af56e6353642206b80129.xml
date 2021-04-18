@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5dd65160827af56e6353642206b80129" kind="dir">
+    <compoundname>src/model</compoundname>
+    <innerfile refid="box_8c">box.c</innerfile>
+    <innerfile refid="case_8c">case.c</innerfile>
+    <innerfile refid="model_2difficulty_8c">difficulty.c</innerfile>
+    <innerfile refid="effect_8c">effect.c</innerfile>
+    <innerfile refid="facade_8c">facade.c</innerfile>
+    <innerfile refid="model_2machine_8c">machine.c</innerfile>
+    <innerfile refid="machine__info_8c">machine_info.c</innerfile>
+    <innerfile refid="map_8c">map.c</innerfile>
+    <innerfile refid="map__utils_8c">map_utils.c</innerfile>
+    <innerfile refid="model_2staff_8c">staff.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/model/"/>
+  </compounddef>
+</doxygen>

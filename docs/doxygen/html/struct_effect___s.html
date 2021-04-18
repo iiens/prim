@@ -50,6 +50,7 @@ Line</span></a>
           Effect_S <span class="m-thin">struct</span>
           <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="effect_8h.html">&lt;headers/data/effect.h&gt;</a></div>
         </h1>
+        <p>contains different settings of the effects Struct which contains the target of the effect</p>
         <div class="m-block m-default">
           <h3>Contents</h3>
           <ul>
@@ -61,7 +62,6 @@ Line</span></a>
             </li>
           </ul>
         </div>
-<p>Struct which contains the target of the effect</p>
         <section id="pub-attribs">
           <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
@@ -77,38 +77,50 @@ Line</span></a>
               bool <a href="#a2191706dbf071792921cacd274a6c8b8" class="m-doc-self">onOther</a>
             </dt>
             <dd>to know if what is a machine or other</dd>
-            <dt id="a134218293538ac2673ebf8ca2e48bc9b">
-              int <a href="#a134218293538ac2673ebf8ca2e48bc9b" class="m-doc-self">modifier_res</a>
+            <dt id="a81896bcf806bc3294c9790d8c6c71e27">
+              float <a href="#a81896bcf806bc3294c9790d8c6c71e27" class="m-doc-self">modifierRes</a>
             </dt>
-            <dd>if SEND_DOOR, resource put in multiply by this</dd>
-            <dt id="a0a5458f2dd2d29a43b6ab4d1d3fe5bcf">
-              int <a href="#a0a5458f2dd2d29a43b6ab4d1d3fe5bcf" class="m-doc-self">modifier_FISA</a>
+            <dd>if SEND_DOOR, resource put in multiply by this, if DOOR_OUT it&#x27;s the probability that a garbage disappear when it&#x27;s leave the door</dd>
+            <dt id="a91cd3e21e5ef145eff189e18db03dbef">
+              int <a href="#a91cd3e21e5ef145eff189e18db03dbef" class="m-doc-self">modifierFISA</a>
             </dt>
-            <dd>update the number of FISA</dd>
-            <dt id="a75566b2d7249a513721aca7d2e58f2dd">
-              int <a href="#a75566b2d7249a513721aca7d2e58f2dd" class="m-doc-self">modifier_FISE</a>
+            <dd>update the number of FISA, if LEAVE fisa put in multiply by this,</dd>
+            <dt id="a89f873ca0646aa486d0289796fdbf5dc">
+              int <a href="#a89f873ca0646aa486d0289796fdbf5dc" class="m-doc-self">modifierFISE</a>
             </dt>
-            <dd>update the number of FISE</dd>
-            <dt id="a1023bf60bacb8bd429a455d7ac9ec1d8">
-              int <a href="#a1023bf60bacb8bd429a455d7ac9ec1d8" class="m-doc-self">modifier_E</a>
+            <dd>update the number of FISE, if LEAVE fise put in multiply by this</dd>
+            <dt id="a08e21d4a519205f74bdbf0b9c5ddc370">
+              int <a href="#a08e21d4a519205f74bdbf0b9c5ddc370" class="m-doc-self">modifierE</a>
             </dt>
             <dd>update the E cost</dd>
-            <dt id="a5f63fe0877baf76f9b4faca63d945206">
-              int <a href="#a5f63fe0877baf76f9b4faca63d945206" class="m-doc-self">modifier_DD</a>
+            <dt id="af950b15b3503633b8790d26f337d2d8b">
+              int <a href="#af950b15b3503633b8790d26f337d2d8b" class="m-doc-self">modifierDD</a>
             </dt>
             <dd>update the DD cost</dd>
-            <dt id="a01f977a3bf21b193f255d501c3b8921d">
-              int <a href="#a01f977a3bf21b193f255d501c3b8921d" class="m-doc-self">min_cost_E</a>
+            <dt id="a93beef5a80099039b3c78b4aa0a24d99">
+              int <a href="#a93beef5a80099039b3c78b4aa0a24d99" class="m-doc-self">modifierCapacity</a>
+            </dt>
+            <dd>update the capacity of the machine</dd>
+            <dt id="a4f47b26109abfd9d1a42809f41cf3dcc">
+              int <a href="#a4f47b26109abfd9d1a42809f41cf3dcc" class="m-doc-self">min_costE</a>
             </dt>
             <dd>check after update of E with min_cost_E</dd>
-            <dt id="aeac56be0eb1149965dd717ddf5f6ae98">
-              int <a href="#aeac56be0eb1149965dd717ddf5f6ae98" class="m-doc-self">min_cost_DD</a>
+            <dt id="a2404c128a501aeb9311a92d0e781f1db">
+              int <a href="#a2404c128a501aeb9311a92d0e781f1db" class="m-doc-self">min_costDD</a>
             </dt>
             <dd>check after update of DD with min_cost_DD</dd>
             <dt id="a2102a459b0957428f7f9dfb9bfa0e5ea">
               char* <a href="#a2102a459b0957428f7f9dfb9bfa0e5ea" class="m-doc-self">description</a>
             </dt>
             <dd>describe the effect</dd>
+            <dt id="ade7c8b27467150dcfd1ad53dbdc42635">
+              int <a href="#ade7c8b27467150dcfd1ad53dbdc42635" class="m-doc-self">turn_production</a>
+            </dt>
+            <dd>if HIRE turn before increase of FISA production, if PRODUCTION turn before production of the source</dd>
+            <dt id="a93f1e04574570cba01fdb9fd0710cae1">
+              int <a href="#a93f1e04574570cba01fdb9fd0710cae1" class="m-doc-self">min_turn_production</a>
+            </dt>
+            <dd>check after update of turn_production</dd>
           </dl>
         </section>
       </div>

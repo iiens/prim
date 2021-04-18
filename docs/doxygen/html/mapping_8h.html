@@ -57,7 +57,7 @@ Line</span></a>
               <ul>
                 <li><a href="#nested-classes">Classes</a></li>
                 <li><a href="#typedef-members">Typedefs</a></li>
-                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#func-members">Functions</a></li>
               </ul>
             </li>
           </ul>
@@ -69,7 +69,7 @@ Line</span></a>
             <dt>
               struct <a href="struct_user_action_mapping___s.html" class="m-doc">UserActionMapping_S</a>
             </dt>
-            <dd></dd>
+            <dd>Struct of an action mapping.</dd>
           </dl>
         </section>
         <section id="typedef-members">
@@ -81,23 +81,121 @@ Line</span></a>
             <dd>one mapping so (action, input_sequence)</dd>
           </dl>
         </section>
-        <section id="var-members">
-          <h2><a href="#var-members">Variables</a></h2>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
           <dl class="m-doc">
             <dt>
-              const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a> <a href="#abc28c4a370b4cdacc05015ccd4fc580b" class="m-doc">user_mapping</a>
+              <span class="m-doc-wrap-bumper">auto <a href="#a065fad754b08e943be62dd3430aac8a8" class="m-doc">mapping_getSize</a>(</span><span class="m-doc-wrap">void) -&gt; int</span>
             </dt>
-            <dd>will contains all mappings, used in <a href="interface_8h.html" class="m-doc">interface.h</a></dd>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a167a5917da6014ca3c2eec9c0ee33fab" class="m-doc">mapping_get</a>(</span><span class="m-doc-wrap">int index) -&gt; const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a749f0291a1d02976b3e0d98d796ef4b0" class="m-doc">mapping_getMappingByAction</a>(</span><span class="m-doc-wrap"><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> action) -&gt; const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a3fb0f71d5b1dc3b3d68848a80fb5be2d" class="m-doc">mapping_getMapping</a>(</span><span class="m-doc-wrap">const char* seq) -&gt; const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a8bc45b96fc8c22b2304743cc37f5a4c3" class="m-doc">mapping_getBackMapping</a>(</span><span class="m-doc-wrap">void) -&gt; const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>*</span>
+            </dt>
+            <dd></dd>
           </dl>
         </section>
         <section>
-          <h2>Variable documentation</h2>
-          <section class="m-doc-details" id="abc28c4a370b4cdacc05015ccd4fc580b"><div>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a065fad754b08e943be62dd3430aac8a8"><div>
             <h3>
-              const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a> <a href="#abc28c4a370b4cdacc05015ccd4fc580b" class="m-doc-self">user_mapping</a>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a065fad754b08e943be62dd3430aac8a8" class="m-doc-self">mapping_getSize</a>(</span><span class="m-doc-wrap">void)</span></span>
             </h3>
-            <p>will contains all mappings, used in <a href="interface_8h.html" class="m-doc">interface.h</a></p>
-<p>will contains all mappings, used in <a href="interface_8h.html" class="m-doc">interface.h</a></p><p>This array length is predetermined by <a href="interface_8h.html#a9fa9dae540c5a4392eed8131340524e0" class="m-doc">USER_<wbr />MAPPING_<wbr />SIZE</a> constant in <a href="interface_8h.html" class="m-doc">interface.h</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a size, to iterates the array of mappings</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>returns the number of mappings</p>
+          </div></section>
+          <section class="m-doc-details" id="a167a5917da6014ca3c2eec9c0ee33fab"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a167a5917da6014ca3c2eec9c0ee33fab" class="m-doc-self">mapping_get</a>(</span><span class="m-doc-wrap">int index)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">index</td>
+                  <td>from 0 to <a href="mapping_8h.html#a065fad754b08e943be62dd3430aac8a8" class="m-doc">mapping_<wbr />getSize</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a mapping or null</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns a mapping or null if not found by an index</p>
+          </div></section>
+          <section class="m-doc-details" id="a749f0291a1d02976b3e0d98d796ef4b0"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a749f0291a1d02976b3e0d98d796ef4b0" class="m-doc-self">mapping_getMappingByAction</a>(</span><span class="m-doc-wrap"><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> action)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">action</td>
+                  <td>you could also use for cancel action <a href="mapping_8h.html#a8bc45b96fc8c22b2304743cc37f5a4c3" class="m-doc">mapping_<wbr />getBackMapping</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a mapping or null</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns a mapping or null if not found by an action</p>
+          </div></section>
+          <section class="m-doc-details" id="a3fb0f71d5b1dc3b3d68848a80fb5be2d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3fb0f71d5b1dc3b3d68848a80fb5be2d" class="m-doc-self">mapping_getMapping</a>(</span><span class="m-doc-wrap">const char* seq)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">seq</td>
+                  <td>a character sequence that the user inputted</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>null or a UserActionMapping matching the sequence</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns a mapping or null if not found</p>
+          </div></section>
+          <section class="m-doc-details" id="a8bc45b96fc8c22b2304743cc37f5a4c3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const <a href="mapping_8h.html#a1a750232e533867d6e3e4b4b781cacb4" class="m-doc">UserActionMapping</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8bc45b96fc8c22b2304743cc37f5a4c3" class="m-doc-self">mapping_getBackMapping</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+<p>Returns the mapping associated with the back Action. This is a convenient method since this mapping is used in a lot a places.</p>
           </div></section>
         </section>
       </div>

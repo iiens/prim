@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>headers/data/case_type.h file | Prim Environment
+  <title>tests/list_suite.h file | Prim Environment
 Line</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
@@ -47,7 +47,7 @@ Line</span></a>
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span><span class="m-breadcrumb"><a href="dir_44fdd040e6cb86c9e816f1518b4f7b7d.html">data</a>/</span>case_type.h <span class="m-thin">file</span>
+          <span class="m-breadcrumb"><a href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a>/</span>list_suite.h <span class="m-thin">file</span>
         </h1>
         <div class="m-block m-default">
           <h3>Contents</h3>
@@ -55,71 +55,47 @@ Line</span></a>
             <li>
               Reference
               <ul>
-                <li><a href="#enum-members">Enums</a></li>
-                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#var-members">Variables</a></li>
+                <li><a href="#define-members">Defines</a></li>
               </ul>
             </li>
           </ul>
         </div>
-<aside class="m-note m-default"><h4>Author</h4><p>Antoine Man</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>11/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="map_8h.html" class="m-doc">map.h</a></p></aside><p>Contains all the types that a case can contain.</p>
-        <section id="enum-members">
-          <h2><a href="#enum-members">Enums</a></h2>
+<aside class="m-note m-default"><h4>Author</h4><p>Valentin DREANO</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>17/04/2021</p></aside><p>Contains the list of all the suites to create</p>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">enum <a href="#a843306d07280ade14d7b25d66d1390ec" class="m-doc">CaseType_S</a> { </span><span class="m-doc-wrap"><a href="#a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" class="m-doc">CASE_VIDE</a> = 0,
-              <a href="#a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" class="m-doc">CASE_GATE</a> = 1,
-              <a href="#a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" class="m-doc">CASE_SOURCE</a> = 2,
-              <a href="#a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" class="m-doc">CASE_MACHINE</a> = 3 }</span>
+              int(* <a href="#ac13bd4b693157c2cf1b60bfe6f087c30" class="m-doc">listSuit</a>
             </dt>
-            <dd>all case type</dd>
+            <dd></dd>
           </dl>
         </section>
-        <section id="typedef-members">
-          <h2><a href="#typedef-members">Typedefs</a></h2>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
           <dl class="m-doc">
-            <dt id="a4fd76f4d0fbadc08ec99451b92478a7e">
-              using <a href="#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc-self">CaseType</a> = enum <a href="case__type_8h.html#a843306d07280ade14d7b25d66d1390ec" class="m-doc">CaseType_<wbr />S</a>
+            <dt>
+              <span class="m-doc-wrap-bumper">#define <a href="#a1b306f57512bf5c94037783e3087bb4c" class="m-doc">NUMBERSUITE</a></span>
             </dt>
-            <dd>Case type.</dd>
+            <dd></dd>
           </dl>
         </section>
         <section>
-          <h2>Enum documentation</h2>
-          <section class="m-doc-details" id="a843306d07280ade14d7b25d66d1390ec"><div>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="ac13bd4b693157c2cf1b60bfe6f087c30"><div>
             <h3>
-              enum <a href="#a843306d07280ade14d7b25d66d1390ec" class="m-doc-self">CaseType_S</a>
+              int(* <a href="#ac13bd4b693157c2cf1b60bfe6f087c30" class="m-doc-self">listSuit</a>
             </h3>
-            <p>all case type</p>
-<p><a href="case__type_8h.html" class="m-doc">case_<wbr />type.h</a> &quot;headers/data/case_type.h&quot;</p><p>Contains all type that a case can contain. Each case can contain 4 elements types : a part of the production line a resource case an empty case a transdimensional gate</p><p>3 resources is produced from a resource case every 10 turns</p>
-            <table class="m-table m-fullwidth m-flat m-doc">
-              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
-              <tbody>
-                <tr>
-                  <td><a href="#a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" class="m-doc-self" id="a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e">CASE_VIDE</a></td>
-                  <td>
-                  <p>a case that contain nothing</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="#a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" class="m-doc-self" id="a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b">CASE_GATE</a></td>
-                  <td>
-                  <p>a case that contain the transdimensional gate</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="#a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" class="m-doc-self" id="a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd">CASE_SOURCE</a></td>
-                  <td>
-                  <p>a case that contain resources</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="#a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" class="m-doc-self" id="a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd">CASE_MACHINE</a></td>
-                  <td>
-                  <p>a case that contain a machine</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+<p>list of different suites</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Define documentation</h2>
+          <section class="m-doc-details" id="a1b306f57512bf5c94037783e3087bb4c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">#define <a href="#a1b306f57512bf5c94037783e3087bb4c" class="m-doc-self">NUMBERSUITE</a></span>
+            </h3>
+<p>Number of suites to test</p>
           </div></section>
         </section>
       </div>
