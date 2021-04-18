@@ -14,16 +14,10 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-/**
- * \struct Box_S box.h "headers/data/box.h"
- *
- * nbResource : number of resource on the machine
- * nbGarbage : number of garbage on the machine
- */
 struct Box_S {
-    int nbResource;
-    int nbGarbage;
-};
+    int nbResource; //!< nbResource : number of resource on the machine
+    int nbGarbage; //!< nbGarbage : number of garbage on the machine
+}; //!< It contain resources and garbage on a case
 
 /*
  * This function get the number of resources of the box.

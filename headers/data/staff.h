@@ -119,14 +119,14 @@ const Effect *staff_getStaffEffect(const Staff *staff);
 
 /**
  * This function get the TurnProduction attribute from a effect
- * @param staff
+ * @param effect
  * @return the TurnProduction from a effect
  */
 int effect_getTurnProduction(const Effect *effect);
 
 /**
  * This function get the MinTurnProduction attribute from a effect
- * @param staff
+ * @param effect
  * @return the MinTurnProduction from a effect
  */
 int effect_getMinTurnProduction(const Effect *effect);

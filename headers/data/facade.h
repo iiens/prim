@@ -1,4 +1,4 @@
-/*!
+/**
  * \file facade.h
  * \author Antoine MAN
  * \version 0.1
@@ -7,15 +7,18 @@
  *
  * This header contains functions related to the interactions with a machine facade.
  * A facade correspond to a machine wall.
- *
  */
+
 #ifndef PRIM_FACADE_H
 #define PRIM_FACADE_H
 
 #include "box.h"
 #include "../../headers/utils/utils.h"
 
-// A constant to know the number of direction
+
+/**
+ * A constant to know the number of direction
+ */
 #define NUMBER_CARDINAL 4
 
 /*!

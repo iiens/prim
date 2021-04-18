@@ -12,6 +12,9 @@
 #ifndef PRIM_DIFFICULTY_H
 #define PRIM_DIFFICULTY_H
 
+/**
+ * Number of difficulties
+ */
 #define NUMBER_DIFFICULTY 3
 
 /*!
@@ -33,8 +36,17 @@ typedef enum Difficulty {
     DIFFICULTY_HARD = 3, //!< HARD level : 30 x 30
 } Difficulty; //!< Difficulty type
 
+/**
+ * A function to get difficulty according to the id
+ * @param id
+ * @return difficulty
+ */
 Difficulty difficulty_getLVL(int id);
 
+/**
+ * A function to get number of difficulties
+ * @return number of difficulties
+ */
 int difficulty_getNumberOfDifficulties();
 
 /*!

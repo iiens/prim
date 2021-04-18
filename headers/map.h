@@ -21,7 +21,6 @@
  * <li>detroy a machine, already created in a case</li>
  * <li>buy staffs in order to have bonus</li>
  * </ul>
- *
  */
 
 #ifndef PRIM_MAP_H
@@ -186,16 +185,14 @@ ErrorCode map_changeProductionFISA(Map *m);
 */
 ErrorCode map_endTurn(Map *m);
 
-/*!
- * \fn ErrorCode map_addMachine( MachineStuff type, int x, int y, Map* m )
- * @brief Add a machine
- * @param[in] type a machine
- * @param[in] x x > 0
- * @param[in] y y > 0
- * @param[in,out] m a map
+/**
  * Add a machine on the map
- *
- * @return an error that specify what is the problem
+ * @param type a machine
+ * @param rotation
+ * @param x x > 0
+ * @param y y > 0
+ * @param m a map
+ * @return error that specify what is the problem
  */
 ErrorCode map_addMachine(MachineStuff type, int rotation, int x, int y, Map *m);
 
@@ -349,15 +346,11 @@ int map_getHeight(const Map *m);
 */
 int map_getNumberTurn(const Map *m);
 
-/*!
-* \fn int map_getNumberTurn( const Map* m )
-* @brief a function to get the production of FISA
-* @param[in] m a map
-*
-* This function get the production of FISA
-*
-* @return the production of FISA
-*/
+/**
+ * a function to get the production of FISA
+ * @param m a map
+ * @return the production of FISA
+ */
 int map_getProductionFISA(const Map *m);
 
 /*!

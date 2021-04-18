@@ -3,15 +3,16 @@
 
 #include "../../headers/data/facade.h" //! to use bool
 
-//todo: laking comment
 struct Facade_S {
-    Cardinal cardinal;
-    Direction direction;
-    Box *content;
-}; //!< Facade todo: write a little more
+    Cardinal cardinal; //!< Cardinal that indicates the wall position in the machine
+    Direction direction; //!< Direction that indicates the resources flow direction
+    Box *content; //!< Bow that contains number of resources and number of garbage
+}; //!< Facade that contains all the map information concerning a wall machine
 
+/*
+ * Allocate resources in memory to stock the facade
+ */
 Facade *facade_create(Cardinal card) {
-    // Allocate resources in memory to stock the facade
     // Initialize a basic facade
     Facade *facade = (Facade *) malloc(sizeof(Facade));
     facade->direction = DIRECTION_NONE;
@@ -20,32 +21,44 @@ Facade *facade_create(Cardinal card) {
     return facade;
 }
 
+/*
+ * A function to free resources allocated in memory to stock the facade
+ */
 void facade_destroy(Facade *facade) {
-    // Free resources allocated in memory
     if (facade->content != NULL) {
         free(facade->content);
     }
     free(facade);
 }
 
-//todo: too much methods without a "comment"
-// please use a method block comment
-// such as
-// /*
-// * these methods are used for ...
-// */
-// then some methods again and again. To split since it's unreadable :-(
-
+/*
+ * A function to get the facade direction of the transit
+ */
 Direction facade_getDirection(Facade *facade) { return facade->direction; }
 
+/*
+ * A function to set the facade direction according to the new direction
+ */
 void facade_setDirection(Facade *facade, Direction direction) { facade->direction = direction; }
 
+/*
+ * A function to get the facade cardinal
+ */
 Cardinal facade_getCardinal(Facade *facade) { return facade->cardinal; }
 
+/*
+ * A function to set the facade cardinal
+ */
 void facade_setCardinal(Facade *facade, Cardinal card) { facade->cardinal = card; }
 
+/*
+ * A function to get box contained in the facade
+ */
 Box *facade_getBox(Facade *facade) { return facade->content; }
 
+/*
+ * A function to set a new box to the facade
+ */
 void facade_setBox(Facade *facade, Box *box) { facade->content = box; }
 
 /**
