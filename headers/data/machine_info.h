@@ -19,7 +19,7 @@
 /*!
  * \typedef MachineInfo
  * \struct MachineInfo_S machine_info.h "headers/data/MachineInfo.h"
- *
+ * \brief Represent all information about a machine
  * Struct which contains all information about a machine
  *
  * Only machines that have canUpgrade=true can upgrade.

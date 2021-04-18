@@ -62,7 +62,7 @@ typedef enum Mode_S {
 /*!
  * \typedef Effect
  * \struct Effect_S Staff.h "headers/data/Staff.h"
- *
+ * \brief contains different settings of the effects
  * Struct which contains the target of the effect
  *
  */
