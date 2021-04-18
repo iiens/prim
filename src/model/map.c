@@ -209,7 +209,7 @@ ErrorCode map_addMachine(MachineStuff machType, int rotation, int x, int y, Map 
                 return e;
             }
         } else {
-            return ERROR;
+            return ERROR_CASE_NOT_EMPTY;
         }
     } else {
         return ERROR_CASE_NOT_FOUND;
@@ -251,7 +251,7 @@ ErrorCode map_upgradeMachine(int x, int y, Map *m) {
                 return ERROR_INVALID_ACTION_SEQUENCE;
             }
         } else {
-            return ERROR;
+            return ERROR_CASE_CANT_BE_UPGRADED;
         }
     } else {
         return ERROR_CASE_NOT_FOUND;
@@ -296,7 +296,7 @@ ErrorCode map_destroyMachine(int x, int y, Map *m) {
                 return e;
             }
         } else {
-            return ERROR;
+            return ERROR_CASE_CANT_BE_DESTROYED;
         }
     } else {
         return ERROR_CASE_NOT_FOUND;

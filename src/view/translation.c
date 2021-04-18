@@ -17,6 +17,12 @@ char* error_getMessage( ErrorCode e )
             return "This case is a gate. Please ry again.";
         case ERROR_CASE_NOT_FOUND:
             return "Case not found";
+        case ERROR_CASE_NOT_EMPTY:
+            return "Case not empty";
+        case ERROR_CASE_CANT_BE_UPGRADED:
+            return "Case can't be upgraded.";
+        case ERROR_CASE_CANT_BE_DESTROYED:
+            return "Case can't be destroyed.";
         case ERROR_NOT_ENOUGH_E:
             return "Not enough E.";
         case ERROR_NOT_ENOUGH_DD:
