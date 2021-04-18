@@ -3,8 +3,8 @@
  * This file is supposed to contains all interface functions that
  * uses ncurses.
  */
-#include "headers/interface_ncurses.h"
-#include "headers/interface_ncurses_utils.h"
+#include "nc_headers/interface_ncurses.h"
+#include "nc_headers/interface_ncurses_utils.h"
 #include <locale.h>
 
 //\////////////////////////////\//

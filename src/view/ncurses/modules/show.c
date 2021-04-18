@@ -2,8 +2,8 @@
 // Show related functions
 //
 #include <string.h>
-#include "../headers/interface_ncurses.h"
-#include "../headers/interface_ncurses_utils.h"
+#include "../nc_headers/interface_ncurses.h"
+#include "../nc_headers/interface_ncurses_utils.h"
 #include "../../../../headers/utils/utils_fun.h"
 
 bool showResourceSaved;

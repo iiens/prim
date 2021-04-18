@@ -1,5 +1,5 @@
-#include "../headers/interface_ncurses.h"
-#include "../headers/interface_ncurses_utils.h"
+#include "../nc_headers/interface_ncurses.h"
+#include "../nc_headers/interface_ncurses_utils.h"
 
 // show the legend
 // here using translation and colors according to tag

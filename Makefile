@@ -46,7 +46,7 @@ SOURCE_M=$(SOURCE)model/
 SOURCE_U=$(SOURCE)utils/
 SOURCE_V_N=$(SOURCE_V)ncurses/
 # ncurses module
-SOURCE_V_N_H=$(SOURCE_V_N)headers/
+SOURCE_V_N_H=$(SOURCE_V_N)nc_headers/
 SOURCE_V_N_M=$(SOURCE_V_N)modules/
 SOURCE_T=tests/
 

@@ -186,7 +186,7 @@ void interface_listActions(void);
  *
  * <li>{@link ACTION_LIST_MACHINES} : should call {@link interface_showMachinesList}</li>
  * <li>{@link ACTION_BUY_MACHINE} : should ask {@link interface_askAddMachine} and {@link interface_askMachineLocation}</li>
- * then call {@link map_addMachine}
+ * then call {@link ErrorCode map_addMachine( MachineStuff type, int x, int y, Map* m )}
  * <li>{@link ACTION_BUY_STAFF} : should ask {@link interface_askBuyStaff} then {@link map_buyStaff}</li>
  * <li>{@link ACTION_ASK_STAFF_LIST} : should call {@link interface_showStaffList}</li>
  *

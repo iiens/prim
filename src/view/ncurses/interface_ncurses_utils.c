@@ -1,5 +1,5 @@
-#include "headers/interface_ncurses.h" //!< base interface
-#include "headers/interface_ncurses_utils.h" //!< this header
+#include "nc_headers/interface_ncurses.h" //!< base interface
+#include "nc_headers/interface_ncurses_utils.h" //!< this header
 #include <string.h> //!< strlen, ...
 
 #define ERROR_LINE 0 //!< error line in action window

@@ -2,8 +2,8 @@
 // Ask machine location
 //
 #include "../../../../headers/interface.h"
-#include "../headers/interface_ncurses.h"
-#include "../headers/interface_ncurses_utils.h"
+#include "../nc_headers/interface_ncurses.h"
+#include "../nc_headers/interface_ncurses_utils.h"
 #include <string.h>
 
 /** Callback on init  */
