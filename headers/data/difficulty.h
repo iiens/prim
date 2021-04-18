@@ -19,7 +19,7 @@
 
 /*!
  * \typedef Difficulty: rename for enum Difficulty
- * \enum Difficulty difficulty.h "headers/data/difficulty.h"
+ * \enum Difficulty_S
  * \brief all difficulties
  *
  * Contains all difficulties that the play can play.
@@ -30,7 +30,7 @@
  * HARD level : 30 x 30
  *
  */
-typedef enum Difficulty {
+typedef enum Difficulty_S {
     DIFFICULTY_EASY = 1, //!< EASY level : 10 x 10
     DIFFICULTY_MEDIUM = 2, //!< MEDIUM level : 20 x 20
     DIFFICULTY_HARD = 3, //!< HARD level : 30 x 30

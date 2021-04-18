@@ -37,6 +37,7 @@ extern bool back; //!< @brief Allow to cancel the current action, check in main 
 /*!
  * @typedef MachineSpec
  * @struct MachineSpec_S interface.h "headers/interface.h"
+ * @brief Convenience structure for the user to request a machine.
  *
  * Convenience structure for the user to request
  * a machine.

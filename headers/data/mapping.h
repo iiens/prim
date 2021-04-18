@@ -15,6 +15,7 @@
 /*!
  * \typedef UserActionMapping
  * \struct UserActionMapping_S mapping.h "headers/data/mapping.h"
+ * \brief Struct of an action mapping
  *
  * Struct of an action mapping. Each action is mapped with a string.
  *

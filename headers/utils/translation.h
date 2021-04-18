@@ -1,3 +1,12 @@
+/*!
+ * \file translation.h
+ * \author Quentin Ra
+ * \version 1.0
+ * \date 27/02/2021
+ *
+ * Translation related functions.
+ *
+ */
 #ifndef PRIM_TRANSLATION_H
 #define PRIM_TRANSLATION_H
 
@@ -13,7 +22,8 @@
 //todo: comment
 /*!
  * \typedef Translation
- * \struct Translation_S translation.h "src/view/translation.h"
+ * \enum Translation_S translation.h "src/view/translation.h"
+ * \brief a translation constant
  *
  * All translations constants
  */
@@ -62,7 +72,7 @@ typedef enum Translation_S {
 
     TRANSLATE_WIN, //!< win
     TRANSLATE_LOST, //!< loose
-} Translation;
+} Translation; //!< translation constant
 
 /*!
  * Returns the translation of a translation constant

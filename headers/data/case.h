@@ -22,7 +22,7 @@
 
 /*!
  * \typedef CaseType
- * \enum CaseType_S case_type.h "headers/data/case_type.h"
+ * \enum CaseType_S
  * \brief all case type
  *
  * Contains all type that a case can contain.
