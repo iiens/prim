@@ -44,7 +44,7 @@
  * emplacement, sources, resources, garbage, Staff and gate, presents on the map.
  *
  */
-typedef struct Map_S Map;
+typedef struct Map_S Map; //!< documentation above
 
 /*!
  * \fn const Map* map_create(Difficulty dif)

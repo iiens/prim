@@ -21,7 +21,7 @@
  * Struct that contains all the information concerning a box
  * It contain resources and garbage on a case
  */
-typedef struct Box_S Box;
+typedef struct Box_S Box; //!< documentation above
 
 /**
  * This function get the number of resources of the box.

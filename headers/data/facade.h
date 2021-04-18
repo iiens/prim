@@ -62,7 +62,7 @@ typedef enum Direction_S {
  * Box : it allow to stock resources and garbage
  *
  */
-typedef struct Facade_S Facade;
+typedef struct Facade_S Facade; //!< documentation above
 
 /**
  * A function to initialize a facade type.

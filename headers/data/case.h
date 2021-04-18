@@ -54,7 +54,7 @@ typedef enum CaseType_S {
  * Struct that contains all the information concerning a case
  *
  */
-typedef struct Case_S Case;
+typedef struct Case_S Case; //!< documentation above
 
 /**
  * A function to get the case abscissa
