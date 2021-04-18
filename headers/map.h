@@ -456,4 +456,16 @@ ErrorCode map_setNumberDD(Map *m, int val);
 */
 ErrorCode map_setNumberScore(Map *m, int val);
 
+/*!
+* \fn ErrorCode map_setNumberTurn( Map* m, int val )
+* @brief a function to set the turn
+* @param[in] m a map
+* @param[in] val DD value to add/to substract
+*
+* This function set the turn
+*
+* @return an error that specify what is the problem
+*/
+ErrorCode map_setNumberTurn(Map *m, int val);
+
 #endif //PRIM_MAP_H

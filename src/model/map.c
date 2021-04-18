@@ -526,3 +526,15 @@ ErrorCode map_setNumberScore(Map *m, int val) {
         return ERROR_NEGATIVE_RESULT;
     }
 }
+
+/*
+ * This function set the turn
+ */
+ErrorCode map_setNumberTurn(Map *m, int val) {
+    if (m->turn + val >= 0) {
+        m->turn += val;
+        return NO_ERROR;
+    } else {
+        return ERROR_NEGATIVE_RESULT;
+    }
+}
