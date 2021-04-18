@@ -51,7 +51,15 @@ int testStructure_cleanSuite();
  * This function allows you to test that a dictionary has been created.
  */
 void testDictionary_create();
+
+/**
+ * This function allows you to test that the addition of an element in a dictionary is done well
+ */
 void testDictionary_addElement();
+
+/**
+ * This function allows you to test the retrieval of an item at a certain index
+ */
 void testDictionary_indexElement();
 
 /**
@@ -63,9 +71,10 @@ void testList_create();
  * This function allows you to test that an empty list is created.
  */
 void testList_createEmpty();
+
+/**
+ * This function allows you to test the addition of an element in a list
+ */
 void testList_addElement();
-void testList_indexElement();
-void testList_index();
-void testList_removeIndex();
 
 #endif //TEST_STRUCTURE_H

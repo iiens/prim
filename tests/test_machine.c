@@ -98,7 +98,6 @@ void testMachine_rotation() {
 void testMachine_LevelUp() {
     // Assumption that the creation of a machine has been tested beforehand
     // Create machine
-    MachineStuff type = MS_COLLECTOR;
     Machine *machine = machine_create(MS_COLLECTOR);
 
     // Recovery of value before purchase

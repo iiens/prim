@@ -356,7 +356,6 @@ void testMap_machineDestroy() {
     Case *ca = map_getCase(0, 0, map);
     Machine *machine = machine_create(type);
     case_addMachine(ca, machine);
-    int level = machine_getLevel(machine);
 
     map_setNumberE(map, -numberE);
     map_setNumberDD(map, -numberDD);
