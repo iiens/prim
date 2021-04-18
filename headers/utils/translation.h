@@ -89,7 +89,7 @@ char* translation_actionFetchName( Action action );
  * Returns the type of a case
  * @param t type of a case
  * @return the translation or NULL if it's a machine. In such
- * case, use {@link translation_fetchMachineTypeName}
+ * case, use {@see translation_fetchMachineTypeName}
  */
 char* translation_fetchCaseTypeName( CaseType t );
 
@@ -102,14 +102,14 @@ char* translation_fetchMachineTypeName( MachineStuff s );
 
 /*!
  * Full name version of translation_fetchCaseTypeName
- * @param t see {@link translation_fetchCaseTypeName}
- * @return see {@link translation_fetchCaseTypeName} */
+ * @param t see {@see translation_fetchCaseTypeName}
+ * @return see {@see translation_fetchCaseTypeName} */
 char* translation_fetchCaseTypeFullName( CaseType t );
 
 /*!
 * Full name version of translation_fetchMachineTypeName
-* @param s see {@link translation_fetchMachineTypeName}
-* @return see {@link translation_fetchMachineTypeName} */
+* @param s see {@see translation_fetchMachineTypeName}
+* @return see {@see translation_fetchMachineTypeName} */
 char* translation_fetchMachineTypeFullName( MachineStuff s );
 
 /*!

@@ -5,7 +5,7 @@
 #define USER_MAPPING_SIZE 16 //!< to iterates user_mapping
 
 /*!
- * This array length is predetermined by {@link USER_MAPPING_SIZE}
+ * This array length is predetermined by {@see USER_MAPPING_SIZE}
  * constant in interface.h.
  *
  * @see UserActionMapping, all mappings
