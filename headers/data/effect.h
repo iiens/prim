@@ -70,8 +70,10 @@ typedef struct Effect_S {
     Mode mode; //!< represent the mode applied to the machine
     Target what; //!< represent the target of the effect
     bool onOther; //!< to know if what is a machine or other
-    float modifierRes; //!< if SEND_DOOR, resource put in multiply by this, if DOOR_OUT it's the probability
-    //!< that a garbage disappear when it's leave the door
+    float modifierRes;  /*!< @brief
+    * if SEND_DOOR, resource put in multiply by this, if DOOR_OUT it's the probability
+    * that a garbage disappear when it's leave the door
+    */
     int modifierFISA; //!< update the number of FISA, if LEAVE fisa put in multiply by this,
     int modifierFISE; //!< update the number of FISE, if LEAVE fise put in multiply by this
     int modifierE; //!< update the E cost
@@ -80,8 +82,9 @@ typedef struct Effect_S {
     int min_costE; //!< check after update of E with min_cost_E
     int min_costDD;//!< check after update of DD with min_cost_DD
     char *description; //!< describe the effect
-    int turn_production; //!< if HIRE turn before increase of FISA production, if PRODUCTION turn before
-    //!< production of the source
+    int turn_production; /*!< @brief
+    * if HIRE turn before increase of FISA production, if PRODUCTION turn before
+    * production of the source */
     int min_turn_production; //!< check after update of turn_production
 } Effect; //!< Struct which contains the target and the of the effect
 
