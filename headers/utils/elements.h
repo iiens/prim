@@ -31,9 +31,9 @@ typedef enum ElementType_S {
 
 typedef struct Element_S {
     union {
-        int number;
-        char* text;
-        void* object;
+        int number; //!< represent a number
+        char* text; //!< represent a text
+        void* object; //!< represent a object
     } content; //!< represent the content of the Element
     ElementType type; //!< in witch field we got our value
 } Element; //!< represent an Element
