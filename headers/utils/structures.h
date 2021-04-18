@@ -117,12 +117,12 @@ ErrorCode list_addCoupleNumber(List* l, int n1, int n2);
  *
  * @return an Element
  */
-Element list_next(List** current);
+Element* list_next(List** current);
 // get Element
 
 /*!
  * \fn Element* list_getCurrent(List* list)
- * @brief return the current value of the linked list
+ * @brief return the current value of the linked list, element should be free
  *
  *
  * @param[in] list a linked list

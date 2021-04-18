@@ -74,12 +74,19 @@ ErrorCode list_addCoupleNumber(List* l, int n1, int n2)
 
 // advance list => next and return current
 //todo: Ramzy don't forgot to free list
-Element list_next( List** current )
+Element* list_next( List** current )
 {
+    // no list
+    if (current == NULL || (*current) == NULL || (*current)->current == NULL)
+        return NULL;
+
+    // old element
     Element* e = (*current)->current;
-    free(e);
+
+    // current is now next
     *current = (*current)->next;
-    return *(*current)->current;
+
+    return e;
 }
 
 // get Element
@@ -145,10 +152,10 @@ int list_getSize(List* list){
 }
 
 // destroy
-//todo: Ramzy each element should be free
 ErrorCode list_destroy( List* list )
 {
     if ( list != NULL ) {
+        if (list->current != NULL) free(list->current);
         // recursive
         list_destroy(list->next);
         free(list);
