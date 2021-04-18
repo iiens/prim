@@ -16,7 +16,7 @@
 #include "elements.h" // element.h : structures contains Element
 
 /*!
- * \typedef Dictionary
+ * \typedef Dictionary : represent a Dictionary
  * \struct Dictionary_S structures.h "headers/utils/structures.h"
  * \brief Struct which contains a dictionary of ElementType
  */
@@ -101,8 +101,8 @@ ErrorCode list_addCoupleNumberText(List* l, int number, char* text);
  * if the key of the Element e is the same that an other Element in the list we overwrite the Element
  *
  * @param[out] l a linked list
- * @param[in] number int that we will add to the list by creating an Element
- * @param[in] number int that we will add to the list by creating an Element
+ * @param[in] n1 number int that we will add to the list by creating an Element
+ * @param[in] n2 number int that we will add to the list by creating an Element
  * @return ErrorCode
  */
 ErrorCode list_addCoupleNumber(List* l, int n1, int n2);
@@ -121,7 +121,7 @@ Element list_next(List** current);
 // get Element
 
 /*!
- * \fn Element list_getCurrent(List* list)
+ * \fn Element* list_getCurrent(List* list)
  * @brief return the current value of the linked list
  *
  *
@@ -129,7 +129,7 @@ Element list_next(List** current);
  *
  * @return an Element
  */
-Element list_getCurrent(List* list);
+Element* list_getCurrent(List* list);
 // remove Element by Index
 
 /*!
@@ -149,7 +149,7 @@ ErrorCode list_removeByIndex(List** list,int index);
  * @brief free the list
  *
  *
- * @param[out] a linked list
+ * @param[out] list a linked list
  *
  * @return ErrorCode
  */
@@ -161,7 +161,7 @@ ErrorCode list_destroy(List* list);
  * @brief destroy list
  *
  *
- * @param[out] a linked list
+ * @param[out] list a linked list
  *
  * @return ErrorCode
  */

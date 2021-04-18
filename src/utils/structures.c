@@ -77,14 +77,17 @@ ErrorCode list_addCoupleNumber(List* l, int n1, int n2)
 Element list_next( List** current )
 {
     Element* e = (*current)->current;
+    free(e);
     *current = (*current)->next;
-    return *e;
+    return *(*current)->current;
 }
 
 // get Element
-Element list_getCurrent( List* list )
+Element* list_getCurrent( List* list )
 {
-    return *list->current;
+    if((*list).current != NULL)
+        return list->current;
+    return NULL;
 }
 
 ErrorCode list_removeByIndex(List **list, int index) {

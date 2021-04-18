@@ -13,7 +13,7 @@
 
 /*!
  * \typedef ElementType
- * \enum ElementType_S
+ * \enum ElementType_S "headers/utils/elements.h"
  * \brief it's a number, a text or a object
  */
 typedef enum ElementType_S {
