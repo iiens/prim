@@ -141,6 +141,8 @@ Element* list_getByIndex(List* list, int index){
 
 int list_getSize(List* list){
     int sz = 0;
+    if(list==NULL)
+        return 0;
     if(list->current ==NULL)
         return 0;
 
