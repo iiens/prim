@@ -145,8 +145,8 @@ ErrorCode list_removeByIndex(List** list,int index);
 // destroy all (next included)
 
 /*!
- * \fn ErrorCode list_destroy(List* list) //todo : see how it works
- * @brief free the list
+ * \fn ErrorCode list_destroy(List* list)
+ * @brief destroy all of the list ( recursive )
  *
  *
  * @param[out] list a linked list
@@ -157,8 +157,8 @@ ErrorCode list_destroy(List* list);
 // destroy only this list
 
 /*!
- * \fn ErrorCode list_destroyFirst(List* list) //todo : see how it works
- * @brief destroy list
+ * \fn ErrorCode list_destroyFirst(List* list)
+ * @brief destroy a list
  *
  *
  * @param[out] list a linked list

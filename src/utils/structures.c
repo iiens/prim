@@ -73,7 +73,7 @@ ErrorCode list_addCoupleNumber(List* l, int n1, int n2)
 }
 
 // advance list => next and return current
-//todo: Ramzy don't forgot to free list
+
 Element* list_next( List** current )
 {
     // no list
