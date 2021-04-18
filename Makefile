@@ -75,7 +75,7 @@ O_FILES= $(OUTPUT)main.o \
 # and all tests files
 O_TESTS_FILES= $(OUTPUT_T)tests.o $(BASIC_FILES) \
 	$(OUTPUT_T)test_case.o $(OUTPUT_T)test_machine.o $(OUTPUT_T)test_map.o \
-	$(OUTPUT_T)test_structure.o
+	$(OUTPUT_T)test_structure.o $(OUTPUT_T)test_box.o $(OUTPUT_T)test_endTurn.o
 
 # all off our header files included in interface.h for convenience sake
 # data ( line 2 - 4 )
@@ -241,6 +241,12 @@ $(OUTPUT_T)test_map.o: $(SOURCE_T)test_map.c $(SOURCE_T)test_map.h
 
 $(OUTPUT_T)test_structure.o: $(SOURCE_T)test_structure.c $(SOURCE_T)test_structure.h
 	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_structure.o $(SOURCE_T)test_structure.c
+
+$(OUTPUT_T)test_box.o: $(SOURCE_T)test_box.c $(SOURCE_T)test_box.h
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_box.o $(SOURCE_T)test_box.c
+
+$(OUTPUT_T)test_endTurn.o: $(SOURCE_T)test_endTurn.c $(SOURCE_T)test_endTurn.h
+	mkdir -p $(OUTPUT_T) && $(CC) $(CFLAGS) -c -o $(OUTPUT_T)test_endTurn.o $(SOURCE_T)test_endTurn.c
 
 ####################
 ######### TASKS
