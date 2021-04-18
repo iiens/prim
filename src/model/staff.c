@@ -311,7 +311,7 @@ const Staff staff_list[] = {
 
         },
 
-        {21, "Julien Forest",         100,  200,  "FISE produce 1E and 1DD more per turn ",         10, .effects = {
+        {21, "Julien Forest",         2000,  500,  "FISE produce 1E and 1DD more per turn ",         10, .effects = {
                 .mode = ON_TURN,
                 .onOther = 1,
                 .what.other = SUB_FISE,
