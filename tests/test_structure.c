@@ -103,3 +103,68 @@ void testDictionary_create() {
     // Destroy dictionary
     dictionary_destroy(dico);
 }
+
+void testDictionary_addElement() {
+    Dictionary* d = dictionary_create(2);
+
+    Element key1 = elements_fromText("trois");
+    Element value1 = elements_fromNumber(3);
+
+    Element key2 = elements_fromNumber(15);
+    Element value2 = elements_fromText("quinze");
+
+    Element value3 = elements_fromNumber(15);
+
+    dictionary_addElement(d, key1, value1);
+    dictionary_addElement(d, key2, value2);
+
+    CU_ASSERT_EQUAL(d->numberOfElement, 2);
+
+    dictionary_addElement(d, key1, value3);
+
+    // should not increase
+    CU_ASSERT_EQUAL(d->numberOfElement, 2);
+
+    dictionary_destroy(d);
+}
+
+void testDictionary_indexElement() {
+    Dictionary* d = dictionary_create(2);
+
+    Element key1 = elements_fromText("trois");
+    Element value1 = elements_fromNumber(3);
+
+    Element key2 = elements_fromNumber(15);
+    Element value2 = elements_fromText("quinze");
+
+    Element value3 = elements_fromNumber(27);
+
+    dictionary_addElement(d, key1, value1);
+    dictionary_addElement(d, key2, value2);
+
+    Couple* c = dictionary_getCoupleByIndex(d, 0);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(c);
+    CU_ASSERT_EQUAL_FATAL(c->keys.type, key1.type);
+    CU_ASSERT_STRING_EQUAL( elements_toText(c->keys), "trois");
+    CU_ASSERT_EQUAL_FATAL(c->values.type, value1.type);
+    CU_ASSERT_EQUAL( elements_toNumber(c->values), 3);
+
+    c = dictionary_getCoupleByIndex(d, 1);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(c);
+    CU_ASSERT_EQUAL_FATAL(c->keys.type, key2.type);
+    CU_ASSERT_EQUAL( elements_toNumber(c->keys), 15);
+    CU_ASSERT_EQUAL_FATAL(c->values.type, value2.type);
+    CU_ASSERT_STRING_EQUAL( elements_toText(c->values), "quinze");
+
+    dictionary_addElement(d, key1, value3);
+
+    // changed value
+    c = dictionary_getCoupleByIndex(d, 0);
+    CU_ASSERT_PTR_NOT_NULL_FATAL(c);
+    CU_ASSERT_EQUAL_FATAL(c->keys.type, key1.type);
+    CU_ASSERT_STRING_EQUAL( elements_toText(c->keys), "trois");
+    CU_ASSERT_EQUAL_FATAL(c->values.type, value1.type);
+    CU_ASSERT_EQUAL( elements_toNumber(c->values), 27);
+
+    dictionary_destroy(d);
+}

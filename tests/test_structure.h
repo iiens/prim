@@ -48,11 +48,10 @@ int testStructure_initSuite();
 int testStructure_cleanSuite();
 
 /**
- *
+ * This function allows you to test that a dictionary has been created.
  */
 void testDictionary_create();
 void testDictionary_addElement();
-void testDictionary_removeElement();
 void testDictionary_indexElement();
 
 /**
