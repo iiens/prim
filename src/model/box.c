@@ -70,7 +70,7 @@ ErrorCode box_setNumberGarbage(Box *b, int val) {
 /*
  * This function create a new box in a case or in a facade machine
  */
-Box *box_create(int numberR, int numberG) {
+Box *box_create(unsigned int numberR, unsigned int numberG) {
 
     // Allocate resources in memory to create a new box
     Box *box = (Box *) malloc(sizeof(Box));

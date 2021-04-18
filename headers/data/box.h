@@ -62,7 +62,7 @@ ErrorCode box_setNumberGarbage(Box *c, int val);
  * @param numberG garbage number
  * @return a new box
  */
-Box *box_create(int numberR, int numberG);
+Box *box_create(unsigned int numberR, unsigned int numberG);
 
 /**
  * This function add resources and garbage of the first box in the second
