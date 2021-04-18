@@ -27,3 +27,6 @@ Attention à avoir ncurses d'installé
 Le projet compile aussi avec un CMakeList, ou encore
 avec un docker. Pour la docker, les instructions
 sont dans le Dockerfile.
+
+Vous pouvez lancer les tests avec
+`make tests` puis `make run_tests`.

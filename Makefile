@@ -10,7 +10,8 @@
 # - `make prim` : same as make
 # - `make tests` : make all tests, put executable in ./bin/tests
 # - `make clean` : clean .o files
-# - `make run` : run ./a.out
+# - `make run` : run ./bin/prim
+# - `make run_tests` : run ./bin/tests
 ###############################
 
 # 1. main goal
