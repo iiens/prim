@@ -85,7 +85,7 @@ void map_utils_sendResourcesToGate(Map *m, int resources) {
                 if (case_hasBox(c)) {
                     box_setNumberResource(case_getBox(c), resources);
                 } else {
-                    case_addBox(c, box_create(0, resources));
+                    case_addBox(c, box_create(resources, 0));
                 }
                 // Pass resources through the Gate
                 map_utils_generateGarbage(m);

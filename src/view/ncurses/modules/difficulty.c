@@ -31,7 +31,9 @@ Difficulty interface_ncurses_chooseDifficulty()
     bool leave = false; //!< leave branch
     const int MIN_HEIGHT = 21; //!< min height
     const int HEIGHT_FIXED = NC_ACTION_HEIGHT + 3; //!< fixed part of the height
-    const int WIDTH_FIXED = GAME_WIDTH; //!< fixed part of the width
+    int WIDTH_FIXED = GAME_WIDTH; //!< fixed part of the width
+    // fix for Windows terminals
+    if (ON_WINDOWS) WIDTH_FIXED = 0;
 
     // write title, centered
     mvaddstr(TITLE_LINE, COLS / 2 - strlen(translation_get(TRANSLATE_CHOICE_DIFF)) / 2,

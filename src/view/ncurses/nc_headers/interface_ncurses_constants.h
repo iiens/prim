@@ -38,4 +38,19 @@ int GAME_WIDTH; //!< height of action window
 #define NC_ERROR_COLOR 1 //!< error color code
 #define NC_SUCCESS_COLOR 2 //!< success color code
 
+/*
+ * fix for Windows terminals
+ */
+#ifdef _WIN32
+#define ON_WINDOWS true
+#endif
+
+#ifdef linux
+#define ON_WINDOWS false
+#endif
+
+#ifndef ON_WINDOWS
+#define ON_WINDOWS false
+#endif
+
 #endif //PRIM_INTERFACE_NCURSES_CONSTANTS_H

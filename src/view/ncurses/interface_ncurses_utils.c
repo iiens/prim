@@ -233,6 +233,7 @@ char interface_utils_parseOrientation( int x, int y, const Map* map )
                     return L'6';
                 break;
             case MS_CROSS:
+                d = DIRECTION_OUT;
                 if ( machine_isOrientationBottomRight(m, d) )
                     return L'3';
                 if ( machine_isOrientationBottomLeft(m, d) )
