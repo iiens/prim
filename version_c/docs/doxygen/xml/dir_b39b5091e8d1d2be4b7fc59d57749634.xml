@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_b39b5091e8d1d2be4b7fc59d57749634" kind="dir">
+    <compoundname>src/view</compoundname>
+    <innerdir refid="dir_696e367b75a6efe6f0e6226ae3d12afa">src/view/ncurses</innerdir>
+    <innerfile refid="interface_8c">interface.c</innerfile>
+    <innerfile refid="mapping_8c">mapping.c</innerfile>
+    <innerfile refid="translation_8c">translation.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/view/"/>
+  </compounddef>
+</doxygen>

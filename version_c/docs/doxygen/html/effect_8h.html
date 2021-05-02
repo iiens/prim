@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>headers/data/effect.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_userdoc.html">User documentation</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span><span class="m-breadcrumb"><a href="dir_44fdd040e6cb86c9e816f1518b4f7b7d.html">data</a>/</span>effect.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Ramzy ZEBRIR and Antoine Man</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>04/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="staff_8h.html" class="m-doc">staff.h</a></p></aside><p>Contains information about effects</p>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              union <a href="union_target___s.html" class="m-doc">Target_S</a>
+            </dt>
+            <dd>represent the target on which we will apply an effect</dd>
+            <dt>
+              struct <a href="struct_effect___s.html" class="m-doc">Effect_S</a>
+            </dt>
+            <dd>contains different settings of the effects Struct which contains the target of the effect</dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#a7591bf41d16a317b822948ae5bcc807f" class="m-doc">Mode_S</a> { </span><span class="m-doc-wrap"><a href="#a7591bf41d16a317b822948ae5bcc807faf635a16f0afb76f86daa7291f617ed74" class="m-doc">CONSTRUCTION</a> = 0,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fa7622ad012d4fa19b71427f2edfb2560b" class="m-doc">UPGRADE</a> = 1,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fa534df644e3182226cd53827fee0589a4" class="m-doc">DESTROY</a> = 2,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fa0d565f8b8e41b7d2f36b561e97885b4c" class="m-doc">HIRE</a> = 3,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fab077509394d7862ca1eb58622aae5c7e" class="m-doc">ON_BUY</a> = 4,
+              <a href="#a7591bf41d16a317b822948ae5bcc807faf939c3ca8e48bc159f70c6c43e6ff980" class="m-doc">SEND_DOOR</a> = 5,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fa2445c6427bd5e1763097b93f45a601e1" class="m-doc">DOOR_OUT</a> = 6,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fa602e518a6561abffa3c4e23e171ad26b" class="m-doc">PRODUCTION</a> = 7,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fad91e3016183edc3a8e1e2b07de265cb4" class="m-doc">ON_TURN</a> = 8,
+              <a href="#a7591bf41d16a317b822948ae5bcc807fae09e07839103de682cb13fa773793fc0" class="m-doc">LEAVE</a> = 9 }</span>
+            </dt>
+            <dd>mode activate when we do an action</dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a31488d29805a596498c0234ae392d35d">
+              using <a href="#a31488d29805a596498c0234ae392d35d" class="m-doc-self">Target</a> = union <a href="union_target___s.html" class="m-doc">Target_<wbr />S</a>
+            </dt>
+            <dd>target of the effect</dd>
+            <dt id="a46c8a310cf4c094f8c80e1cb8dc1f911">
+              using <a href="#a46c8a310cf4c094f8c80e1cb8dc1f911" class="m-doc-self">Mode</a> = enum <a href="effect_8h.html#a7591bf41d16a317b822948ae5bcc807f" class="m-doc">Mode_<wbr />S</a>
+            </dt>
+            <dd>what do we do in our effect</dd>
+            <dt id="acd9c2a1cf576f0fd9da232d337d9720c">
+              using <a href="#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc-self">Effect</a> = struct <a href="struct_effect___s.html" class="m-doc">Effect_<wbr />S</a>
+            </dt>
+            <dd>Struct which contains the target and the of the effect.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a345bd756d7dc10dc098e342d8e434afb" class="m-doc">effect_getMode</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; <a href="effect_8h.html#a46c8a310cf4c094f8c80e1cb8dc1f911" class="m-doc">Mode</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a671a16f946d2dad0ce29a5197cec036f" class="m-doc">effect_getWhat</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; <a href="effect_8h.html#a31488d29805a596498c0234ae392d35d" class="m-doc">Target</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4acfe01ec317cda0309c7ef76e2d02b7" class="m-doc">effect_getOnOther</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a7ef2c8dbf31bffb08b099cf8ff886017" class="m-doc">effect_getModifierRes</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a35de45afb1114e532e8b7eb02008dd61" class="m-doc">effect_getModifierFISA</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a78559a54577a479d9e25d0cfc09fddee" class="m-doc">effect_getModifierFISE</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a56be91bb079108130867c00964687c86" class="m-doc">effect_getModifierE</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa881d8151ab7c64fa0f0cccd4d5880b7" class="m-doc">effect_getModifierDD</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a5c0ad0d13d9e9ad8ad993227cc86ed44" class="m-doc">effect_getModifierCapacity</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4f1e2e9491756de6d8d789055391e55a" class="m-doc">effect_getMinCostE</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a10e766128ae6bc857c90c6f4fd657d2a" class="m-doc">effect_getMinCostDD</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ad7794766e5911687dfaf5f53a6c11ee3" class="m-doc">effect_getDescription</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="a7591bf41d16a317b822948ae5bcc807f"><div>
+            <h3>
+              enum <a href="#a7591bf41d16a317b822948ae5bcc807f" class="m-doc-self">Mode_S</a>
+            </h3>
+            <p>mode activate when we do an action</p>
+<p><a href="effect_8h.html" class="m-doc">effect.h</a> &quot;headers/data/effect.h&quot;</p><p>Different Action</p>
+            <table class="m-table m-fullwidth m-flat m-doc">
+              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807faf635a16f0afb76f86daa7291f617ed74" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807faf635a16f0afb76f86daa7291f617ed74">CONSTRUCTION</a></td>
+                  <td>
+                  <p>create something, machine target</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fa7622ad012d4fa19b71427f2edfb2560b" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fa7622ad012d4fa19b71427f2edfb2560b">UPGRADE</a></td>
+                  <td>
+                  <p>upgrade something, machine target</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fa534df644e3182226cd53827fee0589a4" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fa534df644e3182226cd53827fee0589a4">DESTROY</a></td>
+                  <td>
+                  <p>destroy something, machine target</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fa0d565f8b8e41b7d2f36b561e97885b4c" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fa0d565f8b8e41b7d2f36b561e97885b4c">HIRE</a></td>
+                  <td>
+                  <p>hire someone, called when hiring, check other</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fab077509394d7862ca1eb58622aae5c7e" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fab077509394d7862ca1eb58622aae5c7e">ON_BUY</a></td>
+                  <td>
+                  <p>called when staff bought</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807faf939c3ca8e48bc159f70c6c43e6ff980" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807faf939c3ca8e48bc159f70c6c43e6ff980">SEND_DOOR</a></td>
+                  <td>
+                  <p>called when garbage are sent to the door</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fa2445c6427bd5e1763097b93f45a601e1" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fa2445c6427bd5e1763097b93f45a601e1">DOOR_OUT</a></td>
+                  <td>
+                  <p>called when garbage are leaving the door</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fa602e518a6561abffa3c4e23e171ad26b" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fa602e518a6561abffa3c4e23e171ad26b">PRODUCTION</a></td>
+                  <td>
+                  <p>called when we will create something (E, DD, ...)</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fad91e3016183edc3a8e1e2b07de265cb4" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fad91e3016183edc3a8e1e2b07de265cb4">ON_TURN</a></td>
+                  <td>
+                  <p>apply each turn</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7591bf41d16a317b822948ae5bcc807fae09e07839103de682cb13fa773793fc0" class="m-doc-self" id="a7591bf41d16a317b822948ae5bcc807fae09e07839103de682cb13fa773793fc0">LEAVE</a></td>
+                  <td>
+                  <p>apply when fise or fisa leave the school</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a345bd756d7dc10dc098e342d8e434afb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="effect_8h.html#a46c8a310cf4c094f8c80e1cb8dc1f911" class="m-doc">Mode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a345bd756d7dc10dc098e342d8e434afb" class="m-doc-self">effect_getMode</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Mode</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get Mode attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a671a16f946d2dad0ce29a5197cec036f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="effect_8h.html#a31488d29805a596498c0234ae392d35d" class="m-doc">Target</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a671a16f946d2dad0ce29a5197cec036f" class="m-doc-self">effect_getWhat</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Target</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get What attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a4acfe01ec317cda0309c7ef76e2d02b7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4acfe01ec317cda0309c7ef76e2d02b7" class="m-doc-self">effect_getOnOther</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>bool, OnOther</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get OnOther attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a7ef2c8dbf31bffb08b099cf8ff886017"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7ef2c8dbf31bffb08b099cf8ff886017" class="m-doc-self">effect_getModifierRes</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>ModifierRes</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get ModifierRes attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a35de45afb1114e532e8b7eb02008dd61"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a35de45afb1114e532e8b7eb02008dd61" class="m-doc-self">effect_getModifierFISA</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>ModifierFISA</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get ModifierFISA attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a78559a54577a479d9e25d0cfc09fddee"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a78559a54577a479d9e25d0cfc09fddee" class="m-doc-self">effect_getModifierFISE</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>ModifierFISE</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get ModifierFISE attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a56be91bb079108130867c00964687c86"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a56be91bb079108130867c00964687c86" class="m-doc-self">effect_getModifierE</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>ModifierE</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get ModifierE attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="aa881d8151ab7c64fa0f0cccd4d5880b7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa881d8151ab7c64fa0f0cccd4d5880b7" class="m-doc-self">effect_getModifierDD</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>ModifierDD</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get ModifierDD attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a5c0ad0d13d9e9ad8ad993227cc86ed44"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5c0ad0d13d9e9ad8ad993227cc86ed44" class="m-doc-self">effect_getModifierCapacity</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>ModifierCapacity</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get ModifierCapacity attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a4f1e2e9491756de6d8d789055391e55a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4f1e2e9491756de6d8d789055391e55a" class="m-doc-self">effect_getMinCostE</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>MinCostE</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get MinCostE attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="a10e766128ae6bc857c90c6f4fd657d2a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a10e766128ae6bc857c90c6f4fd657d2a" class="m-doc-self">effect_getMinCostDD</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>MinCostDD</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get MinCostDD attribute from an effect</p>
+          </div></section>
+          <section class="m-doc-details" id="ad7794766e5911687dfaf5f53a6c11ee3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad7794766e5911687dfaf5f53a6c11ee3" class="m-doc-self">effect_getDescription</a>(</span><span class="m-doc-wrap">const <a href="effect_8h.html#acd9c2a1cf576f0fd9da232d337d9720c" class="m-doc">Effect</a>* effect)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">effect</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Description</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to get Description attribute from an effect</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_vector2_d___s" kind="struct" language="C++" prot="public">
+    <compoundname>Vector2D_S</compoundname>
+    <includes refid="utils_8h" local="yes">headers/utils/utils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_vector2_d___s_1ac2f1292a1ba69cc665c7e73ac68278d9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Vector2D_S::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>x axis </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/utils.h" line="25" column="9" bodyfile="headers/utils/utils.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vector2_d___s_1a4be549ff195096901087f5e3e5ffcdd0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Vector2D_S::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+<para>y axis </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/utils.h" line="26" column="9" bodyfile="headers/utils/utils.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>name of struct Vector2D to Vector2D </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Convenience type for (x,y) with <computeroutput>x = x axis</computeroutput> and <computeroutput>y = y axis</computeroutput>. In a map (matrix ij), it means that <computeroutput>y = i = row</computeroutput> and <computeroutput>x = j = column</computeroutput> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Vector2D_S</label>
+        <link refid="struct_vector2_d___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="headers/utils/utils.h" line="24" column="1" bodyfile="headers/utils/utils.h" bodystart="24" bodyend="27"/>
+    <listofallmembers>
+      <member refid="struct_vector2_d___s_1ac2f1292a1ba69cc665c7e73ac68278d9" prot="public" virt="non-virtual"><scope>Vector2D_S</scope><name>x</name></member>
+      <member refid="struct_vector2_d___s_1a4be549ff195096901087f5e3e5ffcdd0" prot="public" virt="non-virtual"><scope>Vector2D_S</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

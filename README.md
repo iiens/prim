@@ -1,55 +1,40 @@
-# IT Project in C
+# Prim
 
-The subject can be found
-at in the doc folder and the git
-at https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/.
+À force de jouer avec le supercalculateur de l’école
+d'ingénieur ENSIIE, les élèves du parcours CIDM ont ouvert
+une porte vers un univers parallèle, dévoilant ainsi
+l’existence d’une seconde ENSIIE et de tout un tas d’autres
+écoles d’ingénieur.
 
-Must be compiled with our Makefile (make build,
-make run) or using ``gcc -Wall -Wextra -std=c99 src/main.c``.
+Avec effroi, les deux ENSIIE ont vu leur classement parmi
+les écoles d’ingénieur les plus investies dans
+le développement durable chuter, naturellement englouties
+sous un flot d’énergie démentiel pour maintenir la porte
+ouverte entre les mondes. Après une lutte acharnée, chacune
+des écoles est retournée dans son univers avec comme seul
+objectif de refermer la porte.
 
-### Description
+Ce jeu se joue à un seul joueur. L’objectif du joueur est
+de gérer et développer sa ligne de production. Pour cela,
+il dispose d’une carte contenant des ressources qu’il va
+pouvoir collecter et transporter jusqu’à la porte
+transuniverselle. En faisant cela, le joueur devra maîtriser
+son énergie et son environnement pour ne pas faire sombrer
+la planète dans le chaos le plus total.
 
-Check user documentation file.
+Il existe 3 niveaux de difficulté :
+* facile (carte 10x10)
+* moyen (carte 20x20)
+* difficile (carte 30x30).
 
-### Code guidelines
+# Console mode
 
-**General**
-* code and comments should be written in english
-* we should write includes ordered by alphabetical order, and a comment by include
-* use relevant names for variables when it's smart to do so (not index instead of i)
-* lines should have less that 79 columns
+...
+a description here
+...
 
-**Syntax**
-* we will write `if ( ... ) {` (same spaces and { at the end)
-* same for : for, while, switch statements
-* functions should be coded like this (excluding declarations and main)
-```c
-void name( args )
-{
-    // code
-}  
-  ```
-* this is how a struct should be declared
-```c
-typedef struct AName_S {
-    int anAttribute; //!< ...
-} AName; //!< ....
-```
-* you must declare all variables at the start of a bloc
-* first declare then initialize variables
-* if a variable is only read, then use const
-* no hard-coded values, use enum or define
-* the pointer star (`*`) must be after the type not the name
+# Graphic mode
 
-Adapted from
-* https://suckless.org/
-* https://man.openbsd.org/style
-* http://doc.cat-v.org/bell_labs/pikestyle
-* https://www.kernel.org/doc/Documentation/process/coding-style.rst
-
-### Team
-
-* Valentin DREANO
-* Antoine MAN
-* Quentin RAMSAMY- -AGEORGES 
-* Ramzy ZEBRIR
+...
+a description here
+...

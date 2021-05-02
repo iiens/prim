@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="box_8c" kind="file" language="C++">
+    <compoundname>box.c</compoundname>
+    <includes refid="box_8h" local="yes">../../headers/data/box.h</includes>
+    <includes local="yes">stdio.h</includes>
+    <includes local="yes">stdlib.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>../../headers/data/box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="1">
+        <label>src/model/box.c</label>
+        <link refid="box_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_box___s" prot="public">Box_S</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="box_8c_1a2aebc90a9db537946984d1b9111f699f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int box_getNumberResource</definition>
+        <argsstring>(const Box *b)</argsstring>
+        <name>box_getNumberResource</name>
+        <param>
+          <type>const <ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+          <defname>b</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the number of resources of the box. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of resources available in the box </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="25" column="5" bodyfile="src/model/box.c" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8c_1ad81ac5c3de753d4ff809e76b57b1b485" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode box_setNumberResource</definition>
+        <argsstring>(Box *b, int val)</argsstring>
+        <name>box_setNumberResource</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+          <defname>b</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function set the number of resources of the box The value can be a negative value <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="30" column="11" bodyfile="src/model/box.c" bodystart="30" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8c_1a6f951e98678b23c08fbb0a5153534252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int box_getNumberGarbage</definition>
+        <argsstring>(const Box *b)</argsstring>
+        <name>box_getNumberGarbage</name>
+        <param>
+          <type>const <ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+          <defname>b</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the number of garbage of the box. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of garbage available in the box </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="46" column="5" bodyfile="src/model/box.c" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8c_1a770678e664781c2717ead8890af2cec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode box_setNumberGarbage</definition>
+        <argsstring>(Box *b, int val)</argsstring>
+        <name>box_setNumberGarbage</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+          <defname>b</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function set the number of garbage of the box. The value can be a negative value <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="51" column="11" bodyfile="src/model/box.c" bodystart="51" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8c_1a32a11db5c561bdef9c32e4c32a9a6aa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+        <definition>Box* box_create</definition>
+        <argsstring>(unsigned int numberR, unsigned int numberG)</argsstring>
+        <name>box_create</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>numberR</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>numberG</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function create a new box in a case or in a facade machine The number of resources and garbage are given in argument <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numberR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>resources number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numberG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>garbage number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new box </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="67" column="5" bodyfile="src/model/box.c" bodystart="67" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8c_1ab9a5ee1feeaabf37a656a53ca277d468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box_addB2toB1</definition>
+        <argsstring>(Box *box1, Box *box2)</argsstring>
+        <name>box_addB2toB1</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>b1</declname>
+          <defname>box1</defname>
+        </param>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>b2</declname>
+          <defname>box2</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function add resources and garbage of the first box in the second <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>second box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="79" column="6" bodyfile="src/model/box.c" bodystart="79" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8c_1ab7622660d88a2a1cfc1e8fb41982a833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box_destroy</definition>
+        <argsstring>(Box *b)</argsstring>
+        <name>box_destroy</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function free resources allocated in memory used to stock the box <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="91" column="6" bodyfile="src/model/box.c" bodystart="91" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.6 </para>
+</simplesect>
+<simplesect kind="date"><para>07/04/2021</para>
+</simplesect>
+Resources and garbage are stocked in a box in order to facilitate resources moves <simplesect kind="see"><para><ref refid="error_8h" kindref="compound">error.h</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/model/box.c"/>
+  </compounddef>
+</doxygen>

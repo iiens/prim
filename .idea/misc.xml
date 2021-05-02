@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/version_c">
+    <contentRoot DIR="$PROJECT_DIR$" />
+  </component>
+  <component name="CidrRootsConfiguration">
+    <excludeRoots>
+      <file path="$PROJECT_DIR$/__old" />
+      <file path="$PROJECT_DIR$/lib/img_curses" />
+      <file path="$PROJECT_DIR$/style" />
+      <file path="$PROJECT_DIR$/version_c/src/view/ncurses/burk" />
+      <file path="$PROJECT_DIR$/version_c/style" />
+    </excludeRoots>
+  </component>
+</project>

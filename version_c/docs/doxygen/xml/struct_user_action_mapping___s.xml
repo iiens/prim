@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_user_action_mapping___s" kind="struct" language="C++" prot="public">
+    <compoundname>UserActionMapping_S</compoundname>
+    <includes refid="mapping_8h" local="yes">headers/data/mapping.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_user_action_mapping___s_1ab42876551ebbd4aa148d9bd859ed7787" prot="public" static="no" mutable="no">
+        <type><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref></type>
+        <definition>Action UserActionMapping_S::actionID</definition>
+        <argsstring></argsstring>
+        <name>actionID</name>
+        <briefdescription>
+<para>actionID: int, see <ref refid="actions_8h" kindref="compound">actions.h</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/mapping.h" line="24" column="12" bodyfile="headers/data/mapping.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_user_action_mapping___s_1a665f38c07a180ba9c7eaa310ee881e45" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* UserActionMapping_S::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <briefdescription>
+<para>a sentence to input to select this action </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/mapping.h" line="25" column="10" bodyfile="headers/data/mapping.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Struct of an action mapping. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct of an action mapping. Each action is mapped with a string. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>UserActionMapping_S</label>
+        <link refid="struct_user_action_mapping___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="headers/data/mapping.h" line="23" column="1" bodyfile="headers/data/mapping.h" bodystart="23" bodyend="26"/>
+    <listofallmembers>
+      <member refid="struct_user_action_mapping___s_1ab42876551ebbd4aa148d9bd859ed7787" prot="public" virt="non-virtual"><scope>UserActionMapping_S</scope><name>actionID</name></member>
+      <member refid="struct_user_action_mapping___s_1a665f38c07a180ba9c7eaa310ee881e45" prot="public" virt="non-virtual"><scope>UserActionMapping_S</scope><name>key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

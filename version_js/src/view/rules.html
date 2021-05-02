@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Prim - Environnement Line</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+<header id="titlebar"></header>
+
+<div id="main">
+    <button data-to="index.html" id="go-back" class="bg-transparent border border-dark
+    rounded p-2 text-my-yellow"
+    >Go back to main menu (or press <span class="config-back-key">b</span>)
+    </button>
+
+    <div class="text-justify px-3 border-dark border my-3">
+        <p class="text-center h3 pt-3">In order to close the door...</p>
+        <p class="fz22">
+            While the students from the "Calcul intensif et données massives" cursus
+            of ENSIIE were exploring the binary world, they have opened a gate between
+            our world and another one looking exactly like ours.
+            <br/>
+            However, their joy didn't last long. Having 2 ENSIIE made their
+            ranking in durable development decrease because their were spending twice
+            their usual consommation of energy. That's why
+            <span class="text-success">you absolutely need to close the door !</span>
+        </p>
+    </div>
+
+    <div class="text-justify px-3 border-dark border my-3">
+        <p class="text-center h3 pt-3">What are the rules ?</p>
+        <p class="fz22">
+            You will have to spend <span class="text-success">energy (E)</span>
+            to buy machines while preventing your
+            <span class="text-success">durable development (DD)</span>
+            from reaching <span class="text-danger">0</span> (meaning the destruction
+            of your world).
+            <br>
+            Your goal will be to produce
+            and send to the gate <span class="text-success" id="game-goal">10 000</span>
+            resources in order to close it. Beware ! Each resource send will produce
+            a garbage that you will have to handle otherwise your DD will decrease by
+            <span class="text-success" id="game-dd-malus">1</span>.
+        </p>
+    </div>
+
+    <div class="text-justify px-3 border-dark border my-3">
+        <p class="text-center h3 pt-3">How should I play ?</p>
+        <p class="fz22">
+            At the start, you will have <span class="text-success">
+            <span id="game-nb-sources">2</span> sources</span>
+            that produces <span class="text-success">
+            <span id="game-production">3</span>
+            resources/<span id="game-turns-prod">10</span> turns</span>.
+            You will have to buy a machine called a <span class="text-success">collector</span>
+            to mine resources from a source (or garbage from the door) then send them
+            using either a <span class="text-success">conveyor belt</span>
+            or a <span class="text-success">cross belt</span>.
+            <br>
+            You can send garbage to a <span class="text-success">recycling center</span>
+            or in a <span class="text-success">junkyard</span> according to your strategy.
+            <i class="text-muted small">You
+            will have a guide in-game to see more information about each machine.</i>
+            <br>
+            <br>
+            But in order to buy a machine, you will need <span class="text-success">E</span>
+            and <span class="text-success">DD</span> ! These are produced by the student of
+            the ENSIIE, called FISE (initial training course, <span class="text-success">
+            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD
+            </span>
+            per turn) or FISA (part-time training course, <span class="text-success">
+            <span id="game-fisa-e">4</span>E</span> or <span class="text-success">
+            <span id="game-fisa-dd">4</span>
+            DD</span> per
+            <span class="text-success" id="game-fisa-turn">2</span>
+            turns).
+            <br>
+            <br>
+            If you have enough <span class="text-success">E</span>
+            and <span class="text-success">DD</span>, you can hire a Staff that can reduce
+            the cost of a machine, hire a lot of students, ...
+            <i class="text-muted small">Be sure to check out all of them in-game !</i>
+        </p>
+    </div>
+</div>
+</body>
+</html>

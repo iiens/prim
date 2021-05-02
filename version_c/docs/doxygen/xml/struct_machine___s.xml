@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_machine___s" kind="struct" language="C++" prot="public">
+    <compoundname>Machine_S</compoundname>
+    <includes refid="machine_8h" local="yes">headers/data/machine.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_machine___s_1a87d7b76ce1f9b526bf963a0783a60443" prot="public" static="no" mutable="no">
+        <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+        <definition>MachineStuff Machine_S::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>number associate to the type of the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/machine.c" line="17" column="18" bodyfile="src/model/machine.c" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1a6a6494128ad890e92d78489d5152672b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Machine_S::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+<para>Represent the level of improvement of the machineFacade. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/machine.c" line="18" column="9" bodyfile="src/model/machine.c" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_machine___s_1a8aee22f62f71e0b6bbe53ba369e6f516" prot="public" static="no" mutable="no">
+        <type><ref refid="facade_8h_1a1dd89c2df15b41c12a97d9ee528ee56c" kindref="member">Facade</ref> **</type>
+        <definition>Facade** Machine_S::interface</definition>
+        <argsstring></argsstring>
+        <name>interface</name>
+        <briefdescription>
+<para>Represent the orientation of the machine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/machine.c" line="19" column="12" bodyfile="src/model/machine.c" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Machine which contains the main information about a machine. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct which contains the main information about a machine </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Machine_S</label>
+        <link refid="struct_machine___s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+interface</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Facade_S</label>
+        <link refid="struct_facade___s"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+content</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Box_S</label>
+        <link refid="struct_box___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/model/machine.c" line="16" column="1" bodyfile="src/model/machine.c" bodystart="16" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_machine___s_1a8aee22f62f71e0b6bbe53ba369e6f516" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>interface</name></member>
+      <member refid="struct_machine___s_1a6a6494128ad890e92d78489d5152672b" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>level</name></member>
+      <member refid="struct_machine___s_1a87d7b76ce1f9b526bf963a0783a60443" prot="public" virt="non-virtual"><scope>Machine_S</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

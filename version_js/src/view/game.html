@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="../../assets/css/jquery.terminal.min.css"/>
+    <title>Prim - Environnement Line</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+<header id="titlebar"></header>
+
+<div id="main">
+    <div class="row mx-0">
+        <div class="mw-300px">
+            <p class="h4">Game</p>
+            <ul class="list-unstyled">
+                <li>Turn: <span id="turn" class="text-success"></span></li>
+                <li>E: <span id="e" class="text-success"></span></li>
+                <li>DD: <span id="dd" class="text-success"></span></li>
+                <li>FISE: <span id="fise" class="text-success"></span></li>
+                <li>FISA: <span id="fisa" class="text-success"></span></li>
+                <li>FISA MODE: <span id="mode" class="text-success"></span></li>
+                <li>Score: <span id="score" class="text-success"></span> / <span id="max-score" class="text-success"></span> </li>
+                <li>Garbage: <span id="garbage" class="text-success"></span></li>
+            </ul>
+            <p class="h4">Legend</p>
+            <div class="">
+                <span><span class="text-orange">S</span> : Source</span>
+                <span><span class="text-cyan">G</span> : Gate</span>
+                <br>
+                <span><span class="text-purple">B</span> : Conveyor Belt</span>
+                <span><span class="text-purple">C</span> : Cross</span>
+                <br>
+                <span><span class="text-red">R</span> : Recycling center</span>
+                <span><span class="text-blue">J</span> : Junkyard</span>
+            </div>
+            <br>
+            <div class="">
+                <span><span class="text-success">1</span> : BOTTOM LEFT</span>
+                <span><span class="text-success">2</span> : BOTTOM</span>
+                <br>
+                <span><span class="text-success">3</span> : BOTTOM RIGHT</span>
+                <span><span class="text-success">4</span> : LEFT</span>
+                <span><span class="text-success">6</span> : RIGHT</span>
+                <br>
+                <span><span class="text-success">7</span> : TOP LEFT</span>
+                <span><span class="text-success">8</span> : TOP</span>
+                <span><span class="text-success">9</span> : TOP RIGHT</span>
+            </div>
+        </div>
+        <div class="col-auto" id="game-grid">
+        </div>
+        <div class="terminal-input-div mt-lg-3">
+            <div class="terminal"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

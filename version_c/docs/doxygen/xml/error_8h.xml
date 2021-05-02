@@ -1,0 +1,557 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="error_8h" kind="file" language="C++">
+    <compoundname>error.h</compoundname>
+    <includedby refid="box_8h" local="yes">headers/data/box.h</includedby>
+    <includedby refid="case_8h" local="yes">headers/data/case.h</includedby>
+    <includedby refid="machine_8h" local="yes">headers/data/machine.h</includedby>
+    <includedby refid="staff_8h" local="yes">headers/data/staff.h</includedby>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <includedby refid="structures_8h" local="yes">headers/utils/structures.h</includedby>
+    <includedby refid="translation_8h" local="yes">headers/utils/translation.h</includedby>
+    <invincdepgraph>
+      <node id="9">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="5">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="2">
+        <label>headers/data/box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>src/model/machine.c</label>
+        <link refid="model_2machine_8c"/>
+      </node>
+      <node id="20">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="15">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>src/utils/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="1">
+        <label>headers/data/error.h</label>
+        <link refid="error_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+      </node>
+      <node id="21">
+        <label>src/model/machine_info.c</label>
+        <link refid="machine__info_8c"/>
+      </node>
+      <node id="32">
+        <label>tests/test_box.c</label>
+        <link refid="test__box_8c"/>
+      </node>
+      <node id="29">
+        <label>tests/test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>tests/test_box.h</label>
+        <link refid="test__box_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>src/model/box.c</label>
+        <link refid="box_8c"/>
+      </node>
+      <node id="18">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>headers/data/facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/model/case.c</label>
+        <link refid="case_8c"/>
+      </node>
+      <node id="27">
+        <label>src/model/effect.c</label>
+        <link refid="effect_8c"/>
+      </node>
+      <node id="10">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="22">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ErrorCode_S</name>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcabf350750d0d4fabd8954c0f1e9bbae94" prot="public">
+          <name>NO_ERROR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca2fd6f336d08340583bd620a7f5694c90" prot="public">
+          <name>ERROR</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaefbc4b8c8ed528d5e318e78cc882ea6f" prot="public">
+          <name>ERROR_GAME_WIN</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcace83e8d904bf5aa96ff47321b56ef4d8" prot="public">
+          <name>ERROR_GAME_LOST</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaa15aca463f76f6f19a50753b091cd7e5" prot="public">
+          <name>ERROR_CASE_EMPTY</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca65efab6470a0ad6f53db6e427dccdeac" prot="public">
+          <name>ERROR_CASE_MACHINE</name>
+          <initializer>= 21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaa385cfef21d5e08446f1c3794e079d32" prot="public">
+          <name>ERROR_CASE_SOURCE</name>
+          <initializer>= 22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcaea2c3d9303bda67f6790427bd3cb8402" prot="public">
+          <name>ERROR_CASE_GATE</name>
+          <initializer>= 23</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca6115ee8d045c7083d98fc244cf501f9a" prot="public">
+          <name>ERROR_CASE_NOT_FOUND</name>
+          <initializer>= 24</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca3ea60f523df45fcffcde3ff2aa72aee9" prot="public">
+          <name>ERROR_CASE_NOT_EMPTY</name>
+          <initializer>= 25</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca3a9e6ad012c2582ee918dc94bd9a4ae5" prot="public">
+          <name>ERROR_CASE_CANT_BE_DESTROYED</name>
+          <initializer>= 26</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca1edb662c2c480242f4b087b43072c179" prot="public">
+          <name>ERROR_CASE_CANT_BE_UPGRADED</name>
+          <initializer>= 27</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca85d67d34235e3d4853c70db4f616c2f2" prot="public">
+          <name>ERROR_NOT_ENOUGH_E</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca7971c053ebabbbf59a2cd10c47a7626e" prot="public">
+          <name>ERROR_NOT_ENOUGH_DD</name>
+          <initializer>= 31</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcab11f74959c091e28b7241750cfa7ec84" prot="public">
+          <name>ERROR_NEGATIVE_RESULT</name>
+          <initializer>= 32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca0eb579d7460bfd7dfc690379b4f1cb36" prot="public">
+          <name>ERROR_INVALID_ACTION_SEQUENCE</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca15974c0e7d9b7aa777a578a3177bf7b7" prot="public">
+          <name>ERROR_INVALID_LOCATION_SEQUENCE</name>
+          <initializer>= 91</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca218114b3831c08daaaf0ae1ced4ad5af" prot="public">
+          <name>ERROR_INVALID_STAFF_NUMBER</name>
+          <initializer>= 92</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcae3836a1c8f9476fa03cd14735b570570" prot="public">
+          <name>ERROR_INVALID_MACHINE_NUMBER</name>
+          <initializer>= 93</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcac2f27cc72d5f937461dd07e86966ff64" prot="public">
+          <name>ERROR_INVALID_ORIENTATION_NUMBER</name>
+          <initializer>= 94</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca7741fcae94a08a49033eab3f233ad09d" prot="public">
+          <name>ERROR_INIT_INTERFACE</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcad7171b85777c0b68b917c874136a156e" prot="public">
+          <name>ERROR_INIT_NCURSES_INTERFACE</name>
+          <initializer>= 101</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcafda19c76ea6984a837c378125b3afbc1" prot="public">
+          <name>ERROR_INIT_NCURSES_INTERFACE_SIZE</name>
+          <initializer>= 102</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca0a58382d2c0b613984325f8c571b3a17" prot="public">
+          <name>ERROR_NO_NCURSES_COLORS_INTERFACE</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcacf45d6786609895fd1ed09f8f77b6db7" prot="public">
+          <name>ERROR_CLOSE_INTERFACE</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dcad53987bdf2dd3f6dc96a11e18e599572" prot="public">
+          <name>ERROR_LIST_NULL</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dca448a31c2fee8b9e3345bb6e8ef8b0c31" prot="public">
+          <name>ERROR_DICTIONARY_NULL</name>
+          <initializer>= 41</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all return errors messages </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="error_8h" kindref="compound">error.h</ref> &quot;headers/data/error.h&quot;</para>
+<para>Contain all error type returned by functions It allow to communicate directly with interface and to inform the user what is the problem, if there is an error </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/error.h" line="26" column="5" bodyfile="headers/data/error.h" bodystart="26" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="error_8h_1a2c911c64bc2c9547864df93078a7204e" prot="public" static="no">
+        <type>enum <ref refid="error_8h_1af1a3e2d8a9c3ae43911e13dfccf564dc" kindref="member">ErrorCode_S</ref></type>
+        <definition>ErrorCode:rename for enum ErrorCode</definition>
+        <argsstring></argsstring>
+        <name>ErrorCode</name>
+        <briefdescription>
+<para>Error type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/error.h" line="60" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="error_8h_1a5227e8c37c69588962b21e6c88d74879" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * error_getMessage</definition>
+        <argsstring>(ErrorCode e)</argsstring>
+        <name>error_getMessage</name>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Get an error message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In order to know in detail an error returned by a function we need a function to describe this error</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a error code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a string that describe the error </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/error.h" line="73" column="10" bodyfile="src/view/translation.c" bodystart="5" bodyend="60" declfile="headers/data/error.h" declline="73" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>12/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h" kindref="compound">map.h</ref></para>
+</simplesect>
+Contains all errors messages returned by our functions </para>
+    </detaileddescription>
+    <location file="headers/data/error.h"/>
+  </compounddef>
+</doxygen>

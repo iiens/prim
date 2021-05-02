@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>headers/utils/translation.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_userdoc.html">User documentation</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span><span class="m-breadcrumb"><a href="dir_ad9c8ef6ea60145de6c7db0776cbabd6.html">utils</a>/</span>translation.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Quentin Ra</p></aside><aside class="m-note m-default"><h4>Version</h4><p>1.0</p></aside><aside class="m-note m-default"><h4>Date</h4><p>27/02/2021</p></aside><p>Translation related functions.</p>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#a7e32ed157952138cc15c52e74f31fd27" class="m-doc">Translation_S</a> { </span><span class="m-doc-wrap"><a href="#a7e32ed157952138cc15c52e74f31fd27a15f4122173994058a181ea334b0dfdf0" class="m-doc">TRANSLATE_CHOICE_DIFF</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27af2724b060f6a5e5f94bd6621ee8c577b" class="m-doc">TRANSLATE_SCREEN_TOO_SMALL</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27afd540d14c433be5fbd8041eeeb252d8c" class="m-doc">TRANSLATE_GAME_NAME</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27abf549957e4dd0f33051a39ab51374a81" class="m-doc">TRANSLATE_GAME_TURN</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27abeb0613213200bb3f55efbc50c0e3205" class="m-doc">TRANSLATE_GAME_E</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27ac7edb3be5321dde75857f0c4ba052645" class="m-doc">TRANSLATE_GAME_DD</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a45bf5ca156268b9a236eb43c46bc701e" class="m-doc">TRANSLATE_GAME_FISE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27abaf34842209d7e68c359aa4bdeecfef8" class="m-doc">TRANSLATE_GAME_FISA</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27ace7cbfd7b7785c20af2467658d18a16b" class="m-doc">TRANSLATE_GAME_FISA_MODE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a85f36f85790786f8dcfa569245c6cbbc" class="m-doc">TRANSLATE_GAME_SCORE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a2eab79429b3c1820e6c66a62c18ca4e2" class="m-doc">TRANSLATE_GAME_GARBAGE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a3367e1bbdac335c64d59562b4b451c62" class="m-doc">TRANSLATE_ACTION_LABEL</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a6c173a6386c4ebaa449fdff857dd2515" class="m-doc">TRANSLATE_GO_BACK_B</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a04ac99f6a8adcec1f6fd0287fa47cbfd" class="m-doc">TRANSLATE_MACHINE_LIST_TITLE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a2a0066a89ce30413e3b7a701128ef5ef" class="m-doc">TRANSLATE_ML_COST_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a0176e227ad77283bee692e5bc6022cd2" class="m-doc">TRANSLATE_ML_COST_UP_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a28ae3ca1d50e4dd8d61473dd1a4e83be" class="m-doc">TRANSLATE_ML_COST_DESTROY_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27aa6258488748e9817f282a8a00b1d5360" class="m-doc">TRANSLATE_STAFF_LIST_TITLE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27adf7e5cda8db84ba2884022f82b0d4783" class="m-doc">TRANSLATE_STAFF_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a239bb465f571b2be03d986506344b815" class="m-doc">TRANSLATE_TO_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27aae3d4022cc76a61d5d08b92fcd1fc5df" class="m-doc">TRANSLATE_ON_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a0085a49604d9a500ee6d4be3b1ea74c6" class="m-doc">TRANSLATE_ID_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a112e7ec9935c328605ec5684f236a125" class="m-doc">TRANSLATE_OWNED_TAG</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27ab73d505139cf5becf0d25a1839a53718" class="m-doc">TRANSLATION_LIST_STAFF_INDEX</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a4cec7d82f72f650a59ceb06eeadef9b3" class="m-doc">TRANSLATION_PRESS_ARROW_CHANGE_PAGE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a70856cac5202e25f6191a9f6b4f29918" class="m-doc">TRANSLATE_ACTION_LIST_TITLE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a3528519be278a0ba7ff4948d54ef3c65" class="m-doc">TRANSLATE_INPUT_MACHINE_LOCATION</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a530ec4b048a669e2ba1dc7020e6d6145" class="m-doc">TRANSLATE_INPUT_STAFF</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a6eb9edcd46db8f03ea86d00f571f34bc" class="m-doc">TRANSLATE_INPUT_MACHINE</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a7445a08f176f5fbdac367dc568a35d76" class="m-doc">TRANSLATE_INPUT_ACTION</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a27d3dcc892c30e0b8ed292a81b9c1c45" class="m-doc">TRANSLATE_INPUT_ORIENTATION</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a1ae03ff47ab11a0754e553d9ebc674bf" class="m-doc">TRANSLATE_LEGEND</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27acb5b360add189b7469a4bc39dc027974" class="m-doc">TRANSLATE_WIN</a>,
+              <a href="#a7e32ed157952138cc15c52e74f31fd27a14c2da3da35a1d165253675d3a1836df" class="m-doc">TRANSLATE_LOST</a> }</span>
+            </dt>
+            <dd>a translation constant</dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="ac57d1d88324b492cfad23adceb799c41">
+              using <a href="#ac57d1d88324b492cfad23adceb799c41" class="m-doc-self">Translation</a> = enum <a href="translation_8h.html#a7e32ed157952138cc15c52e74f31fd27" class="m-doc">Translation_<wbr />S</a>
+            </dt>
+            <dd>translation constant</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aeff6d1c05bec1b71506ed00dbd3bf348" class="m-doc">translation_get</a>(</span><span class="m-doc-wrap"><a href="translation_8h.html#ac57d1d88324b492cfad23adceb799c41" class="m-doc">Translation</a> t) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#adbc7f379c587fd06e90be40c01f5ece4" class="m-doc">translation_getDifficulty</a>(</span><span class="m-doc-wrap"><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> d) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4ba18b0bb53d4dc015fe09a60bd2ebc1" class="m-doc">translation_actionFetchName</a>(</span><span class="m-doc-wrap"><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> action) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a3c0ec9e5546c89e43b63b2ecb78bcbca" class="m-doc">translation_fetchCaseTypeName</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae44deb48631c05f39e2a863a291c83dc" class="m-doc">translation_fetchMachineTypeName</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> s) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6324ae3740352032347f4c51fecf8881" class="m-doc">translation_fetchCaseTypeFullName</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a99e4921c3d9be1fa039e1814c63e023c" class="m-doc">translation_fetchMachineTypeFullName</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> s) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a83d7a21f019200c120c2438ef6033898" class="m-doc">translation_getLegendMachines</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structures_8h.html#a17b4022430bcb8cf112cada5d768cdd4" class="m-doc">List</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a958d3e879c5f4b9ab457325ca97c6560" class="m-doc">translation_getLegendDirections</a>(</span><span class="m-doc-wrap">void) -&gt; <a href="structures_8h.html#a4acdeaf37852ad4dac0d5118b1f24976" class="m-doc">Dictionary</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a77d322aadee2cc1b6f21bd8328b5ff97" class="m-doc">translation_getNumber</a>(</span><span class="m-doc-wrap">int number) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a86f5031d1fa1371bfb2a10b135497162">
+              <span class="m-doc-wrap-bumper">#define <a href="#a86f5031d1fa1371bfb2a10b135497162" class="m-doc-self">IS_MACHINE</a></span>
+            </dt>
+            <dd>used in Legend Machine, true is value is machine type</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="a7e32ed157952138cc15c52e74f31fd27"><div>
+            <h3>
+              enum <a href="#a7e32ed157952138cc15c52e74f31fd27" class="m-doc-self">Translation_S</a>
+            </h3>
+            <p>a translation constant</p>
+<p><a href="translation_8h.html" class="m-doc">translation.h</a> &quot;src/view/translation.h&quot;</p><p>All translations constants</p>
+            <table class="m-table m-fullwidth m-flat m-doc">
+              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a15f4122173994058a181ea334b0dfdf0" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a15f4122173994058a181ea334b0dfdf0">TRANSLATE_CHOICE_DIFF</a></td>
+                  <td>
+                  <p>difficulty menu header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27af2724b060f6a5e5f94bd6621ee8c577b" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27af2724b060f6a5e5f94bd6621ee8c577b">TRANSLATE_SCREEN_TOO_SMALL</a></td>
+                  <td>
+                  <p>screen too small message</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27afd540d14c433be5fbd8041eeeb252d8c" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27afd540d14c433be5fbd8041eeeb252d8c">TRANSLATE_GAME_NAME</a></td>
+                  <td>
+                  <p>name:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27abf549957e4dd0f33051a39ab51374a81" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27abf549957e4dd0f33051a39ab51374a81">TRANSLATE_GAME_TURN</a></td>
+                  <td>
+                  <p>turn:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27abeb0613213200bb3f55efbc50c0e3205" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27abeb0613213200bb3f55efbc50c0e3205">TRANSLATE_GAME_E</a></td>
+                  <td>
+                  <p>E:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27ac7edb3be5321dde75857f0c4ba052645" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27ac7edb3be5321dde75857f0c4ba052645">TRANSLATE_GAME_DD</a></td>
+                  <td>
+                  <p>DD:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a45bf5ca156268b9a236eb43c46bc701e" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a45bf5ca156268b9a236eb43c46bc701e">TRANSLATE_GAME_FISE</a></td>
+                  <td>
+                  <p>FISE:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27abaf34842209d7e68c359aa4bdeecfef8" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27abaf34842209d7e68c359aa4bdeecfef8">TRANSLATE_GAME_FISA</a></td>
+                  <td>
+                  <p>FISA:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27ace7cbfd7b7785c20af2467658d18a16b" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27ace7cbfd7b7785c20af2467658d18a16b">TRANSLATE_GAME_FISA_MODE</a></td>
+                  <td>
+                  <p>FISA MODE:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a85f36f85790786f8dcfa569245c6cbbc" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a85f36f85790786f8dcfa569245c6cbbc">TRANSLATE_GAME_SCORE</a></td>
+                  <td>
+                  <p>Score:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a2eab79429b3c1820e6c66a62c18ca4e2" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a2eab79429b3c1820e6c66a62c18ca4e2">TRANSLATE_GAME_GARBAGE</a></td>
+                  <td>
+                  <p>Garbage:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a3367e1bbdac335c64d59562b4b451c62" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a3367e1bbdac335c64d59562b4b451c62">TRANSLATE_ACTION_LABEL</a></td>
+                  <td>
+                  <p>Action:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a6c173a6386c4ebaa449fdff857dd2515" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a6c173a6386c4ebaa449fdff857dd2515">TRANSLATE_GO_BACK_B</a></td>
+                  <td>
+                  <p>go back message</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a04ac99f6a8adcec1f6fd0287fa47cbfd" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a04ac99f6a8adcec1f6fd0287fa47cbfd">TRANSLATE_MACHINE_LIST_TITLE</a></td>
+                  <td>
+                  <p>list machines header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a2a0066a89ce30413e3b7a701128ef5ef" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a2a0066a89ce30413e3b7a701128ef5ef">TRANSLATE_ML_COST_TAG</a></td>
+                  <td>
+                  <p>cost</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a0176e227ad77283bee692e5bc6022cd2" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a0176e227ad77283bee692e5bc6022cd2">TRANSLATE_ML_COST_UP_TAG</a></td>
+                  <td>
+                  <p>cost upgrade</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a28ae3ca1d50e4dd8d61473dd1a4e83be" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a28ae3ca1d50e4dd8d61473dd1a4e83be">TRANSLATE_ML_COST_DESTROY_TAG</a></td>
+                  <td>
+                  <p>cost destroy</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27aa6258488748e9817f282a8a00b1d5360" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27aa6258488748e9817f282a8a00b1d5360">TRANSLATE_STAFF_LIST_TITLE</a></td>
+                  <td>
+                  <p>list staff header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27adf7e5cda8db84ba2884022f82b0d4783" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27adf7e5cda8db84ba2884022f82b0d4783">TRANSLATE_STAFF_TAG</a></td>
+                  <td>
+                  <p>see below, part of header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a239bb465f571b2be03d986506344b815" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a239bb465f571b2be03d986506344b815">TRANSLATE_TO_TAG</a></td>
+                  <td>
+                  <p>see below, part of header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27aae3d4022cc76a61d5d08b92fcd1fc5df" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27aae3d4022cc76a61d5d08b92fcd1fc5df">TRANSLATE_ON_TAG</a></td>
+                  <td>
+                  <p>see below, part of header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a0085a49604d9a500ee6d4be3b1ea74c6" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a0085a49604d9a500ee6d4be3b1ea74c6">TRANSLATE_ID_TAG</a></td>
+                  <td>
+                  <p>see below, part of header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a112e7ec9935c328605ec5684f236a125" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a112e7ec9935c328605ec5684f236a125">TRANSLATE_OWNED_TAG</a></td>
+                  <td>
+                  <p>number of this staff</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27ab73d505139cf5becf0d25a1839a53718" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27ab73d505139cf5becf0d25a1839a53718">TRANSLATION_LIST_STAFF_INDEX</a></td>
+                  <td>
+                  <p>from when to when</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a4cec7d82f72f650a59ceb06eeadef9b3" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a4cec7d82f72f650a59ceb06eeadef9b3">TRANSLATION_PRESS_ARROW_CHANGE_PAGE</a></td>
+                  <td>
+                  <p>move page message</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a70856cac5202e25f6191a9f6b4f29918" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a70856cac5202e25f6191a9f6b4f29918">TRANSLATE_ACTION_LIST_TITLE</a></td>
+                  <td>
+                  <p>list actions header</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a3528519be278a0ba7ff4948d54ef3c65" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a3528519be278a0ba7ff4948d54ef3c65">TRANSLATE_INPUT_MACHINE_LOCATION</a></td>
+                  <td>
+                  <p>ask Location</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a530ec4b048a669e2ba1dc7020e6d6145" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a530ec4b048a669e2ba1dc7020e6d6145">TRANSLATE_INPUT_STAFF</a></td>
+                  <td>
+                  <p>ask Staff ID</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a6eb9edcd46db8f03ea86d00f571f34bc" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a6eb9edcd46db8f03ea86d00f571f34bc">TRANSLATE_INPUT_MACHINE</a></td>
+                  <td>
+                  <p>ask Machine ID</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a7445a08f176f5fbdac367dc568a35d76" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a7445a08f176f5fbdac367dc568a35d76">TRANSLATE_INPUT_ACTION</a></td>
+                  <td>
+                  <p>Action help.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a27d3dcc892c30e0b8ed292a81b9c1c45" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a27d3dcc892c30e0b8ed292a81b9c1c45">TRANSLATE_INPUT_ORIENTATION</a></td>
+                  <td>
+                  <p>ask orientation</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a1ae03ff47ab11a0754e553d9ebc674bf" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a1ae03ff47ab11a0754e553d9ebc674bf">TRANSLATE_LEGEND</a></td>
+                  <td>
+                  <p>Legend:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27acb5b360add189b7469a4bc39dc027974" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27acb5b360add189b7469a4bc39dc027974">TRANSLATE_WIN</a></td>
+                  <td>
+                  <p>win</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a7e32ed157952138cc15c52e74f31fd27a14c2da3da35a1d165253675d3a1836df" class="m-doc-self" id="a7e32ed157952138cc15c52e74f31fd27a14c2da3da35a1d165253675d3a1836df">TRANSLATE_LOST</a></td>
+                  <td>
+                  <p>loose</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="aeff6d1c05bec1b71506ed00dbd3bf348"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aeff6d1c05bec1b71506ed00dbd3bf348" class="m-doc-self">translation_get</a>(</span><span class="m-doc-wrap"><a href="translation_8h.html#ac57d1d88324b492cfad23adceb799c41" class="m-doc">Translation</a> t)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">t</td>
+                  <td>see enum Translation</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the translated or an empty string if there is none</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns the translation of a translation constant</p>
+          </div></section>
+          <section class="m-doc-details" id="adbc7f379c587fd06e90be40c01f5ece4"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adbc7f379c587fd06e90be40c01f5ece4" class="m-doc-self">translation_getDifficulty</a>(</span><span class="m-doc-wrap"><a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">d</td>
+                  <td>a difficulty</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the translation</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns a translation for a difficulty</p>
+          </div></section>
+          <section class="m-doc-details" id="a4ba18b0bb53d4dc015fe09a60bd2ebc1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4ba18b0bb53d4dc015fe09a60bd2ebc1" class="m-doc-self">translation_actionFetchName</a>(</span><span class="m-doc-wrap"><a href="actions_8h.html#a487795f4cc0d6bee46d5a8b10b9bb8c2" class="m-doc">Action</a> action)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">action</td>
+                  <td>action id</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>action as a string</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns action name by enum value</p>
+          </div></section>
+          <section class="m-doc-details" id="a3c0ec9e5546c89e43b63b2ecb78bcbca"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3c0ec9e5546c89e43b63b2ecb78bcbca" class="m-doc-self">translation_fetchCaseTypeName</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">t</td>
+                  <td>type of a case</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the translation or NULL if it&#x27;s a machine. In such case, use {</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns the type of a case</p><aside class="m-note m-default"><h4>See also</h4><p><a href="translation_8h.html#ae44deb48631c05f39e2a863a291c83dc" class="m-doc">translation_<wbr />fetchMachineTypeName</a>}</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="ae44deb48631c05f39e2a863a291c83dc"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae44deb48631c05f39e2a863a291c83dc" class="m-doc-self">translation_fetchMachineTypeName</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> s)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">s</td>
+                  <td>stuff of a case</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the translation</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns machine type name</p>
+          </div></section>
+          <section class="m-doc-details" id="a6324ae3740352032347f4c51fecf8881"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6324ae3740352032347f4c51fecf8881" class="m-doc-self">translation_fetchCaseTypeFullName</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">t</td>
+                  <td>see {</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>see {</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Full name version of translation_fetchCaseTypeName</p><aside class="m-note m-default"><h4>See also</h4><p><a href="translation_8h.html#a3c0ec9e5546c89e43b63b2ecb78bcbca" class="m-doc">translation_<wbr />fetchCaseTypeName</a>}</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="translation_8h.html#a3c0ec9e5546c89e43b63b2ecb78bcbca" class="m-doc">translation_<wbr />fetchCaseTypeName</a>}</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a99e4921c3d9be1fa039e1814c63e023c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a99e4921c3d9be1fa039e1814c63e023c" class="m-doc-self">translation_fetchMachineTypeFullName</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> s)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">s</td>
+                  <td>see {</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>see {</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Full name version of translation_fetchMachineTypeName</p><aside class="m-note m-default"><h4>See also</h4><p><a href="translation_8h.html#ae44deb48631c05f39e2a863a291c83dc" class="m-doc">translation_<wbr />fetchMachineTypeName</a>}</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="translation_8h.html#ae44deb48631c05f39e2a863a291c83dc" class="m-doc">translation_<wbr />fetchMachineTypeName</a>}</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a83d7a21f019200c120c2438ef6033898"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structures_8h.html#a17b4022430bcb8cf112cada5d768cdd4" class="m-doc">List</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a83d7a21f019200c120c2438ef6033898" class="m-doc-self">translation_getLegendMachines</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>the list</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns the list of the legend of the machines.</p><p>Each element is a couple, the key is a boolean</p><ul><li>true : value is MachineStuff</li><li>false: machine is a CaseType</li></ul><p>And value is ether a MachineStuff/CaseType.</p><aside class="m-note m-default"><h4>See also</h4><p><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a></p><p><a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a></p><p><a href="elements_8h.html#a811c807f274f44c0646c5f4fad32a3b8" class="m-doc">Couple</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a958d3e879c5f4b9ab457325ca97c6560"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structures_8h.html#a4acdeaf37852ad4dac0d5118b1f24976" class="m-doc">Dictionary</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a958d3e879c5f4b9ab457325ca97c6560" class="m-doc-self">translation_getLegendDirections</a>(</span><span class="m-doc-wrap">void)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>the dictionary</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns the dictionary of the legend of the directions</p>
+          </div></section>
+          <section class="m-doc-details" id="a77d322aadee2cc1b6f21bd8328b5ff97"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a77d322aadee2cc1b6f21bd8328b5ff97" class="m-doc-self">translation_getNumber</a>(</span><span class="m-doc-wrap">int number)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">number</td>
+                  <td>a number</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>char[3] with the number</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Translate a number into 3 characters</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

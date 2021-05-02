@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>headers/data/machine.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_userdoc.html">User documentation</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span><span class="m-breadcrumb"><a href="dir_44fdd040e6cb86c9e816f1518b4f7b7d.html">data</a>/</span>machine.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Ramzy ZEBRIR and Antoine MAN</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>01/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="machine__info_8h.html" class="m-doc">machine_<wbr />info.h</a></p></aside><p>Contains main information about all of the machine</p>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#af7535aacf1ffeb8f7dab5b6baa056b16" class="m-doc">MachineStuff_S</a> { </span><span class="m-doc-wrap"><a href="#af7535aacf1ffeb8f7dab5b6baa056b16a653f4f8fc16999f829131acd63557b0b" class="m-doc">MS_COLLECTOR</a> = 1,
+              <a href="#af7535aacf1ffeb8f7dab5b6baa056b16a74e8c7711cfbab74d8ff85d2c3945580" class="m-doc">MS_CONVEYOR_BELT</a> = 2,
+              <a href="#af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43" class="m-doc">MS_CROSS</a> = 3,
+              <a href="#af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2" class="m-doc">MS_RECYCLING_CENTER</a> = 4,
+              <a href="#af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557" class="m-doc">MS_JUNKYARD</a> = 5 }</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt>
+              using <a href="#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> = enum <a href="machine_8h.html#af7535aacf1ffeb8f7dab5b6baa056b16" class="m-doc">MachineStuff_<wbr />S</a>
+            </dt>
+            <dd>Link between a machine and a int to recognize them.</dd>
+            <dt id="a3c324c2a0b5b70584ad80889dc4983f7">
+              using <a href="#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc-self">Machine</a> = struct <a href="struct_machine___s.html" class="m-doc">Machine_<wbr />S</a>
+            </dt>
+            <dd>contains the main information about a machine</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a7928d83376348f2690b4b870506ef8e2" class="m-doc">machine_getType</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine) -&gt; <a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af016231f4c5d0ca951b67cf570eb7d0b" class="m-doc">machine_getLevel</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#afa5dec80d819cf7c263e03e02992f842" class="m-doc">facade_defaultFacade</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> s) -&gt; <a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>**</span>
+            </dt>
+            <dd>a function to get a default orientation for a machine</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a96cedf400b162a0784c6f6f6dcb063bf" class="m-doc">machine_create</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> type) -&gt; <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a84b9ca5b1095fb0a17e32b7f272d96c7" class="m-doc">machine_destroyMachine</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach) -&gt; <a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#adc6cbb26ac8976b5ac1429153225ef39" class="m-doc">machine_rotateMachine</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              int rotation)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a5cb32f8fdeabbe783c45d7287119965b" class="m-doc">machine_incrementLevel</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* m)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a8db3d0988cf3f7b18eab9143f721eee2" class="m-doc">machine_isOrientationTop</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae0c6d238141d4abaef7b19af6d5d9b13" class="m-doc">machine_isOrientationTopRight</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae47c21e9c6be3376bd7bf8a11dba8aea" class="m-doc">machine_isOrientationRight</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9e600771112027b2d7fd4a673d11958b" class="m-doc">machine_isOrientationBottomRight</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6bcdad0b7ba52172d4faa5a355b7c63c" class="m-doc">machine_isOrientationBottom</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a480c6baf8396b09765c630ac426772c3" class="m-doc">machine_isOrientationBottomLeft</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a7dd885cd9ae873a61dd2263028c06fac" class="m-doc">machine_isOrientationLeft</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a274852247d2f74f9e7817123dc99b973" class="m-doc">machine_isOrientationTopLeft</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a094117e76a87e841b60d10c59ed9e78e" class="m-doc">machine_isRotationCorrect</a>(</span><span class="m-doc-wrap">int rotation) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a06ab270bade8738858c49ac03a62bb89" class="m-doc">machine_getDirection</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card) -&gt; <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a0583f2b429fea62d7753f54986b0a49e" class="m-doc">machine_getBox</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card) -&gt; <a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ade1d50d31707676dec83f071eb731140" class="m-doc">machine_addBox</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card,
+              <a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>* box)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a037b7f8f212ddcec44680ba0aa6ef334" class="m-doc">machine_destroyBox</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="af7535aacf1ffeb8f7dab5b6baa056b16"><div>
+            <h3>
+              enum <a href="#af7535aacf1ffeb8f7dab5b6baa056b16" class="m-doc-self">MachineStuff_S</a>
+            </h3>
+<p>to use uint to return error message to use bool</p><p><a href="machine_8h.html" class="m-doc">machine.h</a> &quot;headers/data/machine.h&quot;</p>
+            <table class="m-table m-fullwidth m-flat m-doc">
+              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#af7535aacf1ffeb8f7dab5b6baa056b16a653f4f8fc16999f829131acd63557b0b" class="m-doc-self" id="af7535aacf1ffeb8f7dab5b6baa056b16a653f4f8fc16999f829131acd63557b0b">MS_COLLECTOR</a></td>
+                  <td>
+                  <p>collector machine</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#af7535aacf1ffeb8f7dab5b6baa056b16a74e8c7711cfbab74d8ff85d2c3945580" class="m-doc-self" id="af7535aacf1ffeb8f7dab5b6baa056b16a74e8c7711cfbab74d8ff85d2c3945580">MS_CONVEYOR_BELT</a></td>
+                  <td>
+                  <p>conveyor belt</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43" class="m-doc-self" id="af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43">MS_CROSS</a></td>
+                  <td>
+                  <p>cross</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2" class="m-doc-self" id="af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2">MS_RECYCLING_CENTER</a></td>
+                  <td>
+                  <p>recycling center</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557" class="m-doc-self" id="af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557">MS_JUNKYARD</a></td>
+                  <td>
+                  <p>junkyard</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Typedef documentation</h2>
+          <section class="m-doc-details" id="a0d9cac3e2920aed189f3f132c2e6bd32"><div>
+            <h3>
+              typedef enum <a href="machine_8h.html#af7535aacf1ffeb8f7dab5b6baa056b16" class="m-doc">MachineStuff_<wbr />S</a> <a href="#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc-self">MachineStuff</a>
+            </h3>
+            <p>Link between a machine and a int to recognize them.</p>
+<p>id associate to the machine to identify them</p><p>Contains id associate to the machine.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a7928d83376348f2690b4b870506ef8e2"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7928d83376348f2690b4b870506ef8e2" class="m-doc-self">machine_getType</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the type of the machine</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>function to get the type of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="af016231f4c5d0ca951b67cf570eb7d0b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af016231f4c5d0ca951b67cf570eb7d0b" class="m-doc-self">machine_getLevel</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the level of the machine</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>function to get the level of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="afa5dec80d819cf7c263e03e02992f842"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>** </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afa5dec80d819cf7c263e03e02992f842" class="m-doc-self">facade_defaultFacade</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> s)</span></span>
+            </h3>
+            <p>a function to get a default orientation for a machine</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">s&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a type machine</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a default orientation for a machine</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>This fonction get D: MS_COLLECTOR = 1, collector machine</p><pre>
+     None
+ None x None
+     Out
+</pre><p>MS_CONVEYOR_BELT = 2, conveyor belt</p><pre>
+     In
+  In x In
+    Out
+</pre><p>MS_CROSS = 3, cross</p><pre>
+     In
+ Out x In
+    Out
+</pre><p>MS_RECYCLING_CENTER = 4, recycling center</p><pre>
+     In
+  In x In
+    Out
+</pre><p>MS_JUNKYARD = 5, junkyard</p><pre>
+     In
+  In x In
+    In
+</pre>
+          </div></section>
+          <section class="m-doc-details" id="a96cedf400b162a0784c6f6f6dcb063bf"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a96cedf400b162a0784c6f6f6dcb063bf" class="m-doc-self">machine_create</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> type)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">type</td>
+                  <td>MachineStuff</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a new machine</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Function to create a new machine according to the type machine given</p>
+          </div></section>
+          <section class="m-doc-details" id="a84b9ca5b1095fb0a17e32b7f272d96c7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a84b9ca5b1095fb0a17e32b7f272d96c7" class="m-doc-self">machine_destroyMachine</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>an error code to know what happened</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to free allocated resources in memory in order to stock a machine</p>
+          </div></section>
+          <section class="m-doc-details" id="adc6cbb26ac8976b5ac1429153225ef39"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adc6cbb26ac8976b5ac1429153225ef39" class="m-doc-self">machine_rotateMachine</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              int rotation)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>rotation</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>This function rotate the orientation of a machine in clockwise The int rotation can be a negative value.</p>
+          </div></section>
+          <section class="m-doc-details" id="a5cb32f8fdeabbe783c45d7287119965b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5cb32f8fdeabbe783c45d7287119965b" class="m-doc-self">machine_incrementLevel</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* m)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">m</td>
+                  <td>machine</td>
+                </tr>
+              </tbody>
+            </table>
+<p>This function upgrade a machine by incrementing his level</p>
+          </div></section>
+          <section class="m-doc-details" id="a8db3d0988cf3f7b18eab9143f721eee2"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8db3d0988cf3f7b18eab9143f721eee2" class="m-doc-self">machine_isOrientationTop</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the north direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="ae0c6d238141d4abaef7b19af6d5d9b13"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae0c6d238141d4abaef7b19af6d5d9b13" class="m-doc-self">machine_isOrientationTopRight</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the north direction and the east direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="ae47c21e9c6be3376bd7bf8a11dba8aea"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae47c21e9c6be3376bd7bf8a11dba8aea" class="m-doc-self">machine_isOrientationRight</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the east direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a9e600771112027b2d7fd4a673d11958b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9e600771112027b2d7fd4a673d11958b" class="m-doc-self">machine_isOrientationBottomRight</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the east direction and the south direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a6bcdad0b7ba52172d4faa5a355b7c63c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6bcdad0b7ba52172d4faa5a355b7c63c" class="m-doc-self">machine_isOrientationBottom</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the south direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a480c6baf8396b09765c630ac426772c3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a480c6baf8396b09765c630ac426772c3" class="m-doc-self">machine_isOrientationBottomLeft</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the south direction and the left direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a7dd885cd9ae873a61dd2263028c06fac"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7dd885cd9ae873a61dd2263028c06fac" class="m-doc-self">machine_isOrientationLeft</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the left direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a274852247d2f74f9e7817123dc99b973"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a274852247d2f74f9e7817123dc99b973" class="m-doc-self">machine_isOrientationTopLeft</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* mach,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> d)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">mach</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if equals, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the direction given in argument is equals to the north direction and the left direction of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a094117e76a87e841b60d10c59ed9e78e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a094117e76a87e841b60d10c59ed9e78e" class="m-doc-self">machine_isRotationCorrect</a>(</span><span class="m-doc-wrap">int rotation)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">rotation</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true if yes, if not false</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to know if the number of rotation is correct Between 0 and <a href="facade_8h.html#a4632199e9cb78b690df9d44f6fec3716" class="m-doc">NUMBER_<wbr />CARDINAL(4)</a></p>
+          </div></section>
+          <section class="m-doc-details" id="a06ab270bade8738858c49ac03a62bb89"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a06ab270bade8738858c49ac03a62bb89" class="m-doc-self">machine_getDirection</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>card</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Direction of the facade machine (IN, OUT, NONE)</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get the direction of a facade machine according to the cardinal</p>
+          </div></section>
+          <section class="m-doc-details" id="a0583f2b429fea62d7753f54986b0a49e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0583f2b429fea62d7753f54986b0a49e" class="m-doc-self">machine_getBox</a>(</span><span class="m-doc-wrap">const <a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>card</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>box of the facade machine</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to get a box of a facade machine according to the cardinal</p>
+          </div></section>
+          <section class="m-doc-details" id="ade1d50d31707676dec83f071eb731140"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ade1d50d31707676dec83f071eb731140" class="m-doc-self">machine_addBox</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card,
+              <a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>* box)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>card</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>box</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to add a box to the facade machine according to the cardinal</p>
+          </div></section>
+          <section class="m-doc-details" id="a037b7f8f212ddcec44680ba0aa6ef334"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a037b7f8f212ddcec44680ba0aa6ef334" class="m-doc-self">machine_destroyBox</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a3c324c2a0b5b70584ad80889dc4983f7" class="m-doc">Machine</a>* machine,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">machine</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>card</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to destroy a box of the facade machine according to the cardinal</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

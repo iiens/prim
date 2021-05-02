@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="box_8h" kind="file" language="C++">
+    <compoundname>box.h</compoundname>
+    <includes refid="error_8h" local="yes">error.h</includes>
+    <includedby refid="case_8h" local="yes">headers/data/case.h</includedby>
+    <includedby refid="facade_8h" local="yes">headers/data/facade.h</includedby>
+    <includedby refid="machine_8h" local="yes">headers/data/machine.h</includedby>
+    <includedby refid="box_8c" local="yes">src/model/box.c</includedby>
+    <includedby refid="test__box_8h" local="yes">tests/test_box.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>headers/data/box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="4">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="1">
+        <label>headers/data/box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>src/model/machine.c</label>
+        <link refid="model_2machine_8c"/>
+      </node>
+      <node id="19">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="14">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>src/utils/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="3">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+      </node>
+      <node id="20">
+        <label>src/model/machine_info.c</label>
+        <link refid="machine__info_8c"/>
+      </node>
+      <node id="31">
+        <label>tests/test_box.c</label>
+        <link refid="test__box_8c"/>
+      </node>
+      <node id="28">
+        <label>tests/test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>tests/test_box.h</label>
+        <link refid="test__box_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>src/model/box.c</label>
+        <link refid="box_8c"/>
+      </node>
+      <node id="17">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>headers/data/facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/model/case.c</label>
+        <link refid="case_8c"/>
+      </node>
+      <node id="26">
+        <label>src/model/effect.c</label>
+        <link refid="effect_8c"/>
+      </node>
+      <node id="9">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="21">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" prot="public" static="no">
+        <type>struct <ref refid="struct_box___s" kindref="compound">Box_S</ref></type>
+        <definition>Box</definition>
+        <argsstring></argsstring>
+        <name>Box</name>
+        <briefdescription>
+<para>documentation above </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="1" column="0" bodyfile="headers/data/box.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="box_8h_1a7432c5c54d1aa5debdb5e6813ba04fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int box_getNumberResource</definition>
+        <argsstring>(const Box *c)</argsstring>
+        <name>box_getNumberResource</name>
+        <param>
+          <type>const <ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the number of resources of the box. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of resources available in the box </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="31" column="5" bodyfile="src/model/box.c" bodystart="25" bodyend="25" declfile="headers/data/box.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8h_1a221dac4f03cfe15be44c5530ebc62ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode box_setNumberResource</definition>
+        <argsstring>(Box *c, int val)</argsstring>
+        <name>box_setNumberResource</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function set the number of resources of the box The value can be a negative value <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="40" column="11" bodyfile="src/model/box.c" bodystart="30" bodyend="41" declfile="headers/data/box.h" declline="40" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8h_1af023f5194c796569153af868a39faee1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int box_getNumberGarbage</definition>
+        <argsstring>(const Box *c)</argsstring>
+        <name>box_getNumberGarbage</name>
+        <param>
+          <type>const <ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the number of garbage of the box. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of garbage available in the box </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="47" column="5" bodyfile="src/model/box.c" bodystart="46" bodyend="46" declfile="headers/data/box.h" declline="47" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8h_1abc1c6bbb3200a106773bbf8e7f8b363b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode box_setNumberGarbage</definition>
+        <argsstring>(Box *c, int val)</argsstring>
+        <name>box_setNumberGarbage</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function set the number of garbage of the box. The value can be a negative value <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="56" column="11" bodyfile="src/model/box.c" bodystart="51" bodyend="62" declfile="headers/data/box.h" declline="56" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8h_1a32a11db5c561bdef9c32e4c32a9a6aa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+        <definition>Box* box_create</definition>
+        <argsstring>(unsigned int numberR, unsigned int numberG)</argsstring>
+        <name>box_create</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>numberR</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>numberG</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function create a new box in a case or in a facade machine The number of resources and garbage are given in argument <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numberR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>resources number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numberG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>garbage number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new box </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="65" column="5" bodyfile="src/model/box.c" bodystart="67" bodyend="74" declfile="headers/data/box.h" declline="65" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8h_1ab07e85e27a0ae3cb36846d7856023e91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box_addB2toB1</definition>
+        <argsstring>(Box *b1, Box *b2)</argsstring>
+        <name>box_addB2toB1</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>b1</declname>
+        </param>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>b2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function add resources and garbage of the first box in the second <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>second box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="72" column="6" bodyfile="src/model/box.c" bodystart="79" bodyend="86" declfile="headers/data/box.h" declline="72" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="box_8h_1ab7622660d88a2a1cfc1e8fb41982a833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void box_destroy</definition>
+        <argsstring>(Box *b)</argsstring>
+        <name>box_destroy</name>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function free resources allocated in memory used to stock the box <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/box.h" line="78" column="6" bodyfile="src/model/box.c" bodystart="91" bodyend="91" declfile="headers/data/box.h" declline="78" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.6 </para>
+</simplesect>
+<simplesect kind="date"><para>07/04/2021</para>
+</simplesect>
+Resources and garbage are stocked in a box in order to facilitate resources moves <simplesect kind="see"><para><ref refid="error_8h" kindref="compound">error.h</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="headers/data/box.h"/>
+  </compounddef>
+</doxygen>

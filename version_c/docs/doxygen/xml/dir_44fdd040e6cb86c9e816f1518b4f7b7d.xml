@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_44fdd040e6cb86c9e816f1518b4f7b7d" kind="dir">
+    <compoundname>headers/data</compoundname>
+    <innerfile refid="actions_8h">actions.h</innerfile>
+    <innerfile refid="box_8h">box.h</innerfile>
+    <innerfile refid="case_8h">case.h</innerfile>
+    <innerfile refid="difficulty_8h">difficulty.h</innerfile>
+    <innerfile refid="effect_8h">effect.h</innerfile>
+    <innerfile refid="error_8h">error.h</innerfile>
+    <innerfile refid="facade_8h">facade.h</innerfile>
+    <innerfile refid="machine_8h">machine.h</innerfile>
+    <innerfile refid="machine__info_8h">machine_info.h</innerfile>
+    <innerfile refid="mapping_8h">mapping.h</innerfile>
+    <innerfile refid="staff_8h">staff.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="authors"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="authors"><para>Antoine MAN </para>
+</simplesect>
+<simplesect kind="authors"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.4 </para>
+</simplesect>
+<simplesect kind="date"><para>21/03/2021</para>
+</simplesect>
+Contains all program data (such as structures defining how our data are stored and most of our globals variables)<itemizedlist>
+<listitem><para><ref refid="actions_8h" kindref="compound">actions.h</ref> : available actions (exit, back, buy..., hire..., ...)</para>
+</listitem><listitem><para>case_type.h : contains all the types that a case can contain.</para>
+</listitem><listitem><para><ref refid="difficulty_8h" kindref="compound">difficulty.h</ref> : game difficulties</para>
+</listitem><listitem><para><ref refid="effect_8h" kindref="compound">effect.h</ref> : staff effect</para>
+</listitem><listitem><para><ref refid="error_8h" kindref="compound">error.h</ref> : contains all errors messages</para>
+</listitem><listitem><para><ref refid="machine_8h" kindref="compound">machine.h</ref> and <ref refid="machine__info_8h" kindref="compound">machine_info.h</ref> : machine information</para>
+</listitem><listitem><para><ref refid="mapping_8h" kindref="compound">mapping.h</ref> : keys associated with actions</para>
+</listitem><listitem><para><ref refid="staff_8h" kindref="compound">staff.h</ref> : staff information todo: missing authors and files </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="headers/data/"/>
+  </compounddef>
+</doxygen>

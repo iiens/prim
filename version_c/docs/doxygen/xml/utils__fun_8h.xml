@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="utils__fun_8h" kind="file" language="C++">
+    <compoundname>utils_fun.h</compoundname>
+    <includedby refid="utils__fun_8c" local="yes">src/utils/utils_fun.c</includedby>
+    <includedby refid="show_8c" local="yes">src/view/ncurses/modules/show.c</includedby>
+    <includedby refid="translation_8c" local="yes">src/view/translation.c</includedby>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="utils__fun_8h_1adc33a11b696748ed5c02f696860d5be4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* utils_intToString</definition>
+        <argsstring>(int number)</argsstring>
+        <name>utils_intToString</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a number to a string. The string must be free. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>positive </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>allocated string with the number inside</para>
+</simplesect>
+&lt; malloc sprintf .c header Some aton function </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; result</para>
+<para>&lt; number length</para>
+        </inbodydescription>
+        <location file="headers/utils/utils_fun.h" line="10" column="6" bodyfile="src/utils/utils_fun.c" bodystart="8" bodyend="24" declfile="headers/utils/utils_fun.h" declline="10" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="headers/utils/utils_fun.h"/>
+  </compounddef>
+</doxygen>

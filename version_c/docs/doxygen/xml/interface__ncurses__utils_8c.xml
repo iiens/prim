@@ -1,0 +1,946 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="interface__ncurses__utils_8c" kind="file" language="C++">
+    <compoundname>interface_ncurses_utils.c</compoundname>
+    <includes refid="interface__ncurses_8h" local="yes">nc_headers/interface_ncurses.h</includes>
+    <includes refid="interface__ncurses__utils_8h" local="yes">nc_headers/interface_ncurses_utils.h</includes>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/view/ncurses/interface_ncurses_utils.c</label>
+        <link refid="interface__ncurses__utils_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="11">
+        <label>stdlib.h</label>
+      </node>
+      <node id="24">
+        <label>nc_headers/interface_ncurses_utils.h</label>
+        <link refid="interface__ncurses__utils_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../../../../headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="10">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="5">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="8">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>curses.h</label>
+      </node>
+      <node id="15">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="4">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="26">
+        <label>string.h</label>
+      </node>
+      <node id="25">
+        <label>interface_ncurses_constants.h</label>
+        <link refid="interface__ncurses__constants_8h_source"/>
+      </node>
+      <node id="12">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="18">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="interface__ncurses__utils_8c_1aa8eb0ea69576396000ea9a91bdbeeba5" prot="public" static="no">
+        <name>ERROR_LINE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>error line in action window </para>
+        </briefdescription>
+        <detaileddescription>
+<para>&lt; base interface this header strlen, ... </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="5" column="9" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="interface__ncurses__utils_8c_1a5a019db02c38c85fb1809652d5c62c2b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lastMessageLength</definition>
+        <argsstring></argsstring>
+        <name>lastMessageLength</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>last message that we printed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="6" column="5" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1ae917405f231ed840036672ee371e9b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showMessageWithColor</definition>
+        <argsstring>(char *message, int color)</argsstring>
+        <name>interface_ncurses_showMessageWithColor</name>
+        <param>
+          <type>char *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show a message in a color <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a message </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a ncurses color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="30" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="30" bodyend="44" declfile="src/view/ncurses/interface_ncurses_utils.c" declline="13" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1afaeae728a5168356f270eeb5c5623670" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool interface_ncurses_utils_hasLastMessage</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_ncurses_utils_hasLastMessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true is there is a last message, false else </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="15" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a3ab2cdcd098428bf91961e5c6f1354d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showActionField</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_ncurses_showActionField</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show/Fill action field window </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="20" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="20" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a636453026f1649e194ed0dac699fb574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showError</definition>
+        <argsstring>(ErrorCode e)</argsstring>
+        <name>interface_ncurses_showError</name>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a968f7f6a7683a9126d3279d6f34f10f0" kindref="member">interface_showError</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see interface_showError </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; error message</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="46" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a42f83246011a71bd8e45367ca5ddc0b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showMessage</definition>
+        <argsstring>(char *message)</argsstring>
+        <name>interface_ncurses_showMessage</name>
+        <param>
+          <type>char *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show some message <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="54" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="54" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a1e84114d592aa5f185116c1cec13ec6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_hideError</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_ncurses_hideError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>interface_hideError </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="61" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="61" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a8fe3cebcc0e81571bd1767f6f4246dcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* interface_ncurses_gameTag</definition>
+        <argsstring>(char *text, int value, char *buf, char *format)</argsstring>
+        <name>interface_ncurses_gameTag</name>
+        <param>
+          <type>char *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convenience method to show a tag in show_map <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tag name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tag value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>buffer (we will put the text in) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(we will put the format in) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="75" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="75" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a2bd1314fe06c20de888e887d069156dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* interface_ncurses_gameTag_type</definition>
+        <argsstring>(char *text, void *value, char *buf, char *format, char *type)</argsstring>
+        <name>interface_ncurses_gameTag_type</name>
+        <param>
+          <type>char *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface__ncurses__utils_8h_1a8fe3cebcc0e81571bd1767f6f4246dcb" kindref="member">interface_ncurses_gameTag</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>same as in interface_ncurses_gameTag </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>same as in interface_ncurses_gameTag </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>same as in interface_ncurses_gameTag </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>same as in interface_ncurses_gameTag </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>d for int, s for char*... this is associated with value type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>same as in interface_ncurses_gameTag </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="85" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="85" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1ac2798025591b087b6b3b58cca335cc09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_clearAction</definition>
+        <argsstring>(char *buf)</argsstring>
+        <name>interface_ncurses_clearAction</name>
+        <param>
+          <type>char *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear last actionWindow <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>last actionWindow text </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="95" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="95" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a316d73b82dcafc1ddb0d1c10970608db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_show_menu_wait</definition>
+        <argsstring>(WINDOW *window)</argsstring>
+        <name>interface_ncurses_show_menu_wait</name>
+        <param>
+          <type>WINDOW *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait function. This function is waiting the user to press &apos;b&apos; (back code). It got created to be used in show_... like functions. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the window we are waiting for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="106" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="106" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a1d7e72c8aa591c78731f27370a2e63ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int interface_ncurses_utils_writeLabel</definition>
+        <argsstring>(WINDOW *window, int i, int j, int blocLength, char *tag, char *content)</argsstring>
+        <name>interface_ncurses_utils_writeLabel</name>
+        <param>
+          <type>WINDOW *</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blocLength</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write some label in green in mapWindow frame at i,j coordinates <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the window </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>blocLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of a bloc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>label/tag put in green, : me be added by yourself </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>content put right after the label </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>x value after adding the label+text </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="123" column="5" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="123" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1af600055edb0e4cc58c83b4c1af184252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_initListWindow</definition>
+        <argsstring>(WINDOW *window, char *title)</argsstring>
+        <name>interface_ncurses_initListWindow</name>
+        <param>
+          <type>WINDOW *</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>title</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clean mapWindow and put in a title in the center. This method is used when showing a list of something. We will use &apos;b&apos; to go back. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>since the new version, mapWindow can be replaced by fullWindow </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a title </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="136" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="136" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a9c893be4edb9f5dfc3227bb8ebc5de87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* interface_ncurses_showInActionField</definition>
+        <argsstring>(Closure init, Closure check)</argsstring>
+        <name>interface_ncurses_showInActionField</name>
+        <param>
+          <type><ref refid="interface__ncurses__utils_8h_1ad2839bd9101c41aba9cb58c3f3404e01" kindref="member">Closure</ref></type>
+          <declname>init</declname>
+        </param>
+        <param>
+          <type><ref refid="interface__ncurses__utils_8h_1ad2839bd9101c41aba9cb58c3f3404e01" kindref="member">Closure</ref></type>
+          <declname>check</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Take an init and a check function. Ask for input until check is done. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>null or a closure that init the view, called after setting things up </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>check</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function that checks whether input is valid (then return) or not (ask again) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the check function, if the check is successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; do we need to leave ?</para>
+<para>&lt; function result</para>
+<para>&lt; error code</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="149" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="149" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a64cb2c5ecbabba12a469d40e1ac9bafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* interface_utils_getCaseContent</definition>
+        <argsstring>(Case *c, CaseType t)</argsstring>
+        <name>interface_utils_getCaseContent</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return one letter with what&apos;s inside this case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the text </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="203" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="203" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a916aa65ffa5546e70e0f42dce41174e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char interface_utils_parseOrientation</definition>
+        <argsstring>(int x, int y, const Map *map)</argsstring>
+        <name>interface_utils_parseOrientation</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return orientation as a char <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>row </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a char representation the orientation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; machine stuff</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="214" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="214" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a7377ea5fa1c0cedae32343bfa011a5fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_utils_init_colors</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_ncurses_utils_init_colors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Init all of ncurses colors used in the interface.</para>
+<para><simplesect kind="see"><para>NCursesColors </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="252" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="252" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1a35d3ece4d81d8d40c6dfe7e04b518ed1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>attr_t</type>
+        <definition>attr_t interface_ncurses_utils_getCaseColor</definition>
+        <argsstring>(Case *c, CaseType t)</argsstring>
+        <name>interface_ncurses_utils_getCaseColor</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a color for a case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a case </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the content </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="273" column="8" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="273" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses__utils_8c_1af42484348998cb0e6a1c3d418fb4fbb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>attr_t</type>
+        <definition>attr_t interface_ncurses_utils_getMachineColor</definition>
+        <argsstring>(MachineStuff t)</argsstring>
+        <name>interface_ncurses_utils_getMachineColor</name>
+        <param>
+          <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the color a of machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a machine </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/interface_ncurses_utils.c" line="294" column="8" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="294" bodyend="313"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/view/ncurses/interface_ncurses_utils.c"/>
+  </compounddef>
+</doxygen>

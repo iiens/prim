@@ -1,0 +1,1127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="machine_8h" kind="file" language="C++">
+    <compoundname>machine.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="error_8h" local="yes">error.h</includes>
+    <includes local="yes">stdbool.h</includes>
+    <includes refid="box_8h" local="yes">box.h</includes>
+    <includes refid="facade_8h" local="yes">facade.h</includes>
+    <includes refid="const_8h" local="yes">../utils/const.h</includes>
+    <includedby refid="case_8h" local="yes">headers/data/case.h</includedby>
+    <includedby refid="effect_8h" local="yes">headers/data/effect.h</includedby>
+    <includedby refid="machine__info_8h" local="yes">headers/data/machine_info.h</includedby>
+    <includedby refid="translation_8h" local="yes">headers/utils/translation.h</includedby>
+    <includedby refid="model_2machine_8c" local="yes">src/model/machine.c</includedby>
+    <includedby refid="test__machine_8h" local="yes">tests/test_machine.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="7">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="1">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="4">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="25">
+        <label>src/model/machine.c</label>
+        <link refid="model_2machine_8c"/>
+      </node>
+      <node id="17">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="14">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/utils/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="3">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+      </node>
+      <node id="18">
+        <label>src/model/machine_info.c</label>
+        <link refid="machine__info_8c"/>
+      </node>
+      <node id="26">
+        <label>tests/test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/model/case.c</label>
+        <link refid="case_8c"/>
+      </node>
+      <node id="24">
+        <label>src/model/effect.c</label>
+        <link refid="effect_8c"/>
+      </node>
+      <node id="9">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="19">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MachineStuff_S</name>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a653f4f8fc16999f829131acd63557b0b" prot="public">
+          <name>MS_COLLECTOR</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>collector machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a74e8c7711cfbab74d8ff85d2c3945580" prot="public">
+          <name>MS_CONVEYOR_BELT</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>conveyor belt </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16ad04ab32590b958320ffafa45b8b4ae43" prot="public">
+          <name>MS_CROSS</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>cross </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16aa87aa1fa3ef602e78ba4d690723faac2" prot="public">
+          <name>MS_RECYCLING_CENTER</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>recycling center </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16a2dbe3df31579d06222e24be02793c557" prot="public">
+          <name>MS_JUNKYARD</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>junkyard </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>to use uint to return error message to use bool</para>
+<para><ref refid="machine_8h" kindref="compound">machine.h</ref> &quot;headers/data/machine.h&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="29" column="1" bodyfile="headers/data/machine.h" bodystart="29" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" prot="public" static="no">
+        <type>enum <ref refid="machine_8h_1af7535aacf1ffeb8f7dab5b6baa056b16" kindref="member">MachineStuff_S</ref></type>
+        <definition>MachineStuff</definition>
+        <argsstring></argsstring>
+        <name>MachineStuff</name>
+        <briefdescription>
+<para>Link between a machine and a int to recognize them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>id associate to the machine to identify them</para>
+<para>Contains id associate to the machine. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="35" column="20"/>
+      </memberdef>
+      <memberdef kind="typedef" id="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" prot="public" static="no">
+        <type>struct <ref refid="struct_machine___s" kindref="compound">Machine_S</ref></type>
+        <definition>Machine</definition>
+        <argsstring></argsstring>
+        <name>Machine</name>
+        <briefdescription>
+<para>contains the main information about a machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="1" column="0" bodyfile="headers/data/machine.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="machine_8h_1a7928d83376348f2690b4b870506ef8e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+        <definition>MachineStuff machine_getType</definition>
+        <argsstring>(const Machine *machine)</argsstring>
+        <name>machine_getType</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function to get the type of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the type of the machine </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="51" column="14" bodyfile="src/model/machine.c" bodystart="25" bodyend="25" declfile="headers/data/machine.h" declline="51" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1af016231f4c5d0ca951b67cf570eb7d0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int machine_getLevel</definition>
+        <argsstring>(const Machine *machine)</argsstring>
+        <name>machine_getLevel</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function to get the level of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the level of the machine </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="58" column="5" bodyfile="src/model/machine.c" bodystart="30" bodyend="30" declfile="headers/data/machine.h" declline="58" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1afa5dec80d819cf7c263e03e02992f842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="facade_8h_1a1dd89c2df15b41c12a97d9ee528ee56c" kindref="member">Facade</ref> **</type>
+        <definition>Facade** facade_defaultFacade</definition>
+        <argsstring>(MachineStuff s)</argsstring>
+        <name>facade_defaultFacade</name>
+        <param>
+          <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>a function to get a default orientation for a machine </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a type machine</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This fonction get D: MS_COLLECTOR = 1, collector machine <preformatted>
+     None
+ None x None
+     Out
+</preformatted></para>
+<para>MS_CONVEYOR_BELT = 2, conveyor belt <preformatted>
+     In
+  In x In
+    Out
+</preformatted></para>
+<para>MS_CROSS = 3, cross <preformatted>
+     In
+ Out x In
+    Out
+</preformatted></para>
+<para>MS_RECYCLING_CENTER = 4, recycling center <preformatted>
+     In
+  In x In
+    Out
+</preformatted></para>
+<para>MS_JUNKYARD = 5, junkyard <preformatted>
+     In
+  In x In
+    In
+</preformatted> <simplesect kind="return"><para>a default orientation for a machine </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="102" column="8" bodyfile="src/model/machine.c" bodystart="35" bodyend="86" declfile="headers/data/machine.h" declline="102" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a96cedf400b162a0784c6f6f6dcb063bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+        <definition>Machine* machine_create</definition>
+        <argsstring>(MachineStuff type)</argsstring>
+        <name>machine_create</name>
+        <param>
+          <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to create a new machine according to the type machine given <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MachineStuff </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new machine </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="109" column="9" bodyfile="src/model/machine.c" bodystart="91" bodyend="97" declfile="headers/data/machine.h" declline="109" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a84b9ca5b1095fb0a17e32b7f272d96c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode machine_destroyMachine</definition>
+        <argsstring>(Machine *mach)</argsstring>
+        <name>machine_destroyMachine</name>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to free allocated resources in memory in order to stock a machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error code to know what happened </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="116" column="11" bodyfile="src/model/machine.c" bodystart="102" bodyend="109" declfile="headers/data/machine.h" declline="116" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1adc6cbb26ac8976b5ac1429153225ef39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void machine_rotateMachine</definition>
+        <argsstring>(Machine *machine, int rotation)</argsstring>
+        <name>machine_rotateMachine</name>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function rotate the orientation of a machine in clockwise The int rotation can be a negative value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rotation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="124" column="6" bodyfile="src/model/machine.c" bodystart="114" bodyend="144" declfile="headers/data/machine.h" declline="124" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a5cb32f8fdeabbe783c45d7287119965b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void machine_incrementLevel</definition>
+        <argsstring>(Machine *m)</argsstring>
+        <name>machine_incrementLevel</name>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function upgrade a machine by incrementing his level <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>machine </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="130" column="6" bodyfile="src/model/machine.c" bodystart="149" bodyend="149" declfile="headers/data/machine.h" declline="130" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a8db3d0988cf3f7b18eab9143f721eee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationTop</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationTop</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the north direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="139" column="6" bodyfile="src/model/machine.c" bodystart="155" bodyend="157" declfile="headers/data/machine.h" declline="139" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1ae0c6d238141d4abaef7b19af6d5d9b13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationTopRight</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationTopRight</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the north direction and the east direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="148" column="6" bodyfile="src/model/machine.c" bodystart="163" bodyend="165" declfile="headers/data/machine.h" declline="148" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1ae47c21e9c6be3376bd7bf8a11dba8aea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationRight</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationRight</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the east direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="157" column="6" bodyfile="src/model/machine.c" bodystart="171" bodyend="173" declfile="headers/data/machine.h" declline="157" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a9e600771112027b2d7fd4a673d11958b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationBottomRight</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationBottomRight</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the east direction and the south direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="166" column="6" bodyfile="src/model/machine.c" bodystart="179" bodyend="181" declfile="headers/data/machine.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a6bcdad0b7ba52172d4faa5a355b7c63c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationBottom</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationBottom</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the south direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="175" column="6" bodyfile="src/model/machine.c" bodystart="187" bodyend="189" declfile="headers/data/machine.h" declline="175" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a480c6baf8396b09765c630ac426772c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationBottomLeft</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationBottomLeft</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the south direction and the left direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="184" column="6" bodyfile="src/model/machine.c" bodystart="195" bodyend="197" declfile="headers/data/machine.h" declline="184" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a7dd885cd9ae873a61dd2263028c06fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationLeft</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationLeft</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the left direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="193" column="6" bodyfile="src/model/machine.c" bodystart="203" bodyend="205" declfile="headers/data/machine.h" declline="193" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a274852247d2f74f9e7817123dc99b973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isOrientationTopLeft</definition>
+        <argsstring>(const Machine *mach, Direction d)</argsstring>
+        <name>machine_isOrientationTopLeft</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the direction given in argument is equals to the north direction and the left direction of the machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if equals, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="202" column="6" bodyfile="src/model/machine.c" bodystart="211" bodyend="213" declfile="headers/data/machine.h" declline="202" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a094117e76a87e841b60d10c59ed9e78e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool machine_isRotationCorrect</definition>
+        <argsstring>(int rotation)</argsstring>
+        <name>machine_isRotationCorrect</name>
+        <param>
+          <type>int</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if the number of rotation is correct Between 0 and <ref refid="facade_8h_1a4632199e9cb78b690df9d44f6fec3716" kindref="member">NUMBER_CARDINAL(4)</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rotation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if yes, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="210" column="6" bodyfile="src/model/machine.c" bodystart="219" bodyend="221" declfile="headers/data/machine.h" declline="210" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a06ab270bade8738858c49ac03a62bb89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="facade_8h_1a224b9163917ac32fc95a60d8c1eec3aa" kindref="member">Direction</ref></type>
+        <definition>Direction machine_getDirection</definition>
+        <argsstring>(const Machine *machine, Cardinal card)</argsstring>
+        <name>machine_getDirection</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a6fe04539374de416fbc486013b9c17e0" kindref="member">Cardinal</ref></type>
+          <declname>card</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get the direction of a facade machine according to the cardinal <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>card</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Direction of the facade machine (IN, OUT, NONE) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="218" column="11" bodyfile="src/model/machine.c" bodystart="226" bodyend="228" declfile="headers/data/machine.h" declline="218" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a0583f2b429fea62d7753f54986b0a49e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+        <definition>Box* machine_getBox</definition>
+        <argsstring>(const Machine *machine, Cardinal card)</argsstring>
+        <name>machine_getBox</name>
+        <param>
+          <type>const <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a6fe04539374de416fbc486013b9c17e0" kindref="member">Cardinal</ref></type>
+          <declname>card</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get a box of a facade machine according to the cardinal <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>card</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>box of the facade machine </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="226" column="5" bodyfile="src/model/machine.c" bodystart="233" bodyend="235" declfile="headers/data/machine.h" declline="226" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1ade1d50d31707676dec83f071eb731140" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void machine_addBox</definition>
+        <argsstring>(Machine *machine, Cardinal card, Box *box)</argsstring>
+        <name>machine_addBox</name>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a6fe04539374de416fbc486013b9c17e0" kindref="member">Cardinal</ref></type>
+          <declname>card</declname>
+        </param>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to add a box to the facade machine according to the cardinal <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>card</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="234" column="6" bodyfile="src/model/machine.c" bodystart="240" bodyend="242" declfile="headers/data/machine.h" declline="234" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="machine_8h_1a037b7f8f212ddcec44680ba0aa6ef334" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void machine_destroyBox</definition>
+        <argsstring>(Machine *machine, Cardinal card)</argsstring>
+        <name>machine_destroyBox</name>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type><ref refid="facade_8h_1a6fe04539374de416fbc486013b9c17e0" kindref="member">Cardinal</ref></type>
+          <declname>card</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to destroy a box of the facade machine according to the cardinal <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>machine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>card</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/machine.h" line="241" column="6" bodyfile="src/model/machine.c" bodystart="247" bodyend="255" declfile="headers/data/machine.h" declline="241" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR and Antoine MAN </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>01/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="machine__info_8h" kindref="compound">machine_info.h</ref></para>
+</simplesect>
+Contains main information about all of the machine </para>
+    </detaileddescription>
+    <location file="headers/data/machine.h"/>
+  </compounddef>
+</doxygen>

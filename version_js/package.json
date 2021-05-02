@@ -1,0 +1,40 @@
+{
+  "name": "prim",
+  "version": "2.3.0",
+  "description": "Environnement line production game",
+  "main": "main.js",
+  "author": "Legendary Games Studio",
+  "license": "MIT",
+  "repository": "https://github.com/lgs-games/prim",
+  "keywords": [
+    "prim",
+    "lgs",
+    "lgs-games"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.lgs-games",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/img/prim.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "copyright": "Copyright © year ${author}"
+  },
+  "devDependencies": {
+    "@electron/remote": "^1.1.0",
+    "electron": "^12.0.4",
+    "electron-builder": "^22.10.5"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "jquery.terminal": "^2.23.2",
+    "typescript": "^4.2.4"
+  }
+}

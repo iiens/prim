@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="main_8c" kind="file" language="C++">
+    <compoundname>main.c</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">time.h</includes>
+    <includes refid="main_8h" local="yes">main.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>src/main.c</label>
+        <link refid="main_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>main.h</label>
+        <link refid="main_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="8">
+        <label>../headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="14">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="10">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="13">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="9">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>time.h</label>
+      </node>
+      <node id="15">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
+      </node>
+      <node id="21">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Allows you to store the state of the game</para>
+<para>&lt; flag to detect the choice to close the game</para>
+<para>&lt; flag to the end of a tour</para>
+<para>&lt; Allows you to know the action that the player chooses</para>
+        </inbodydescription>
+        <location file="src/main.c" line="8" column="5" bodyfile="src/main.c" bodystart="8" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1a35a77c055b90f949bdbd2f17d82a5449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+        <definition>Map* main_initGame</definition>
+        <argsstring>()</argsstring>
+        <name>main_initGame</name>
+        <briefdescription>
+<para>This function is used to initialize a game. It therefore calls the necessary functions to start the interface and to create a map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The starting map for a game </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Allows you to know the difficulty chosen by the user</para>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+        </inbodydescription>
+        <location file="src/main.c" line="63" column="5" bodyfile="src/main.c" bodystart="63" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1a7dc11e6e603fbdec0e607f685f6281f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool main_handlingActions</definition>
+        <argsstring>(Action act, Map *map, bool *exit)</argsstring>
+        <name>main_handlingActions</name>
+        <param>
+          <type><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref></type>
+          <declname>act</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>exit</declname>
+        </param>
+        <briefdescription>
+<para>This function processes actions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>act</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: action that was requested by the user </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: map of the current game </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: This parameter allows to specify to the caller if the player to decide to quit </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a boolean to specify the end of turn </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+        </inbodydescription>
+        <location file="src/main.c" line="89" column="6" bodyfile="src/main.c" bodystart="89" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1a2e93c7674e08e06eb25e737ce819bebb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void main_buyMachineAction</definition>
+        <argsstring>(Map *map)</argsstring>
+        <name>main_buyMachineAction</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>This function is used to process the action ACTION_BUY_MACHINE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: map of the current game </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+<para>&lt; flag to detect the success of certain action</para>
+        </inbodydescription>
+        <location file="src/main.c" line="177" column="6" bodyfile="src/main.c" bodystart="177" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1ae11390d4c2c23da06ff27c05d61768c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void main_buyStaffAction</definition>
+        <argsstring>(Map *map)</argsstring>
+        <name>main_buyStaffAction</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>This function is used to process the action ACTION_BUY_STAFF. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: map of the current game </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+<para>&lt; flag to detect the success of certain action</para>
+        </inbodydescription>
+        <location file="src/main.c" line="215" column="6" bodyfile="src/main.c" bodystart="215" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1a5de70701eb2be31880128ff5d06d2c27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void main_upgradeMachineAction</definition>
+        <argsstring>(Map *map)</argsstring>
+        <name>main_upgradeMachineAction</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>This function is used to process the action ACTION_UPGRADE_MACHINE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: map of the current game </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+<para>&lt; flag to detect the success of certain action</para>
+        </inbodydescription>
+        <location file="src/main.c" line="241" column="6" bodyfile="src/main.c" bodystart="241" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8c_1af294056fe5aa6a21ca6e2667a766421d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void main_destroyMachineAction</definition>
+        <argsstring>(Map *map)</argsstring>
+        <name>main_destroyMachineAction</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>This function is used to process the action. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: map of the current game ACTION_DESTROY_MACHINE </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Used to retrieve the function return from <ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+<para>&lt; Allows you to get the return of the functions of <ref refid="map_8h" kindref="compound">map.h</ref></para>
+<para>&lt; flag to detect the success of certain action</para>
+        </inbodydescription>
+        <location file="src/main.c" line="272" column="6" bodyfile="src/main.c" bodystart="272" bodyend="301"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main.c"/>
+  </compounddef>
+</doxygen>

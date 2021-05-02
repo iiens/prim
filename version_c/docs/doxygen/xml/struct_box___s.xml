@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_box___s" kind="struct" language="C++" prot="public">
+    <compoundname>Box_S</compoundname>
+    <includes refid="box_8h" local="yes">headers/data/box.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_box___s_1a1cfe1f7b161e04c8ab88c22da2714eee" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Box_S::nbResource</definition>
+        <argsstring></argsstring>
+        <name>nbResource</name>
+        <briefdescription>
+<para>nbResource : number of resource on the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="18" column="9" bodyfile="src/model/box.c" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_box___s_1a9ac7e2d0c2c417c87d8c2cd82ee2bdcf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Box_S::nbGarbage</definition>
+        <argsstring></argsstring>
+        <name>nbGarbage</name>
+        <briefdescription>
+<para>nbGarbage : number of garbage on the machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/box.c" line="19" column="9" bodyfile="src/model/box.c" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>It contain resources and garbage on a case. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct that contains all the information concerning a box It contain resources and garbage on a case </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Box_S</label>
+        <link refid="struct_box___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/model/box.c" line="17" column="1" bodyfile="src/model/box.c" bodystart="17" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_box___s_1a9ac7e2d0c2c417c87d8c2cd82ee2bdcf" prot="public" virt="non-virtual"><scope>Box_S</scope><name>nbGarbage</name></member>
+      <member refid="struct_box___s_1a1cfe1f7b161e04c8ab88c22da2714eee" prot="public" virt="non-virtual"><scope>Box_S</scope><name>nbResource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

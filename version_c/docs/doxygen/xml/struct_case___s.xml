@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_case___s" kind="struct" language="C++" prot="public">
+    <compoundname>Case_S</compoundname>
+    <includes refid="case_8h" local="yes">headers/data/case.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_case___s_1a14ad05fbc4d5dc1b7de4bdb7860c6c26" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Case_S::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>int, case abscissa </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/case.c" line="21" column="9" bodyfile="src/model/case.c" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a72e78a2d351713f6b123a4e25bf1f14d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Case_S::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+<para>int, case ordinate </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/case.c" line="22" column="9" bodyfile="src/model/case.c" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a19d55129725007b84dad99e387a00cbe" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* Case_S::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <briefdescription>
+<para>void* in, it correspond to the object contained in the case (box, machine) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/case.c" line="23" column="10" bodyfile="src/model/case.c" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_case___s_1a3d7992a4e9740211d81f322d73250e5c" prot="public" static="no" mutable="no">
+        <type><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+        <definition>CaseType Case_S::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>type of object contained in the case </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/case.c" line="24" column="14" bodyfile="src/model/case.c" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>it correspond to a case of the board game </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct that contains all the information concerning a case </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Case_S</label>
+        <link refid="struct_case___s"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/model/case.c" line="20" column="1" bodyfile="src/model/case.c" bodystart="20" bodyend="25"/>
+    <listofallmembers>
+      <member refid="struct_case___s_1a19d55129725007b84dad99e387a00cbe" prot="public" virt="non-virtual"><scope>Case_S</scope><name>in</name></member>
+      <member refid="struct_case___s_1a3d7992a4e9740211d81f322d73250e5c" prot="public" virt="non-virtual"><scope>Case_S</scope><name>type</name></member>
+      <member refid="struct_case___s_1a14ad05fbc4d5dc1b7de4bdb7860c6c26" prot="public" virt="non-virtual"><scope>Case_S</scope><name>x</name></member>
+      <member refid="struct_case___s_1a72e78a2d351713f6b123a4e25bf1f14d" prot="public" virt="non-virtual"><scope>Case_S</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
