@@ -29,9 +29,9 @@ function createWindow () {
     // mainWindow.webContents.openDevTools();
 
     // Close the DevTools
-    mainWindow.webContents.on("devtools-opened", () => {
-        mainWindow.webContents.closeDevTools();
-    });
+    // mainWindow.webContents.on("devtools-opened", () => {
+    //     mainWindow.webContents.closeDevTools();
+    // });
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
