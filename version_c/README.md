@@ -1,15 +1,10 @@
-# IT Project in C
-
-The subject can be found
-at in the doc folder and the git
-at https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/.
+# Prim
 
 Must be compiled with our Makefile (make build,
-make run) or using ``gcc -Wall -Wextra -std=c99 src/main.c``.
+make run) or using ``gcc -Wall -Wextra -std=c99 src/main.c
+-o bin/prim`` then `./bin/prim`.
 
-### Description
-
-Check user documentation file.
+Current version is ``1.0.2`` (2021-05-02).
 
 ### Code guidelines
 
@@ -53,3 +48,5 @@ Adapted from
 * Antoine MAN
 * Quentin RAMSAMY- -AGEORGES 
 * Ramzy ZEBRIR
+
+This game was requested by ``Dimitri WATEL``.
