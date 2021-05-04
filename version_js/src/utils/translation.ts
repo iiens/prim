@@ -4,16 +4,43 @@
 import {ErrorCode} from "./code";
 
 export class Translation {
-    /** our map of mappings **/
-    private static translations: Map<TrKeys, string>;
+    /** our map of english mappings **/
+    private static translations_EN: Map<TrKeys, string>;
+    /** our map of french mappings **/
+    private static translations_FR: Map<TrKeys, string>;
     /** our map of errors **/
     private static errors: Map<ErrorCode, string>;
     /** true if init called **/
     private static isInit = false;
+    /** language of the game **/
+    private static language : string;
+    language = "en";
+
+    static changeLanguage(value : string) : void{
+        if(value == "en" )
+            this.language = "en";
+        else if (value == "fr" )
+            this.language = "fr";
+    }
+
+    static getLanguage() : string{
+        return this.language;
+    }
+
+    static IsEnglish() : boolean{
+        return Translation.getLanguage()=="en";
+    }
+
+    static IsFrench() : boolean{
+        return Translation.getLanguage()=="fr";
+    }
 
     static get(key: TrKeys) : string | undefined {
         Translation.initTranslations();
-        return this.translations.get(key);
+        if(this.IsEnglish())
+            return this.translations_EN.get(key);
+        else
+            return this.translations_FR.get(key);
     }
 
     /**
@@ -34,18 +61,34 @@ export class Translation {
     private static initTranslations() {
         if (this.isInit) return;
 
-        this.translations = new Map<TrKeys, string>();
-        // index.html
-        this.translations.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player will have to moves resources from generators to a gate in order to close it.');
-        this.translations.set(TrKeys.INTRO_DESC, 'If you are wondering why are we doing that or want to know more about the lore of the game, or how do you play this game, please check out the rules area.');
-        this.translations.set(TrKeys.INTRO_REQUESTED_BY, 'Game requested by');
-        this.translations.set(TrKeys.INTRO_VERSION, 'Current version');
-        this.translations.set(TrKeys.INTRO_CREATE_BY, 'Made by');
-        this.translations.set(TrKeys.MENU_EASY, 'EASY');
-        this.translations.set(TrKeys.MENU_MEDIUM, 'MEDIUM');
-        this.translations.set(TrKeys.MENU_HARD, 'HARD');
-        this.translations.set(TrKeys.MENU_RULES, 'RULES');
-        this.translations.set(TrKeys.MENU_EXIT, 'EXIT');
+        if(this.IsEnglish()) {
+            this.translations_EN = new Map<TrKeys, string>();
+            // index.html
+            this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player will have to moves resources from generators to a gate in order to close it.');
+            this.translations_EN.set(TrKeys.INTRO_DESC, 'If you are wondering why are we doing that or want to know more about the lore of the game, or how do you play this game, please check out the rules area.');
+            this.translations_EN.set(TrKeys.INTRO_REQUESTED_BY, 'Game requested by');
+            this.translations_EN.set(TrKeys.INTRO_VERSION, 'Current version');
+            this.translations_EN.set(TrKeys.INTRO_CREATE_BY, 'Made by');
+            this.translations_EN.set(TrKeys.MENU_EASY, 'EASY');
+            this.translations_EN.set(TrKeys.MENU_MEDIUM, 'MEDIUM');
+            this.translations_EN.set(TrKeys.MENU_HARD, 'HARD');
+            this.translations_EN.set(TrKeys.MENU_RULES, 'RULES');
+            this.translations_EN.set(TrKeys.MENU_EXIT, 'EXIT');
+        }
+        else if(this.IsFrench()){
+            this.translations_FR = new Map<TrKeys, string>();
+            // index.html
+            this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player will have to moves resources from generators to a gate in order to close it.');
+            this.translations_FR.set(TrKeys.INTRO_DESC, 'If you are wondering why are we doing that or want to know more about the lore of the game, or how do you play this game, please check out the rules area.');
+            this.translations_FR.set(TrKeys.INTRO_REQUESTED_BY, 'Game requested by');
+            this.translations_FR.set(TrKeys.INTRO_VERSION, 'Current version');
+            this.translations_FR.set(TrKeys.INTRO_CREATE_BY, 'Made by');
+            this.translations_FR.set(TrKeys.MENU_EASY, 'EASY');
+            this.translations_FR.set(TrKeys.MENU_MEDIUM, 'MEDIUM');
+            this.translations_FR.set(TrKeys.MENU_HARD, 'HARD');
+            this.translations_FR.set(TrKeys.MENU_RULES, 'RULES');
+            this.translations_FR.set(TrKeys.MENU_EXIT, 'EXIT');
+        }
 
         this.errors = new Map<ErrorCode, string>();
 
