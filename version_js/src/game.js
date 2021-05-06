@@ -17,7 +17,7 @@ class Game {
      */
     static clearGame() {
         // no more save
-        localStorage.clear();
+        localStorage.removeItem("save");
     }
     /**
      * @brief This function is used to initialize a game.
