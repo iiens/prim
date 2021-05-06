@@ -1,12 +1,16 @@
 // Modules to control application life and create native browser window
+//import {Language} from "./src/utils/translation";
+
 const {app, BrowserWindow} = require('electron');
-const path = require('path')
+const path = require('path');
+const {Translation} = require('./src/utils/translation');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function createWindow () {
+    Translation.setLanguage(Translation.getFrench());
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 900,
@@ -40,6 +44,7 @@ function createWindow () {
         // when you should delete the corresponding element.
         mainWindow = null;
     });
+
 }
 
 // This method will be called when Electron has finished

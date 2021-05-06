@@ -64,6 +64,6 @@ Config.machines = [
     }),
     new machine_1.MachineInfo("Junkyard", machine_1.MachineStuff.MS_JUNKYARD, "J", 100, 100, 200, 600, 100, 200, "The junkyard  has 4 entrances and no exit. It can store up to 50 garbage." +
         "Storage of Junkyard increases by 20 per level.", 50, "Junkyard doesn't have any Out", true, function (level) {
-        return 20 * (level - 1); // when level = 2, return 20 since we are 20 to the 50
+        return 20 * (level - 1); // when level = 2, return 20 since we add 20 to the 50
     }),
 ];
