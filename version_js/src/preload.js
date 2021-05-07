@@ -71,14 +71,15 @@ document.onreadystatechange = (event) => {
                 const {Config} = require('./utils/config');
                 // load config
                 window.config = Config;
-
                 window.translation = {
                     "tr-rules-door-title": Translation.get(TrKeys.RULES_DOOR_TITLE),
                     "tr-rules-door": Translation.get(TrKeys.RULES_DOOR),
+                    "tr-rules-explain-title": Translation.get(TrKeys.RULES_EXPLAIN_TITLE),
+                    "tr-rules-explain": Translation.get(TrKeys.RULES_EXPLAIN),
+                    "tr-rules-play-title": Translation.get(TrKeys.RULES_PLAY_TITLE),
+                    "tr-rules-play": Translation.get(TrKeys.RULES_PLAY),
                 }
                 translate();
-
-
                 // rules
                 require("./view/handlers/rules");
                 // go back
