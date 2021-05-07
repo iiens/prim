@@ -1,7 +1,7 @@
 import {Case, CaseType, Map, PRODUCTION_MODE} from "../model/map"
 import {Game} from "../game";
 import {Action} from "./mappings";
-import {Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
+import {Box, Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
 
 /*
 todo: legend not in brut code
@@ -33,6 +33,7 @@ export class Interface {
 
     public static init(){
         this.reload();
+        this.renderMap(Game.map); // TODO Corriger problème d'affichage image first turn
     }
 
     /**
@@ -112,9 +113,10 @@ export class Interface {
                     } else {
                         content = InterfaceUtils.getCaseText(Case);
                     }
-                    ctx.fillText(content, xx + tileSize/2 - 10, yy + tileSize/2 - 8);
+
                     if (Case.isMachine){
                         let machine: Machine = Case.getMachine();
+                        InterfaceUtils.drawMachine(machine, ctx, xx, yy);
                         if (machine.getInfo().canUpgrade){
                             let oldFont = ctx.font;
                             let texte = `lvl ${machine.level}`
@@ -123,6 +125,8 @@ export class Interface {
                             ctx.fillText(texte, xx + tileSize/2 - 10, yy + tileSize - 10);
                             ctx.font = oldFont;
                         }
+                    } else {
+                        InterfaceUtils.drawSpawner(content,ctx,xx,yy);
                     }
                 }
             }
@@ -144,6 +148,59 @@ export class Interface {
                 grid.appendChild(canvas);
             }
         }
+
+        let status = document.getElementById('stats');
+        let tileX = -1;
+        let tileY = -1;
+        canvas.addEventListener("mousemove", evt => {
+            //event.target.style.cursor = "pointer";
+            tileX = Math.floor(((evt.offsetX-startX) / tileSize));
+            tileY = Math.floor(((evt.offsetY-startY) / tileSize));
+        });
+
+        canvas.addEventListener("click", event => {
+            if(tileX >= 0 && tileY >= 0) {
+                if (tileX < map.getWidth && tileY < map.getHeight) {
+                    if (status) {
+                        let p = <Case>map.getCase(tileX, tileY);
+                        let type = <CaseType>p.caseType;
+                        console.log(type);
+                        let resource = 0, garbage = 0;
+                        switch (type) {
+                            case CaseType.CASE_GATE:
+                                let box = p.getBox();
+                                if(box != null){
+                                    resource = box.numberResources;
+                                    garbage = box.numberGarbage;
+                                }
+                                status.innerText = ` Case: ${tileX}, ${tileY}
+                                            Resources = ${resource}
+                                            Garbage = ${garbage}`;
+                                break;
+                            case CaseType.CASE_MACHINE:
+                                for (let i = 0; i < Machine.NUMBER_CARDINAL; i++) {
+                                    let box = <Box>p.getMachine().getBox(i);
+                                    if(box != null) {
+                                        resource += box.numberResources;
+                                        garbage += box.numberGarbage;
+                                    }
+                                }
+                                status.innerText = ` Case: ${tileX}, ${tileY}
+                                            Resources = ${resource}
+                                            Garbage = ${garbage}
+                                            Level = ${p.getMachine().level}`;
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+
+        canvas.addEventListener("mouseout", event => {
+            /*if (status) {
+                status.innerText = "";
+            }*/
+        });
     }
 
     /**
@@ -224,6 +281,66 @@ export class Interface {
 }
 
 class InterfaceUtils {
+
+    static getRandomInt(max: number) {
+        return Math.floor(Math.random() * max);
+    }
+
+    static drawSpawner(content: any, ctx: any, xx: number, yy: number) {
+        let url = '../../assets/img/Spawner/';
+        const numberImage : number = 15;
+        let img = new Image();
+        if(content == "S "){
+            img.src = url+'Resource.png';
+        } else if(content == "G "){
+            // let gif = new GIF.loadFile(url+'Gate.gif');
+            // ctx.drawImage(gif.image,0,0); // will draw the playing gif image
+
+        } else {
+            img.src = url+'Sol/Random'+this.getRandomInt(numberImage)+'.png';
+        }
+        img.onload = function() {
+            ctx.drawImage(img, xx+1, yy+1);
+        }
+    }
+
+    static drawMachine(mach: Machine, ctx: any, xx: number, yy: number) {
+        let url = '../../assets/img/Machines/';
+        let img = new Image();
+        switch (mach.type) {
+            case MachineStuff.MS_COLLECTOR:
+                if (mach.isOrientationBottom(Direction.OUT)) { img.src = url+'Collecteur/MS_COLLECTOR_BOT.png';
+                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = url+'Collecteur/MS_COLLECTOR_TOP.png';
+                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = url+'Collecteur/MS_COLLECTOR_LEFT.png';
+                } else { img.src = url+'Collecteur/MS_COLLECTOR_RIGHT.png'; }
+                break;
+            case MachineStuff.MS_CONVEYOR_BELT:
+                if (mach.isOrientationBottom(Direction.OUT)) { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_BOT.png';
+                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_TOP.png';
+                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png';
+                } else { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png'; }
+                break;
+            case MachineStuff.MS_CROSS_BELT:
+                img.src = '../../assets/img/MS_CROSS_BELT.png';
+                if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = url+'Cross/MS_CROSS_BELT_BOT_RIGHT.png';
+                } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = url+'Cross/MS_CROSS_BELT_TOP_LEFT.png';
+                } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = url+'Cross/MS_CROSS_BELT_BOT_LEFT.png';
+                } else { img.src = url+'Cross/MS_CROSS_BELT_TOP_RIGHT.png'; }
+                break;
+            case MachineStuff.MS_JUNKYARD:
+                img.src = url+'MS_JUNKYARD.png';
+                break;
+            case MachineStuff.MS_RECYCLING_CENTER:
+                img.src = url+'MS_RECYCLING_CENTER.png';
+                xx = xx;
+                yy = yy;
+                break;
+        }
+        img.onload = function() {
+            ctx.drawImage(img, xx+1, yy+1);
+        }
+    }
+
     static getCaseText(c: Case | null) {
         let type = InterfaceUtils.parseCaseType(c);
         let orientation = InterfaceUtils.parseOrientation(c);
@@ -257,13 +374,13 @@ class InterfaceUtils {
                 case MachineStuff.MS_RECYCLING_CENTER:
                     d = Direction.OUT;
                     if ( m.isOrientationTop(d) )
-                        return '8';
+                        return '\u2191';
                     if ( m.isOrientationBottom(d) )
-                        return '2';
+                        return '\u2191';
                     if ( m.isOrientationLeft(d) )
-                        return '4';
+                        return '\u2191';
                     if ( m.isOrientationRight(d) )
-                        return '6';
+                        return '\u2191';
                     break;
                 case MachineStuff.MS_CROSS_BELT:
                     d = Direction.OUT;

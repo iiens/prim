@@ -29,6 +29,7 @@ todo: errors in red
 class Interface {
     static init() {
         this.reload();
+        this.renderMap(game_1.Game.map); // TODO Corriger problème d'affichage image first turn
     }
     /**
      * Reload interface. We should use this
@@ -107,9 +108,9 @@ class Interface {
                     else {
                         content = InterfaceUtils.getCaseText(Case);
                     }
-                    ctx.fillText(content, xx + tileSize / 2 - 10, yy + tileSize / 2 - 8);
                     if (Case.isMachine) {
                         let machine = Case.getMachine();
+                        InterfaceUtils.drawMachine(machine, ctx, xx, yy);
                         if (machine.getInfo().canUpgrade) {
                             let oldFont = ctx.font;
                             let texte = `lvl ${machine.level}`;
@@ -118,6 +119,9 @@ class Interface {
                             ctx.fillText(texte, xx + tileSize / 2 - 10, yy + tileSize - 10);
                             ctx.font = oldFont;
                         }
+                    }
+                    else {
+                        InterfaceUtils.drawSpawner(content, ctx, xx, yy);
                     }
                 }
             }
@@ -138,6 +142,56 @@ class Interface {
                 grid.appendChild(canvas);
             }
         }
+        let status = document.getElementById('stats');
+        let tileX = -1;
+        let tileY = -1;
+        canvas.addEventListener("mousemove", evt => {
+            //event.target.style.cursor = "pointer";
+            tileX = Math.floor(((evt.offsetX - startX) / tileSize));
+            tileY = Math.floor(((evt.offsetY - startY) / tileSize));
+        });
+        canvas.addEventListener("click", event => {
+            if (tileX >= 0 && tileY >= 0) {
+                if (tileX < map.getWidth && tileY < map.getHeight) {
+                    if (status) {
+                        let p = map.getCase(tileX, tileY);
+                        let type = p.caseType;
+                        console.log(type);
+                        let resource = 0, garbage = 0;
+                        switch (type) {
+                            case map_1.CaseType.CASE_GATE:
+                                let box = p.getBox();
+                                if (box != null) {
+                                    resource = box.numberResources;
+                                    garbage = box.numberGarbage;
+                                }
+                                status.innerText = ` Case: ${tileX}, ${tileY}
+                                            Resources = ${resource}
+                                            Garbage = ${garbage}`;
+                                break;
+                            case map_1.CaseType.CASE_MACHINE:
+                                for (let i = 0; i < machine_1.Machine.NUMBER_CARDINAL; i++) {
+                                    let box = p.getMachine().getBox(i);
+                                    if (box != null) {
+                                        resource += box.numberResources;
+                                        garbage += box.numberGarbage;
+                                    }
+                                }
+                                status.innerText = ` Case: ${tileX}, ${tileY}
+                                            Resources = ${resource}
+                                            Garbage = ${garbage}
+                                            Level = ${p.getMachine().level}`;
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+        canvas.addEventListener("mouseout", event => {
+            /*if (status) {
+                status.innerText = "";
+            }*/
+        });
     }
     /**
      * Update game status screen
@@ -217,6 +271,87 @@ exports.Interface = Interface;
 Interface.showResource = false;
 Interface.showGarbage = false;
 class InterfaceUtils {
+    static getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+    static drawSpawner(content, ctx, xx, yy) {
+        let url = '../../assets/img/Spawner/';
+        const numberImage = 15;
+        let img = new Image();
+        if (content == "S ") {
+            img.src = url + 'Resource.png';
+        }
+        else if (content == "G ") {
+            // let gif = new GIF.loadFile(url+'Gate.gif');
+            // ctx.drawImage(gif.image,0,0); // will draw the playing gif image
+        }
+        else {
+            img.src = url + 'Sol/Random' + this.getRandomInt(numberImage) + '.png';
+        }
+        img.onload = function () {
+            ctx.drawImage(img, xx + 1, yy + 1);
+        };
+    }
+    static drawMachine(mach, ctx, xx, yy) {
+        let url = '../../assets/img/Machines/';
+        let img = new Image();
+        switch (mach.type) {
+            case machine_1.MachineStuff.MS_COLLECTOR:
+                if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
+                    img.src = url + 'Collecteur/MS_COLLECTOR_BOT.png';
+                }
+                else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
+                    img.src = url + 'Collecteur/MS_COLLECTOR_TOP.png';
+                }
+                else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
+                    img.src = url + 'Collecteur/MS_COLLECTOR_LEFT.png';
+                }
+                else {
+                    img.src = url + 'Collecteur/MS_COLLECTOR_RIGHT.png';
+                }
+                break;
+            case machine_1.MachineStuff.MS_CONVEYOR_BELT:
+                if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
+                    img.src = url + 'Conveyor_belt/MS_CONVEYOR_BELT_BOT.png';
+                }
+                else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
+                    img.src = url + 'Conveyor_belt/MS_CONVEYOR_BELT_TOP.png';
+                }
+                else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
+                    img.src = url + 'Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png';
+                }
+                else {
+                    img.src = url + 'Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png';
+                }
+                break;
+            case machine_1.MachineStuff.MS_CROSS_BELT:
+                img.src = '../../assets/img/MS_CROSS_BELT.png';
+                if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
+                    img.src = url + 'Cross/MS_CROSS_BELT_BOT_RIGHT.png';
+                }
+                else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
+                    img.src = url + 'Cross/MS_CROSS_BELT_TOP_LEFT.png';
+                }
+                else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
+                    img.src = url + 'Cross/MS_CROSS_BELT_BOT_LEFT.png';
+                }
+                else {
+                    img.src = url + 'Cross/MS_CROSS_BELT_TOP_RIGHT.png';
+                }
+                break;
+            case machine_1.MachineStuff.MS_JUNKYARD:
+                img.src = url + 'MS_JUNKYARD.png';
+                break;
+            case machine_1.MachineStuff.MS_RECYCLING_CENTER:
+                img.src = url + 'MS_RECYCLING_CENTER.png';
+                xx = xx;
+                yy = yy;
+                break;
+        }
+        img.onload = function () {
+            ctx.drawImage(img, xx + 1, yy + 1);
+        };
+    }
     static getCaseText(c) {
         let type = InterfaceUtils.parseCaseType(c);
         let orientation = InterfaceUtils.parseOrientation(c);
@@ -250,13 +385,13 @@ class InterfaceUtils {
                 case machine_1.MachineStuff.MS_RECYCLING_CENTER:
                     d = machine_1.Direction.OUT;
                     if (m.isOrientationTop(d))
-                        return '8';
+                        return '\u2191';
                     if (m.isOrientationBottom(d))
-                        return '2';
+                        return '\u2191';
                     if (m.isOrientationLeft(d))
-                        return '4';
+                        return '\u2191';
                     if (m.isOrientationRight(d))
-                        return '6';
+                        return '\u2191';
                     break;
                 case machine_1.MachineStuff.MS_CROSS_BELT:
                     d = machine_1.Direction.OUT;
