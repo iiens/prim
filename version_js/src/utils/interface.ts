@@ -295,7 +295,7 @@ class InterfaceUtils {
         } else if(content == "G "){
             // let gif = new GIF.loadFile(url+'Gate.gif');
             // ctx.drawImage(gif.image,0,0); // will draw the playing gif image
-
+            img.src = url+'Gate.png';
         } else {
             img.src = url+'Sol/Random'+this.getRandomInt(numberImage)+'.png';
         }
