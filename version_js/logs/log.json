@@ -1,0 +1,4 @@
+{"messages":[{"datetime":"7/5/2021 @ 10:55:13","level":"Info","message":"Attention test de level info"},
+{"datetime":"7/5/2021 @ 10:55:13","level":"Debug","message":"Attention test de level debug"},
+{"datetime":"7/5/2021 @ 10:55:13","level":"Warning","message":"Attention test de level warning"},
+{"datetime":"7/5/2021 @ 10:55:13","level":"Error","message":"Attention test de level error"}]}
