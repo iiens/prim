@@ -7,7 +7,7 @@
  *
  */
 export class Difficulty {
-    private readonly level : Level;
+    readonly level : Level;
 
     constructor(level: Level) {
         this.level = level;
