@@ -25,7 +25,7 @@ export class Game {
      */
     static clearGame(){
         // no more save
-        localStorage.clear();
+        localStorage.removeItem("save");
     }
 
     /**
