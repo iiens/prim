@@ -1,16 +1,16 @@
 // Modules to control application life and create native browser window
-//import {Language} from "./src/utils/translation";
 
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
-const {Translation} = require('./src/utils/translation');
+const {Translation,Language} = require('./src/utils/translation');
+const {Game} = require('./src/game');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function createWindow () {
-    Translation.setLanguage(Translation.getFrench());
+
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 900,
@@ -51,7 +51,7 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    createWindow()
+    createWindow();
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the

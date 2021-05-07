@@ -63,7 +63,7 @@ window.win = {
     /** replace element text (selector is an id and text is the text to set for this selected element) **/
     replaceText: (selector, text) => {
         const element = document.getElementById(selector)
-        if (element) element.innerText = text+""
+        if (element) element.innerHTML = text+""
     }
 };
 

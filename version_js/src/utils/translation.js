@@ -6,9 +6,6 @@ exports.Language = exports.TrKeys = exports.Translation = void 0;
  */
 const code_1 = require("./code");
 class Translation {
-    constructor() {
-        this.language = "en";
-    }
     /**
      * @brief Change the value of the language
      *
@@ -78,10 +75,11 @@ class Translation {
     static initTranslations() {
         if (this.isInit)
             return;
-        //if(this.IsEnglish()) {
+        //todo: cleanup
         this.translations_EN = new Map();
         // index.html
-        this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player will have to moves resources from generators to a gate in order to close it.');
+        this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player ' +
+            'will have to moves resources from generators to a gate in order to close it.');
         this.translations_EN.set(TrKeys.INTRO_DESC, 'If you are wondering why are we doing that or want to know more about the lore of the game, or how do you play this game, please check out the rules area.');
         this.translations_EN.set(TrKeys.INTRO_REQUESTED_BY, 'Game requested by');
         this.translations_EN.set(TrKeys.INTRO_VERSION, 'Current version');
@@ -90,9 +88,19 @@ class Translation {
         this.translations_EN.set(TrKeys.MENU_MEDIUM, 'MEDIUM');
         this.translations_EN.set(TrKeys.MENU_HARD, 'HARD');
         this.translations_EN.set(TrKeys.MENU_RULES, 'RULES');
+        this.translations_EN.set(TrKeys.MENU_SETTINGS, 'SETTINGS');
         this.translations_EN.set(TrKeys.MENU_EXIT, 'EXIT');
-        //}
-        //else if(this.IsFrench()){
+        //rules.html
+        this.translations_EN.set(TrKeys.RULES_DOOR_TITLE, 'In order to close the door');
+        this.translations_EN.set(TrKeys.RULES_DOOR, 'While the students from the "Calcul intensif et ' +
+            'données massives" cursus ' +
+            'of ENSIIE were exploring the binary world, they have opened a gate between ' +
+            'our world and another one looking exactly like ours.' +
+            'However, their joy didn\'t last long. Having 2 ENSIIE made their ' +
+            'ranking in durable development decrease because their were spending twice ' +
+            'their usual consommation of energy. That\'s why ' +
+            '<span class="text-success">you absolutely need to close the door !</span>');
+        //this.translations_EN.set(TrKeys.RULES_EXPLAIN_TITLE, '')
         this.translations_FR = new Map();
         // index.html
         this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -105,8 +113,11 @@ class Translation {
         this.translations_FR.set(TrKeys.MENU_MEDIUM, 'NORMAL');
         this.translations_FR.set(TrKeys.MENU_HARD, 'DIFFICILE');
         this.translations_FR.set(TrKeys.MENU_RULES, 'REGLES');
+        this.translations_FR.set(TrKeys.MENU_SETTINGS, 'PARAMETRES');
         this.translations_FR.set(TrKeys.MENU_EXIT, 'QUITTER');
-        // }
+        // rules.html
+        this.translations_FR.set(TrKeys.RULES_DOOR_TITLE, 'REGLES');
+        this.translations_FR.set(TrKeys.RULES_DOOR, 'REGLES');
         this.errors_EN = new Map();
         this.errors_EN.set(code_1.ErrorCode.ERROR, 'Some error occurred');
         this.errors_EN.set(code_1.ErrorCode.ERROR_CASE_MACHINE, 'This case is a machine. Please try again.');
@@ -161,43 +172,50 @@ var TrKeys;
     TrKeys[TrKeys["MENU_MEDIUM"] = 6] = "MENU_MEDIUM";
     TrKeys[TrKeys["MENU_HARD"] = 7] = "MENU_HARD";
     TrKeys[TrKeys["MENU_RULES"] = 8] = "MENU_RULES";
-    TrKeys[TrKeys["MENU_EXIT"] = 9] = "MENU_EXIT";
-    TrKeys[TrKeys["CHOICE_DIFF"] = 10] = "CHOICE_DIFF";
-    TrKeys[TrKeys["SCREEN_TOO_SMALL"] = 11] = "SCREEN_TOO_SMALL";
-    TrKeys[TrKeys["GAME_NAME"] = 12] = "GAME_NAME";
-    TrKeys[TrKeys["GAME_TURN"] = 13] = "GAME_TURN";
-    TrKeys[TrKeys["GAME_E"] = 14] = "GAME_E";
-    TrKeys[TrKeys["GAME_DD"] = 15] = "GAME_DD";
-    TrKeys[TrKeys["GAME_FISE"] = 16] = "GAME_FISE";
-    TrKeys[TrKeys["GAME_FISA"] = 17] = "GAME_FISA";
-    TrKeys[TrKeys["GAME_FISA_MODE"] = 18] = "GAME_FISA_MODE";
-    TrKeys[TrKeys["GAME_SCORE"] = 19] = "GAME_SCORE";
-    TrKeys[TrKeys["GAME_GARBAGE"] = 20] = "GAME_GARBAGE";
-    TrKeys[TrKeys["ACTION_LABEL"] = 21] = "ACTION_LABEL";
-    TrKeys[TrKeys["GO_BACK_B"] = 22] = "GO_BACK_B";
-    TrKeys[TrKeys["MACHINE_LIST_TITLE"] = 23] = "MACHINE_LIST_TITLE";
-    TrKeys[TrKeys["ML_COST_TAG"] = 24] = "ML_COST_TAG";
-    TrKeys[TrKeys["ML_COST_UP_TAG"] = 25] = "ML_COST_UP_TAG";
-    TrKeys[TrKeys["ML_COST_DESTROY_TAG"] = 26] = "ML_COST_DESTROY_TAG";
-    TrKeys[TrKeys["STAFF_LIST_TITLE"] = 27] = "STAFF_LIST_TITLE";
-    TrKeys[TrKeys["STAFF_TAG"] = 28] = "STAFF_TAG";
-    TrKeys[TrKeys["TO_TAG"] = 29] = "TO_TAG";
-    TrKeys[TrKeys["ON_TAG"] = 30] = "ON_TAG";
-    TrKeys[TrKeys["ID_TAG"] = 31] = "ID_TAG";
-    TrKeys[TrKeys["OWNED_TAG"] = 32] = "OWNED_TAG";
-    TrKeys[TrKeys["TRANSLATION_LIST_STAFF_INDEX"] = 33] = "TRANSLATION_LIST_STAFF_INDEX";
-    TrKeys[TrKeys["TRANSLATION_PRESS_ARROW_CHANGE_PAGE"] = 34] = "TRANSLATION_PRESS_ARROW_CHANGE_PAGE";
-    TrKeys[TrKeys["ACTION_LIST_TITLE"] = 35] = "ACTION_LIST_TITLE";
+    TrKeys[TrKeys["MENU_SETTINGS"] = 9] = "MENU_SETTINGS";
+    TrKeys[TrKeys["MENU_EXIT"] = 10] = "MENU_EXIT";
+    TrKeys[TrKeys["CHOICE_DIFF"] = 11] = "CHOICE_DIFF";
+    TrKeys[TrKeys["SCREEN_TOO_SMALL"] = 12] = "SCREEN_TOO_SMALL";
+    TrKeys[TrKeys["GAME_NAME"] = 13] = "GAME_NAME";
+    TrKeys[TrKeys["GAME_TURN"] = 14] = "GAME_TURN";
+    TrKeys[TrKeys["GAME_E"] = 15] = "GAME_E";
+    TrKeys[TrKeys["GAME_DD"] = 16] = "GAME_DD";
+    TrKeys[TrKeys["GAME_FISE"] = 17] = "GAME_FISE";
+    TrKeys[TrKeys["GAME_FISA"] = 18] = "GAME_FISA";
+    TrKeys[TrKeys["GAME_FISA_MODE"] = 19] = "GAME_FISA_MODE";
+    TrKeys[TrKeys["GAME_SCORE"] = 20] = "GAME_SCORE";
+    TrKeys[TrKeys["GAME_GARBAGE"] = 21] = "GAME_GARBAGE";
+    TrKeys[TrKeys["ACTION_LABEL"] = 22] = "ACTION_LABEL";
+    TrKeys[TrKeys["GO_BACK_B"] = 23] = "GO_BACK_B";
+    TrKeys[TrKeys["MACHINE_LIST_TITLE"] = 24] = "MACHINE_LIST_TITLE";
+    TrKeys[TrKeys["ML_COST_TAG"] = 25] = "ML_COST_TAG";
+    TrKeys[TrKeys["ML_COST_UP_TAG"] = 26] = "ML_COST_UP_TAG";
+    TrKeys[TrKeys["ML_COST_DESTROY_TAG"] = 27] = "ML_COST_DESTROY_TAG";
+    TrKeys[TrKeys["STAFF_LIST_TITLE"] = 28] = "STAFF_LIST_TITLE";
+    TrKeys[TrKeys["STAFF_TAG"] = 29] = "STAFF_TAG";
+    TrKeys[TrKeys["TO_TAG"] = 30] = "TO_TAG";
+    TrKeys[TrKeys["ON_TAG"] = 31] = "ON_TAG";
+    TrKeys[TrKeys["ID_TAG"] = 32] = "ID_TAG";
+    TrKeys[TrKeys["OWNED_TAG"] = 33] = "OWNED_TAG";
+    TrKeys[TrKeys["TRANSLATION_LIST_STAFF_INDEX"] = 34] = "TRANSLATION_LIST_STAFF_INDEX";
+    TrKeys[TrKeys["TRANSLATION_PRESS_ARROW_CHANGE_PAGE"] = 35] = "TRANSLATION_PRESS_ARROW_CHANGE_PAGE";
+    TrKeys[TrKeys["ACTION_LIST_TITLE"] = 36] = "ACTION_LIST_TITLE";
     // actions
-    TrKeys[TrKeys["INPUT_MACHINE_LOCATION"] = 36] = "INPUT_MACHINE_LOCATION";
-    TrKeys[TrKeys["INPUT_STAFF"] = 37] = "INPUT_STAFF";
-    TrKeys[TrKeys["INPUT_MACHINE"] = 38] = "INPUT_MACHINE";
-    TrKeys[TrKeys["INPUT_ACTION"] = 39] = "INPUT_ACTION";
-    TrKeys[TrKeys["INPUT_ORIENTATION"] = 40] = "INPUT_ORIENTATION";
+    TrKeys[TrKeys["INPUT_MACHINE_LOCATION"] = 37] = "INPUT_MACHINE_LOCATION";
+    TrKeys[TrKeys["INPUT_STAFF"] = 38] = "INPUT_STAFF";
+    TrKeys[TrKeys["INPUT_MACHINE"] = 39] = "INPUT_MACHINE";
+    TrKeys[TrKeys["INPUT_ACTION"] = 40] = "INPUT_ACTION";
+    TrKeys[TrKeys["INPUT_ORIENTATION"] = 41] = "INPUT_ORIENTATION";
     // legend and view components
-    TrKeys[TrKeys["LEGEND"] = 41] = "LEGEND";
-    TrKeys[TrKeys["WIN"] = 42] = "WIN";
-    TrKeys[TrKeys["LOST"] = 43] = "LOST";
+    TrKeys[TrKeys["LEGEND"] = 42] = "LEGEND";
+    TrKeys[TrKeys["WIN"] = 43] = "WIN";
+    TrKeys[TrKeys["LOST"] = 44] = "LOST";
+    TrKeys[TrKeys["RULES_DOOR_TITLE"] = 45] = "RULES_DOOR_TITLE";
+    TrKeys[TrKeys["RULES_DOOR"] = 46] = "RULES_DOOR";
+    TrKeys[TrKeys["RULES_EXPLAIN_TITLE"] = 46] = "RULES_EXPLAIN_TITLE";
+    TrKeys[TrKeys["RULES_EXPLAIN"] = 47] = "RULES_EXPLAIN";
+    TrKeys[TrKeys["RULES_PLAY_TITLE"] = 48] = "RULES_PLAY_TITLE";
+    TrKeys[TrKeys["RULES_PLAY"] = 49] = "RULES_PLAY";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

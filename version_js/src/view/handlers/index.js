@@ -5,7 +5,7 @@
 // selectively enable features needed in the rendering
 // process.
 let current = 1; // current menu
-const NUMBER_OF_MENUS = 5; // number of menus
+const NUMBER_OF_MENUS = 6; // number of menus
 const EXIT_INDEX = 5; // exit index, the only one were we are not making a redirect
 
 // create input listener

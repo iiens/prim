@@ -16,7 +16,6 @@ export class Translation {
     private static isInit = false;
     /** language of the game **/
     private static language : Language;
-    language = "en";
 
     /**
      * @brief Change the value of the language
@@ -93,10 +92,13 @@ export class Translation {
     private static initTranslations() {
         if (this.isInit) return;
 
-        //if(this.IsEnglish()) {
+        //todo: cleanup
+
+
             this.translations_EN = new Map<TrKeys, string>();
             // index.html
-            this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player will have to moves resources from generators to a gate in order to close it.');
+            this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player ' +
+                'will have to moves resources from generators to a gate in order to close it.');
             this.translations_EN.set(TrKeys.INTRO_DESC, 'If you are wondering why are we doing that or want to know more about the lore of the game, or how do you play this game, please check out the rules area.');
             this.translations_EN.set(TrKeys.INTRO_REQUESTED_BY, 'Game requested by');
             this.translations_EN.set(TrKeys.INTRO_VERSION, 'Current version');
@@ -105,9 +107,22 @@ export class Translation {
             this.translations_EN.set(TrKeys.MENU_MEDIUM, 'MEDIUM');
             this.translations_EN.set(TrKeys.MENU_HARD, 'HARD');
             this.translations_EN.set(TrKeys.MENU_RULES, 'RULES');
+            this.translations_EN.set(TrKeys.MENU_SETTINGS, 'SETTINGS');
             this.translations_EN.set(TrKeys.MENU_EXIT, 'EXIT');
-        //}
-        //else if(this.IsFrench()){
+
+            //rules.html
+            this.translations_EN.set(TrKeys.RULES_DOOR_TITLE, 'In order to close the door');
+            this.translations_EN.set(TrKeys.RULES_DOOR, 'While the students from the "Calcul intensif et ' +
+                'données massives" cursus ' +
+                'of ENSIIE were exploring the binary world, they have opened a gate between ' +
+                'our world and another one looking exactly like ours.' +
+                'However, their joy didn\'t last long. Having 2 ENSIIE made their ' +
+                'ranking in durable development decrease because their were spending twice ' +
+                'their usual consommation of energy. That\'s why ' +
+                '<span class="text-success">you absolutely need to close the door !</span>');
+            //this.translations_EN.set(TrKeys.RULES_EXPLAIN_TITLE, '')
+
+
             this.translations_FR = new Map<TrKeys, string>();
             // index.html
             this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -120,8 +135,13 @@ export class Translation {
             this.translations_FR.set(TrKeys.MENU_MEDIUM, 'NORMAL');
             this.translations_FR.set(TrKeys.MENU_HARD, 'DIFFICILE');
             this.translations_FR.set(TrKeys.MENU_RULES, 'REGLES');
+            this.translations_FR.set(TrKeys.MENU_SETTINGS, 'PARAMETRES');
             this.translations_FR.set(TrKeys.MENU_EXIT, 'QUITTER');
-       // }
+
+            // rules.html
+            this.translations_FR.set(TrKeys.RULES_DOOR_TITLE, 'REGLES');
+            this.translations_FR.set(TrKeys.RULES_DOOR, 'REGLES');
+
 
         this.errors_EN = new Map<ErrorCode, string>();
 
@@ -180,6 +200,7 @@ export enum TrKeys {
     MENU_MEDIUM,
     MENU_HARD,
     MENU_RULES,
+    MENU_SETTINGS,
     MENU_EXIT,
 
     CHOICE_DIFF, //!< difficulty menu header
@@ -226,6 +247,14 @@ export enum TrKeys {
 
     WIN, //!< win
     LOST, //!< loose
+
+    RULES_DOOR_TITLE, //!< Title
+    RULES_DOOR, //!< In order to close the door.
+    RULES_EXPLAIN_TITLE = 46, //!< Title
+    RULES_EXPLAIN = 47, //!< What are the rules ?
+    RULES_PLAY_TITLE, //!< Title
+    RULES_PLAY, //!< How should I play ?
+
 }
 
 export enum Language {

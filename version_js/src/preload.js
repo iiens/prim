@@ -1,7 +1,8 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
-
-const {handleWindowControls, addHeader} = require('./frameless')
+const {handleWindowControls, addHeader} = require('./frameless');
+const {Translation, TrKeys, Language} = require('./utils/translation');
+const {Game} = require('./game');
 
 // When document has loaded, initialise
 document.onreadystatechange = (event) => {
@@ -10,7 +11,7 @@ document.onreadystatechange = (event) => {
 
         // frameless window
         addHeader();
-        handleWindowControls()
+        handleWindowControls();
 
         // get the page name (index, game, rules)
         let path = window.location.pathname;
@@ -18,12 +19,13 @@ document.onreadystatechange = (event) => {
         let page = path.substring(path.lastIndexOf('/') + 1);
         page = page.replaceAll(".html", "");
 
+        //Todo:
+        Translation.setLanguage(Game.getTranslationLanguage());
+
         // load the page javascript
         switch(page) {
             case 'index' : {
                 const {Config} = require('./utils/config');
-                const {Game} = require('./game');
-                const {Translation, TrKeys} = require('./utils/translation');
                 Game.clearGame(); // clear previous game just in case
                 // load config
                 window.config = Config;
@@ -39,6 +41,7 @@ document.onreadystatechange = (event) => {
                     "tr-medium": Translation.get(TrKeys.MENU_MEDIUM),
                     "tr-hard": Translation.get(TrKeys.MENU_HARD),
                     "tr-rules": Translation.get(TrKeys.MENU_RULES),
+                    "tr-menu": Translation.get(TrKeys.MENU_SETTINGS),
                     "tr-exit": Translation.get(TrKeys.MENU_EXIT),
                 }
                 translate();
@@ -46,7 +49,6 @@ document.onreadystatechange = (event) => {
                 break;
             }
             case 'game': {
-                const {Game} = require('./game');
                 // load JQuery terminal
                 window.$ = window.jquery = jquery;
                 const JQueryTerminal = require('jquery.terminal');
@@ -69,8 +71,28 @@ document.onreadystatechange = (event) => {
                 const {Config} = require('./utils/config');
                 // load config
                 window.config = Config;
+
+                window.translation = {
+                    "tr-rules-door-title": Translation.get(TrKeys.RULES_DOOR_TITLE),
+                    "tr-rules-door": Translation.get(TrKeys.RULES_DOOR),
+                }
+                translate();
+
+
                 // rules
                 require("./view/handlers/rules");
+                // go back
+                require("./view/handlers/go_back");
+                break;
+            }
+            case 'menu': {
+                const {Config} = require('./utils/config');
+                // load config
+                window.config = Config;
+                window.lang = Language;
+                window.lang.current = Translation.getLanguage();
+                // rules
+                require("./view/handlers/menu");
                 // go back
                 require("./view/handlers/go_back");
                 break;

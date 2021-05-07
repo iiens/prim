@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Prim - Environnement Line</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+<header id="titlebar"></header>
+
+<div id="main">
+    <button data-to="index.html" id="go-back" class="bg-transparent border border-dark
+    rounded p-2 text-my-yellow"
+    >Go back to main menu (or press <span class="config-back-key">b</span>)
+    </button>
+
+    <div class="text-justify px-3 border-dark border my-3">
+        <p class="text-center h3 pt-3">Langue</p>
+        <div class="fz22">
+        <ul class="list-unstyled">
+            <li><label>Anglais <input id="button_eng" type="radio" name="button" value = "en"></label></li>
+            <li><label>Français <input id="button_fr" type="radio" name="button" value = "fr"></label></li>
+        </ul>
+        </div>
+        <br/>
+    </div>
+
+</div>
+</body>
+</html>

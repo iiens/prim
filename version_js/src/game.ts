@@ -5,6 +5,7 @@ import {Map} from "./model/map";
 import {Interface} from "./utils/interface";
 import {StaffDictionary} from "./model/staffs";
 import {Box, Machine} from "./model/machine";
+import {Translation, Language} from "./utils/translation";
 
 /**
  * Game controller
@@ -96,4 +97,12 @@ export class Game {
             }
         }))
     }
+
+    static getTranslationLanguage() : Language{
+        if(localStorage.getItem("lang")== null)
+            localStorage.setItem("lang",Language.EN);
+        return <Language>localStorage.getItem("lang");
+    }
+
+
 }

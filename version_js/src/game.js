@@ -8,6 +8,7 @@ const map_1 = require("./model/map");
 const interface_1 = require("./utils/interface");
 const staffs_1 = require("./model/staffs");
 const machine_1 = require("./model/machine");
+const translation_1 = require("./utils/translation");
 /**
  * Game controller
  */
@@ -87,6 +88,11 @@ class Game {
                 return value;
             }
         }));
+    }
+    static getTranslationLanguage() {
+        if (localStorage.getItem("lang") == null)
+            localStorage.setItem("lang", translation_1.Language.EN);
+        return localStorage.getItem("lang");
     }
 }
 exports.Game = Game;
