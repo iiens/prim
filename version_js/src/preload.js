@@ -3,6 +3,7 @@
 const {handleWindowControls, addHeader} = require('./frameless');
 const {Translation, TrKeys, Language} = require('./utils/translation');
 const {Game} = require('./game');
+const {Config} = require('./utils/config');
 
 // When document has loaded, initialise
 document.onreadystatechange = (event) => {
@@ -25,7 +26,7 @@ document.onreadystatechange = (event) => {
         // load the page javascript
         switch(page) {
             case 'index' : {
-                const {Config} = require('./utils/config');
+
                 Game.clearGame(); // clear previous game just in case
                 // load config
                 window.config = Config;
@@ -64,11 +65,32 @@ document.onreadystatechange = (event) => {
                 }
                 window.game = Game;
                 // game
+                // load config
+                window.config = Config;
+                window.translation = {
+                    "tr-game-name" : Translation.get(TrKeys.GAME_NAME),
+                    "tr-game-turn": Translation.get(TrKeys.GAME_TURN),
+                    "tr-game-e" : Translation.get(TrKeys.GAME_E),
+                    "tr-game-dd" : Translation.get(TrKeys.GAME_DD),
+                    "tr-game-fise" : Translation.get(TrKeys.GAME_FISE),
+                    "tr-game-fisa" : Translation.get(TrKeys.GAME_FISA),
+                    "tr-game-fisamode" : Translation.get(TrKeys.GAME_FISA_MODE),
+                    "tr-game-score" : Translation.get(TrKeys.GAME_SCORE),
+                    "tr-game-garbage" : Translation.get(TrKeys.GAME_GARBAGE),
+                    "tr-game-legend" : Translation.get(TrKeys.LEGEND),
+                    "tr-game-source" : Translation.get(TrKeys.GAME_SOURCE),
+                    "tr-game-gate" : Translation.get(TrKeys.GAME_GATE),
+                    "tr-game-conveyor-belt" : Translation.get(TrKeys.GAME_CONVEYOR_BELT),
+                    "tr-game-cross" : Translation.get(TrKeys.GAME_CROSS),
+                    "tr-game-recycling-center" : Translation.get(TrKeys.GAME_RECYCLING_CENTER),
+                    "tr-game-junkyard" : Translation.get(TrKeys.GAME_JUNKYARD),
+                    "tr-game-collector" : Translation.get(TrKeys.GAME_COLLECTOR),
+                }
+                translate();
                 require("./view/handlers/game");
                 break;
             }
             case 'rules': {
-                const {Config} = require('./utils/config');
                 // load config
                 window.config = Config;
                 window.translation = {
@@ -87,7 +109,6 @@ document.onreadystatechange = (event) => {
                 break;
             }
             case 'menu': {
-                const {Config} = require('./utils/config');
                 // load config
                 window.config = Config;
                 window.lang = Language;
