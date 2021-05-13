@@ -100,6 +100,7 @@ document.onreadystatechange = (event) => {
                     "tr-rules-explain": Translation.get(TrKeys.RULES_EXPLAIN),
                     "tr-rules-play-title": Translation.get(TrKeys.RULES_PLAY_TITLE),
                     "tr-rules-play": Translation.get(TrKeys.RULES_PLAY),
+                    "tr-back": Translation.get(TrKeys.GO_BACK_B),
                 }
                 translate();
                 // rules
@@ -113,16 +114,54 @@ document.onreadystatechange = (event) => {
                 window.config = Config;
                 window.lang = Language;
                 window.lang.current = Translation.getLanguage();
+                window.translation = {
+                    "tr-back": Translation.get(TrKeys.GO_BACK_B),
+                }
+                translate();
                 // rules
                 require("./view/handlers/menu");
                 // go back
                 require("./view/handlers/go_back");
                 break;
             }
-            case 'staffs': loadGame('staffs'); break;
-            case 'machines': loadGame('machines'); break;
-            case 'mappings': loadGame('mappings'); break;
-            case 'end': loadGame('end'); break;
+            case 'staffs': {
+                loadGame('staffs');
+                window.config = Config;
+                window.translation = {
+                    "tr-back": Translation.get(TrKeys.GO_BACK_B),
+                }
+                translate();
+                break;
+            }
+            case 'machines': {
+                loadGame('machines');
+                window.config = Config;
+                window.translation = {
+                    "tr-back": Translation.get(TrKeys.GO_BACK_B),
+                }
+                translate();
+                break;
+            }
+            case 'mappings':{
+                loadGame('mappings');
+                window.config = Config;
+                window.translation = {
+                    "tr-back": Translation.get(TrKeys.GO_BACK_B),
+                }
+                translate();
+                break;
+            }
+
+            case 'end': {
+                loadGame('end');
+                window.config = Config;
+                window.translation = {
+                    "tr-back": Translation.get(TrKeys.GO_BACK_B),
+                    "tr-end-message": Translation.get(TrKeys.END_MESSAGE),
+                }
+                translate();
+                break;
+            }
         }
 
         // load music

@@ -20,7 +20,8 @@ import {Game} from "../game";
  * This value must be checked before applying effect or increase level.
  */
 export class MachineInfo {
-    public readonly name : string; //!< int which represent the type of the machine
+    public readonly name_eng : string; //!< int which represent the type of the machine in english
+    public readonly name_fr : string; //!< int which represent the type of the machine in french
     public readonly type : MachineStuff; //!< int which represent the type of the machine
     public readonly tag : string; //!< letter representing the machine
     public readonly costE : number; //!< price in E of the machine
@@ -29,7 +30,10 @@ export class MachineInfo {
     public readonly costUpgradeDD : number; //!< price for upgrade the machine in DD
     public readonly costDestroyE : number; //!< price for destroy the machine in E
     public readonly costDestroyDD : number; //!< price for destroy the machine in DD;
-    public readonly description : string; //!< description of the machine
+    public readonly description_eng : string; //!< description of the machine in english
+    public readonly description_fr : string; //!< description of the machine in french
+    public readonly upgrade_eng : string; //!< short description of the upgrade in english
+    public readonly upgrade_fr : string; //!< short description of the upgrade in french
     public readonly capacity : number; //!< -1 it don't have capacity
     /**
      * Get the DefaultOrientationMessage attribute from a machineInfo.
@@ -40,11 +44,13 @@ export class MachineInfo {
     public readonly canUpgrade : boolean; //!< 1 if it's upgradable, else 0
     private readonly levelUpFunction: ((v: number) => number) | null; //!< An effect for the machine if it's upgrade
 
-    constructor(name: string, type: MachineStuff, tag: string, costE: number, costDD: number, costUpgradeE: number,
+    constructor(name_eng: string,name_fr: string, type: MachineStuff, tag: string, costE: number, costDD: number, costUpgradeE: number,
                 costUpgradeDD: number, costDestroyE: number, costDestroyDD: number,
-                description: string, capacity: number, defaultOrientation: string,
+                description_eng: string,description_fr: string, upgrade_eng : string, upgrade_fr : string,
+                capacity: number, defaultOrientation: string,
                 canUpgrade: boolean, levelUpFunction: ((v: number) => number) | null) {
-        this.name = name;
+        this.name_eng = name_eng;
+        this.name_fr = name_fr;
         this.type = type;
         this.tag = tag;
         this.costE = costE;
@@ -53,10 +59,13 @@ export class MachineInfo {
         this.costUpgradeDD = costUpgradeDD;
         this.costDestroyE = costDestroyE;
         this.costDestroyDD = costDestroyDD;
-        this.description = description;
+        this.description_eng = description_eng;
+        this.description_fr = description_fr;
         this.capacity = capacity;
         this.defaultOrientation = defaultOrientation;
         this.canUpgrade = canUpgrade;
+        this.upgrade_eng = upgrade_eng;
+        this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
     }
 

@@ -52,41 +52,53 @@ export class Config {
      * Array with information about all machine
      */
     static machines = [
-        new MachineInfo("Collector", MachineStuff.MS_COLLECTOR, "C",
+        new MachineInfo("Collector","Collecteur", MachineStuff.MS_COLLECTOR, "C",
             200, 20, 500,100,60,200,
             "Sends a resource (resp. a garbage) produced by the source (resp. the gate)" +
             " to the neighboring cell indicated by its orientation. Collector storage increases by 1 per level.",
+            "Envoie une ressource produites par la source sur la case voisine indiquée par son orientation." +
+            " La capacité d'un Collecteur augmente de 1 par niveau","+1 collected / level",
+            "+1 collectée / niveau",
             1, "Collector Out is South by default",
             true,
             (level: number) => { // return 0 when level = 1, 1 when 2 etc.
                 return level - 1; // that number mean capacity = 1 + <result> on level n
             }
         ),
-        new MachineInfo("Conveyor belt", MachineStuff.MS_CONVEYOR_BELT, "B",
+        new MachineInfo("Conveyor belt","Tapis roulant", MachineStuff.MS_CONVEYOR_BELT, "B",
             60,  20,  -1,   -1,  60,  200,
             "A conveyor belt has one exit and three entrances.",
+            "Un tapis roulant a une sortie et trois entrées.","Do nothing", "Ne fait rien",
             Number.MAX_VALUE, "Conveyor Belt Out is South by default",
             false, null
         ),
-        new MachineInfo("Cross", MachineStuff.MS_CROSS_BELT, "X",
+        new MachineInfo("Cross","Croix", MachineStuff.MS_CROSS_BELT, "X",
             160, 20,  -1,   -1,  60,  200,
             "The cross has two entries and two exits, each resources/garbage is sent to the opposite exit.",
+            "La croix a deux entrées et deux sorties, chaque ressource / poubelle est envoyée à la sortie opposée.",
+            "","",
             Number.MAX_VALUE, "Cross Out is South and West by default",
             false, null
         ),
-        new MachineInfo("Recycling center", MachineStuff.MS_RECYCLING_CENTER, "R",
+        new MachineInfo("Recycling center","Centre de recyclage", MachineStuff.MS_RECYCLING_CENTER, "R",
             500, 40,  1500, 100, 100, 500,
             "The recycling center has 3 entrances and one exit. The center can store up to 100 garbage." +
             " 10 garbage produce 1 resource by default. Storage of Recycling center increases by 10 per level.",
+            "Le centre de recyclage a 3 entrées et une sortie. Le centre peut stocker jusqu'à 100 déchets. " +
+            "10 déchets produisent 1 ressource par défaut. Le stockage du centre de recyclage augmente de 10 par niveau.",
+            "+10 storage / level","+10 capacité / niveau",
             100, "Recycling Center Out is South by default",
             true, function (level: number) : number {
                 return 10 * (level-1); // we add ten by level (aside lvl1 since that's the default)
             }
         ),
-        new MachineInfo("Junkyard", MachineStuff.MS_JUNKYARD, "J",
+        new MachineInfo("Junkyard","Déchetterie", MachineStuff.MS_JUNKYARD, "J",
             100, 100, 200,  600, 100, 200,
             "The junkyard  has 4 entrances and no exit. It can store up to 50 garbage." +
             "Storage of Junkyard increases by 20 per level.",
+            "La déchetterie a 4 entrées et aucune sortie. Il peut stocker jusqu'à 50 déchets. " +
+            "Le stockage de la déchetterie augmente de 20 par niveau.","+20 storage / level",
+            "+20 capacité / niveau",
             50, "Junkyard doesn't have any Out",
             true, function (level: number) : number {
                 return 20 * (level-1); // when level = 2, return 20 since we add 20 to the 50

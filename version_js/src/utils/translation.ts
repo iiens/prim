@@ -183,6 +183,12 @@ export class Translation {
         this.translations_EN.set(TrKeys.GAME_JUNKYARD,': Junkyard');
         this.translations_EN.set(TrKeys.GAME_COLLECTOR,': Collector');
 
+        //staffs.html, menu.html, mapping.html, end.html,rules.html
+        this.translations_EN.set(TrKeys.GO_BACK_B,'Go back to main menu (or press');
+
+        //end.html
+        this.translations_EN.set(TrKeys.GO_BACK_B,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
+            '                    or an application, get in touch with us !');
 
 
 
@@ -275,6 +281,13 @@ export class Translation {
         this.translations_FR.set(TrKeys.GAME_RECYCLING_CENTER,': Centre de recyclage');
         this.translations_FR.set(TrKeys.GAME_JUNKYARD,': Déchetterie');
         this.translations_FR.set(TrKeys.GAME_COLLECTOR,': Collecteur');
+
+        //staffs.html, menu.html, mapping.html, end.html,rules.html
+        this.translations_FR.set(TrKeys.GO_BACK_B,'Revenir au menu (ou appuyer sur');
+
+        //end.html
+        this.translations_FR.set(TrKeys.GO_BACK_B,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
+            ' auquel vous voulez jouer ou une application, contactez-nous !');
 
 
         this.errors_EN = new Map<ErrorCode, string>();
@@ -395,6 +408,7 @@ export enum TrKeys {
     RULES_EXPLAIN, //!< What are the rules ?
     RULES_PLAY_TITLE, //!< Title
     RULES_PLAY, //!< How should I play ?
+    END_MESSAGE,
 
 
 

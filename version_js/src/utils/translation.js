@@ -163,6 +163,8 @@ class Translation {
         this.translations_EN.set(TrKeys.GAME_RECYCLING_CENTER, ': Recycling center');
         this.translations_EN.set(TrKeys.GAME_JUNKYARD, ': Junkyard');
         this.translations_EN.set(TrKeys.GAME_COLLECTOR, ': Collector');
+        //staff.html
+        this.translations_EN.set(TrKeys.GO_BACK_B, 'Go back to main menu (or press');
         this.translations_FR = new Map();
         // index.html
         this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -250,6 +252,8 @@ class Translation {
         this.translations_FR.set(TrKeys.GAME_RECYCLING_CENTER, ': Centre de recyclage');
         this.translations_FR.set(TrKeys.GAME_JUNKYARD, ': Déchetterie');
         this.translations_FR.set(TrKeys.GAME_COLLECTOR, ': Collecteur');
+        //staff.html
+        this.translations_FR.set(TrKeys.GO_BACK_B, 'Revenir au menu (ou appuyer sur');
         this.errors_EN = new Map();
         this.errors_EN.set(code_1.ErrorCode.ERROR, 'Some error occurred');
         this.errors_EN.set(code_1.ErrorCode.ERROR_CASE_MACHINE, 'This case is a machine. Please try again.');
