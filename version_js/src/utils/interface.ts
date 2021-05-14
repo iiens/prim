@@ -2,6 +2,7 @@ import {Case, CaseType, Map, PRODUCTION_MODE} from "../model/map"
 import {Game} from "../game";
 import {Action} from "./mappings";
 import {Box, Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
+import {getRandomInt} from "./utilities";
 
 /*
 todo: legend not in brut code
@@ -282,12 +283,8 @@ export class Interface {
 
 class InterfaceUtils {
 
-    static getRandomInt(max: number) {
-        return Math.floor(Math.random() * max);
-    }
-
     static drawSpawner(content: any, ctx: any, xx: number, yy: number) {
-        let url = '../../assets/img/Spawner/';
+        let url = '../../assets/img/map/';
         const numberImage : number = 15;
         let img = new Image();
         if(content == "S "){
@@ -297,7 +294,7 @@ class InterfaceUtils {
             // ctx.drawImage(gif.image,0,0); // will draw the playing gif image
             img.src = url+'Gate.png';
         } else {
-            img.src = url+'Sol/Random'+this.getRandomInt(numberImage)+'.png';
+            img.src = url+'Sol/Random'+getRandomInt(numberImage)+'.png';
         }
         img.onload = function() {
             ctx.drawImage(img, xx+1, yy+1);
@@ -305,35 +302,25 @@ class InterfaceUtils {
     }
 
     static drawMachine(mach: Machine, ctx: any, xx: number, yy: number) {
-        let url = '../../assets/img/Machines/';
         let img = new Image();
         switch (mach.type) {
             case MachineStuff.MS_COLLECTOR:
-                if (mach.isOrientationBottom(Direction.OUT)) { img.src = url+'Collecteur/MS_COLLECTOR_BOT.png';
-                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = url+'Collecteur/MS_COLLECTOR_TOP.png';
-                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = url+'Collecteur/MS_COLLECTOR_LEFT.png';
-                } else { img.src = url+'Collecteur/MS_COLLECTOR_RIGHT.png'; }
-                break;
             case MachineStuff.MS_CONVEYOR_BELT:
-                if (mach.isOrientationBottom(Direction.OUT)) { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_BOT.png';
-                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_TOP.png';
-                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png';
-                } else { img.src = url+'Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png'; }
+            case MachineStuff.MS_RECYCLING_CENTER:
+                if (mach.isOrientationBottom(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'BOT.png';
+                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'TOP.png';
+                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'LEFT.png';
+                } else { img.src = mach.getInfo().pathToFile+'RIGHT.png'; }
                 break;
             case MachineStuff.MS_CROSS_BELT:
                 img.src = '../../assets/img/MS_CROSS_BELT.png';
-                if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = url+'Cross/MS_CROSS_BELT_BOT_RIGHT.png';
-                } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = url+'Cross/MS_CROSS_BELT_TOP_LEFT.png';
-                } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = url+'Cross/MS_CROSS_BELT_BOT_LEFT.png';
-                } else { img.src = url+'Cross/MS_CROSS_BELT_TOP_RIGHT.png'; }
+                if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'BOT_RIGHT.png';
+                } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'TOP_LEFT.png';
+                } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'BOT_LEFT.png';
+                } else { img.src = mach.getInfo().pathToFile+'TOP_RIGHT.png'; }
                 break;
             case MachineStuff.MS_JUNKYARD:
-                img.src = url+'MS_JUNKYARD.png';
-                break;
-            case MachineStuff.MS_RECYCLING_CENTER:
-                img.src = url+'MS_RECYCLING_CENTER.png';
-                xx = xx;
-                yy = yy;
+                img.src = mach.getInfo().pathToFile;
                 break;
         }
         img.onload = function() {

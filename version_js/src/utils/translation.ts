@@ -273,7 +273,7 @@ export class Translation {
         this.translations_FR.set(TrKeys.GAME_FISA_MODE, 'MODE FISA:');
         this.translations_FR.set(TrKeys.GAME_SCORE, 'Score:');
         this.translations_FR.set(TrKeys.GAME_GARBAGE, 'Déchets:');
-        this.translations_FR.set(TrKeys.LEGEND, 'Légende');
+        this.translations_FR.set(TrKeys.LEGEND, 'legend');
         this.translations_FR.set(TrKeys.GAME_SOURCE,': Source');
         this.translations_FR.set(TrKeys.GAME_GATE,': Porte');
         this.translations_FR.set(TrKeys.GAME_CONVEYOR_BELT,': Tapis roulant');

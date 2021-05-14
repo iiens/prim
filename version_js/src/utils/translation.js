@@ -163,8 +163,11 @@ class Translation {
         this.translations_EN.set(TrKeys.GAME_RECYCLING_CENTER, ': Recycling center');
         this.translations_EN.set(TrKeys.GAME_JUNKYARD, ': Junkyard');
         this.translations_EN.set(TrKeys.GAME_COLLECTOR, ': Collector');
-        //staff.html
+        //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Go back to main menu (or press');
+        //end.html
+        this.translations_EN.set(TrKeys.GO_BACK_B, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
+            '                    or an application, get in touch with us !');
         this.translations_FR = new Map();
         // index.html
         this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -244,7 +247,7 @@ class Translation {
         this.translations_FR.set(TrKeys.GAME_FISA_MODE, 'MODE FISA:');
         this.translations_FR.set(TrKeys.GAME_SCORE, 'Score:');
         this.translations_FR.set(TrKeys.GAME_GARBAGE, 'Déchets:');
-        this.translations_FR.set(TrKeys.LEGEND, 'Légende');
+        this.translations_FR.set(TrKeys.LEGEND, 'legend');
         this.translations_FR.set(TrKeys.GAME_SOURCE, ': Source');
         this.translations_FR.set(TrKeys.GAME_GATE, ': Porte');
         this.translations_FR.set(TrKeys.GAME_CONVEYOR_BELT, ': Tapis roulant');
@@ -252,8 +255,11 @@ class Translation {
         this.translations_FR.set(TrKeys.GAME_RECYCLING_CENTER, ': Centre de recyclage');
         this.translations_FR.set(TrKeys.GAME_JUNKYARD, ': Déchetterie');
         this.translations_FR.set(TrKeys.GAME_COLLECTOR, ': Collecteur');
-        //staff.html
+        //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Revenir au menu (ou appuyer sur');
+        //end.html
+        this.translations_FR.set(TrKeys.GO_BACK_B, 'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
+            ' auquel vous voulez jouer ou une application, contactez-nous !');
         this.errors_EN = new Map();
         this.errors_EN.set(code_1.ErrorCode.ERROR, 'Some error occurred');
         this.errors_EN.set(code_1.ErrorCode.ERROR_CASE_MACHINE, 'This case is a machine. Please try again.');
@@ -359,6 +365,7 @@ var TrKeys;
     TrKeys[TrKeys["RULES_EXPLAIN"] = 55] = "RULES_EXPLAIN";
     TrKeys[TrKeys["RULES_PLAY_TITLE"] = 56] = "RULES_PLAY_TITLE";
     TrKeys[TrKeys["RULES_PLAY"] = 57] = "RULES_PLAY";
+    TrKeys[TrKeys["END_MESSAGE"] = 58] = "END_MESSAGE";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

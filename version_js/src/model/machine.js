@@ -21,8 +21,9 @@ const game_1 = require("../game");
  * This value must be checked before applying effect or increase level.
  */
 class MachineInfo {
-    constructor(name, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description, capacity, defaultOrientation, canUpgrade, levelUpFunction) {
-        this.name = name;
+    constructor(name_eng, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_eng, description_fr, upgrade_eng, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, pathToFile) {
+        this.name_eng = name_eng;
+        this.name_fr = name_fr;
         this.type = type;
         this.tag = tag;
         this.costE = costE;
@@ -31,11 +32,15 @@ class MachineInfo {
         this.costUpgradeDD = costUpgradeDD;
         this.costDestroyE = costDestroyE;
         this.costDestroyDD = costDestroyDD;
-        this.description = description;
+        this.description_eng = description_eng;
+        this.description_fr = description_fr;
         this.capacity = capacity;
         this.defaultOrientation = defaultOrientation;
         this.canUpgrade = canUpgrade;
+        this.upgrade_eng = upgrade_eng;
+        this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
+        this.pathToFile = pathToFile;
     }
     /**
      * A function to verify if the id given in argument correspond to a machineInfo

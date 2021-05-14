@@ -30,3 +30,7 @@ export class Vector2D {
 export function randomNumber(min: number, max: number) : number {
     return Number(Math.floor(Math.random() * (max - min + 1) + min));
 }
+
+export function getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
+}

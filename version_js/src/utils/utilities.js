@@ -9,7 +9,7 @@
  *
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.randomNumber = exports.Vector2D = void 0;
+exports.getRandomInt = exports.randomNumber = exports.Vector2D = void 0;
 /**
  * @brief name of struct Vector2D to Vector2D
  *
@@ -30,3 +30,7 @@ function randomNumber(min, max) {
     return Number(Math.floor(Math.random() * (max - min + 1) + min));
 }
 exports.randomNumber = randomNumber;
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+exports.getRandomInt = getRandomInt;

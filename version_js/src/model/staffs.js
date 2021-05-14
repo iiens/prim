@@ -15,10 +15,11 @@ const utilities_1 = require("../utils/utilities");
  * Contains all information about the character of the Staff
  */
 class Staff {
-    constructor(id, name, desc, costE, costDD, effect) {
+    constructor(id, name, desc_eng, desc_fr, costE, costDD, effect) {
         this.id = id;
         this.name = name;
-        this.desc = desc;
+        this.desc_eng = desc_eng;
+        this.desc_fr = desc_fr;
         this.costE = costE;
         this.costDD = costDD;
         this.effect = effect;
@@ -28,7 +29,7 @@ class Staff {
      * @param object a Staff serialized
      */
     static revive(object) {
-        return new Staff(object.id, object.name, object.desc, object.costE, object.costDD, object.effect);
+        return new Staff(object.id, object.name, object.desc_eng, object.desc_fr, object.costE, object.costDD, object.effect);
     }
 }
 exports.Staff = Staff;
@@ -190,84 +191,97 @@ class StaffUtils {
     */
     static createBannour() {
         return new Staff(1, "Fetia Bannour", "The cost of constructing collectors decreases by" +
-            " 10EE and 1DD (min 10E and 1DD).", 100, 30, function (event, count) {
+            " 10EE and 1DD (min 10E and 1DD).", "Le coût de construction des collecteurs diminue de " +
+            " 10EE et 1DD (min 10E et 1DD).", 100, 30, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.BUY_MACHINE, 10, 1, 10, 1);
         });
     }
     static createGoilard() {
         return new Staff(2, "Kevin Goilard", "The cost of constructing conveyor belt decreases by 3E" +
-            " and 1DD (min 3EE and 1DD).", 100, 30, function (event, count) {
+            " and 1DD (min 3EE and 1DD).", "Le coût de construction du tapis roulant diminue de 3E" +
+            " et 1DD (min 3EE et 1DD).", 100, 30, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CONVEYOR_BELT, events_1.EventType.BUY_MACHINE, 3, 1, 3, 1);
         });
     }
     static createJeannas() {
         return new Staff(3, "Vincent Jeannas", "The cost of constructing cross decreases by 8E and 1DD (min 8EE " +
-            "and 1DD).", 100, 30, function (event, count) {
+            "and 1DD).", "Le coût de construction d'une croix diminue de 8E et 1DD (min 8EE" +
+            " et 1DD).", 100, 30, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CROSS_BELT, events_1.EventType.BUY_MACHINE, 8, 1, 8, 1);
         });
     }
     static createLaurent() {
         return new Staff(4, "Thomas Laurent", "The cost of constructing recycling center decreases by 25E and " +
-            "2DD (min 25E and 2DD).", 100, 30, function (event, count) {
+            "2DD (min 25E and 2DD).", "Le coût de construction du centre de recyclage diminue de 25E et" +
+            " 2DD (min 25E et 2DD).", 100, 30, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.BUY_MACHINE, 25, 2, 25, 2);
         });
     }
     static createMerabet() {
         return new Staff(5, "Massinissa Merabet", "The cost of constructing junkyard decreases by 5E and 5DD" +
-            " (min 5E and 5DD).", 100, 30, function (event, count) {
+            " (min 5E and 5DD).", "Le coût de construction de la déchetterie diminue de 5E et 5DD" +
+            " (min 5E et 5DD).", 100, 30, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.BUY_MACHINE, 5, 5, 5, 5);
         });
     }
     static createNouleho() {
         return new Staff(6, "Stefi Nouleho", "The cost of upgrading collectors decreases by" +
-            " 25E and 5DD (min 25E and 5DD).", 200, 100, function (event, count) {
+            " 25E and 5DD (min 25E and 5DD).", "Le coût d'amélioration des collecteurs diminue de " +
+            "25E et 5DD (min 25E et 5DD).", 200, 100, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.UPGRADE_MACHINE, 25, 5, 25, 5);
         });
     }
     static createY() {
         return new Staff(7, "Vitera Y", "The cost of upgrading recycling center " +
-            "decreases by 75E and 5DD (min 75E and 5DD).", 200, 100, function (event, count) {
+            "decreases by 75E and 5DD (min 75E and 5DD).", "Le coût d'amélioration'du centre de recyclage" +
+            " diminue de 75E et 5DD (min 75E et 5DD).", 200, 100, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.UPGRADE_MACHINE, 75, 5, 75, 5);
         });
     }
     static createBourard() {
         return new Staff(8, "Laurence Bourard", "The cost of upgrading junkyard decreases " +
-            "by 10E and 30DD (min 20E and 30DD).", 200, 100, function (event, count) {
+            "by 10E and 30DD (min 20E and 30DD).", "Le coût d'améliration de la déchetterie' diminue " +
+            " par 10E et 30DD (min 20E et 30DD).", 200, 100, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.UPGRADE_MACHINE, 10, 30, 10, 30);
         });
     }
     static createBrunel() {
         return new Staff(9, "Nicolas Brunel", "The cost of destroying collectors " +
-            "decreases by 3E and 10DD (min 3E and 10DD).", 100, 200, function (event, count) {
+            "decreases by 3E and 10DD (min 3E and 10DD).", "Le coût de la destruction des collecteurs" +
+            " diminue de 3E et 10DD (min 3E et 10DD).", 100, 200, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.DESTROY_MACHINE, 3, 10, 3, 10);
         });
     }
     static createCharantonis() {
         return new Staff(10, "Anastase Charantonis", "The cost of destroying conveyor belt decreases" +
-            " by 3E and 10DD (min 3E and 10DD).", 100, 200, function (event, count) {
+            " by 3E and 10DD (min 3E and 10DD).", "Le coût de destruction du tapis roulant diminue " +
+            " par 3E et 10DD (min 3E et 10DD).", 100, 200, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CONVEYOR_BELT, events_1.EventType.DESTROY_MACHINE, 3, 10, 3, 10);
         });
     }
     static createDubois() {
         return new Staff(11, "Catherine Dubois", "The cost of destroying cross decreases" +
-            " by 3E and 10DD (min 3E and 10DD).", 100, 200, function (event, count) {
+            " by 3E and 10DD (min 3E and 10DD).", "Le coût de destruction des croix diminue " +
+            " par 3E et 10DD (min 3E et 10DD).", 100, 200, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CROSS_BELT, events_1.EventType.DESTROY_MACHINE, 3, 10, 3, 10);
         });
     }
     static createDumbrava() {
         return new Staff(12, "Stefania Dumbrava", "The cost of destroying recycling center decreases" +
-            " by 5E and 25DD (min 5E and 25DD).", 100, 200, function (event, count) {
+            " by 5E and 25DD (min 5E and 25DD).", "Le coût de destruction du centre de recyclage diminue " +
+            " par 5E et 25DD (min 5E et 25DD).", 100, 200, function (event, count) {
             return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.DESTROY_MACHINE, 5, 25, 5, 25);
         });
     }
     static createFaye() {
         return new Staff(13, "Alain Faye", "The cost of destroying junkyard decreases by 5E" +
-            " and 10DD (min 5E and 10DD).", 100, 200, function (event, count) {
+            " and 10DD (min 5E and 10DD).", "Le coût de destruction des déchetteries diminue de 5E et" +
+            " 10DD (min 5E et 10DD).", 100, 200, function (event, count) {
             return event;
         });
     }
     static createLigozat() {
-        return new Staff(14, "Anne-Laure Ligozat", "Half garbage of each case are remove", 1000, 10, function (event, count) {
+        return new Staff(14, "Anne-Laure Ligozat", "Half garbage of each case are remove", "La moitié des déchets de chaque case disparaissent", 1000, 10, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.BOUGHT_STAFF) {
                 let staffBuyEvent = event.data;
                 if (staffBuyEvent.idStaff === 14) { // buy Ligozat
@@ -313,7 +327,7 @@ class StaffUtils {
         });
     }
     static createMouilleron() {
-        return new Staff(15, "Christophe Mouilleron", "School hire 20 FISE and 10 FISA", 1000, 400, function (event, count) {
+        return new Staff(15, "Christophe Mouilleron", "School hire 20 FISE and 10 FISA", "L’école recrute 20 FISE et 10 FISA.", 1000, 400, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.BOUGHT_STAFF) {
                 let staffBuyEvent = event.data;
                 if (staffBuyEvent.idStaff === 15) { // buy Mouilleron
@@ -326,7 +340,8 @@ class StaffUtils {
     }
     static createSzafranski() {
         return new Staff(16, "Marie Szafranski", "When a resource is send at the gate it count is doubled" +
-            " but the number of garbage is the same. Effect not cumulable.", 1000, 400, function (event, count) {
+            " but the number of garbage is the same. Effect not cumulable.", "A chaque fois qu’une ressource est envoyée à la porte, elle compte double. Le " +
+            "nombre de déchet produit est toujours de 1.", 1000, 400, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.CALCULATE_SCORE) {
                 let scoreEvent = event.data;
                 scoreEvent.modifierScore = 2; // multiplier is now two
@@ -337,7 +352,7 @@ class StaffUtils {
     static createThomas() {
         return new Staff(17, "Gael Thomas", "When a garbage leave the door it has a one " +
             "in 10 chance of disappearing. Effect is not cumulable, but for each staff bough we roll the dice " +
-            "one more time.", 1000, 400, function (event, numberThomas) {
+            "one more time.", "Quand un déchet quitte la porte, il a une chance sur 10 de disparaître.", 1000, 400, function (event, numberThomas) {
             if (numberThomas !== 0 && event.type === events_1.EventType.GARBAGE_DESTROY) {
                 let modifierThomas = 10;
                 // Taking into account Gaël Thomas
@@ -358,7 +373,7 @@ class StaffUtils {
     }
     static createLejeune() {
         return new Staff(18, "Eric Lejeune", "The cost of FISE decreases by 5E and 2DD" +
-            " (min 5E and 2DD)", 1000, 200, function (event, count) {
+            " (min 5E and 2DD)", "Le coût des FISE diminue de 5E et 2DD (minimum 5E et 2DD).", 1000, 200, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.HIRE_FISE) {
                 let studentCost = event.data;
                 studentCost.costE = Math.max(studentCost.costE - count * 5, 5);
@@ -369,7 +384,7 @@ class StaffUtils {
     }
     static createMathias() {
         return new Staff(19, "Christine Mathias", "The cost of FISA decreases by 5E and 2DD" +
-            " (min 5E and 2DD)", 1000, 200, function (event, count) {
+            " (min 5E and 2DD)", "Le coût des FISA diminue de 5E et 2DD (minimum 5E et 2DD).", 1000, 200, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.HIRE_FISA) {
                 let studentCost = event.data;
                 studentCost.costE = Math.max(studentCost.costE - count * 5, 5);
@@ -380,7 +395,8 @@ class StaffUtils {
     }
     static createSalhab() {
         return new Staff(20, "Katrin Salhab", "The cost of staff" +
-            " decreases by 50E and 20DD (min 10E and 10DD) ", 1500, 300, function (event, count) {
+            " decreases by 50E and 20DD (min 10E and 10DD) ", "Les membres du personnel coûtent 50E et 20DD de moins (minimum 10E et " +
+            "10DD).", 1500, 300, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.BUY_STAFF) {
                 let studentCost = event.data;
                 studentCost.costE = Math.max(studentCost.costE - count * 5, 5);
@@ -390,7 +406,7 @@ class StaffUtils {
         });
     }
     static createForest() {
-        return new Staff(21, "Julien Forest", "FISE produce 1E and 1DD more per turn", 2000, 500, function (event, count) {
+        return new Staff(21, "Julien Forest", "FISE produce 1E and 1DD more per turn", "Les FISE produisent 1E et 1DD de plus chaque tours.", 2000, 500, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.PRODUCTION_FISE) {
                 let productionEvent = event.data;
                 productionEvent.costE += count;
@@ -400,7 +416,7 @@ class StaffUtils {
         });
     }
     static createLim() {
-        return new Staff(22, "Thomas Lim", "Turn before source production decreases by 1 (min 1 turn)", 1000, 400, function (event, count) {
+        return new Staff(22, "Thomas Lim", "Turn before source production decreases by 1 (min 1 turn)", "Les sources mettent un tour de moins à produire (minimum 1).", 1000, 400, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.GENERATE_RESOURCES) {
                 let turnEvent = event.data;
                 // reduce up to one
@@ -410,7 +426,7 @@ class StaffUtils {
         });
     }
     static createWatel() {
-        return new Staff(23, "Dimitri Watel", "FISA product 4E or 4DD more each 2 turns", 2000, 500, function (event, count) {
+        return new Staff(23, "Dimitri Watel", "FISA product 4E or 4DD more each 2 turns", "Les FISA produisent 4E ou 4DD de plus tous les deux tours.", 2000, 500, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.PRODUCTION_FISA) {
                 let productionEvent = event.data;
                 productionEvent.costE += count * 4;
@@ -421,7 +437,8 @@ class StaffUtils {
     }
     static createPrevel() {
         return new Staff(24, "Laurent Prével", "10 percent of FISA and FISE leave the school but they send a" +
-            " resource to the gate.", 3000, 1000, function (event, count) {
+            " resource to the gate.", "Un dixième des FISE et des FISA de l’école sont diplômés. Ils quittent l’école " +
+            "mais chaque élève diplômé envoie une ressource à la porte.", 3000, 1000, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.BOUGHT_STAFF) {
                 let staffBuyEvent = event.data;
                 if (staffBuyEvent.idStaff === 24) { // buy Prével
