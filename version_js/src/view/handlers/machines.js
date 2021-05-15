@@ -4,10 +4,28 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
+
+const {MachineStuff} = require("../../model/machine");
 let machines = document.getElementById("machines-list");
 
 // all machines
 for (const machine of config.machines) {
+
+    let pathToFile;
+    switch (machine.type) {
+        case MachineStuff.MS_COLLECTOR:
+        case MachineStuff.MS_CONVEYOR_BELT:
+        case MachineStuff.MS_RECYCLING_CENTER:
+            pathToFile = machine.pathToFile+'BOT.png';
+            break;
+        case MachineStuff.MS_CROSS_BELT:
+            pathToFile = machine.pathToFile+'BOT_LEFT.png';
+            break;
+        case MachineStuff.MS_JUNKYARD:
+            pathToFile = machine.pathToFile;
+            break;
+    }
+
     let div = document.createElement("div");
     div.classList.add("border", "border-dark" ,"mt-3", "p-3")
 
@@ -22,7 +40,7 @@ for (const machine of config.machines) {
 
     div.innerHTML = `<div class="">
                 <span class="fw-bold">${machine.name}</span>
-                <i class="text-success">(id=${machine.type}, tag=${machine.tag})</i>
+                <i class="text-success">id=${machine.type}, <img src="${pathToFile}"></i>
             </div>
             <p>${machine.description}</p>
             <span>
