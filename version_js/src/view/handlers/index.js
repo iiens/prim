@@ -6,7 +6,7 @@
 // process.
 let current = 1; // current menu
 const NUMBER_OF_MENUS = 6; // number of menus
-const EXIT_INDEX = 5; // exit index, the only one were we are not making a redirect
+const EXIT_INDEX = NUMBER_OF_MENUS; // exit index, the only one were we are not making a redirect
 
 // create input listener
 let inputListener = (event, input) => {
@@ -37,7 +37,7 @@ let inputListener = (event, input) => {
         }
         // menu: down
         if (input.key === "ArrowDown"){
-            if (current < 5){
+            if (current < NUMBER_OF_MENUS){
                 current++
             }
         }

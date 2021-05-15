@@ -26,8 +26,8 @@ let inputListener = (event, input) => {
 // allow mouse
 document.getElementById('go-back').onclick = () => moveBack();
 // set key according to config
-document.getElementsByClassName("config-back-key")[0].
-    innerHTML = config.keys.back;
+let key_span = document.getElementsByClassName("config-back-key");
+if (key_span[0]) key_span[0].innerHTML = config.keys.back;
 
 // add listener
 win.onInput(inputListener)

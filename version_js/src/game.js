@@ -56,6 +56,9 @@ class Game {
                 if (value.dataType === 'Box') {
                     return machine_1.Box.revive(value.value);
                 }
+                if (value.dataType === 'Facade') {
+                    return machine_1.Facade.revive(value.value);
+                }
             }
             return value;
         }));
@@ -81,6 +84,12 @@ class Game {
             else if (value instanceof machine_1.Box) {
                 return {
                     dataType: 'Box',
+                    value: value.serialize(),
+                };
+            }
+            else if (value instanceof machine_1.Facade) {
+                return {
+                    dataType: 'Facade',
                     value: value.serialize(),
                 };
             }

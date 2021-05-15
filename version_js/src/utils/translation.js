@@ -180,7 +180,7 @@ class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Go back to main menu (or press');
         //end.html
-        this.translations_EN.set(TrKeys.GO_BACK_B, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
+        this.translations_EN.set(TrKeys.END_MESSAGE, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
         //French Translation
         this.translations_FR = new Map();
@@ -292,7 +292,7 @@ class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Revenir au menu (ou appuyer sur');
         //end.html
-        this.translations_FR.set(TrKeys.GO_BACK_B, 'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
+        this.translations_FR.set(TrKeys.END_MESSAGE, 'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
             ' auquel vous voulez jouer ou une application, contactez-nous !');
         this.errors_EN = new Map();
         this.errors_EN.set(code_1.ErrorCode.ERROR, 'Some error occurred');

@@ -4,7 +4,7 @@ import {Difficulty} from "./model/difficulty";
 import {Map} from "./model/map";
 import {Interface} from "./utils/interface";
 import {StaffDictionary} from "./model/staffs";
-import {Box, Machine} from "./model/machine";
+import {Box, Facade, Machine} from "./model/machine";
 import {Translation, Language} from "./utils/translation";
 
 /**
@@ -66,6 +66,9 @@ export class Game {
                 if (value.dataType === 'Box') {
                     return Box.revive(value.value);
                 }
+                if (value.dataType === 'Facade') {
+                    return Facade.revive(value.value);
+                }
             }
             return value;
         }));
@@ -92,6 +95,11 @@ export class Game {
                         dataType: 'Box',
                         value: value.serialize(),
                     };
+            } else if (value instanceof Facade) {
+                return {
+                    dataType: 'Facade',
+                    value: value.serialize(),
+                };
             } else {
                 return value;
             }

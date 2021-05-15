@@ -565,6 +565,31 @@ export class Facade {
                 return new Vector2D(0,0);
         }
     }
+
+    /**
+     * Serialize a facade, returns as an object
+     * @return object serialized facade
+     */
+    public serialize() : object {
+        return {
+            cardinal: this.cardinal,
+            direction: this.cardinal,
+            content: this.content,
+        }
+    }
+
+    /**
+     * Revive a serialized facade
+     * @param obj a serialized facade
+     * @return Facade a facade
+     */
+    public static revive(obj: any) : Facade {
+        let f = new Facade(obj.cardinal);
+        f.direction = obj.direction;
+        f.content = obj.content;
+        return f;
+    }
+
 }
 
 /**
