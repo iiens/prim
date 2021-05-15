@@ -44,15 +44,14 @@ export class MachineInfo {
     public readonly defaultOrientation : string; //!< get the default orientation of the machine
     public readonly canUpgrade : boolean; //!< 1 if it's upgradable, else 0
     private readonly levelUpFunction: ((v: number) => number) | null; //!< An effect for the machine if it's upgrade
-    public readonly imageFile: Map<Cardinal, string>; //!< Path to the image file without resources
-    public readonly imageFileWithResources: Map<Cardinal, string> | null; //!< Path to the image file with resources
+    public readonly imageFile: Map<Cardinal, string>; //!< Path to the image file
 
     constructor(name_en: string,name_fr: string, type: MachineStuff, tag: string, costE: number, costDD: number, costUpgradeE: number,
                 costUpgradeDD: number, costDestroyE: number, costDestroyDD: number,
                 description_en: string,description_fr: string, upgrade_en : string, upgrade_fr : string,
                 capacity: number, defaultOrientation: string,
                 canUpgrade: boolean, levelUpFunction: ((v: number) => number) | null,
-                imageFile: Map<Cardinal, string>, imageFileWithResources: Map<Cardinal, string> | null){
+                imageFile: Map<Cardinal, string>){
         this.name_en = name_en;
         this.name_fr = name_fr;
         this.type = type;
@@ -72,7 +71,6 @@ export class MachineInfo {
         this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
         this.imageFile = imageFile;
-        this.imageFileWithResources = imageFileWithResources ?? null;
     }
 
     /**

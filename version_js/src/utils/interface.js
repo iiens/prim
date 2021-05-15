@@ -281,74 +281,48 @@ class InterfaceUtils {
     static drawMachine(Case, ctx, xx, yy) {
         let mach = Case.getMachine();
         let img = new Image();
-        if (Case.numberResources() > 0) {
-            switch (mach.type) {
-                case machine_1.MachineStuff.MS_CONVEYOR_BELT:
-                    if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.SOUTH);
-                    }
-                    else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.NORTH);
-                    }
-                    else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.WEST);
-                    }
-                    else {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.EAST);
-                    }
-                    break;
-                case machine_1.MachineStuff.MS_CROSS_BELT:
-                    if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.EAST);
-                    }
-                    else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.WEST);
-                    }
-                    else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.SOUTH);
-                    }
-                    else {
-                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.NORTH);
-                    }
-                    break;
-            }
-        }
-        else {
-            switch (mach.type) {
-                case machine_1.MachineStuff.MS_JUNKYARD:
+        switch (mach.type) {
+            case machine_1.MachineStuff.MS_JUNKYARD:
+                img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                break;
+            case machine_1.MachineStuff.MS_RECYCLING_CENTER:
+            case machine_1.MachineStuff.MS_COLLECTOR:
+            case machine_1.MachineStuff.MS_CONVEYOR_BELT:
+                if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
                     img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
-                    break;
-                case machine_1.MachineStuff.MS_CROSS_BELT:
-                    if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
-                    }
-                    else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
-                    }
-                    else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
-                    }
-                    else {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
-                    }
-                    break;
-                case machine_1.MachineStuff.MS_COLLECTOR:
-                case machine_1.MachineStuff.MS_CONVEYOR_BELT:
-                case machine_1.MachineStuff.MS_RECYCLING_CENTER:
-                    if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
-                    }
-                    else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
-                    }
-                    else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
-                    }
-                    else {
-                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
-                    }
-                    break;
-            }
+                }
+                else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
+                }
+                else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
+                }
+                else {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
+                }
+                if (mach.type == machine_1.MachineStuff.MS_CONVEYOR_BELT && (Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
+                    img.src = img.src.substring(0, img.src.length - 4);
+                    img.src = img.src + "_BOX.png";
+                }
+                break;
+            case machine_1.MachineStuff.MS_CROSS_BELT:
+                if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
+                }
+                else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
+                }
+                else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                }
+                else {
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
+                }
+                if ((Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
+                    img.src = img.src.substring(0, img.src.length - 4);
+                    img.src = img.src + "_BOX.png";
+                }
+                break;
         }
         img.onload = function () {
             ctx.drawImage(img, xx + 1, yy + 1);

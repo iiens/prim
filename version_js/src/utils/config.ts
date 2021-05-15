@@ -68,8 +68,7 @@ export class Config {
                 [Cardinal.WEST, "../../assets/img/machines/Collecteur/MS_COLLECTOR_LEFT.png"],
                 [Cardinal.NORTH, "../../assets/img/machines/Collecteur/MS_COLLECTOR_TOP.png"],
                 [Cardinal.EAST, "../../assets/img/machines/Collecteur/MS_COLLECTOR_RIGHT.png"]
-                ]),
-            null
+                ])
         ),
         new MachineInfo("Conveyor belt","Tapis roulant", MachineStuff.MS_CONVEYOR_BELT, "B",
             60,  20,  -1,   -1,  60,  200,
@@ -82,12 +81,6 @@ export class Config {
                 [Cardinal.WEST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png"],
                 [Cardinal.NORTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_TOP.png"],
                 [Cardinal.EAST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png"]
-            ]),
-            new Map ([
-                [Cardinal.SOUTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_VERTICAL_RESOURCE.png"],
-                [Cardinal.WEST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_HORIZONTAL_RESOURCE.png"],
-                [Cardinal.NORTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_VERTICAL_RESOURCE.png"],
-                [Cardinal.EAST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_HORIZONTAL_RESOURCE.png"]
             ])
         ),
         new MachineInfo("Cross","Croix", MachineStuff.MS_CROSS_BELT, "X",
@@ -102,12 +95,6 @@ export class Config {
                 [Cardinal.WEST, "../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_LEFT.png"],
                 [Cardinal.NORTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_RIGHT.png"],
                 [Cardinal.EAST, "../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_RIGHT.png"]
-            ]),
-            new Map ([
-                [Cardinal.SOUTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
-                [Cardinal.WEST, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
-                [Cardinal.NORTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
-                [Cardinal.EAST, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"]
             ])
         ),
         new MachineInfo("Recycling center","Centre de recyclage", MachineStuff.MS_RECYCLING_CENTER, "R",
@@ -126,8 +113,7 @@ export class Config {
                 [Cardinal.WEST, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_LEFT.png"],
                 [Cardinal.NORTH, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_TOP.png"],
                 [Cardinal.EAST, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_RIGHT.png"]
-            ]),
-            null
+            ])
         ),
         new MachineInfo("Junkyard","Déchetterie", MachineStuff.MS_JUNKYARD, "J",
             100, 100, 200,  600, 100, 200,
@@ -145,7 +131,7 @@ export class Config {
                 [Cardinal.WEST, "../../assets/img/machines/MS_JUNKYARD.png"],
                 [Cardinal.NORTH, "../../assets/img/machines/MS_JUNKYARD.png"],
                 [Cardinal.WEST, "../../assets/img/machines/MS_JUNKYARD.png"]
-            ]),null
+            ])
         ),
     ]
 

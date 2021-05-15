@@ -291,41 +291,35 @@ class InterfaceUtils {
         let mach = Case.getMachine();
         let img = new Image();
 
-        if (Case.numberResources() > 0) {
-            switch (mach.type) {
-                case MachineStuff.MS_CONVEYOR_BELT:
-                    if (mach.isOrientationBottom(Direction.OUT)) { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.SOUTH);
-                    } else if (mach.isOrientationTop(Direction.OUT)) { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.NORTH);
-                    } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.WEST);
-                    } else { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.EAST); }
-                    break;
-                case MachineStuff.MS_CROSS_BELT:
-                    if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.EAST);
-                    } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.WEST);
-                    } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.SOUTH);
-                    } else { img.src = <string>mach.getInfo().imageFileWithResources?.get(Cardinal.NORTH); }
-                    break;
-            }
-        } else {
-            switch (mach.type) {
-                case MachineStuff.MS_JUNKYARD:
-                    img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
-                    break;
-                case MachineStuff.MS_CROSS_BELT:
-                    if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.EAST);
-                    } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.WEST);
-                    } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
-                    } else { img.src = <string>mach.getInfo().imageFile.get(Cardinal.NORTH); }
-                    break;
-                case MachineStuff.MS_COLLECTOR:
-                case MachineStuff.MS_CONVEYOR_BELT:
-                case MachineStuff.MS_RECYCLING_CENTER:
-                    if (mach.isOrientationBottom(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
-                    } else if (mach.isOrientationTop(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.NORTH);
-                    } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.WEST);
-                    } else { img.src = <string>mach.getInfo().imageFile.get(Cardinal.EAST); }
-                    break;
-            }
+        switch (mach.type) {
+            case MachineStuff.MS_JUNKYARD:
+                img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
+                break;
+
+            case MachineStuff.MS_RECYCLING_CENTER:
+            case MachineStuff.MS_COLLECTOR:
+            case MachineStuff.MS_CONVEYOR_BELT:
+                if (mach.isOrientationBottom(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
+                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.NORTH);
+                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.WEST);
+                } else { img.src = <string>mach.getInfo().imageFile.get(Cardinal.EAST); }
+
+                if(mach.type == MachineStuff.MS_CONVEYOR_BELT && (Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
+                    img.src = img.src.substring(0, img.src.length-4);
+                    img.src = img.src+"_BOX.png";
+                }
+                break;
+            case MachineStuff.MS_CROSS_BELT:
+                if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.EAST);
+                } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.WEST);
+                } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
+                } else { img.src = <string>mach.getInfo().imageFile.get(Cardinal.NORTH); }
+
+                if((Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
+                    img.src = img.src.substring(0, img.src.length-4);
+                    img.src = img.src+"_BOX.png";
+                }
+                break;
         }
         img.onload = function() {
             ctx.drawImage(img, xx+1, yy+1);

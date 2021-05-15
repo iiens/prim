@@ -22,7 +22,7 @@ const translation_1 = require("../utils/translation");
  * This value must be checked before applying effect or increase level.
  */
 class MachineInfo {
-    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, imageFile, imageFileWithResources) {
+    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, imageFile) {
         this.name_en = name_en;
         this.name_fr = name_fr;
         this.type = type;
@@ -42,7 +42,6 @@ class MachineInfo {
         this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
         this.imageFile = imageFile;
-        this.imageFileWithResources = imageFileWithResources ?? null;
     }
     /**
      * A function to verify if the id given in argument correspond to a machineInfo
