@@ -117,7 +117,7 @@ export class Interface {
 
                     if (Case.isMachine){
                         let machine: Machine = Case.getMachine();
-                        InterfaceUtils.drawMachine(machine, ctx, xx, yy);
+                        InterfaceUtils.drawMachine(Case, ctx, xx, yy);
                         if (machine.getInfo().canUpgrade){
                             let oldFont = ctx.font;
                             let texte = `lvl ${machine.level}`
@@ -165,42 +165,22 @@ export class Interface {
                     if (status) {
                         let p = <Case>map.getCase(tileX, tileY);
                         let type = <CaseType>p.caseType;
-                        console.log(type);
-                        let resource = 0, garbage = 0;
                         switch (type) {
                             case CaseType.CASE_GATE:
-                                let box = p.getBox();
-                                if(box != null){
-                                    resource = box.numberResources;
-                                    garbage = box.numberGarbage;
-                                }
                                 status.innerText = ` Case: ${tileX}, ${tileY}
-                                            Resources = ${resource}
-                                            Garbage = ${garbage}`;
+                                            Resources = ${p.numberResources()}
+                                            Garbage = ${p.numberGarbage()}`;
                                 break;
                             case CaseType.CASE_MACHINE:
-                                for (let i = 0; i < Machine.NUMBER_CARDINAL; i++) {
-                                    let box = <Box>p.getMachine().getBox(i);
-                                    if(box != null) {
-                                        resource += box.numberResources;
-                                        garbage += box.numberGarbage;
-                                    }
-                                }
                                 status.innerText = ` Case: ${tileX}, ${tileY}
-                                            Resources = ${resource}
-                                            Garbage = ${garbage}
+                                            Resources = ${p.numberResources()}
+                                            Garbage = ${p.numberGarbage()}
                                             Level = ${p.getMachine().level}`;
                                 break;
                         }
                     }
                 }
             }
-        });
-
-        canvas.addEventListener("mouseout", event => {
-            /*if (status) {
-                status.innerText = "";
-            }*/
         });
     }
 
@@ -301,11 +281,25 @@ class InterfaceUtils {
         }
     }
 
-    static drawMachine(mach: Machine, ctx: any, xx: number, yy: number) {
+    static drawMachine(Case: Case, ctx: any, xx: number, yy: number) {
+        let mach = Case.getMachine();
         let img = new Image();
         switch (mach.type) {
-            case MachineStuff.MS_COLLECTOR:
+
             case MachineStuff.MS_CONVEYOR_BELT:
+                if (Case.numberResources() > 0 && (mach.isOrientationBottom(Direction.OUT) || mach.isOrientationTop(Direction.OUT)) ) {
+                    img.src = mach.getInfo().pathToFile+'VERTICAL_RESOURCE.png';
+                } else  if (Case.numberResources() > 0 && (mach.isOrientationLeft(Direction.OUT) || mach.isOrientationRight(Direction.OUT)) ) {
+                    img.src = mach.getInfo().pathToFile+'HORIZONTAL_RESOURCE.png';
+                } else {
+                    if (mach.isOrientationBottom(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'BOT.png';
+                    } else if (mach.isOrientationTop(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'TOP.png';
+                    } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'LEFT.png';
+                    } else { img.src = mach.getInfo().pathToFile+'RIGHT.png'; }
+                }
+                break;
+
+            case MachineStuff.MS_COLLECTOR:
             case MachineStuff.MS_RECYCLING_CENTER:
                 if (mach.isOrientationBottom(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'BOT.png';
                 } else if (mach.isOrientationTop(Direction.OUT)) { img.src = mach.getInfo().pathToFile+'TOP.png';
