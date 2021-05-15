@@ -1,6 +1,6 @@
 // import mappings
 import {Mappings} from "./mappings";
-import {MachineInfo, MachineStuff} from "../model/machine";
+import {Cardinal, MachineInfo, MachineStuff} from "../model/machine";
 
 /**
  * \author Ramzy ZEBRIR
@@ -63,14 +63,32 @@ export class Config {
             true,
             (level: number) => { // return 0 when level = 1, 1 when 2 etc.
                 return level - 1; // that number mean capacity = 1 + <result> on level n
-            }, "../../assets/img/machines/Collecteur/MS_COLLECTOR_"
+            }, new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/Collecteur/MS_COLLECTOR_BOT.png"],
+                [Cardinal.WEST, "../../assets/img/machines/Collecteur/MS_COLLECTOR_LEFT.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/Collecteur/MS_COLLECTOR_TOP.png"],
+                [Cardinal.EAST, "../../assets/img/machines/Collecteur/MS_COLLECTOR_RIGHT.png"]
+                ]),
+            null
         ),
         new MachineInfo("Conveyor belt","Tapis roulant", MachineStuff.MS_CONVEYOR_BELT, "B",
             60,  20,  -1,   -1,  60,  200,
             "A conveyor belt has one exit and three entrances.",
             "Un tapis roulant a une sortie et trois entrées.","Do nothing", "Ne fait rien",
             Number.MAX_VALUE, "Conveyor Belt Out is South by default",
-            false, null, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_"
+            false, null,
+            new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_BOT.png"],
+                [Cardinal.WEST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_TOP.png"],
+                [Cardinal.EAST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png"]
+            ]),
+            new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_VERTICAL_RESOURCE.png"],
+                [Cardinal.WEST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_HORIZONTAL_RESOURCE.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_VERTICAL_RESOURCE.png"],
+                [Cardinal.EAST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_HORIZONTAL_RESOURCE.png"]
+            ])
         ),
         new MachineInfo("Cross","Croix", MachineStuff.MS_CROSS_BELT, "X",
             160, 20,  -1,   -1,  60,  200,
@@ -78,7 +96,19 @@ export class Config {
             "La croix a deux entrées et deux sorties, chaque ressource / poubelle est envoyée à la sortie opposée.",
             "","",
             Number.MAX_VALUE, "Cross Out is South and West by default",
-            false, null, "../../assets/img/machines/Cross/MS_CROSS_BELT_"
+            false, null,
+            new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_LEFT.png"],
+                [Cardinal.WEST, "../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_LEFT.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_RIGHT.png"],
+                [Cardinal.EAST, "../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_RIGHT.png"]
+            ]),
+            new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
+                [Cardinal.WEST, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
+                [Cardinal.EAST, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"]
+            ])
         ),
         new MachineInfo("Recycling center","Centre de recyclage", MachineStuff.MS_RECYCLING_CENTER, "R",
             500, 40,  1500, 100, 100, 500,
@@ -90,7 +120,14 @@ export class Config {
             100, "Recycling Center Out is South by default",
             true, function (level: number) : number {
                 return 10 * (level-1); // we add ten by level (aside lvl1 since that's the default)
-            }, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_"
+            },
+            new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_BOT.png"],
+                [Cardinal.WEST, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_LEFT.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_TOP.png"],
+                [Cardinal.EAST, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_RIGHT.png"]
+            ]),
+            null
         ),
         new MachineInfo("Junkyard","Déchetterie", MachineStuff.MS_JUNKYARD, "J",
             100, 100, 200,  600, 100, 200,
@@ -102,7 +139,13 @@ export class Config {
             50, "Junkyard doesn't have any Out",
             true, function (level: number) : number {
                 return 20 * (level-1); // when level = 2, return 20 since we add 20 to the 50
-            }, "../../assets/img/machines/MS_JUNKYARD.png"
+            },
+            new Map ([
+                [Cardinal.SOUTH, "../../assets/img/machines/MS_JUNKYARD.png"],
+                [Cardinal.WEST, "../../assets/img/machines/MS_JUNKYARD.png"],
+                [Cardinal.NORTH, "../../assets/img/machines/MS_JUNKYARD.png"],
+                [Cardinal.WEST, "../../assets/img/machines/MS_JUNKYARD.png"]
+            ]),null
         ),
     ]
 

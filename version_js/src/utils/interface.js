@@ -159,15 +159,21 @@ class Interface {
                         let type = p.caseType;
                         switch (type) {
                             case map_1.CaseType.CASE_GATE:
-                                status.innerText = ` Case: ${tileX}, ${tileY}
+                                status.innerText = ` Gate : ${tileX}, ${tileY}
                                             Resources = ${p.numberResources()}
                                             Garbage = ${p.numberGarbage()}`;
                                 break;
                             case map_1.CaseType.CASE_MACHINE:
-                                status.innerText = ` Case: ${tileX}, ${tileY}
+                                status.innerText = ` Machine : ${tileX}, ${tileY}
                                             Resources = ${p.numberResources()}
                                             Garbage = ${p.numberGarbage()}
                                             Level = ${p.getMachine().level}`;
+                                break;
+                            case map_1.CaseType.CASE_SOURCE:
+                                status.innerText = ` Source : ${tileX}, ${tileY}`;
+                                break;
+                            case map_1.CaseType.CASE_EMPTY:
+                                status.innerText = ` Ground : ${tileX}, ${tileY}`;
                                 break;
                         }
                     }
@@ -275,62 +281,74 @@ class InterfaceUtils {
     static drawMachine(Case, ctx, xx, yy) {
         let mach = Case.getMachine();
         let img = new Image();
-        switch (mach.type) {
-            case machine_1.MachineStuff.MS_CONVEYOR_BELT:
-                if (Case.numberResources() > 0 && (mach.isOrientationBottom(machine_1.Direction.OUT) || mach.isOrientationTop(machine_1.Direction.OUT))) {
-                    img.src = mach.getInfo().pathToFile + 'VERTICAL_RESOURCE.png';
-                }
-                else if (Case.numberResources() > 0 && (mach.isOrientationLeft(machine_1.Direction.OUT) || mach.isOrientationRight(machine_1.Direction.OUT))) {
-                    img.src = mach.getInfo().pathToFile + 'HORIZONTAL_RESOURCE.png';
-                }
-                else {
+        if (Case.numberResources() > 0) {
+            switch (mach.type) {
+                case machine_1.MachineStuff.MS_CONVEYOR_BELT:
                     if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().pathToFile + 'BOT.png';
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.SOUTH);
                     }
                     else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().pathToFile + 'TOP.png';
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.NORTH);
                     }
                     else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
-                        img.src = mach.getInfo().pathToFile + 'LEFT.png';
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.WEST);
                     }
                     else {
-                        img.src = mach.getInfo().pathToFile + 'RIGHT.png';
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.EAST);
                     }
-                }
-                break;
-            case machine_1.MachineStuff.MS_COLLECTOR:
-            case machine_1.MachineStuff.MS_RECYCLING_CENTER:
-                if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().pathToFile + 'BOT.png';
-                }
-                else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().pathToFile + 'TOP.png';
-                }
-                else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().pathToFile + 'LEFT.png';
-                }
-                else {
-                    img.src = mach.getInfo().pathToFile + 'RIGHT.png';
-                }
-                break;
-            case machine_1.MachineStuff.MS_CROSS_BELT:
-                img.src = '../../assets/img/MS_CROSS_BELT.png';
-                if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().pathToFile + 'BOT_RIGHT.png';
-                }
-                else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().pathToFile + 'TOP_LEFT.png';
-                }
-                else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().pathToFile + 'BOT_LEFT.png';
-                }
-                else {
-                    img.src = mach.getInfo().pathToFile + 'TOP_RIGHT.png';
-                }
-                break;
-            case machine_1.MachineStuff.MS_JUNKYARD:
-                img.src = mach.getInfo().pathToFile;
-                break;
+                    break;
+                case machine_1.MachineStuff.MS_CROSS_BELT:
+                    if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.EAST);
+                    }
+                    else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.WEST);
+                    }
+                    else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.SOUTH);
+                    }
+                    else {
+                        img.src = mach.getInfo().imageFileWithResources?.get(machine_1.Cardinal.NORTH);
+                    }
+                    break;
+            }
+        }
+        else {
+            switch (mach.type) {
+                case machine_1.MachineStuff.MS_JUNKYARD:
+                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                    break;
+                case machine_1.MachineStuff.MS_CROSS_BELT:
+                    if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
+                    }
+                    else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
+                    }
+                    else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                    }
+                    else {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
+                    }
+                    break;
+                case machine_1.MachineStuff.MS_COLLECTOR:
+                case machine_1.MachineStuff.MS_CONVEYOR_BELT:
+                case machine_1.MachineStuff.MS_RECYCLING_CENTER:
+                    if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                    }
+                    else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
+                    }
+                    else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
+                    }
+                    else {
+                        img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
+                    }
+                    break;
+            }
         }
         img.onload = function () {
             ctx.drawImage(img, xx + 1, yy + 1);

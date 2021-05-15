@@ -56,17 +56,52 @@ Config.machines = [
         " to the neighboring cell indicated by its orientation. Collector storage increases by 1 per level.", "Envoie une ressource produites par la source sur la case voisine indiquée par son orientation." +
         " La capacité d'un Collecteur augmente de 1 par niveau", "+1 collected / level", "+1 collectée / niveau", 1, "Collector Out is South by default", true, (level) => {
         return level - 1; // that number mean capacity = 1 + <result> on level n
-    }, "../../assets/img/machines/Collecteur/MS_COLLECTOR_"),
-    new machine_1.MachineInfo("Conveyor belt", "Tapis roulant", machine_1.MachineStuff.MS_CONVEYOR_BELT, "B", 60, 20, -1, -1, 60, 200, "A conveyor belt has one exit and three entrances.", "Un tapis roulant a une sortie et trois entrées.", "Do nothing", "Ne fait rien", Number.MAX_VALUE, "Conveyor Belt Out is South by default", false, null, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_"),
-    new machine_1.MachineInfo("Cross", "Croix", machine_1.MachineStuff.MS_CROSS_BELT, "X", 160, 20, -1, -1, 60, 200, "The cross has two entries and two exits, each resources/garbage is sent to the opposite exit.", "La croix a deux entrées et deux sorties, chaque ressource / poubelle est envoyée à la sortie opposée.", "", "", Number.MAX_VALUE, "Cross Out is South and West by default", false, null, "../../assets/img/machines/Cross/MS_CROSS_BELT_"),
+    }, new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/Collecteur/MS_COLLECTOR_BOT.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/Collecteur/MS_COLLECTOR_LEFT.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/Collecteur/MS_COLLECTOR_TOP.png"],
+        [machine_1.Cardinal.EAST, "../../assets/img/machines/Collecteur/MS_COLLECTOR_RIGHT.png"]
+    ]), null),
+    new machine_1.MachineInfo("Conveyor belt", "Tapis roulant", machine_1.MachineStuff.MS_CONVEYOR_BELT, "B", 60, 20, -1, -1, 60, 200, "A conveyor belt has one exit and three entrances.", "Un tapis roulant a une sortie et trois entrées.", "Do nothing", "Ne fait rien", Number.MAX_VALUE, "Conveyor Belt Out is South by default", false, null, new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_BOT.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_TOP.png"],
+        [machine_1.Cardinal.EAST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png"]
+    ]), new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_VERTICAL_RESOURCE.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_HORIZONTAL_RESOURCE.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_VERTICAL_RESOURCE.png"],
+        [machine_1.Cardinal.EAST, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_HORIZONTAL_RESOURCE.png"]
+    ])),
+    new machine_1.MachineInfo("Cross", "Croix", machine_1.MachineStuff.MS_CROSS_BELT, "X", 160, 20, -1, -1, 60, 200, "The cross has two entries and two exits, each resources/garbage is sent to the opposite exit.", "La croix a deux entrées et deux sorties, chaque ressource / poubelle est envoyée à la sortie opposée.", "", "", Number.MAX_VALUE, "Cross Out is South and West by default", false, null, new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_LEFT.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_LEFT.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_RIGHT.png"],
+        [machine_1.Cardinal.EAST, "../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_RIGHT.png"]
+    ]), new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"],
+        [machine_1.Cardinal.EAST, "../../assets/img/machines/Cross/MS_CROSS_BELT_RESOURCE.png"]
+    ])),
     new machine_1.MachineInfo("Recycling center", "Centre de recyclage", machine_1.MachineStuff.MS_RECYCLING_CENTER, "R", 500, 40, 1500, 100, 100, 500, "The recycling center has 3 entrances and one exit. The center can store up to 100 garbage." +
         " 10 garbage produce 1 resource by default. Storage of Recycling center increases by 10 per level.", "Le centre de recyclage a 3 entrées et une sortie. Le centre peut stocker jusqu'à 100 déchets. " +
         "10 déchets produisent 1 ressource par défaut. Le stockage du centre de recyclage augmente de 10 par niveau.", "+10 storage / level", "+10 capacité / niveau", 100, "Recycling Center Out is South by default", true, function (level) {
         return 10 * (level - 1); // we add ten by level (aside lvl1 since that's the default)
-    }, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_"),
+    }, new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_BOT.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_LEFT.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_TOP.png"],
+        [machine_1.Cardinal.EAST, "../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_RIGHT.png"]
+    ]), null),
     new machine_1.MachineInfo("Junkyard", "Déchetterie", machine_1.MachineStuff.MS_JUNKYARD, "J", 100, 100, 200, 600, 100, 200, "The junkyard  has 4 entrances and no exit. It can store up to 50 garbage." +
         "Storage of Junkyard increases by 20 per level.", "La déchetterie a 4 entrées et aucune sortie. Il peut stocker jusqu'à 50 déchets. " +
         "Le stockage de la déchetterie augmente de 20 par niveau.", "+20 storage / level", "+20 capacité / niveau", 50, "Junkyard doesn't have any Out", true, function (level) {
         return 20 * (level - 1); // when level = 2, return 20 since we add 20 to the 50
-    }, "../../assets/img/machines/MS_JUNKYARD.png"),
+    }, new Map([
+        [machine_1.Cardinal.SOUTH, "../../assets/img/machines/MS_JUNKYARD.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/MS_JUNKYARD.png"],
+        [machine_1.Cardinal.NORTH, "../../assets/img/machines/MS_JUNKYARD.png"],
+        [machine_1.Cardinal.WEST, "../../assets/img/machines/MS_JUNKYARD.png"]
+    ]), null),
 ];
