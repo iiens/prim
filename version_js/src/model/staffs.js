@@ -11,14 +11,16 @@ exports.StaffUtils = exports.StaffDictionary = exports.Staff = void 0;
 const events_1 = require("../utils/events");
 const machine_1 = require("./machine");
 const utilities_1 = require("../utils/utilities");
+const game_1 = require("../game");
+const translation_1 = require("../utils/translation");
 /**
  * Contains all information about the character of the Staff
  */
 class Staff {
-    constructor(id, name, desc_eng, desc_fr, costE, costDD, effect) {
+    constructor(id, name, desc_en, desc_fr, costE, costDD, effect) {
         this.id = id;
         this.name = name;
-        this.desc_eng = desc_eng;
+        this.desc_en = desc_en;
         this.desc_fr = desc_fr;
         this.costE = costE;
         this.costDD = costDD;
@@ -29,7 +31,19 @@ class Staff {
      * @param object a Staff serialized
      */
     static revive(object) {
-        return new Staff(object.id, object.name, object.desc_eng, object.desc_fr, object.costE, object.costDD, object.effect);
+        return new Staff(object.id, object.name, object.desc_en, object.desc_fr, object.costE, object.costDD, object.effect);
+    }
+    /**
+     * return the description with the correct language
+     * @return description the description of a staff
+     */
+    get desc() {
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+            return this.desc_en;
+        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+            return this.desc_fr;
+        else
+            return "ERROR TRANSLATION";
     }
 }
 exports.Staff = Staff;

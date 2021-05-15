@@ -20,7 +20,7 @@ document.onreadystatechange = (event) => {
         let page = path.substring(path.lastIndexOf('/') + 1);
         page = page.replaceAll(".html", "");
 
-        //Todo:
+        //We initialize the language of the game, here is French
         Translation.setLanguage(Game.getTranslationLanguage());
 
         // load the page javascript
@@ -85,6 +85,23 @@ document.onreadystatechange = (event) => {
                     "tr-game-recycling-center" : Translation.get(TrKeys.GAME_RECYCLING_CENTER),
                     "tr-game-junkyard" : Translation.get(TrKeys.GAME_JUNKYARD),
                     "tr-game-collector" : Translation.get(TrKeys.GAME_COLLECTOR),
+                    "tr-game-case-selected" : Translation.get(TrKeys.GAME_CASE_SELECTED),
+                    "manage-staff" : Translation.get(TrKeys.GAME_MANAGE_STAFF),
+                    "tr-count1" : Translation.get(TrKeys.GAME_COUNT_1),
+                    "tr-count2" : Translation.get(TrKeys.GAME_COUNT_2),
+                    "tr-units" : Translation.get(TrKeys.GAME_UNITS),
+                    "tr-game-exit" : Translation.get(TrKeys.GAME_EXIT),
+                    "tr-game-end-turn" : Translation.get(TrKeys.GAME_END_TURN),
+                    "tr-machine" : Translation.get(TrKeys.GAME_MACHINE),
+                    "tr-rotation" : Translation.get(TrKeys.GAME_ROTATION),
+                    "tr-buy" : Translation.get(TrKeys.GAME_BUY),
+                    "tr-case-content" : Translation.get(TrKeys.GAME_CASE_CONTENT),
+                    "tr-machine-level" : Translation.get(TrKeys.GAME_MACHINE_LEVEL),
+                    "tr-rotation-none" : Translation.get(TrKeys.GAME_ROTATION_NONE),
+                    "tr-gate" : Translation.get(TrKeys.GAME_GATE_NAME),
+                    "tr-gate-desc" : Translation.get(TrKeys.GAME_GATE_DESC),
+                    "tr-source" : Translation.get(TrKeys.GAME_SOURCE_NAME),
+                    "tr-source-desc" : Translation.get(TrKeys.GAME_SOURCE_DESC),
                 }
                 translate();
                 require("./view/handlers/game");

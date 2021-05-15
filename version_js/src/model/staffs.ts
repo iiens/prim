@@ -7,16 +7,20 @@
  */
 import {
     EventType,
-    GameEvent, HireStudentEvent,
+    GameEvent,
+    HireStudentEvent,
     MachineEvent,
     ProductionStudentEvent,
     ScoreEvent,
-    StaffBoughtEvent, StaffBuyEvent,
+    StaffBoughtEvent,
+    StaffBuyEvent,
     TurnEvent
 } from "../utils/events";
 import {Box, Cardinal, Machine, MachineStuff} from "./machine";
-import {Case, CaseType} from "./map";
+import {Case} from "./map";
 import {randomNumber} from "../utils/utilities";
+import {Game} from "../game";
+import {Language} from "../utils/translation";
 
 /**
  * Contains all information about the character of the Staff
@@ -25,7 +29,7 @@ export class Staff {
 
     public readonly id: number; //!< id of the character
     public readonly name: string; //!< name of the character
-    public readonly desc_eng: string; //!< Price in E of the character in english
+    public readonly desc_en: string; //!< Price in E of the character in english
     public readonly desc_fr: string; //!< Price in E of the character in french
 
 
@@ -43,11 +47,11 @@ export class Staff {
      */
     public effect: (event:GameEvent, count: number) => GameEvent; //!< staff effect
 
-    constructor(id: number, name: string, desc_eng : string,desc_fr: string,
+    constructor(id: number, name: string, desc_en : string,desc_fr: string,
                 costE: number, costDD: number, effect: (event:GameEvent, count: number) => GameEvent) {
         this.id = id;
         this.name = name;
-        this.desc_eng = desc_eng;
+        this.desc_en = desc_en;
         this.desc_fr = desc_fr;
         this.costE = costE;
         this.costDD = costDD;
@@ -62,13 +66,27 @@ export class Staff {
         return new Staff(
             object.id,
             object.name,
-            object.desc_eng,
+            object.desc_en,
             object.desc_fr,
             object.costE,
             object.costDD,
             object.effect
         );
     }
+
+    /**
+     * return the description with the correct language
+     * @return description the description of a staff
+     */
+    get desc() : string {
+        if(Game.getTranslationLanguage()==Language.EN)
+            return this.desc_en;
+        else if(Game.getTranslationLanguage()==Language.FR)
+            return this.desc_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+
 }
 
 export class StaffDictionary {

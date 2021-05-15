@@ -14,6 +14,7 @@ const code_1 = require("../utils/code");
 const utilities_1 = require("../utils/utilities");
 const config_1 = require("../utils/config");
 const game_1 = require("../game");
+const translation_1 = require("../utils/translation");
 /**
  * Struct which contains all information about a machine
  *
@@ -21,8 +22,8 @@ const game_1 = require("../game");
  * This value must be checked before applying effect or increase level.
  */
 class MachineInfo {
-    constructor(name_eng, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_eng, description_fr, upgrade_eng, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, imageFile, imageFileWithResources) {
-        this.name_eng = name_eng;
+    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, imageFile, imageFileWithResources) {
+        this.name_en = name_en;
         this.name_fr = name_fr;
         this.type = type;
         this.tag = tag;
@@ -32,12 +33,12 @@ class MachineInfo {
         this.costUpgradeDD = costUpgradeDD;
         this.costDestroyE = costDestroyE;
         this.costDestroyDD = costDestroyDD;
-        this.description_eng = description_eng;
+        this.description_en = description_en;
         this.description_fr = description_fr;
         this.capacity = capacity;
         this.defaultOrientation = defaultOrientation;
         this.canUpgrade = canUpgrade;
-        this.upgrade_eng = upgrade_eng;
+        this.upgrade_en = upgrade_en;
         this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
         this.imageFile = imageFile;
@@ -74,6 +75,42 @@ class MachineInfo {
      * @return number the new capacity or -1 if not upgradable
      */
     capacityByLevel(level) { return this.levelUpFunction === null ? -1 : this.levelUpFunction(level); }
+    /**
+     * return the name with the correct language
+     * @return name the name of a machine
+     */
+    get name() {
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+            return this.name_en;
+        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+            return this.name_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+    /**
+     * return the description with the correct language
+     * @return description the description of a machine
+     */
+    get description() {
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+            return this.description_en;
+        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+            return this.description_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+    /**
+     * return the upgrade description with the correct language
+     * @return upgrade the description of the upgrade
+     */
+    get upgrade() {
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+            return this.upgrade_en;
+        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+            return this.upgrade_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
 }
 exports.MachineInfo = MachineInfo;
 /**

@@ -42,14 +42,6 @@ export class Translation {
         return this.language;
     }
 
-    static getEnglish() : Language{
-        return Language.EN;
-    }
-
-    static getFrench() : Language{
-        return Language.FR;
-    }
-
     /**
      * @brief Get the value of the key
      *
@@ -91,7 +83,7 @@ export class Translation {
 
     private static initTranslations() {
         if (this.isInit) return;
-
+        //English Translation
         this.translations_EN = new Map<TrKeys, string>();
         // index.html
         this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player ' +
@@ -182,6 +174,25 @@ export class Translation {
         this.translations_EN.set(TrKeys.GAME_RECYCLING_CENTER,': Recycling center');
         this.translations_EN.set(TrKeys.GAME_JUNKYARD,': Junkyard');
         this.translations_EN.set(TrKeys.GAME_COLLECTOR,': Collector');
+        this.translations_EN.set(TrKeys.GAME_CASE_SELECTED,'No case selected.');
+        this.translations_EN.set(TrKeys.GAME_MANAGE_STAFF,'Manage your staff');
+        this.translations_EN.set(TrKeys.GAME_COUNT_1,'Number');
+        this.translations_EN.set(TrKeys.GAME_COUNT_2,'Number');
+        this.translations_EN.set(TrKeys.GAME_UNITS,'Units');
+        this.translations_EN.set(TrKeys.GAME_EXIT,'QUIT');
+        this.translations_EN.set(TrKeys.GAME_END_TURN,'NEXT_TURN');
+        this.translations_EN.set(TrKeys.GAME_MACHINE,'Machine');
+        this.translations_EN.set(TrKeys.GAME_ROTATION,'Orientation');
+        this.translations_EN.set(TrKeys.GAME_BUY,'Buy');
+        this.translations_EN.set(TrKeys.GAME_CASE_CONTENT,'Content');
+        this.translations_EN.set(TrKeys.GAME_MACHINE_LEVEL,'Level');
+        this.translations_EN.set(TrKeys.GAME_ROTATION_NONE,'None rotation.');
+        this.translations_EN.set(TrKeys.GAME_GATE_NAME,'GATE');
+        this.translations_EN.set(TrKeys.GAME_GATE_DESC,'Bring resources to the door to close it. Be careful, it ' +
+            'generates garbage that will lower your DD.');
+        this.translations_EN.set(TrKeys.GAME_SOURCE_NAME,'SOURCE');
+        this.translations_EN.set(TrKeys.GAME_SOURCE_DESC,'Generates resources, 1 every 10 turns by default, ' +
+            'harvestable with a COLLECTOR. ');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B,'Go back to main menu (or press');
@@ -190,8 +201,7 @@ export class Translation {
         this.translations_EN.set(TrKeys.GO_BACK_B,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
 
-
-
+        //French Translation
         this.translations_FR = new Map<TrKeys, string>();
         // index.html
         this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -281,6 +291,25 @@ export class Translation {
         this.translations_FR.set(TrKeys.GAME_RECYCLING_CENTER,': Centre de recyclage');
         this.translations_FR.set(TrKeys.GAME_JUNKYARD,': Déchetterie');
         this.translations_FR.set(TrKeys.GAME_COLLECTOR,': Collecteur');
+        this.translations_FR.set(TrKeys.GAME_CASE_SELECTED,'Aucune case sélectionnée.');
+        this.translations_FR.set(TrKeys.GAME_MANAGE_STAFF,'Gérer votre Personnel');
+        this.translations_FR.set(TrKeys.GAME_COUNT_1,'Nombre');
+        this.translations_FR.set(TrKeys.GAME_COUNT_2,'Nombre');
+        this.translations_FR.set(TrKeys.GAME_UNITS,'Unités');
+        this.translations_FR.set(TrKeys.GAME_EXIT,'QUITTER');
+        this.translations_FR.set(TrKeys.GAME_END_TURN,'TOUR_SUIVANT');
+        this.translations_FR.set(TrKeys.GAME_MACHINE,'Machine');
+        this.translations_FR.set(TrKeys.GAME_ROTATION,'Orientation');
+        this.translations_FR.set(TrKeys.GAME_BUY,'Acheter');
+        this.translations_FR.set(TrKeys.GAME_CASE_CONTENT,'Contenu');
+        this.translations_FR.set(TrKeys.GAME_MACHINE_LEVEL,'NIVEAU');
+        this.translations_FR.set(TrKeys.GAME_ROTATION_NONE,'Aucune rotation.');
+        this.translations_FR.set(TrKeys.GAME_GATE_NAME,'PORTAIL');
+        this.translations_FR.set(TrKeys.GAME_GATE_DESC,'Amenez des ressources à la porte pour la fermer. Attention, elle' +
+            ' génère des déchets qui vont baisser vos DD.');
+        this.translations_FR.set(TrKeys.GAME_SOURCE_NAME,'GÉNÉRATEUR');
+        this.translations_FR.set(TrKeys.GAME_SOURCE_DESC,'Génère des ressources, 1 tous les 10 tours par défaut,' +
+            ' récoltables avec un COLLECTEUR.');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B,'Revenir au menu (ou appuyer sur');
@@ -410,8 +439,23 @@ export enum TrKeys {
     RULES_PLAY, //!< How should I play ?
     END_MESSAGE,
 
-
-
+    GAME_CASE_SELECTED,
+    GAME_MANAGE_STAFF,
+    GAME_COUNT_1,
+    GAME_COUNT_2,
+    GAME_UNITS,
+    GAME_EXIT,
+    GAME_END_TURN,
+    GAME_MACHINE,
+    GAME_ROTATION,
+    GAME_BUY,
+    GAME_CASE_CONTENT,
+    GAME_MACHINE_LEVEL,
+    GAME_ROTATION_NONE,
+    GAME_GATE_NAME,
+    GAME_GATE_DESC,
+    GAME_SOURCE_NAME,
+    GAME_SOURCE_DESC,
 
 }
 

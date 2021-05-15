@@ -29,12 +29,6 @@ class Translation {
     static getLanguage() {
         return this.language;
     }
-    static getEnglish() {
-        return Language.EN;
-    }
-    static getFrench() {
-        return Language.FR;
-    }
     /**
      * @brief Get the value of the key
      *
@@ -75,6 +69,7 @@ class Translation {
     static initTranslations() {
         if (this.isInit)
             return;
+        //English Translation
         this.translations_EN = new Map();
         // index.html
         this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player ' +
@@ -163,11 +158,31 @@ class Translation {
         this.translations_EN.set(TrKeys.GAME_RECYCLING_CENTER, ': Recycling center');
         this.translations_EN.set(TrKeys.GAME_JUNKYARD, ': Junkyard');
         this.translations_EN.set(TrKeys.GAME_COLLECTOR, ': Collector');
+        this.translations_EN.set(TrKeys.GAME_CASE_SELECTED, 'No case selected.');
+        this.translations_EN.set(TrKeys.GAME_MANAGE_STAFF, 'Manage your staff');
+        this.translations_EN.set(TrKeys.GAME_COUNT_1, 'Number');
+        this.translations_EN.set(TrKeys.GAME_COUNT_2, 'Number');
+        this.translations_EN.set(TrKeys.GAME_UNITS, 'Units');
+        this.translations_EN.set(TrKeys.GAME_EXIT, 'QUIT');
+        this.translations_EN.set(TrKeys.GAME_END_TURN, 'NEXT_TURN');
+        this.translations_EN.set(TrKeys.GAME_MACHINE, 'Machine');
+        this.translations_EN.set(TrKeys.GAME_ROTATION, 'Orientation');
+        this.translations_EN.set(TrKeys.GAME_BUY, 'Buy');
+        this.translations_EN.set(TrKeys.GAME_CASE_CONTENT, 'Content');
+        this.translations_EN.set(TrKeys.GAME_MACHINE_LEVEL, 'Level');
+        this.translations_EN.set(TrKeys.GAME_ROTATION_NONE, 'None rotation.');
+        this.translations_EN.set(TrKeys.GAME_GATE_NAME, 'GATE');
+        this.translations_EN.set(TrKeys.GAME_GATE_DESC, 'Bring resources to the door to close it. Be careful, it ' +
+            'generates garbage that will lower your DD.');
+        this.translations_EN.set(TrKeys.GAME_SOURCE_NAME, 'SOURCE');
+        this.translations_EN.set(TrKeys.GAME_SOURCE_DESC, 'Generates resources, 1 every 10 turns by default, ' +
+            'harvestable with a COLLECTOR. ');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Go back to main menu (or press');
         //end.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
+        //French Translation
         this.translations_FR = new Map();
         // index.html
         this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -255,6 +270,25 @@ class Translation {
         this.translations_FR.set(TrKeys.GAME_RECYCLING_CENTER, ': Centre de recyclage');
         this.translations_FR.set(TrKeys.GAME_JUNKYARD, ': Déchetterie');
         this.translations_FR.set(TrKeys.GAME_COLLECTOR, ': Collecteur');
+        this.translations_FR.set(TrKeys.GAME_CASE_SELECTED, 'Aucune case sélectionnée.');
+        this.translations_FR.set(TrKeys.GAME_MANAGE_STAFF, 'Gérer votre Personnel');
+        this.translations_FR.set(TrKeys.GAME_COUNT_1, 'Nombre');
+        this.translations_FR.set(TrKeys.GAME_COUNT_2, 'Nombre');
+        this.translations_FR.set(TrKeys.GAME_UNITS, 'Unités');
+        this.translations_FR.set(TrKeys.GAME_EXIT, 'QUITTER');
+        this.translations_FR.set(TrKeys.GAME_END_TURN, 'TOUR_SUIVANT');
+        this.translations_FR.set(TrKeys.GAME_MACHINE, 'Machine');
+        this.translations_FR.set(TrKeys.GAME_ROTATION, 'Orientation');
+        this.translations_FR.set(TrKeys.GAME_BUY, 'Acheter');
+        this.translations_FR.set(TrKeys.GAME_CASE_CONTENT, 'Contenu');
+        this.translations_FR.set(TrKeys.GAME_MACHINE_LEVEL, 'NIVEAU');
+        this.translations_FR.set(TrKeys.GAME_ROTATION_NONE, 'Aucune rotation.');
+        this.translations_FR.set(TrKeys.GAME_GATE_NAME, 'PORTAIL');
+        this.translations_FR.set(TrKeys.GAME_GATE_DESC, 'Amenez des ressources à la porte pour la fermer. Attention, elle' +
+            ' génère des déchets qui vont baisser vos DD.');
+        this.translations_FR.set(TrKeys.GAME_SOURCE_NAME, 'GÉNÉRATEUR');
+        this.translations_FR.set(TrKeys.GAME_SOURCE_DESC, 'Génère des ressources, 1 tous les 10 tours par défaut,' +
+            ' récoltables avec un COLLECTEUR.');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Revenir au menu (ou appuyer sur');
         //end.html
@@ -366,6 +400,23 @@ var TrKeys;
     TrKeys[TrKeys["RULES_PLAY_TITLE"] = 56] = "RULES_PLAY_TITLE";
     TrKeys[TrKeys["RULES_PLAY"] = 57] = "RULES_PLAY";
     TrKeys[TrKeys["END_MESSAGE"] = 58] = "END_MESSAGE";
+    TrKeys[TrKeys["GAME_CASE_SELECTED"] = 59] = "GAME_CASE_SELECTED";
+    TrKeys[TrKeys["GAME_MANAGE_STAFF"] = 60] = "GAME_MANAGE_STAFF";
+    TrKeys[TrKeys["GAME_COUNT_1"] = 61] = "GAME_COUNT_1";
+    TrKeys[TrKeys["GAME_COUNT_2"] = 62] = "GAME_COUNT_2";
+    TrKeys[TrKeys["GAME_UNITS"] = 63] = "GAME_UNITS";
+    TrKeys[TrKeys["GAME_EXIT"] = 64] = "GAME_EXIT";
+    TrKeys[TrKeys["GAME_END_TURN"] = 65] = "GAME_END_TURN";
+    TrKeys[TrKeys["GAME_MACHINE"] = 66] = "GAME_MACHINE";
+    TrKeys[TrKeys["GAME_ROTATION"] = 67] = "GAME_ROTATION";
+    TrKeys[TrKeys["GAME_BUY"] = 68] = "GAME_BUY";
+    TrKeys[TrKeys["GAME_CASE_CONTENT"] = 69] = "GAME_CASE_CONTENT";
+    TrKeys[TrKeys["GAME_MACHINE_LEVEL"] = 70] = "GAME_MACHINE_LEVEL";
+    TrKeys[TrKeys["GAME_ROTATION_NONE"] = 71] = "GAME_ROTATION_NONE";
+    TrKeys[TrKeys["GAME_GATE_NAME"] = 72] = "GAME_GATE_NAME";
+    TrKeys[TrKeys["GAME_GATE_DESC"] = 73] = "GAME_GATE_DESC";
+    TrKeys[TrKeys["GAME_SOURCE_NAME"] = 74] = "GAME_SOURCE_NAME";
+    TrKeys[TrKeys["GAME_SOURCE_DESC"] = 75] = "GAME_SOURCE_DESC";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

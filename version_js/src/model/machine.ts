@@ -12,6 +12,7 @@ import {ErrorCode} from "../utils/code";
 import {Vector2D} from "../utils/utilities";
 import {Config} from "../utils/config";
 import {Game} from "../game";
+import {Language} from "../utils/translation";
 
 /**
  * Struct which contains all information about a machine
@@ -20,7 +21,7 @@ import {Game} from "../game";
  * This value must be checked before applying effect or increase level.
  */
 export class MachineInfo {
-    public readonly name_eng : string; //!< int which represent the type of the machine in english
+    public readonly name_en : string; //!< int which represent the type of the machine in english
     public readonly name_fr : string; //!< int which represent the type of the machine in french
     public readonly type : MachineStuff; //!< int which represent the type of the machine
     public readonly tag : string; //!< letter representing the machine
@@ -30,9 +31,9 @@ export class MachineInfo {
     public readonly costUpgradeDD : number; //!< price for upgrade the machine in DD
     public readonly costDestroyE : number; //!< price for destroy the machine in E
     public readonly costDestroyDD : number; //!< price for destroy the machine in DD;
-    public readonly description_eng : string; //!< description of the machine in english
+    public readonly description_en : string; //!< description of the machine in english
     public readonly description_fr : string; //!< description of the machine in french
-    public readonly upgrade_eng : string; //!< short description of the upgrade in english
+    public readonly upgrade_en : string; //!< short description of the upgrade in english
     public readonly upgrade_fr : string; //!< short description of the upgrade in french
     public readonly capacity : number; //!< -1 it don't have capacity
     /**
@@ -46,13 +47,13 @@ export class MachineInfo {
     public readonly imageFile: Map<Cardinal, string>; //!< Path to the image file without resources
     public readonly imageFileWithResources: Map<Cardinal, string> | null; //!< Path to the image file with resources
 
-    constructor(name_eng: string,name_fr: string, type: MachineStuff, tag: string, costE: number, costDD: number, costUpgradeE: number,
+    constructor(name_en: string,name_fr: string, type: MachineStuff, tag: string, costE: number, costDD: number, costUpgradeE: number,
                 costUpgradeDD: number, costDestroyE: number, costDestroyDD: number,
-                description_eng: string,description_fr: string, upgrade_eng : string, upgrade_fr : string,
+                description_en: string,description_fr: string, upgrade_en : string, upgrade_fr : string,
                 capacity: number, defaultOrientation: string,
                 canUpgrade: boolean, levelUpFunction: ((v: number) => number) | null,
                 imageFile: Map<Cardinal, string>, imageFileWithResources: Map<Cardinal, string> | null){
-        this.name_eng = name_eng;
+        this.name_en = name_en;
         this.name_fr = name_fr;
         this.type = type;
         this.tag = tag;
@@ -62,12 +63,12 @@ export class MachineInfo {
         this.costUpgradeDD = costUpgradeDD;
         this.costDestroyE = costDestroyE;
         this.costDestroyDD = costDestroyDD;
-        this.description_eng = description_eng;
+        this.description_en = description_en;
         this.description_fr = description_fr;
         this.capacity = capacity;
         this.defaultOrientation = defaultOrientation;
         this.canUpgrade = canUpgrade;
-        this.upgrade_eng = upgrade_eng;
+        this.upgrade_en = upgrade_en;
         this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
         this.imageFile = imageFile;
@@ -105,6 +106,44 @@ export class MachineInfo {
      * @return number the new capacity or -1 if not upgradable
      */
     capacityByLevel(level: number) : number { return this.levelUpFunction === null ? -1 : this.levelUpFunction(level); }
+    /**
+     * return the name with the correct language
+     * @return name the name of a machine
+     */
+    get name() : string {
+        if(Game.getTranslationLanguage()==Language.EN)
+            return this.name_en;
+        else if(Game.getTranslationLanguage()==Language.FR)
+            return this.name_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+
+    /**
+     * return the description with the correct language
+     * @return description the description of a machine
+     */
+    get description() : string {
+        if(Game.getTranslationLanguage()==Language.EN)
+            return this.description_en;
+        else if(Game.getTranslationLanguage()==Language.FR)
+            return this.description_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+
+    /**
+     * return the upgrade description with the correct language
+     * @return upgrade the description of the upgrade
+     */
+    get upgrade() : string {
+        if(Game.getTranslationLanguage()==Language.EN)
+            return this.upgrade_en;
+        else if(Game.getTranslationLanguage()==Language.FR)
+            return this.upgrade_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
 }
 
 /**
