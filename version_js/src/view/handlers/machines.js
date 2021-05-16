@@ -27,10 +27,10 @@ for (const machine of config.machines) {
     else capacity = `Capacity (default): <span class="text-success">${machine.capacity}</span><br>`;
 
     div.innerHTML = `<div class="">
-                <span class="fw-bold">${machine.name}</span>
+                <span class="fw-bold">${machine.name(game.getTranslationLanguage())}</span>
                 <i class="text-success">id=${machine.type}, <img src="${pathToFile}"></i>
             </div>
-            <p>${machine.description}</p>
+            <p>${machine.description(game.getTranslationLanguage())}</p>
             <span>
                 Price:
                 <span class="text-success">${machine.costE}</span> E and 

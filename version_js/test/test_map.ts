@@ -3,7 +3,8 @@ import {CaseType, Map, PRODUCTION_MODE} from "../src/model/map"
 import {Difficulty, Level} from "../src/model/difficulty";
 import {ErrorCode} from "../src/utils/code";
 import {Config} from "../src/utils/config";
-import {MachineInfo, MachineStuff} from "../src/model/machine";
+import {MachineStuff} from "../src/model/machine";
+import {Logger} from "../src/model/logger";
 
 let assert = require('assert');
 
@@ -11,6 +12,38 @@ describe('Map', function() {
     let test_map: Map;
     let test_gate : Vector2D;
     let test_sources : Array<Vector2D>;
+
+    function firstCaseEmpty() {
+        for (let i = 0; i < test_map.getWidth; i++) {
+            for (let j = 0; j < test_map.getHeight; j++) {
+                if (test_map.getCase(i,j)?.isEmpty) {
+                    return new Vector2D(i,j);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    before('Prepare', function () {
+        test_map = new Map(Difficulty.getDifficultyByID(Level.EASY));
+
+        test_sources = new Array<Vector2D>();
+        for (let ligne = 0; ligne < test_map.getWidth; ligne++) {
+            for (let colonne = 0; colonne < test_map.getHeight; colonne++) {
+                let currentCase = test_map.getCase(ligne, colonne);
+                if (currentCase != null) {
+                    if (currentCase.caseType == CaseType.CASE_SOURCE) {
+                        test_sources.push(new Vector2D(ligne, colonne));
+                    } else if (currentCase.caseType == CaseType.CASE_GATE) {
+                        test_gate = new Vector2D(ligne, colonne);
+                    }
+                }
+            }
+        }
+
+        console.log("test");
+    });
 
     describe('Create map', function () {
         function verificationGateAndSource(numberGate: number, numberSource: number) {
@@ -93,24 +126,6 @@ describe('Map', function() {
         });
     });
 
-    beforeEach('Prepare', function () {
-        test_map = new Map(Difficulty.getDifficultyByID(Level.EASY));
-
-        test_sources = new Array<Vector2D>();
-        for (let ligne = 0; ligne < test_map.getWidth; ligne++) {
-            for (let colonne = 0; colonne < test_map.getHeight; colonne++) {
-                let currentCase = test_map.getCase(ligne, colonne);
-                if (currentCase != null) {
-                    if (currentCase.caseType == CaseType.CASE_SOURCE) {
-                        test_sources.push(new Vector2D(ligne, colonne));
-                    } else if (currentCase.caseType == CaseType.CASE_GATE) {
-                        test_gate = new Vector2D(ligne, colonne);
-                    }
-                }
-            }
-        }
-    });
-
     describe('Achat Fise', function () {
         it('Assez d\'argent', function () {
             // Recovery of value before purchase
@@ -170,13 +185,288 @@ describe('Map', function() {
     });
 
     describe('Achat machine ', function () {
-        it('Assez d\'argent', function () {
-            let type = MachineStuff.MS_RECYCLING_CENTER;
-            let machineInfo = MachineInfo.getMachineStuff(type);
+        beforeEach('Mise a zero des ressources', function () {
+            test_map.addE(-1 * test_map.getNumberE);
+            test_map.addDD(-1 * test_map.getNumberDD);
+        });
+
+        it('Case mauvaise', function () {
+            let e = test_map.addMachine(MachineStuff.MS_RECYCLING_CENTER, 0, -1, 0);
+
+            // Checking values
+            assert.equal(e, ErrorCode.ERROR_CASE_NOT_FOUND);
+        });
+
+        it('Pas assez de DD', function () {
+            let typeM = MachineStuff.MS_RECYCLING_CENTER;
+            let machineInfo = Config.getMachineStuff(typeM);
             let costE = machineInfo?.costE;
+            assert.notEqual(costE, null);
+
+            if (costE != null) {
+                test_map.addE(costE);
+
+                let c = firstCaseEmpty();
+                assert.notEqual(c, null);
+
+                if (c != null) {
+                    let e = test_map.addMachine(typeM, 0, c.x, c.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.ERROR_NOT_ENOUGH_DD);
+                }
+            }
+        });
+
+        it('Pas assez de E', function () {
+            let typeM = MachineStuff?.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
             let costDD = machineInfo?.costDD;
+            assert.notEqual(costDD, null);
+
+            if (costDD != null) {
+                test_map.addDD(costDD);
+
+                let c = firstCaseEmpty();
+                assert.notEqual(c, null);
+
+                if (c != null) {
+                    let e = test_map.addMachine(typeM, 0, c.x, c.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.ERROR_NOT_ENOUGH_E);
+                }
+            }
+        });
+
+        it('Assez de ressource', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costE;
+            assert.notEqual(costE, null);
+            let costDD = machineInfo?.costDD;
+            assert.notEqual(costDD, null);
+
+            if (costE != null && costDD != null) {
+                test_map.addE(costE);
+                test_map.addDD(costDD);
+
+                let c = firstCaseEmpty();
+                assert.notEqual(c, null);
+
+                if (c != null) {
+                    let e = test_map.addMachine(typeM, 0, c.x, c.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.NO_ERROR);
+                }
+            }
         });
     });
 
+    describe('Upgrade machine', function () {
+        let case_machine: Vector2D | null;
 
+        before('Placement d\'une machine', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costE;
+            let costDD = machineInfo?.costDD;
+
+            if (costE != null && costDD != null) {
+                test_map.addE(costE);
+                test_map.addDD(costDD);
+
+                case_machine = firstCaseEmpty();
+
+                if (case_machine != null) {
+                    test_map.addMachine(typeM, 0, case_machine.x, case_machine.y);
+                }
+            }
+        });
+
+        beforeEach('Mise a zero des ressources', function () {
+            test_map.addE(-1 * test_map.getNumberE);
+            test_map.addDD(-1 * test_map.getNumberDD);
+        });
+
+        it('Case mauvaise', function () {
+            let e = test_map.upgradeMachine(0, -1);
+
+            // Checking values
+            assert.equal(e, ErrorCode.ERROR_CASE_NOT_FOUND);
+        });
+
+        it('Case sans machine', function () {
+            let c = firstCaseEmpty();
+            assert.notEqual(c, null);
+
+            if (c != null) {
+                let e = test_map.upgradeMachine(c.x, c.y);
+
+                // Checking values
+                assert.equal(e, ErrorCode.ERROR_CASE_EMPTY);
+            }
+        });
+
+        it('Pas assez de DD', function () {
+            let typeM = MachineStuff.MS_RECYCLING_CENTER;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costUpgradeE;
+            assert.notEqual(costE, null);
+
+            if (costE != null) {
+                test_map.addE(costE);
+                Logger.Instance.error('sous en E=' + test_map.getNumberE + " DD="+ test_map.getNumberDD)
+
+                if (case_machine != null) {
+                    let e = test_map.upgradeMachine(case_machine.x, case_machine.y);
+                    // Checking values
+                    assert.equal(e, ErrorCode.ERROR_NOT_ENOUGH_DD);
+                }
+            }
+        });
+
+        it('Pas assez de E', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costDD = machineInfo?.costUpgradeDD;
+            assert.notEqual(costDD, null);
+
+            if (costDD != null) {
+                test_map.addDD(costDD);
+
+                if (case_machine != null) {
+                    let e = test_map.upgradeMachine(case_machine.x, case_machine.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.ERROR_NOT_ENOUGH_E);
+                }
+            }
+        });
+
+        it('Assez de ressource', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costUpgradeE;
+            assert.notEqual(costE, null);
+            let costDD = machineInfo?.costUpgradeDD;
+            assert.notEqual(costDD, null);
+
+            if (costE != null && costDD != null) {
+                test_map.addE(costE);
+                test_map.addDD(costDD);
+
+                if (case_machine != null) {
+                    let e = test_map.upgradeMachine(case_machine.x, case_machine.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.NO_ERROR);
+                }
+            }
+        });
+    });
+
+    describe('Destroy machine', function () {
+        let case_machine: Vector2D | null;
+
+        before('Placement d\'une machine', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costE;
+            let costDD = machineInfo?.costDD;
+
+            if (costE != null && costDD != null) {
+                test_map.addE(costE);
+                test_map.addDD(costDD);
+
+                case_machine = firstCaseEmpty();
+
+                if (case_machine != null) {
+                    test_map.addMachine(typeM, 0, case_machine.x, case_machine.y);
+                }
+            }
+        });
+
+        beforeEach('Mise a zero des ressources', function () {
+            test_map.addE(-1 * test_map.getNumberE);
+            test_map.addDD(-1 * test_map.getNumberDD);
+        });
+
+        it('Case mauvaise', function () {
+            let e = test_map.destroyMachine(0, -1);
+
+            // Checking values
+            assert.equal(e, ErrorCode.ERROR_CASE_NOT_FOUND);
+        });
+
+        it('Case sans machine', function () {
+            let c = firstCaseEmpty();
+            assert.notEqual(c, null);
+
+            if (c != null) {
+                let e = test_map.destroyMachine(c.x, c.y);
+
+                // Checking values
+                assert.equal(e, ErrorCode.ERROR_CASE_EMPTY);
+            }
+        });
+
+        it('Pas assez de DD', function () {
+            let typeM = MachineStuff.MS_RECYCLING_CENTER;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costDestroyE;
+            assert.notEqual(costE, null);
+
+            if (costE != null) {
+                test_map.addE(costE);
+
+                if (case_machine != null) {
+                    let e = test_map.destroyMachine(case_machine.x, case_machine.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.ERROR_NOT_ENOUGH_DD);
+                }
+            }
+        });
+
+        it('Pas assez de E', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costDD = machineInfo?.costDestroyDD;
+            assert.notEqual(costDD, null);
+
+            if (costDD != null) {
+                test_map.addDD(costDD);
+
+                if (case_machine != null) {
+                    let e = test_map.destroyMachine(case_machine.x, case_machine.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.ERROR_NOT_ENOUGH_E);
+                }
+            }
+        });
+
+        it('Assez de ressource', function () {
+            let typeM = MachineStuff.MS_COLLECTOR;
+            let machineInfo = Config.getMachineStuff(typeM);
+            let costE = machineInfo?.costDestroyE;
+            assert.notEqual(costE, null);
+            let costDD = machineInfo?.costDestroyDD;
+            assert.notEqual(costDD, null);
+
+            if (costE != null && costDD != null) {
+                test_map.addE(costE);
+                test_map.addDD(costDD);
+
+                if (case_machine != null) {
+                    let e = test_map.destroyMachine(case_machine.x, case_machine.y);
+
+                    // Checking values
+                    assert.equal(e, ErrorCode.NO_ERROR);
+                }
+            }
+        });
+    });
 });

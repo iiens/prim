@@ -3,6 +3,7 @@ import {Game} from "../game";
 import {Action} from "./mappings";
 import {Cardinal, Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
 import {getRandomInt} from "./utilities";
+import {Config} from "./config";
 
 /*
 todo: legend not in brut code
@@ -118,7 +119,7 @@ export class Interface {
                     if (Case.isMachine){
                         let machine: Machine = Case.getMachine();
                         InterfaceUtils.drawMachine(Case, ctx, xx, yy);
-                        if (machine.getInfo().canUpgrade){
+                        if (Config.getMachineStuff(machine.type)?.canUpgrade){
                             let oldFont = ctx.font;
                             let texte = `lvl ${machine.level}`
                             ctx.font = "10px Segoe UI";
@@ -293,16 +294,16 @@ class InterfaceUtils {
 
         switch (mach.type) {
             case MachineStuff.MS_JUNKYARD:
-                img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
+                img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.SOUTH);
                 break;
 
             case MachineStuff.MS_RECYCLING_CENTER:
             case MachineStuff.MS_COLLECTOR:
             case MachineStuff.MS_CONVEYOR_BELT:
-                if (mach.isOrientationBottom(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
-                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.NORTH);
-                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.WEST);
-                } else { img.src = <string>mach.getInfo().imageFile.get(Cardinal.EAST); }
+                if (mach.isOrientationBottom(Direction.OUT)) { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.SOUTH);
+                } else if (mach.isOrientationTop(Direction.OUT)) { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.NORTH);
+                } else if (mach.isOrientationLeft(Direction.OUT)) { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.WEST);
+                } else { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.EAST); }
 
                 if(mach.type == MachineStuff.MS_CONVEYOR_BELT && (Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
                     img.src = img.src.substring(0, img.src.length-4);
@@ -310,10 +311,10 @@ class InterfaceUtils {
                 }
                 break;
             case MachineStuff.MS_CROSS_BELT:
-                if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.EAST);
-                } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.WEST);
-                } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = <string>mach.getInfo().imageFile.get(Cardinal.SOUTH);
-                } else { img.src = <string>mach.getInfo().imageFile.get(Cardinal.NORTH); }
+                if (mach.isOrientationBottomRight(Direction.OUT)) { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.EAST);
+                } else if (mach.isOrientationTopLeft(Direction.OUT)) { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.WEST);
+                } else if (mach.isOrientationBottomLeft(Direction.OUT)) { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.SOUTH);
+                } else { img.src = <string>Config.getMachineStuff(mach.type)?.imageFile.get(Cardinal.NORTH); }
 
                 if((Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
                     img.src = img.src.substring(0, img.src.length-4);
@@ -340,7 +341,7 @@ class InterfaceUtils {
                 case CaseType.CASE_GATE: return "G";
                 case CaseType.CASE_SOURCE: return "S"
                 case CaseType.CASE_MACHINE: {
-                    return <string>MachineInfo.getMachineStuff(c.getMachine().type)?.tag;
+                    return <string>Config.getMachineStuff(c.getMachine().type)?.tag;
                 }
             }
             return "?";

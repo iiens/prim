@@ -1,5 +1,7 @@
 // Modules to control application life and create native browser window
 
+const {Logger} = require("./src/model/logger");
+
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const {Translation,Language} = require('./src/utils/translation');
@@ -10,7 +12,8 @@ const {Game} = require('./src/game');
 let mainWindow;
 
 function createWindow () {
-
+    let logger = Logger.Instance;
+    logger.debug("Création de la fenêtre !");
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 900,
@@ -51,6 +54,10 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+    let logger = Logger.Instance;
+    logger.level = Logger.Levels.Debug;
+    logger.debug("Starting the game!");
+
     createWindow();
 
     app.on('activate', function () {
@@ -62,6 +69,9 @@ app.whenReady().then(() => {
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
+    let logger = Logger.Instance;
+    logger.info("Closing the application!");
+
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {

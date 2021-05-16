@@ -135,4 +135,28 @@ export class Config {
         ),
     ]
 
+    /**
+     * A function to verify if the id given in argument correspond to a machineInfo
+     * @param id a machine stuff, or expected to be one
+     * @return If id exist, return the tab index, If not -1
+     */
+    static isMachineStuffValid(id: number) : number {
+        for (const machine of Config.machines) {
+            if (machine.type == id) return id;
+        }
+        return -1;
+    }
+
+    /**
+     * A function to return all the information about a machineInfo according to the id
+     * @param id an id
+     * @return machineInfo a machine info
+     */
+    static getMachineStuff(id: number | MachineStuff) : MachineInfo | null {
+        for (const machine of Config.machines) {
+            if (machine.type == id) return machine;
+        }
+        return null;
+    }
+
 }

@@ -11,6 +11,7 @@ import {Game} from "../game";
 import {ErrorCode} from "./code";
 import {Translation} from "./translation";
 import {Machine, MachineInfo} from "../model/machine";
+import {Config} from "./config";
 
 /**
  * Map of mappings
@@ -251,7 +252,7 @@ export class Mappings {
             this.echo("Usage is : bm machine_id x y rotation (see help)");
         } else {
             // check machine stuff
-            if(MachineInfo.isMachineStuffValid(machineStuff) === -1) {
+            if(Config.isMachineStuffValid(machineStuff) === -1) {
                 // @ts-ignore
                 this.echo(Translation.error(ErrorCode.ERROR_INVALID_MACHINE_NUMBER));
             } else {

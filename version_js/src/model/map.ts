@@ -16,6 +16,7 @@ import {
 } from "../utils/events";
 import {Box, Cardinal, Direction, Facade, Machine, MachineInfo, MachineStuff} from "./machine";
 import {randomNumber, Vector2D} from "../utils/utilities";
+import {Logger} from "./logger";
 
 /**
  * \file map
@@ -78,10 +79,13 @@ export class Map {
      * @see Difficulty enum
      */
     constructor(difficulty: Difficulty, empty = false) {
+        let logger = Logger.Instance;
+        logger.info("Creation of a new map with difficulty " + difficulty.level);
         if (empty){ // we load the map from a save, only init basic values then return
             this.width = difficulty.getMapSizeByDifficulty();
             this.height = difficulty.getMapSizeByDifficulty();
             this.difficulty = difficulty;
+            logger.warn("Calling Map constructor with illegal arguments!");
             return;
         }
         // Initialisation map
@@ -91,6 +95,7 @@ export class Map {
         let gate_y : number;
 
         // Initializing the basic values of the game
+        logger.debug("Initializing the basic values of the game !");
         this.turn = 1;
         this.productionFISA = PRODUCTION_MODE.E;
         this.E = Config.constants.NUMBER_E_START;
@@ -101,11 +106,13 @@ export class Map {
         this.team = StaffUtils.createStaffDictionary();
 
         // Initialization of the map according to the difficulty
+        logger.debug("Initialization of the map according to the difficulty !");
         this.width = difficulty.getMapSizeByDifficulty();
         this.height = difficulty.getMapSizeByDifficulty();
         this.difficulty = difficulty;
 
         // Create grid
+        logger.debug("Grid Creation with width = " + this.width + " and height = " + this.height);
         this.map = new Array<Array<Case>>();
         for (let i = 0; i < this.width; i++) {
             // Creation of each Case
@@ -119,12 +126,14 @@ export class Map {
         gate_x = Map.getRandomInt(0, this.width-1);
         gate_y = Map.getRandomInt(0, this.height-1);
         this.map[gate_x][gate_y].setGate();
+        logger.debug("Gate coordinates x = "+gate_x+" y = "+gate_y);
 
         // Random placement of the n sources
         for (let i = 0; i < Config.constants.NUMBER_OF_SOURCES; i++) {
             do {
                 source_x = Map.getRandomInt(0, this.width-1);
                 source_y = Map.getRandomInt(0, this.height-1);
+                logger.debug("Resources coordinates x = "+source_x+" y = "+source_y);
                 // try set as source
             } while (!this.map[source_x][source_y].setSource());
         }
@@ -252,7 +261,11 @@ export class Map {
     * @return the case address if exist, if not a null address
     */
     getCase(x: number, y: number) : Case | null {
-        if(!this.isCaseExist(x,y)) return null;
+        let logger = Logger.Instance;
+        if(!this.isCaseExist(x,y)) {
+            logger.warn("Impossible access to a case nonexistent " + x + ";" + y);
+            return null;
+        }
         // @ts-ignore
         return this.map[x][y];
     }
@@ -265,6 +278,7 @@ export class Map {
     * @return an error that specify what is the problem
     */
     isCaseExist(x: number, y: number) : boolean {
+        let logger = Logger.Instance;
         // @ts-ignore
         if (x >= 0 && x < this.width) {
             // @ts-ignore
@@ -272,6 +286,7 @@ export class Map {
                 return true;
             }
         }
+        logger.warn("Case nonexistent " + x + ";" + y);
         return false;
     };
 
@@ -290,13 +305,19 @@ export class Map {
      * @see Map type
      */
     map_hireFISE() : ErrorCode {
+        let logger = Logger.Instance;
         if (this.numberFISE === undefined) return ErrorCode.ERROR;
         let e = this.map_hireStudent(
             EventType.HIRE_FISE,
             Config.constants.COST_FISE_E,
             Config.constants.COST_FISE_DD
         );
-        if (e === ErrorCode.NO_ERROR) this.numberFISE++;
+        if (e === ErrorCode.NO_ERROR) {
+            this.numberFISE++;
+            logger.info("Fise hire");
+        } else {
+            logger.warn("Not enough resources to hire a FISE");
+        }
         return e;
     };
 
@@ -316,13 +337,19 @@ export class Map {
      * @see Map type
      */
     map_hireFISA() : ErrorCode {
+        let logger = Logger.Instance;
         if (this.numberFISA === undefined) return ErrorCode.ERROR;
         let e = this.map_hireStudent(
             EventType.HIRE_FISA,
             Config.constants.COST_FISA_E,
             Config.constants.COST_FISA_DD
         );
-        if (e === ErrorCode.NO_ERROR) this.numberFISA++;
+        if (e === ErrorCode.NO_ERROR) {
+            this.numberFISA++;
+            logger.info("FISA Hire");
+        } else {
+            logger.warn("Not enough resources to hire a FISA");
+        }
         return e;
     };
 
@@ -350,6 +377,7 @@ export class Map {
      * @return ErrorCode An error code allowing to know if we succeeded or what is missing
      */
     private tryBuy(costE: number, costDD: number) : ErrorCode {
+        let logger = Logger.Instance;
         if (this.E === undefined || this.DD === undefined) return ErrorCode.ERROR;
         // Check that the player has enough E
         if (this.E >= costE) {
@@ -360,13 +388,16 @@ export class Map {
                 this.DD -= costDD;
 
                 // Informs that everything went well
+                logger.info("Staff hire");
                 return ErrorCode.NO_ERROR;
             } else {
                 // Informs that it lacks DD
+                logger.warn("Not enough DD resources to hire a staff");
                 return ErrorCode.ERROR_NOT_ENOUGH_DD;
             }
         } else {
             // Informs that it lacks E
+            logger.warn("Not enough E resources to hire a staff");
             return ErrorCode.ERROR_NOT_ENOUGH_E;
         }
     }
@@ -376,6 +407,8 @@ export class Map {
      * @param parse an object that is a map but don't have the map type
      */
     static revive(parse: Object) : Map {
+        let logger = Logger.Instance;
+        logger.debug("Parse or convert an object to a Map");
         // @ts-ignore
         let d = Difficulty.getDifficultyByID(parse.difficulty.level);
         let map = new Map(d, true);
@@ -420,10 +453,13 @@ export class Map {
      * @see Map type
      */
     changeProductionFISA() : ErrorCode {
+        let logger = Logger.Instance;
         // Check the previous production
         if (this.productionFISA == PRODUCTION_MODE.E) {
+            logger.info("Switch the energy type produced by the FISA to E !");
             this.productionFISA = PRODUCTION_MODE.DD;
         } else {
+            logger.info("Switch the energy type produced by the FISA to DD !");
             this.productionFISA = PRODUCTION_MODE.E;
         }
         return ErrorCode.NO_ERROR;
@@ -475,8 +511,13 @@ export class Map {
      * \return an error that specify what is the problem
     */
     endTurn() : ErrorCode {
-        if (this.DD === undefined || this.turn === undefined || this.score === undefined)
+        let logger = Logger.Instance;
+        logger.debug("EndTurn function !");
+
+        if (this.DD === undefined || this.turn === undefined || this.score === undefined) {
+            logger.error("Calling endTurn with illegal values in the Map class!");
             return ErrorCode.ERROR;
+        }
 
         // Production of Fise
         this.productionFise();
@@ -505,15 +546,19 @@ export class Map {
         this.moveResourcesInMachine();
 
         // Minus pollution to DD
+        logger.debug("Minus pollution to DD!");
         let numberPollution = this.numberPollution
         if (this.DD < numberPollution) {
+            logger.info("Game lost because no more DD available !");
             return ErrorCode.ERROR_GAME_LOST;
         }
 
         this.DD -= numberPollution;
 
         // Checking if the player has won
+        logger.debug("Checking if the player has won!");
         if (this.score > Config.constants.NUMBER_RESOURCE_WIN){
+            logger.info("Player victory!");
             return ErrorCode.ERROR_GAME_WIN;
         }
 
@@ -524,6 +569,8 @@ export class Map {
 
     /** Produce DD and E by fise */
     productionFise() {
+        let logger = Logger.Instance;
+        logger.debug("Resource production by FISE");
         this.studentProduction(
             EventType.PRODUCTION_FISE,
             Config.constants.PRODUCTION_FISE_E,
@@ -534,9 +581,14 @@ export class Map {
 
     /** Produce DD or E by fisa */
     productionFisa() {
+        let logger = Logger.Instance;
         // Checking that it is the turn to produce
-        if ( this.turn === undefined || this.turn % Config.constants.NB_TURN_FISA != 0) return;
+        if ( this.turn === undefined || this.turn % Config.constants.NB_TURN_FISA != 0) {
+            logger.error("Calling productionFisa with illegal values in the Map class!");
+            return;
+        }
         // produce
+        logger.debug("Resource production by FISA");
         this.studentProduction(
             EventType.PRODUCTION_FISA,
             Config.constants.PRODUCTION_FISA_E,
@@ -557,8 +609,13 @@ export class Map {
      */
     private studentProduction(type: EventType, defaultE: number, defaultDD: number, numberOfStudents?: number,
                               checkProductionMode = false) {
+        let logger = Logger.Instance;
+        logger.debug("Handle production of FISE/FISA");
         if (this.team === undefined || this.E === undefined || this.DD === undefined
-        || numberOfStudents === undefined) return;
+        || numberOfStudents === undefined) {
+            logger.warn("Calling studentProduction with illegal values in the Map class!")
+            return;
+        }
         // Initialization of basic production of Fise
         let productionE = defaultE;
         let productionDD = defaultDD;
@@ -692,6 +749,8 @@ export class Map {
     * @return the pollution number
     */
     get numberPollution() : number {
+        let logger = Logger.Instance;
+        logger.debug("Calculate pollution Number");
         if (this.map === undefined || this.height === undefined || this.width === undefined) return -1;
         let nbGarbage = 0;
         // Process each case of the map
@@ -732,6 +791,7 @@ export class Map {
      * @return error that specify what is the problem
      */
     addMachine(type: MachineStuff, rotation: number, x: number, y: number) : ErrorCode {
+        let logger = Logger.Instance;
         let e = this.machineManager(x, y, EventType.BUY_MACHINE, type);
         if (e == ErrorCode.NO_ERROR) {
             let c = this.getCase(x, y);
@@ -741,6 +801,9 @@ export class Map {
             machine.rotate(rotation);
             // @ts-ignore Add machine to box
             c.setMachine(machine);
+            logger.info("New machine type "+ type +" to the case x = "+ x + ", y = "+ y);
+        } else {
+            logger.warn("Failed to add a new machine");
         }
         return e;
     }
@@ -757,11 +820,15 @@ export class Map {
      * @return an error that specify what is the problem
      */
     upgradeMachine(x: number, y: number) : ErrorCode {
+        let logger = Logger.Instance;
         let e = this.machineManager(x, y, EventType.UPGRADE_MACHINE, undefined, true);
         if (e == ErrorCode.NO_ERROR) {
             let c = this.getCase(x, y);
             // @ts-ignore Improve the machine
             c.getMachine().increaseLevel();
+            logger.info("Increase machine level to the case x = "+ x + ", y = "+ y);
+        } else {
+            logger.warn("Failed to increase machine level");
         }
         return e;
     }
@@ -777,6 +844,7 @@ export class Map {
      * @return an error that specify what is the problem
      */
     destroyMachine(x: number, y: number) : ErrorCode {
+        let logger = Logger.Instance;
         let e = this.machineManager(x, y, EventType.DESTROY_MACHINE,  undefined, true);
         if (e == ErrorCode.NO_ERROR) {
             let c = this.getCase(x, y);
@@ -792,7 +860,10 @@ export class Map {
                 }
             }
             // Destroy machine
+            logger.info("Machine destroyed to the cas x = "+ x +", y = "+y);
             c.setEmpty();
+        } else {
+            logger.warn("Failed to destroy a machine");
         }
         return e;
     }
@@ -807,6 +878,7 @@ export class Map {
      * @private
      */
     private machineManager(x: number, y: number, type: EventType, s?: MachineStuff, invertIsEmpty = false) {
+        let logger = Logger.Instance;
         if (this.team === undefined) return ErrorCode.ERROR;
         // Check that the box exists
         if (this.isCaseExist(x,y)) {
@@ -818,15 +890,15 @@ export class Map {
             if (goIn) {
                 //Retrieving Machine Information
                 let machineInfo : MachineInfo =
-                    <MachineInfo>MachineInfo.getMachineStuff(s === undefined ? c.getMachine().type : s);
+                    <MachineInfo>Config.getMachineStuff(s === undefined ? c.getMachine()?.type : s);
 
                 // get the default cost according to the type of event
                 let {costE, costDD} = function() {
                     switch (type) {
                         case EventType.UPGRADE_MACHINE:
-                            return {costE: machineInfo.costUpgradeE, costDD: machineInfo.costUpgradeDD }
+                            return {costE: machineInfo?.costUpgradeE, costDD: machineInfo?.costUpgradeDD }
                         case EventType.DESTROY_MACHINE:
-                            return {costE: machineInfo.costDestroyE, costDD: machineInfo.costDestroyDD }
+                            return {costE: machineInfo?.costDestroyE, costDD: machineInfo?.costDestroyDD }
                     }
                     return machineInfo;
                 }();
@@ -834,15 +906,16 @@ export class Map {
                 // Allows you to find machine info
                 let machineEvent =
                     this.team.applyEffect(new GameEvent(type,
-                        new MachineEvent(costE, costDD, machineInfo.type))
+                        new MachineEvent(costE, costDD, machineInfo?.type))
                     ).data;
 
                 // Check that the player has the money
-                return this.tryBuy(machineEvent.costE, machineEvent.costDD);
+                return this.tryBuy(machineEvent?.costE, machineEvent?.costDD);
             } else {
                 return invertIsEmpty?ErrorCode.ERROR_CASE_EMPTY:ErrorCode.ERROR_CASE_NOT_EMPTY;
             }
         } else {
+            logger.error("")
             return ErrorCode.ERROR_CASE_NOT_FOUND;
         }
     }
@@ -855,6 +928,8 @@ export class Map {
      * Allows you to move resources on crosses and mats
      */
     moveResources() : void {
+
+        let logger = Logger.Instance;
         // Retrieving the tray size
         let width = this.width ?? 0;
         let height = this.height ?? 0;
@@ -880,6 +955,7 @@ export class Map {
                             if (conveyorBox != null) {
                                 // If there is a box, move it to the next box
                                 this.moveBox(conveyorCase, conveyorBox, card);
+                                logger.info("Cases resources x = "+ x +", y = "+ y +" move to this direction "+ card);
                                 conveyorMachine.destroyBox(card);
                             }
                         }
@@ -897,6 +973,7 @@ export class Map {
      * @return An error to warn of a possible error
      */
     moveBox(c: Case, outputBox: Box, card: Cardinal){
+        let logger = Logger.Instance;
         // Retrieving the coordinates of the box
         let x = c.x;
         let y = c.y;
@@ -927,10 +1004,11 @@ export class Map {
                 let outputMachine : Machine = outputCase.getMachine();
 
                 // Capacity recovery and calculation
-                const machineInfo : MachineInfo = outputMachine.getInfo();
-                let baseCapacity = machineInfo.capacity;
-                if (machineInfo.canUpgrade) {
-                    baseCapacity += machineInfo.capacityByLevel(outputMachine.level);
+                const machineInfo : MachineInfo | null = Config.getMachineStuff(outputMachine.type);
+                let baseCapacity = machineInfo?.capacity;
+                if (machineInfo?.canUpgrade) {
+                    // @ts-ignore
+                    baseCapacity += machineInfo?.capacityByLevel(outputMachine.level);
                 }
 
                 // Calculates the cardinal opposite to the output
@@ -949,25 +1027,30 @@ export class Map {
                         existBox.addBox(outputBox);
                     }
 
-                    // if (outputMachine.type === MachineStuff.MS_RECYCLING_CENTER){
-                    //     console.log("Entering by "+Cardinal[outputCardinal]+" in")
-                    //     console.log(MachineStuff[outputMachine.type])
-                    //     console.log(outputMachine)
-                    //     console.log(existBox)
-                    //     console.log("value is now")
-                    //     console.log(outputMachine.getBox(Cardinal.NORTH))
-                    //     console.log(outputMachine.getBox(Cardinal.EAST))
-                    //     console.log(outputMachine.getBox(Cardinal.WEST))
-                    //     console.log(outputMachine.getBox(Cardinal.SOUTH))
-                    //     console.log("******************")
-                    // }
+                    if (outputMachine.type === MachineStuff.MS_RECYCLING_CENTER){
+                        logger.debug("Entering by "+Cardinal[outputCardinal]+" in")
+                        logger.debug(MachineStuff[outputMachine.type])
+                        logger.debug(JSON.stringify(outputMachine))
+                        logger.debug(JSON.stringify(existBox))
+                        logger.debug("value is now")
+                        logger.debug(JSON.stringify(outputMachine.getBox(Cardinal.NORTH)))
+                        logger.debug(JSON.stringify(outputMachine.getBox(Cardinal.EAST)))
+                        logger.debug(JSON.stringify(outputMachine.getBox(Cardinal.WEST)))
+                        logger.debug(JSON.stringify(outputMachine.getBox(Cardinal.SOUTH)))
+                        logger.debug("******************")
+                    }
 
                     // If the capacity is exceeded, send the waste to the door and destroy the resources
+                    // @ts-ignore
                     if (outputCase.numberGarbage() > baseCapacity) {
+                        // @ts-ignore
                         this.sendResourcesToGate((baseCapacity - outputCase.numberGarbage()) * -1);
+                        // @ts-ignore
                         existBox.addGarbage(baseCapacity - outputCase.numberGarbage());
                     }
+                    // @ts-ignore
                     if (outputCase.numberResources() > baseCapacity) {
+                        // @ts-ignore
                         existBox.addResources(baseCapacity - outputCase.numberResources());
                     }
 
@@ -986,7 +1069,12 @@ export class Map {
      * @param resources Number of resources
      */
     sendResourcesToGate(resources: number){
-        if (this.width === undefined || this.height === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call sendResourcesToGate()");
+        if (this.width === undefined || this.height === undefined) {
+            logger.error("Calling sendResourcesToGate with illegal values in the Map class!");
+            return;
+        }
         let c: Case | null;
         // Gate search
         for (let i = 0; i < this.width; ++i) {
@@ -1012,7 +1100,12 @@ export class Map {
      * Allows to generate resources
      */
     generateResources() : void {
-        if (this.turn === undefined || this.team === undefined || this.width === undefined || this.height === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call generateResources()");
+        if (this.turn === undefined || this.team === undefined || this.width === undefined || this.height === undefined) {
+            logger.error("Calling generateResources with illegal values in the Map class!");
+            return;
+        }
         // Initialization of the number of turn before production
         // and get staff reduction
         let numberTour =
@@ -1045,7 +1138,12 @@ export class Map {
      * Allows you to generate waste at the door
      */
     generateGarbage() : void {
-        if (this.width === undefined || this.height === undefined || this.team === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call generateGarbage()");
+        if (this.width === undefined || this.height === undefined || this.team === undefined) {
+            logger.warn("Calling generateGarbage with illegal values in the Map class!");
+            return;
+        }
         let c : Case;
 
         let modifierRes = // by default 1 resource = 1 point of score, but modifierRes can chance that
@@ -1077,6 +1175,7 @@ export class Map {
                     ).data.garbage;
 
                     // Creation of waste
+                    logger.debug("Creation of waste!");
                     box.addGarbage(numberR);
                 }
             }
@@ -1087,7 +1186,12 @@ export class Map {
      * Allows you to activate recycling centers
      */
     activateRecyclingCenters() : void {
-        if (this.width === undefined || this.height === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call activateRecyclingCenters()");
+        if (this.width === undefined || this.height === undefined) {
+            logger.warn("Calling activateRecyclingCenters with illegal values in the Map class!");
+            return;
+        }
         let machineType : MachineStuff = MachineStuff.MS_RECYCLING_CENTER;
         let numberWasteToResource = Config.constants.NUMBER_WASTE_TO_PRODUCT_RESOURCE;
 
@@ -1105,12 +1209,6 @@ export class Map {
                         // Checking the output
                         if (machine.getDirection(card) == Direction.OUT) {
                             let machineBox : Box | null = machine.getBox(card);
-
-                            // console.log("Ma box")
-                            // console.log(machineBox)
-                            // console.log("va sortir au "+Cardinal[card])
-                            // console.log("de")
-                            // console.log(machine)
 
                             // Checking the presence of a box
                             if (machineBox != null) {
@@ -1142,11 +1240,16 @@ export class Map {
      * Allows you to activate collectors
      */
     activateCollectors() : void {
-        if (this.width === undefined || this.height === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call activateCollectors()");
+        if (this.width === undefined || this.height === undefined) {
+            logger.warn("Calling activateCollectors with illegal values in the Map class!");
+            return;
+        }
         let machineType : MachineStuff = MachineStuff.MS_COLLECTOR;
 
         // Retrieving basic information from collectors
-        const machineInfo : MachineInfo = <MachineInfo>MachineInfo.getMachineStuff(machineType);
+        const machineInfo : MachineInfo = <MachineInfo>Config.getMachineStuff(machineType);
         let BaseCapacity = machineInfo.capacity;
         let modifiers = 0;
 
@@ -1232,8 +1335,8 @@ export class Map {
                     // Destroy the source list
                     // xxx
 
-                    // console.log(`Collector at x=${i} and y=${j} is moving`)
-                    // console.log(cumulative)
+                    logger.debug(`Collector at x=${i} and y=${j} is moving`)
+                    logger.debug(JSON.stringify(cumulative))
 
                     // If there are resources that have been recovered then send the box to
                     // the outlet of the collector
@@ -1251,7 +1354,12 @@ export class Map {
      * Allows you to delete all uncollected resources and bring all ground trash to the door
      */
     resetResourcesGarbage() {
-        if (this.width === undefined || this.height === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call resetResourcesGarbage()");
+        if (this.width === undefined || this.height === undefined) {
+            logger.warn("Calling activateCollectors with illegal values in the Map class!");
+            return;
+        }
         let c : Case, gate = null;
         let box : Box = new Box(0, 0);
         let tmpBox : Box;
@@ -1269,7 +1377,9 @@ export class Map {
                     let n = tmpBox.numberGarbage;
                     // Adding your waste to the temporary box
                     box.addGarbage(n);
-                    // console.log(`send ${n} garbage on x=${j} y=${i} to door.`)
+
+                    logger.debug(`send ${n} garbage on x=${j} y=${i} to door.`)
+
                     // Destruction of the box with uncollected resources
                     c.deleteBox();
                 }
@@ -1292,7 +1402,12 @@ export class Map {
      * at the start of each turn that all waste and resources are on the facades out
      */
     moveResourcesInMachine() : void {
-        if (this.width === undefined || this.height === undefined) return;
+        let logger = Logger.Instance;
+        logger.info("Call moveResourcesInMachine()");
+        if (this.width === undefined || this.height === undefined) {
+            logger.warn("Calling moveResourcesInMachine with illegal values in the Map class!");
+            return;
+        }
         let c : Case;
         let direction : Direction;
 
@@ -1357,18 +1472,18 @@ export class Map {
                             }
                         }
 
-                        // if (machine.type === MachineStuff.MS_RECYCLING_CENTER){
-                        //     if (cumulBox.numberGarbage !== 0 || cumulBox.numberResources !== 0){
-                        //         console.log("on machine "+MachineStuff[machine.type])
-                        //         console.log("out is at "+Cardinal[out])
-                        //         console.log("and we got ")
-                        //         console.log(cumulBox)
-                        //         console.log("for")
-                        //         console.log(machine)
-                        //         console.log(machine.getBox(out))
-                        //         console.log("---------------------")
-                        //     }
-                        // }
+                        if (machine.type === MachineStuff.MS_RECYCLING_CENTER){
+                            if (cumulBox.numberGarbage !== 0 || cumulBox.numberResources !== 0){
+                                logger.debug("on machine "+MachineStuff[machine.type])
+                                logger.debug("out is at "+Cardinal[out])
+                                logger.debug("and we got ")
+                                logger.debug(JSON.stringify(cumulBox))
+                                logger.debug("for")
+                                logger.debug(JSON.stringify(machine))
+                                logger.debug(JSON.stringify(machine.getBox(out)))
+                                logger.debug("---------------------")
+                            }
+                        }
 
                         // Checking for the presence of resources
                         if (cumulBox.numberGarbage > 0 || cumulBox.numberResources > 0) {
@@ -1405,7 +1520,11 @@ export class Map {
      * @return ErrorCode an error that specify what is the problem
      */
     buyStaff(idStaff: number) : ErrorCode {
-        if (this.team === undefined || this.E === undefined || this.DD === undefined) return ErrorCode.ERROR;
+        let logger = Logger.Instance;
+        if (this.team === undefined || this.E === undefined || this.DD === undefined) {
+            logger.error("Calling buyStaff with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
         const staff : Staff | null = this.team.getStaff(idStaff);
         // Check the existence of staff
         if (staff != null) {
@@ -1428,7 +1547,7 @@ export class Map {
                         )
                 );
 
-                // console.log(this.team)
+                logger.debug(JSON.stringify(this.team))
 
                 // If the action of the staff to fail reimburse the player
                 if (e != ErrorCode.NO_ERROR) {

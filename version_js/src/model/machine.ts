@@ -10,8 +10,6 @@
 
 import {ErrorCode} from "../utils/code";
 import {Vector2D} from "../utils/utilities";
-import {Config} from "../utils/config";
-import {Game} from "../game";
 import {Language} from "../utils/translation";
 
 /**
@@ -74,30 +72,6 @@ export class MachineInfo {
     }
 
     /**
-     * A function to verify if the id given in argument correspond to a machineInfo
-     * @param id a machine stuff, or expected to be one
-     * @return If id exist, return the tab index, If not -1
-     */
-    static isMachineStuffValid(id: number) : number {
-        for (const machine of Game.config.machines) {
-            if (machine.type == id) return id;
-        }
-        return -1;
-    }
-
-    /**
-     * A function to return all the information about a machineInfo according to the id
-     * @param id an id
-     * @return machineInfo a machine info
-     */
-    static getMachineStuff(id: number | MachineStuff) : MachineInfo | null {
-        for (const machine of Game.config.machines) {
-            if (machine.type == id) return machine;
-        }
-        return null;
-    }
-
-    /**
      * Returns the machine capacity (if upgradable)
      * according to the machine level
      * @param level the machine level
@@ -108,10 +82,10 @@ export class MachineInfo {
      * return the name with the correct language
      * @return name the name of a machine
      */
-    get name() : string {
-        if(Game.getTranslationLanguage()==Language.EN)
+    name(langue: Language) : string {
+        if(langue==Language.EN)
             return this.name_en;
-        else if(Game.getTranslationLanguage()==Language.FR)
+        else if(langue==Language.FR)
             return this.name_fr;
         else
             return "ERROR TRANSLATION";
@@ -121,10 +95,10 @@ export class MachineInfo {
      * return the description with the correct language
      * @return description the description of a machine
      */
-    get description() : string {
-        if(Game.getTranslationLanguage()==Language.EN)
+    description(langue: Language) : string {
+        if(langue==Language.EN)
             return this.description_en;
-        else if(Game.getTranslationLanguage()==Language.FR)
+        else if(langue==Language.FR)
             return this.description_fr;
         else
             return "ERROR TRANSLATION";
@@ -134,10 +108,10 @@ export class MachineInfo {
      * return the upgrade description with the correct language
      * @return upgrade the description of the upgrade
      */
-    get upgrade() : string {
-        if(Game.getTranslationLanguage()==Language.EN)
+    upgrade(langue: Language) : string {
+        if(langue==Language.EN)
             return this.upgrade_en;
-        else if(Game.getTranslationLanguage()==Language.FR)
+        else if(langue==Language.FR)
             return this.upgrade_fr;
         else
             return "ERROR TRANSLATION";
@@ -178,7 +152,7 @@ export class Machine {
      */
     constructor(type: MachineStuff) {
         this._type = type;
-        this._level = Config.constants.MACHINE_DEFAULT_LVL;
+        this._level = 1;
         this._interface = Machine.defaultFacade(type);
     }
 
@@ -472,14 +446,6 @@ export class Machine {
                 return interfaces;
         }
         return interfaces;
-    }
-
-    /**
-     * Convenience method to get machine info for a machine
-     * @return MachineInfo the machine info
-     */
-    getInfo() : MachineInfo {
-        return <MachineInfo>MachineInfo.getMachineStuff(this._type);
     }
 
     /**
