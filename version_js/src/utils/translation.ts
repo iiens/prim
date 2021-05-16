@@ -197,6 +197,10 @@ export class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B,'Go back to main menu (or press');
 
+        //menu.html
+        this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN,'English');
+        this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR,'French');
+
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
@@ -313,6 +317,10 @@ export class Translation {
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B,'Revenir au menu (ou appuyer sur');
+
+        //menu.html
+        this.translations_FR.set(TrKeys.MENU_LANGUAGE_EN,'Anglais');
+        this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR,'Français');
 
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
@@ -456,6 +464,9 @@ export enum TrKeys {
     GAME_GATE_DESC,
     GAME_SOURCE_NAME,
     GAME_SOURCE_DESC,
+
+    MENU_LANGUAGE_EN,
+    MENU_LANGUAGE_FR,
 
 }
 

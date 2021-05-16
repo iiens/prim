@@ -59,7 +59,8 @@ export class Config {
             "Envoie une ressource produites par la source sur la case voisine indiquée par son orientation." +
             " La capacité d'un Collecteur augmente de 1 par niveau","+1 collected / level",
             "+1 collectée / niveau",
-            1, "Collector Out is South by default",
+            1, "Collector Out is South by default","La sortie du collecteur est" +
+            " Sud par défaut",
             true,
             (level: number) => { // return 0 when level = 1, 1 when 2 etc.
                 return level - 1; // that number mean capacity = 1 + <result> on level n
@@ -74,7 +75,8 @@ export class Config {
             60,  20,  -1,   -1,  60,  200,
             "A conveyor belt has one exit and three entrances.",
             "Un tapis roulant a une sortie et trois entrées.","Do nothing", "Ne fait rien",
-            Number.MAX_VALUE, "Conveyor Belt Out is South by default",
+            Number.MAX_VALUE, "Conveyor Belt Out is South by default"," La sortie" +
+            " du tapis roulant est Sud par défaut",
             false, null,
             new Map ([
                 [Cardinal.SOUTH, "../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_BOT.png"],
@@ -88,7 +90,8 @@ export class Config {
             "The cross has two entries and two exits, each resources/garbage is sent to the opposite exit.",
             "La croix a deux entrées et deux sorties, chaque ressource / poubelle est envoyée à la sortie opposée.",
             "","",
-            Number.MAX_VALUE, "Cross Out is South and West by default",
+            Number.MAX_VALUE, "Cross Out is South and West by default"," Les sorties de la " +
+            " croix sont Sud et Ouest par défaut",
             false, null,
             new Map ([
                 [Cardinal.SOUTH, "../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_LEFT.png"],
@@ -104,7 +107,8 @@ export class Config {
             "Le centre de recyclage a 3 entrées et une sortie. Le centre peut stocker jusqu'à 100 déchets. " +
             "10 déchets produisent 1 ressource par défaut. Le stockage du centre de recyclage augmente de 10 par niveau.",
             "+10 storage / level","+10 capacité / niveau",
-            100, "Recycling Center Out is South by default",
+            100, "Recycling Center Out is South by default","La sortie du centre" +
+            " de recyclage est le Sud par défaut",
             true, function (level: number) : number {
                 return 10 * (level-1); // we add ten by level (aside lvl1 since that's the default)
             },
@@ -122,7 +126,8 @@ export class Config {
             "La déchetterie a 4 entrées et aucune sortie. Il peut stocker jusqu'à 50 déchets. " +
             "Le stockage de la déchetterie augmente de 20 par niveau.","+20 storage / level",
             "+20 capacité / niveau",
-            50, "Junkyard doesn't have any Out",
+            50, "Junkyard doesn't have any Out","La déchetterie ne possède pas" +
+            " de sorties par défaut",
             true, function (level: number) : number {
                 return 20 * (level-1); // when level = 2, return 20 since we add 20 to the 50
             },

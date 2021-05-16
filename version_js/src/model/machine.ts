@@ -41,7 +41,8 @@ export class MachineInfo {
      * It explain to the user on the interface, the default orientation of the machine
      * in order to help him during the machine purchase
      */
-    public readonly defaultOrientation : string; //!< get the default orientation of the machine
+    public readonly defaultOrientation_en : string; //!< get the default orientation of the machine in english
+    public readonly defaultOrientation_fr : string; //!< get the default orientation of the machine in french
     public readonly canUpgrade : boolean; //!< 1 if it's upgradable, else 0
     private readonly levelUpFunction: ((v: number) => number) | null; //!< An effect for the machine if it's upgrade
     public readonly imageFile: Map<Cardinal, string>; //!< Path to the image file
@@ -49,7 +50,7 @@ export class MachineInfo {
     constructor(name_en: string,name_fr: string, type: MachineStuff, tag: string, costE: number, costDD: number, costUpgradeE: number,
                 costUpgradeDD: number, costDestroyE: number, costDestroyDD: number,
                 description_en: string,description_fr: string, upgrade_en : string, upgrade_fr : string,
-                capacity: number, defaultOrientation: string,
+                capacity: number, defaultOrientation_en: string, defaultOrientation_fr: string,
                 canUpgrade: boolean, levelUpFunction: ((v: number) => number) | null,
                 imageFile: Map<Cardinal, string>){
         this.name_en = name_en;
@@ -65,7 +66,8 @@ export class MachineInfo {
         this.description_en = description_en;
         this.description_fr = description_fr;
         this.capacity = capacity;
-        this.defaultOrientation = defaultOrientation;
+        this.defaultOrientation_en = defaultOrientation_en;
+        this.defaultOrientation_fr = defaultOrientation_fr;
         this.canUpgrade = canUpgrade;
         this.upgrade_en = upgrade_en;
         this.upgrade_fr = upgrade_fr;
@@ -139,6 +141,15 @@ export class MachineInfo {
             return this.upgrade_en;
         else if(Game.getTranslationLanguage()==Language.FR)
             return this.upgrade_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+
+    get defaultOrientation() : string {
+        if(Game.getTranslationLanguage()==Language.EN)
+            return this.defaultOrientation_en;
+        else if(Game.getTranslationLanguage()==Language.FR)
+            return this.defaultOrientation_fr;
         else
             return "ERROR TRANSLATION";
     }
