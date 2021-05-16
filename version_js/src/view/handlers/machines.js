@@ -5,26 +5,14 @@
 // selectively enable features needed in the rendering
 // process.
 
-const {MachineStuff} = require("../../model/machine");
+const {Cardinal} = require("../../model/machine");
 let machines = document.getElementById("machines-list");
 
 // all machines
 for (const machine of config.machines) {
 
     let pathToFile;
-    switch (machine.type) {
-        case MachineStuff.MS_COLLECTOR:
-        case MachineStuff.MS_CONVEYOR_BELT:
-        case MachineStuff.MS_RECYCLING_CENTER:
-            pathToFile = machine.pathToFile+'BOT.png';
-            break;
-        case MachineStuff.MS_CROSS_BELT:
-            pathToFile = machine.pathToFile+'BOT_LEFT.png';
-            break;
-        case MachineStuff.MS_JUNKYARD:
-            pathToFile = machine.pathToFile;
-            break;
-    }
+    pathToFile = machine.imageFile.get(Cardinal.SOUTH);
 
     let div = document.createElement("div");
     div.classList.add("border", "border-dark" ,"mt-3", "p-3")
