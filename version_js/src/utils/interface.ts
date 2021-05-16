@@ -4,6 +4,7 @@ import {Action} from "./mappings";
 import {Cardinal, Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
 import {getRandomInt} from "./utilities";
 import {Config} from "./config";
+import {Language, Translation, TrKeys} from "./translation";
 
 /*
 todo: legend not in brut code
@@ -247,6 +248,9 @@ export class Interface {
      * @see Action enum
      */
     static renderActions() {
+        let greetings = (<string>Translation.get(TrKeys.TERMINAL_HELP))
+            .replace("help", Game.config.keys.help)
+
         // @ts-ignore
         $('.terminal').terminal([Game.mappings.getMappingsFunctions(),
             function notFound(command: string){
@@ -256,7 +260,7 @@ export class Interface {
                 this.echo(`[[;red;]Command ${command} Not Found!]`);
             }
         ], {
-            greetings: `Use ${Game.config.keys.help} to get the list of available actions`,
+            greetings: greetings,
             name: 'action',
             height: 75,
             prompt: 'action> ',

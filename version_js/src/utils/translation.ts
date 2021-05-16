@@ -197,9 +197,33 @@ export class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B,'Go back to main menu (or press');
 
+        //menu.html
+        this.translations_EN.set(TrKeys.MENU_TITLE,"Lang");
+        this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN,'English');
+        this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR,'French');
+
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
+
+        //machines.ts
+        this.translations_EN.set(TrKeys.MACHINE_PRICE,'Price:');
+        this.translations_EN.set(TrKeys.MACHINE_PRICE_DESTROY,'Price (destroy):');
+        this.translations_EN.set(TrKeys.AND_WORD,'and');
+        this.translations_EN.set(TrKeys.MACHINE_ORIENTATION,'Orientation (default):');
+        this.translations_EN.set(TrKeys.MACHINE_PRICE_UPDATE,'Price (upgrade):');
+        this.translations_EN.set(TrKeys.MACHINE_CAPACITY,'Capacity (default):');
+
+        //staffs.ts
+        this.translations_EN.set(TrKeys.STAFF_COST,'Cost (default):');
+        this.translations_EN.set(TrKeys.STAFF_HIRED_COUNT,'Hired count:');
+
+        //end.ts
+        this.translations_EN.set(TrKeys.END_WIN,'Victory');
+        this.translations_EN.set(TrKeys.END_LOST,'Defeat');
+
+        //interface.ts
+        this.translations_EN.set(TrKeys.TERMINAL_HELP,'Use help to get the list of available actions');
 
         //French Translation
         this.translations_FR = new Map<TrKeys, string>();
@@ -283,7 +307,7 @@ export class Translation {
         this.translations_FR.set(TrKeys.GAME_FISA_MODE, 'MODE FISA:');
         this.translations_FR.set(TrKeys.GAME_SCORE, 'Score:');
         this.translations_FR.set(TrKeys.GAME_GARBAGE, 'Déchets:');
-        this.translations_FR.set(TrKeys.LEGEND, 'legend');
+        this.translations_FR.set(TrKeys.LEGEND, 'Légende');
         this.translations_FR.set(TrKeys.GAME_SOURCE,': Source');
         this.translations_FR.set(TrKeys.GAME_GATE,': Porte');
         this.translations_FR.set(TrKeys.GAME_CONVEYOR_BELT,': Tapis roulant');
@@ -314,10 +338,33 @@ export class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B,'Revenir au menu (ou appuyer sur');
 
+        //menu.html
+        this.translations_FR.set(TrKeys.MENU_TITLE,'Langue');
+        this.translations_FR.set(TrKeys.MENU_LANGUAGE_EN,'Anglais');
+        this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR,'Français');
+
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
             ' auquel vous voulez jouer ou une application, contactez-nous !');
 
+        //machines.ts
+        this.translations_FR.set(TrKeys.MACHINE_PRICE,'Prix:');
+        this.translations_FR.set(TrKeys.MACHINE_PRICE_DESTROY,'Prix (destruction):');
+        this.translations_FR.set(TrKeys.AND_WORD,'et');
+        this.translations_FR.set(TrKeys.MACHINE_ORIENTATION,'Orientation (par défaut):');
+        this.translations_FR.set(TrKeys.MACHINE_PRICE_UPDATE,'Prix (amélioration):');
+        this.translations_FR.set(TrKeys.MACHINE_CAPACITY,'Capacité (par défaut):');
+
+        //staffs.ts
+        this.translations_FR.set(TrKeys.STAFF_COST,'Prix (par défaut):');
+        this.translations_FR.set(TrKeys.STAFF_HIRED_COUNT,'Nombre de personnel recrutés:');
+
+        //end.ts
+        this.translations_FR.set(TrKeys.END_WIN,'Victoire');
+        this.translations_FR.set(TrKeys.END_LOST,'Défaite');
+
+        //interface.ts
+        this.translations_FR.set(TrKeys.TERMINAL_HELP,'Utilisez help pour obtenir la liste des actions disponibles');
 
         this.errors_EN = new Map<ErrorCode, string>();
 
@@ -428,8 +475,8 @@ export enum TrKeys {
     // legend and view components
     LEGEND, //!< Legend:
 
-    WIN, //!< win
-    LOST, //!< loose
+    END_WIN, //!< win
+    END_LOST, //!< loose
 
     RULES_DOOR_TITLE, //!< Title
     RULES_DOOR, //!< In order to close the door.
@@ -456,6 +503,22 @@ export enum TrKeys {
     GAME_GATE_DESC,
     GAME_SOURCE_NAME,
     GAME_SOURCE_DESC,
+
+    MENU_TITLE,
+    MENU_LANGUAGE_EN,
+    MENU_LANGUAGE_FR,
+
+    MACHINE_PRICE,
+    MACHINE_PRICE_DESTROY,
+    MACHINE_ORIENTATION,
+    AND_WORD,
+    MACHINE_PRICE_UPDATE,
+    MACHINE_CAPACITY,
+
+    STAFF_COST,
+    STAFF_HIRED_COUNT,
+
+    TERMINAL_HELP
 
 }
 

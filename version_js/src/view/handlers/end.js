@@ -4,6 +4,7 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
+const {TrKeys,Translation,Language} = require("../../utils/translation");
 let score = 0;
 
 if (game.map.getPlayerScore > game.config.constants.NUMBER_RESOURCE_WIN){
@@ -38,5 +39,7 @@ win.replaceText('score', score)
 // status
 let haveWin = game.map.getPlayerScore > game.config.constants.NUMBER_RESOURCE_WIN;
 let status = document.getElementById('status')
-status.innerText = haveWin ? "Victory" : "Defeat";
+let winText = Translation.get(TrKeys.END_WIN);
+let lostText = Translation.get(TrKeys.END_LOST);
+status.innerText = haveWin ? winText : lostText;
 status.classList.add( haveWin ? "text-success" : "text-danger");
