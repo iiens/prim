@@ -22,7 +22,7 @@ const translation_1 = require("../utils/translation");
  * This value must be checked before applying effect or increase level.
  */
 class MachineInfo {
-    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, imageFile) {
+    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation_en, defaultOrientation_fr, canUpgrade, levelUpFunction, imageFile) {
         this.name_en = name_en;
         this.name_fr = name_fr;
         this.type = type;
@@ -36,7 +36,8 @@ class MachineInfo {
         this.description_en = description_en;
         this.description_fr = description_fr;
         this.capacity = capacity;
-        this.defaultOrientation = defaultOrientation;
+        this.defaultOrientation_en = defaultOrientation_en;
+        this.defaultOrientation_fr = defaultOrientation_fr;
         this.canUpgrade = canUpgrade;
         this.upgrade_en = upgrade_en;
         this.upgrade_fr = upgrade_fr;
@@ -107,6 +108,14 @@ class MachineInfo {
             return this.upgrade_en;
         else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
             return this.upgrade_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+    get defaultOrientation() {
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+            return this.defaultOrientation_en;
+        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+            return this.defaultOrientation_fr;
         else
             return "ERROR TRANSLATION";
     }

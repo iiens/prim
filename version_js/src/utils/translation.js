@@ -180,11 +180,27 @@ class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Go back to main menu (or press');
         //menu.html
+        this.translations_EN.set(TrKeys.MENU_TITLE, "Lang");
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN, 'English');
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR, 'French');
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
+        //machines.ts
+        this.translations_EN.set(TrKeys.MACHINE_PRICE, 'Price:');
+        this.translations_EN.set(TrKeys.MACHINE_PRICE_DESTROY, 'Price (destroy):');
+        this.translations_EN.set(TrKeys.AND_WORD, 'and');
+        this.translations_EN.set(TrKeys.MACHINE_ORIENTATION, 'Orientation (default):');
+        this.translations_EN.set(TrKeys.MACHINE_PRICE_UPDATE, 'Price (upgrade):');
+        this.translations_EN.set(TrKeys.MACHINE_CAPACITY, 'Capacity (default):');
+        //staffs.ts
+        this.translations_EN.set(TrKeys.STAFF_COST, 'Cost (default):');
+        this.translations_EN.set(TrKeys.STAFF_HIRED_COUNT, 'Hired count:');
+        //end.ts
+        this.translations_EN.set(TrKeys.END_WIN, 'Victory');
+        this.translations_EN.set(TrKeys.END_LOST, 'Defeat');
+        //interface.ts
+        this.translations_EN.set(TrKeys.TERMINAL_HELP, 'Use help to get the list of available actions');
         //French Translation
         this.translations_FR = new Map();
         // index.html
@@ -265,7 +281,7 @@ class Translation {
         this.translations_FR.set(TrKeys.GAME_FISA_MODE, 'MODE FISA:');
         this.translations_FR.set(TrKeys.GAME_SCORE, 'Score:');
         this.translations_FR.set(TrKeys.GAME_GARBAGE, 'Déchets:');
-        this.translations_FR.set(TrKeys.LEGEND, 'legend');
+        this.translations_FR.set(TrKeys.LEGEND, 'Légende');
         this.translations_FR.set(TrKeys.GAME_SOURCE, ': Source');
         this.translations_FR.set(TrKeys.GAME_GATE, ': Porte');
         this.translations_FR.set(TrKeys.GAME_CONVEYOR_BELT, ': Tapis roulant');
@@ -295,11 +311,27 @@ class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Revenir au menu (ou appuyer sur');
         //menu.html
+        this.translations_FR.set(TrKeys.MENU_TITLE, 'Langue');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_EN, 'Anglais');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR, 'Français');
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE, 'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
             ' auquel vous voulez jouer ou une application, contactez-nous !');
+        //machines.ts
+        this.translations_FR.set(TrKeys.MACHINE_PRICE, 'Prix:');
+        this.translations_FR.set(TrKeys.MACHINE_PRICE_DESTROY, 'Prix (destruction):');
+        this.translations_FR.set(TrKeys.AND_WORD, 'et');
+        this.translations_FR.set(TrKeys.MACHINE_ORIENTATION, 'Orientation (par défaut):');
+        this.translations_FR.set(TrKeys.MACHINE_PRICE_UPDATE, 'Prix (amélioration):');
+        this.translations_FR.set(TrKeys.MACHINE_CAPACITY, 'Capacité (par défaut):');
+        //staffs.ts
+        this.translations_FR.set(TrKeys.STAFF_COST, 'Prix (par défaut):');
+        this.translations_FR.set(TrKeys.STAFF_HIRED_COUNT, 'Nombre de personnel recrutés:');
+        //end.ts
+        this.translations_FR.set(TrKeys.END_WIN, 'Victoire');
+        this.translations_FR.set(TrKeys.END_LOST, 'Défaite');
+        //interface.ts
+        this.translations_FR.set(TrKeys.TERMINAL_HELP, 'Utilisez help pour obtenir la liste des actions disponibles');
         this.errors_EN = new Map();
         this.errors_EN.set(code_1.ErrorCode.ERROR, 'Some error occurred');
         this.errors_EN.set(code_1.ErrorCode.ERROR_CASE_MACHINE, 'This case is a machine. Please try again.');
@@ -397,8 +429,8 @@ var TrKeys;
     TrKeys[TrKeys["INPUT_ORIENTATION"] = 48] = "INPUT_ORIENTATION";
     // legend and view components
     TrKeys[TrKeys["LEGEND"] = 49] = "LEGEND";
-    TrKeys[TrKeys["WIN"] = 50] = "WIN";
-    TrKeys[TrKeys["LOST"] = 51] = "LOST";
+    TrKeys[TrKeys["END_WIN"] = 50] = "END_WIN";
+    TrKeys[TrKeys["END_LOST"] = 51] = "END_LOST";
     TrKeys[TrKeys["RULES_DOOR_TITLE"] = 52] = "RULES_DOOR_TITLE";
     TrKeys[TrKeys["RULES_DOOR"] = 53] = "RULES_DOOR";
     TrKeys[TrKeys["RULES_EXPLAIN_TITLE"] = 54] = "RULES_EXPLAIN_TITLE";
@@ -423,8 +455,18 @@ var TrKeys;
     TrKeys[TrKeys["GAME_GATE_DESC"] = 73] = "GAME_GATE_DESC";
     TrKeys[TrKeys["GAME_SOURCE_NAME"] = 74] = "GAME_SOURCE_NAME";
     TrKeys[TrKeys["GAME_SOURCE_DESC"] = 75] = "GAME_SOURCE_DESC";
-    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 76] = "MENU_LANGUAGE_EN";
-    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 77] = "MENU_LANGUAGE_FR";
+    TrKeys[TrKeys["MENU_TITLE"] = 76] = "MENU_TITLE";
+    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 77] = "MENU_LANGUAGE_EN";
+    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 78] = "MENU_LANGUAGE_FR";
+    TrKeys[TrKeys["MACHINE_PRICE"] = 79] = "MACHINE_PRICE";
+    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 80] = "MACHINE_PRICE_DESTROY";
+    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 81] = "MACHINE_ORIENTATION";
+    TrKeys[TrKeys["AND_WORD"] = 82] = "AND_WORD";
+    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 83] = "MACHINE_PRICE_UPDATE";
+    TrKeys[TrKeys["MACHINE_CAPACITY"] = 84] = "MACHINE_CAPACITY";
+    TrKeys[TrKeys["STAFF_COST"] = 85] = "STAFF_COST";
+    TrKeys[TrKeys["STAFF_HIRED_COUNT"] = 86] = "STAFF_HIRED_COUNT";
+    TrKeys[TrKeys["TERMINAL_HELP"] = 87] = "TERMINAL_HELP";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

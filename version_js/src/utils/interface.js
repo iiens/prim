@@ -5,6 +5,7 @@ const map_1 = require("../model/map");
 const game_1 = require("../game");
 const machine_1 = require("../model/machine");
 const utilities_1 = require("./utilities");
+const translation_1 = require("./translation");
 /*
 todo: legend not in brut code
 todo: colors for machines/...
@@ -236,6 +237,8 @@ class Interface {
      * @see Action enum
      */
     static renderActions() {
+        let greetings = translation_1.Translation.get(translation_1.TrKeys.TERMINAL_HELP)
+            .replace("help", game_1.Game.config.keys.help);
         // @ts-ignore
         $('.terminal').terminal([game_1.Game.mappings.getMappingsFunctions(), function notFound(command) {
                 // @ts-ignore
@@ -244,7 +247,7 @@ class Interface {
                 this.echo(`[[;red;]Command ${command} Not Found!]`);
             }
         ], {
-            greetings: `Use ${game_1.Game.config.keys.help} to get the list of available actions`,
+            greetings: greetings,
             name: 'action',
             height: 75,
             prompt: 'action> ',

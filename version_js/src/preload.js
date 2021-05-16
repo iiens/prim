@@ -133,6 +133,7 @@ document.onreadystatechange = (event) => {
                 window.lang.current = Translation.getLanguage();
                 window.translation = {
                     "tr-back": Translation.get(TrKeys.GO_BACK_B),
+                    "tr-menu-title": Translation.get(TrKeys.MENU_TITLE),
                     "tr-menu-en": Translation.get(TrKeys.MENU_LANGUAGE_EN),
                     "tr-menu-fr": Translation.get(TrKeys.MENU_LANGUAGE_FR),
                 }
