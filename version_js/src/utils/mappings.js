@@ -353,7 +353,7 @@ Mappings.buyStaff = function (id = -1, n = 1) {
     this.clear();
     if (id === -1) {
         if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message todo : see which better
+            // @ts-ignore Show the error message
             this.echo("Usage is: bs Staff_id [or] bs Staff_id count");
         }
         else { // @ts-ignore Show the error message
@@ -403,7 +403,7 @@ Mappings.buyMachine = function (machineStuff = -1, x = -1, y = -1, rotation = 0)
     this.clear();
     if (machineStuff == -1 || x == -1 || y == -1 || rotation == -1) {
         if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message todo : see which better
+            // @ts-ignore Show the error message
             this.echo("Usage is : bm machine_id x y rotation (see help)");
         }
         else {
@@ -432,7 +432,7 @@ Mappings.upgradeMachine = function (x = -1, y = -1) {
     this.clear();
     if (x == -1 && y == -1) {
         if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message todo : see which better
+            // @ts-ignore Show the error message
             this.echo("Usage is : um x y (see help)");
         }
         else {
@@ -458,7 +458,7 @@ Mappings.destroyMachine = function (x = -1, y = -1) {
             this.echo("Usage is : dm x y (see help)");
         }
         else {
-            // @ts-ignore Show the error message; todo : see which better
+            // @ts-ignore Show the error message;
             this.echo("Utilisation : dm x y (voir aide)");
         }
     }
@@ -499,7 +499,7 @@ Mappings.endTurn = function (n = 1) {
         // @ts-ignore since it's terminal method
         this.clear();
         if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message todo : see which better
+            // @ts-ignore Show the error message
             this.echo("Can only do up to 1000 in one go.");
         }
         else {

@@ -225,7 +225,7 @@ export class Mappings {
         if (id === -1){
 
             if(Game.getTranslationLanguage()==Language.EN){
-                // @ts-ignore Show the error message todo : see which better
+                // @ts-ignore Show the error message
                 this.echo("Usage is: bs Staff_id [or] bs Staff_id count")
             }
             else {// @ts-ignore Show the error message
@@ -276,7 +276,7 @@ export class Mappings {
         if (machineStuff == -1 || x == -1 || y == -1 || rotation == -1){
 
             if(Game.getTranslationLanguage()==Language.EN) {
-                // @ts-ignore Show the error message todo : see which better
+                // @ts-ignore Show the error message
                 this.echo("Usage is : bm machine_id x y rotation (see help)");
             }
             else{
@@ -305,7 +305,7 @@ export class Mappings {
         this.clear();
         if (x == -1 && y == -1){
             if(Game.getTranslationLanguage()== Language.EN) {
-                // @ts-ignore Show the error message todo : see which better
+                // @ts-ignore Show the error message
                 this.echo("Usage is : um x y (see help)");
             }
             else{
@@ -331,7 +331,7 @@ export class Mappings {
                 this.echo("Usage is : dm x y (see help)");
             }
             else{
-                // @ts-ignore Show the error message; todo : see which better
+                // @ts-ignore Show the error message;
                 this.echo("Utilisation : dm x y (voir aide)");
             }
         } else {
@@ -375,7 +375,7 @@ export class Mappings {
             // @ts-ignore since it's terminal method
             this.clear();
             if(Game.getTranslationLanguage()==Language.EN) {
-                // @ts-ignore Show the error message todo : see which better
+                // @ts-ignore Show the error message
                 this.echo("Can only do up to 1000 in one go.")
             }
             else{

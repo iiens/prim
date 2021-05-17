@@ -21,7 +21,6 @@ document.onreadystatechange = (event) => {
             // use javascript standard class
             let audio = new Audio(__dirname+"/../assets/music/"+path);
             audio.volume = Game.getAudio();
-            console.log(audio.volume);
             audio.loop = true;
             window.audio = audio;
             await audio.play();

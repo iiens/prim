@@ -81,6 +81,12 @@ export class Translation {
         }
     }
 
+    /**
+     * @brief Init the Hashmap which contains the translations
+     *
+     * It inits the Hashmap which contains the translations in English and in French
+     *
+     */
     private static initTranslations() {
         if (this.isInit) return;
         //English Translation
