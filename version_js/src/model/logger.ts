@@ -7,6 +7,8 @@ export class Logger {
 
     private _level : Logger.Levels;
 
+    private _console : boolean;
+
     private constructor() {
         this._fileName = "./logs/log.json";
 
@@ -15,6 +17,7 @@ export class Logger {
 
         // Initialisation
         this._level = Logger.Levels.Warning;
+        this._console = false;
     }
 
     static get Instance() : Logger {
@@ -27,6 +30,10 @@ export class Logger {
 
     set level(value: Logger.Levels) {
         this._level = value;
+    };
+
+    set console(value: boolean) {
+        this._console = value;
     };
 
     log(message: string, level: Logger.Levels) {
@@ -43,7 +50,9 @@ export class Logger {
 
             switch (level) {
                 case Logger.Levels.Debug:
-                    console.debug(message);
+                    if (this._console) {
+                        console.debug(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Debug",
@@ -51,7 +60,9 @@ export class Logger {
                     }
                     break;
                 case Logger.Levels.Info:
-                    console.info(message);
+                    if (this._console) {
+                        console.info(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Info",
@@ -59,7 +70,9 @@ export class Logger {
                     }
                     break;
                 case Logger.Levels.Warning:
-                    console.warn(message);
+                    if (this._console) {
+                        console.warn(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Warning",
@@ -67,7 +80,9 @@ export class Logger {
                     }
                     break;
                 case Logger.Levels.Error:
-                    console.error(message);
+                    if (this._console) {
+                        console.error(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Error",
