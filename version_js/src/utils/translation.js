@@ -66,6 +66,12 @@ class Translation {
                 return this.errors_FR.get(key) ?? 'Some error occurred';
         }
     }
+    /**
+     * @brief Init the Hashmap which contains the translations
+     *
+     * It inits the Hashmap which contains the translations in English and in French
+     *
+     */
     static initTranslations() {
         if (this.isInit)
             return;
@@ -180,7 +186,7 @@ class Translation {
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Go back to main menu (or press');
         //menu.html
-        this.translations_EN.set(TrKeys.MENU_TITLE, "Lang");
+        this.translations_EN.set(TrKeys.MENU_TITLE, "Language");
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN, 'English');
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR, 'French');
         this.translations_EN.set(TrKeys.MUSIC_TITLE, 'Music');

@@ -204,7 +204,7 @@ export class Translation {
         this.translations_EN.set(TrKeys.GO_BACK_B,'Go back to main menu (or press');
 
         //menu.html
-        this.translations_EN.set(TrKeys.MENU_TITLE,"Lang");
+        this.translations_EN.set(TrKeys.MENU_TITLE,"Language");
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN,'English');
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR,'French');
         this.translations_EN.set(TrKeys.MUSIC_TITLE,'Music');

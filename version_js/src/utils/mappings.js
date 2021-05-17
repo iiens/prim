@@ -404,11 +404,15 @@ Mappings.buyMachine = function (machineStuff = -1, x = -1, y = -1, rotation = 0)
     if (machineStuff == -1 || x == -1 || y == -1 || rotation == -1) {
         if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
             // @ts-ignore Show the error message
-            this.echo("Usage is : bm machine_id x y rotation (see help)");
+            this.echo("bm: buy a machine. Exemple: bm id x y r with id a machine id, x and y a position, and r a rotation." +
+                " For instance 0 rotation means we keep the orientation by default, then 1 we rotate clockwise the rotation " +
+                "by default, ... up to 3.");
         }
         else {
             // @ts-ignore Show the error message
-            this.echo("L'utilisation est: bm machine_id x y rotation (voir l'aide)");
+            this.echo("bm: acheter une machine. Exemple : bm id x y r avec id a machine id, x et y une position, et r une rotation." +
+                " Par exemple 0 rotation signifie que nous conservons l’orientation par défaut, puis 1 nous faisons tourner " +
+                "la rotation dans le sens des aiguilles d’une montre par défaut, ... jusqu’à 3");
         }
     }
     else {
