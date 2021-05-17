@@ -16,7 +16,7 @@ export class Logger {
         fs.writeFileSync(this._fileName, '{}');
 
         // Initialisation
-        this._level = Logger.Levels.Debug;
+        this._level = Logger.Levels.Warning;
         this._console = false;
     }
 
