@@ -12,8 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Box = exports.Direction = exports.Cardinal = exports.Facade = exports.Machine = exports.MachineStuff = exports.MachineInfo = void 0;
 const code_1 = require("../utils/code");
 const utilities_1 = require("../utils/utilities");
-const config_1 = require("../utils/config");
-const game_1 = require("../game");
 const translation_1 = require("../utils/translation");
 /**
  * Struct which contains all information about a machine
@@ -22,7 +20,7 @@ const translation_1 = require("../utils/translation");
  * This value must be checked before applying effect or increase level.
  */
 class MachineInfo {
-    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation, canUpgrade, levelUpFunction, imageFile) {
+    constructor(name_en, name_fr, type, tag, costE, costDD, costUpgradeE, costUpgradeDD, costDestroyE, costDestroyDD, description_en, description_fr, upgrade_en, upgrade_fr, capacity, defaultOrientation_en, defaultOrientation_fr, canUpgrade, levelUpFunction, imageFile) {
         this.name_en = name_en;
         this.name_fr = name_fr;
         this.type = type;
@@ -36,36 +34,13 @@ class MachineInfo {
         this.description_en = description_en;
         this.description_fr = description_fr;
         this.capacity = capacity;
-        this.defaultOrientation = defaultOrientation;
+        this.defaultOrientation_en = defaultOrientation_en;
+        this.defaultOrientation_fr = defaultOrientation_fr;
         this.canUpgrade = canUpgrade;
         this.upgrade_en = upgrade_en;
         this.upgrade_fr = upgrade_fr;
         this.levelUpFunction = levelUpFunction ?? null;
         this.imageFile = imageFile;
-    }
-    /**
-     * A function to verify if the id given in argument correspond to a machineInfo
-     * @param id a machine stuff, or expected to be one
-     * @return If id exist, return the tab index, If not -1
-     */
-    static isMachineStuffValid(id) {
-        for (const machine of game_1.Game.config.machines) {
-            if (machine.type == id)
-                return id;
-        }
-        return -1;
-    }
-    /**
-     * A function to return all the information about a machineInfo according to the id
-     * @param id an id
-     * @return machineInfo a machine info
-     */
-    static getMachineStuff(id) {
-        for (const machine of game_1.Game.config.machines) {
-            if (machine.type == id)
-                return machine;
-        }
-        return null;
     }
     /**
      * Returns the machine capacity (if upgradable)
@@ -78,10 +53,10 @@ class MachineInfo {
      * return the name with the correct language
      * @return name the name of a machine
      */
-    get name() {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+    name(langue) {
+        if (langue == translation_1.Language.EN)
             return this.name_en;
-        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+        else if (langue == translation_1.Language.FR)
             return this.name_fr;
         else
             return "ERROR TRANSLATION";
@@ -90,10 +65,10 @@ class MachineInfo {
      * return the description with the correct language
      * @return description the description of a machine
      */
-    get description() {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+    description(langue) {
+        if (langue == translation_1.Language.EN)
             return this.description_en;
-        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+        else if (langue == translation_1.Language.FR)
             return this.description_fr;
         else
             return "ERROR TRANSLATION";
@@ -102,11 +77,19 @@ class MachineInfo {
      * return the upgrade description with the correct language
      * @return upgrade the description of the upgrade
      */
-    get upgrade() {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN)
+    upgrade(langue) {
+        if (langue == translation_1.Language.EN)
             return this.upgrade_en;
-        else if (game_1.Game.getTranslationLanguage() == translation_1.Language.FR)
+        else if (langue == translation_1.Language.FR)
             return this.upgrade_fr;
+        else
+            return "ERROR TRANSLATION";
+    }
+    defaultOrientation(langue) {
+        if (langue == translation_1.Language.EN)
+            return this.defaultOrientation_en;
+        else if (langue == translation_1.Language.FR)
+            return this.defaultOrientation_fr;
         else
             return "ERROR TRANSLATION";
     }
@@ -140,7 +123,7 @@ class Machine {
     constructor(type) {
         this.rotation = 0;
         this._type = type;
-        this._level = config_1.Config.constants.MACHINE_DEFAULT_LVL;
+        this._level = 1;
         this._interface = Machine.defaultFacade(type);
     }
     /**
@@ -408,13 +391,6 @@ class Machine {
                 return interfaces;
         }
         return interfaces;
-    }
-    /**
-     * Convenience method to get machine info for a machine
-     * @return MachineInfo the machine info
-     */
-    getInfo() {
-        return MachineInfo.getMachineStuff(this._type);
     }
     /**
      * Returns the serialization of a machine

@@ -21,3 +21,14 @@ if (current === lang.FR){
 } else if (current === lang.EN){
     btn_eng.setAttribute("checked","")
 }
+
+// show slider
+let rangeSlider = document.getElementById("rs-range-line");
+let rangeBullet = document.getElementById("rs-bullet");
+rangeSlider.addEventListener("input", showSliderValue, false);
+function showSliderValue() {
+    rangeBullet.innerHTML = rangeSlider.value;
+    let bulletPosition = (rangeSlider.value /rangeSlider.max);
+    rangeBullet.style.left = Math.max((bulletPosition * 572), 12) + "px";
+}
+showSliderValue();

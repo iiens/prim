@@ -5,6 +5,8 @@ const map_1 = require("../model/map");
 const game_1 = require("../game");
 const machine_1 = require("../model/machine");
 const utilities_1 = require("./utilities");
+const config_1 = require("./config");
+const translation_1 = require("./translation");
 /*
 todo: legend not in brut code
 todo: colors for machines/...
@@ -112,7 +114,7 @@ class Interface {
                     if (Case.isMachine) {
                         let machine = Case.getMachine();
                         InterfaceUtils.drawMachine(Case, ctx, xx, yy);
-                        if (machine.getInfo().canUpgrade) {
+                        if (config_1.Config.getMachineStuff(machine.type)?.canUpgrade) {
                             let oldFont = ctx.font;
                             let texte = `lvl ${machine.level}`;
                             ctx.font = "10px Segoe UI";
@@ -236,6 +238,8 @@ class Interface {
      * @see Action enum
      */
     static renderActions() {
+        let greetings = translation_1.Translation.get(translation_1.TrKeys.TERMINAL_HELP)
+            .replace("help", game_1.Game.config.keys.help);
         // @ts-ignore
         $('.terminal').terminal([game_1.Game.mappings.getMappingsFunctions(), function notFound(command) {
                 // @ts-ignore
@@ -244,7 +248,7 @@ class Interface {
                 this.echo(`[[;red;]Command ${command} Not Found!]`);
             }
         ], {
-            greetings: `Use ${game_1.Game.config.keys.help} to get the list of available actions`,
+            greetings: greetings,
             name: 'action',
             height: 75,
             prompt: 'action> ',
@@ -283,22 +287,22 @@ class InterfaceUtils {
         let img = new Image();
         switch (mach.type) {
             case machine_1.MachineStuff.MS_JUNKYARD:
-                img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.SOUTH);
                 break;
             case machine_1.MachineStuff.MS_RECYCLING_CENTER:
             case machine_1.MachineStuff.MS_COLLECTOR:
             case machine_1.MachineStuff.MS_CONVEYOR_BELT:
                 if (mach.isOrientationBottom(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.SOUTH);
                 }
                 else if (mach.isOrientationTop(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.NORTH);
                 }
                 else if (mach.isOrientationLeft(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.WEST);
                 }
                 else {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.EAST);
                 }
                 if (mach.type == machine_1.MachineStuff.MS_CONVEYOR_BELT && (Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
                     img.src = img.src.substring(0, img.src.length - 4);
@@ -307,16 +311,16 @@ class InterfaceUtils {
                 break;
             case machine_1.MachineStuff.MS_CROSS_BELT:
                 if (mach.isOrientationBottomRight(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.EAST);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.EAST);
                 }
                 else if (mach.isOrientationTopLeft(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.WEST);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.WEST);
                 }
                 else if (mach.isOrientationBottomLeft(machine_1.Direction.OUT)) {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.SOUTH);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.SOUTH);
                 }
                 else {
-                    img.src = mach.getInfo().imageFile.get(machine_1.Cardinal.NORTH);
+                    img.src = config_1.Config.getMachineStuff(mach.type)?.imageFile.get(machine_1.Cardinal.NORTH);
                 }
                 if ((Case.numberResources() > 0 || Case.numberGarbage() > 0)) {
                     img.src = img.src.substring(0, img.src.length - 4);
@@ -342,7 +346,7 @@ class InterfaceUtils {
                 case map_1.CaseType.CASE_GATE: return "G";
                 case map_1.CaseType.CASE_SOURCE: return "S";
                 case map_1.CaseType.CASE_MACHINE: {
-                    return machine_1.MachineInfo.getMachineStuff(c.getMachine().type)?.tag;
+                    return config_1.Config.getMachineStuff(c.getMachine().type)?.tag;
                 }
             }
             return "?";

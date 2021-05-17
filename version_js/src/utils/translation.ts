@@ -201,6 +201,7 @@ export class Translation {
         this.translations_EN.set(TrKeys.MENU_TITLE,"Lang");
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN,'English');
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR,'French');
+        this.translations_EN.set(TrKeys.MUSIC_TITLE,'Music');
 
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
@@ -342,6 +343,7 @@ export class Translation {
         this.translations_FR.set(TrKeys.MENU_TITLE,'Langue');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_EN,'Anglais');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR,'Français');
+        this.translations_FR.set(TrKeys.MUSIC_TITLE,'Musique');
 
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
@@ -518,7 +520,9 @@ export enum TrKeys {
     STAFF_COST,
     STAFF_HIRED_COUNT,
 
-    TERMINAL_HELP
+    TERMINAL_HELP,
+
+    MUSIC_TITLE,
 
 }
 

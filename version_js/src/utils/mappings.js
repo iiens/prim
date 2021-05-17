@@ -13,6 +13,7 @@ const game_1 = require("../game");
 const code_1 = require("./code");
 const translation_1 = require("./translation");
 const machine_1 = require("../model/machine");
+const config_1 = require("./config");
 /**
  * Map of mappings
  */
@@ -50,24 +51,41 @@ class Mappings {
     static initMappings() {
         if (this.isInit)
             return; // done
-        // init map
-        this.mappings = new MappingsMap();
-        this.mappings.set(new Mapping(Action.LIST_ACTIONS, "help", "Show the list of available actions.", this.listMappings));
-        this.mappings.set(new Mapping(Action.CANCEL_ACTION, "b", "Used to go back or cancel the current an action.", this.goBack));
-        this.mappings.set(new Mapping(Action.LIST_MACHINES, "lm", "List all machines.", this.listMachines));
-        this.mappings.set(new Mapping(Action.LIST_STAFF, "ls", "List all staffs.", this.listStaff));
-        this.mappings.set(new Mapping(Action.HIRE_FISE, "he", "Hire a FISE.", this.hireFISE));
-        this.mappings.set(new Mapping(Action.HIRE_FISA, "ha", "Hire a FISA.", this.hireFISA));
-        this.mappings.set(new Mapping(Action.CHANGE_FISA_MODE, "c", "Change production mode.", this.fisaMode));
-        this.mappings.set(new Mapping(Action.BUY_STAFF, "bs", "Buy a staff.", this.buyStaff));
-        this.mappings.set(new Mapping(Action.BUY_MACHINE, "bm", "Buy a machine.", this.buyMachine));
-        this.mappings.set(new Mapping(Action.UPGRADE_MACHINE, "um", "Upgrade a machine.", this.upgradeMachine));
-        this.mappings.set(new Mapping(Action.DESTROY_MACHINE, "dm", "Destroy a machine.", this.destroyMachine));
-        this.mappings.set(new Mapping(Action.SHOW_MAP, "m", "Show map.", this.showMap));
-        this.mappings.set(new Mapping(Action.SHOW_CASE_RESOURCE, "r", "Show map with resource count instead of machine type.", this.showResource));
-        this.mappings.set(new Mapping(Action.SHOW_CASE_GARBAGE, "g", "Show map with garbage count instead of machine type.", this.showGarbage));
-        this.mappings.set(new Mapping(Action.END_TURN, "n", "End turn.", this.endTurn));
-        this.mappings.set(new Mapping(Action.EXIT, "q", "End game.", this.exit));
+        // init map in english
+        this.mappings_EN = new MappingsMap();
+        this.mappings_EN.set(new Mapping(Action.LIST_ACTIONS, "help", "Show the list of available actions.", this.listMappings));
+        this.mappings_EN.set(new Mapping(Action.CANCEL_ACTION, "b", "Used to go back or cancel the current an action.", this.goBack));
+        this.mappings_EN.set(new Mapping(Action.LIST_MACHINES, "lm", "List all machines.", this.listMachines));
+        this.mappings_EN.set(new Mapping(Action.LIST_STAFF, "ls", "List all staffs.", this.listStaff));
+        this.mappings_EN.set(new Mapping(Action.HIRE_FISE, "he", "Hire a FISE.", this.hireFISE));
+        this.mappings_EN.set(new Mapping(Action.HIRE_FISA, "ha", "Hire a FISA.", this.hireFISA));
+        this.mappings_EN.set(new Mapping(Action.CHANGE_FISA_MODE, "c", "Change production mode.", this.fisaMode));
+        this.mappings_EN.set(new Mapping(Action.BUY_STAFF, "bs", "Buy a staff.", this.buyStaff));
+        this.mappings_EN.set(new Mapping(Action.BUY_MACHINE, "bm", "Buy a machine.", this.buyMachine));
+        this.mappings_EN.set(new Mapping(Action.UPGRADE_MACHINE, "um", "Upgrade a machine.", this.upgradeMachine));
+        this.mappings_EN.set(new Mapping(Action.DESTROY_MACHINE, "dm", "Destroy a machine.", this.destroyMachine));
+        this.mappings_EN.set(new Mapping(Action.SHOW_MAP, "m", "Show map.", this.showMap));
+        this.mappings_EN.set(new Mapping(Action.SHOW_CASE_RESOURCE, "r", "Show map with resource count instead of machine type.", this.showResource));
+        this.mappings_EN.set(new Mapping(Action.SHOW_CASE_GARBAGE, "g", "Show map with garbage count instead of machine type.", this.showGarbage));
+        this.mappings_EN.set(new Mapping(Action.END_TURN, "n", "End turn.", this.endTurn));
+        this.mappings_EN.set(new Mapping(Action.EXIT, "q", "End game.", this.exit));
+        this.mappings_FR = new MappingsMap();
+        this.mappings_FR.set(new Mapping(Action.LIST_ACTIONS, "help", "Afficher la liste des actions disponibles.", this.listMappings));
+        this.mappings_FR.set(new Mapping(Action.CANCEL_ACTION, "b", "Utilisé pour revenir en arrière ou pour annuler une action.", this.goBack));
+        this.mappings_FR.set(new Mapping(Action.LIST_MACHINES, "lm", "Liste de toutes les machines.", this.listMachines));
+        this.mappings_FR.set(new Mapping(Action.LIST_STAFF, "ls", "Liste de tous les membres du personnel.", this.listStaff));
+        this.mappings_FR.set(new Mapping(Action.HIRE_FISE, "he", "Embaucher un FISE.", this.hireFISE));
+        this.mappings_FR.set(new Mapping(Action.HIRE_FISA, "ha", "Embaucher un FISA.", this.hireFISA));
+        this.mappings_FR.set(new Mapping(Action.CHANGE_FISA_MODE, "c", "Changer le mode de production.", this.fisaMode));
+        this.mappings_FR.set(new Mapping(Action.BUY_STAFF, "bs", "Acheter un membre du personnel.", this.buyStaff));
+        this.mappings_FR.set(new Mapping(Action.BUY_MACHINE, "bm", "Acheter une machine.", this.buyMachine));
+        this.mappings_FR.set(new Mapping(Action.UPGRADE_MACHINE, "um", "Améliorer une machine.", this.upgradeMachine));
+        this.mappings_FR.set(new Mapping(Action.DESTROY_MACHINE, "dm", "Détruire une machine.", this.destroyMachine));
+        this.mappings_FR.set(new Mapping(Action.SHOW_MAP, "m", "Montrer la carte.", this.showMap));
+        this.mappings_FR.set(new Mapping(Action.SHOW_CASE_RESOURCE, "r", "Afficher la carte avec le nombre de ressources au lieu du type de machine.", this.showResource));
+        this.mappings_FR.set(new Mapping(Action.SHOW_CASE_GARBAGE, "g", "Afficher la carte avec le nombre de déchets au lieu du type de machine.", this.showGarbage));
+        this.mappings_FR.set(new Mapping(Action.END_TURN, "n", "Fin du tour.", this.endTurn));
+        this.mappings_FR.set(new Mapping(Action.EXIT, "q", "Fin de la partie.", this.exit));
         this.isInit = true;
     }
     /**
@@ -133,21 +151,36 @@ class Mappings {
      */
     static getMappingsFunctions() {
         this.initMappings();
-        return this.mappings.getFunctions();
+        switch (translation_1.Translation.getLanguage()) {
+            case translation_1.Language.EN:
+                return this.mappings_EN.getFunctions();
+            case translation_1.Language.FR:
+                return this.mappings_FR.getFunctions();
+        }
     }
     /**
      * Shortcut to get all mappings keys.
      */
     static getKeys() {
         this.initMappings();
-        return this.mappings.getKeys();
+        switch (translation_1.Translation.getLanguage()) {
+            case translation_1.Language.EN:
+                return this.mappings_EN.getKeys();
+            case translation_1.Language.FR:
+                return this.mappings_FR.getKeys();
+        }
     }
     /**
      * Shortcut to get all mappings
      */
     static getMappings() {
         this.initMappings();
-        return this.mappings.getValues();
+        switch (translation_1.Translation.getLanguage()) {
+            case translation_1.Language.EN:
+                return this.mappings_EN.getValues();
+            case translation_1.Language.FR:
+                return this.mappings_FR.getValues();
+        }
     }
     // utils
     /**
@@ -157,21 +190,48 @@ class Mappings {
      */
     static getBackKey() {
         this.initMappings();
-        // @ts-ignore
-        return this.mappings.get(Action.CANCEL_ACTION).key;
+        switch (translation_1.Translation.getLanguage()) {
+            case translation_1.Language.EN:
+                // @ts-ignore
+                return this.mappings_EN.get(Action.CANCEL_ACTION).key;
+            case translation_1.Language.FR:
+                // @ts-ignore
+                return this.mappings_FR.get(Action.CANCEL_ACTION).key;
+            default:
+                // @ts-ignore
+                return this.mappings_EN.get(Action.CANCEL_ACTION).key;
+        }
     }
     /**
      * Returns exit/quit key
      */
     static getExitKey() {
         this.initMappings();
-        // @ts-ignore
-        return this.mappings.get(Action.EXIT).key;
+        switch (translation_1.Translation.getLanguage()) {
+            case translation_1.Language.EN:
+                // @ts-ignore
+                return this.mappings_EN.get(Action.EXIT).key;
+            case translation_1.Language.FR:
+                // @ts-ignore
+                return this.mappings_FR.get(Action.EXIT).key;
+            default:
+                // @ts-ignore
+                return this.mappings_EN.get(Action.EXIT).key;
+        }
     }
     static getHelpKey() {
         this.initMappings();
-        // @ts-ignore
-        return this.mappings.get(Action.LIST_ACTIONS).key;
+        switch (translation_1.Translation.getLanguage()) {
+            case translation_1.Language.EN:
+                // @ts-ignore
+                return this.mappings_EN.get(Action.LIST_ACTIONS).key;
+            case translation_1.Language.FR:
+                // @ts-ignore
+                return this.mappings_FR.get(Action.LIST_ACTIONS).key;
+            default:
+                // @ts-ignore
+                return this.mappings_EN.get(Action.LIST_ACTIONS).key;
+        }
     }
 }
 exports.Mappings = Mappings;
@@ -291,9 +351,14 @@ Mappings.fisaMode = function () {
 Mappings.buyStaff = function (id = -1, n = 1) {
     // @ts-ignore since it's terminal method
     this.clear();
-    if (id === -1) { //todo:
-        // @ts-ignore Show the error message
-        this.echo("Usage is: bs Staff_id [or] bs Staff_id count");
+    if (id === -1) {
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
+            // @ts-ignore Show the error message todo : see which better
+            this.echo("Usage is: bs Staff_id [or] bs Staff_id count");
+        }
+        else { // @ts-ignore Show the error message
+            this.echo("L'utilisation est: bs Staff_id [ou] bs Staff_id nombre");
+        }
         return;
     }
     if (n < 1 || n > 100) {
@@ -337,12 +402,18 @@ Mappings.buyMachine = function (machineStuff = -1, x = -1, y = -1, rotation = 0)
     // @ts-ignore since it's terminal method
     this.clear();
     if (machineStuff == -1 || x == -1 || y == -1 || rotation == -1) {
-        // @ts-ignore todo:
-        this.echo("Usage is : bm machine_id x y rotation (see help)");
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
+            // @ts-ignore Show the error message todo : see which better
+            this.echo("Usage is : bm machine_id x y rotation (see help)");
+        }
+        else {
+            // @ts-ignore Show the error message
+            this.echo("L'utilisation est: bm machine_id x y rotation (voir l'aide)");
+        }
     }
     else {
         // check machine stuff
-        if (machine_1.MachineInfo.isMachineStuffValid(machineStuff) === -1) {
+        if (config_1.Config.isMachineStuffValid(machineStuff) === -1) {
             // @ts-ignore
             this.echo(translation_1.Translation.error(code_1.ErrorCode.ERROR_INVALID_MACHINE_NUMBER));
         }
@@ -360,8 +431,14 @@ Mappings.upgradeMachine = function (x = -1, y = -1) {
     // @ts-ignore since it's terminal method
     this.clear();
     if (x == -1 && y == -1) {
-        // @ts-ignore todo:
-        this.echo("Usage is : um x y (see help)");
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
+            // @ts-ignore Show the error message todo : see which better
+            this.echo("Usage is : um x y (see help)");
+        }
+        else {
+            // @ts-ignore Show the error message
+            this.echo("L'utilisation est: um x y (voir l'aide)");
+        }
     }
     else {
         // check coordinates
@@ -376,8 +453,14 @@ Mappings.destroyMachine = function (x = -1, y = -1) {
     // @ts-ignore since it's terminal method
     this.clear();
     if (x == -1 && y == -1) {
-        // @ts-ignore todo:
-        this.echo("Usage is : dm x y (see help)");
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
+            // @ts-ignore Show the error message
+            this.echo("Usage is : dm x y (see help)");
+        }
+        else {
+            // @ts-ignore Show the error message; todo : see which better
+            this.echo("Utilisation : dm x y (voir aide)");
+        }
     }
     else {
         // check coordinates
@@ -415,8 +498,14 @@ Mappings.endTurn = function (n = 1) {
     if (n > 1000) {
         // @ts-ignore since it's terminal method
         this.clear();
-        // @ts-ignore since it's terminal method todo:
-        this.echo("Can only do up to 1000 in one go.");
+        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
+            // @ts-ignore Show the error message todo : see which better
+            this.echo("Can only do up to 1000 in one go.");
+        }
+        else {
+            // @ts-ignore Show the error message
+            this.echo("Peut seulement faire jusqu’à 1000 en une seule fois.");
+        }
         return;
     }
     while (n > 0) {

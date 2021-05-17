@@ -136,6 +136,7 @@ document.onreadystatechange = (event) => {
                     "tr-menu-title": Translation.get(TrKeys.MENU_TITLE),
                     "tr-menu-en": Translation.get(TrKeys.MENU_LANGUAGE_EN),
                     "tr-menu-fr": Translation.get(TrKeys.MENU_LANGUAGE_FR),
+                    "tr-music-title" : Translation.get(TrKeys.MUSIC_TITLE),
                 }
                 translate();
                 // rules
