@@ -37,6 +37,8 @@ export class Difficulty {
      * @see Difficulty enum
      */
     getMapSizeByDifficulty() : number {
+        let logger = Logger.Instance;
+        logger.debug(" Get Size map according to this level " + this.level);
         switch (this.level) { // NOLINT(hicpp-multiway-paths-covered)
             case Level.EASY:
                 return 10;

@@ -21,6 +21,7 @@ import {Case} from "./map";
 import {randomNumber} from "../utils/utilities";
 import {Game} from "../game";
 import {Language} from "../utils/translation";
+import {Logger} from "./logger";
 
 /**
  * Contains all information about the character of the Staff
@@ -49,6 +50,9 @@ export class Staff {
 
     constructor(id: number, name: string, desc_en : string,desc_fr: string,
                 costE: number, costDD: number, effect: (event:GameEvent, count: number) => GameEvent) {
+
+        let logger = Logger.Instance;
+        logger.debug("New Staff");
         this.id = id;
         this.name = name;
         this.desc_en = desc_en;

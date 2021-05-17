@@ -11,6 +11,7 @@
 import {ErrorCode} from "../utils/code";
 import {Vector2D} from "../utils/utilities";
 import {Language} from "../utils/translation";
+import {Logger} from "./logger";
 
 /**
  * Struct which contains all information about a machine
@@ -85,10 +86,14 @@ export class MachineInfo {
      * @return name the name of a machine
      */
     name(langue: Language) : string {
-        if(langue==Language.EN)
+        let logger = Logger.Instance;
+        if(langue==Language.EN) {
+            logger.info("English name setted");
             return this.name_en;
-        else if(langue==Language.FR)
+        } else if(langue==Language.FR) {
+            logger.info("French name setted");
             return this.name_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
@@ -98,11 +103,14 @@ export class MachineInfo {
      * @return description the description of a machine
      */
     description(langue: Language) : string {
-        if(langue==Language.EN)
+        let logger = Logger.Instance;
+        if(langue==Language.EN) {
+            logger.info("English description setted");
             return this.description_en;
-        else if(langue==Language.FR)
+        } else if(langue==Language.FR) {
+            logger.info("French description setted");
             return this.description_fr;
-        else
+        } else
             return "ERROR TRANSLATION";
     }
 
@@ -111,19 +119,27 @@ export class MachineInfo {
      * @return upgrade the description of the upgrade
      */
     upgrade(langue: Language) : string {
-        if(langue==Language.EN)
+        let logger = Logger.Instance;
+        if(langue==Language.EN) {
+            logger.info("English upgrade description setted");
             return this.upgrade_en;
-        else if(langue==Language.FR)
+        } else if(langue==Language.FR) {
+            logger.info("French upgrade description setted");
             return this.upgrade_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
 
     defaultOrientation(langue: Language) : string {
-        if(langue==Language.EN)
+        let logger = Logger.Instance;
+        if(langue==Language.EN) {
+            logger.info("English default Orientation description setted");
             return this.defaultOrientation_en;
-        else if(langue==Language.FR)
+        } else if(langue==Language.FR) {
+            logger.info("French default Orientation description setted");
             return this.defaultOrientation_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
@@ -162,6 +178,8 @@ export class Machine {
      * @param type MachineStuff
      */
     constructor(type: MachineStuff) {
+        let logger = Logger.Instance;
+        logger.debug("New Machine stuff type = "+ type);
         this._type = type;
         this._level = 1;
         this._interface = Machine.defaultFacade(type);
@@ -335,6 +353,9 @@ export class Machine {
      * @param rotation a valid rotation
      */
     rotate(rotation : number) : void {
+
+        let logger = Logger.Instance;
+        logger.debug(rotation+" Rotations for this machine = "+ this._type);
         let tmpBox: Box | null;
         let tmpDirection: Direction;
         rotation = (rotation % Machine.NUMBER_CARDINAL) + Machine.NUMBER_CARDINAL;
@@ -410,6 +431,9 @@ export class Machine {
      * @return a default orientation for a machine
      */
     static defaultFacade(s: MachineStuff) : Array<Facade> {
+
+        let logger = Logger.Instance;
+        logger.debug("Default facade creation for this machine stuff = " +s);
         let interfaces = new Array<Facade>();
         for (let i = 0; i < Machine.NUMBER_CARDINAL; i++) {
             interfaces.push(new Facade(i))
@@ -515,6 +539,8 @@ export class Facade {
      * @param cardinal a cardinal (north, south, easy, west, ...)
      */
     constructor(cardinal: Cardinal) {
+        let logger = Logger.Instance;
+        logger.debug("New Cardinal");
         this.cardinal = cardinal;
         this.direction = Direction.NONE;
         this.content = null;
@@ -614,6 +640,8 @@ export class Box {
      * @param nbGarbage garbage number
      */
     constructor(nbResource: number, nbGarbage: number) {
+        let logger = Logger.Instance;
+        logger.debug("New Box");
         this.resources = nbResource;
         this.garbage = nbGarbage;
     }
