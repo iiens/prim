@@ -14,7 +14,7 @@
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder",
-    "tests": "mocha"
+    "test": "mocha"
   },
   "build": {
     "appId": "com.lgs-games",

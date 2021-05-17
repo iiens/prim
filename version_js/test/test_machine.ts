@@ -1,5 +1,5 @@
 // @ts-ignore
-import {Cardinal, Direction, Machine, MachineStuff} from "../src/model/machine";
+import {Box, Cardinal, Direction, Machine, MachineStuff} from "../src/model/machine";
 
 let assert = require('assert');
 
@@ -65,6 +65,81 @@ describe('Machine', function() {
             assert.equal(machine.getDirection(Cardinal.EAST), Direction.IN);
         });
     });
+    
+    it('Machine Rotation', function () {
+        // Assumption that the creation of a machine has been tested beforehand
+        // Case creation
+        let typeM = MachineStuff.MS_COLLECTOR;
+        let machine = new Machine(typeM);
 
-    describe('')
+        // Checking values
+        assert.equal(machine.getDirection(Cardinal.SOUTH), Direction.OUT);
+
+        // Calls the function to test
+        machine.rotate(1);
+        // Checking values
+        assert.equal(machine.getDirection(Cardinal.WEST), Direction.OUT);
+
+        // Calls the function to test
+        machine.rotate(1);
+        // Checking values
+        assert.equal(machine.getDirection(Cardinal.NORTH), Direction.OUT);
+
+        // Calls the function to test
+        machine.rotate(1);
+        // Checking values
+        assert.equal(machine.getDirection(Cardinal.EAST), Direction.OUT);
+
+        // Calls the function to test
+        machine.rotate(2);
+        // Checking values
+        assert.equal(machine.getDirection(Cardinal.WEST), Direction.OUT);
+
+        // Calls the function to test
+        machine.rotate(4);
+        // Checking values
+        assert.equal(machine.getDirection(Cardinal.WEST), Direction.OUT);
+    });
+
+    it('Machine Level Up', function () {
+        // Assumption that the creation of a machine has been tested beforehand
+        // Create machine
+        let machine = new Machine(MachineStuff.MS_COLLECTOR);
+
+        // Recovery of value before purchase
+        let level = machine.level;
+
+        // Calls the function to test
+        machine.increaseLevel();
+
+        // Checking values
+        assert.equal(machine.level, level + 1);
+    });
+
+    it('Machine Add Delete', function () {
+        // Assumption that the creation of a machine has been tested beforehand
+        // Machine creation
+        let typeM = MachineStuff.MS_COLLECTOR;
+        let machine = new Machine(typeM);
+
+        // Assumption that the operation of a box has been tested beforehand
+        // Box creation
+        let numberR = 10;
+        let numberG = 10;
+        let box = new Box(numberR, numberG);
+
+        // Calls the function to test
+        machine.setBox(Cardinal.NORTH, box);
+
+        // Checking values
+        let tmp = machine.getBox(Cardinal.NORTH);
+        assert.equal(tmp, box);
+
+        // Calls the function to test
+        machine.destroyBox(Cardinal.NORTH);
+
+        // Checking values
+        tmp = machine.getBox(Cardinal.NORTH);
+        assert.equal(tmp, null);
+    });
 });

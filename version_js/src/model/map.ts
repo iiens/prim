@@ -1212,15 +1212,16 @@ export class Map {
 
                             // Checking the presence of a box
                             if (machineBox != null) {
+
+                                // Calculates the number of resources generated
                                 let numberGarbage = machineBox.numberGarbage;
+                                let numberResource = numberGarbage / numberWasteToResource;
+                                let rest = numberGarbage % numberWasteToResource;
 
                                 // Verifying that resources are generated
-                                if (numberGarbage > numberWasteToResource){
-                                    // Calculates the number of resources generated
-                                    let numberResource = 1; //todo: produce one per ten garbage (const)
-
+                                if (numberResource > 0){
                                     // Transformation of waste into resources
-                                    machineBox.addGarbage(-numberWasteToResource); // removing theses garbage
+                                    machineBox.addGarbage(rest - numberGarbage); // removing theses garbage
                                     // adding resource
                                     let outputBox : Box = new Box(numberResource, 0);
 
