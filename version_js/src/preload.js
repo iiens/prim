@@ -14,6 +14,19 @@ document.onreadystatechange = (event) => {
         addHeader();
         handleWindowControls();
 
+        // load music
+        (async () => {
+            // random choice of music
+            let path = Math.random() > 0.5 ? "narrative.mp3" : "truth.mp3";
+            // use javascript standard class
+            let audio = new Audio(__dirname+"/../assets/music/"+path);
+            audio.volume = Game.getAudio();
+            console.log(audio.volume);
+            audio.loop = true;
+            window.audio = audio;
+            await audio.play();
+        })();
+
         // get the page name (index, game, rules)
         let path = window.location.pathname;
         if (path.endsWith("/")) path = path.substring(0, path.length-1)
@@ -129,6 +142,7 @@ document.onreadystatechange = (event) => {
             case 'menu': {
                 // load config
                 window.config = Config;
+                window.audio = audio;
                 window.lang = Language;
                 window.lang.current = Translation.getLanguage();
                 window.translation = {
@@ -139,6 +153,7 @@ document.onreadystatechange = (event) => {
                     "tr-music-title" : Translation.get(TrKeys.MUSIC_TITLE),
                 }
                 translate();
+                audio.volume=Game.getAudio();
                 // rules
                 require("./view/handlers/menu");
                 // go back
@@ -184,17 +199,6 @@ document.onreadystatechange = (event) => {
                 break;
             }
         }
-
-        // load music
-        (async () => {
-            // random choice of music
-            let path = Math.random() > 0.5 ? "narrative.mp3" : "truth.mp3";
-            // use javascript standard class
-            let audio = new Audio(__dirname+"/../assets/music/"+path);
-            audio.volume = 0.02;
-            audio.loop = true;
-            await audio.play();
-        })();
     }
 };
 

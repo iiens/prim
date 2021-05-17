@@ -106,10 +106,32 @@ export class Game {
         }))
     }
 
+    /**
+     * Set the language value
+     * @private
+     */
     static getTranslationLanguage() : Language{
         if(localStorage.getItem("lang")== null)
             localStorage.setItem("lang",Language.EN);
         return <Language>localStorage.getItem("lang");
+    }
+
+    /**
+     * Get the audio value
+     * @private
+     */
+    static getAudio() : number{
+        if(localStorage.getItem("audio")==null)
+            localStorage.setItem("audio","0.02");
+        return Number(localStorage.getItem("audio"));
+    }
+
+    /**
+     * Set the audio value
+     * @private
+     */
+    static setAudio(volume : number){
+        localStorage.setItem("audio",String(volume));
     }
 
 

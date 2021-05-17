@@ -98,10 +98,30 @@ class Game {
             }
         }));
     }
+    /**
+     * Set the language value
+     * @private
+     */
     static getTranslationLanguage() {
         if (localStorage.getItem("lang") == null)
             localStorage.setItem("lang", translation_1.Language.EN);
         return localStorage.getItem("lang");
+    }
+    /**
+     * Get the audio value
+     * @private
+     */
+    static getAudio() {
+        if (localStorage.getItem("audio") == null)
+            localStorage.setItem("audio", "0.02");
+        return Number(localStorage.getItem("audio"));
+    }
+    /**
+     * Set the audio value
+     * @private
+     */
+    static setAudio(volume) {
+        localStorage.setItem("audio", String(volume));
     }
 }
 exports.Game = Game;
