@@ -1,3 +1,5 @@
+import {Logger} from "./logger";
+
 /**
  * \author Antoine Man
  * \version 0.1
@@ -19,6 +21,8 @@ export class Difficulty {
      * @return Difficulty a difficulty
      */
     public static getDifficultyByID(id: number) : Difficulty {
+        let logger = Logger.Instance;
+        logger.debug(" Get Difficulty according to this id " + id);
         id = Number(id);
         if (id === 2) return new Difficulty(Level.MEDIUM);
         if (id === 3) return new Difficulty(Level.HARD);

@@ -263,7 +263,7 @@ export class Map {
     getCase(x: number, y: number) : Case | null {
         let logger = Logger.Instance;
         if(!this.isCaseExist(x,y)) {
-            logger.warn("Impossible access to a case nonexistent " + x + ";" + y);
+            logger.warn("Impossible access to a case nonexistent x=" + x + ";y=" + y);
             return null;
         }
         // @ts-ignore
@@ -286,7 +286,8 @@ export class Map {
                 return true;
             }
         }
-        logger.warn("Case nonexistent " + x + ";" + y);
+
+        logger.warn("Case nonexistent x=" + x + ";y=" + y);
         return false;
     };
 
@@ -306,7 +307,12 @@ export class Map {
      */
     map_hireFISE() : ErrorCode {
         let logger = Logger.Instance;
-        if (this.numberFISE === undefined) return ErrorCode.ERROR;
+        logger.debug("Begin hire Fise");
+
+        if (this.numberFISE === undefined) {
+            logger.error("Calling map_hireFISE with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
         let e = this.map_hireStudent(
             EventType.HIRE_FISE,
             Config.constants.COST_FISE_E,
@@ -338,7 +344,13 @@ export class Map {
      */
     map_hireFISA() : ErrorCode {
         let logger = Logger.Instance;
-        if (this.numberFISA === undefined) return ErrorCode.ERROR;
+        logger.debug("Begin hire Fisa");
+
+        if (this.numberFISA === undefined) {
+            logger.error("Calling map_hireFISA with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
+
         let e = this.map_hireStudent(
             EventType.HIRE_FISA,
             Config.constants.COST_FISA_E,
@@ -357,7 +369,14 @@ export class Map {
      * Convenience method to hire a student
      */
     private map_hireStudent(type: EventType, defaultE: number, defaultDD: number) : ErrorCode {
-        if (this.team === undefined) return ErrorCode.ERROR;
+        let logger = Logger.Instance;
+        logger.debug("Begin hire student");
+
+        if (this.team === undefined) {
+            logger.error("Calling map_hireStudent with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
+
         // Take into account the effects of staff
         let hireStudentEvent =
             this.team.applyEffect(new GameEvent(
@@ -378,7 +397,12 @@ export class Map {
      */
     private tryBuy(costE: number, costDD: number) : ErrorCode {
         let logger = Logger.Instance;
-        if (this.E === undefined || this.DD === undefined) return ErrorCode.ERROR;
+        logger.debug("Begin try to buy E:" + costE +" DD:" + costDD)
+
+        if (this.E === undefined || this.DD === undefined) {
+            logger.error("Calling tryBuy with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
         // Check that the player has enough E
         if (this.E >= costE) {
             // Check that the player has enough DD
@@ -409,6 +433,7 @@ export class Map {
     static revive(parse: Object) : Map {
         let logger = Logger.Instance;
         logger.debug("Parse or convert an object to a Map");
+
         // @ts-ignore
         let d = Difficulty.getDifficultyByID(parse.difficulty.level);
         let map = new Map(d, true);
@@ -571,6 +596,7 @@ export class Map {
     productionFise() {
         let logger = Logger.Instance;
         logger.debug("Resource production by FISE");
+
         this.studentProduction(
             EventType.PRODUCTION_FISE,
             Config.constants.PRODUCTION_FISE_E,
@@ -613,7 +639,7 @@ export class Map {
         logger.debug("Handle production of FISE/FISA");
         if (this.team === undefined || this.E === undefined || this.DD === undefined
         || numberOfStudents === undefined) {
-            logger.warn("Calling studentProduction with illegal values in the Map class!")
+            logger.error("Calling studentProduction with illegal values in the Map class!")
             return;
         }
         // Initialization of basic production of Fise
@@ -706,8 +732,15 @@ export class Map {
      * @private
      */
     private addTo(val: number, type: number){
+        let logger =Logger.Instance;
+        logger.debug("Begin addTo");
+
         let attr = this.setFromType(type);
-        if (attr === undefined) return ErrorCode.ERROR;
+
+        if (attr === undefined) {
+            logger.error("Calling addTo with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
         if (attr + val >= 0){
             this.setFromType(type, val);
             return ErrorCode.NO_ERROR;
@@ -751,7 +784,12 @@ export class Map {
     get numberPollution() : number {
         let logger = Logger.Instance;
         logger.debug("Calculate pollution Number");
-        if (this.map === undefined || this.height === undefined || this.width === undefined) return -1;
+
+        if (this.map === undefined || this.height === undefined || this.width === undefined) {
+            logger.error("Calling numberPollution with illegal values in the Map class!");
+            return -1;
+        }
+
         let nbGarbage = 0;
         // Process each case of the map
         for (let i = 0; i < this.height; ++i) {
@@ -792,6 +830,8 @@ export class Map {
      */
     addMachine(type: MachineStuff, rotation: number, x: number, y: number) : ErrorCode {
         let logger = Logger.Instance;
+        logger.debug('Begin addMachine');
+
         let e = this.machineManager(x, y, EventType.BUY_MACHINE, type);
         if (e == ErrorCode.NO_ERROR) {
             let c = this.getCase(x, y);
@@ -821,6 +861,8 @@ export class Map {
      */
     upgradeMachine(x: number, y: number) : ErrorCode {
         let logger = Logger.Instance;
+        logger.debug('Begin machine');
+
         let e = this.machineManager(x, y, EventType.UPGRADE_MACHINE, undefined, true);
         if (e == ErrorCode.NO_ERROR) {
             let c = this.getCase(x, y);
@@ -845,6 +887,8 @@ export class Map {
      */
     destroyMachine(x: number, y: number) : ErrorCode {
         let logger = Logger.Instance;
+        logger.debug('Begin destroyMachine')
+
         let e = this.machineManager(x, y, EventType.DESTROY_MACHINE,  undefined, true);
         if (e == ErrorCode.NO_ERROR) {
             let c = this.getCase(x, y);
@@ -879,11 +923,22 @@ export class Map {
      */
     private machineManager(x: number, y: number, type: EventType, s?: MachineStuff, invertIsEmpty = false) {
         let logger = Logger.Instance;
-        if (this.team === undefined) return ErrorCode.ERROR;
+        logger.debug('Begin machineManager');
+
+        if (this.team === undefined) {
+            logger.error("Calling numberPollution with illegal values in the Map class!");
+            return ErrorCode.ERROR;
+        }
+
         // Check that the box exists
         if (this.isCaseExist(x,y)) {
             let c = this.getCase(x, y);
-            if (c == null) return ErrorCode.ERROR;
+
+            if (c == null) {
+                logger.error("Calling machineManager with illegal case!");
+                return ErrorCode.ERROR;
+            }
+
             // Check that the box is empty
             let goIn = c.isEmpty;
             if (invertIsEmpty) goIn = !goIn;
@@ -915,7 +970,7 @@ export class Map {
                 return invertIsEmpty?ErrorCode.ERROR_CASE_EMPTY:ErrorCode.ERROR_CASE_NOT_EMPTY;
             }
         } else {
-            logger.error("")
+            logger.error("Case not found x=" + x + ";y=" + y)
             return ErrorCode.ERROR_CASE_NOT_FOUND;
         }
     }
@@ -928,8 +983,9 @@ export class Map {
      * Allows you to move resources on crosses and mats
      */
     moveResources() : void {
-
         let logger = Logger.Instance;
+        logger.debug('Begin moveResources')
+
         // Retrieving the tray size
         let width = this.width ?? 0;
         let height = this.height ?? 0;
@@ -974,6 +1030,8 @@ export class Map {
      */
     moveBox(c: Case, outputBox: Box, card: Cardinal){
         let logger = Logger.Instance;
+        logger.debug('Begin moveBox')
+
         // Retrieving the coordinates of the box
         let x = c.x;
         let y = c.y;
@@ -1070,7 +1128,8 @@ export class Map {
      */
     sendResourcesToGate(resources: number){
         let logger = Logger.Instance;
-        logger.info("Call sendResourcesToGate()");
+        logger.debug("Begin sendResourcesToGate");
+
         if (this.width === undefined || this.height === undefined) {
             logger.error("Calling sendResourcesToGate with illegal values in the Map class!");
             return;
@@ -1101,7 +1160,8 @@ export class Map {
      */
     generateResources() : void {
         let logger = Logger.Instance;
-        logger.info("Call generateResources()");
+        logger.debug("Begin generateResources");
+
         if (this.turn === undefined || this.team === undefined || this.width === undefined || this.height === undefined) {
             logger.error("Calling generateResources with illegal values in the Map class!");
             return;
@@ -1139,9 +1199,10 @@ export class Map {
      */
     generateGarbage() : void {
         let logger = Logger.Instance;
-        logger.info("Call generateGarbage()");
+        logger.debug("Begin generateGarbage");
+
         if (this.width === undefined || this.height === undefined || this.team === undefined) {
-            logger.warn("Calling generateGarbage with illegal values in the Map class!");
+            logger.error("Calling generateGarbage with illegal values in the Map class!");
             return;
         }
         let c : Case;
@@ -1175,7 +1236,7 @@ export class Map {
                     ).data.garbage;
 
                     // Creation of waste
-                    logger.debug("Creation of waste!");
+                    logger.info("Creation of waste!");
                     box.addGarbage(numberR);
                 }
             }
@@ -1187,9 +1248,10 @@ export class Map {
      */
     activateRecyclingCenters() : void {
         let logger = Logger.Instance;
-        logger.info("Call activateRecyclingCenters()");
+        logger.debug("Begin activateRecyclingCenters");
+
         if (this.width === undefined || this.height === undefined) {
-            logger.warn("Calling activateRecyclingCenters with illegal values in the Map class!");
+            logger.error("Calling activateRecyclingCenters with illegal values in the Map class!");
             return;
         }
         let machineType : MachineStuff = MachineStuff.MS_RECYCLING_CENTER;
@@ -1242,9 +1304,10 @@ export class Map {
      */
     activateCollectors() : void {
         let logger = Logger.Instance;
-        logger.info("Call activateCollectors()");
+        logger.debug("Begin activateCollectors");
+
         if (this.width === undefined || this.height === undefined) {
-            logger.warn("Calling activateCollectors with illegal values in the Map class!");
+            logger.error("Calling activateCollectors with illegal values in the Map class!");
             return;
         }
         let machineType : MachineStuff = MachineStuff.MS_COLLECTOR;
@@ -1356,9 +1419,10 @@ export class Map {
      */
     resetResourcesGarbage() {
         let logger = Logger.Instance;
-        logger.info("Call resetResourcesGarbage()");
+        logger.debug("Begin resetResourcesGarbage");
+
         if (this.width === undefined || this.height === undefined) {
-            logger.warn("Calling activateCollectors with illegal values in the Map class!");
+            logger.error("Calling activateCollectors with illegal values in the Map class!");
             return;
         }
         let c : Case, gate = null;
@@ -1404,9 +1468,10 @@ export class Map {
      */
     moveResourcesInMachine() : void {
         let logger = Logger.Instance;
-        logger.info("Call moveResourcesInMachine()");
+        logger.debug("Begin moveResourcesInMachine");
+
         if (this.width === undefined || this.height === undefined) {
-            logger.warn("Calling moveResourcesInMachine with illegal values in the Map class!");
+            logger.error("Calling moveResourcesInMachine with illegal values in the Map class!");
             return;
         }
         let c : Case;
@@ -1522,6 +1587,8 @@ export class Map {
      */
     buyStaff(idStaff: number) : ErrorCode {
         let logger = Logger.Instance;
+        logger.debug('Begin buyStaff');
+
         if (this.team === undefined || this.E === undefined || this.DD === undefined) {
             logger.error("Calling buyStaff with illegal values in the Map class!");
             return ErrorCode.ERROR;

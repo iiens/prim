@@ -5,6 +5,7 @@ import {Cardinal, Direction, Machine, MachineInfo, MachineStuff} from "../model/
 import {getRandomInt} from "./utilities";
 import {Config} from "./config";
 import {Language, Translation, TrKeys} from "./translation";
+import {Logger} from "../model/logger";
 
 /*
 todo: legend not in brut code
@@ -84,6 +85,9 @@ export class Interface {
      */
     static renderMap(map: Map, showResource = false, showGarbage = false,
                      save = false) {
+        let logger = Logger.Instance;
+        logger.debug('Begin renderMap');
+
         if (save){ // set
            Interface.showGarbage = showGarbage;
            Interface.showResource = showResource;
@@ -96,6 +100,8 @@ export class Interface {
         const startX : number = 25;
         const startY : number = 25;
         const drawGrid = (canvas: any, ctx: any, tileSize: number) => {
+            logger.debug('Begin drawGrid');
+
             for (let y = 0; y < map.getHeight ; y++) {
                 ctx.fillStyle = "#000";
                 ctx.fillText(y+"", 0,  y * tileSize + startY + tileSize / 2 - 5);
@@ -196,6 +202,9 @@ export class Interface {
      * Update game status screen
      */
     static renderGameScreen(map: Map) {
+        let logger = Logger.Instance;
+        logger.debug('Begin renderGameScreen');
+
         // @ts-ignore
         win.replaceText('turn', map.getNumberTurn)
         // @ts-ignore
@@ -248,6 +257,9 @@ export class Interface {
      * @see Action enum
      */
     static renderActions() {
+        let logger = Logger.Instance;
+        logger.debug('Begin renderActions');
+
         let greetings = (<string>Translation.get(TrKeys.TERMINAL_HELP))
             .replace("help", Game.config.keys.help)
 
@@ -275,6 +287,9 @@ export class Interface {
 class InterfaceUtils {
 
     static drawSpawner(content: any, ctx: any, xx: number, yy: number) {
+        let logger = Logger.Instance;
+        logger.debug('Begin drawSpawner');
+
         let url = '../../assets/img/map/';
         const numberImage : number = 15;
         let img = new Image();
@@ -293,6 +308,9 @@ class InterfaceUtils {
     }
 
     static drawMachine(Case: Case, ctx: any, xx: number, yy: number) {
+        let logger = Logger.Instance;
+        logger.debug('Begin drawMachine');
+
         let mach = Case.getMachine();
         let img = new Image();
 
@@ -353,6 +371,9 @@ class InterfaceUtils {
     }
 
     private static parseOrientation(c: Case | null) : string {
+        let logger = Logger.Instance;
+        logger.debug('Begin parseOrientation');
+
         if (c == null) return " ";
         if ( c.isMachine ) {
             let m : Machine = c.getMachine();
