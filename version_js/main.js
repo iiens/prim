@@ -16,8 +16,8 @@ function createWindow () {
     logger.debug("Création de la fenêtre !");
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 900,
-        height: 600,
+        width: 925,
+        height: 650,
         frame: false,
         icon: path.join(__dirname, './assets/img/prim.png'),
         webPreferences: {
@@ -27,10 +27,10 @@ function createWindow () {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadFile('src/view/index.html').then();
+    mainWindow.loadFile('src/view/game.html').then();
 
     // fix minimum size
-    mainWindow.setMinimumSize(900,600)
+    mainWindow.setMinimumSize(925,650)
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();

@@ -117,11 +117,27 @@ class Game {
         return Number(localStorage.getItem("audio"));
     }
     /**
+     * Get the audio value
+     * @private
+     */
+    static getMusic() {
+        if (localStorage.getItem("music") == null)
+            localStorage.setItem("music", "truth.mp3");
+        return String(localStorage.getItem("music"));
+    }
+    /**
      * Set the audio value
      * @private
      */
     static setAudio(volume) {
         localStorage.setItem("audio", String(volume));
+    }
+    /**
+     * Set the music value
+     * @private
+     */
+    static setMusic(path) {
+        localStorage.setItem("music", path);
     }
 }
 exports.Game = Game;

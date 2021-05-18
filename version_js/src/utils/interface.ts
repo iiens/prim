@@ -1,17 +1,11 @@
 import {Case, CaseType, Map, PRODUCTION_MODE} from "../model/map"
 import {Game} from "../game";
 import {Action} from "./mappings";
-import {Cardinal, Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
+import {Box, Cardinal, Direction, Machine, MachineInfo, MachineStuff} from "../model/machine";
 import {getRandomInt} from "./utilities";
 import {Config} from "./config";
-import {Language, Translation, TrKeys} from "./translation";
+import {Translation, TrKeys} from "./translation";
 import {Logger} from "../model/logger";
-
-/*
-todo: legend not in brut code
-todo: colors for machines/...
-todo: errors in red
- */
 
 /**
  * \author Quentin Ra
@@ -35,6 +29,26 @@ export class Interface {
     private static showResource = false;
     private static showGarbage = false;
 
+    // current canvas
+    private static lastCanvas: HTMLCanvasElement;
+    private static lastCase: object;
+    // reload show case with current selected case
+    // should not be called in reload since we only want to call it when
+    // a specific action is done (buy, update, destroy) and not at each reload.
+    static get getLastCase () { return this.lastCase; };
+    static set setLastCase (lastCase: object) { this.lastCase = lastCase; };
+
+    static reloadShowCase() {
+        if(this.lastCanvas == null) this.reload(); // reload so that's ok
+        if(this.lastCase == null) return; // nothing to do
+        console.log("redraw show case")
+        // @ts-ignore call with last
+        InterfaceUtils.handleCaseSelection(this.lastCase.tileX, this.lastCase.tileY, Game.map,
+            document.getElementById('game-stats'), this.lastCanvas,
+            // @ts-ignore
+            this.lastCase.tileSize, this.lastCase.startX, this.lastCase.startY)
+    }
+
     public static init(){
         this.reload();
         this.renderMap(Game.map); // TODO Corriger problème d'affichage image first turn
@@ -49,7 +63,7 @@ export class Interface {
         let map = Game.map;
         this.renderGameScreen(map)
         this.renderMap(map)
-        this.renderActions()
+        // this.renderActions()
     }
 
     /**
@@ -97,23 +111,19 @@ export class Interface {
         }
 
         // copy of https://stackoverflow.com/questions/9140101/creating-a-clickable-grid-in-a-web-browser
-        const startX : number = 25;
-        const startY : number = 25;
+        const startX : number = 0;
+        const startY : number = 0;
         const drawGrid = (canvas: any, ctx: any, tileSize: number) => {
             logger.debug('Begin drawGrid');
 
             for (let y = 0; y < map.getHeight ; y++) {
-                ctx.fillStyle = "#000";
-                ctx.fillText(y+"", 0,  y * tileSize + startY + tileSize / 2 - 5);
                 for (let x = 0; x < map.getWidth; x++) {
                     const Case = <Case>map.getCase(x, y);
                     const xx = x * tileSize + startX;
                     const yy = y * tileSize + startY;
                     // draw
-                    ctx.fillStyle = "#ddd";
+                    ctx.strokeStyle = "#000";
                     ctx.strokeRect(xx, yy, tileSize, tileSize);
-                    ctx.fillStyle = "#000";
-                    ctx.fillText(x+"", xx + tileSize/2 - 5, 0);
                     let content : string = "";
                     if (showResource){
                         content = Case.numberResources()+"";
@@ -124,16 +134,7 @@ export class Interface {
                     }
 
                     if (Case.isMachine){
-                        let machine: Machine = Case.getMachine();
                         InterfaceUtils.drawMachine(Case, ctx, xx, yy);
-                        if (Config.getMachineStuff(machine.type)?.canUpgrade){
-                            let oldFont = ctx.font;
-                            let texte = `lvl ${machine.level}`
-                            ctx.font = "10px Segoe UI";
-                            ctx.fillStyle = "#2261e0";
-                            ctx.fillText(texte, xx + tileSize/2 - 10, yy + tileSize - 10);
-                            ctx.font = oldFont;
-                        }
                     } else {
                         InterfaceUtils.drawSpawner(content,ctx,xx,yy);
                     }
@@ -143,7 +144,8 @@ export class Interface {
 
         const size = map.getWidth;
         const tileSize = 35;
-        const canvas = document.createElement("canvas");
+        let canvas = document.createElement("canvas");
+        Interface.lastCanvas = canvas; // save
         canvas.width = tileSize * size + startX;
         canvas.height = tileSize * size + startY;
         const ctx = canvas.getContext("2d");
@@ -158,7 +160,7 @@ export class Interface {
             }
         }
 
-        let status = document.getElementById('stats');
+        let status = document.getElementById('game-stats');
         let tileX = -1;
         let tileY = -1;
         canvas.addEventListener("mousemove", evt => {
@@ -167,35 +169,25 @@ export class Interface {
             tileY = Math.floor(((evt.offsetY-startY) / tileSize));
         });
 
-        canvas.addEventListener("click", event => {
-            if(tileX >= 0 && tileY >= 0) {
-                if (tileX < map.getWidth && tileY < map.getHeight) {
-                    if (status) {
-                        let p = <Case>map.getCase(tileX, tileY);
-                        let type = <CaseType>p.caseType;
-                        switch (type) {
-                            case CaseType.CASE_GATE:
-                                status.innerText = ` Gate : ${tileX}, ${tileY}
-                                            Resources = ${p.numberResources()}
-                                            Garbage = ${p.numberGarbage()}`;
-                                break;
-                            case CaseType.CASE_MACHINE:
-                                status.innerText = ` Machine : ${tileX}, ${tileY}
-                                            Resources = ${p.numberResources()}
-                                            Garbage = ${p.numberGarbage()}
-                                            Level = ${p.getMachine().level}`;
-                                break;
-                            case CaseType.CASE_SOURCE:
-                                status.innerText = ` Source : ${tileX}, ${tileY}`;
-                                break;
-                            case CaseType.CASE_EMPTY:
-                                status.innerText = ` Ground : ${tileX}, ${tileY}`;
-                                break;
-                        }
-                    }
-                }
-            }
+        canvas.addEventListener("click", () => {
+            InterfaceUtils.handleCaseSelection(tileX, tileY, map, status,
+                canvas, tileSize, startX, startY)
         });
+
+        canvas.addEventListener("mouseout", event => {
+            /*if (status) {
+                status.innerText = "";
+            }*/
+        });
+
+        // at first show no case selected
+        if (status){
+            // hides all
+            for (let i of status.children) {
+                i.classList.add('d-none');
+            }
+            InterfaceUtils.manageClass('tr-game-case-selected', true, 'd-none')
+        }
     }
 
     /**
@@ -409,5 +401,161 @@ class InterfaceUtils {
             }
         }
         return ' ';
+    }
+
+    /**
+     * Set data-x and data-y for a div
+     * @param id div id
+     * @param x case x
+     * @param y case y
+     */
+    static formalizeXY(id: string, x: number, y: number) {
+        let div = document.getElementById(id);
+        if (div){
+            div.setAttribute('data-x', x+"");
+            div.setAttribute('data-y', y+"");
+        }
+    }
+
+    /**
+     * Set div inner text
+     * @param id get by this ID
+     * @param text with this text
+     */
+    static setText(id: string, text: string) {
+        let div = document.getElementById(id)
+        if (div) div.innerText = text;
+    }
+
+    static setImageSrc(id: string, src: string) {
+        let image = <HTMLImageElement>document.getElementById(id)
+        if (image) image.src = src;
+    }
+
+    static manageClass(id: string, remove: boolean, ...tokens: string[]) {
+        let c = (<HTMLElement>document.getElementById(id)).classList;
+        if (remove){
+            tokens.forEach(t => c.remove(t))
+        } else {
+            tokens.forEach(t => c.add(t))
+        }
+    }
+
+    static setHTML(id: string, html: string) {
+        let div = document.getElementById(id)
+        if (div) div.innerHTML = html;
+    }
+
+    static handleCaseSelection(tileX: number, tileY: number, map: Map, status: HTMLElement | null,
+                               canvas: HTMLCanvasElement, tileSize: number, startX: number, startY: number)
+    {
+        let ctx = canvas.getContext('2d');
+        if (ctx){
+            let xx, yy;
+            // color back in black last case
+            let lastCase = Interface.getLastCase;
+            if (lastCase){ // @ts-ignore
+                xx = lastCase.tileX * tileSize + startX; // @ts-ignore
+                yy = lastCase.tileY * tileSize + startX;
+                ctx.strokeStyle = "#000";
+                ctx.strokeRect(xx, yy, tileSize, tileSize);
+            }
+            xx = tileX * tileSize + startX;
+            yy = tileY * tileSize + startY;
+            // color new case
+            ctx.strokeStyle = "#fff";
+            ctx.strokeRect(xx, yy, tileSize, tileSize);
+            // save new values
+            Interface.setLastCase = { tileX, tileY, canvas, tileSize, startX, startY }
+        }
+
+
+        if(tileX >= 0 && tileY >= 0) {
+            if (tileX < map.getWidth && tileY < map.getHeight) {
+                if (status) {
+                    // ...
+                    let p = <Case>map.getCase(tileX, tileY);
+                    let type = <CaseType>p.caseType;
+                    let resource = 0, garbage = 0;
+
+                    // hides all
+                    for (let i of status.children) {
+                        i.classList.add('d-none');
+                    }
+
+                    switch (type) {
+                        case CaseType.CASE_GATE:
+                            let box = p.getBox();
+                            if (box != null) {
+                                garbage = box.numberGarbage;
+                            }
+                            // show gate
+                            InterfaceUtils.manageClass('gate-selected', true, 'd-none');
+                            // set garbage
+                            InterfaceUtils.setText('gate-selected-garbage', garbage + '')
+                            break;
+                        case CaseType.CASE_MACHINE:
+                            let machineInfo = <MachineInfo>Config.getMachineStuff(p.getMachine().type);
+                            // get number resources/garbage
+                            for (let i = 0; i < Machine.NUMBER_CARDINAL; i++) {
+                                let box = <Box>p.getMachine().getBox(i);
+                                if (box != null) {
+                                    resource += box.numberResources;
+                                    garbage += box.numberGarbage;
+                                }
+                            }
+                            // show machine menu
+                            InterfaceUtils.manageClass('machine-selected', true, 'd-none');
+                            // update
+                            InterfaceUtils.formalizeXY('update-selected', tileX, tileY)
+                            // destroy
+                            InterfaceUtils.formalizeXY('destroy-selected', tileX, tileY)
+                            // don't show for collector since they won't be something on it
+                            // todo: should be an attribute of machine info
+                            InterfaceUtils.manageClass('machine-content-selected',
+                                p.getMachine().type !== MachineStuff.MS_COLLECTOR, 'd-none')
+                            // hides ressources div for some
+                            InterfaceUtils.manageClass('machine-r-div-selected',
+                                !(p.getMachine().type === MachineStuff.MS_RECYCLING_CENTER
+                                || p.getMachine().type === MachineStuff.MS_JUNKYARD), 'd-none')
+                            // resources/garbage/level
+                            InterfaceUtils.setText('machine-r-selected', resource + '')
+                            InterfaceUtils.setText('machine-g-selected', garbage + '')
+                            // information
+                            InterfaceUtils.setText('machine-name-selected', machineInfo.name(
+                                Translation.getLanguage()
+                            ) + '')
+                            let image = <string>machineInfo.imageFile.get(Cardinal.SOUTH);
+                            InterfaceUtils.setImageSrc('machine-image-selected', image)
+
+                            // check if upgrade div
+                            let upgradeDIV = <HTMLElement>document.getElementById('upgrade-machine-div');
+                            if (machineInfo.canUpgrade) {
+                                InterfaceUtils.setText('machine-lvl-selected', p.getMachine().level + '')
+                                //todo: fill with upgrade message
+                                InterfaceUtils.setHTML('machine-info-selected',`
+                                       +1 collected / turn
+                                        Cost ${machineInfo.costUpgradeE} E ${machineInfo.costUpgradeDD} DD
+                                 `);
+                                upgradeDIV.classList.remove('d-none')
+                            } else {
+                                upgradeDIV.classList.add('d-none')
+                            }
+                            // todo: show desc
+                            break;
+                        case CaseType.CASE_SOURCE:
+                            // show buy menu since empty
+                            InterfaceUtils.manageClass('source-selected', true, 'd-none');
+                            break;
+                        default:
+                            // show buy menu since empty
+                            InterfaceUtils.manageClass('empty-selected', true, 'd-none');
+                            // buy, set x and y
+                            InterfaceUtils.formalizeXY('buy-button', tileX, tileY)
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

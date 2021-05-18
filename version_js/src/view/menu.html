@@ -5,42 +5,79 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Prim - Environnement Line</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../assets/css/style.css" />
 </head>
 <body>
 <header id="titlebar"></header>
 
-<div id="main">
-    <button data-to="index.html" id="go-back" class="bg-transparent border border-dark
-    rounded p-2 text-my-yellow"
-    ><span id="tr-back" ></span> <span class="config-back-key">b</span>)
-    </button>
+<div id="main" class="settings-background">
+    <div class="h-100">
+        <p class="h1 text-white text-center">Settings</p>
+        <div class="row mx-0 mt-4 text-white">
+            <div class="prim-menu-bg p-3">
+                <span class="h4">Global Settings</span><br>
+                <span class="text-my-blue">Customize your game experience.</span>
+                <br>
 
-    <div class="text-justify px-3 border-dark border my-3">
-        <p class="text-center h3 pt-3"><span id="tr-menu-title" ></span> </p>
-        <div class="fz22">
-        <ul class="list-unstyled">
-            <li><label><span id="tr-menu-en" ></span>  <input id="button_eng" type="radio" name="button" value = "en"></label></li>
-            <li><label><span id="tr-menu-fr" ></span> <input id="button_fr" type="radio" name="button" value = "fr"></label></li>
-        </ul>
-        </div>
-        <br/>
-    </div>
-    <div class="text-justify px-3 border-dark border my-3">
-        <p class="text-center h3 pt-3"><span id="tr-music-title" ></span></p>
-        <div class="fz22">
-            <p>Volume</p>
-            <div class="row mx-0 justify-content-center">
-                <div class="mx-auto col-auto mb-5">
-                    <span id="rs-bullet" class="rs-label">0</span>
-                    <input id="rs-range-line" class="rs-range" type="range"
-                            value="1" min="0" max="100" step="1" >
+                <div class="row mx-0">
+                    <!-- menu names -->
+                    <div class="col-lg-9 col-6">
+                        <ul class="list-unstyled mt-3">
+                            <li class="py-2"><span id="tr-menu-title" ></span></li>
+                            <li class="py-2"><span id="tr-volume-title" ></span></li>
+                            <li class="py-2"><span id="tr-music-title" ></span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-6 pointer">
+                        <ul class="list-unstyled mt-3">
+                            <li class="row mx-0 py-2">
+                                <div class="col-3 text-start" id="move-left-lang">
+                                    <img src="../../assets/img/settings/arrow-left.png"
+                                         alt="<" class="pr-5" />
+                                </div>
+                                <span class="col-6 text-center" id="lang-field">ENGLISH</span>
+                                <div class="col-3 text-end"  id="move-right-lang">
+                                    <img src="../../assets/img/settings/arrow-right.png"
+                                         alt="<" class="pr-5" />
+                                </div>
+                            </li>
+                            <li class="row mx-0 py-2">
+                                <div class="col-3 text-start" id="move-left-volume">
+                                    <img src="../../assets/img/settings/arrow-left.png"
+                                         alt="<" class="pr-5" />
+                                </div>
+                                <span class="col-6 text-center" id="volume-field">0</span>
+                                <div class="col-3 text-end" id="move-right-volume">
+                                    <img src="../../assets/img/settings/arrow-right.png"
+                                         alt="<" class="pr-5" />
+                                </div>
+                            </li>
+                            <li class="row mx-0 py-2">
+                                <div class="col-3 text-start" id="move-left-music">
+                                    <img src="../../assets/img/settings/arrow-left.png"
+                                         alt="<" class="pr-5" />
+                                </div>
+                                <span class="col-6 text-center" id="music-field"
+                                data-id="0">Truth (Dead Seed)</span>
+                                <div class="col-3 text-end" id="move-right-music">
+                                    <img src="../../assets/img/settings/arrow-right.png"
+                                         alt="<" class="pr-5" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div>&nbsp;</div>
+        </div>
+        <div class="mt-3 float-end">
+            <button data-to="index.html" id="go-back" class="bg-transparent border border-my-yellow
+                    rounded p-2 text-my-yellow"
+            ><span id="tr-back" ></span></button>
         </div>
     </div>
 </div>
-
 </body>
 </html>

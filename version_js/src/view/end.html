@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="../../assets/css/jquery.terminal.min.css"/>
@@ -12,23 +13,21 @@
 <body>
 <header id="titlebar"></header>
 
-<div id="main" class="">
-    <button data-to="index.html" id="go-back" class="bg-transparent border border-dark
-    rounded p-2 text-my-yellow"
-    ><span id="tr-back" ></span> <span class="config-back-key">b</span>)
-    </button>
-
-    <div class="d-flex h-100 text-center">
-        <div class="align-self-center mx-auto">
-            <h2 class="h1" id="status"></h2>
-            <ul class="list-unstyled mt-4">
-                <li class="h4">Score: <span id="score" class="text-success"></span></li>
-            </ul>
-            <div class="small">
-                <i class=""><span id="tr-end-message" ></span></i>
-                <p>Legendary Games Studio</p>
-                <img src="../../assets/img/lgs.png" width="100">
-            </div>
+<div id="main" class="h-100 d-flex settings-background text-white">
+    <div class="position-absolute end-go-back pointer">
+        <button data-to="index.html" id="go-back" class="bg-transparent border border-my-yellow
+                    rounded p-2 text-my-yellow"
+        ><span id="tr-back" ></span></button>
+    </div>
+    <div class="align-self-center text-center mx-auto">
+        <h2 class="h1" id="status"></h2>
+        <ul class="list-unstyled mt-4">
+            <li class="h2">Score: <span id="score" class="text-success"></span></li>
+        </ul>
+        <div class="small">
+            <i class=""><span id="tr-end-message" ></span></i>
+            <p class="text-white">Legendary Games Studio</p>
+            <img src="../../assets/img/lgs.png" width="100">
         </div>
     </div>
 </div>

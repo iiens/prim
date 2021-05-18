@@ -13,11 +13,14 @@ const machine_1 = require("./machine");
 const utilities_1 = require("../utils/utilities");
 const game_1 = require("../game");
 const translation_1 = require("../utils/translation");
+const logger_1 = require("./logger");
 /**
  * Contains all information about the character of the Staff
  */
 class Staff {
     constructor(id, name, desc_en, desc_fr, costE, costDD, effect) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug("New Staff");
         this.id = id;
         this.name = name;
         this.desc_en = desc_en;

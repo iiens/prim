@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Level = exports.Difficulty = void 0;
+const logger_1 = require("./logger");
 /**
  * \author Antoine Man
  * \version 0.1
@@ -19,6 +20,8 @@ class Difficulty {
      * @return Difficulty a difficulty
      */
     static getDifficultyByID(id) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug(" Get Difficulty according to this id " + id);
         id = Number(id);
         if (id === 2)
             return new Difficulty(Level.MEDIUM);
@@ -34,6 +37,8 @@ class Difficulty {
      * @see Difficulty enum
      */
     getMapSizeByDifficulty() {
+        let logger = logger_1.Logger.Instance;
+        logger.debug(" Get Size map according to this level " + this.level);
         switch (this.level) { // NOLINT(hicpp-multiway-paths-covered)
             case Level.EASY:
                 return 10;

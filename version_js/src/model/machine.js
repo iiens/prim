@@ -13,6 +13,7 @@ exports.Box = exports.Direction = exports.Cardinal = exports.Facade = exports.Ma
 const code_1 = require("../utils/code");
 const utilities_1 = require("../utils/utilities");
 const translation_1 = require("../utils/translation");
+const logger_1 = require("./logger");
 /**
  * Struct which contains all information about a machine
  *
@@ -54,10 +55,15 @@ class MachineInfo {
      * @return name the name of a machine
      */
     name(langue) {
-        if (langue == translation_1.Language.EN)
+        let logger = logger_1.Logger.Instance;
+        if (langue == translation_1.Language.EN) {
+            logger.info("English name setted");
             return this.name_en;
-        else if (langue == translation_1.Language.FR)
+        }
+        else if (langue == translation_1.Language.FR) {
+            logger.info("French name setted");
             return this.name_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
@@ -66,10 +72,15 @@ class MachineInfo {
      * @return description the description of a machine
      */
     description(langue) {
-        if (langue == translation_1.Language.EN)
+        let logger = logger_1.Logger.Instance;
+        if (langue == translation_1.Language.EN) {
+            logger.info("English description setted");
             return this.description_en;
-        else if (langue == translation_1.Language.FR)
+        }
+        else if (langue == translation_1.Language.FR) {
+            logger.info("French description setted");
             return this.description_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
@@ -78,18 +89,28 @@ class MachineInfo {
      * @return upgrade the description of the upgrade
      */
     upgrade(langue) {
-        if (langue == translation_1.Language.EN)
+        let logger = logger_1.Logger.Instance;
+        if (langue == translation_1.Language.EN) {
+            logger.info("English upgrade description setted");
             return this.upgrade_en;
-        else if (langue == translation_1.Language.FR)
+        }
+        else if (langue == translation_1.Language.FR) {
+            logger.info("French upgrade description setted");
             return this.upgrade_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
     defaultOrientation(langue) {
-        if (langue == translation_1.Language.EN)
+        let logger = logger_1.Logger.Instance;
+        if (langue == translation_1.Language.EN) {
+            logger.info("English default Orientation description setted");
             return this.defaultOrientation_en;
-        else if (langue == translation_1.Language.FR)
+        }
+        else if (langue == translation_1.Language.FR) {
+            logger.info("French default Orientation description setted");
             return this.defaultOrientation_fr;
+        }
         else
             return "ERROR TRANSLATION";
     }
@@ -122,6 +143,8 @@ class Machine {
      */
     constructor(type) {
         this.rotation = 0;
+        let logger = logger_1.Logger.Instance;
+        logger.debug("New Machine stuff type = " + type);
         this._type = type;
         this._level = 1;
         this._interface = Machine.defaultFacade(type);
@@ -280,6 +303,8 @@ class Machine {
      * @param rotation a valid rotation
      */
     rotate(rotation) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug(rotation + " Rotations for this machine = " + this._type);
         let tmpBox;
         let tmpDirection;
         rotation = (rotation % Machine.NUMBER_CARDINAL) + Machine.NUMBER_CARDINAL;
@@ -349,6 +374,8 @@ class Machine {
      * @return a default orientation for a machine
      */
     static defaultFacade(s) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug("Default facade creation for this machine stuff = " + s);
         let interfaces = new Array();
         for (let i = 0; i < Machine.NUMBER_CARDINAL; i++) {
             interfaces.push(new Facade(i));
@@ -443,6 +470,8 @@ class Facade {
      * @param cardinal a cardinal (north, south, easy, west, ...)
      */
     constructor(cardinal) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug("New Cardinal");
         this.cardinal = cardinal;
         this.direction = Direction.NONE;
         this.content = null;
@@ -534,6 +563,8 @@ class Box {
      * @param nbGarbage garbage number
      */
     constructor(nbResource, nbGarbage) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug("New Box");
         this.resources = nbResource;
         this.garbage = nbGarbage;
     }

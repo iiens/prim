@@ -9,6 +9,7 @@ class Logger {
         fs.writeFileSync(this._fileName, '{}');
         // Initialisation
         this._level = Logger.Levels.Warning;
+        this._console = false;
     }
     static get Instance() {
         if (Logger.instance === undefined) {
@@ -19,6 +20,10 @@ class Logger {
     ;
     set level(value) {
         this._level = value;
+    }
+    ;
+    set console(value) {
+        this._console = value;
     }
     ;
     log(message, level) {
@@ -33,7 +38,9 @@ class Logger {
                 + currentsDate.getSeconds();
             switch (level) {
                 case Logger.Levels.Debug:
-                    console.debug(message);
+                    if (this._console) {
+                        console.debug(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Debug",
@@ -41,7 +48,9 @@ class Logger {
                     };
                     break;
                 case Logger.Levels.Info:
-                    console.info(message);
+                    if (this._console) {
+                        console.info(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Info",
@@ -49,7 +58,9 @@ class Logger {
                     };
                     break;
                 case Logger.Levels.Warning:
-                    console.warn(message);
+                    if (this._console) {
+                        console.warn(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Warning",
@@ -57,7 +68,9 @@ class Logger {
                     };
                     break;
                 case Logger.Levels.Error:
-                    console.error(message);
+                    if (this._console) {
+                        console.error(message);
+                    }
                     env = {
                         datetime: datetime,
                         level: "Error",

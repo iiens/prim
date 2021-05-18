@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Prim - Environnement Line</title>
@@ -11,25 +12,85 @@
 <body>
 <header id="titlebar"></header>
 
-<div id="main">
-    <button data-to="index.html" id="go-back" class="bg-transparent border border-dark
-    rounded p-2 text-my-yellow"
-    ><span id="tr-back" ></span> <span class="config-back-key">b</span>)
-    </button>
+<div id="main" class="settings-background">
+    <div class="h-100">
+        <p class="h1 text-white text-center"><span id="tr-rules"></span></p>
+        <div class="">
+            <div class="float-end rules-go-back">
+                <button data-to="index.html" id="go-back" class="bg-transparent border border-my-yellow
+                    rounded p-2 text-my-yellow"
+                ><span id="tr-back"></span></button>
+            </div>
+        </div>
+        <div class="row mx-0">
+            <div class="prim-menu-bg p-3 fz22 mt-1">
+                <p id="tr-rules-door-title" class="text-center h3 text-white pt-3">In order to close the door</p>
+                <p id="tr-rules-door" class="text-white">
+                    While the students from the "Calcul intensif et
+                    données massives" cursus
+                    of ENSIIE were exploring the binary world, they have opened a gate between
+                    our world and another one looking exactly like ours
+                    However, their joy didn't last long. Having 2 ENSIIE made their
+                    ranking in durable development decrease because their were spending twice
+                    their usual consommation of energy. That's why
+                    <span class="text-my-yellow">you absolutely need to close the door !</span>
+                </p>
+            </div>
+            <div class="prim-menu-bg p-3 fz22 mt-3">
+                <p id="tr-rules-explain-title" class="text-center h3 text-white pt-3">What are the rules ?</p>
+                <p id="tr-rules-explain" class="text-white">
+                    You will have to spend <span class="text-my-yellow">energy (E)</span>
+                    to buy machines while preventing your
+                    <span class="text-my-yellow">durable development (DD)</span>
+                    from reaching <span class="text-my-red">0</span> (meaning the destruction
+                    of your world).
+                    <br>
+                    Your goal will be to produce
+                    and send to the gate <span class="text-my-yellow" id="game-goal">10000</span>
+                    resources in order to close it. Beware ! Each resource send will produce
+                    a garbage that you will have to handle otherwise your DD will decrease by
+                    <span class="text-my-yellow" id="game-dd-malus">1</span>.
+                </p>
+            </div>
+            <div class="prim-menu-bg p-3 fz22 mt-3">
+                <p id="tr-rules-play-title" class="text-center h3 text-white pt-3">How should I play ?</p>
+                <p id="tr-rules-play" class="text-white">
 
-    <div class="text-justify px-3 border-dark border my-3">
-        <p id="tr-rules-door-title" class="text-center h3 pt-3"></p>
-        <p id="tr-rules-door" class="fz22"></p>
-    </div>
+                    At the start, you will have <span class="text-my-yellow">
+                    <span id="game-nb-sources">2</span> sources</span> that produces <span class="text-my-yellow">
+                    <span id="game-production">3</span> resources/<span id="game-turns-prod">10</span> turns</span>.
 
-    <div class="text-justify px-3 border-dark border my-3">
-        <p id="tr-rules-explain-title" class="text-center h3 pt-3"></p>
-        <p id="tr-rules-explain" class="fz22"></p>
-    </div>
+                    You will have to buy a machine called a <span class="text-my-yellow">collector</span>
+                    to mine resources from a source (or garbage from the door) then send them
+                    using either a <span class="text-my-yellow">conveyor belt</span>
+                    or a <span class="text-my-yellow">cross belt</span> to the gate.
+                    <br>
 
-    <div class="text-justify px-3 border-dark border my-3">
-        <p id="tr-rules-play-title" class="text-center h3 pt-3"></p>
-        <p id="tr-rules-play" class="fz22"></p>
+                    You can send garbage to a <span class="text-my-yellow">recycling center</span>
+                    or in a <span class="text-my-yellow">junkyard</span> according to your strategy.
+                    <br>
+                    <br>
+
+                    But in order to buy a machine, you will need <span class="text-my-yellow">E</span>
+                    and <span class="text-my-yellow">DD</span> ! These are produced by the student of
+                    the ENSIIE, called FISE (initial training course, <span class="text-my-yellow">
+                    <span id="game-fise-e">1</span>E <span id="game-fise-dd">1</span>DD</span>
+                    per turn) or FISA (part-time training course, <span class="text-my-yellow">
+                    <span id="game-fisa-e">4</span>E</span> or <span class="text-my-yellow">
+                    <span id="game-fisa-dd">4</span>
+                    DD</span> per <span class="text-my-yellow" id="game-fisa-turn">2</span> turns).
+                    <br>
+                    <br>
+
+                    If you have enough <span class="text-my-yellow">E</span>
+                    and <span class="text-my-yellow">DD</span>, you can hire a Staff that can reduce
+                    the cost of a machine, hire a lot of students, ...
+                    <i class="text-my-blue small">Be sure to check out all of them in-game !</i>
+                </p>
+            </div>
+            <br>
+            &nbsp;
+        </div>
     </div>
 </div>
 </body>

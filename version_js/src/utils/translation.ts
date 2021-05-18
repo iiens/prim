@@ -201,13 +201,14 @@ export class Translation {
             'harvestable with a COLLECTOR. ');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
-        this.translations_EN.set(TrKeys.GO_BACK_B,'Go back to main menu (or press');
+        this.translations_EN.set(TrKeys.GO_BACK_B,'Back');
 
         //menu.html
-        this.translations_EN.set(TrKeys.MENU_TITLE,"Language");
+        this.translations_EN.set(TrKeys.MENU_TITLE,"LANGUAGE");
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN,'English');
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR,'French');
-        this.translations_EN.set(TrKeys.MUSIC_TITLE,'Music');
+        this.translations_EN.set(TrKeys.VOLUME_TITLE,'VOLUME');
+        this.translations_EN.set(TrKeys.MUSIC_TITLE,'MUSIC');
 
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
@@ -343,13 +344,14 @@ export class Translation {
             ' récoltables avec un COLLECTEUR.');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
-        this.translations_FR.set(TrKeys.GO_BACK_B,'Revenir au menu (ou appuyer sur');
+        this.translations_FR.set(TrKeys.GO_BACK_B,'Retour');
 
         //menu.html
-        this.translations_FR.set(TrKeys.MENU_TITLE,'Langue');
+        this.translations_FR.set(TrKeys.MENU_TITLE,'LANGUE');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_EN,'Anglais');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR,'Français');
-        this.translations_FR.set(TrKeys.MUSIC_TITLE,'Musique');
+        this.translations_FR.set(TrKeys.VOLUME_TITLE,'VOLUME');
+        this.translations_FR.set(TrKeys.MUSIC_TITLE,'MUSIQUE');
 
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
@@ -528,6 +530,7 @@ export enum TrKeys {
 
     TERMINAL_HELP,
 
+    VOLUME_TITLE,
     MUSIC_TITLE,
 
 }

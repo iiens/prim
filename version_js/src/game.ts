@@ -127,11 +127,29 @@ export class Game {
     }
 
     /**
+     * Get the audio value
+     * @private
+     */
+    static getMusic() : string {
+        if(localStorage.getItem("music")==null)
+            localStorage.setItem("music", "truth.mp3");
+        return String(localStorage.getItem("music"));
+    }
+
+    /**
      * Set the audio value
      * @private
      */
     static setAudio(volume : number){
         localStorage.setItem("audio",String(volume));
+    }
+
+    /**
+     * Set the music value
+     * @private
+     */
+    static setMusic(path : string){
+        localStorage.setItem("music", path);
     }
 
 

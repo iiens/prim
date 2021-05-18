@@ -129,18 +129,41 @@ class Mappings {
                 // Check the return of the function
                 if (e === code_1.ErrorCode.NO_ERROR) {
                     game_1.Game.interface.reload();
+                    game_1.Game.interface.reloadShowCase();
                 }
                 else {
                     // Show the error message
-                    terminal.echo(translation_1.Translation.error(e));
+                    Mappings.showMessage(terminal, translation_1.Translation.error(e), true);
                 }
             }
             else {
-                terminal.echo(translation_1.Translation.error(code_1.ErrorCode.ERROR_INVALID_ORIENTATION_NUMBER));
+                Mappings.showMessage(terminal, translation_1.Translation.error(code_1.ErrorCode.ERROR_INVALID_ORIENTATION_NUMBER), true);
             }
         }
         else {
-            terminal.echo(translation_1.Translation.error(code_1.ErrorCode.ERROR_CASE_NOT_FOUND));
+            Mappings.showMessage(terminal, translation_1.Translation.error(code_1.ErrorCode.ERROR_CASE_NOT_FOUND), true);
+        }
+    }
+    // show a message
+    static showMessage(terminal, message, error = false) {
+        if (terminal.hasOwnProperty('echo'))
+            terminal.echo(message);
+        else {
+            let popup = document.getElementById('popup-div');
+            let popupTitle = document.getElementById('popup-title');
+            let popupContent = document.getElementById('popup-content');
+            if (popupTitle) {
+                if (error)
+                    popupTitle.innerText = 'ERROR'; //todo: translate
+                else
+                    popupTitle.innerText = 'MESSAGE'; //todo: translate
+            }
+            if (popupContent) {
+                popupContent.innerHTML = message;
+                if (popup) {
+                    popup.classList.remove("d-none");
+                }
+            }
         }
     }
     // basic functions
@@ -169,6 +192,13 @@ class Mappings {
             case translation_1.Language.FR:
                 return this.mappings_FR.getKeys();
         }
+    }
+    /**
+     * Shortcut to get a mappings keys.
+     */
+    static getMapping(action) {
+        this.initMappings();
+        return this.mappings_EN.get(action);
     }
     /**
      * Shortcut to get all mappings
@@ -241,7 +271,8 @@ Mappings.isInit = false;
 /** list actions with help **/
 Mappings.listMappings = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     // Request display of actions
     game_1.Game.save();
     location.href = 'mappings.html';
@@ -249,7 +280,8 @@ Mappings.listMappings = function () {
 /** list machines with lm  **/
 Mappings.listMachines = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     // Request the display of machines
     game_1.Game.save();
     location.href = 'machines.html';
@@ -276,7 +308,8 @@ Mappings.listMachines = function () {
  */
 Mappings.listStaff = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     // Call the interface function to show the list of staff
     // Player staff list and staff list available
     game_1.Game.save();
@@ -288,11 +321,12 @@ Mappings.hireFISE = function (n = 1) {
         n = 1;
     while (n > 0) {
         // @ts-ignore since it's terminal method
-        this.clear();
+        if (this.hasOwnProperty('clear'))
+            this.clear();
         let e = game_1.Game.map.map_hireFISE();
         if (e !== code_1.ErrorCode.NO_ERROR) {
             // @ts-ignore
-            this.echo(translation_1.Translation.error(e));
+            Mappings.showMessage(this, translation_1.Translation.error(e), true);
             break;
         }
         else
@@ -306,11 +340,12 @@ Mappings.hireFISA = function (n = 1) {
         n = 1;
     while (n > 0) {
         // @ts-ignore since it's terminal method
-        this.clear();
+        if (this.hasOwnProperty('clear'))
+            this.clear();
         let e = game_1.Game.map.map_hireFISA();
         if (e !== code_1.ErrorCode.NO_ERROR) {
             // @ts-ignore
-            this.echo(translation_1.Translation.error(e));
+            Mappings.showMessage(this, translation_1.Translation.error(e), true);
             break;
         }
         else
@@ -321,13 +356,14 @@ Mappings.hireFISA = function (n = 1) {
 /** change mode with c **/
 Mappings.fisaMode = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     // Call The map function to change the mode of production of the FISA
     // E or DD
     let e = game_1.Game.map.changeProductionFISA();
     if (e !== code_1.ErrorCode.NO_ERROR) {
         // @ts-ignore Show the error message
-        this.echo(translation_1.Translation.error(e));
+        Mappings.showMessage(this, translation_1.Translation.error(e), true);
     }
     else
         game_1.Game.interface.renderGameScreen(game_1.Game.map);
@@ -350,20 +386,16 @@ Mappings.fisaMode = function () {
  */
 Mappings.buyStaff = function (id = -1, n = 1) {
     // @ts-ignore since it's terminal method
-    this.clear();
-    if (id === -1) {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message
-            this.echo("Usage is: bs Staff_id [or] bs Staff_id count");
-        }
-        else { // @ts-ignore Show the error message
-            this.echo("L'utilisation est: bs Staff_id [ou] bs Staff_id nombre");
-        }
+    if (this.hasOwnProperty('clear'))
+        this.clear();
+    if (id === -1) { //todo:
+        // @ts-ignore Show the error message
+        Mappings.showMessage(this, "Usage is: bs Staff_id [or] bs Staff_id count", true);
         return;
     }
     if (n < 1 || n > 100) {
         // @ts-ignore Show the error message
-        this.echo("Count must be in [1,100]");
+        Mappings.showMessage(this, "Count must be in [1,100]", true);
         return;
     }
     while (n > 0) {
@@ -371,13 +403,16 @@ Mappings.buyStaff = function (id = -1, n = 1) {
         let e = game_1.Game.map.buyStaff(id);
         if (e !== code_1.ErrorCode.NO_ERROR) {
             // @ts-ignore Show the error message
-            this.echo(translation_1.Translation.error(e));
+            Mappings.showMessage(this, translation_1.Translation.error(e), true);
             break;
         }
         else
             game_1.Game.interface.reload(); // reload all since staff can change the map
         n--;
     }
+    // we must save now since we buy staff
+    game_1.Game.save();
+    return n;
 };
 /**
  * Call the function to buy the machine
@@ -400,26 +435,17 @@ Mappings.buyStaff = function (id = -1, n = 1) {
  */
 Mappings.buyMachine = function (machineStuff = -1, x = -1, y = -1, rotation = 0) {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     if (machineStuff == -1 || x == -1 || y == -1 || rotation == -1) {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message
-            this.echo("bm: buy a machine. Exemple: bm id x y r with id a machine id, x and y a position, and r a rotation." +
-                " For instance 0 rotation means we keep the orientation by default, then 1 we rotate clockwise the rotation " +
-                "by default, ... up to 3.");
-        }
-        else {
-            // @ts-ignore Show the error message
-            this.echo("bm: acheter une machine. Exemple : bm id x y r avec id a machine id, x et y une position, et r une rotation." +
-                " Par exemple 0 rotation signifie que nous conservons l’orientation par défaut, puis 1 nous faisons tourner " +
-                "la rotation dans le sens des aiguilles d’une montre par défaut, ... jusqu’à 3");
-        }
+        // @ts-ignore todo:
+        Mappings.showMessage(this, "Usage is : bm machine_id x y rotation (see help)", true);
     }
     else {
         // check machine stuff
         if (config_1.Config.isMachineStuffValid(machineStuff) === -1) {
             // @ts-ignore
-            this.echo(translation_1.Translation.error(code_1.ErrorCode.ERROR_INVALID_MACHINE_NUMBER));
+            Mappings.showMessage(this, translation_1.Translation.error(code_1.ErrorCode.ERROR_INVALID_MACHINE_NUMBER), true);
         }
         else {
             // check coordinates
@@ -433,16 +459,11 @@ Mappings.buyMachine = function (machineStuff = -1, x = -1, y = -1, rotation = 0)
  * upgrade machine with um **/
 Mappings.upgradeMachine = function (x = -1, y = -1) {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     if (x == -1 && y == -1) {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message
-            this.echo("Usage is : um x y (see help)");
-        }
-        else {
-            // @ts-ignore Show the error message
-            this.echo("L'utilisation est: um x y (voir l'aide)");
-        }
+        // @ts-ignore todo:
+        Mappings.showMessage(this, "um x y (see help)", true);
     }
     else {
         // check coordinates
@@ -455,16 +476,11 @@ Mappings.upgradeMachine = function (x = -1, y = -1) {
  * destroy machine with dm **/
 Mappings.destroyMachine = function (x = -1, y = -1) {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     if (x == -1 && y == -1) {
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message
-            this.echo("Usage is : dm x y (see help)");
-        }
-        else {
-            // @ts-ignore Show the error message;
-            this.echo("Utilisation : dm x y (voir aide)");
-        }
+        // @ts-ignore todo:
+        Mappings.showMessage(this, "Usage is : dm x y (see help)", true);
     }
     else {
         // check coordinates
@@ -475,25 +491,29 @@ Mappings.destroyMachine = function (x = -1, y = -1) {
 /** show map with m **/
 Mappings.showMap = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     game_1.Game.interface.renderMap(game_1.Game.map, false, false, true);
 };
 /** show map of resources with r **/
 Mappings.showResource = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     game_1.Game.interface.renderMap(game_1.Game.map, true, false, true);
 };
 /** show map of resources with g **/
 Mappings.showGarbage = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     game_1.Game.interface.renderMap(game_1.Game.map, false, true, true);
 };
 /** cancel action with b **/
 Mappings.goBack = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
 };
 /** end turn with n **/
 Mappings.endTurn = function (n = 1) {
@@ -501,20 +521,16 @@ Mappings.endTurn = function (n = 1) {
         n = 1;
     if (n > 1000) {
         // @ts-ignore since it's terminal method
-        this.clear();
-        if (game_1.Game.getTranslationLanguage() == translation_1.Language.EN) {
-            // @ts-ignore Show the error message
-            this.echo("Can only do up to 1000 in one go.");
-        }
-        else {
-            // @ts-ignore Show the error message
-            this.echo("Peut seulement faire jusqu’à 1000 en une seule fois.");
-        }
+        if (this.hasOwnProperty('clear'))
+            this.clear();
+        // @ts-ignore since it's terminal method todo:
+        Mappings.showMessage(this, "Can only do up to 1000 in one go.", true);
         return;
     }
     while (n > 0) {
         // @ts-ignore since it's terminal method
-        this.clear();
+        if (this.hasOwnProperty('clear'))
+            this.clear();
         let e = game_1.Game.map.endTurn();
         if (e !== code_1.ErrorCode.NO_ERROR) {
             game_1.Game.save();
@@ -530,7 +546,8 @@ Mappings.endTurn = function (n = 1) {
 /** exit with q **/
 Mappings.exit = function () {
     // @ts-ignore since it's terminal method
-    this.clear();
+    if (this.hasOwnProperty('clear'))
+        this.clear();
     game_1.Game.save();
     // end the game
     location.href = 'end.html';

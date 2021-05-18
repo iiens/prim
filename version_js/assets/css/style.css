@@ -1,4 +1,5 @@
-/* Basic styling */
+/* todo: move css weird to another file,
+ Basic styling */
 * {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
@@ -63,24 +64,18 @@ body { border: 1px solid #48545c; overflow-y: hidden; }
 .maximized #restore-button { display: flex !important; }
 .maximized #max-button { display: none; }
 
-.fz22 {
-  font-size: 22px;
-}
+/** general **/
 
-.game-menu {
-  font-size: 17px;
-  padding: 15px 0;
-  font-weight: bold;
-  cursor: pointer;
-}
+.fz22 { font-size: 22px; }
+.pointer { cursor: pointer; }
 
-.selected-menu {
-  border: 0 solid #dd4411;
-  border-bottom-width: 3px;
-}
+.text-my-yellow { color: #FFCC33; }
+.text-my-blue { color: #00a087; }
+.bg-my-blue { background: #00a087; }
+.text-my-red { color: #dd4411; }
 
-.text-my-yellow {
-  color: #dd4411;
+.border-my-yellow {
+  border: 1px solid #FFCC33 !important;
 }
 
 .mw-300px {
@@ -93,49 +88,108 @@ body { border: 1px solid #48545c; overflow-y: hidden; }
 .text-red { color: #dd4411; }
 .text-blue { color: #115cdd; }
 
-/** terminal **/
-.terminal-input-div {  }
-.terminal-output, .cmd {
-  font-size: 35px !important;
-  font-weight: bold;
-  line-height: 25px;
-}
+/**
+*
+*
+*           INDEX PAGE STYLE
+*
+*
+ **/
 
-/** slider **/
-
-.rs-range { margin-top: 29px; width: 600px; -webkit-appearance: none; }
-.rs-range:focus { outline: none; }
-.rs-range::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 1px;
+.game-menu {
+  background: url('../../assets/img/index/btn.png') no-repeat;
+  min-height: 50px;
+  background-size: cover;
   cursor: pointer;
-  box-shadow: none;
-  /* slider bar */
-  background: #3298af;
-  border-radius: 10px;
-  border: 5px solid #3298af;
 }
 
-.rs-range::-webkit-slider-thumb {
-  border: 0 solid #dd4411;
-  box-shadow: none;
-  height: 42px;
-  width: 22px;
-  border-radius: 22px;
-  background: #dd4411;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -20px;
+.selected-menu {
+  /* border: 0 solid #dd4411;
+  border-bottom-width: 3px; */
+  color: #FFCC33 !important;
 }
 
-.rs-label {
-  position: relative;
-  transform-origin: center center;
-  display: block;
+.prim-menu-bg {
+  background: #29353b !important;
 }
-.rs-label::after {
-  display: block;
-  font-size: 20px;
-  letter-spacing: 0.07em;
-  margin-top: -2px;
+
+.index-background {
+  background: url('../../assets/img/index/background.png') no-repeat;
+  background-size: cover;
 }
+
+.game-popup {
+  top:calc(50% - 125px);left: calc(50% - 250px);
+  max-width: 500px;max-height: 250px;z-index: 5;
+}
+
+#popup-div {
+  width: 500px;
+}
+
+.game-popup-close {
+  top:-5px;
+  right: 25px;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+/**
+*
+*
+*           SETTINGS PAGE STYLE
+*
+*
+ **/
+
+.settings-background { background: url('../../assets/img/settings/settings-background.png'); }
+
+/**
+*
+*
+*           RULES PAGE STYLE
+*
+*
+ **/
+.rules-go-back { margin-top: -3rem; }
+
+/**
+*
+*
+*           GAME PAGE STYLE
+*
+*
+ **/
+.game-background { background: url('../../assets/img/index/background.png') no-repeat; background-size: cover;}
+
+/** nav menu at the top **/
+.game-top-nav { top:32px;left:150px;right: 0; }
+.game-top-nav > img { max-width: 766px; }
+/* first line */
+#game-top-nav-end-turn { top:10px;left:250px;right: 0; }
+#game-top-nav-turn { top:5px;left:0;right: 0; }
+#game-top-nav-exit { top:10px;left:-250px;right: 0; }
+/* second line */
+#game-top-nav-e { top:53px;left:-260px;right: 0; transform: rotate(5deg); }
+#game-top-nav-score { top:45px;left:0;right: 0;color: #29dd11; } /* score */
+#game-top-nav-garbage { top:65px;left:0;right: 0; } /* garbage */
+#game-top-nav-dd { top:55px;left:260px;right: 0; transform: rotate(-5deg); }
+
+/** game grid **/
+#game-grid { margin-top: 7rem; margin-left: 250px; }
+
+/** game side nav **/
+.side-nav { top: 32px;left:0;background: #1d2c40; width: 250px; }
+.selected-case-area { border: 0 solid #ffffff;border-top-width: 1px; }
+.e-dd-change { margin-top: -0.5rem; }
+#e-dd-change-e-label { left:11px;top: 1px; }
+#e-dd-change-dd-label { left:5px;top:2px; }
+
+#upgrade-machine-div { background: black; color: white; }
+
+/** staffs */
+.content-background { background: #1d2c40; color: white !important; }
+.game-level-button { margin-right: -0.5rem; }
+
+/** end game **/
+.end-go-back { top: 50px; right: 50px; }

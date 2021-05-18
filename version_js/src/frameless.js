@@ -49,6 +49,7 @@ function handleWindowControls() {
 
 module.exports = {
     addHeader,
+    addPopup,
     handleWindowControls,
 }
 
@@ -106,5 +107,29 @@ function addHeader() {
 
         </div>
     </div>`
+    }
+}
+
+function addPopup() {
+    let popup = document.getElementById('popup-div');
+    if(popup){
+        popup.classList.add('position-absolute', 'game-popup')
+        popup.innerHTML = `
+        <!-- close -->
+        <span class="position-absolute py-2 text-dark
+            pointer game-popup-close" id="game-popup-close">
+            X
+        </span>
+        <!-- content -->
+        <div>
+            <div class="bg-my-blue text-white py-2 ps-2"
+            id="popup-title">
+                TITLE
+            </div>
+            <div class="settings-background text-white p-3" id="popup-content">
+                Blah blah blah Blah blah blah Blah blah blah
+                Blah blah blah Blah blah blah Blah blah blah
+            </div>
+        </div>`
     }
 }

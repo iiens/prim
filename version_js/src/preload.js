@@ -1,8 +1,9 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
-const {handleWindowControls, addHeader} = require('./frameless');
+const {handleWindowControls, addHeader, addPopup} = require('./frameless');
 const {Translation, TrKeys, Language} = require('./utils/translation');
 const {Game} = require('./game');
+const {Action} = require('./utils/mappings');
 const {Config} = require('./utils/config');
 
 // When document has loaded, initialise
@@ -17,7 +18,8 @@ document.onreadystatechange = (event) => {
         // load music
         (async () => {
             // random choice of music
-            let path = Math.random() > 0.5 ? "narrative.mp3" : "truth.mp3";
+            // todo: let path = Math.random() > 0.5 ? "narrative.mp3" : "truth.mp3";
+            let path = Game.getMusic();
             // use javascript standard class
             let audio = new Audio(__dirname+"/../assets/music/"+path);
             audio.volume = Game.getAudio();
@@ -62,11 +64,12 @@ document.onreadystatechange = (event) => {
                 break;
             }
             case 'game': {
-                // load JQuery terminal
-                window.$ = window.jquery = jquery;
-                const JQueryTerminal = require('jquery.terminal');
-                // noinspection JSValidateTypes
-                JQueryTerminal($);
+                // // load JQuery terminal
+                // window.$ = window.jquery = jquery;
+                // const JQueryTerminal = require('jquery.terminal');
+                // // noinspection JSValidateTypes
+                // JQueryTerminal($);
+                addPopup(); // add popup for errors
 
                 let level = findGetParameter("lvl");
                 if (level) // coming to start a game
@@ -76,6 +79,7 @@ document.onreadystatechange = (event) => {
                     Game.loadSave()
                 }
                 window.game = Game;
+                window.game.actions = Action;
                 // game
                 // load config
                 window.config = Config;
@@ -116,6 +120,7 @@ document.onreadystatechange = (event) => {
                     "tr-source-desc" : Translation.get(TrKeys.GAME_SOURCE_DESC),
                 }
                 translate();
+                require("./view/handlers/popup");
                 require("./view/handlers/game");
                 break;
             }
@@ -129,6 +134,7 @@ document.onreadystatechange = (event) => {
                     "tr-rules-explain": Translation.get(TrKeys.RULES_EXPLAIN),
                     "tr-rules-play-title": Translation.get(TrKeys.RULES_PLAY_TITLE),
                     "tr-rules-play": Translation.get(TrKeys.RULES_PLAY),
+                    "tr-rules": Translation.get(TrKeys.MENU_RULES),
                     "tr-back": Translation.get(TrKeys.GO_BACK_B),
                 }
                 translate();
@@ -149,6 +155,7 @@ document.onreadystatechange = (event) => {
                     "tr-menu-title": Translation.get(TrKeys.MENU_TITLE),
                     "tr-menu-en": Translation.get(TrKeys.MENU_LANGUAGE_EN),
                     "tr-menu-fr": Translation.get(TrKeys.MENU_LANGUAGE_FR),
+                    "tr-volume-title" : Translation.get(TrKeys.VOLUME_TITLE),
                     "tr-music-title" : Translation.get(TrKeys.MUSIC_TITLE),
                 }
                 translate();
@@ -229,7 +236,11 @@ function loadGame(file) {
     const {Game} = require('./game');
     Game.loadSave(); // fetch map again
     window.game = Game;
+    window.game.actions = Action;
     window.config = Game.config;
+    // popup
+    addPopup(); // add popup for errors
+    require("./view/handlers/popup");
     // end
     require("./view/handlers/"+file);
     // go back

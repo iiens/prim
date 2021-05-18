@@ -1277,7 +1277,7 @@ export class Map {
 
                                 // Calculates the number of resources generated
                                 let numberGarbage = machineBox.numberGarbage;
-                                let numberResource = numberGarbage / numberWasteToResource;
+                                let numberResource = Math.round(numberGarbage / numberWasteToResource);
                                 let rest = numberGarbage % numberWasteToResource;
 
                                 // Verifying that resources are generated

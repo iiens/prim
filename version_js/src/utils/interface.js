@@ -7,11 +7,7 @@ const machine_1 = require("../model/machine");
 const utilities_1 = require("./utilities");
 const config_1 = require("./config");
 const translation_1 = require("./translation");
-/*
-todo: legend not in brut code
-todo: colors for machines/...
-todo: errors in red
- */
+const logger_1 = require("../model/logger");
 /**
  * \author Quentin Ra
  * \version 0.7
@@ -30,6 +26,24 @@ todo: errors in red
  *
  */
 class Interface {
+    // reload show case with current selected case
+    // should not be called in reload since we only want to call it when
+    // a specific action is done (buy, update, destroy) and not at each reload.
+    static get getLastCase() { return this.lastCase; }
+    ;
+    static set setLastCase(lastCase) { this.lastCase = lastCase; }
+    ;
+    static reloadShowCase() {
+        if (this.lastCanvas == null)
+            this.reload(); // reload so that's ok
+        if (this.lastCase == null)
+            return; // nothing to do
+        console.log("redraw show case");
+        // @ts-ignore call with last
+        InterfaceUtils.handleCaseSelection(this.lastCase.tileX, this.lastCase.tileY, game_1.Game.map, document.getElementById('game-stats'), this.lastCanvas, 
+        // @ts-ignore
+        this.lastCase.tileSize, this.lastCase.startX, this.lastCase.startY);
+    }
     static init() {
         this.reload();
         this.renderMap(game_1.Game.map); // TODO Corriger problème d'affichage image first turn
@@ -43,7 +57,7 @@ class Interface {
         let map = game_1.Game.map;
         this.renderGameScreen(map);
         this.renderMap(map);
-        this.renderActions();
+        // this.renderActions()
     }
     /**
      * @brief Show the map
@@ -77,6 +91,8 @@ class Interface {
      * @see Map type
      */
     static renderMap(map, showResource = false, showGarbage = false, save = false) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug('Begin renderMap');
         if (save) { // set
             Interface.showGarbage = showGarbage;
             Interface.showResource = showResource;
@@ -86,21 +102,18 @@ class Interface {
             showGarbage = Interface.showGarbage;
         }
         // copy of https://stackoverflow.com/questions/9140101/creating-a-clickable-grid-in-a-web-browser
-        const startX = 25;
-        const startY = 25;
+        const startX = 0;
+        const startY = 0;
         const drawGrid = (canvas, ctx, tileSize) => {
+            logger.debug('Begin drawGrid');
             for (let y = 0; y < map.getHeight; y++) {
-                ctx.fillStyle = "#000";
-                ctx.fillText(y + "", 0, y * tileSize + startY + tileSize / 2 - 5);
                 for (let x = 0; x < map.getWidth; x++) {
                     const Case = map.getCase(x, y);
                     const xx = x * tileSize + startX;
                     const yy = y * tileSize + startY;
                     // draw
-                    ctx.fillStyle = "#ddd";
+                    ctx.strokeStyle = "#000";
                     ctx.strokeRect(xx, yy, tileSize, tileSize);
-                    ctx.fillStyle = "#000";
-                    ctx.fillText(x + "", xx + tileSize / 2 - 5, 0);
                     let content = "";
                     if (showResource) {
                         content = Case.numberResources() + "";
@@ -112,16 +125,7 @@ class Interface {
                         content = InterfaceUtils.getCaseText(Case);
                     }
                     if (Case.isMachine) {
-                        let machine = Case.getMachine();
                         InterfaceUtils.drawMachine(Case, ctx, xx, yy);
-                        if (config_1.Config.getMachineStuff(machine.type)?.canUpgrade) {
-                            let oldFont = ctx.font;
-                            let texte = `lvl ${machine.level}`;
-                            ctx.font = "10px Segoe UI";
-                            ctx.fillStyle = "#2261e0";
-                            ctx.fillText(texte, xx + tileSize / 2 - 10, yy + tileSize - 10);
-                            ctx.font = oldFont;
-                        }
                     }
                     else {
                         InterfaceUtils.drawSpawner(content, ctx, xx, yy);
@@ -131,7 +135,8 @@ class Interface {
         };
         const size = map.getWidth;
         const tileSize = 35;
-        const canvas = document.createElement("canvas");
+        let canvas = document.createElement("canvas");
+        Interface.lastCanvas = canvas; // save
         canvas.width = tileSize * size + startX;
         canvas.height = tileSize * size + startY;
         const ctx = canvas.getContext("2d");
@@ -145,7 +150,7 @@ class Interface {
                 grid.appendChild(canvas);
             }
         }
-        let status = document.getElementById('stats');
+        let status = document.getElementById('game-stats');
         let tileX = -1;
         let tileY = -1;
         canvas.addEventListener("mousemove", evt => {
@@ -153,40 +158,29 @@ class Interface {
             tileX = Math.floor(((evt.offsetX - startX) / tileSize));
             tileY = Math.floor(((evt.offsetY - startY) / tileSize));
         });
-        canvas.addEventListener("click", event => {
-            if (tileX >= 0 && tileY >= 0) {
-                if (tileX < map.getWidth && tileY < map.getHeight) {
-                    if (status) {
-                        let p = map.getCase(tileX, tileY);
-                        let type = p.caseType;
-                        switch (type) {
-                            case map_1.CaseType.CASE_GATE:
-                                status.innerText = ` Gate : ${tileX}, ${tileY}
-                                            Resources = ${p.numberResources()}
-                                            Garbage = ${p.numberGarbage()}`;
-                                break;
-                            case map_1.CaseType.CASE_MACHINE:
-                                status.innerText = ` Machine : ${tileX}, ${tileY}
-                                            Resources = ${p.numberResources()}
-                                            Garbage = ${p.numberGarbage()}
-                                            Level = ${p.getMachine().level}`;
-                                break;
-                            case map_1.CaseType.CASE_SOURCE:
-                                status.innerText = ` Source : ${tileX}, ${tileY}`;
-                                break;
-                            case map_1.CaseType.CASE_EMPTY:
-                                status.innerText = ` Ground : ${tileX}, ${tileY}`;
-                                break;
-                        }
-                    }
-                }
-            }
+        canvas.addEventListener("click", () => {
+            InterfaceUtils.handleCaseSelection(tileX, tileY, map, status, canvas, tileSize, startX, startY);
         });
+        canvas.addEventListener("mouseout", event => {
+            /*if (status) {
+                status.innerText = "";
+            }*/
+        });
+        // at first show no case selected
+        if (status) {
+            // hides all
+            for (let i of status.children) {
+                i.classList.add('d-none');
+            }
+            InterfaceUtils.manageClass('tr-game-case-selected', true, 'd-none');
+        }
     }
     /**
      * Update game status screen
      */
     static renderGameScreen(map) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug('Begin renderGameScreen');
         // @ts-ignore
         win.replaceText('turn', map.getNumberTurn);
         // @ts-ignore
@@ -238,6 +232,8 @@ class Interface {
      * @see Action enum
      */
     static renderActions() {
+        let logger = logger_1.Logger.Instance;
+        logger.debug('Begin renderActions');
         let greetings = translation_1.Translation.get(translation_1.TrKeys.TERMINAL_HELP)
             .replace("help", game_1.Game.config.keys.help);
         // @ts-ignore
@@ -264,6 +260,8 @@ Interface.showResource = false;
 Interface.showGarbage = false;
 class InterfaceUtils {
     static drawSpawner(content, ctx, xx, yy) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug('Begin drawSpawner');
         let url = '../../assets/img/map/';
         const numberImage = 15;
         let img = new Image();
@@ -283,6 +281,8 @@ class InterfaceUtils {
         };
     }
     static drawMachine(Case, ctx, xx, yy) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug('Begin drawMachine');
         let mach = Case.getMachine();
         let img = new Image();
         switch (mach.type) {
@@ -353,6 +353,8 @@ class InterfaceUtils {
         }
     }
     static parseOrientation(c) {
+        let logger = logger_1.Logger.Instance;
+        logger.debug('Begin parseOrientation');
         if (c == null)
             return " ";
         if (c.isMachine) {
@@ -389,5 +391,149 @@ class InterfaceUtils {
             }
         }
         return ' ';
+    }
+    /**
+     * Set data-x and data-y for a div
+     * @param id div id
+     * @param x case x
+     * @param y case y
+     */
+    static formalizeXY(id, x, y) {
+        let div = document.getElementById(id);
+        if (div) {
+            div.setAttribute('data-x', x + "");
+            div.setAttribute('data-y', y + "");
+        }
+    }
+    /**
+     * Set div inner text
+     * @param id get by this ID
+     * @param text with this text
+     */
+    static setText(id, text) {
+        let div = document.getElementById(id);
+        if (div)
+            div.innerText = text;
+    }
+    static setImageSrc(id, src) {
+        let image = document.getElementById(id);
+        if (image)
+            image.src = src;
+    }
+    static manageClass(id, remove, ...tokens) {
+        let c = document.getElementById(id).classList;
+        if (remove) {
+            tokens.forEach(t => c.remove(t));
+        }
+        else {
+            tokens.forEach(t => c.add(t));
+        }
+    }
+    static setHTML(id, html) {
+        let div = document.getElementById(id);
+        if (div)
+            div.innerHTML = html;
+    }
+    static handleCaseSelection(tileX, tileY, map, status, canvas, tileSize, startX, startY) {
+        let ctx = canvas.getContext('2d');
+        if (ctx) {
+            let xx, yy;
+            // color back in black last case
+            let lastCase = Interface.getLastCase;
+            if (lastCase) { // @ts-ignore
+                xx = lastCase.tileX * tileSize + startX; // @ts-ignore
+                yy = lastCase.tileY * tileSize + startX;
+                ctx.strokeStyle = "#000";
+                ctx.strokeRect(xx, yy, tileSize, tileSize);
+            }
+            xx = tileX * tileSize + startX;
+            yy = tileY * tileSize + startY;
+            // color new case
+            ctx.strokeStyle = "#fff";
+            ctx.strokeRect(xx, yy, tileSize, tileSize);
+            // save new values
+            Interface.setLastCase = { tileX, tileY, canvas, tileSize, startX, startY };
+        }
+        if (tileX >= 0 && tileY >= 0) {
+            if (tileX < map.getWidth && tileY < map.getHeight) {
+                if (status) {
+                    // ...
+                    let p = map.getCase(tileX, tileY);
+                    let type = p.caseType;
+                    let resource = 0, garbage = 0;
+                    // hides all
+                    for (let i of status.children) {
+                        i.classList.add('d-none');
+                    }
+                    switch (type) {
+                        case map_1.CaseType.CASE_GATE:
+                            let box = p.getBox();
+                            if (box != null) {
+                                garbage = box.numberGarbage;
+                            }
+                            // show gate
+                            InterfaceUtils.manageClass('gate-selected', true, 'd-none');
+                            // set garbage
+                            InterfaceUtils.setText('gate-selected-garbage', garbage + '');
+                            break;
+                        case map_1.CaseType.CASE_MACHINE:
+                            let machineInfo = config_1.Config.getMachineStuff(p.getMachine().type);
+                            // get number resources/garbage
+                            for (let i = 0; i < machine_1.Machine.NUMBER_CARDINAL; i++) {
+                                let box = p.getMachine().getBox(i);
+                                if (box != null) {
+                                    resource += box.numberResources;
+                                    garbage += box.numberGarbage;
+                                }
+                            }
+                            // show machine menu
+                            InterfaceUtils.manageClass('machine-selected', true, 'd-none');
+                            // update
+                            InterfaceUtils.formalizeXY('update-selected', tileX, tileY);
+                            // destroy
+                            InterfaceUtils.formalizeXY('destroy-selected', tileX, tileY);
+                            // don't show for collector since they won't be something on it
+                            // todo: should be an attribute of machine info
+                            InterfaceUtils.manageClass('machine-content-selected', p.getMachine().type !== machine_1.MachineStuff.MS_COLLECTOR, 'd-none');
+                            // hides ressources div for some
+                            InterfaceUtils.manageClass('machine-r-div-selected', !(p.getMachine().type === machine_1.MachineStuff.MS_RECYCLING_CENTER
+                                || p.getMachine().type === machine_1.MachineStuff.MS_JUNKYARD), 'd-none');
+                            // resources/garbage/level
+                            InterfaceUtils.setText('machine-r-selected', resource + '');
+                            InterfaceUtils.setText('machine-g-selected', garbage + '');
+                            // information
+                            InterfaceUtils.setText('machine-name-selected', machineInfo.name(translation_1.Translation.getLanguage()) + '');
+                            let image = machineInfo.imageFile.get(machine_1.Cardinal.SOUTH);
+                            InterfaceUtils.setImageSrc('machine-image-selected', image);
+                            // check if upgrade div
+                            let upgradeDIV = document.getElementById('upgrade-machine-div');
+                            if (machineInfo.canUpgrade) {
+                                InterfaceUtils.setText('machine-lvl-selected', p.getMachine().level + '');
+                                //todo: fill with upgrade message
+                                InterfaceUtils.setHTML('machine-info-selected', `
+                                       +1 collected / turn
+                                        Cost ${machineInfo.costUpgradeE} E ${machineInfo.costUpgradeDD} DD
+                                 `);
+                                upgradeDIV.classList.remove('d-none');
+                            }
+                            else {
+                                upgradeDIV.classList.add('d-none');
+                            }
+                            // todo: show desc
+                            break;
+                        case map_1.CaseType.CASE_SOURCE:
+                            // show buy menu since empty
+                            InterfaceUtils.manageClass('source-selected', true, 'd-none');
+                            break;
+                        default:
+                            // show buy menu since empty
+                            InterfaceUtils.manageClass('empty-selected', true, 'd-none');
+                            // buy, set x and y
+                            InterfaceUtils.formalizeXY('buy-button', tileX, tileY);
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

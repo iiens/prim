@@ -28,3 +28,9 @@ maybe use https://www.i18next.com/
 - [ ] factorize the code way more ! Too much copy-paste
 - [ ] code cleanup
 - [ ] tests (https://mochajs.org/)
+
+## Batch
+
+- [ ] settings in-game
+- [ ] make it easier to buy staff
+- [ ] fix score

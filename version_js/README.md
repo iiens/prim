@@ -4,7 +4,7 @@ This is a graphic version of the game made
 in ``version_c`` using `electron` instead
 of ``ncurses``.
 
-Current version : ``2.3.0``
+Current version : ``3.0.x``
 
 ## How to compile or run
 
