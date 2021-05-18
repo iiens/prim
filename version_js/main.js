@@ -4,8 +4,6 @@ const {Logger} = require("./src/model/logger");
 
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
-const {Translation,Language} = require('./src/utils/translation');
-const {Game} = require('./src/game');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -27,7 +25,7 @@ function createWindow () {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadFile('src/view/game.html').then();
+    mainWindow.loadFile('src/view/index.html').then();
 
     // fix minimum size
     mainWindow.setMinimumSize(925,650)
@@ -36,9 +34,9 @@ function createWindow () {
     // mainWindow.webContents.openDevTools();
 
     // Close the DevTools
-    // mainWindow.webContents.on("devtools-opened", () => {
-    //     mainWindow.webContents.closeDevTools();
-    // });
+    mainWindow.webContents.on("devtools-opened", () => {
+        mainWindow.webContents.closeDevTools();
+    });
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {

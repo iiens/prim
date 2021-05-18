@@ -1,40 +1,30 @@
 # Prim
 
-À force de jouer avec le supercalculateur de l’école
-d'ingénieur ENSIIE, les élèves du parcours CIDM ont ouvert
-une porte vers un univers parallèle, dévoilant ainsi
-l’existence d’une seconde ENSIIE et de tout un tas d’autres
-écoles d’ingénieur.
+An original game made by Legendary Games studio,
+requested by Dimitri Watel.
 
-Avec effroi, les deux ENSIIE ont vu leur classement parmi
-les écoles d’ingénieur les plus investies dans
-le développement durable chuter, naturellement englouties
-sous un flot d’énergie démentiel pour maintenir la porte
-ouverte entre les mondes. Après une lutte acharnée, chacune
-des écoles est retournée dans son univers avec comme seul
-objectif de refermer la porte.
+You can find more information
+here https://lgs-games.com/fr/games/prim.
 
-Ce jeu se joue à un seul joueur. L’objectif du joueur est
-de gérer et développer sa ligne de production. Pour cela,
-il dispose d’une carte contenant des ressources qu’il va
-pouvoir collecter et transporter jusqu’à la porte
-transuniverselle. En faisant cela, le joueur devra maîtriser
-son énergie et son environnement pour ne pas faire sombrer
-la planète dans le chaos le plus total.
+We have a C version with an interface using ncurses,
+that can be run with docker or we have a graphical
+version that is currently developed in electron.
 
-Il existe 3 niveaux de difficulté :
-* facile (carte 10x10)
-* moyen (carte 20x20)
-* difficile (carte 30x30).
+* Valentin DREANO
+* Antoine MAN
+* Quentin RAMSAMY- -AGEORGES
+* Ramzy ZEBRIR
 
-# Console mode
+## Screenshots
 
-...
-a description here
-...
+![menu.png](screenshots/menu.png)
 
-# Graphic mode
+![menu.png](screenshots/rules.png)
 
-...
-a description here
-...
+![menu.png](screenshots/settings.png)
+
+![menu.png](screenshots/game.png)
+
+![menu.png](screenshots/staffs.png)
+
+![menu.png](screenshots/end.png)

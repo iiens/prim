@@ -34,3 +34,4 @@ maybe use https://www.i18next.com/
 - [ ] settings in-game
 - [ ] make it easier to buy staff
 - [ ] fix score
+- [ ] fix clic on end bug
