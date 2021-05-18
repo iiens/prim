@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="effect_8c" kind="file" language="C++">
+    <compoundname>effect.c</compoundname>
+    <includes refid="effect_8h" local="yes">../../headers/data/effect.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/model/effect.c</label>
+        <link refid="effect_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="8">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="2">
+        <label>../../headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="effect_8c_1a345bd756d7dc10dc098e342d8e434afb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="effect_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911" kindref="member">Mode</ref></type>
+        <definition>Mode effect_getMode</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getMode</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get Mode attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mode </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="16" column="6" bodyfile="src/model/effect.c" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a671a16f946d2dad0ce29a5197cec036f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="effect_8h_1a31488d29805a596498c0234ae392d35d" kindref="member">Target</ref></type>
+        <definition>Target effect_getWhat</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getWhat</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get What attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Target </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="21" column="8" bodyfile="src/model/effect.c" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a4acfe01ec317cda0309c7ef76e2d02b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool effect_getOnOther</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getOnOther</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get OnOther attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool, OnOther </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="26" column="6" bodyfile="src/model/effect.c" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a7ef2c8dbf31bffb08b099cf8ff886017" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getModifierRes</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getModifierRes</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get ModifierRes attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ModifierRes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="31" column="5" bodyfile="src/model/effect.c" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a35de45afb1114e532e8b7eb02008dd61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getModifierFISA</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getModifierFISA</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get ModifierFISA attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ModifierFISA </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="36" column="5" bodyfile="src/model/effect.c" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a78559a54577a479d9e25d0cfc09fddee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getModifierFISE</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getModifierFISE</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get ModifierFISE attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ModifierFISE </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="41" column="5" bodyfile="src/model/effect.c" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a56be91bb079108130867c00964687c86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getModifierE</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getModifierE</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get ModifierE attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ModifierE </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="46" column="5" bodyfile="src/model/effect.c" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1aa881d8151ab7c64fa0f0cccd4d5880b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getModifierDD</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getModifierDD</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get ModifierDD attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ModifierDD </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="51" column="5" bodyfile="src/model/effect.c" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a5c0ad0d13d9e9ad8ad993227cc86ed44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getModifierCapacity</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getModifierCapacity</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get ModifierCapacity attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ModifierCapacity </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="56" column="5" bodyfile="src/model/effect.c" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a4f1e2e9491756de6d8d789055391e55a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getMinCostE</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getMinCostE</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get MinCostE attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MinCostE </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="61" column="5" bodyfile="src/model/effect.c" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1a10e766128ae6bc857c90c6f4fd657d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getMinCostDD</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getMinCostDD</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get MinCostDD attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MinCostDD </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="66" column="5" bodyfile="src/model/effect.c" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="effect_8c_1ad7794766e5911687dfaf5f53a6c11ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* effect_getDescription</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getDescription</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get Description attribute from an effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Description </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/effect.c" line="71" column="6" bodyfile="src/model/effect.c" bodystart="71" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR and Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="staff_8h" kindref="compound">staff.h</ref></para>
+</simplesect>
+Contains information about effects </para>
+    </detaileddescription>
+    <location file="src/model/effect.c"/>
+  </compounddef>
+</doxygen>

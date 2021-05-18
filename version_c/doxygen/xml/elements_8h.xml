@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="elements_8h" kind="file" language="C++">
+    <compoundname>elements.h</compoundname>
+    <includedby refid="structures_8h" local="yes">headers/utils/structures.h</includedby>
+    <invincdepgraph>
+      <node id="5">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="6">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="7">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/utils/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="1">
+        <label>headers/utils/elements.h</label>
+        <link refid="elements_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+      </node>
+      <node id="11">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="3">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_element___s" prot="public">Element_S</innerclass>
+    <innerclass refid="struct_couple___s" prot="public">Couple_S</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="elements_8h_1aa5fd85b1e056b3ff3445327643ba25ef" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ElementType_S</name>
+        <enumvalue id="elements_8h_1aa5fd85b1e056b3ff3445327643ba25efa12a90dfe20486bbe3e075afcd19ef2d0" prot="public">
+          <name>NUMBER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="elements_8h_1aa5fd85b1e056b3ff3445327643ba25efa9a4a47c1606e295076055a9cc4373197" prot="public">
+          <name>TEXT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="elements_8h_1aa5fd85b1e056b3ff3445327643ba25efa6f78e99ade8d62ec44d30013723e6e75" prot="public">
+          <name>OBJECT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>it&apos;s a number, a text or a object </para>
+        </briefdescription>
+        <detaileddescription>
+<para>&quot;headers/utils/elements.h&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="19" column="1" bodyfile="headers/utils/elements.h" bodystart="19" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="elements_8h_1a16b11be27a8e9362dd122c4d879e01ae" prot="public" static="no">
+        <type>enum <ref refid="elements_8h_1aa5fd85b1e056b3ff3445327643ba25ef" kindref="member">ElementType_S</ref></type>
+        <definition>ElementType</definition>
+        <argsstring></argsstring>
+        <name>ElementType</name>
+        <briefdescription>
+<para>represent the different type of an Element </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="23" column="19"/>
+      </memberdef>
+      <memberdef kind="typedef" id="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" prot="public" static="no">
+        <type>struct <ref refid="struct_element___s" kindref="compound">Element_S</ref></type>
+        <definition>Element</definition>
+        <argsstring></argsstring>
+        <name>Element</name>
+        <briefdescription>
+<para>represent an Element </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="39" column="15"/>
+      </memberdef>
+      <memberdef kind="typedef" id="elements_8h_1a811c807f274f44c0646c5f4fad32a3b8" prot="public" static="no">
+        <type>struct <ref refid="struct_couple___s" kindref="compound">Couple_S</ref></type>
+        <definition>Couple</definition>
+        <argsstring></argsstring>
+        <name>Couple</name>
+        <briefdescription>
+<para>composed by it&apos;s key and it&apos;s value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="49" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="elements_8h_1af116ab4a7070130e044e635328f984c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int elements_toNumber</definition>
+        <argsstring>(Element e)</argsstring>
+        <name>elements_toNumber</name>
+        <param>
+          <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>if the Element is a number return it&apos;s value </para>
+        </briefdescription>
+        <detaileddescription>
+<para>int <ref refid="elements_8h_1af116ab4a7070130e044e635328f984c4" kindref="member">elements_toNumber(Element e)</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>element which contains a value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="61" column="5" bodyfile="src/utils/elements.c" bodystart="13" bodyend="19" declfile="headers/utils/elements.h" declline="61" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="elements_8h_1a75a1d53fcca62d3d2be6735172e27ddd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* elements_toText</definition>
+        <argsstring>(Element e)</argsstring>
+        <name>elements_toText</name>
+        <param>
+          <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>if the Element is a char* return it&apos;s value </para>
+        </briefdescription>
+        <detaileddescription>
+<para>char* <ref refid="elements_8h_1a75a1d53fcca62d3d2be6735172e27ddd" kindref="member">elements_toText(Element e)</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>element which contains a value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>char* </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="73" column="6" bodyfile="src/utils/elements.c" bodystart="31" bodyend="37" declfile="headers/utils/elements.h" declline="73" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="elements_8h_1a114edcca0b5d525f78ecc2abe9c9fe5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* elements_toObject</definition>
+        <argsstring>(Element e)</argsstring>
+        <name>elements_toObject</name>
+        <param>
+          <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>if the Element is a object return it&apos;s value </para>
+        </briefdescription>
+        <detaileddescription>
+<para>void* <ref refid="elements_8h_1a114edcca0b5d525f78ecc2abe9c9fe5e" kindref="member">elements_toObject(Element e)</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>element which contains a value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void* </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="85" column="6" bodyfile="src/utils/elements.c" bodystart="22" bodyend="28" declfile="headers/utils/elements.h" declline="85" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="elements_8h_1ad59c8047968f720fedce5e84cf44a331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+        <definition>Element elements_fromNumber</definition>
+        <argsstring>(int number)</argsstring>
+        <name>elements_fromNumber</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+<para>we make a number element with the value given by the function </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Element <ref refid="elements_8h_1ad59c8047968f720fedce5e84cf44a331" kindref="member">elements_fromNumber(int number)</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int which represent the value of our Element</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Element </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="97" column="9" bodyfile="src/utils/elements.c" bodystart="40" bodyend="46" declfile="headers/utils/elements.h" declline="97" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="elements_8h_1a37dcd6c86dcdd0886b2a6ee019bb1501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+        <definition>Element elements_fromText</definition>
+        <argsstring>(char *text)</argsstring>
+        <name>elements_fromText</name>
+        <param>
+          <type>char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>we make a text element with the value given by the function </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Element <ref refid="elements_8h_1a37dcd6c86dcdd0886b2a6ee019bb1501" kindref="member">elements_fromText(char* text)</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>char* which represent the value of our Element</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Element </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="109" column="9" bodyfile="src/utils/elements.c" bodystart="49" bodyend="55" declfile="headers/utils/elements.h" declline="109" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="elements_8h_1a8f42cf7cfb54716a218542e65d3e1ab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+        <definition>Element elements_fromObject</definition>
+        <argsstring>(void *object)</argsstring>
+        <name>elements_fromObject</name>
+        <param>
+          <type>void *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+<para>we make a object element with the value given by the function </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Element elements_fromObject (void* object)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>void* which represent the value of our Element</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Element </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="121" column="9" bodyfile="src/utils/elements.c" bodystart="58" bodyend="64" declfile="headers/utils/elements.h" declline="121" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>13/04/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structures_8h" kindref="compound">structures.h</ref></para>
+</simplesect>
+Contains elements </para>
+    </detaileddescription>
+    <location file="headers/utils/elements.h"/>
+  </compounddef>
+</doxygen>

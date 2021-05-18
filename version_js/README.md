@@ -4,32 +4,22 @@ This is a graphic version of the game made
 in ``version_c`` using `electron` instead
 of ``ncurses``.
 
-Current version : ``3.0.x``
+### How to compile or run
 
-## How to compile or run
-
-You need
-
-* ``node.js``
-* ``npm``
-
+You need ``node.js`` and ``npm``
 in order to run this. After they are installed,
-simply run
-
-* ``npm install``
-* ``npm start``
-
+simply run ``npm install`` then ``npm start``.
 to start the program.
 
 If you want to edit the typescript files, you need
 to compile then again. You can do it with
 ``npx tsc`` or maybe with ``tsc``.
 
-## Project Structure
+### Team
 
-some documentation here.
+Current version is ``3.0.x`` (2021-05).
 
-## Team
+Main contributors
 
 * Valentin DREANO
 * Antoine MAN

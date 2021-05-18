@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structure__list__test_8h" kind="file" language="C++">
+    <compoundname>structure_list_test.h</compoundname>
+    <includedby refid="test__box_8h" local="yes">tests/test_box.h</includedby>
+    <includedby refid="test__case_8h" local="yes">tests/test_case.h</includedby>
+    <includedby refid="test__end_turn_8h" local="yes">tests/test_endTurn.h</includedby>
+    <includedby refid="test__machine_8h" local="yes">tests/test_machine.h</includedby>
+    <includedby refid="test__map_8h" local="yes">tests/test_map.h</includedby>
+    <includedby refid="test__structure_8h" local="yes">tests/test_structure.h</includedby>
+    <invincdepgraph>
+      <node id="4">
+        <label>tests/test_box.c</label>
+        <link refid="test__box_8c"/>
+      </node>
+      <node id="2">
+        <label>tests/test_box.h</label>
+        <link refid="test__box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tests/structure_list_test.h</label>
+        <link refid="structure__list__test_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>tests/test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="5">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="9">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structtest___list___s" prot="public">test_List_S</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="structure__list__test_8h_1aa7fe687e4e22bec51adb4918fe83aa1f" prot="public" static="no">
+        <type>struct <ref refid="structtest___list___s" kindref="compound">test_List_S</ref></type>
+        <definition>test_List</definition>
+        <argsstring></argsstring>
+        <name>test_List</name>
+        <briefdescription>
+<para>Stores information for a test. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/structure_list_test.h" line="1" column="0" bodyfile="tests/structure_list_test.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Valentin DREANO </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>17/04/2021</para>
+</simplesect>
+Contains the structure to store the tests </para>
+    </detaileddescription>
+    <location file="tests/structure_list_test.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,735 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="model_2staff_8c" kind="file" language="C++">
+    <compoundname>staff.c</compoundname>
+    <includes refid="staff_8h" local="yes">../../headers/data/staff.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="6">
+        <label>stdlib.h</label>
+      </node>
+      <node id="13">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="5">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="9">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="3">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../../headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_staff___s" prot="public">Staff_S</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="model_2staff_8c_1a223cd533693dc1c64c992e0b6bb03f46" prot="public" static="no" mutable="no">
+        <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref></type>
+        <definition>const Staff staff_list[]</definition>
+        <argsstring>[]</argsstring>
+        <name>staff_list</name>
+        <briefdescription>
+<para>represent all of the staff </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="28" column="13" bodyfile="src/model/staff.c" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="model_2staff_8c_1a0b52c6f66f2cbf9c43afaf41ed40cdd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_isIDValid</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_isIDValid</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a function in order to verify if a staff id exist <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>tab index if exist, -1 if not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="367" column="5" bodyfile="src/model/staff.c" bodystart="367" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a926193e4b9b4f1a9a965399418e3b0d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+        <definition>const Staff* staff_getStaffByID</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_getStaffByID</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff according to the id in order to get all the information about him. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff according to the id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="380" column="13" bodyfile="src/model/staff.c" bodystart="380" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1aaa58a1f8892ceadd371a622dfbcf31cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* staff_getStaffNameByID</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_getStaffNameByID</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff name attribute according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff name according to the id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="393" column="6" bodyfile="src/model/staff.c" bodystart="393" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a30b68bd571805ee37182b00f107c14be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_getStaffCostEByID</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_getStaffCostEByID</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff cost E attribute according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff cost E according to the id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="402" column="5" bodyfile="src/model/staff.c" bodystart="402" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a4d216c34f9872c62bda6c5240b305114" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_getStaffCostDDByID</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_getStaffCostDDByID</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff cost DD attribute according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff cost DD according to the id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="411" column="5" bodyfile="src/model/staff.c" bodystart="411" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1af5d5000d12e3e3f3e7181be21696a42f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* staff_getStaffDescriptionByID</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_getStaffDescriptionByID</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff description attribute according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff description according to the id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="420" column="6" bodyfile="src/model/staff.c" bodystart="420" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a57cfb7571feb5b37eece0e34ffdf3fd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+        <definition>const Effect* staff_getStaffEffectByID</definition>
+        <argsstring>(int id)</argsstring>
+        <name>staff_getStaffEffectByID</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff effect attribute according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff effect according to the id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="429" column="14" bodyfile="src/model/staff.c" bodystart="429" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a514d3d1a894d315bf1eefe285ae60e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_getStaffID</definition>
+        <argsstring>(const Staff *staff)</argsstring>
+        <name>staff_getStaffID</name>
+        <param>
+          <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+          <declname>staff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff id attribute from a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>staff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff id from a staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="442" column="5" bodyfile="src/model/staff.c" bodystart="442" bodyend="442"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a64907c86f1d977d506596eedabbe50d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* staff_getStaffName</definition>
+        <argsstring>(const Staff *staff)</argsstring>
+        <name>staff_getStaffName</name>
+        <param>
+          <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+          <declname>staff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff name attribute from a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>staff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff name from a staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="447" column="6" bodyfile="src/model/staff.c" bodystart="447" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a00c42fab438abecba09a8f198cd29719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_getStaffCostE</definition>
+        <argsstring>(const Staff *staff)</argsstring>
+        <name>staff_getStaffCostE</name>
+        <param>
+          <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+          <declname>staff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff cost E attribute from a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>staff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff cost E from a staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="452" column="5" bodyfile="src/model/staff.c" bodystart="452" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a02a6c88929a508ccc186f6c86d64fdbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_getStaffCostDD</definition>
+        <argsstring>(const Staff *staff)</argsstring>
+        <name>staff_getStaffCostDD</name>
+        <param>
+          <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+          <declname>staff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff CostDD attribute from a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>staff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff CostDD from a staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="457" column="5" bodyfile="src/model/staff.c" bodystart="457" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a6e2fdd942ee80a84bcc1448834636ac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* staff_getStaffDescription</definition>
+        <argsstring>(const Staff *staff)</argsstring>
+        <name>staff_getStaffDescription</name>
+        <param>
+          <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+          <declname>staff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff description attribute from a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>staff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff description from a staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="462" column="6" bodyfile="src/model/staff.c" bodystart="462" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a2ab3f2babab67a6e3c9f0496d0b4e703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+        <definition>const Effect* staff_getStaffEffect</definition>
+        <argsstring>(const Staff *staff)</argsstring>
+        <name>staff_getStaffEffect</name>
+        <param>
+          <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+          <declname>staff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the staff effect attribute from a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>staff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the staff effect from a staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="467" column="14" bodyfile="src/model/staff.c" bodystart="467" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a07caa75fbb60b7cad1f223d9df1a6690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getTurnProduction</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getTurnProduction</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the TurnProduction attribute from a effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the TurnProduction from a effect </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="472" column="5" bodyfile="src/model/staff.c" bodystart="472" bodyend="472"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a635eb32a9010374fd0e90ff03ad2e68b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int effect_getMinTurnProduction</definition>
+        <argsstring>(const Effect *effect)</argsstring>
+        <name>effect_getMinTurnProduction</name>
+        <param>
+          <type>const <ref refid="effect_8h_1acd9c2a1cf576f0fd9da232d337d9720c" kindref="member">Effect</ref> *</type>
+          <declname>effect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the MinTurnProduction attribute from a effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>effect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the MinTurnProduction from a effect </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="477" column="5" bodyfile="src/model/staff.c" bodystart="477" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1af431da3ffd19b2a1f14873900c218481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="staff_8h_1a1c4df51d412ce9322d732b1eccbd3ea4" kindref="member">Staff</ref> *</type>
+        <definition>const Staff* staffInfo_getByModeAndType</definition>
+        <argsstring>(Mode mode, Target type)</argsstring>
+        <name>staffInfo_getByModeAndType</name>
+        <param>
+          <type><ref refid="effect_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911" kindref="member">Mode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type><ref refid="effect_8h_1a31488d29805a596498c0234ae392d35d" kindref="member">Target</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get a specific staff according to his Mode and his Target in order to get all the information about a staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a specific staff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="483" column="13" bodyfile="src/model/staff.c" bodystart="483" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a914d9f0b67914443ac2d802651f00cc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kindref="member">Dictionary</ref> *</type>
+        <definition>Dictionary* staff_createStaffDictionary</definition>
+        <argsstring>()</argsstring>
+        <name>staff_createStaffDictionary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to create a staff dictionary which for each staff, his id and the number of staff hired <simplesect kind="return"><para>Dictionary </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="506" column="12" bodyfile="src/model/staff.c" bodystart="506" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a6ba9a668601cb6a2d3636d86ccf519e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int staff_getNumberStaffByID</definition>
+        <argsstring>(const Dictionary *dict, int id)</argsstring>
+        <name>staff_getNumberStaffByID</name>
+        <param>
+          <type>const <ref refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kindref="member">Dictionary</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get the number of staff hired according to the id staff <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of staff hired </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="518" column="5" bodyfile="src/model/staff.c" bodystart="518" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1ae7e2a37e146f2a6791e9152a62994e4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void staff_hireStaff</definition>
+        <argsstring>(Dictionary *dict, int id)</argsstring>
+        <name>staff_hireStaff</name>
+        <param>
+          <type><ref refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kindref="member">Dictionary</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to incremente the number of a specific staff (hire) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="530" column="6" bodyfile="src/model/staff.c" bodystart="530" bodyend="536"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2staff_8c_1a48f31c65f3ddf1c22cfde2541c4b9c7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void staff_destroyStaffDictionary</definition>
+        <argsstring>(Dictionary *dict)</argsstring>
+        <name>staff_destroyStaffDictionary</name>
+        <param>
+          <type><ref refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kindref="member">Dictionary</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to free allocated resources in memory in order to stock the staff dictionnary <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/staff.c" line="542" column="6" bodyfile="src/model/staff.c" bodystart="542" bodyend="544"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR and Antoine MAn </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="effect_8h" kindref="compound">effect.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="error_8h" kindref="compound">error.h</ref></para>
+</simplesect>
+Contains all information about the character of the Staff </para>
+    </detaileddescription>
+    <location file="src/model/staff.c"/>
+  </compounddef>
+</doxygen>

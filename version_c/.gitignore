@@ -1,5 +1,3 @@
-__old/*
-doxygen/*
 *.o
 *.out
 bin/prim

@@ -6,7 +6,7 @@ GENERATE_HTML           = NO
 GENERATE_LATEX          = NO
 GENERATE_XML            = YES
 
-INPUT += docs/userdoc.md
+INPUT += docs/codestyle.md
 
 XML_PROGRAMLISTING     = NO
 XML_NS_MEMB_FILE_SCOPE = YES
@@ -14,9 +14,9 @@ XML_NS_MEMB_FILE_SCOPE = YES
 SHOW_INCLUDE_FILES = YES
 
 M_LINKS_NAVBAR1 = \
-    "<a href=\"md_docs_userdoc.html\">User documentation</a>" \
+    "<a href=\"md_docs_codestyle.html\">Code guidelines</a>" \
     "annotated"
 M_LINKS_NAVBAR2 = \
     "files" \
     "<a href=\"globals_func.html\">Fonctions</a>" \
-    "<a href=\"https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/-/tree/lot_a\">GitHub</a>"
+    "<a href=\"https://github.com/lgs-games/prim\">GitHub</a>"

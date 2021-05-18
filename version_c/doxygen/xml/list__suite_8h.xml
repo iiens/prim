@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="list__suite_8h" kind="file" language="C++">
+    <compoundname>list_suite.h</compoundname>
+    <includes refid="test__box_8h" local="yes">test_box.h</includes>
+    <includes refid="test__structure_8h" local="yes">test_structure.h</includes>
+    <includes refid="test__machine_8h" local="yes">test_machine.h</includes>
+    <includes refid="test__case_8h" local="yes">test_case.h</includes>
+    <includes refid="test__map_8h" local="yes">test_map.h</includes>
+    <includes refid="test__end_turn_8h" local="yes">test_endTurn.h</includes>
+    <includedby refid="tests_8c" local="yes">tests/tests.c</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>stdbool.h</label>
+      </node>
+      <node id="14">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="3">
+        <label>CUnit/Basic.h</label>
+      </node>
+      <node id="12">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>test_box.h</label>
+        <link refid="test__box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="11">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="4">
+        <label>structure_list_test.h</label>
+        <link refid="structure__list__test_8h"/>
+      </node>
+      <node id="19">
+        <label>../headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="13">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="9">
+        <label>../data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../headers/data/box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>../headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>../headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>../data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="list__suite_8h_1a1b306f57512bf5c94037783e3087bb4c" prot="public" static="no">
+        <name>NUMBERSUITE</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of suites to test </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/list_suite.h" line="24" column="9" bodyfile="tests/list_suite.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="list__suite_8h_1ac13bd4b693157c2cf1b60bfe6f087c30" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* listSuit[NUMBERSUITE])(CU_pSuite)</definition>
+        <argsstring>[NUMBERSUITE])(CU_pSuite)</argsstring>
+        <name>listSuit</name>
+        <initializer>= {
+        <ref refid="test__structure_8h_1a96b8abd79c0cfb70c34632e67be845dc" kindref="member">testStructure_createSuite</ref>,
+        <ref refid="test__box_8h_1ac9dad9d7e0f9e57f24e118d7b80b6f63" kindref="member">testBox_createSuite</ref>,
+        <ref refid="test__machine_8h_1a1fbb408b2766e13bd0e084a7d1f92c26" kindref="member">testMachine_createSuite</ref>,
+        <ref refid="test__case_8h_1af14a476324e276e5d1713301141c0238" kindref="member">testCase_createSuite</ref>,
+        <ref refid="test__map_8h_1ac4a24127e4db0f6516fc52152f74d17d" kindref="member">testMap_createSuite</ref>,
+        <ref refid="test__end_turn_8h_1ae47e76efa88790987479e6a95b6e936e" kindref="member">testEndTurn_createSuite</ref>
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>list of different suites <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/list_suite.h" line="30" column="1" bodyfile="tests/list_suite.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Valentin DREANO </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>17/04/2021</para>
+</simplesect>
+Contains the list of all the suites to create </para>
+    </detaileddescription>
+    <location file="tests/list_suite.h"/>
+  </compounddef>
+</doxygen>

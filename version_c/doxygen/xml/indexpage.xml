@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Prim</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_README"/> Our <computeroutput>c-version</computeroutput> compile with</para>
+<para><itemizedlist>
+<listitem><para>a <bold>Makefile</bold> : <computeroutput>make</computeroutput> then <computeroutput>make run</computeroutput></para>
+</listitem><listitem><para>a <bold>CMakeList</bold></para>
+</listitem><listitem><para>a <bold>command</bold> : <computeroutput>gcc -Wall -Wextra -std=c99 src/main.c -o bin/prim</computeroutput> then <computeroutput>./bin/prim</computeroutput></para>
+</listitem><listitem><para>Using <bold>docker</bold> : <computeroutput>docker build -t prim:latest .</computeroutput> then <computeroutput>docker run -it prim</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+<para>Unless you are using docker, you will have to install ncurses</para>
+<para><itemizedlist>
+<listitem><para>check if installed : <computeroutput>ls -la /usr/include/ncurses.h</computeroutput></para>
+</listitem><listitem><para>if not install : <computeroutput>sudo apt-get install libncurses5-dev libncursesw5-dev</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="index_1autotoc_md1">
+<title>Tests</title>
+<para>You can run tests with <computeroutput>make tests</computeroutput> then <computeroutput>make run_tests</computeroutput>, CUnit is required.</para>
+</sect2>
+<sect2 id="index_1autotoc_md2">
+<title>Documentation</title>
+<para>You can find latest documentation in <computeroutput>doxygen</computeroutput> folder.</para>
+<para>You can generates it using</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>doxygen Doxyfile</computeroutput></para>
+</listitem><listitem><para><computeroutput>style\doxygen.py DoxyCSS</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+<para>For the later one, you need python and Pygments</para>
+<para><itemizedlist>
+<listitem><para>install python and pip</para>
+</listitem><listitem><para>pip: <computeroutput>sudo apt-get install python3-pip</computeroutput> (linux)</para>
+</listitem><listitem><para>pygments: <computeroutput>pip3 install jinja2 Pygments</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md3">
+<title>Team</title>
+<para>Current version is <computeroutput>1.0.x</computeroutput> (2021-05-02).</para>
+<para>Main contributors</para>
+<para><itemizedlist>
+<listitem><para>Valentin DREANO</para>
+</listitem><listitem><para>Antoine MAN</para>
+</listitem><listitem><para>Quentin RAMSAMY- -AGEORGES</para>
+</listitem><listitem><para>Ramzy ZEBRIR</para>
+</listitem></itemizedlist>
+</para>
+<para>This game was requested by <computeroutput>Dimitri WATEL</computeroutput>. </para>
+</sect2>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

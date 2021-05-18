@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Map_S struct | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_codestyle.html">Code guidelines</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://github.com/lgs-games/prim">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Map_S <span class="m-thin">struct</span>
+        </h1>
+        <p>Struct which contains the map information.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-attribs">Public variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Struct that contains all the map information concerning machines emplacement, sources, resources, garbage, Staff and gate, presents on the map.</p>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a51e8cf17daad9eeb7a3e2815fc180aad">
+              <a href="difficulty_8h.html#a46d54d8731098c9d3c1dc9fe8c429af3" class="m-doc">Difficulty</a> <a href="#a51e8cf17daad9eeb7a3e2815fc180aad" class="m-doc-self">difficulty</a>
+            </dt>
+            <dd>game difficulty</dd>
+            <dt id="a4148fbf59972eb3359c93753deb17755">
+              int <a href="#a4148fbf59972eb3359c93753deb17755" class="m-doc-self">width</a>
+            </dt>
+            <dd>int, map width</dd>
+            <dt id="a38aed228778cce34f9b6642ee925977a">
+              int <a href="#a38aed228778cce34f9b6642ee925977a" class="m-doc-self">height</a>
+            </dt>
+            <dd>int, map height</dd>
+            <dt id="a452a1f9f0227265cabf1836e9780da30">
+              <a href="case_8h.html#ab9aab17a5e54a8bae6915bc24db13a17" class="m-doc">Case</a>*** <a href="#a452a1f9f0227265cabf1836e9780da30" class="m-doc-self">map</a>
+            </dt>
+            <dd>a bi dimensional table to refer to the board of game</dd>
+            <dt id="a8d6e6ba81273f4d3ff2474e76f201414">
+              int <a href="#a8d6e6ba81273f4d3ff2474e76f201414" class="m-doc-self">turn</a>
+            </dt>
+            <dd>int, an indicator to correspond to the actual turn of the game</dd>
+            <dt id="aeb3e9d7f8acc9391ef2ea44e46a71651">
+              int <a href="#aeb3e9d7f8acc9391ef2ea44e46a71651" class="m-doc-self">numberFISE</a>
+            </dt>
+            <dd>as the name suggest, its corresponding to the number of FISE</dd>
+            <dt id="aec30236776c689078bdc47320b267836">
+              int <a href="#aec30236776c689078bdc47320b267836" class="m-doc-self">numberFISA</a>
+            </dt>
+            <dd>as the name suggest, its corresponding to the number of FISA</dd>
+            <dt id="a5128537bb3d0fcb6d8ceaa50e6849c19">
+              int <a href="#a5128537bb3d0fcb6d8ceaa50e6849c19" class="m-doc-self">E</a>
+            </dt>
+            <dd>a value that measure the energy quantity of the player</dd>
+            <dt id="a3c09ebd91469984c37f25b9bbcb24007">
+              int <a href="#a3c09ebd91469984c37f25b9bbcb24007" class="m-doc-self">DD</a>
+            </dt>
+            <dd>a value that measure the planet general health</dd>
+            <dt id="a43440c6e42863430362c698c6403883e">
+              int <a href="#a43440c6e42863430362c698c6403883e" class="m-doc-self">productionFISA</a>
+            </dt>
+            <dd>int, it correspond to the energy type produced by the FISA, see E_VALUE/DD_VALUE</dd>
+            <dt id="a4fefbf6c3a4e090229902e855a898e0e">
+              <a href="structures_8h.html#a4acdeaf37852ad4dac0d5118b1f24976" class="m-doc">Dictionary</a>* <a href="#a4fefbf6c3a4e090229902e855a898e0e" class="m-doc-self">team</a>
+            </dt>
+            <dd>a list of staffs that the user bought</dd>
+            <dt id="af46473d27af95312151aa18f74d1b51f">
+              int <a href="#af46473d27af95312151aa18f74d1b51f" class="m-doc-self">score</a>
+            </dt>
+            <dd>a score which indicate number of resources put in the gate</dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

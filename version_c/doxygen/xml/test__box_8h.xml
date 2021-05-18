@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="test__box_8h" kind="file" language="C++">
+    <compoundname>test_box.h</compoundname>
+    <includes local="yes">CUnit/Basic.h</includes>
+    <includes refid="structure__list__test_8h" local="yes">structure_list_test.h</includes>
+    <includes refid="box_8h" local="yes">../headers/data/box.h</includes>
+    <includedby refid="list__suite_8h" local="yes">tests/list_suite.h</includedby>
+    <includedby refid="test__box_8c" local="yes">tests/test_box.c</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>CUnit/Basic.h</label>
+      </node>
+      <node id="1">
+        <label>tests/test_box.h</label>
+        <link refid="test__box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>structure_list_test.h</label>
+        <link refid="structure__list__test_8h"/>
+      </node>
+      <node id="5">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="4">
+        <label>../headers/data/box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>tests/test_box.c</label>
+        <link refid="test__box_8c"/>
+      </node>
+      <node id="1">
+        <label>tests/test_box.h</label>
+        <link refid="test__box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="test__box_8h_1a66c379dea6c6b1093d485f1e707e314f" prot="public" static="no">
+        <name>TESTBOX_NUMBERTESTS</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of tests in the suite </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_box.h" line="22" column="9" bodyfile="tests/test_box.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__box_8h_1ac9dad9d7e0f9e57f24e118d7b80b6f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testBox_createSuite</definition>
+        <argsstring>(CU_pSuite pSuite)</argsstring>
+        <name>testBox_createSuite</name>
+        <param>
+          <type>CU_pSuite</type>
+          <declname>pSuite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to create the &quot;Test Box&quot; suite with the test set on the Map type and its manipulation functions</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pSuite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>test suite </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_box.h" line="31" column="5" bodyfile="tests/test_box.c" bodystart="23" bodyend="39" declfile="tests/test_box.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__box_8h_1a8261f0378287ed58db81700cfc356a63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testBox_initSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testBox_initSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to initialize the sequence <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_box.h" line="37" column="5" bodyfile="tests/test_box.c" bodystart="41" bodyend="43" declfile="tests/test_box.h" declline="37" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__box_8h_1a8884fc63b8e637ed00d2a255804aa873" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testBox_cleanSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testBox_cleanSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to close the suite <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_box.h" line="43" column="5" bodyfile="tests/test_box.c" bodystart="45" bodyend="47" declfile="tests/test_box.h" declline="43" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__box_8h_1aefa7e2ef7bfeb62d6739aa6134b93f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testBox_create</definition>
+        <argsstring>()</argsstring>
+        <name>testBox_create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that a box is created with the correct values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_box.h" line="48" column="6" bodyfile="tests/test_box.c" bodystart="49" bodyend="63" declfile="tests/test_box.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__box_8h_1a25d8f98861acb9d056dec1176e10095b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testBox_addition</definition>
+        <argsstring>()</argsstring>
+        <name>testBox_addition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the addition of two boxes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_box.h" line="53" column="6" bodyfile="tests/test_box.c" bodystart="65" bodyend="85" declfile="tests/test_box.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Valentin DREANO </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>17/04/2021</para>
+</simplesect>
+Contains all the suite for <ref refid="box_8c" kindref="compound">Box.c</ref> tests The assumption is made that the setters and getter are functional </para>
+    </detaileddescription>
+    <location file="tests/test_box.h"/>
+  </compounddef>
+</doxygen>

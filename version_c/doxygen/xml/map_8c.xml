@@ -1,0 +1,1446 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="map_8c" kind="file" language="C++">
+    <compoundname>map.c</compoundname>
+    <includes local="no">time.h</includes>
+    <includes refid="map_8h" local="yes">../../headers/map.h</includes>
+    <includes refid="map__utils_8h" local="yes">../../headers/utils/map_utils.h</includes>
+    <includes refid="const_8h" local="yes">../../headers/utils/const.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="11">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="6">
+        <label>stdlib.h</label>
+      </node>
+      <node id="16">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="7">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="18">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="10">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="13">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../../headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>../../headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>time.h</label>
+      </node>
+      <node id="1">
+        <label>src/model/map.c</label>
+        <link refid="map_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>stdio.h</label>
+      </node>
+      <node id="21">
+        <label>../data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_map___s" prot="public">Map_S</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="map_8c_1ade646925544cac295a8271bf27943297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+        <definition>Map* map_create</definition>
+        <argsstring>(Difficulty dif)</argsstring>
+        <name>map_create</name>
+        <param>
+          <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+          <declname>dif</declname>
+        </param>
+        <briefdescription>
+<para>Create a new map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In order to begin a new game, we need a board game. It will contains all the map information concerning machines emplacement, sources, resources, garbage, Staff and gate, presents on the map.</para>
+<para>Difficulty has been chosen by the player which determine the width and height of the map Creation of the map : a bi dimensional Case table 2 sources cases and 1 transdimensional gate are randomly placed into those cases. The player starts the game with 5 FISE, 5 FISA, 100 E and 100 DD. Initialization of the turn, the score the pollution to 0. By default, the FISA production is E. A table which contain staffs that the user bought is also initialized</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dif</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a valid difficulty chosen by the user </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new map that contains all the map information </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref> enum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="24" column="5" bodyfile="src/model/map.c" bodystart="24" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a9677c3da4d4827a97fcd8202df6fa946" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_destroy</definition>
+        <argsstring>(Map *m)</argsstring>
+        <name>map_destroy</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+At the end of a game, we need to free all the memory allocated to a map.</para>
+<para>We have to free : <preformatted>
+Staff* team
+ Case** map
+ ... (<ref refid="map_8h" kindref="compound">map.h</ref> , staff.f, <ref refid="machine_8h" kindref="compound">machine.h</ref>)
+</preformatted></para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="74" column="11" bodyfile="src/model/map.c" bodystart="74" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1abe0ed98eac0f7ea8a1b5f0dc5d84b7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_hireFISE</definition>
+        <argsstring>(Map *m)</argsstring>
+        <name>map_hireFISE</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Hire a FISE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We hire a FISE in order to product more resources. Every turn, each FISE student produce 1 E and 1 DD A student (FISE or FISA) costs 50 E and 20 DD.</para>
+<para>A verification is necessary to know if the player can hire a new FISE. We have to check resources E and DD of the player</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="91" column="11" bodyfile="src/model/map.c" bodystart="91" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1acc0640b51eee5fec16c1204fe3412ae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_hireFISA</definition>
+        <argsstring>(Map *m)</argsstring>
+        <name>map_hireFISA</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Hire a FISA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We hire a FISA in order to product more resources. Every 2 turns, each FISA student produce either 4 E or 4 DD</para>
+<para>A student (FISE or FISA) costs 50 E and 20 DD.</para>
+<para>A verification is necessary to know if the player can hire a new FISA. We have to check resources E and DD of the player</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="109" column="11" bodyfile="src/model/map.c" bodystart="109" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1aee3a56ca6c2550698425dd612744a62b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_changeProductionFISA</definition>
+        <argsstring>(Map *m)</argsstring>
+        <name>map_changeProductionFISA</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Switch the energy type produced by the FISA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allow us to switch the energy type produced by the FISA between E or DD.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="127" column="11" bodyfile="src/model/map.c" bodystart="127" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1ac5afbade09d76883b34af177d1fab779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_endTurn</definition>
+        <argsstring>(Map *m)</argsstring>
+        <name>map_endTurn</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Finish a turn. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Verifications to do at the end of a turn <orderedlist>
+<listitem>
+<para>Check FISA and FISE production </para>
+</listitem>
+<listitem>
+<para>Update E </para>
+</listitem>
+<listitem>
+<para>Call all conveyor belt/cross at the same time.</para>
+<para></para>
+</listitem>
+<listitem>
+<para><orderedlist>
+<listitem>
+<para>Resources moves </para>
+</listitem>
+<listitem>
+<para>Verify each resource destination </para>
+</listitem>
+<listitem>
+<para>next case empty then resource is lost </para>
+</listitem>
+<listitem>
+<para>next case is an ENTRY machine -&gt; send to machine </para>
+</listitem>
+</orderedlist>
+</para>
+<para></para>
+</listitem>
+<listitem>
+<para>Check if we produce resources (sources) </para>
+</listitem>
+<listitem>
+<para>Check if we produce wastes (gate) </para>
+</listitem>
+<listitem>
+<para>Call all Recycling center</para>
+<para></para>
+</listitem>
+<listitem>
+<para><orderedlist>
+<listitem>
+<para>stored garbage don&apos;t decrease DD </para>
+</listitem>
+<listitem>
+<para>10 garbage produce 1 /per turn </para>
+</listitem>
+</orderedlist>
+</para>
+<para></para>
+</listitem>
+<listitem>
+<para>Call all collectors</para>
+<para></para>
+</listitem>
+<listitem>
+<para><orderedlist>
+<listitem>
+<para>activated from top to bot, left to right </para>
+</listitem>
+<listitem>
+<para>No source then do nothing </para>
+</listitem>
+<listitem>
+<para>randomly choose a source among all adjacent ones </para>
+</listitem>
+</orderedlist>
+</para>
+<para></para>
+</listitem>
+<listitem>
+<para>Update DD value </para>
+</listitem>
+</orderedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>game map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="138" column="11" bodyfile="src/model/map.c" bodystart="138" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1af4e6c4139f7701a6896695e24ec99730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_addMachine</definition>
+        <argsstring>(MachineStuff machType, int rotation, int x, int y, Map *m)</argsstring>
+        <name>map_addMachine</name>
+        <param>
+          <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+          <declname>type</declname>
+          <defname>machType</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rotation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a machine on the map <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a machine </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rotation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="183" column="11" bodyfile="src/model/map.c" bodystart="183" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1ab8a693d3743e8c207fa5fdcbbada46cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_upgradeMachine</definition>
+        <argsstring>(int x, int y, Map *m)</argsstring>
+        <name>map_upgradeMachine</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Upgrade a machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map Upgrade a machine on the map. We know which machine we upgrade thanks to the x and y coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="219" column="11" bodyfile="src/model/map.c" bodystart="219" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1adb43592cf0c517b7eafaabd2038b891c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_destroyMachine</definition>
+        <argsstring>(int x, int y, Map *m)</argsstring>
+        <name>map_destroyMachine</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y &gt; 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map Destroy a machine on the map. We know which machine we destroy thanks to the x and y coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="261" column="11" bodyfile="src/model/map.c" bodystart="261" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a3d4a6310f7751060d96595fb279d8a15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_buyStaff</definition>
+        <argsstring>(int idStaff, Map *m)</argsstring>
+        <name>map_buyStaff</name>
+        <param>
+          <type>int</type>
+          <declname>idStaff</declname>
+        </param>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Buy a Staff. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idStaff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a int </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a Map* Buy a Staff</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="306" column="11" bodyfile="src/model/map.c" bodystart="306" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a6d6ce3bc81d4b305384765a6fd6a0e83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_isCaseExist</definition>
+        <argsstring>(const int x, const int y, const Map *m)</argsstring>
+        <name>map_isCaseExist</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>In order to verify if a case exist. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case abscissa </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case ordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="359" column="11" bodyfile="src/model/map.c" bodystart="359" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a8c9a56d7f84bafd6dad04c902ed45c19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getNumberFISE</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getNumberFISE</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the number of FISE </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the number of FISE recruited by the player.</para>
+<para><simplesect kind="return"><para>the number of FISE available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="371" column="5" bodyfile="src/model/map.c" bodystart="371" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a188b44c3c3ee863577adba357992c30f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getNumberFISA</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getNumberFISA</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the number of FISA </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the number of FISA recruited by the player.</para>
+<para><simplesect kind="return"><para>the number of FISA available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="376" column="5" bodyfile="src/model/map.c" bodystart="376" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a8d2b39722ce616a6becb3242855b985e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getNumberE</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getNumberE</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the number of E </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the number of E posseded by the player.</para>
+<para><simplesect kind="return"><para>the number of E available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="381" column="5" bodyfile="src/model/map.c" bodystart="381" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a6615cd94071f85055fb26ca33ff60c00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getNumberDD</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getNumberDD</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the number of DD </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the number of DD posseded by the player.</para>
+<para><simplesect kind="return"><para>the number of DD available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="386" column="5" bodyfile="src/model/map.c" bodystart="386" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a48cb03c29b48bb09754c5603db1324e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getPlayerScore</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getPlayerScore</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the player score </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the player score. 10 000 points to win the game</para>
+<para><simplesect kind="return"><para>the score </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="391" column="5" bodyfile="src/model/map.c" bodystart="391" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a35beb41f9588cb572a677efeff4aeb9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+        <definition>Difficulty map_getDifficulty</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getDifficulty</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the difficulty of the map </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the difficulty of the map. EASY level : 10 x 10 MEDIUM level : 20 x 20 HARD level : 30 x 30</para>
+<para><simplesect kind="return"><para>the difficulty </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="396" column="12" bodyfile="src/model/map.c" bodystart="396" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1aad19b94928b3ccae9d65ab99d31e7a76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getWidth</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getWidth</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get map width </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get map width.</para>
+<para><simplesect kind="return"><para>the map width. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="401" column="5" bodyfile="src/model/map.c" bodystart="401" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1ac08162dce73ec6329fe0f9b72fa0afe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getHeight</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getHeight</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get map height </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get map height.</para>
+<para><simplesect kind="return"><para>the map height. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="406" column="5" bodyfile="src/model/map.c" bodystart="406" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1ab49e08d3de8a5ad25c4a568140d1431e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getNumberTurn</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getNumberTurn</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the number of turn </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the number of turn</para>
+<para><simplesect kind="return"><para>the number of turn </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="411" column="5" bodyfile="src/model/map.c" bodystart="411" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a54ff0bf9064231f2919de335021ccf4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getProductionFISA</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getProductionFISA</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a function to get the production of FISA <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the production of FISA </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="416" column="5" bodyfile="src/model/map.c" bodystart="416" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a7cd83f1a9d1d2ea3769f9304617098f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kindref="member">Dictionary</ref> *</type>
+        <definition>Dictionary* map_getStaffDictionary</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getStaffDictionary</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the staff dictionary </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the staff dictionary</para>
+<para><simplesect kind="return"><para>the staff dictionary </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="421" column="12" bodyfile="src/model/map.c" bodystart="421" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a8353eb90ecfbddf515c918f7f5432af5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+        <definition>Case* map_getCase</definition>
+        <argsstring>(const int x, const int y, const Map *m)</argsstring>
+        <name>map_getCase</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get a case of the map </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case abscissa </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case ordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get a case of the map</para>
+<para><simplesect kind="return"><para>the case address if exist, if not a null address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="426" column="6" bodyfile="src/model/map.c" bodystart="426" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a2a0c8879271eb1329b458344aae6d7c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_getNumberPollution</definition>
+        <argsstring>(const Map *m)</argsstring>
+        <name>map_getNumberPollution</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the pollution number </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function get the pollution number In order to have this information, we have to sum each case garbage</para>
+<para><simplesect kind="return"><para>the pollution number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="439" column="5" bodyfile="src/model/map.c" bodystart="439" bodyend="468"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a70d379bf95f36cc7132ad1484ba919b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_setNumberFISE</definition>
+        <argsstring>(Map *m, int val)</argsstring>
+        <name>map_setNumberFISE</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>a function to set the number of FISE </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of FISE to add/to substract</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function set the number of FISE recruited by the player.</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="473" column="11" bodyfile="src/model/map.c" bodystart="473" bodyend="480"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a50a870e4fc665553728ebefbf3f98fd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_setNumberFISA</definition>
+        <argsstring>(Map *m, int val)</argsstring>
+        <name>map_setNumberFISA</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>a function to set the number of FISA </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of FISA to add/to substract</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function set the number of FISA recruited by the player.</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="485" column="11" bodyfile="src/model/map.c" bodystart="485" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1aab42a633b5ec42cc42fcbfd321e1ca3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_setNumberE</definition>
+        <argsstring>(Map *m, int val)</argsstring>
+        <name>map_setNumberE</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>a function to set the number of E </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E value to add/to substract</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function set the number of E posseded by the player.</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="497" column="11" bodyfile="src/model/map.c" bodystart="497" bodyend="504"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1aea92e678fc1da23f8301898887c86597" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_setNumberDD</definition>
+        <argsstring>(Map *m, int val)</argsstring>
+        <name>map_setNumberDD</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>a function to set the number of DD </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DD value to add/to substract</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function set the number of DD posseded by the player.</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="509" column="11" bodyfile="src/model/map.c" bodystart="509" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a2d4cc797765eff642aaa482ac7ffcd11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_setNumberScore</definition>
+        <argsstring>(Map *m, int val)</argsstring>
+        <name>map_setNumberScore</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>a function to set the score </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DD value to add/to substract</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function set the score</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="521" column="11" bodyfile="src/model/map.c" bodystart="521" bodyend="528"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1af62419f8a20642347258b90b8ca4c39c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode map_setNumberTurn</definition>
+        <argsstring>(Map *m, int val)</argsstring>
+        <name>map_setNumberTurn</name>
+        <param>
+          <type><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>a function to set the turn </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DD value to add/to substract</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function set the turn</para>
+<para><simplesect kind="return"><para>an error that specify what is the problem </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/map.c" line="533" column="11" bodyfile="src/model/map.c" bodystart="533" bodyend="540"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/model/map.c"/>
+  </compounddef>
+</doxygen>

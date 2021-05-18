@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>headers/data/facade.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_codestyle.html">Code guidelines</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://github.com/lgs-games/prim">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span><span class="m-breadcrumb"><a href="dir_44fdd040e6cb86c9e816f1518b4f7b7d.html">data</a>/</span>facade.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Antoine MAN</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>09/04/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a></p></aside><p>This header contains functions related to the interactions with a machine facade. A facade correspond to a machine wall.</p>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#ad85ffaf92a8202b1a6c59762071771be" class="m-doc">Cardinal_S</a> { </span><span class="m-doc-wrap"><a href="#ad85ffaf92a8202b1a6c59762071771bead0611de6f28d4a9c9eac959f5344698e" class="m-doc">NORTH</a> = 0,
+              <a href="#ad85ffaf92a8202b1a6c59762071771beab5b3793b961949c817c7c0d99c05dad7" class="m-doc">EAST</a> = 1,
+              <a href="#ad85ffaf92a8202b1a6c59762071771bea8ef5c0bce69283a9986011a63eea8a6b" class="m-doc">SOUTH</a> = 2,
+              <a href="#ad85ffaf92a8202b1a6c59762071771beae9449e8683a8199dad36b07a63b2f523" class="m-doc">WEST</a> = 3 }</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#a97f8fb799ae13007f658bbcf024096b2" class="m-doc">Direction_S</a> { </span><span class="m-doc-wrap"><a href="#a97f8fb799ae13007f658bbcf024096b2a66a3c638b3f4a3d2e144245311b29241" class="m-doc">DIRECTION_IN</a> = 0,
+              <a href="#a97f8fb799ae13007f658bbcf024096b2a110d8bc2cf7464da0e5b438dc51ee183" class="m-doc">DIRECTION_OUT</a> = 1,
+              <a href="#a97f8fb799ae13007f658bbcf024096b2a8014a4c7dd2e1ab266e6b98e7c9b5780" class="m-doc">DIRECTION_NONE</a> = 2 }</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt>
+              using <a href="#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> = enum <a href="facade_8h.html#ad85ffaf92a8202b1a6c59762071771be" class="m-doc">Cardinal_<wbr />S</a>
+            </dt>
+            <dd>the direction</dd>
+            <dt>
+              using <a href="#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> = enum <a href="facade_8h.html#a97f8fb799ae13007f658bbcf024096b2" class="m-doc">Direction_<wbr />S</a>
+            </dt>
+            <dd>Direction.</dd>
+            <dt id="a1dd89c2df15b41c12a97d9ee528ee56c">
+              using <a href="#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc-self">Facade</a> = struct <a href="struct_facade___s.html" class="m-doc">Facade_<wbr />S</a>
+            </dt>
+            <dd>documentation above</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa47fe4dbb0e737797931008575d6922f" class="m-doc">facade_create</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card) -&gt; <a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a76059d1545c6311e2c77ad97e16fde58" class="m-doc">facade_destroy</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#abfd888b33817597295adc2aa2d883e1c" class="m-doc">facade_getDirection</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade) -&gt; <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#afe66fc18e24f32dee3f057dae134ac79" class="m-doc">facade_setDirection</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> direction)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a265ecedddb6f6cb634b4024e1b7be2a4" class="m-doc">facade_getBox</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade) -&gt; <a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a4608ce8e473c0cdb431efba59aecc0ce" class="m-doc">facade_setBox</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade,
+              <a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>* box)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a12b9ff953c1753cb1a0554e3ffbdd9ed" class="m-doc">facade_getCardinal</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade) -&gt; <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ad53b0e7ee3e9f7916a325f4dd882e220" class="m-doc">facade_setCardinal</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a0554303e70f48ff6b634b2acaa9c0a5b" class="m-doc">cardinal_modifyXYWithCardinal</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> cardinal) -&gt; <a href="utils_8h.html#acfafb36b3d421d90e2aa61c8076d117d" class="m-doc">Vector2D</a></span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">#define <a href="#a4632199e9cb78b690df9d44f6fec3716" class="m-doc">NUMBER_CARDINAL</a></span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="ad85ffaf92a8202b1a6c59762071771be"><div>
+            <h3>
+              enum <a href="#ad85ffaf92a8202b1a6c59762071771be" class="m-doc-self">Cardinal_S</a>
+            </h3>
+<p><a href="facade_8h.html" class="m-doc">facade.h</a> &quot;headers/data/facade.h&quot;</p>
+            <table class="m-table m-fullwidth m-flat m-doc">
+              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#ad85ffaf92a8202b1a6c59762071771bead0611de6f28d4a9c9eac959f5344698e" class="m-doc-self" id="ad85ffaf92a8202b1a6c59762071771bead0611de6f28d4a9c9eac959f5344698e">NORTH</a></td>
+                  <td>
+                  <p>up direction</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#ad85ffaf92a8202b1a6c59762071771beab5b3793b961949c817c7c0d99c05dad7" class="m-doc-self" id="ad85ffaf92a8202b1a6c59762071771beab5b3793b961949c817c7c0d99c05dad7">EAST</a></td>
+                  <td>
+                  <p>right direction</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#ad85ffaf92a8202b1a6c59762071771bea8ef5c0bce69283a9986011a63eea8a6b" class="m-doc-self" id="ad85ffaf92a8202b1a6c59762071771bea8ef5c0bce69283a9986011a63eea8a6b">SOUTH</a></td>
+                  <td>
+                  <p>down direction</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#ad85ffaf92a8202b1a6c59762071771beae9449e8683a8199dad36b07a63b2f523" class="m-doc-self" id="ad85ffaf92a8202b1a6c59762071771beae9449e8683a8199dad36b07a63b2f523">WEST</a></td>
+                  <td>
+                  <p>left direction</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a97f8fb799ae13007f658bbcf024096b2"><div>
+            <h3>
+              enum <a href="#a97f8fb799ae13007f658bbcf024096b2" class="m-doc-self">Direction_S</a>
+            </h3>
+<p><a href="facade_8h.html" class="m-doc">facade.h</a> &quot;headers/data/facade.h&quot;</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Typedef documentation</h2>
+          <section class="m-doc-details" id="a6fe04539374de416fbc486013b9c17e0"><div>
+            <h3>
+              typedef enum <a href="facade_8h.html#ad85ffaf92a8202b1a6c59762071771be" class="m-doc">Cardinal_<wbr />S</a> <a href="#a6fe04539374de416fbc486013b9c17e0" class="m-doc-self">Cardinal</a>
+            </h3>
+            <p>the direction</p>
+<p>a direction to select each wall of the machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a224b9163917ac32fc95a60d8c1eec3aa"><div>
+            <h3>
+              typedef enum <a href="facade_8h.html#a97f8fb799ae13007f658bbcf024096b2" class="m-doc">Direction_<wbr />S</a> <a href="#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc-self">Direction</a>
+            </h3>
+            <p>Direction.</p>
+<p>the direction of the transit</p><p>IN it correspond to an entry OUT it correspond to an exit NONE it&#x27;s not a enter and not a exit</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="aa47fe4dbb0e737797931008575d6922f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa47fe4dbb0e737797931008575d6922f" class="m-doc-self">facade_create</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">card</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the facade</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>A function to initialize a facade type.</p>
+          </div></section>
+          <section class="m-doc-details" id="a76059d1545c6311e2c77ad97e16fde58"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a76059d1545c6311e2c77ad97e16fde58" class="m-doc-self">facade_destroy</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to free resources allocated in memory to stock the facade</p>
+          </div></section>
+          <section class="m-doc-details" id="abfd888b33817597295adc2aa2d883e1c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abfd888b33817597295adc2aa2d883e1c" class="m-doc-self">facade_getDirection</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to get the facade direction of the transit</p>
+          </div></section>
+          <section class="m-doc-details" id="afe66fc18e24f32dee3f057dae134ac79"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afe66fc18e24f32dee3f057dae134ac79" class="m-doc-self">facade_setDirection</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade,
+              <a href="facade_8h.html#a224b9163917ac32fc95a60d8c1eec3aa" class="m-doc">Direction</a> direction)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>direction</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to set the facade direction according to the new direction</p>
+          </div></section>
+          <section class="m-doc-details" id="a265ecedddb6f6cb634b4024e1b7be2a4"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a265ecedddb6f6cb634b4024e1b7be2a4" class="m-doc-self">facade_getBox</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to get box contained in the facade</p>
+          </div></section>
+          <section class="m-doc-details" id="a4608ce8e473c0cdb431efba59aecc0ce"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4608ce8e473c0cdb431efba59aecc0ce" class="m-doc-self">facade_setBox</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade,
+              <a href="box_8h.html#a61ea4554dd95aa11cf38bafb86bb977f" class="m-doc">Box</a>* box)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>box</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to set a new box to the facade</p>
+          </div></section>
+          <section class="m-doc-details" id="a12b9ff953c1753cb1a0554e3ffbdd9ed"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a12b9ff953c1753cb1a0554e3ffbdd9ed" class="m-doc-self">facade_getCardinal</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to get the facade cardinal</p>
+          </div></section>
+          <section class="m-doc-details" id="ad53b0e7ee3e9f7916a325f4dd882e220"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad53b0e7ee3e9f7916a325f4dd882e220" class="m-doc-self">facade_setCardinal</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a1dd89c2df15b41c12a97d9ee528ee56c" class="m-doc">Facade</a>* facade,
+              <a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> card)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">facade</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>card</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>A function to set the facade cardinal</p>
+          </div></section>
+          <section class="m-doc-details" id="a0554303e70f48ff6b634b2acaa9c0a5b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="utils_8h.html#acfafb36b3d421d90e2aa61c8076d117d" class="m-doc">Vector2D</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0554303e70f48ff6b634b2acaa9c0a5b" class="m-doc-self">cardinal_modifyXYWithCardinal</a>(</span><span class="m-doc-wrap"><a href="facade_8h.html#a6fe04539374de416fbc486013b9c17e0" class="m-doc">Cardinal</a> cardinal)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">cardinal</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Vector2D</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Allows in relation to a cardinal to return the modifications to be made on the coordinates</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Define documentation</h2>
+          <section class="m-doc-details" id="a4632199e9cb78b690df9d44f6fec3716"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">#define <a href="#a4632199e9cb78b690df9d44f6fec3716" class="m-doc-self">NUMBER_CARDINAL</a></span>
+            </h3>
+<p>A constant to know the number of direction</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

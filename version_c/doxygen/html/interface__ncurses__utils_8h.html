@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>src/view/ncurses/nc_headers/interface_ncurses_utils.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_codestyle.html">Code guidelines</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://github.com/lgs-games/prim">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span><span class="m-breadcrumb"><a href="dir_b39b5091e8d1d2be4b7fc59d57749634.html">view</a>/</span><span class="m-breadcrumb"><a href="dir_696e367b75a6efe6f0e6226ae3d12afa.html">ncurses</a>/</span><span class="m-breadcrumb"><a href="dir_68ad008ae5bd0b737c3adefb6e7ddfa8.html">nc_headers</a>/</span>interface_ncurses_utils.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Quentin Ra</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="interface__ncurses_8h.html" class="m-doc">interface_<wbr />ncurses.h</a></p></aside><p>Utilities functions for interface_ncurses.</p>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="ad2839bd9101c41aba9cb58c3f3404e01">
+              using <a href="#ad2839bd9101c41aba9cb58c3f3404e01" class="m-doc-self">Closure</a> = void*(*)(char*buff, bool*leave, ErrorCode*error)
+            </dt>
+            <dd>closure function</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af377830c25281498225cb455ede85323" class="m-doc">interface_ncurses_utils_hasLastMessage</a>(</span><span class="m-doc-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a59f7ac30231498801c89922c5f58b032" class="m-doc">interface_ncurses_showActionField</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a8fe3cebcc0e81571bd1767f6f4246dcb" class="m-doc">interface_ncurses_gameTag</a>(</span><span class="m-doc-wrap">char* text,
+              int value,
+              char* buf,
+              char* format) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2bd1314fe06c20de888e887d069156dc" class="m-doc">interface_ncurses_gameTag_type</a>(</span><span class="m-doc-wrap">char* text,
+              void* value,
+              char* buf,
+              char* format,
+              char* type) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ac2798025591b087b6b3b58cca335cc09" class="m-doc">interface_ncurses_clearAction</a>(</span><span class="m-doc-wrap">char* buf)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a316d73b82dcafc1ddb0d1c10970608db" class="m-doc">interface_ncurses_show_menu_wait</a>(</span><span class="m-doc-wrap">WINDOW* window)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a1d7e72c8aa591c78731f27370a2e63ba" class="m-doc">interface_ncurses_utils_writeLabel</a>(</span><span class="m-doc-wrap">WINDOW* window,
+              int i,
+              int j,
+              int blocLength,
+              char* tag,
+              char* content) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#af600055edb0e4cc58c83b4c1af184252" class="m-doc">interface_ncurses_initListWindow</a>(</span><span class="m-doc-wrap">WINDOW* window,
+              char* title)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a42f83246011a71bd8e45367ca5ddc0b3" class="m-doc">interface_ncurses_showMessage</a>(</span><span class="m-doc-wrap">char* message)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9c893be4edb9f5dfc3227bb8ebc5de87" class="m-doc">interface_ncurses_showInActionField</a>(</span><span class="m-doc-wrap"><a href="interface__ncurses__utils_8h.html#ad2839bd9101c41aba9cb58c3f3404e01" class="m-doc">Closure</a> init,
+              <a href="interface__ncurses__utils_8h.html#ad2839bd9101c41aba9cb58c3f3404e01" class="m-doc">Closure</a> check) -&gt; void*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a64cb2c5ecbabba12a469d40e1ac9bafa" class="m-doc">interface_utils_getCaseContent</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#ab9aab17a5e54a8bae6915bc24db13a17" class="m-doc">Case</a>* c,
+              <a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t) -&gt; char*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a916aa65ffa5546e70e0f42dce41174e5" class="m-doc">interface_utils_parseOrientation</a>(</span><span class="m-doc-wrap">int x,
+              int y,
+              const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map) -&gt; char</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a049f087169abc07794415dd6f61a4658" class="m-doc">interface_ncurses_utils_init_colors</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a35d3ece4d81d8d40c6dfe7e04b518ed1" class="m-doc">interface_ncurses_utils_getCaseColor</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#ab9aab17a5e54a8bae6915bc24db13a17" class="m-doc">Case</a>* c,
+              <a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t) -&gt; attr_t</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af42484348998cb0e6a1c3d418fb4fbb7" class="m-doc">interface_ncurses_utils_getMachineColor</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> t) -&gt; attr_t</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a0e7bb947b926bedd2adc59377031b10b" class="m-doc">interface_ncurses_gameMenu</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              WINDOW* <a href="#ac8d4957163a9b705ba2c48e8c270e7aa" class="m-doc">gameWindow</a>
+            </dt>
+            <dd>score, turn, ... information window</dd>
+            <dt id="aa0d4da0883ff8a819fa53a38579b2925">
+              WINDOW* <a href="#aa0d4da0883ff8a819fa53a38579b2925" class="m-doc-self">mapWindow</a>
+            </dt>
+            <dd>game map window</dd>
+            <dt id="afecf42c27170a38bed877daecf6eb8d5">
+              WINDOW* <a href="#afecf42c27170a38bed877daecf6eb8d5" class="m-doc-self">actionWindow</a>
+            </dt>
+            <dd>input action window</dd>
+            <dt id="a4f545cf7845ebe38fabb77e9daff07bc">
+              WINDOW* <a href="#a4f545cf7845ebe38fabb77e9daff07bc" class="m-doc-self">fullWindow</a>
+            </dt>
+            <dd>full screen window (without action window ofc)</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="af377830c25281498225cb455ede85323"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af377830c25281498225cb455ede85323" class="m-doc-self">interface_ncurses_utils_hasLastMessage</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true is there is a last message, false else</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a59f7ac30231498801c89922c5f58b032"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a59f7ac30231498801c89922c5f58b032" class="m-doc-self">interface_ncurses_showActionField</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+<p>Show/Fill action field window</p>
+          </div></section>
+          <section class="m-doc-details" id="a8fe3cebcc0e81571bd1767f6f4246dcb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8fe3cebcc0e81571bd1767f6f4246dcb" class="m-doc-self">interface_ncurses_gameTag</a>(</span><span class="m-doc-wrap">char* text,
+              int value,
+              char* buf,
+              char* format)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">text&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>tag name</td>
+                </tr>
+                <tr>
+                  <td>value&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>tag value</td>
+                </tr>
+                <tr>
+                  <td>buf&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>buffer (we will put the text in)</td>
+                </tr>
+                <tr>
+                  <td>format&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>(we will put the format in)</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Convenience method to show a tag in show_map</p>
+          </div></section>
+          <section class="m-doc-details" id="a2bd1314fe06c20de888e887d069156dc"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2bd1314fe06c20de888e887d069156dc" class="m-doc-self">interface_ncurses_gameTag_type</a>(</span><span class="m-doc-wrap">char* text,
+              void* value,
+              char* buf,
+              char* format,
+              char* type)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">text</td>
+                  <td>same as in interface_ncurses_gameTag</td>
+                </tr>
+                <tr>
+                  <td>value</td>
+                  <td>same as in interface_ncurses_gameTag</td>
+                </tr>
+                <tr>
+                  <td>buf</td>
+                  <td>same as in interface_ncurses_gameTag</td>
+                </tr>
+                <tr>
+                  <td>format</td>
+                  <td>same as in interface_ncurses_gameTag</td>
+                </tr>
+                <tr>
+                  <td>type</td>
+                  <td>d for int, s for char*... this is associated with value type</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>same as in interface_ncurses_gameTag</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-default"><h4>See also</h4><p><a href="interface__ncurses__utils_8h.html#a8fe3cebcc0e81571bd1767f6f4246dcb" class="m-doc">interface_<wbr />ncurses_<wbr />gameTag</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="ac2798025591b087b6b3b58cca335cc09"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac2798025591b087b6b3b58cca335cc09" class="m-doc-self">interface_ncurses_clearAction</a>(</span><span class="m-doc-wrap">char* buf)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">buf</td>
+                  <td>last actionWindow text</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Clear last actionWindow</p>
+          </div></section>
+          <section class="m-doc-details" id="a316d73b82dcafc1ddb0d1c10970608db"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a316d73b82dcafc1ddb0d1c10970608db" class="m-doc-self">interface_ncurses_show_menu_wait</a>(</span><span class="m-doc-wrap">WINDOW* window)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">window</td>
+                  <td>the window we are waiting for</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Wait function. This function is waiting the user to press &#x27;b&#x27; (back code). It got created to be used in show_... like functions.</p>
+          </div></section>
+          <section class="m-doc-details" id="a1d7e72c8aa591c78731f27370a2e63ba"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1d7e72c8aa591c78731f27370a2e63ba" class="m-doc-self">interface_ncurses_utils_writeLabel</a>(</span><span class="m-doc-wrap">WINDOW* window,
+              int i,
+              int j,
+              int blocLength,
+              char* tag,
+              char* content)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">window</td>
+                  <td>the window</td>
+                </tr>
+                <tr>
+                  <td>i</td>
+                  <td>y value</td>
+                </tr>
+                <tr>
+                  <td>j</td>
+                  <td>x value</td>
+                </tr>
+                <tr>
+                  <td>blocLength</td>
+                  <td>size of a bloc</td>
+                </tr>
+                <tr>
+                  <td>tag</td>
+                  <td>label/tag put in green, : me be added by yourself</td>
+                </tr>
+                <tr>
+                  <td>content</td>
+                  <td>content put right after the label</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>x value after adding the label+text</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Write some label in green in mapWindow frame at i,j coordinates</p>
+          </div></section>
+          <section class="m-doc-details" id="af600055edb0e4cc58c83b4c1af184252"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af600055edb0e4cc58c83b4c1af184252" class="m-doc-self">interface_ncurses_initListWindow</a>(</span><span class="m-doc-wrap">WINDOW* window,
+              char* title)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">window</td>
+                  <td>since the new version, mapWindow can be replaced by fullWindow</td>
+                </tr>
+                <tr>
+                  <td>title</td>
+                  <td>a title</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Clean mapWindow and put in a title in the center. This method is used when showing a list of something. We will use &#x27;b&#x27; to go back.</p>
+          </div></section>
+          <section class="m-doc-details" id="a42f83246011a71bd8e45367ca5ddc0b3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a42f83246011a71bd8e45367ca5ddc0b3" class="m-doc-self">interface_ncurses_showMessage</a>(</span><span class="m-doc-wrap">char* message)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">message</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>Show some message</p>
+          </div></section>
+          <section class="m-doc-details" id="a9c893be4edb9f5dfc3227bb8ebc5de87"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9c893be4edb9f5dfc3227bb8ebc5de87" class="m-doc-self">interface_ncurses_showInActionField</a>(</span><span class="m-doc-wrap"><a href="interface__ncurses__utils_8h.html#ad2839bd9101c41aba9cb58c3f3404e01" class="m-doc">Closure</a> init,
+              <a href="interface__ncurses__utils_8h.html#ad2839bd9101c41aba9cb58c3f3404e01" class="m-doc">Closure</a> check)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">init</td>
+                  <td>null or a closure that init the view, called after setting things up</td>
+                </tr>
+                <tr>
+                  <td>check</td>
+                  <td>function that checks whether input is valid (then return) or not (ask again)</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the result of the check function, if the check is successful</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Take an init and a check function. Ask for input until check is done.</p><p>&lt; do we need to leave ?</p><p>&lt; function result</p><p>&lt; error code</p>
+          </div></section>
+          <section class="m-doc-details" id="a64cb2c5ecbabba12a469d40e1ac9bafa"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a64cb2c5ecbabba12a469d40e1ac9bafa" class="m-doc-self">interface_utils_getCaseContent</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#ab9aab17a5e54a8bae6915bc24db13a17" class="m-doc">Case</a>* c,
+              <a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">c</td>
+                  <td>case</td>
+                </tr>
+                <tr>
+                  <td>t</td>
+                  <td>case type</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the text</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Return one letter with what&#x27;s inside this case</p>
+          </div></section>
+          <section class="m-doc-details" id="a916aa65ffa5546e70e0f42dce41174e5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a916aa65ffa5546e70e0f42dce41174e5" class="m-doc-self">interface_utils_parseOrientation</a>(</span><span class="m-doc-wrap">int x,
+              int y,
+              const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">x</td>
+                  <td>col</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>row</td>
+                </tr>
+                <tr>
+                  <td>map</td>
+                  <td>the map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a char representation the orientation</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Return orientation as a char</p><p>&lt; machine stuff</p>
+          </div></section>
+          <section class="m-doc-details" id="a049f087169abc07794415dd6f61a4658"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a049f087169abc07794415dd6f61a4658" class="m-doc-self">interface_ncurses_utils_init_colors</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+<p>Init all of ncurses colors used in the interface.</p><aside class="m-note m-default"><h4>See also</h4><p>NCursesColors</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a35d3ece4d81d8d40c6dfe7e04b518ed1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">attr_t </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a35d3ece4d81d8d40c6dfe7e04b518ed1" class="m-doc-self">interface_ncurses_utils_getCaseColor</a>(</span><span class="m-doc-wrap"><a href="case_8h.html#ab9aab17a5e54a8bae6915bc24db13a17" class="m-doc">Case</a>* c,
+              <a href="case_8h.html#a4fd76f4d0fbadc08ec99451b92478a7e" class="m-doc">CaseType</a> t)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">c</td>
+                  <td>a case</td>
+                </tr>
+                <tr>
+                  <td>t</td>
+                  <td>the type of the content</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a color</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Get a color for a case</p>
+          </div></section>
+          <section class="m-doc-details" id="af42484348998cb0e6a1c3d418fb4fbb7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">attr_t </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af42484348998cb0e6a1c3d418fb4fbb7" class="m-doc-self">interface_ncurses_utils_getMachineColor</a>(</span><span class="m-doc-wrap"><a href="machine_8h.html#a0d9cac3e2920aed189f3f132c2e6bd32" class="m-doc">MachineStuff</a> t)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">t</td>
+                  <td>a machine</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>the color</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Returns the color a of machine</p>
+          </div></section>
+          <section class="m-doc-details" id="a0e7bb947b926bedd2adc59377031b10b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0e7bb947b926bedd2adc59377031b10b" class="m-doc-self">interface_ncurses_gameMenu</a>(</span><span class="m-doc-wrap">const <a href="map_8h.html#afdfce14f0d12266a9956f9fe5e4fe1fd" class="m-doc">Map</a>* map)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>for the game info</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Show game menu</p><p>&lt; 10 lines of games constants</p><p>&lt; see interface_ncurses_gameTag</p><p>&lt; see interface_ncurses_gameTag</p><p>&lt; string for the production mode</p><p>&lt; number of lines</p><p>&lt; max per line</p><p>&lt; current max per line</p><p>&lt; first y</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="ac8d4957163a9b705ba2c48e8c270e7aa"><div>
+            <h3>
+              WINDOW* <a href="#ac8d4957163a9b705ba2c48e8c270e7aa" class="m-doc-self">gameWindow</a>
+            </h3>
+            <p>score, turn, ... information window</p>
+<p>&lt; curse library all of our constants</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

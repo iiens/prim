@@ -2,11 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Logger = void 0;
 const fs = require('fs');
+const path = require('path');
 class Logger {
     constructor() {
-        this._fileName = "./logs/log.json";
+        this._fileName = path.join(__dirname, "log.json");
         // Écriture des nouvelles données
-        fs.writeFileSync(this._fileName, '{}');
+        // fs.writeFileSync(this._fileName, '{}');
         // Initialisation
         this._level = Logger.Levels.Warning;
         this._console = false;
@@ -81,23 +82,29 @@ class Logger {
                     break;
             }
             if (env !== undefined) {
-                // Récupération des données dans le fichier
-                let dataFile = fs.readFileSync(this._fileName, 'utf8');
-                // Transformation des données en Json
-                let dataJson = JSON.parse(dataFile);
-                // Vérification de la présence de Json
-                if (dataJson.messages === undefined) {
-                    dataJson.messages = [];
-                }
-                // Ajout des nouvelle données
-                dataJson.messages.push(env);
-                // Transformation du tableau en json
-                let dataWrite = JSON.stringify(dataJson);
-                // Placement de retour à a ligne après chaque fin d'objet
-                const searchRegExp = new RegExp('},', 'g');
-                dataWrite = dataWrite.replace(searchRegExp, '},\n');
-                // Écriture des nouvelles données
-                fs.writeFileSync(this._fileName, dataWrite);
+                // // Récupération des données dans le fichier
+                // let dataFile: string = fs.readFileSync(this._fileName, 'utf8');
+                //
+                // // Transformation des données en Json
+                // let dataJson = JSON.parse(dataFile);
+                //
+                // // Vérification de la présence de Json
+                // if (dataJson.messages === undefined) {
+                //     dataJson.messages = [];
+                // }
+                //
+                // // Ajout des nouvelle données
+                // dataJson.messages.push(env);
+                //
+                // // Transformation du tableau en json
+                // let dataWrite = JSON.stringify(dataJson);
+                //
+                // // Placement de retour à a ligne après chaque fin d'objet
+                // const searchRegExp = new RegExp('},', 'g');
+                // dataWrite = dataWrite.replace(searchRegExp, '},\n')
+                //
+                // // Écriture des nouvelles données
+                // fs.writeFileSync(this._fileName, dataWrite);
             }
         }
     }

@@ -1,48 +1,46 @@
 # Prim
 
-Must be compiled with our Makefile (make build,
-make run) or using ``gcc -Wall -Wextra -std=c99 src/main.c
--o bin/prim`` then `./bin/prim`.
+Our ``c-version`` compile with
 
-Current version is ``1.0.2`` (2021-05-02).
+* a **Makefile** : ``make``  then `make run`
+* a **CMakeList**
+* a **command** : ``gcc -Wall -Wextra -std=c99 src/main.c
+  -o bin/prim`` then `./bin/prim`
+* Using **docker** : ``docker build -t prim:latest .``
+then ``docker run -it prim``
+  
+Unless you are using docker, you will have
+to install ncurses
 
-### Code guidelines
+* check if installed :  `ls -la /usr/include/ncurses.h`
+* if not install : `sudo apt-get install libncurses5-dev libncursesw5-dev`
 
-**General**
-* code and comments should be written in english
-* we should write includes ordered by alphabetical order, and a comment by include
-* use relevant names for variables when it's smart to do so (not index instead of i)
-* lines should have less that 79 columns
+### Tests
 
-**Syntax**
-* we will write `if ( ... ) {` (same spaces and { at the end)
-* same for : for, while, switch statements
-* functions should be coded like this (excluding declarations and main)
-```c
-void name( args )
-{
-    // code
-}  
-  ```
-* this is how a struct should be declared
-```c
-typedef struct AName_S {
-    int anAttribute; //!< ...
-} AName; //!< ....
-```
-* you must declare all variables at the start of a bloc
-* first declare then initialize variables
-* if a variable is only read, then use const
-* no hard-coded values, use enum or define
-* the pointer star (`*`) must be after the type not the name
+You can run tests with `make tests` then `make run_tests`,
+CUnit is required.
 
-Adapted from
-* https://suckless.org/
-* https://man.openbsd.org/style
-* http://doc.cat-v.org/bell_labs/pikestyle
-* https://www.kernel.org/doc/Documentation/process/coding-style.rst
+### Documentation
+
+You can find latest documentation in
+``doxygen`` folder.
+
+You can generates it using
+
+* `doxygen Doxyfile`
+* `style\doxygen.py DoxyCSS`
+
+For the later one, you need python and Pygments
+
+* install python and pip
+* pip: `sudo apt-get install python3-pip` (linux)
+* pygments: `pip3 install jinja2 Pygments`
 
 ### Team
+
+Current version is ``1.0.x`` (2021-05-02).
+
+Main contributors
 
 * Valentin DREANO
 * Antoine MAN

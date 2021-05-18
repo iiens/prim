@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="test__structure_8c" kind="file" language="C++">
+    <compoundname>test_structure.c</compoundname>
+    <includes refid="test__structure_8h" local="yes">test_structure.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="13">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="3">
+        <label>CUnit/Basic.h</label>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="15">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="8">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>structure_list_test.h</label>
+        <link refid="structure__list__test_8h"/>
+      </node>
+      <node id="5">
+        <label>../headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="12">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="6">
+        <label>../data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tests/test_structure.c</label>
+        <link refid="test__structure_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="test__structure_8c_1ae9b6b8221b6ae469fd9d8244c45e1b1a" prot="public" static="no" mutable="no">
+        <type><ref refid="structure__list__test_8h_1aa7fe687e4e22bec51adb4918fe83aa1f" kindref="member">test_List</ref></type>
+        <definition>test_List testDictionary_listTests[TESTDICTIONARY_NUMBERTESTS]</definition>
+        <argsstring>[TESTDICTIONARY_NUMBERTESTS]</argsstring>
+        <name>testDictionary_listTests</name>
+        <initializer>= {
+        {&quot;Dictionary_Initialisation\0&quot;, testDictionary_create},
+        {&quot;Dictionary_Add_Element\0&quot;, testDictionary_addElement},
+        {&quot;Dictionary_Index_Element\0&quot;, testDictionary_indexElement}
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="7" column="11" bodyfile="tests/test_structure.c" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="test__structure_8c_1a898243140430f3a8406f0087f7cdc3cb" prot="public" static="no" mutable="no">
+        <type><ref refid="structure__list__test_8h_1aa7fe687e4e22bec51adb4918fe83aa1f" kindref="member">test_List</ref></type>
+        <definition>test_List testList_listTests[TESTLIST_NUMBERTESTS]</definition>
+        <argsstring>[TESTLIST_NUMBERTESTS]</argsstring>
+        <name>testList_listTests</name>
+        <initializer>= {
+        {&quot;List_Initialisation\0&quot;, testList_create},
+        {&quot;List_Initialisation_Empty\0&quot;, testList_createEmpty},
+        {&quot;List_Add_Element\0&quot;, testList_addElement}
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="13" column="11" bodyfile="tests/test_structure.c" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__structure_8c_1a96b8abd79c0cfb70c34632e67be845dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testStructure_createSuite</definition>
+        <argsstring>(CU_pSuite pSuite)</argsstring>
+        <name>testStructure_createSuite</name>
+        <param>
+          <type>CU_pSuite</type>
+          <declname>pSuite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to create the &quot;Test Structure&quot; suite with the test set on the Map type and its manipulation functions</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pSuite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>test suite </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="19" column="5" bodyfile="tests/test_structure.c" bodystart="19" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1a77d34cc4b5c607c3becdf6d63e532e74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testStructure_initSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testStructure_initSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to initialize the sequence <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="51" column="5" bodyfile="tests/test_structure.c" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1a58bf4717ef06a258d4a5b507b0fc731e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testStructure_cleanSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testStructure_cleanSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to close the suite <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="55" column="5" bodyfile="tests/test_structure.c" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1a3cd4894fbb67d4af69c83faf5b9e368b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testList_create</definition>
+        <argsstring>()</argsstring>
+        <name>testList_create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that a list is created </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="59" column="6" bodyfile="tests/test_structure.c" bodystart="59" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1aa7898720fc569b37c2717500f24b19c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testList_createEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>testList_createEmpty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that an empty list is created. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="73" column="6" bodyfile="tests/test_structure.c" bodystart="73" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1aedf68caf1f8704fcda65db1b95e188ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testList_addElement</definition>
+        <argsstring>()</argsstring>
+        <name>testList_addElement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the addition of an element in a list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="80" column="6" bodyfile="tests/test_structure.c" bodystart="80" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1aa3725ca19bb4cf96424fee34e8179371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testDictionary_create</definition>
+        <argsstring>()</argsstring>
+        <name>testDictionary_create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that a dictionary has been created. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="95" column="6" bodyfile="tests/test_structure.c" bodystart="95" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1a2650fe8c2097f18da937f1648abe8acb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testDictionary_addElement</definition>
+        <argsstring>()</argsstring>
+        <name>testDictionary_addElement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that the addition of an element in a dictionary is done well </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="107" column="6" bodyfile="tests/test_structure.c" bodystart="107" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="test__structure_8c_1ad0263fb6ab4bbcf535282b4e1c75641b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testDictionary_indexElement</definition>
+        <argsstring>()</argsstring>
+        <name>testDictionary_indexElement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the retrieval of an item at a certain index </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_structure.c" line="131" column="6" bodyfile="tests/test_structure.c" bodystart="131" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tests/test_structure.c"/>
+  </compounddef>
+</doxygen>

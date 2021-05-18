@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="translation_8c" kind="file" language="C++">
+    <compoundname>translation.c</compoundname>
+    <includes refid="translation_8h" local="yes">../../headers/utils/translation.h</includes>
+    <includes refid="utils__fun_8h" local="yes">../../headers/utils/utils_fun.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="17">
+        <label>../../headers/utils/utils_fun.h</label>
+        <link refid="utils__fun_8h_source"/>
+      </node>
+      <node id="16">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="4">
+        <label>../data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="13">
+        <label>../data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="8">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/view/translation.c</label>
+        <link refid="translation_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="15">
+        <label>../data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../../headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="translation_8c_1af317d02d83bb9c65464850a616cb7a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* error_getMessage</definition>
+        <argsstring>(ErrorCode e)</argsstring>
+        <name>error_getMessage</name>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Get an error message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In order to know in detail an error returned by a function we need a function to describe this error</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a error code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a string that describe the error </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="5" column="6" bodyfile="src/view/translation.c" bodystart="5" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1adbc7f379c587fd06e90be40c01f5ece4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_getDifficulty</definition>
+        <argsstring>(Difficulty d)</argsstring>
+        <name>translation_getDifficulty</name>
+        <param>
+          <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a translation for a difficulty <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a difficulty </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the translation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="62" column="6" bodyfile="src/view/translation.c" bodystart="62" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1aeff6d1c05bec1b71506ed00dbd3bf348" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_get</definition>
+        <argsstring>(Translation t)</argsstring>
+        <name>translation_get</name>
+        <param>
+          <type><ref refid="translation_8h_1ac57d1d88324b492cfad23adceb799c41" kindref="member">Translation</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the translation of a translation constant <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see enum Translation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the translated or an empty string if there is none </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="75" column="6" bodyfile="src/view/translation.c" bodystart="75" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a4ba18b0bb53d4dc015fe09a60bd2ebc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_actionFetchName</definition>
+        <argsstring>(Action action)</argsstring>
+        <name>translation_actionFetchName</name>
+        <param>
+          <type><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref></type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns action name by enum value <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>action id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>action as a string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="150" column="6" bodyfile="src/view/translation.c" bodystart="150" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a3c0ec9e5546c89e43b63b2ecb78bcbca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_fetchCaseTypeName</definition>
+        <argsstring>(CaseType t)</argsstring>
+        <name>translation_fetchCaseTypeName</name>
+        <param>
+          <type><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the type of a case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of a case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the translation or NULL if it&apos;s a machine. In such case, use {</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="translation_8h_1ae44deb48631c05f39e2a863a291c83dc" kindref="member">translation_fetchMachineTypeName</ref>} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="189" column="6" bodyfile="src/view/translation.c" bodystart="189" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a6324ae3740352032347f4c51fecf8881" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_fetchCaseTypeFullName</definition>
+        <argsstring>(CaseType t)</argsstring>
+        <name>translation_fetchCaseTypeFullName</name>
+        <param>
+          <type><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Full name version of translation_fetchCaseTypeName <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see {</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="translation_8h_1a3c0ec9e5546c89e43b63b2ecb78bcbca" kindref="member">translation_fetchCaseTypeName</ref>} </para>
+</simplesect>
+<simplesect kind="return"><para>see {</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="translation_8h_1a3c0ec9e5546c89e43b63b2ecb78bcbca" kindref="member">translation_fetchCaseTypeName</ref>} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="205" column="6" bodyfile="src/view/translation.c" bodystart="205" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1ae44deb48631c05f39e2a863a291c83dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_fetchMachineTypeName</definition>
+        <argsstring>(MachineStuff s)</argsstring>
+        <name>translation_fetchMachineTypeName</name>
+        <param>
+          <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns machine type name <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stuff of a case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the translation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="220" column="6" bodyfile="src/view/translation.c" bodystart="220" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a99e4921c3d9be1fa039e1814c63e023c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_fetchMachineTypeFullName</definition>
+        <argsstring>(MachineStuff s)</argsstring>
+        <name>translation_fetchMachineTypeFullName</name>
+        <param>
+          <type><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Full name version of translation_fetchMachineTypeName <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see {</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="translation_8h_1ae44deb48631c05f39e2a863a291c83dc" kindref="member">translation_fetchMachineTypeName</ref>} </para>
+</simplesect>
+<simplesect kind="return"><para>see {</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="translation_8h_1ae44deb48631c05f39e2a863a291c83dc" kindref="member">translation_fetchMachineTypeName</ref>} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="237" column="6" bodyfile="src/view/translation.c" bodystart="237" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a83d7a21f019200c120c2438ef6033898" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structures_8h_1a17b4022430bcb8cf112cada5d768cdd4" kindref="member">List</ref> *</type>
+        <definition>List* translation_getLegendMachines</definition>
+        <argsstring>(void)</argsstring>
+        <name>translation_getLegendMachines</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of the legend of the machines.</para>
+<para>Each element is a couple, the key is a boolean <itemizedlist>
+<listitem>
+<para>true : value is MachineStuff </para>
+</listitem>
+<listitem>
+<para>false: machine is a CaseType</para>
+</listitem>
+</itemizedlist>
+</para>
+<para>And value is ether a MachineStuff/CaseType.</para>
+<para><simplesect kind="return"><para>the list </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="machine_8h_1a0d9cac3e2920aed189f3f132c2e6bd32" kindref="member">MachineStuff</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="elements_8h_1a811c807f274f44c0646c5f4fad32a3b8" kindref="member">Couple</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="254" column="6" bodyfile="src/view/translation.c" bodystart="254" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a958d3e879c5f4b9ab457325ca97c6560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structures_8h_1a4acdeaf37852ad4dac0d5118b1f24976" kindref="member">Dictionary</ref> *</type>
+        <definition>Dictionary* translation_getLegendDirections</definition>
+        <argsstring>(void)</argsstring>
+        <name>translation_getLegendDirections</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the dictionary of the legend of the directions <simplesect kind="return"><para>the dictionary </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="267" column="12" bodyfile="src/view/translation.c" bodystart="267" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="translation_8c_1a77d322aadee2cc1b6f21bd8328b5ff97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* translation_getNumber</definition>
+        <argsstring>(int number)</argsstring>
+        <name>translation_getNumber</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Translate a number into 3 characters <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>char[3] with the number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/translation.c" line="281" column="6" bodyfile="src/view/translation.c" bodystart="281" bodyend="300"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/view/translation.c"/>
+  </compounddef>
+</doxygen>

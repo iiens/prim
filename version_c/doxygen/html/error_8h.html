@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>headers/data/error.h file | Prim Environment
+Line</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Prim <span class="m-thin">Environment
+Line</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="md_docs_codestyle.html">Code guidelines</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="files.html">Files</a></li>
+            <li><a href="globals_func.html">Fonctions</a></li>
+            <li><a href="https://github.com/lgs-games/prim">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a>/</span><span class="m-breadcrumb"><a href="dir_44fdd040e6cb86c9e816f1518b4f7b7d.html">data</a>/</span>error.h <span class="m-thin">file</span>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Antoine Man</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>12/03/2021</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a href="interface_8h.html" class="m-doc">interface.h</a></p><p><a href="map_8h.html" class="m-doc">map.h</a></p></aside><p>Contains all errors messages returned by our functions</p>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum <a href="#af1a3e2d8a9c3ae43911e13dfccf564dc" class="m-doc">ErrorCode_S</a> { </span><span class="m-doc-wrap"><a href="#af1a3e2d8a9c3ae43911e13dfccf564dcabf350750d0d4fabd8954c0f1e9bbae94" class="m-doc">NO_ERROR</a> = 0,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca2fd6f336d08340583bd620a7f5694c90" class="m-doc">ERROR</a> = 1,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcaefbc4b8c8ed528d5e318e78cc882ea6f" class="m-doc">ERROR_GAME_WIN</a> = 10,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcace83e8d904bf5aa96ff47321b56ef4d8" class="m-doc">ERROR_GAME_LOST</a> = 11,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcaa15aca463f76f6f19a50753b091cd7e5" class="m-doc">ERROR_CASE_EMPTY</a> = 2,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca65efab6470a0ad6f53db6e427dccdeac" class="m-doc">ERROR_CASE_MACHINE</a> = 21,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcaa385cfef21d5e08446f1c3794e079d32" class="m-doc">ERROR_CASE_SOURCE</a> = 22,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcaea2c3d9303bda67f6790427bd3cb8402" class="m-doc">ERROR_CASE_GATE</a> = 23,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca6115ee8d045c7083d98fc244cf501f9a" class="m-doc">ERROR_CASE_NOT_FOUND</a> = 24,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca3ea60f523df45fcffcde3ff2aa72aee9" class="m-doc">ERROR_CASE_NOT_EMPTY</a> = 25,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca3a9e6ad012c2582ee918dc94bd9a4ae5" class="m-doc">ERROR_CASE_CANT_BE_DESTROYED</a> = 26,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca1edb662c2c480242f4b087b43072c179" class="m-doc">ERROR_CASE_CANT_BE_UPGRADED</a> = 27,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca85d67d34235e3d4853c70db4f616c2f2" class="m-doc">ERROR_NOT_ENOUGH_E</a> = 3,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca7971c053ebabbbf59a2cd10c47a7626e" class="m-doc">ERROR_NOT_ENOUGH_DD</a> = 31,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcab11f74959c091e28b7241750cfa7ec84" class="m-doc">ERROR_NEGATIVE_RESULT</a> = 32,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca0eb579d7460bfd7dfc690379b4f1cb36" class="m-doc">ERROR_INVALID_ACTION_SEQUENCE</a> = 9,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca15974c0e7d9b7aa777a578a3177bf7b7" class="m-doc">ERROR_INVALID_LOCATION_SEQUENCE</a> = 91,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca218114b3831c08daaaf0ae1ced4ad5af" class="m-doc">ERROR_INVALID_STAFF_NUMBER</a> = 92,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcae3836a1c8f9476fa03cd14735b570570" class="m-doc">ERROR_INVALID_MACHINE_NUMBER</a> = 93,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcac2f27cc72d5f937461dd07e86966ff64" class="m-doc">ERROR_INVALID_ORIENTATION_NUMBER</a> = 94,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca7741fcae94a08a49033eab3f233ad09d" class="m-doc">ERROR_INIT_INTERFACE</a> = 10,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcad7171b85777c0b68b917c874136a156e" class="m-doc">ERROR_INIT_NCURSES_INTERFACE</a> = 101,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcafda19c76ea6984a837c378125b3afbc1" class="m-doc">ERROR_INIT_NCURSES_INTERFACE_SIZE</a> = 102,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca0a58382d2c0b613984325f8c571b3a17" class="m-doc">ERROR_NO_NCURSES_COLORS_INTERFACE</a> = 11,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcacf45d6786609895fd1ed09f8f77b6db7" class="m-doc">ERROR_CLOSE_INTERFACE</a> = 12,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dcad53987bdf2dd3f6dc96a11e18e599572" class="m-doc">ERROR_LIST_NULL</a> = 4,
+              <a href="#af1a3e2d8a9c3ae43911e13dfccf564dca448a31c2fee8b9e3345bb6e8ef8b0c31" class="m-doc">ERROR_DICTIONARY_NULL</a> = 41 }</span>
+            </dt>
+            <dd>all return errors messages</dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a2c911c64bc2c9547864df93078a7204e">
+              using <a href="#a2c911c64bc2c9547864df93078a7204e" class="m-doc-self">ErrorCode</a> = enum <a href="error_8h.html#af1a3e2d8a9c3ae43911e13dfccf564dc" class="m-doc">ErrorCode_<wbr />S</a>
+            </dt>
+            <dd>Error type.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a5227e8c37c69588962b21e6c88d74879" class="m-doc">error_getMessage</a>(</span><span class="m-doc-wrap"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> e) -&gt; char*</span>
+            </dt>
+            <dd>Get an error message.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="af1a3e2d8a9c3ae43911e13dfccf564dc"><div>
+            <h3>
+              enum <a href="#af1a3e2d8a9c3ae43911e13dfccf564dc" class="m-doc-self">ErrorCode_S</a>
+            </h3>
+            <p>all return errors messages</p>
+<p><a href="error_8h.html" class="m-doc">error.h</a> &quot;headers/data/error.h&quot;</p><p>Contain all error type returned by functions It allow to communicate directly with interface and to inform the user what is the problem, if there is an error</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a5227e8c37c69588962b21e6c88d74879"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">char* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5227e8c37c69588962b21e6c88d74879" class="m-doc-self">error_getMessage</a>(</span><span class="m-doc-wrap"><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> e)</span></span>
+            </h3>
+            <p>Get an error message.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">e&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>a error code</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a string that describe the error</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>In order to know in detail an error returned by a function we need a function to describe this error</p><aside class="m-note m-default"><h4>See also</h4><p><a href="error_8h.html#a2c911c64bc2c9547864df93078a7204e" class="m-doc">ErrorCode</a> type</p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Prim Environment
+Line. Created with <a href="https://doxygen.nl/" target="_blank">Doxygen</a> 1.9.1.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

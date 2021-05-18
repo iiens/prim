@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="difficulty_8h" kind="file" language="C++">
+    <compoundname>difficulty.h</compoundname>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <includedby refid="map__utils_8h" local="yes">headers/utils/map_utils.h</includedby>
+    <includedby refid="translation_8h" local="yes">headers/utils/translation.h</includedby>
+    <includedby refid="model_2difficulty_8c" local="yes">src/model/difficulty.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="3">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="4">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="11">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="difficulty_8h_1ac9c99ae399e5ba6e2eacfb63f69ef3c1" prot="public" static="no">
+        <name>NUMBER_DIFFICULTY</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of difficulties </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="18" column="9" bodyfile="headers/data/difficulty.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Difficulty_S</name>
+        <enumvalue id="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6a95f48065472a7866854a3c9b9ea8347e" prot="public">
+          <name>DIFFICULTY_EASY</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>EASY level : 10 x 10. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6acd9bd660438188b3fcbed6efc3deb92d" prot="public">
+          <name>DIFFICULTY_MEDIUM</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>MEDIUM level : 20 x 20. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6a0d7385205eaa38cd67abe052bc39e431" prot="public">
+          <name>DIFFICULTY_HARD</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>HARD level : 30 x 30. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all difficulties </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains all difficulties that the play can play. Difficulties change width and height of the map.</para>
+<para>EASY level : 10 x 10 MEDIUM level : 20 x 20 HARD level : 30 x 30 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="33" column="1" bodyfile="headers/data/difficulty.h" bodystart="33" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" prot="public" static="no">
+        <type>enum <ref refid="difficulty_8h_1aa82026f8467e0c147392b00f5233a0b6" kindref="member">Difficulty_S</ref></type>
+        <definition>Difficulty:rename for enum Difficulty</definition>
+        <argsstring></argsstring>
+        <name>Difficulty</name>
+        <briefdescription>
+<para>Difficulty type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="37" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="difficulty_8h_1a9cb5bc6466673007104850f1684baeb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+        <definition>Difficulty difficulty_getLVL</definition>
+        <argsstring>(int id)</argsstring>
+        <name>difficulty_getLVL</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get difficulty according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>difficulty </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="44" column="12" bodyfile="src/model/difficulty.c" bodystart="4" bodyend="15" declfile="headers/data/difficulty.h" declline="44" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="difficulty_8h_1a094edc3baeeec6527d7d77af3e014359" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int difficulty_getNumberOfDifficulties</definition>
+        <argsstring>()</argsstring>
+        <name>difficulty_getNumberOfDifficulties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get number of difficulties <simplesect kind="return"><para>number of difficulties </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="50" column="5" bodyfile="src/model/difficulty.c" bodystart="17" bodyend="19" declfile="headers/data/difficulty.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="difficulty_8h_1a03b297ee896f409b8186cbde863419c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_utils_getSizeByDifficulty</definition>
+        <argsstring>(Difficulty d)</argsstring>
+        <name>map_utils_getSizeByDifficulty</name>
+        <param>
+          <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the map size according to the difficulty </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get this size of the map in order to create the map type</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a valid difficulty chosen by the user </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int : map size </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref> enum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/difficulty.h" line="63" column="5" bodyfile="src/model/difficulty.c" bodystart="21" bodyend="31" declfile="headers/data/difficulty.h" declline="63" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h" kindref="compound">map.h</ref></para>
+</simplesect>
+Contains all the difficulty that the player can play. </para>
+    </detaileddescription>
+    <location file="headers/data/difficulty.h"/>
+  </compounddef>
+</doxygen>

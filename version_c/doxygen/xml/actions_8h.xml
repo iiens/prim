@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="actions_8h" kind="file" language="C++">
+    <compoundname>actions.h</compoundname>
+    <includedby refid="mapping_8h" local="yes">headers/data/mapping.h</includedby>
+    <includedby refid="interface_8h" local="yes">headers/interface.h</includedby>
+    <includedby refid="translation_8h" local="yes">headers/utils/translation.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="4">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="5">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="7">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/actions.h</label>
+        <link refid="actions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Action_S</name>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" prot="public">
+          <name>ACTION_SHOW_MAP</name>
+          <initializer>= 143</initializer>
+          <briefdescription>
+<para>show map </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a29a8012d7de26ab834493a63098e26b6" prot="public">
+          <name>ACTION_SHOW_CASE_RESOURCE</name>
+          <initializer>= 1430</initializer>
+          <briefdescription>
+<para>show resources instead of case content </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a8a30177e60d4d3e4a6331bcbddfa8adb" prot="public">
+          <name>ACTION_SHOW_CASE_GARBAGE</name>
+          <initializer>= 1431</initializer>
+          <briefdescription>
+<para>show garbage instead of case content </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5af9e90e85d0624fd3c5ad8e9b27a53836" prot="public">
+          <name>ACTION_CANCEL_ACTION</name>
+          <initializer>= 144</initializer>
+          <briefdescription>
+<para>cancel action so go back </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3a6e4bf0ba87fe533448728a5bf312eb" prot="public">
+          <name>ACTION_EXIT</name>
+          <initializer>= 145</initializer>
+          <briefdescription>
+<para>exit so leave the program </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a98db311aedbc9b9840983f714af32069" prot="public">
+          <name>ACTION_LIST_ACTIONS</name>
+          <initializer>= 146</initializer>
+          <briefdescription>
+<para>list all actions </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5ae7e458358ff1cd44ed9b4e96c06848a8" prot="public">
+          <name>ACTION_END_TURN</name>
+          <initializer>= 147</initializer>
+          <briefdescription>
+<para>go to next turn </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a04f4e4d525b5aad96b3b9f1876868571" prot="public">
+          <name>ACTION_HIRE_FISE</name>
+          <initializer>= 221</initializer>
+          <briefdescription>
+<para>trigger hire fise </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5ade022643266e243c86fc3342f14b40a5" prot="public">
+          <name>ACTION_HIRE_FISA</name>
+          <initializer>= 222</initializer>
+          <briefdescription>
+<para>trigger hire fisa </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6e5676061baed7440639fbe180b382f9" prot="public">
+          <name>ACTION_CHANGE_FISA_MODE</name>
+          <initializer>= 223</initializer>
+          <briefdescription>
+<para>change fisa production mode </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a006d500ef19364dfb71614d8457d92d2" prot="public">
+          <name>ACTION_LIST_MACHINES</name>
+          <initializer>= 331</initializer>
+          <briefdescription>
+<para>show list of machines </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" prot="public">
+          <name>ACTION_BUY_MACHINE</name>
+          <initializer>= 332</initializer>
+          <briefdescription>
+<para>trigger add machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3fffebaaadf38024a0372cac589fa753" prot="public">
+          <name>ACTION_BUY_STAFF</name>
+          <initializer>= 333</initializer>
+          <briefdescription>
+<para>trigger hire Staff </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a76469902bf9e246574a3e0f89fbfae42" prot="public">
+          <name>ACTION_ASK_STAFF_LIST</name>
+          <initializer>= 334</initializer>
+          <briefdescription>
+<para>in hire Staff, show Staff list </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" prot="public">
+          <name>ACTION_UPGRADE_MACHINE</name>
+          <initializer>= 514</initializer>
+          <briefdescription>
+<para>trigger upgrade machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" prot="public">
+          <name>ACTION_DESTROY_MACHINE</name>
+          <initializer>= 515</initializer>
+          <briefdescription>
+<para>trigger destroy machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="actions_8h" kindref="compound">actions.h</ref> &quot;headers/data/action.h&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/actions.h" line="23" column="1" bodyfile="headers/data/actions.h" bodystart="23" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" prot="public" static="no">
+        <type>enum <ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5" kindref="member">Action_S</ref></type>
+        <definition>Action:rename for enum Action</definition>
+        <argsstring></argsstring>
+        <name>Action</name>
+        <briefdescription>
+<para>Action type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>action that the user can do</para>
+<para>Contains all actions and their code (id). Used when asking the user what he wants to do. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/actions.h" line="52" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="version"><para>0.6 </para>
+</simplesect>
+<simplesect kind="date"><para>10/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="mapping_8h" kindref="compound">mapping.h</ref></para>
+</simplesect>
+Contains all the actions that the player can choose. </para>
+    </detaileddescription>
+    <location file="headers/data/actions.h"/>
+  </compounddef>
+</doxygen>

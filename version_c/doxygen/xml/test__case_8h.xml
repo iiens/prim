@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="test__case_8h" kind="file" language="C++">
+    <compoundname>test_case.h</compoundname>
+    <includes local="yes">CUnit/Basic.h</includes>
+    <includes refid="structure__list__test_8h" local="yes">structure_list_test.h</includes>
+    <includes refid="case_8h" local="yes">../headers/data/case.h</includes>
+    <includedby refid="list__suite_8h" local="yes">tests/list_suite.h</includedby>
+    <includedby refid="test__case_8c" local="yes">tests/test_case.c</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="11">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="2">
+        <label>CUnit/Basic.h</label>
+      </node>
+      <node id="6">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>structure_list_test.h</label>
+        <link refid="structure__list__test_8h"/>
+      </node>
+      <node id="4">
+        <label>../headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="10">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="9">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="1">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="test__case_8h_1ab44b53f57cebd101b57f58a83dcc3ae1" prot="public" static="no">
+        <name>TESTCASE_NUMBERTESTS</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of tests in the suite </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="22" column="9" bodyfile="tests/test_case.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__case_8h_1af14a476324e276e5d1713301141c0238" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testCase_createSuite</definition>
+        <argsstring>(CU_pSuite pSuite)</argsstring>
+        <name>testCase_createSuite</name>
+        <param>
+          <type>CU_pSuite</type>
+          <declname>pSuite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to create the &quot;Test Case&quot; suite with the test set on the Map type and its manipulation functions</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pSuite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>test suite </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="31" column="5" bodyfile="tests/test_case.c" bodystart="26" bodyend="41" declfile="tests/test_case.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1a6cd4b9ef6f42b6375069ddfcc2e348e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testCase_initSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_initSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to initialize the sequence <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="37" column="5" bodyfile="tests/test_case.c" bodystart="43" bodyend="45" declfile="tests/test_case.h" declline="37" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1aced3b13d4be9e924138f6941768b26c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testCase_cleanSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_cleanSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to close the suite <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="43" column="5" bodyfile="tests/test_case.c" bodystart="47" bodyend="49" declfile="tests/test_case.h" declline="43" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1a84779fac36c7c40bbe36262463a8dfa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testCase_create</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that a box is created with the correct values </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="48" column="6" bodyfile="tests/test_case.c" bodystart="51" bodyend="68" declfile="tests/test_case.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1a6f6d79c5eed339904f735cb5da39a3d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testCase_AddDeleteBox</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_AddDeleteBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the addition and deletion of a box. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="53" column="6" bodyfile="tests/test_case.c" bodystart="70" bodyend="100" declfile="tests/test_case.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1aa5c073db89706f69b272d30525ce69da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testCase_AddSource</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_AddSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to test the addition of a source </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="58" column="6" bodyfile="tests/test_case.c" bodystart="102" bodyend="117" declfile="tests/test_case.h" declline="58" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1ab284c3647a54f88f54efd89e5d90803f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testCase_AddGate</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_AddGate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to test the addition of a gate </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="63" column="6" bodyfile="tests/test_case.c" bodystart="119" bodyend="134" declfile="tests/test_case.h" declline="63" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1a820ce7e1b253d4548be0a561cfa8e0da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testCase_AddMachine</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_AddMachine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to test the addition of a machine </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="68" column="6" bodyfile="tests/test_case.c" bodystart="136" bodyend="157" declfile="tests/test_case.h" declline="68" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__case_8h_1a388a6374baf0182278f9419312d4759c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testCase_Empty</definition>
+        <argsstring>()</argsstring>
+        <name>testCase_Empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to test the reset of an empty cell. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_case.h" line="73" column="6" bodyfile="tests/test_case.c" bodystart="159" bodyend="207" declfile="tests/test_case.h" declline="73" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Valentin DREANO </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>17/04/2021</para>
+</simplesect>
+Contains all the suite for <ref refid="case_8c" kindref="compound">Case.c</ref> tests The assumption is made that the setters and getter are functional </para>
+    </detaileddescription>
+    <location file="tests/test_case.h"/>
+  </compounddef>
+</doxygen>
