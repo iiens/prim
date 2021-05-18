@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="test__map_8h" kind="file" language="C++">
+    <compoundname>test_map.h</compoundname>
+    <includes local="yes">CUnit/Basic.h</includes>
+    <includes refid="structure__list__test_8h" local="yes">structure_list_test.h</includes>
+    <includes refid="map_8h" local="yes">../headers/map.h</includes>
+    <includedby refid="list__suite_8h" local="yes">tests/list_suite.h</includedby>
+    <includedby refid="test__map_8c" local="yes">tests/test_map.c</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>CUnit/Basic.h</label>
+      </node>
+      <node id="3">
+        <label>structure_list_test.h</label>
+        <link refid="structure__list__test_8h"/>
+      </node>
+      <node id="7">
+        <label>stdlib.h</label>
+      </node>
+      <node id="10">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="6">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="9">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="4">
+        <label>../headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="8">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="15">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="1">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="test__map_8h_1a2cf6ae3acfc1c390128ed58c244cbd47" prot="public" static="no">
+        <name>TESTMAP_NUMBERTESTS</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of tests in the suite </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="22" column="9" bodyfile="tests/test_map.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__map_8h_1ac4a24127e4db0f6516fc52152f74d17d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testMap_createSuite</definition>
+        <argsstring>(CU_pSuite pSuite)</argsstring>
+        <name>testMap_createSuite</name>
+        <param>
+          <type>CU_pSuite</type>
+          <declname>pSuite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to create the &quot;Test Map&quot; suite with the test set on the Map type and its manipulation functions</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pSuite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>test suite </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="31" column="5" bodyfile="tests/test_map.c" bodystart="20" bodyend="36" declfile="tests/test_map.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1a1d9de079366549814261b20f6f21e4dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testMap_initSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_initSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to initialize the sequence <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="37" column="5" bodyfile="tests/test_map.c" bodystart="38" bodyend="47" declfile="tests/test_map.h" declline="37" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1aaf230ff895e77d72b22a7b7351474007" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int testMap_cleanSuite</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_cleanSuite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to close the suite <simplesect kind="return"><para>0 if it was successful and 1 otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="43" column="5" bodyfile="tests/test_map.c" bodystart="49" bodyend="51" declfile="tests/test_map.h" declline="43" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1a93177d989900697c06339ecd493a5a7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_createMapEasy</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_createMapEasy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that an easy map is created with the right values </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="48" column="6" bodyfile="tests/test_map.c" bodystart="84" bodyend="103" declfile="tests/test_map.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1a7c6422b029d7260afc3536786157898e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_createMapMedium</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_createMapMedium</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that an average map is created with the right values </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="53" column="6" bodyfile="tests/test_map.c" bodystart="105" bodyend="124" declfile="tests/test_map.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1aa6ab7cc6937ae949c0809bb452a7a04f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_createMapHard</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_createMapHard</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test that a difficult map is created with the right value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="58" column="6" bodyfile="tests/test_map.c" bodystart="126" bodyend="145" declfile="tests/test_map.h" declline="58" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1a6277b266fd175e3f8578e512d4ec2cf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_hireFise</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_hireFise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the purchase of a fise </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="63" column="6" bodyfile="tests/test_map.c" bodystart="147" bodyend="169" declfile="tests/test_map.h" declline="63" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1ab22b36963d6bd84156366be40127dda0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_hireFisa</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_hireFisa</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the purchase of a fisa </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="68" column="6" bodyfile="tests/test_map.c" bodystart="171" bodyend="193" declfile="tests/test_map.h" declline="68" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1af7f83f01cf58e6dc5aede769a4b773d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_changeProductionFISA</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_changeProductionFISA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function makes it possible to test the correct change of production of Fisa </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="73" column="6" bodyfile="tests/test_map.c" bodystart="195" bodyend="215" declfile="tests/test_map.h" declline="73" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1af7ffa6e20819f8ca6b0b1d0b0c30c0c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_machineBuy</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_machineBuy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function makes it possible to test the purchase order of any type of machine with the correct positioning. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="78" column="6" bodyfile="tests/test_map.c" bodystart="217" bodyend="266" declfile="tests/test_map.h" declline="78" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1a93ca6c687c318d4b121034f5cbf49c02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_machineUpgrade</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_machineUpgrade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to test the update command of any type of machine </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="83" column="6" bodyfile="tests/test_map.c" bodystart="268" bodyend="325" declfile="tests/test_map.h" declline="83" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1a6b3a67d2786434a97e9b971b6cfdd712" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_machineDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_machineDestroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to test the destruction command of any type of machine. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="88" column="6" bodyfile="tests/test_map.c" bodystart="327" bodyend="383" declfile="tests/test_map.h" declline="88" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="test__map_8h_1ad1955ed68cd1067dbe8ddd843ac20c47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testMap_staffBuy</definition>
+        <argsstring>()</argsstring>
+        <name>testMap_staffBuy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows to test the purchase order of all the different staff </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tests/test_map.h" line="93" column="6" bodyfile="tests/test_map.c" bodystart="385" bodyend="433" declfile="tests/test_map.h" declline="93" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Valentin DREANO </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>17/04/2021</para>
+</simplesect>
+Contains all the suite for Map.c tests The assumption is made that the setters and getter are functional </para>
+    </detaileddescription>
+    <location file="tests/test_map.h"/>
+  </compounddef>
+</doxygen>

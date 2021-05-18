@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="struct_couple___s" kind="union" language="C++" prot="public">
+    <compoundname>Couple_S</compoundname>
+    <includes refid="elements_8h" local="yes">headers/utils/elements.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_couple___s_1a1e37df1bcdda0dcbf83470e6806d88a6" prot="public" static="no" mutable="no">
+        <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+        <definition>Element Couple_S::keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <briefdescription>
+<para>represent the key of the Couple </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="47" column="13" bodyfile="headers/utils/elements.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_couple___s_1a0f9294dfff8a476240d8943d6a6cdf18" prot="public" static="no" mutable="no">
+        <type><ref refid="elements_8h_1a8b9bbfde536d6e2a415388fa10347062" kindref="member">Element</ref></type>
+        <definition>Element Couple_S::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+<para>represent the values of the Couple </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/elements.h" line="48" column="13" bodyfile="headers/utils/elements.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represent a couple composed by it&apos;s key and it&apos;s value. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Element_S</label>
+        <link refid="struct_element___s"/>
+      </node>
+      <node id="1">
+        <label>Couple_S</label>
+        <link refid="struct_couple___s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+keys</edgelabel>
+          <edgelabel>+values</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="headers/utils/elements.h" line="46" column="1" bodyfile="headers/utils/elements.h" bodystart="46" bodyend="49"/>
+    <listofallmembers>
+      <member refid="struct_couple___s_1a1e37df1bcdda0dcbf83470e6806d88a6" prot="public" virt="non-virtual"><scope>Couple_S</scope><name>keys</name></member>
+      <member refid="struct_couple___s_1a0f9294dfff8a476240d8943d6a6cdf18" prot="public" virt="non-virtual"><scope>Couple_S</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

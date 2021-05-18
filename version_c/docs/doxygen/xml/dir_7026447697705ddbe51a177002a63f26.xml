@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_7026447697705ddbe51a177002a63f26" kind="dir">
+    <compoundname>src/view/ncurses/modules</compoundname>
+    <innerfile refid="action_8c">action.c</innerfile>
+    <innerfile refid="view_2ncurses_2modules_2difficulty_8c">difficulty.c</innerfile>
+    <innerfile refid="game_8c">game.c</innerfile>
+    <innerfile refid="location_8c">location.c</innerfile>
+    <innerfile refid="view_2ncurses_2modules_2machine_8c">machine.c</innerfile>
+    <innerfile refid="show_8c">show.c</innerfile>
+    <innerfile refid="view_2ncurses_2modules_2staff_8c">staff.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/view/ncurses/modules/"/>
+  </compounddef>
+</doxygen>

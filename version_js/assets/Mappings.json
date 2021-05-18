@@ -1,0 +1,23 @@
+[
+  {
+    "SHOW_MAP": "m",
+    "SHOW_CASE_RESOURCE": "r",
+    "SHOW_CASE_GARBAGE": "g",
+    "CANCEL_ACTION": "b",
+    "EXIT": "q",
+    "LIST_ACTIONS": "ls",
+    "END_TURN": "n",
+
+    "HIRE_FISE": "he",
+    "HIRE_FISA": "ha",
+    "CHANGE_FISA_MODE": "c",
+
+    "LIST_MACHINES": "lm",
+    "BUY_MACHINE": "bm",
+    "BUY_STAFF": "bs",
+    "ASK_STAFF_LIST": "ls",
+
+    "UPGRADE_MACHINE": "up",
+    "DESTROY_MACHINE": "dm"
+  }
+]

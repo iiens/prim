@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="model_2difficulty_8c" kind="file" language="C++">
+    <compoundname>difficulty.c</compoundname>
+    <includes refid="difficulty_8h" local="yes">../../headers/data/difficulty.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>../../headers/data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="1">
+        <label>src/model/difficulty.c</label>
+        <link refid="model_2difficulty_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="model_2difficulty_8c_1a9cb5bc6466673007104850f1684baeb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+        <definition>Difficulty difficulty_getLVL</definition>
+        <argsstring>(int id)</argsstring>
+        <name>difficulty_getLVL</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get difficulty according to the id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>difficulty </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/difficulty.c" line="4" column="12" bodyfile="src/model/difficulty.c" bodystart="4" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2difficulty_8c_1a094edc3baeeec6527d7d77af3e014359" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int difficulty_getNumberOfDifficulties</definition>
+        <argsstring>()</argsstring>
+        <name>difficulty_getNumberOfDifficulties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get number of difficulties <simplesect kind="return"><para>number of difficulties </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/difficulty.c" line="17" column="5" bodyfile="src/model/difficulty.c" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="model_2difficulty_8c_1a03b297ee896f409b8186cbde863419c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int map_utils_getSizeByDifficulty</definition>
+        <argsstring>(Difficulty d)</argsstring>
+        <name>map_utils_getSizeByDifficulty</name>
+        <param>
+          <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>a function to get the map size according to the difficulty </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get this size of the map in order to create the map type</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a valid difficulty chosen by the user </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int : map size </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref> enum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model/difficulty.c" line="21" column="5" bodyfile="src/model/difficulty.c" bodystart="21" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/model/difficulty.c"/>
+  </compounddef>
+</doxygen>

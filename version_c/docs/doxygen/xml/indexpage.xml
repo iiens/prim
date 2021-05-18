@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>IT Project in C</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_README"/> The subject can be found at in the doc folder and the git at <ulink url="https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/">https://gitlab.pedago.ensiie.fr/groupe-1-projet-info-s2/projet-info-s2-en-c/</ulink>.</para>
+<para>Must be compiled with our Makefile (make build, make run) or using <computeroutput>gcc -Wall -Wextra -std=c99 src/main.c</computeroutput>.</para>
+<sect2 id="index_1autotoc_md1">
+<title>Description</title>
+<para>Check user documentation file.</para>
+</sect2>
+<sect2 id="index_1autotoc_md2">
+<title>Code guidelines</title>
+<para><bold>General</bold><itemizedlist>
+<listitem><para>code and comments should be written in english</para>
+</listitem><listitem><para>we should write includes ordered by alphabetical order, and a comment by include</para>
+</listitem><listitem><para>use relevant names for variables when it&apos;s smart to do so (not index instead of i)</para>
+</listitem><listitem><para>lines should have less that 79 columns</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Syntax</bold><itemizedlist>
+<listitem><para>we will write <computeroutput>if ( ... ) {</computeroutput> (same spaces and { at the end)</para>
+</listitem><listitem><para>same for : for, while, switch statements</para>
+</listitem><listitem><para>functions should be coded like this (excluding declarations and main) <programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>name(<sp/>args<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>code</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}<sp/><sp/></highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>this is how a struct should be declared <programlisting filename=".c"><codeline><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">AName_S<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>anAttribute;<sp/></highlight></codeline>
+<codeline><highlight class="normal">}<sp/>AName;<sp/></highlight><highlight class="comment">//!&lt;<sp/>....</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>you must declare all variables at the start of a bloc</para>
+</listitem><listitem><para>first declare then initialize variables</para>
+</listitem><listitem><para>if a variable is only read, then use const</para>
+</listitem><listitem><para>no hard-coded values, use enum or define</para>
+</listitem><listitem><para>the pointer star (<computeroutput>*</computeroutput>) must be after the type not the name</para>
+</listitem></itemizedlist>
+</para>
+<para>Adapted from<itemizedlist>
+<listitem><para><ulink url="https://suckless.org/">https://suckless.org/</ulink></para>
+</listitem><listitem><para><ulink url="https://man.openbsd.org/style">https://man.openbsd.org/style</ulink></para>
+</listitem><listitem><para><ulink url="http://doc.cat-v.org/bell_labs/pikestyle">http://doc.cat-v.org/bell_labs/pikestyle</ulink></para>
+</listitem><listitem><para><ulink url="https://www.kernel.org/doc/Documentation/process/coding-style.rst">https://www.kernel.org/doc/Documentation/process/coding-style.rst</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md3">
+<title>Team</title>
+<para><itemizedlist>
+<listitem><para>Valentin DREANO</para>
+</listitem><listitem><para>Antoine MAN</para>
+</listitem><listitem><para>Quentin RAMSAMY- -AGEORGES</para>
+</listitem><listitem><para>Ramzy ZEBRIR </para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

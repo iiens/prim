@@ -1,0 +1,642 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="interface__ncurses_8h" kind="file" language="C++">
+    <compoundname>interface_ncurses.h</compoundname>
+    <includes refid="interface_8h" local="yes">../../../../headers/interface.h</includes>
+    <includes local="no">curses.h</includes>
+    <includedby refid="interface_8c" local="yes">src/view/interface.c</includedby>
+    <includedby refid="interface__ncurses_8c" local="yes">src/view/ncurses/interface_ncurses.c</includedby>
+    <includedby refid="interface__ncurses__utils_8c" local="yes">src/view/ncurses/interface_ncurses_utils.c</includedby>
+    <includedby refid="action_8c" local="yes">src/view/ncurses/modules/action.c</includedby>
+    <includedby refid="view_2ncurses_2modules_2difficulty_8c" local="yes">src/view/ncurses/modules/difficulty.c</includedby>
+    <includedby refid="game_8c" local="yes">src/view/ncurses/modules/game.c</includedby>
+    <includedby refid="location_8c" local="yes">src/view/ncurses/modules/location.c</includedby>
+    <includedby refid="view_2ncurses_2modules_2machine_8c" local="yes">src/view/ncurses/modules/machine.c</includedby>
+    <includedby refid="show_8c" local="yes">src/view/ncurses/modules/show.c</includedby>
+    <includedby refid="view_2ncurses_2modules_2staff_8c" local="yes">src/view/ncurses/modules/staff.c</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>../../../../headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="9">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="4">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="7">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>curses.h</label>
+      </node>
+      <node id="14">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="3">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="11">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="17">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="interface__ncurses_8h_1ac283acba0b19ccaf9f9a855c80e5a4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_ncurses_init</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1ad9f2c1ca9a5a45dbb44fdc563226448e" kindref="member">interface_init</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_init </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="21" column="11" bodyfile="src/view/ncurses/interface_ncurses.c" bodystart="22" bodyend="79" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="21" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a50f9763d3710e033790ce38e502e9729" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_ncurses_reload</definition>
+        <argsstring>(const Map *map)</argsstring>
+        <name>interface_ncurses_reload</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1ac0f88a694b00721fb252a1dd792a61bc" kindref="member">interface_reload</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see interface_reload </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>see interface_reload </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="26" column="11" bodyfile="src/view/ncurses/interface_ncurses.c" bodystart="86" bodyend="92" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="26" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a734e8e0b0991b2f6ceb653f0fc1865a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_ncurses_close</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a4ee8e79a42ac0e14f7b571c4dbe45276" kindref="member">interface_close</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_close </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="30" column="11" bodyfile="src/view/ncurses/interface_ncurses.c" bodystart="94" bodyend="101" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="30" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a7303901fe3f0bc6a1b75dabfb916ff43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_ncurses_endGame</definition>
+        <argsstring>(const __attribute__((unused)) Map *map, ErrorCode e)</argsstring>
+        <name>interface_ncurses_endGame</name>
+        <param>
+          <type>const __attribute__((unused)) <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1ac8eb59c03d043401fd7b958f3b933ae7" kindref="member">interface_endGame</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>game map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a code for the victory/defeat </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>see interface_endGame </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; show message</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="36" column="11" bodyfile="src/view/ncurses/interface_ncurses.c" bodystart="103" bodyend="133" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="36" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a5b34f9f1b347ce30c7f96dc815571f98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+        <definition>Difficulty interface_ncurses_chooseDifficulty</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_chooseDifficulty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a1fbf6f85b1bda25103dfe17f57d8fc65" kindref="member">interface_chooseDifficulty</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_chooseDifficulty </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; number of difficulties</para>
+<para>&lt; y of title line</para>
+<para>&lt; y of content line (first line)</para>
+<para>&lt; disabled difficulties since screen is to small</para>
+<para>&lt; size of a difficulty</para>
+<para>&lt; size of a difficulty</para>
+<para>&lt; will contains the size of the biggest word, used for style</para>
+<para>&lt; will contains the difficulties as text that we will show</para>
+<para>&lt; buffer of current item, used for style</para>
+<para>&lt; format of the difficulty</para>
+<para>&lt; current selected difficulty</para>
+<para>&lt; current char read</para>
+<para>&lt; leave branch</para>
+<para>&lt; min height</para>
+<para>&lt; fixed part of the height</para>
+<para>&lt; fixed part of the width</para>
+<para>&lt; get difficulty</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="44" column="12" bodyfile="src/view/ncurses/modules/difficulty.c" bodystart="17" bodyend="177" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="44" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a854bf4d7103ace821ddb34c045e200cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showMap</definition>
+        <argsstring>(const Map *map, bool showResource, bool showGarbage, bool save)</argsstring>
+        <name>interface_ncurses_showMap</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showResource</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showGarbage</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>save</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a98ccfe7867eb92d69e73c1abbc8a08b5" kindref="member">interface_showMap</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see interface_showStaffList </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showResource</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if we show a map of resources </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showGarbage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if we show a map of garbage </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>save</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if we save our choice for showResource/showGarbage </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; height</para>
+<para>&lt; width</para>
+<para>&lt; get case</para>
+<para>&lt; get case type to choose color</para>
+<para>&lt; color</para>
+<para>&lt; orientation</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="52" column="6" bodyfile="src/view/ncurses/modules/show.c" bodystart="12" bodyend="97" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="52" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a0399883063eed48da7bc3202764ab552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showStaffList</definition>
+        <argsstring>(const Map *map)</argsstring>
+        <name>interface_ncurses_showStaffList</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a2b94e06c8e1c55d25b6049fd49df2384" kindref="member">interface_showStaffList</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see interface_showStaffList </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; number of staff</para>
+<para>&lt; number of row per page</para>
+<para>&lt; we are starting from this index</para>
+<para>&lt; character read</para>
+<para>&lt; number of line per staff</para>
+<para>&lt; parsed number</para>
+<para>&lt; stop input and reload view ?</para>
+<para>&lt; stop this menu and go back ?</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="56" column="6" bodyfile="src/view/ncurses/modules/show.c" bodystart="182" bodyend="316" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="56" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a8936d8e19945c105278894b1c176f761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showMachinesList</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_showMachinesList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a7787006d14f81b21f9470999dd146604" kindref="member">interface_showMachinesList</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; we allow 5 number as, result is &quot;n E n DD&quot; (3 are spaces and 3 are letters)</para>
+<para>&lt; cost value</para>
+<para>&lt; cost upgrade value</para>
+<para>&lt; cost destroy value</para>
+<para>&lt; number of line per machine</para>
+<para>&lt; in which column we should add the next part, see below with cost line</para>
+<para>&lt; header of this machine</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="59" column="6" bodyfile="src/view/ncurses/modules/show.c" bodystart="99" bodyend="180" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="59" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a3a2e41930fcdb70c8a51475e950dbb7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_listActions</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_listActions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>interface_list_actions </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; store mapping</para>
+<para>&lt; action name</para>
+<para>&lt; action mapping</para>
+<para>&lt; number of columns</para>
+<para>&lt; starting point</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="62" column="6" bodyfile="src/view/ncurses/modules/show.c" bodystart="318" bodyend="366" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="62" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a30c7b16f01ba4b1c6ca164c31fd7c162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref></type>
+        <definition>Action interface_ncurses_chooseAction</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_chooseAction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a2fdf95b0a854cc304a382ca545c60009" kindref="member">interface_chooseAction</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_chooseAction </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="66" column="8" bodyfile="src/view/ncurses/modules/action.c" bodystart="27" bodyend="32" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="66" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a391eff9541e29a6b4a808e449035d0b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interface_8h_1a9c9a9af6a12d289aac69907f5dfa1c0d" kindref="member">MachineSpec</ref></type>
+        <definition>MachineSpec interface_ncurses_askAddMachine</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_askAddMachine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a6680a7ff04653155d2214027f2fec93f" kindref="member">interface_askAddMachine</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_askAddMachine </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="70" column="13" bodyfile="src/view/ncurses/modules/machine.c" bodystart="20" bodyend="47" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="70" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1ac1e532c3dfc15157bce23ba6f403f92a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="utils_8h_1acfafb36b3d421d90e2aa61c8076d117d" kindref="member">Vector2D</ref> *</type>
+        <definition>Vector2D* interface_ncurses_askMachineLocation</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_askMachineLocation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" kindref="member">interface_askMachineLocation</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_askMachineLocation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="74" column="10" bodyfile="src/view/ncurses/modules/location.c" bodystart="85" bodyend="90" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="74" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a379b581b7d9bcb414a44d10afb709507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int interface_ncurses_askBuyStaff</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_askBuyStaff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1acfd169c3c396bf9f56218f7dd49d3ffe" kindref="member">interface_askBuyStaff</ref> </para>
+</simplesect>
+<simplesect kind="return"><para>see interface_askBuyStaff </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="78" column="5" bodyfile="src/view/ncurses/modules/staff.c" bodystart="12" bodyend="25" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="78" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1a636453026f1649e194ed0dac699fb574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_showError</definition>
+        <argsstring>(ErrorCode e)</argsstring>
+        <name>interface_ncurses_showError</name>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="interface_8h_1a968f7f6a7683a9126d3279d6f34f10f0" kindref="member">interface_showError</ref> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>see interface_showError </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; error message</para>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="82" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="46" bodyend="52" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="82" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__ncurses_8h_1aff08dbb8f7735c42c82218a1a08c926c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_ncurses_hideError</definition>
+        <argsstring>()</argsstring>
+        <name>interface_ncurses_hideError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>interface_hideError </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/view/ncurses/nc_headers/interface_ncurses.h" line="85" column="6" bodyfile="src/view/ncurses/interface_ncurses_utils.c" bodystart="61" bodyend="73" declfile="src/view/ncurses/nc_headers/interface_ncurses.h" declline="85" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+</simplesect>
+This header contains any functions related to the interactions between the player and the game, using ncurses.</para>
+<para><simplesect kind="author"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="interface_8h" kindref="compound">interface.h</ref></para>
+</simplesect>
+This header contains any constants used in the interface. </para>
+    </detaileddescription>
+    <location file="src/view/ncurses/nc_headers/interface_ncurses.h"/>
+  </compounddef>
+</doxygen>

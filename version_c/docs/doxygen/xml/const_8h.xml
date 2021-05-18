@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="const_8h" kind="file" language="C++">
+    <compoundname>const.h</compoundname>
+    <includedby refid="machine_8h" local="yes">headers/data/machine.h</includedby>
+    <includedby refid="map_8c" local="yes">src/model/map.c</includedby>
+    <invincdepgraph>
+      <node id="9">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="5">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="26">
+        <label>src/model/machine.c</label>
+        <link refid="model_2machine_8c"/>
+      </node>
+      <node id="18">
+        <label>headers/data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="15">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>src/utils/structures.c</label>
+        <link refid="structures_8c"/>
+      </node>
+      <node id="4">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>src/model/staff.c</label>
+        <link refid="model_2staff_8c"/>
+      </node>
+      <node id="19">
+        <label>src/model/machine_info.c</label>
+        <link refid="machine__info_8c"/>
+      </node>
+      <node id="27">
+        <label>tests/test_machine.h</label>
+        <link refid="test__machine_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/data/machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>headers/data/effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>tests/test_structure.h</label>
+        <link refid="test__structure_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>headers/utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/utils/const.h</label>
+        <link refid="const_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/model/case.c</label>
+        <link refid="case_8c"/>
+      </node>
+      <node id="25">
+        <label>src/model/effect.c</label>
+        <link refid="effect_8c"/>
+      </node>
+      <node id="10">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+      <node id="20">
+        <label>headers/data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="const_8h_1a93e5faefb3958a5f168b9daffabec8f7" prot="public" static="no">
+        <name>NUMBER_DD_DEPART</name>
+        <initializer>100</initializer>
+        <briefdescription>
+<para>number of DD at the start of the game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="14" column="13" bodyfile="headers/utils/const.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1ab5de5e21b086dff46167d1abf200214a" prot="public" static="no">
+        <name>NUMBER_E_DEPART</name>
+        <initializer>100</initializer>
+        <briefdescription>
+<para>number of E at the start of the game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="15" column="13" bodyfile="headers/utils/const.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1ae41c1affb2c709e162200c30f41e1921" prot="public" static="no">
+        <name>PRODUCTION_FISA_E</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>number of E produced by FISA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="16" column="13" bodyfile="headers/utils/const.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a7ec5c41991b5a6cbf05158932e3af9cd" prot="public" static="no">
+        <name>PRODUCTION_FISA_DD</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>number of DD produced by FISA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="17" column="13" bodyfile="headers/utils/const.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a3c630f9116266dafcc0958fba21bc5c1" prot="public" static="no">
+        <name>PRODUCTION_FISE_E</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>number of E produced by FISE </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="18" column="13" bodyfile="headers/utils/const.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a9799a66e7a5da3d1c05049b0c0e45f40" prot="public" static="no">
+        <name>PRODUCTION_FISE_DD</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>number of DD produced by FISE </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="19" column="13" bodyfile="headers/utils/const.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1ae77900bff818da5267b2622942f8caa1" prot="public" static="no">
+        <name>NUMBER_FISE</name>
+        <initializer>5</initializer>
+        <briefdescription>
+<para>number of FISE at the start of the game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="20" column="13" bodyfile="headers/utils/const.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a738a17289a0feb8c7a649fd0c0ad0ed1" prot="public" static="no">
+        <name>NUMBER_FISA</name>
+        <initializer>5</initializer>
+        <briefdescription>
+<para>number of FISA at the start of the game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="21" column="13" bodyfile="headers/utils/const.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a62190bd1ce860546c2440f8ccb4e10da" prot="public" static="no">
+        <name>COST_FISE_E</name>
+        <initializer>50</initializer>
+        <briefdescription>
+<para>cost in E of FISE </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="22" column="13" bodyfile="headers/utils/const.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a7e7d4e78af2cf5bf6176f2f26c86ce42" prot="public" static="no">
+        <name>COST_FISE_DD</name>
+        <initializer>20</initializer>
+        <briefdescription>
+<para>cost in DD of FISE </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="23" column="13" bodyfile="headers/utils/const.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1abcda8821dd5390d2357317cc78f96800" prot="public" static="no">
+        <name>COST_FISA_E</name>
+        <initializer>50</initializer>
+        <briefdescription>
+<para>cost in E of FISA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="24" column="13" bodyfile="headers/utils/const.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a6780e344621928ef0232ba2f41741d42" prot="public" static="no">
+        <name>COST_FISA_DD</name>
+        <initializer>20</initializer>
+        <briefdescription>
+<para>cost in DD of FISA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="25" column="13" bodyfile="headers/utils/const.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a6f527441889eb6d21dbdd582a563b6ef" prot="public" static="no">
+        <name>NB_TURN_FISA</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>number of turns before FISA Production </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="26" column="13" bodyfile="headers/utils/const.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1aff56f73a3baf0de223636e7d9cfd0a21" prot="public" static="no">
+        <name>NB_TURN_PRODUCTION_SOURCE</name>
+        <initializer>10</initializer>
+        <briefdescription>
+<para>number of turns before Source Production </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="27" column="13" bodyfile="headers/utils/const.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1aca8baa90b45356a18f555c209d523510" prot="public" static="no">
+        <name>NB_RESOURCE_PRODUCT_BY_SOURCE</name>
+        <initializer>3</initializer>
+        <briefdescription>
+<para>number of resource produced by Source </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="28" column="13" bodyfile="headers/utils/const.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a1485108874df64665ef85a5ba78271ff" prot="public" static="no">
+        <name>NUMBER_WASTE_TO_PRODUCT_RESOURCE</name>
+        <initializer>10</initializer>
+        <briefdescription>
+<para>number of waste to product a resource in a recycling center </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="29" column="13" bodyfile="headers/utils/const.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a49038c88927687b4f503dab603777acc" prot="public" static="no">
+        <name>NUMBER_RESOURCE_WIN</name>
+        <initializer>10000</initializer>
+        <briefdescription>
+<para>number of resource to win </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="30" column="13" bodyfile="headers/utils/const.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="const_8h_1a19611b6343921feaa8bc90981878d64c" prot="public" static="no">
+        <name>MACHINE_DEFAULT_LVL</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>level of the machine by default </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/utils/const.h" line="31" column="13" bodyfile="headers/utils/const.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ramzy ZEBRIR </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>04/04/2021</para>
+</simplesect>
+Contains all consts </para>
+    </detaileddescription>
+    <location file="headers/utils/const.h"/>
+  </compounddef>
+</doxygen>

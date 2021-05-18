@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- todo: security -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prim - Environnement Line</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+<header id="titlebar"></header>
+
+<div id="main" class="h-100 row mx-0 mt-0 px-0 pb-0 game-background">
+    <div id="popup-div"></div>
+
+    <!--
+
+     SIDE MENU BAR
+
+     Can manage units, and staffs
+     Can see the content of a case.
+
+     -->
+    <div class="text-white h-100 position-fixed side-nav">
+        <p class="text-white h3 mt-4"><span id="tr-units">Units</span></p>
+        <div class=" justify-content-center">
+            <div class="d-flex mx-0">
+                <img src="../../assets/img/game/fise.png" class="align-self-center"
+                alt="" id="buy-fise-event">
+                <ul class="pl-3 pt-3 list-unstyled ml-3">
+                    <li class="ps-2">FISE</li>
+                    <li class="ps-2"><span id="fise-cost-e">50</span>E <span id="fise-cost-dd">25</span>DD</li>
+                    <li class="ps-2"><span id="tr-count1">Count</span>: <span id="fise">10</span></li>
+                </ul>
+            </div>
+            <div class="">
+                <div class="d-flex mx-0">
+                    <img src="../../assets/img/game/fisa.png" class="align-self-center"
+                    alt="" id="buy-fisa-event">
+                    <ul class="pl-3 pt-3 list-unstyled ml-3">
+                        <li class="ps-2">FISA</li>
+                        <li class="ps-2"><span id="fisa-cost-e">50</span>E <span id="fisa-cost-dd">25</span>DD</li>
+                        <li class="ps-2"><span id="tr-count2">Count</span>: <span id="fisa">10</span></li>
+                    </ul>
+                </div>
+                <div class="align-self-center d-flex justify-content-center e-dd-change">
+                    <span id="mode" class="d-none"></span>
+                    <div class="position-relative pointer" id="e-dd-change-e">
+                        <img src="../../assets/img/game/mode_selected.png" class="align-self-center"
+                        alt="" id="e-dd-change-e-img">
+                        <button class="position-absolute text-dark bg-transparent" id="e-dd-change-e-label">E</button>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="position-relative pointer" id="e-dd-change-dd">
+                        <img src="../../assets/img/game/mode_not_selected.png" class="align-self-center"
+                             alt="" id="e-dd-change-dd-img">
+                        <button class="position-absolute text-muted bg-transparent" id="e-dd-change-dd-label">DD</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button class="bg-transparent border border-my-yellow
+                    rounded p-2 text-my-yellow" id="manage-staff"
+                >Manage Staff</button>
+            </div>
+            <div class="my-3 selected-case-area">
+                <div class="mt-3" id="game-stats">
+                    <div class="" id="tr-game-case-selected">
+                        No case selected
+                    </div>
+                    <!-- todo: -->
+                    <div class="d-none" id="source-selected">
+                        <img src="../../assets/img/map/Resource.png" alt="">
+                        <span class="align-self-center" id="tr-source">SOURCE</span> <br>
+                        <span id="tr-source-desc">Generates ressources, 1 per 10 turns by default. You can
+                        collect then using a COLLECTOR.</span>
+                    </div>
+                    <div class="d-none" id="gate-selected">
+                        <img src="../../assets/img/map/Gate.png" alt="">
+                        <span class="align-self-center" id="tr-gate">GATE</span> <br>
+                        <span id="tr-gate-desc">Bring ressources here in order to close it. Generates
+    '                        garbage that decrease DD.</span>
+                        <div>
+                            <span id="gate-selected-garbage">0</span>
+                            <img src="../../assets/img/game/garbage.png" width="24" height="24" alt="G">
+                        </div>
+                    </div>
+                    <!--
+                    CASE_EMPTY : buy machine
+                    Select machine and orientation
+
+                    todo: legend not in html
+                    -->
+                    <div class="d-none" id="empty-selected">
+                        <p class="text-white"><span id="tr-machine">Machine</span></p>
+                        <img src="../../assets/img/legend/MS_COLLECTOR_BOT.png"
+                             class="bg-info selected-machine-type machine-list" alt=""
+                             data-id="1">
+                        <img src="../../assets/img/legend/MS_CONVEYOR_BELT_RIGHT.png"
+                             class="machine-list" alt="" data-id="2">
+                        <img src="../../assets/img/legend/MS_CROSS_BELT_TOP_RIGHT.png"
+                             class="machine-list" alt="" data-id="3">
+                        <img src="../../assets/img/legend/MS_RECYCLING_CENTER_BOT.png"
+                             class="machine-list" alt="" data-id="4">
+                        <img src="../../assets/img/legend/MS_JUNKYARD.png"
+                             class="machine-list" alt="" data-id="5">
+                        <br/>
+                        <p class="text-white"><span id="tr-rotation">Orientation</span></p>
+                        <div id="orientations1" class="orientations">
+                            <img src="../../assets/img/machines/Collecteur/MS_COLLECTOR_BOT.png"
+                                 class="border-my-yellow orientation-selected" alt="" data-rotation="0">
+                            <img src="../../assets/img/machines/Collecteur/MS_COLLECTOR_LEFT.png" alt=""
+                                 data-rotation="1">
+                            <img src="../../assets/img/machines/Collecteur/MS_COLLECTOR_TOP.png"  alt=""
+                                 data-rotation="2">
+                            <img src="../../assets/img/machines/Collecteur/MS_COLLECTOR_RIGHT.png"  alt=""
+                                 data-rotation="3">
+                        </div>
+                        <div id="orientations2" class="orientations d-none">
+                            <img src="../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_BOT.png"
+                                 class="border-my-yellow" alt="" data-rotation="0">
+                            <img src="../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_LEFT.png"
+                                 alt="" data-rotation="1">
+                            <img src="../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_TOP.png"
+                                 alt="" data-rotation="2">
+                            <img src="../../assets/img/machines/Conveyor_belt/MS_CONVEYOR_BELT_RIGHT.png"
+                                 alt="" data-rotation="3">
+                        </div>
+                        <div id="orientations3" class="orientations d-none">
+                            <img src="../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_LEFT.png"
+                                 class="border-my-yellow" alt="" data-rotation="0">
+                            <img src="../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_LEFT.png"
+                                 alt="" data-rotation="1">
+                            <img src="../../assets/img/machines/Cross/MS_CROSS_BELT_TOP_RIGHT.png"
+                                 alt="" data-rotation="2">
+                            <img src="../../assets/img/machines/Cross/MS_CROSS_BELT_BOT_RIGHT.png"
+                                 alt="" data-rotation="3">
+                        </div>
+                        <div id="orientations4" class="orientations d-none">
+                            <img src="../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_BOT.png"
+                                 class="border-my-yellow" alt="" data-rotation="0">
+                            <img src="../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_LEFT.png"
+                                 alt="" data-rotation="1">
+                            <img src="../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_TOP.png"
+                                 alt="" data-rotation="2">
+                            <img src="../../assets/img/machines/Recycling_center/MS_RECYCLING_CENTER_RIGHT.png"
+                                 alt="" data-rotation="3">
+                        </div>
+                        <div id="orientations5" class="orientations d-none">
+                            <span id="tr-rotation-none"
+                            class="orientation-selected" data-id="0">Can't rotate.</span>
+                        </div>
+                        <div class="text-end">
+                            <button class="bg-transparent border border-my-yellow
+                                                   rounded p-2 mt-2 text-my-yellow"
+                            id="buy-button" data-x="0" data-y="0">
+                                <span id="tr-buy">Buy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!--
+                    case.hasMachine() : true
+                    -->
+                    <div class="d-none" id="machine-selected">
+                        <div class="d-inline-flex col-12">
+                            <img src="../../assets/img/legend/MS_COLLECTOR_BOT.png" alt=""
+                            id="machine-image-selected">
+                            <span class="align-self-center ms-2" id="machine-name-selected">COLLECTOR</span>
+                            <div class="ms-auto me-3 px-2 bg-warning pointer" id="destroy-selected"
+                            data-x="0" data-y="0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                     fill="currentColor" class="bi bi-trash text-dark" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="machine-content-selected">
+                            <span id="tr-case-content">Content</span>:
+                            <span id="machine-r-div-selected">
+                                <span id="machine-r-selected">0</span> <img src="../../assets/img/game/portal.png" width="24" height="24" alt="">
+                            </span>
+                            <span id="machine-g-div-selected">
+                                <span id="machine-g-selected">0</span> <img src="../../assets/img/game/garbage.png" width="24" height="24" alt="G">
+                            </span>
+                        </div>
+                        <div class="p-3" id="upgrade-machine-div">
+                            <div class="d-inline-flex col-12">
+                                <span id="tr-machine-level">LEVEL</span>&nbsp; <span id="machine-lvl-selected">0</span>
+                                <div class="ms-auto pointer">
+                                    <span class="bg-warning text-dark text-end" style="font-size: 20px;"
+                                          id="update-selected" data-x="0" data-y="0">+</span>
+                                </div>
+                            </div>
+                            <span id="machine-info-selected">
+                                +1 collected / level <br>
+                                Cost 350 E 400 DD
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+
+     TOP MENU BAR
+
+     We set a background then we add
+     END TURN | TURN | QUIT
+     n E | SCORE and GARBAGE | n DD
+
+     -->
+    <div class="col-9">
+        <div class="text-center position-absolute game-top-nav">
+            <img src="../../assets/img/game/TopMenu.png" class="" alt="">
+
+            <span class="text-my-blue position-absolute" id="game-top-nav-exit">
+                <!--
+                THE UGLIER THING, WE PUT SOME BLANK DIV ON TOP FOR EVENTS :(
+                SINCE WE ARE USING LEFT AND RIGHT FOR AUTO-SIZING :(
+                SORRY BOOTSTRAP, SORRY CSS, SORRY ALL :(
+                -->
+                <button id="tr-game-exit" class="bg-transparent text-my-blue pointer"
+                style="margin-right: -6rem;">EXIT</button>
+                <span style="position: relative;top:0;right: 0;left: -40px;z-index: 10;"
+                    id="exit-button-event" class="pointer">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </span>
+            <span class="text-my-yellow position-absolute" id="game-top-nav-turn">
+                <span id="tr-game-turn" >Turn</span> <span id="turn"></span>
+            </span>
+            <span class="text-my-blue position-absolute" id="game-top-nav-end-turn">
+                <button id="tr-game-end-turn" class="bg-transparent text-my-blue" >END TURN</button>
+            </span>
+
+            <span class="text-my-yellow position-absolute small" id="game-top-nav-e" >
+                <span id="e">100</span> E
+            </span>
+            <span class="text-my-yellow position-absolute" id="game-top-nav-score">
+                <span id="score">0</span> / <span id="max-score">10000</span>
+                <img src="../../assets/img/game/portal.png" width="24" height="24" alt="">
+            </span>
+            <span class="text-my-red position-absolute" id="game-top-nav-garbage">
+                <span id="garbage">0</span>
+                <img src="../../assets/img/game/garbage.png" width="24" height="24" alt="G">
+            </span>
+            <span class="text-my-yellow position-absolute small" id="game-top-nav-dd" >
+                <span id="dd"></span> DD</span>
+        </div>
+
+        <!--
+        Game grid
+        We be filled with the map.
+        -->
+        <div id="game-grid" class="justify-content-center text-center">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

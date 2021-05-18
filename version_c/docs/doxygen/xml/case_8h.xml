@@ -1,0 +1,803 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="case_8h" kind="file" language="C++">
+    <compoundname>case.h</compoundname>
+    <includes refid="machine_8h" local="yes">machine.h</includes>
+    <includes refid="error_8h" local="yes">error.h</includes>
+    <includes refid="box_8h" local="yes">box.h</includes>
+    <includedby refid="map_8h" local="yes">headers/map.h</includedby>
+    <includedby refid="translation_8h" local="yes">headers/utils/translation.h</includedby>
+    <includedby refid="case_8c" local="yes">src/model/case.c</includedby>
+    <includedby refid="test__case_8h" local="yes">tests/test_case.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="6">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="8">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="2">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>headers/utils/map_utils.h</label>
+        <link refid="map__utils_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="3">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>tests/list_suite.h</label>
+        <link refid="list__suite_8h"/>
+      </node>
+      <node id="14">
+        <label>tests/test_case.c</label>
+        <link refid="test__case_8c"/>
+      </node>
+      <node id="13">
+        <label>tests/test_case.h</label>
+        <link refid="test__case_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>headers/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tests/test_map.h</label>
+        <link refid="test__map_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>headers/data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>headers/utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/model/case.c</label>
+        <link refid="case_8c"/>
+      </node>
+      <node id="8">
+        <label>tests/test_endTurn.h</label>
+        <link refid="test__end_turn_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="case_8h_1a843306d07280ade14d7b25d66d1390ec" prot="public" static="no" strong="no">
+        <type></type>
+        <name>CaseType_S</name>
+        <enumvalue id="case_8h_1a843306d07280ade14d7b25d66d1390eca4694cddeb9473fcfe8c9a1518628c58e" prot="public">
+          <name>CASE_VIDE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>a case that contain nothing </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="case_8h_1a843306d07280ade14d7b25d66d1390ecafb220aff7a238045f5ca1ebb9708813b" prot="public">
+          <name>CASE_GATE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>a case that contain the transdimensional gate </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="case_8h_1a843306d07280ade14d7b25d66d1390eca727cf8016a3b5b6f4cd23953b501d3fd" prot="public">
+          <name>CASE_SOURCE</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>a case that contain resources </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="case_8h_1a843306d07280ade14d7b25d66d1390eca70cab3e86eb06f927d6d61fd204f92dd" prot="public">
+          <name>CASE_MACHINE</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+<para>a case that contain a machine </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>all case type </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains all type that a case can contain. Each case can contain 4 elements types : a part of the production line a resource case an empty case a transdimensional gate</para>
+<para>3 resources is produced from a resource case every 10 turns</para>
+<para>In order to know if a case contain a box (that contain resources and garbage), we use the first bit of an integer. The case contain a box -&gt; odd number The case does not contain a box -&gt; even number </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="43" column="1" bodyfile="headers/data/case.h" bodystart="43" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" prot="public" static="no">
+        <type>enum <ref refid="case_8h_1a843306d07280ade14d7b25d66d1390ec" kindref="member">CaseType_S</ref></type>
+        <definition>CaseType</definition>
+        <argsstring></argsstring>
+        <name>CaseType</name>
+        <briefdescription>
+<para>Case type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="48" column="16"/>
+      </memberdef>
+      <memberdef kind="typedef" id="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" prot="public" static="no">
+        <type>struct <ref refid="struct_case___s" kindref="compound">Case_S</ref></type>
+        <definition>Case</definition>
+        <argsstring></argsstring>
+        <name>Case</name>
+        <briefdescription>
+<para>documentation above </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="1" column="0" bodyfile="headers/data/case.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="case_8h_1a3ebd1245adcc50c785ff4ee28209b111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int case_getX</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getX</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get the case abscissa <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the case abscissa </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="64" column="5" bodyfile="src/model/case.c" bodystart="30" bodyend="30" declfile="headers/data/case.h" declline="64" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a7bf278371a86bec8d7227b2e5d2bb8b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int case_getY</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getY</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to get the case ordinate <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the case ordinate </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="71" column="5" bodyfile="src/model/case.c" bodystart="35" bodyend="35" declfile="headers/data/case.h" declline="71" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1adff1ffd6fad1d380b3dc0c936a582474" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="case_8h_1a4fd76f4d0fbadc08ec99451b92478a7e" kindref="member">CaseType</ref></type>
+        <definition>CaseType case_getType</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getType</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get the type case of the case <itemizedlist>
+<listitem>
+<para>CASE_VIDE = 0, a case that contain nothing </para>
+</listitem>
+<listitem>
+<para>CASE_GATE = 1, a case that contain the transdimensional gate </para>
+</listitem>
+<listitem>
+<para>CASE_SOURCE = 2, a case that contain resources </para>
+</listitem>
+<listitem>
+<para>CASE_MACHINE = 3, a case that contain a machine </para>
+</listitem>
+</itemizedlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the type case if case exist, if not -1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="84" column="10" bodyfile="src/model/case.c" bodystart="40" bodyend="42" declfile="headers/data/case.h" declline="84" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a109102cc11345b4041224ef73ddbf6af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+        <definition>Machine* case_getMachine</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getMachine</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get a located machine on the map <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a located machine on the map if exist </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="91" column="9" bodyfile="src/model/case.c" bodystart="47" bodyend="49" declfile="headers/data/case.h" declline="91" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1ae705f8c1b656d8a05571374375015c8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+        <definition>Box* case_getBox</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getBox</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get a located box on the map <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a located box on the map if exist </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="98" column="5" bodyfile="src/model/case.c" bodystart="54" bodyend="56" declfile="headers/data/case.h" declline="98" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1aff0b8574cae438a1f64b3996f8f5bced" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int case_getNumberResourcesByCase</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getNumberResourcesByCase</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get number of resources from a case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>resources from a case if exist </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="105" column="5" bodyfile="src/model/case.c" bodystart="61" bodyend="84" declfile="headers/data/case.h" declline="105" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a6719d8b38e74c4d224a604239dcd5996" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int case_getNumberGarbageByCase</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_getNumberGarbageByCase</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function get number of garbage from a case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>garbage from a case if exist </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="112" column="5" bodyfile="src/model/case.c" bodystart="89" bodyend="112" declfile="headers/data/case.h" declline="112" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a02e1bd809dcdd826ca64fd81347a0e05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+        <definition>Case* case_create</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>case_create</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to create a new case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case abscissa </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case ordinate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new case </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="120" column="6" bodyfile="src/model/case.c" bodystart="185" bodyend="192" declfile="headers/data/case.h" declline="120" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a098b0543abe86ee43a22237da45f762f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void case_addMachine</definition>
+        <argsstring>(Case *c, Machine *mach)</argsstring>
+        <name>case_addMachine</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> *</type>
+          <declname>mach</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to add a machine on an empty case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mach</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>machine </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="127" column="6" bodyfile="src/model/case.c" bodystart="117" bodyend="122" declfile="headers/data/case.h" declline="127" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1af4547baf18fde300dbe54672987499d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void case_addGate</definition>
+        <argsstring>(Case *c)</argsstring>
+        <name>case_addGate</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to add a gate on an empty case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="133" column="6" bodyfile="src/model/case.c" bodystart="127" bodyend="131" declfile="headers/data/case.h" declline="133" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1aaa47aea6d931873dbd1957d4490cbfc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void case_addSource</definition>
+        <argsstring>(Case *c)</argsstring>
+        <name>case_addSource</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to add a source on an empty case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="139" column="6" bodyfile="src/model/case.c" bodystart="136" bodyend="140" declfile="headers/data/case.h" declline="139" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a1f0cdb8404ecd2ac1f3997216710a246" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void case_addBox</definition>
+        <argsstring>(Case *c, Box *box)</argsstring>
+        <name>case_addBox</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="box_8h_1a61ea4554dd95aa11cf38bafb86bb977f" kindref="member">Box</ref> *</type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to add a box on an empty case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="146" column="6" bodyfile="src/model/case.c" bodystart="145" bodyend="150" declfile="headers/data/case.h" declline="146" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a507096f06bf3e413f6b0b440a4aff0dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode case_deleteBox</definition>
+        <argsstring>(Case *c)</argsstring>
+        <name>case_deleteBox</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to remove the box on a located case <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an error code to know what happen </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="153" column="11" bodyfile="src/model/case.c" bodystart="155" bodyend="163" declfile="headers/data/case.h" declline="153" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1af5c9504009524a0c02f9cdc2737b906c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void case_setEmpty</definition>
+        <argsstring>(Case *c)</argsstring>
+        <name>case_setEmpty</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to remove everything on the case if there is a box or a machine <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="160" column="6" bodyfile="src/model/case.c" bodystart="168" bodyend="180" declfile="headers/data/case.h" declline="160" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a19f862d764f2a9a1218412ee9d294384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool case_isEmpty</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_isEmpty</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if there is something on the case (box, machine) To know if we are allowed to create something on <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if there is nothing on, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="168" column="6" bodyfile="src/model/case.c" bodystart="197" bodyend="199" declfile="headers/data/case.h" declline="168" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a6c227f089015d7a3562a092fc2c1c398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool case_hasBox</definition>
+        <argsstring>(const Case *c)</argsstring>
+        <name>case_hasBox</name>
+        <param>
+          <type>const <ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to know if there is a box on the case In order to know it, we have to analyze the first bit of the type case. If the number is odd, there is a box If the number is even, there is nothing <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if there is a box, if not false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="178" column="6" bodyfile="src/model/case.c" bodystart="204" bodyend="206" declfile="headers/data/case.h" declline="178" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="case_8h_1a5fb47cbafca144700ca34aa27800464c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void case_destroy</definition>
+        <argsstring>(Case *c)</argsstring>
+        <name>case_destroy</name>
+        <param>
+          <type><ref refid="case_8h_1ab9aab17a5e54a8bae6915bc24db13a17" kindref="member">Case</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function to free allocated resources in memory in order to stock the case. A case can contain a box or a machine. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>case </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/data/case.h" line="186" column="6" bodyfile="src/model/case.c" bodystart="212" bodyend="215" declfile="headers/data/case.h" declline="186" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine Man </para>
+</simplesect>
+<simplesect kind="version"><para>0.1 </para>
+</simplesect>
+<simplesect kind="date"><para>11/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h" kindref="compound">map.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="machine_8h" kindref="compound">machine.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="error_8h" kindref="compound">error.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="box_8h" kindref="compound">box.h</ref></para>
+</simplesect>
+Contains all the types that a case can contain and all interactions possible with it </para>
+    </detaileddescription>
+    <location file="headers/data/case.h"/>
+  </compounddef>
+</doxygen>

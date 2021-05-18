@@ -1,0 +1,761 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="interface_8h" kind="file" language="C++">
+    <compoundname>interface.h</compoundname>
+    <includes refid="actions_8h" local="yes">data/actions.h</includes>
+    <includes refid="difficulty_8h" local="yes">data/difficulty.h</includes>
+    <includes refid="mapping_8h" local="yes">data/mapping.h</includes>
+    <includes refid="error_8h" local="yes">data/error.h</includes>
+    <includes refid="map_8h" local="yes">map.h</includes>
+    <includes refid="utils_8h" local="yes">utils/utils.h</includes>
+    <includes refid="translation_8h" local="yes">utils/translation.h</includes>
+    <includedby refid="main_8h" local="yes">src/main.h</includedby>
+    <includedby refid="interface_8c" local="yes">src/view/interface.c</includedby>
+    <includedby refid="location_8c" local="yes">src/view/ncurses/modules/location.c</includedby>
+    <includedby refid="view_2ncurses_2modules_2machine_8c" local="yes">src/view/ncurses/modules/machine.c</includedby>
+    <includedby refid="view_2ncurses_2modules_2staff_8c" local="yes">src/view/ncurses/modules/staff.c</includedby>
+    <includedby refid="interface__ncurses_8h" local="yes">src/view/ncurses/nc_headers/interface_ncurses.h</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>box.h</label>
+        <link refid="box_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>elements.h</label>
+        <link refid="elements_8h"/>
+      </node>
+      <node id="8">
+        <label>data/machine_info.h</label>
+        <link refid="machine__info_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>data/error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="3">
+        <label>data/difficulty.h</label>
+        <link refid="difficulty_8h"/>
+      </node>
+      <node id="6">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../../headers/utils/utils.h</label>
+        <link refid="utils_8h"/>
+      </node>
+      <node id="2">
+        <label>data/actions.h</label>
+        <link refid="actions_8h"/>
+      </node>
+      <node id="10">
+        <label>machine.h</label>
+        <link refid="machine_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>effect.h</label>
+        <link refid="effect_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>facade.h</label>
+        <link refid="facade_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../utils/structures.h</label>
+        <link refid="structures_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>data/case.h</label>
+        <link refid="case_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>utils/translation.h</label>
+        <link refid="translation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>data/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../utils/const.h</label>
+        <link refid="const_8h"/>
+      </node>
+      <node id="16">
+        <label>data/staff.h</label>
+        <link refid="staff_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/main.h</label>
+        <link refid="main_8h_source"/>
+      </node>
+      <node id="1">
+        <label>headers/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/view/ncurses/nc_headers/interface_ncurses.h</label>
+        <link refid="interface__ncurses_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/view/ncurses/interface_ncurses.c</label>
+        <link refid="interface__ncurses_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_machine_spec___s" prot="public">MachineSpec_S</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="interface_8h_1a9c9a9af6a12d289aac69907f5dfa1c0d" prot="public" static="no">
+        <type>struct <ref refid="struct_machine_spec___s" kindref="compound">MachineSpec_S</ref></type>
+        <definition>MachineSpec</definition>
+        <argsstring></argsstring>
+        <name>MachineSpec</name>
+        <briefdescription>
+<para>machine that the user requested </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="48" column="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="interface_8h_1ad0e6b6213a172f1d71e8738bb156e7ea" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool back</definition>
+        <argsstring></argsstring>
+        <name>back</name>
+        <briefdescription>
+<para>Allow to cancel the current action, check in main after each cancelable action. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allow to cancel the current action, check in main after each cancelable action.</para>
+<para>Allow to cancel the current action </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="35" column="13" bodyfile="src/main.h" bodystart="8" bodyend="-1" declfile="headers/interface.h" declline="35" declcolumn="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="interface_8h_1ad9f2c1ca9a5a45dbb44fdc563226448e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Supposed to init interface.</para>
+<para>Can be used to show a message with the name of the game, the version, ... and/or display difficulties.</para>
+<para><simplesect kind="return"><para>NO_ERROR ok or an error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="62" column="11" bodyfile="src/view/interface.c" bodystart="22" bodyend="28" declfile="headers/interface.h" declline="62" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1ac0f88a694b00721fb252a1dd792a61bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_reload</definition>
+        <argsstring>(const Map *map)</argsstring>
+        <name>interface_reload</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reload interface. We should use this to update the map, the E,DD,... values that are shown.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>game map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>NO_ERROR ok or an error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="72" column="11" bodyfile="src/view/interface.c" bodystart="31" bodyend="37" declfile="headers/interface.h" declline="72" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a4ee8e79a42ac0e14f7b571c4dbe45276" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_close</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_close</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispose of interface and clean everything. <simplesect kind="return"><para>NO_ERROR ok or an error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="78" column="11" bodyfile="src/view/interface.c" bodystart="40" bodyend="46" declfile="headers/interface.h" declline="78" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1ac8eb59c03d043401fd7b958f3b933ae7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+        <definition>ErrorCode interface_endGame</definition>
+        <argsstring>(const Map *map, ErrorCode e)</argsstring>
+        <name>interface_endGame</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show win/loose screen <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the map just in case </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>did we </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="86" column="11" bodyfile="src/view/interface.c" bodystart="48" bodyend="54" declfile="headers/interface.h" declline="86" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a1fbf6f85b1bda25103dfe17f57d8fc65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref></type>
+        <definition>Difficulty interface_chooseDifficulty</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_chooseDifficulty</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Ask for the user difficulty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To process the size of the map. Should be a valid difficulty, if not ask again.</para>
+<para><simplesect kind="return"><para>a valid difficulty chosen by the user. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref> enum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="102" column="12" bodyfile="src/view/interface.c" bodystart="106" bodyend="112" declfile="headers/interface.h" declline="102" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a98ccfe7867eb92d69e73c1abbc8a08b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_showMap</definition>
+        <argsstring>(const Map *map, bool showResource, bool showGarbage)</argsstring>
+        <name>interface_showMap</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showResource</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showGarbage</declname>
+        </param>
+        <briefdescription>
+<para>Show the map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We are waiting for a grid, like <preformatted>
+     0     1
+  +----++----+
+0 | M  |     |
+  +----++----+
+</preformatted> Where 0,1 are the column indexes and 0 is the row index. M is the first letter for machine, but well no need to write a lot, just enough so that the player can guess whether he would want to check this case or not.</para>
+<para>At the end, we want to find basic information such as <itemizedlist>
+<listitem>
+<para>E value </para>
+</listitem>
+<listitem>
+<para>DD value </para>
+</listitem>
+<listitem>
+<para>which turn is it </para>
+</listitem>
+<listitem>
+<para>number of FISE </para>
+</listitem>
+<listitem>
+<para>number of FISA </para>
+</listitem>
+<listitem>
+<para>the production mode </para>
+</listitem>
+<listitem>
+<para>the number of hired staffs (or their names followed by the count if different of one) </para>
+</listitem>
+</itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showResource</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if we show a map of resources </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showGarbage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if we show a map of garbage </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="134" column="6" bodyfile="src/view/interface.c" bodystart="60" bodyend="66" declfile="headers/interface.h" declline="134" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a2b94e06c8e1c55d25b6049fd49df2384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_showStaffList</definition>
+        <argsstring>(const Map *map)</argsstring>
+        <name>interface_showStaffList</name>
+        <param>
+          <type>const <ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should take a map and print the list of the staff. Please do take note that this method use a global variable containing all data about the staff.</para>
+<para>This method should be a catalog of available staffs. You must add right after a staff name the count of this staff that the user have already bought.</para>
+<para><preformatted>
+--&gt; ({n°}) Name E:{cost} DD:{cost} Desc:&quot;perks&quot;
+...
+</preformatted></para>
+<para><simplesect kind="pre"><para>staff list must be set </para>
+</simplesect>
+<simplesect kind="pre"><para>map must contains the list of staff that the player bought </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>used to fetch staff bought </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="155" column="6" bodyfile="src/view/interface.c" bodystart="68" bodyend="74" declfile="headers/interface.h" declline="155" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a7787006d14f81b21f9470999dd146604" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_showMachinesList</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_showMachinesList</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show machine list. Should use global variable <ref refid="machine__info_8c_1a138aa1fe7b34ae22fafde583debd6339" kindref="member">machine_list</ref> in <ref refid="machine_8h" kindref="compound">machine.h</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="161" column="6" bodyfile="src/view/interface.c" bodystart="76" bodyend="82" declfile="headers/interface.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a3fe4849bd84943b21b788f6e653800cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_listActions</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_listActions</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show actions list. Should use global variable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="167" column="6" bodyfile="src/view/interface.c" bodystart="84" bodyend="90" declfile="headers/interface.h" declline="167" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a2fdf95b0a854cc304a382ca545c60009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref></type>
+        <definition>Action interface_chooseAction</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_chooseAction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Ask for the user action. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask for the user action Should be a valid action, if not ask again.</para>
+<para>Actions returned should be implemented by</para>
+<para><itemizedlist>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a94ec2ff554946a37edfdf4b830fd45b0" kindref="member">ACTION_SHOW_MAP</ref>: <ref refid="interface_8h_1a98ccfe7867eb92d69e73c1abbc8a08b5" kindref="member">interface_showMap</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5af9e90e85d0624fd3c5ad8e9b27a53836" kindref="member">ACTION_CANCEL_ACTION</ref>: no function, can&apos;t be used here ! (only when an action got chosen) </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3a6e4bf0ba87fe533448728a5bf312eb" kindref="member">ACTION_EXIT</ref> : caller should ends the program </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a98db311aedbc9b9840983f714af32069" kindref="member">ACTION_LIST_ACTIONS</ref> : call <ref refid="interface_8h_1a3fe4849bd84943b21b788f6e653800cd" kindref="member">interface_listActions</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5ae7e458358ff1cd44ed9b4e96c06848a8" kindref="member">ACTION_END_TURN</ref> : next turn, call of <ref refid="map_8h_1ac5afbade09d76883b34af177d1fab779" kindref="member">map_endTurn</ref></para>
+<para></para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a04f4e4d525b5aad96b3b9f1876868571" kindref="member">ACTION_HIRE_FISE</ref> : hire fise, call of <ref refid="map_8h_1abe0ed98eac0f7ea8a1b5f0dc5d84b7e6" kindref="member">map_hireFISE</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5ade022643266e243c86fc3342f14b40a5" kindref="member">ACTION_HIRE_FISA</ref> : hire fisa, call of <ref refid="map_8h_1acc0640b51eee5fec16c1204fe3412ae1" kindref="member">map_hireFISA</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6e5676061baed7440639fbe180b382f9" kindref="member">ACTION_CHANGE_FISA_MODE</ref> : change fisa production mode, call of <ref refid="map_8h_1aee3a56ca6c2550698425dd612744a62b" kindref="member">map_changeProductionFISA</ref></para>
+<para></para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a006d500ef19364dfb71614d8457d92d2" kindref="member">ACTION_LIST_MACHINES</ref> : should call <ref refid="interface_8h_1a7787006d14f81b21f9470999dd146604" kindref="member">interface_showMachinesList</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" kindref="member">ACTION_BUY_MACHINE</ref> : should ask <ref refid="interface_8h_1a6680a7ff04653155d2214027f2fec93f" kindref="member">interface_askAddMachine</ref> and <ref refid="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" kindref="member">interface_askMachineLocation</ref> then call <ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">map_addMachine( MachineStuff type, int x, int y, Map* m )</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3fffebaaadf38024a0372cac589fa753" kindref="member">ACTION_BUY_STAFF</ref> : should ask <ref refid="interface_8h_1acfd169c3c396bf9f56218f7dd49d3ffe" kindref="member">interface_askBuyStaff</ref> then <ref refid="map_8h_1a3d4a6310f7751060d96595fb279d8a15" kindref="member">map_buyStaff</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a76469902bf9e246574a3e0f89fbfae42" kindref="member">ACTION_ASK_STAFF_LIST</ref> : should call <ref refid="interface_8h_1a2b94e06c8e1c55d25b6049fd49df2384" kindref="member">interface_showStaffList</ref></para>
+<para></para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" kindref="member">ACTION_UPGRADE_MACHINE</ref> : <ref refid="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" kindref="member">interface_askMachineLocation</ref> then <ref refid="map_8h_1ab8a693d3743e8c207fa5fdcbbada46cb" kindref="member">map_upgradeMachine</ref> </para>
+</listitem>
+<listitem>
+<para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" kindref="member">ACTION_DESTROY_MACHINE</ref> : <ref refid="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" kindref="member">interface_askMachineLocation</ref> then <ref refid="map_8h_1adb43592cf0c517b7eafaabd2038b891c" kindref="member">map_destroyMachine</ref> </para>
+</listitem>
+</itemizedlist>
+</para>
+<para><simplesect kind="return"><para>a valid action chosen by the user. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h_1a487795f4cc0d6bee46d5a8b10b9bb8c2" kindref="member">Action</ref> enum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="201" column="8" bodyfile="src/view/interface.c" bodystart="97" bodyend="103" declfile="headers/interface.h" declline="201" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a6680a7ff04653155d2214027f2fec93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interface_8h_1a9c9a9af6a12d289aac69907f5dfa1c0d" kindref="member">MachineSpec</ref></type>
+        <definition>MachineSpec interface_askAddMachine</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_askAddMachine</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>ask user machine specific details </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>this method should be called after (or before) asking the user where the machine should be put</para>
+</simplesect>
+If the user wants to go back, then he can using ACTION_CANCEL_ACTION action.</para>
+<para>We must fill each value inside our machine, for that check <ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> type.</para>
+<para><simplesect kind="return"><para>the machine that the user wanted to add.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a7f7b1dfac32a78fab025be56b35170f7" kindref="member">ACTION_BUY_MACHINE</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="219" column="13" bodyfile="src/view/interface.c" bodystart="114" bodyend="121" declfile="headers/interface.h" declline="219" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1ae46f5deb1b12d59c8cf857c579fd56fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="utils_8h_1acfafb36b3d421d90e2aa61c8076d117d" kindref="member">Vector2D</ref> *</type>
+        <definition>Vector2D* interface_askMachineLocation</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_askMachineLocation</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Ask for machine location. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask for machine location, this function should be used when the user triggered upgrade/delete machine action</para>
+<para>The programmer won&apos;t have to check whether this location is a valid machine location, that would have to be done by the one calling it.</para>
+<para>If the user wants to go back, then he can using ACTION_CANCEL_ACTION action.</para>
+<para><simplesect kind="return"><para>a two dimensions vector that should contains a positive x and a positive y.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a6fa481d437623c1fb38372363c856f13" kindref="member">ACTION_UPGRADE_MACHINE</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a080b107d604406d9ee4927c920440c3a" kindref="member">ACTION_DESTROY_MACHINE</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="239" column="10" bodyfile="src/view/interface.c" bodystart="123" bodyend="130" declfile="headers/interface.h" declline="239" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1acfd169c3c396bf9f56218f7dd49d3ffe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int interface_askBuyStaff</definition>
+        <argsstring>(void)</argsstring>
+        <name>interface_askBuyStaff</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Ask which Staff the user wants to buy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The user input an id (that he could find using list staff action) and we returns the staff in the global staff array that match the given id.</para>
+<para>If the user wants to go back, then he can using ACTION_CANCEL_ACTION action.</para>
+<para><simplesect kind="return"><para>a valid Staff that the user chosen. Or null if he asked to cancel.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a3fffebaaadf38024a0372cac589fa753" kindref="member">ACTION_BUY_STAFF</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h_1a1726bbb56957eb66ac63953bcf47d9a5a76469902bf9e246574a3e0f89fbfae42" kindref="member">ACTION_ASK_STAFF_LIST</ref> (action enum) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="255" column="5" bodyfile="src/view/interface.c" bodystart="132" bodyend="139" declfile="headers/interface.h" declline="255" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a968f7f6a7683a9126d3279d6f34f10f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void interface_showError</definition>
+        <argsstring>(ErrorCode e)</argsstring>
+        <name>interface_showError</name>
+        <param>
+          <type><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Show an error <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an error code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="error_8h_1a2c911c64bc2c9547864df93078a7204e" kindref="member">ErrorCode</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/interface.h" line="262" column="6" bodyfile="src/view/interface.c" bodystart="145" bodyend="151" declfile="headers/interface.h" declline="262" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Quentin Ra </para>
+</simplesect>
+<simplesect kind="version"><para>0.7 </para>
+</simplesect>
+<simplesect kind="date"><para>20/03/2021 </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="machine_8h_1a3c324c2a0b5b70584ad80889dc4983f7" kindref="member">Machine</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="difficulty_8h_1a46d54d8731098c9d3c1dc9fe8c429af3" kindref="member">Difficulty</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="map_8h_1afdfce14f0d12266a9956f9fe5e4fe1fd" kindref="member">Map</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="actions_8h" kindref="compound">data/actions.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="mapping_8h" kindref="compound">data/mapping.h</ref></para>
+</simplesect>
+This header contains any functions related to the interactions between the player and the game. <itemizedlist>
+<listitem>
+<para>print map </para>
+</listitem>
+<listitem>
+<para>ask for level (see Difficulty)  </para>
+</listitem>
+<listitem>
+<para>ask for an action </para>
+</listitem>
+<listitem>
+<para>ask for machine information for creation (see Machine) </para>
+</listitem>
+<listitem>
+<para>ask for machine information for update/delete </para>
+</listitem>
+<listitem>
+<para>ask for Staff information </para>
+</listitem>
+</itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="headers/interface.h"/>
+  </compounddef>
+</doxygen>
