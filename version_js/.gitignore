@@ -2,6 +2,7 @@ node_modules
 __old/*
 package.json
 dist/*
+logs/*
 package-lock.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/clion+all
