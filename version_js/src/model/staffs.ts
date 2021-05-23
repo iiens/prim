@@ -16,7 +16,7 @@ import {
     StaffBuyEvent,
     TurnEvent
 } from "../utils/events";
-import {Box, Cardinal, Machine, MachineStuff} from "./machine";
+import {Box, Cardinal, Machine, MachineInfo, MachineStuff} from "./machine";
 import {Case} from "./map";
 import {randomNumber} from "../utils/utilities";
 import {Game} from "../game";
@@ -48,8 +48,12 @@ export class Staff {
      */
     public effect: (event:GameEvent, count: number) => GameEvent; //!< staff effect
 
+    public readonly levelMax: number; //!< max level
+
     constructor(id: number, name: string, desc_en : string,desc_fr: string,
-                costE: number, costDD: number, effect: (event:GameEvent, count: number) => GameEvent) {
+                costE: number, costDD: number, effect: (event:GameEvent, count: number) => GameEvent,
+                levelMax: number = 100) {
+        this.levelMax = levelMax;
 
         let logger = Logger.Instance;
         logger.debug("New Staff");
@@ -255,159 +259,235 @@ export class StaffUtils {
         return event;
     }
 
+    /**
+     * Simulate max level
+     * @param s machine stuff
+     * @param mE price E
+     * @param mDD price DD
+     * @param minE minE
+     * @param minDD min DD
+     * @param type 1 for update, 2 for destroy or 0
+     * @private
+     */
+    private static simulateLevelMax(s: MachineStuff, mE : number, mDD : number, minE : number, minDD : number,
+                                    type: number){
+        let level = 1;
+        let stuff : MachineInfo = <MachineInfo>Game.config.getMachineStuff(s);
+        let MsE = 0, MsDD = 0;
+        // cost default
+        if (type == 0){ MsE = stuff.costE; MsDD = stuff.costDD; }
+        if (type == 1){ MsE = stuff.costUpgradeE; MsDD = stuff.costUpgradeDD; }
+        if (type == 2){ MsE = stuff.costDestroyE; MsDD = stuff.costDestroyDD; }
+        // simulate
+        while (MsE - mE > minE && MsDD - mDD > minDD) {
+            level++;
+            MsE -= mE;
+            MsDD -= mDD;
+        }
+        return level;
+    }
+
     /*
     * all staffs
     */
     private static createBannour() : Staff {
+        let minE = 10;
+        let minDD = 1;
+        let mE = 10;
+        let mDD = 1;
         return new Staff(1, "Fetia Bannour", "The cost of constructing collectors decreases by" +
             " 10EE and 1DD (min 10E and 1DD).","Le coût de construction des collecteurs diminue de "+
             " 10EE et 1DD (min 10E et 1DD).", 100, 30,
             function (event: GameEvent, count: number) : GameEvent {
                     return StaffUtils.applyMachinePriceEvent(
-                        event, count, MachineStuff.MS_COLLECTOR, EventType.BUY_MACHINE,
-                        10,1,10,1
+                        event, count, MachineStuff.MS_COLLECTOR, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                      );
-                })
+                },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 0)
+            )
     }
 
     private static createGoilard() : Staff {
+        let minE = 3;
+        let minDD = 1;
+        let mE = 3;
+        let mDD = 1;
         return new Staff(2, "Kevin Goilard", "The cost of constructing conveyor belt decreases by 3E" +
             " and 1DD (min 3EE and 1DD).", "Le coût de construction du tapis roulant diminue de 3E" +
             " et 1DD (min 3EE et 1DD).",100,  30,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_CONVEYOR_BELT, EventType.BUY_MACHINE,
-                    3,1,3,1
+                    event, count, MachineStuff.MS_CONVEYOR_BELT, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0)
+            )
     }
 
     private static createJeannas() : Staff {
+        let minE = 8;
+        let minDD = 1;
+        let mE = 8;
+        let mDD = 1;
         return new Staff(3, "Vincent Jeannas", "The cost of constructing cross decreases by 8E and 1DD (min 8EE " +
             "and 1DD).","Le coût de construction d'une croix diminue de 8E et 1DD (min 8EE" +
             " et 1DD).", 100, 30,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_CROSS_BELT, EventType.BUY_MACHINE,
-                    8,1,8,1
+                    event, count, MachineStuff.MS_CROSS_BELT, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0)
+            )
     }
 
     private static createLaurent() : Staff {
+        let minE = 25;
+        let minDD = 2;
+        let mE = 25;
+        let mDD = 2;
         return new Staff(4, "Thomas Laurent", "The cost of constructing recycling center decreases by 25E and " +
             "2DD (min 25E and 2DD).","Le coût de construction du centre de recyclage diminue de 25E et" +
             " 2DD (min 25E et 2DD).",100,  30,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.BUY_MACHINE,
-                    25,2,25,2
+                    event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createMerabet() : Staff {
+        let minE = 5;
+        let minDD = 5;
+        let mE = 5;
+        let mDD = 5;
         return new Staff(5, "Massinissa Merabet",  "The cost of constructing junkyard decreases by 5E and 5DD" +
             " (min 5E and 5DD).","Le coût de construction de la déchetterie diminue de 5E et 5DD" +
             " (min 5E et 5DD).", 100,  30,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_JUNKYARD, EventType.BUY_MACHINE,
-                    5,5,5,5
+                    event, count, MachineStuff.MS_JUNKYARD, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createNouleho() : Staff {
+        let minE = 25;
+        let minDD = 5;
+        let mE = 25;
+        let mDD = 5;
         return new Staff(6, "Stefi Nouleho", "The cost of upgrading collectors decreases by" +
             " 25E and 5DD (min 25E and 5DD).", "Le coût d'amélioration des collecteurs diminue de " +
             "25E et 5DD (min 25E et 5DD).", 200,  100,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_COLLECTOR, EventType.UPGRADE_MACHINE,
-                    25,5,25,5
+                    event, count, MachineStuff.MS_COLLECTOR, EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createY() : Staff {
+        let minE = 75;
+        let minDD = 5;
+        let mE = 75;
+        let mDD = 5;
         return new Staff(7, "Vitera Y", "The cost of upgrading recycling center " +
             "decreases by 75E and 5DD (min 75E and 5DD).","Le coût d'amélioration'du centre de recyclage" +
             " diminue de 75E et 5DD (min 75E et 5DD).", 200,  100,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.UPGRADE_MACHINE,
-                    75,5,75,5
+                    event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createBourard() : Staff {
+        let minE = 10;
+        let minDD = 30;
+        let mE = 10;
+        let mDD = 30;
         return new Staff(8, "Laurence Bourard", "The cost of upgrading junkyard decreases " +
             "by 10E and 30DD (min 20E and 30DD).", "Le coût d'améliration de la déchetterie' diminue "+
             " par 10E et 30DD (min 20E et 30DD).",200,  100,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_JUNKYARD, EventType.UPGRADE_MACHINE,
-                    10,30,10,30
+                    event, count, MachineStuff.MS_JUNKYARD, EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createBrunel() : Staff {
+        let minE = 3;
+        let minDD = 10;
+        let mE = 3;
+        let mDD = 10;
         return new Staff(9, "Nicolas Brunel", "The cost of destroying collectors " +
             "decreases by 3E and 10DD (min 3E and 10DD).","Le coût de la destruction des collecteurs" +
             " diminue de 3E et 10DD (min 3E et 10DD).", 100,  200,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_COLLECTOR, EventType.DESTROY_MACHINE,
-                    3,10,3,10
+                    event, count, MachineStuff.MS_COLLECTOR, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createCharantonis() : Staff {
+        let minE = 3;
+        let minDD = 10;
+        let mE = 3;
+        let mDD = 10;
         return new Staff(10, "Anastase Charantonis", "The cost of destroying conveyor belt decreases" +
             " by 3E and 10DD (min 3E and 10DD).", "Le coût de destruction du tapis roulant diminue " +
             " par 3E et 10DD (min 3E et 10DD).", 100,  200,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_CONVEYOR_BELT, EventType.DESTROY_MACHINE,
-                    3,10,3,10
+                    event, count, MachineStuff.MS_CONVEYOR_BELT, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createDubois() : Staff {
+        let minE = 3;
+        let minDD = 10;
+        let mE = 3;
+        let mDD = 10;
         return new Staff(11, "Catherine Dubois", "The cost of destroying cross decreases" +
             " by 3E and 10DD (min 3E and 10DD).", "Le coût de destruction des croix diminue " +
             " par 3E et 10DD (min 3E et 10DD).", 100,  200,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_CROSS_BELT, EventType.DESTROY_MACHINE,
-                    3,10,3,10
+                    event, count, MachineStuff.MS_CROSS_BELT, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createDumbrava() : Staff {
+        let minE = 5;
+        let minDD = 25;
+        let mE = 5;
+        let mDD = 25;
         return new Staff(12, "Stefania Dumbrava", "The cost of destroying recycling center decreases" +
             " by 5E and 25DD (min 5E and 25DD).","Le coût de destruction du centre de recyclage diminue " +
             " par 5E et 25DD (min 5E et 25DD).", 100,  200,
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
-                    event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.DESTROY_MACHINE,
-                    5,25,5,25
+                    event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
             })
     }
 
     private static createFaye() : Staff {
+        let minE = 5;
+        let minDD = 10;
+        let mE = 5;
+        let mDD = 10;
         return new Staff(13, "Alain Faye", "The cost of destroying junkyard decreases by 5E" +
             " and 10DD (min 5E and 10DD).","Le coût de destruction des déchetteries diminue de 5E et" +
             " 10DD (min 5E et 10DD).", 100,  200,
             function (event: GameEvent, count: number) : GameEvent {
-                return event;
+                return StaffUtils.applyMachinePriceEvent(
+                    event, count, MachineStuff.MS_JUNKYARD, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
+                );
             })
     }
 
@@ -466,7 +546,7 @@ export class StaffUtils {
                         }
                     }
                     return event;
-            })
+            }, 1)
     }
 
     private static createMouilleron() : Staff {
@@ -481,21 +561,21 @@ export class StaffUtils {
                     }
                 }
                 return event;
-            })
+            }, 100)
     }
 
     private static createSzafranski() : Staff {
         return new Staff(16, "Marie Szafranski", "When a resource is send at the gate it count is doubled" +
-            " but the number of garbage is the same. Effect not cumulable.",
+            " but the number of garbage is the same.",
             "A chaque fois qu’une ressource est envoyée à la porte, elle compte double. Le " +
-            "nombre de déchet produit est toujours de 1.",
+            "nombre de déchet produit est toujours le même.",
             1000, 400,function (event: GameEvent, count: number) : GameEvent {
                 if (count !== 0 && event.type === EventType.CALCULATE_SCORE){
                     let scoreEvent : ScoreEvent = event.data;
                     scoreEvent.modifierScore = 2; // multiplier is now two
                 }
                 return event;
-            })
+            }, 1)
     }
 
     private static createThomas() : Staff {
@@ -520,7 +600,7 @@ export class StaffUtils {
                     }
                 }
                 return event;
-            })
+            }, 10)
     }
 
     private static createLejeune() : Staff {

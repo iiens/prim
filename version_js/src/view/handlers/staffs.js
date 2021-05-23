@@ -17,6 +17,7 @@ let staffs = document.getElementById("staff-list");
 for (const entry of game.map.staffList.entries()) {
     let staff = entry[0];
     let count = entry[1];
+    let can = staff.levelMax - count > 0;
     let div = document.createElement("div");
     div.classList.add("mt-3");
     div.innerHTML = `
@@ -30,7 +31,8 @@ for (const entry of game.map.staffList.entries()) {
                     ${staff.desc}
                 </div>
                 <div class="mt-3">
-                    Niveau max : <span class="text-my-yellow">???</span>.
+                    Niveau max : <span class="text-my-yellow"
+                    id="max${staff.id}">${staff.levelMax}</span>.
                 </div>
                 <div>
                     Cout d'amélioration : <span class="text-my-yellow">${staff.costE} E</span>
@@ -48,7 +50,7 @@ for (const entry of game.map.staffList.entries()) {
                         <span class="bg-white text-dark fz22 pe-3 ps-2 py-1 game-level-button">LEVEL 
                         <span id="level${staff.id}">${count}</span>
                         </span>
-                        <span class="bg-warning text-dark fz22 py-1 px-2 buy-staff-button pointer"
+                        <span class="${ can ? 'bg-warning' : 'bg-secondary' } text-dark fz22 py-1 px-2 buy-staff-button pointer"
                         data-id="${staff.id}">+</span>
                     </div>
                 </div>
@@ -63,10 +65,25 @@ document.querySelectorAll('.buy-staff-button').forEach(
         // buy staff on click
         b.onclick = () => {
             let id = Number(b.getAttribute('data-id'))
-            let remaining = Number(game.mappings.getMapping(game.actions.BUY_STAFF).code(id));
+            let levelMax = Number(document.getElementById('max'+id).innerText);
+            // buy
+            let bought = Number(game.mappings.getMapping(game.actions.BUY_STAFF).code(id));
             let levelIDDIV = document.getElementById('level'+id)
-            // 1 is because we buy one staff so remaining becomes 0 if bought
-            levelIDDIV.innerText = (Number(levelIDDIV.innerText) + 1 - remaining)+"";
+
+            // set new level
+            let level = Number(levelIDDIV.innerText) + bought;
+            levelIDDIV.innerText = level+"";
+
+            console.log(level)
+            console.log(levelMax)
+
+            // check max
+            if (level === levelMax) {
+                // else disable
+                b.classList.remove('bg-warning');
+                b.classList.add('bg-secondary');
+                b.onclick = null;
+            }
         };
     }
 )
