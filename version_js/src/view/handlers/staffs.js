@@ -27,13 +27,9 @@ for (const entry of game.map.staffList.entries()) {
             </div>
             <div class="content-background p-3">
                 <div>
-<!--                    Le coût de construction des collecteurs est réduit de-->
-<!--                    <span class="text-my-yellow">11 E</span>-->
-<!--                    et <span class="text-my-yellow">25 DD</span>-->
-<!--                    par niveau.-->
                     ${staff.desc}
                 </div>
-                <div>
+                <div class="mt-3">
                     Niveau max : <span class="text-my-yellow">???</span>.
                 </div>
                 <div>
@@ -41,9 +37,13 @@ for (const entry of game.map.staffList.entries()) {
                     <span class="text-my-yellow">${staff.costDD} DD</span>
                 </div>
                 <div>
+                <!--                    Le coût de construction des collecteurs est réduit de-->
+<!--                    <span class="text-my-yellow">11 E</span>-->
+<!--                    et <span class="text-my-yellow">25 DD</span>-->
+<!--                    par niveau.-->
                     Réduction actuelle de <span class="text-my-yellow"> ??? E et ??? DD</span>
                 </div>
-                <div class="text-end">
+                <div class="text-end mt-3">
                     <div>
                         <span class="bg-white text-dark fz22 pe-3 ps-2 py-1 game-level-button">LEVEL 
                         <span id="level${staff.id}">${count}</span>
