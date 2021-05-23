@@ -4,33 +4,41 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-const {TrKeys,Translation,Language} = require("../../utils/translation");
+const { TrKeys, Translation } = require("../../utils/translation");
 let score = 0;
 
 if (game.map.getPlayerScore > game.config.constants.NUMBER_RESOURCE_WIN){
+    // parameters
+    let s = game.map.getPlayerScore, g = game.map.numberPollution;
+    let t = game.map.getNumberTurn;
+    let dd = game.map.getNumberDD;
+    let ns = 0;
+    for (const staff of game.map.staffList.entries()){ ns += staff[1];}
+    let fe = game.map.getNumberFISE, fa = game.map.getNumberFISA;
+
     // he win, then we will calculate the score
-    score = game.map.getPlayerScore - game.map.numberPollution;
-    if (score > 0){ // he didn't know create as many garbage as resources
-        // adding some points if not a lot of turns
-        score += score * (1 / Math.log(game.map.getNumberTurn))
-        // adding some points if a lot of DD
-        score += Math.sqrt(game.map.getNumberDD)
-        // how much staff bough ?
-        let count = 0;
-        for (const entry of game.map.staffList.entries()) {
-            // we should also "check" if the staff is 14 15 16? 21 23 24
-            // as these staffs provide as of now two much help
-            count += entry[1];
-        }
-        // here we add a little gift if not a lot of staffs
-        score += score * (1 / Math.log(count))
+    score = s - g;
+    if (score > 0) { // he didn't know create as many garbage as resources
+        score += s > 10000 * 2 ? Math.sqrt(s) : s;
+        console.log(score)
+        // malus for turns
+        score += score / Math.log(t);
+        console.log(score)
+        // bonus for dd
+        score += score / Math.sqrt( Math.round(dd / t));
+        console.log(score)
+        // malus for number of staffs
+        score += score / Math.log( ns );
+        console.log(score)
+        // malus for number of garbages
+        if( g > 1 ) score -= score / Math.log2(g ** 2)
     }
-    // a school must have students, one can't save the world but not his/her school :(
-    let students = game.map.numberFISE + game.map.numberFISA;
-    let studentsBase = game.config.constants.NUMBER_FISE + game.config.constants.NUMBER_FISA;
-    if (students < studentsBase){
-        score /= 2;
-    }
+    // apply malus is school is empty
+    let base = game.config.constants.NUMBER_FISE + game.config.constants.NUMBER_FISA;
+    if(fe + fa < base) score = score / 2
+    console.log(score)
+    // round
+    score = Math.round(score);
 }
 
 // score
