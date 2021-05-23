@@ -50,20 +50,22 @@ export class Staff {
 
     public readonly levelMax: number; //!< max level
 
+    public readonly icon: string; //!< staff icon
+
     constructor(id: number, name: string, desc_en : string,desc_fr: string,
                 costE: number, costDD: number, effect: (event:GameEvent, count: number) => GameEvent,
-                levelMax: number = 100) {
-        this.levelMax = levelMax;
-
+                levelMax: number = 100, icon: string) {
         let logger = Logger.Instance;
         logger.debug("New Staff");
         this.id = id;
         this.name = name;
+        this.levelMax = levelMax;
         this.desc_en = desc_en;
         this.desc_fr = desc_fr;
         this.costE = costE;
         this.costDD = costDD;
         this.effect = effect;
+        this.icon = icon;
     }
 
     /**
@@ -78,7 +80,9 @@ export class Staff {
             object.desc_fr,
             object.costE,
             object.costDD,
-            object.effect
+            object.effect,
+            object.levelMax,
+            object.icon,
         );
     }
 
@@ -303,7 +307,8 @@ export class StaffUtils {
                         event, count, MachineStuff.MS_COLLECTOR, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                      );
                 },
-            StaffUtils.simulateLevelMax(MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 0)
+            StaffUtils.simulateLevelMax(MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 0),
+            "../../assets/img/staffs/bannour.png"
             )
     }
 
@@ -320,7 +325,8 @@ export class StaffUtils {
                     event, count, MachineStuff.MS_CONVEYOR_BELT, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
             },
-            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0)
+            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0),
+            "../../assets/img/staffs/goilard.png"
             )
     }
 
@@ -337,7 +343,8 @@ export class StaffUtils {
                     event, count, MachineStuff.MS_CROSS_BELT, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
             },
-            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0)
+            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0),
+            "../../assets/img/staffs/jeannas.png"
             )
     }
 
@@ -352,8 +359,11 @@ export class StaffUtils {
             function (event: GameEvent, count: number) : GameEvent {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.BUY_MACHINE, mE, mDD, minE, minDD
-                );
-            })
+                )
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_RECYCLING_CENTER, mE, mDD, minE, mDD, 0),
+            "../../assets/img/staffs/laurent.png"
+        )
     }
 
     private static createMerabet() : Staff {
@@ -368,7 +378,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_JUNKYARD, EventType.BUY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_JUNKYARD, mE, mDD, minE, mDD, 0),
+            "../../assets/img/staffs/merabet.png"
+        )
     }
 
     private static createNouleho() : Staff {
@@ -383,7 +396,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_COLLECTOR, EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 1),
+            "../../assets/img/staffs/nouleho.png"
+        )
     }
 
     private static createY() : Staff {
@@ -398,7 +414,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_RECYCLING_CENTER, mE, mDD, minE, mDD, 1),
+            "../../assets/img/staffs/y.png"
+        )
     }
 
     private static createBourard() : Staff {
@@ -413,7 +432,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_JUNKYARD, EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_JUNKYARD, mE, mDD, minE, mDD, 1),
+            "../../assets/img/staffs/bourard.png"
+        )
     }
 
     private static createBrunel() : Staff {
@@ -428,7 +450,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_COLLECTOR, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 2),
+            "../../assets/img/staffs/brunel.png"
+        )
     }
 
     private static createCharantonis() : Staff {
@@ -443,7 +468,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_CONVEYOR_BELT, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 2),
+            "../../assets/img/staffs/charantonis.png"
+        )
     }
 
     private static createDubois() : Staff {
@@ -458,7 +486,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_CROSS_BELT, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_CROSS_BELT, mE, mDD, minE, mDD, 2),
+            "../../assets/img/staffs/dubois.png"
+        )
     }
 
     private static createDumbrava() : Staff {
@@ -473,7 +504,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_RECYCLING_CENTER, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_RECYCLING_CENTER, mE, mDD, minE, mDD, 2),
+            "../../assets/img/staffs/dumbrava.png"
+        )
     }
 
     private static createFaye() : Staff {
@@ -488,7 +522,10 @@ export class StaffUtils {
                 return StaffUtils.applyMachinePriceEvent(
                     event, count, MachineStuff.MS_JUNKYARD, EventType.DESTROY_MACHINE, mE, mDD, minE, minDD
                 );
-            })
+            },
+            StaffUtils.simulateLevelMax(MachineStuff.MS_JUNKYARD, mE, mDD, minE, mDD, 2),
+            "../../assets/img/staffs/faye.png"
+        )
     }
 
     private static createLigozat() : Staff {
@@ -546,7 +583,9 @@ export class StaffUtils {
                         }
                     }
                     return event;
-            }, 1)
+            }, 1,
+            "../../assets/img/staffs/ligozat.png"
+        )
     }
 
     private static createMouilleron() : Staff {
@@ -561,7 +600,9 @@ export class StaffUtils {
                     }
                 }
                 return event;
-            }, 100)
+            }, 100,
+            "../../assets/img/staffs/mouilleron.png"
+        )
     }
 
     private static createSzafranski() : Staff {
@@ -575,7 +616,9 @@ export class StaffUtils {
                     scoreEvent.modifierScore = 2; // multiplier is now two
                 }
                 return event;
-            }, 1)
+            }, 1,
+            "../../assets/img/staffs/szafranski.png"
+        )
     }
 
     private static createThomas() : Staff {
@@ -600,7 +643,9 @@ export class StaffUtils {
                     }
                 }
                 return event;
-            }, 10)
+            }, 10,
+            "../../assets/img/staffs/thomas.png"
+        )
     }
 
     private static createLejeune() : Staff {
@@ -613,7 +658,9 @@ export class StaffUtils {
                     studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2)
                 }
                 return event;
-            })
+            }, 100, //todo:
+            "../../assets/img/staffs/lejeune.png"
+        )
     }
 
     private static createMathias() : Staff {
@@ -626,7 +673,9 @@ export class StaffUtils {
                     studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2)
                 }
                 return event;
-            })
+            } , 100, //todo:
+            "../../assets/img/staffs/mathias.png"
+        )
     }
 
     private static createSalhab() : Staff {
@@ -641,7 +690,9 @@ export class StaffUtils {
                     studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2)
                 }
                 return event;
-            })
+            }, 100,
+            "../../assets/img/staffs/salhab.png"
+        )
     }
 
     private static createForest() : Staff {
@@ -654,7 +705,9 @@ export class StaffUtils {
                     productionEvent.costDD += count;
                 }
                 return event;
-            })
+            }, 100,
+            "../../assets/img/staffs/forest.png"
+        )
     }
 
     private static createLim() : Staff {
@@ -667,7 +720,9 @@ export class StaffUtils {
                     turnEvent.turn = Math.max(1, turnEvent.turn - count);
                 }
                 return event;
-            })
+            } , Game.config.constants.NB_TURN_PRODUCTION_SOURCE - 1,
+            "../../assets/img/staffs/lim.png"
+        )
     }
 
     private static createWatel() : Staff {
@@ -680,7 +735,9 @@ export class StaffUtils {
                     productionEvent.costDD += count * 4;
                 }
                 return event;
-            })
+            }, 100,
+            "../../assets/img/staffs/watel.png"
+        )
     }
 
     private static createPrevel() : Staff {
@@ -716,7 +773,9 @@ export class StaffUtils {
                     }
                 }
                 return event;
-            })
+            }, 1,
+            "../../assets/img/staffs/prevel.png"
+        )
     }
 
 }

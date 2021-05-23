@@ -7,6 +7,12 @@
 
 const {TrKeys,Translation} = require("../../utils/translation");
 
+let tr_cost = Translation.get(TrKeys.STAFF_COST);
+let tr_level = Translation.get(TrKeys.STAFF_LEVEL);
+let tr_level_max = Translation.get(TrKeys.STAFF_LEVEL_MAX);
+let tr_effect = Translation.get(TrKeys.STAFF_EFFECT);
+let tr_and = Translation.get(TrKeys.AND_WORD);
+
 //todo: fix ??? in staff pane
 // and also add E/DD values in this menu
 win.replaceText('manage-staff', 'Gérer votre Personnel')
@@ -23,7 +29,7 @@ for (const entry of game.map.staffList.entries()) {
     div.innerHTML = `
         <div class="fz22">
             <div class="settings-background ps-2 py-1 text-white">
-                <img src="../../assets/img/game/fisaH.png" alt="">
+                <img src="${staff.icon}" alt="">
                 <span>${staff.name}</span>
             </div>
             <div class="content-background p-3">
@@ -31,23 +37,23 @@ for (const entry of game.map.staffList.entries()) {
                     ${staff.desc}
                 </div>
                 <div class="mt-3">
-                    Niveau max : <span class="text-my-yellow"
+                    ${tr_level_max} <span class="text-my-yellow"
                     id="max${staff.id}">${staff.levelMax}</span>.
                 </div>
                 <div>
-                    Cout d'amélioration : <span class="text-my-yellow">${staff.costE} E</span>
+                    ${tr_cost} <span class="text-my-yellow">${staff.costE} E</span>
                     <span class="text-my-yellow">${staff.costDD} DD</span>
                 </div>
-                <div>
+                <!-- <div> -->
                 <!--                    Le coût de construction des collecteurs est réduit de-->
 <!--                    <span class="text-my-yellow">11 E</span>-->
 <!--                    et <span class="text-my-yellow">25 DD</span>-->
 <!--                    par niveau.-->
-                    Réduction actuelle de <span class="text-my-yellow"> ??? E et ??? DD</span>
-                </div>
+                <!--    tr_effect  <span class="text-my-yellow"> ??? E tr_and ??? DD</span>  -->
+               <!-- </div>  -->
                 <div class="text-end mt-3">
                     <div>
-                        <span class="bg-white text-dark fz22 pe-3 ps-2 py-1 game-level-button">LEVEL 
+                        <span class="bg-white text-dark fz22 pe-3 ps-2 py-1 game-level-button">${tr_level} 
                         <span id="level${staff.id}">${count}</span>
                         </span>
                         <span class="${ can ? 'bg-warning' : 'bg-secondary' } text-dark fz22 py-1 px-2 buy-staff-button pointer"
@@ -73,9 +79,6 @@ document.querySelectorAll('.buy-staff-button').forEach(
             // set new level
             let level = Number(levelIDDIV.innerText) + bought;
             levelIDDIV.innerText = level+"";
-
-            console.log(level)
-            console.log(levelMax)
 
             // check max
             if (level === levelMax) {
