@@ -52,31 +52,31 @@ Config.keys = {
  * Game specific values
  */
 Config.constants = {
-    NUMBER_DD_START: 100,
-    NUMBER_E_START: 100,
+    NUMBER_DD_START: 500,
+    NUMBER_E_START: 500,
     PRODUCTION_FISA_E: 4,
     PRODUCTION_FISA_DD: 4,
     PRODUCTION_FISE_E: 1,
     NUMBER_OF_SOURCES: 2,
     PRODUCTION_FISE_DD: 1,
-    NUMBER_FISE: 5,
-    NUMBER_FISA: 5,
+    NUMBER_FISE: 10,
+    NUMBER_FISA: 10,
     COST_FISE_E: 50,
     COST_FISE_DD: 20,
     COST_FISA_E: 50,
     COST_FISA_DD: 20,
     NB_TURN_FISA: 2,
     NB_TURN_PRODUCTION_SOURCE: 10,
-    NB_RESOURCE_PRODUCT_BY_SOURCE: 3,
+    NB_RESOURCE_PRODUCT_BY_SOURCE: 10,
     NUMBER_WASTE_TO_PRODUCT_RESOURCE: 10,
-    NUMBER_RESOURCE_WIN: 10000,
+    NUMBER_RESOURCE_WIN: 5000,
     MACHINE_DEFAULT_LVL: 1 //!< level of the machine by default
 };
 /**
  * Array with information about all machine
  */
 Config.machines = [
-    new machine_1.MachineInfo("Collector", "Collecteur", machine_1.MachineStuff.MS_COLLECTOR, "C", 200, 20, 500, 100, 60, 200, "Sends a resource (resp. a garbage) produced by the source (resp. the gate)" +
+    new machine_1.MachineInfo("Collector", "Collecteur", machine_1.MachineStuff.MS_COLLECTOR, "C", 200, 20, 2500, 500, 60, 200, "Sends a resource (resp. a garbage) produced by the source (resp. the gate)" +
         " to the neighboring cell indicated by its orientation. Collector storage increases by 1 per level.", "Envoie une ressource produites par la source sur la case voisine indiquée par son orientation." +
         " La capacité d'un Collecteur augmente de 1 par niveau", "+1 collected / level", "+1 collectée / niveau", 1, "Collector Out is South by default", "La sortie du collecteur est" +
         " Sud par défaut", true, (level) => {

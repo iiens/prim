@@ -600,7 +600,7 @@ export class StaffUtils {
                     }
                 }
                 return event;
-            }, 100,
+            }, 1,
             "../../assets/img/staffs/mouilleron.png"
         )
     }
@@ -705,7 +705,7 @@ export class StaffUtils {
                     productionEvent.costDD += count;
                 }
                 return event;
-            }, 100,
+            }, 1,
             "../../assets/img/staffs/forest.png"
         )
     }
@@ -735,7 +735,7 @@ export class StaffUtils {
                     productionEvent.costDD += count * 4;
                 }
                 return event;
-            }, 100,
+            }, 1,
             "../../assets/img/staffs/watel.png"
         )
     }

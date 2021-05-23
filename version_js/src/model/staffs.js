@@ -442,7 +442,7 @@ class StaffUtils {
                 }
             }
             return event;
-        }, 100, "../../assets/img/staffs/mouilleron.png");
+        }, 1, "../../assets/img/staffs/mouilleron.png");
     }
     static createSzafranski() {
         return new Staff(16, "Marie Szafranski", "When a resource is send at the gate it count is doubled" +
@@ -521,7 +521,7 @@ class StaffUtils {
                 productionEvent.costDD += count;
             }
             return event;
-        }, 100, "../../assets/img/staffs/forest.png");
+        }, 1, "../../assets/img/staffs/forest.png");
     }
     static createLim() {
         return new Staff(22, "Thomas Lim", "Turn before source production decreases by 1 (min 1 turn)", "Les sources mettent un tour de moins à produire (minimum 1).", 1000, 400, function (event, count) {
@@ -541,7 +541,7 @@ class StaffUtils {
                 productionEvent.costDD += count * 4;
             }
             return event;
-        }, 100, "../../assets/img/staffs/watel.png");
+        }, 1, "../../assets/img/staffs/watel.png");
     }
     static createPrevel() {
         return new Staff(24, "Laurent Prével", "10 percent of FISA and FISE leave the school but they send a" +

@@ -27,24 +27,24 @@ export class Config {
      * Game specific values
      */
     static constants = {
-        NUMBER_DD_START: 100, //!< number of DD at the start of the game
-        NUMBER_E_START: 100, //!< number of E at the start of the game
+        NUMBER_DD_START: 500, //!< number of DD at the start of the game
+        NUMBER_E_START: 500, //!< number of E at the start of the game
         PRODUCTION_FISA_E: 4, //!< number of E produced by FISA
         PRODUCTION_FISA_DD: 4, //!< number of DD produced by FISA
         PRODUCTION_FISE_E: 1, //!< number of E produced by FISE
         NUMBER_OF_SOURCES: 2, //!< number of sources
         PRODUCTION_FISE_DD: 1, //!< number of DD produced by FISE
-        NUMBER_FISE: 5,//!< number of FISE at the start of the game
-        NUMBER_FISA: 5 ,//!< number of FISA at the start of the game
+        NUMBER_FISE: 10,//!< number of FISE at the start of the game
+        NUMBER_FISA: 10,//!< number of FISA at the start of the game
         COST_FISE_E: 50, //!< cost in E of FISE
         COST_FISE_DD: 20, //!< cost in DD of FISE
         COST_FISA_E: 50, //!< cost in E of FISA
         COST_FISA_DD: 20, //!< cost in DD of FISA
         NB_TURN_FISA: 2, //!< number of turns before FISA Production
         NB_TURN_PRODUCTION_SOURCE: 10, //!< number of turns before Source Production
-        NB_RESOURCE_PRODUCT_BY_SOURCE: 3,  //!< number of resource produced by Source
+        NB_RESOURCE_PRODUCT_BY_SOURCE: 10,  //!< number of resource produced by Source
         NUMBER_WASTE_TO_PRODUCT_RESOURCE: 10, //!< number of waste to product a resource in a recycling center
-        NUMBER_RESOURCE_WIN: 10000, //!< number of resource to win
+        NUMBER_RESOURCE_WIN: 5000, //!< number of resource to win
         MACHINE_DEFAULT_LVL: 1 //!< level of the machine by default
     }
 
@@ -53,7 +53,7 @@ export class Config {
      */
     static machines = [
         new MachineInfo("Collector","Collecteur", MachineStuff.MS_COLLECTOR, "C",
-            200, 20, 500,100,60,200,
+            200, 20, 2500,500,60,200,
             "Sends a resource (resp. a garbage) produced by the source (resp. the gate)" +
             " to the neighboring cell indicated by its orientation. Collector storage increases by 1 per level.",
             "Envoie une ressource produites par la source sur la case voisine indiquée par son orientation." +
