@@ -232,6 +232,7 @@ export class Mappings {
             Mappings.showMessage(this, "Count must be in [1,100]", true)
             return;
         }
+        let bought = 0;
         while (n > 0){
             // Call The map function to try to buy a staff member
             let e = Game.map.buyStaff(id);
@@ -239,12 +240,15 @@ export class Mappings {
                 // @ts-ignore Show the error message
                 Mappings.showMessage(this, Translation.error(e), true)
                 break;
-            } else Game.interface.reload(); // reload all since staff can change the map
+            }
             n--;
+            bought++;
         }
+
+        Game.interface.reload(); // reload all since staff can change the map
         // we must save now since we buy staff
         Game.save();
-        return n;
+        return bought;
     };
 
     /**

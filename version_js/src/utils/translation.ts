@@ -223,8 +223,10 @@ export class Translation {
         this.translations_EN.set(TrKeys.MACHINE_CAPACITY,'Capacity (default):');
 
         //staffs.ts
-        this.translations_EN.set(TrKeys.STAFF_COST,'Cost (default):');
-        this.translations_EN.set(TrKeys.STAFF_HIRED_COUNT,'Hired count:');
+        this.translations_EN.set(TrKeys.STAFF_COST,'Upgrading cost :');
+        this.translations_EN.set(TrKeys.STAFF_LEVEL,'LEVEL');
+        this.translations_EN.set(TrKeys.STAFF_LEVEL_MAX,'Level max :');
+        this.translations_EN.set(TrKeys.STAFF_EFFECT,'Current reduction is');
 
         //end.ts
         this.translations_EN.set(TrKeys.END_WIN,'Victory');
@@ -366,8 +368,10 @@ export class Translation {
         this.translations_FR.set(TrKeys.MACHINE_CAPACITY,'Capacité (par défaut):');
 
         //staffs.ts
-        this.translations_FR.set(TrKeys.STAFF_COST,'Prix (par défaut):');
-        this.translations_FR.set(TrKeys.STAFF_HIRED_COUNT,'Nombre de personnel recrutés:');
+        this.translations_FR.set(TrKeys.STAFF_COST,'Coût d\'amélioration');
+        this.translations_FR.set(TrKeys.STAFF_LEVEL,'NIVEAU');
+        this.translations_FR.set(TrKeys.STAFF_LEVEL_MAX,'Niveau max :');
+        this.translations_FR.set(TrKeys.STAFF_EFFECT,'Réduction actuelle de');
 
         //end.ts
         this.translations_FR.set(TrKeys.END_WIN,'Victoire');
@@ -526,7 +530,9 @@ export enum TrKeys {
     MACHINE_CAPACITY,
 
     STAFF_COST,
-    STAFF_HIRED_COUNT,
+    STAFF_LEVEL,
+    STAFF_LEVEL_MAX,
+    STAFF_EFFECT,
 
     TERMINAL_HELP,
 

@@ -398,6 +398,7 @@ Mappings.buyStaff = function (id = -1, n = 1) {
         Mappings.showMessage(this, "Count must be in [1,100]", true);
         return;
     }
+    let bought = 0;
     while (n > 0) {
         // Call The map function to try to buy a staff member
         let e = game_1.Game.map.buyStaff(id);
@@ -406,13 +407,13 @@ Mappings.buyStaff = function (id = -1, n = 1) {
             Mappings.showMessage(this, translation_1.Translation.error(e), true);
             break;
         }
-        else
-            game_1.Game.interface.reload(); // reload all since staff can change the map
         n--;
+        bought++;
     }
+    game_1.Game.interface.reload(); // reload all since staff can change the map
     // we must save now since we buy staff
     game_1.Game.save();
-    return n;
+    return bought;
 };
 /**
  * Call the function to buy the machine

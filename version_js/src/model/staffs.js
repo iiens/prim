@@ -18,23 +18,25 @@ const logger_1 = require("./logger");
  * Contains all information about the character of the Staff
  */
 class Staff {
-    constructor(id, name, desc_en, desc_fr, costE, costDD, effect) {
+    constructor(id, name, desc_en, desc_fr, costE, costDD, effect, levelMax = 100, icon) {
         let logger = logger_1.Logger.Instance;
         logger.debug("New Staff");
         this.id = id;
         this.name = name;
+        this.levelMax = levelMax;
         this.desc_en = desc_en;
         this.desc_fr = desc_fr;
         this.costE = costE;
         this.costDD = costDD;
         this.effect = effect;
+        this.icon = icon;
     }
     /**
      * From an object (serialisation), create a Staff
      * @param object a Staff serialized
      */
     static revive(object) {
-        return new Staff(object.id, object.name, object.desc_en, object.desc_fr, object.costE, object.costDD, object.effect);
+        return new Staff(object.id, object.name, object.desc_en, object.desc_fr, object.costE, object.costDD, object.effect, object.levelMax, object.icon);
     }
     /**
      * return the description with the correct language
@@ -203,99 +205,186 @@ class StaffUtils {
         // some effect applied here
         return event;
     }
+    /**
+     * Simulate max level
+     * @param s machine stuff
+     * @param mE price E
+     * @param mDD price DD
+     * @param minE minE
+     * @param minDD min DD
+     * @param type 1 for update, 2 for destroy or 0
+     * @private
+     */
+    static simulateLevelMax(s, mE, mDD, minE, minDD, type) {
+        let level = 1;
+        let stuff = game_1.Game.config.getMachineStuff(s);
+        let MsE = 0, MsDD = 0;
+        // cost default
+        if (type == 0) {
+            MsE = stuff.costE;
+            MsDD = stuff.costDD;
+        }
+        if (type == 1) {
+            MsE = stuff.costUpgradeE;
+            MsDD = stuff.costUpgradeDD;
+        }
+        if (type == 2) {
+            MsE = stuff.costDestroyE;
+            MsDD = stuff.costDestroyDD;
+        }
+        // simulate
+        while (MsE - mE > minE && MsDD - mDD > minDD) {
+            level++;
+            MsE -= mE;
+            MsDD -= mDD;
+        }
+        return level;
+    }
     /*
     * all staffs
     */
     static createBannour() {
+        let minE = 10;
+        let minDD = 1;
+        let mE = 10;
+        let mDD = 1;
         return new Staff(1, "Fetia Bannour", "The cost of constructing collectors decreases by" +
             " 10EE and 1DD (min 10E and 1DD).", "Le coût de construction des collecteurs diminue de " +
             " 10EE et 1DD (min 10E et 1DD).", 100, 30, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.BUY_MACHINE, 10, 1, 10, 1);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.BUY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 0), "../../assets/img/staffs/bannour.png");
     }
     static createGoilard() {
+        let minE = 3;
+        let minDD = 1;
+        let mE = 3;
+        let mDD = 1;
         return new Staff(2, "Kevin Goilard", "The cost of constructing conveyor belt decreases by 3E" +
             " and 1DD (min 3EE and 1DD).", "Le coût de construction du tapis roulant diminue de 3E" +
             " et 1DD (min 3EE et 1DD).", 100, 30, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CONVEYOR_BELT, events_1.EventType.BUY_MACHINE, 3, 1, 3, 1);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CONVEYOR_BELT, events_1.EventType.BUY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0), "../../assets/img/staffs/goilard.png");
     }
     static createJeannas() {
+        let minE = 8;
+        let minDD = 1;
+        let mE = 8;
+        let mDD = 1;
         return new Staff(3, "Vincent Jeannas", "The cost of constructing cross decreases by 8E and 1DD (min 8EE " +
             "and 1DD).", "Le coût de construction d'une croix diminue de 8E et 1DD (min 8EE" +
             " et 1DD).", 100, 30, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CROSS_BELT, events_1.EventType.BUY_MACHINE, 8, 1, 8, 1);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CROSS_BELT, events_1.EventType.BUY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 0), "../../assets/img/staffs/jeannas.png");
     }
     static createLaurent() {
+        let minE = 25;
+        let minDD = 2;
+        let mE = 25;
+        let mDD = 2;
         return new Staff(4, "Thomas Laurent", "The cost of constructing recycling center decreases by 25E and " +
             "2DD (min 25E and 2DD).", "Le coût de construction du centre de recyclage diminue de 25E et" +
             " 2DD (min 25E et 2DD).", 100, 30, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.BUY_MACHINE, 25, 2, 25, 2);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.BUY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_RECYCLING_CENTER, mE, mDD, minE, mDD, 0), "../../assets/img/staffs/laurent.png");
     }
     static createMerabet() {
+        let minE = 5;
+        let minDD = 5;
+        let mE = 5;
+        let mDD = 5;
         return new Staff(5, "Massinissa Merabet", "The cost of constructing junkyard decreases by 5E and 5DD" +
             " (min 5E and 5DD).", "Le coût de construction de la déchetterie diminue de 5E et 5DD" +
             " (min 5E et 5DD).", 100, 30, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.BUY_MACHINE, 5, 5, 5, 5);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.BUY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_JUNKYARD, mE, mDD, minE, mDD, 0), "../../assets/img/staffs/merabet.png");
     }
     static createNouleho() {
+        let minE = 25;
+        let minDD = 5;
+        let mE = 25;
+        let mDD = 5;
         return new Staff(6, "Stefi Nouleho", "The cost of upgrading collectors decreases by" +
             " 25E and 5DD (min 25E and 5DD).", "Le coût d'amélioration des collecteurs diminue de " +
             "25E et 5DD (min 25E et 5DD).", 200, 100, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.UPGRADE_MACHINE, 25, 5, 25, 5);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 1), "../../assets/img/staffs/nouleho.png");
     }
     static createY() {
+        let minE = 75;
+        let minDD = 5;
+        let mE = 75;
+        let mDD = 5;
         return new Staff(7, "Vitera Y", "The cost of upgrading recycling center " +
             "decreases by 75E and 5DD (min 75E and 5DD).", "Le coût d'amélioration'du centre de recyclage" +
             " diminue de 75E et 5DD (min 75E et 5DD).", 200, 100, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.UPGRADE_MACHINE, 75, 5, 75, 5);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_RECYCLING_CENTER, mE, mDD, minE, mDD, 1), "../../assets/img/staffs/y.png");
     }
     static createBourard() {
+        let minE = 10;
+        let minDD = 30;
+        let mE = 10;
+        let mDD = 30;
         return new Staff(8, "Laurence Bourard", "The cost of upgrading junkyard decreases " +
             "by 10E and 30DD (min 20E and 30DD).", "Le coût d'améliration de la déchetterie' diminue " +
             " par 10E et 30DD (min 20E et 30DD).", 200, 100, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.UPGRADE_MACHINE, 10, 30, 10, 30);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.UPGRADE_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_JUNKYARD, mE, mDD, minE, mDD, 1), "../../assets/img/staffs/bourard.png");
     }
     static createBrunel() {
+        let minE = 3;
+        let minDD = 10;
+        let mE = 3;
+        let mDD = 10;
         return new Staff(9, "Nicolas Brunel", "The cost of destroying collectors " +
             "decreases by 3E and 10DD (min 3E and 10DD).", "Le coût de la destruction des collecteurs" +
             " diminue de 3E et 10DD (min 3E et 10DD).", 100, 200, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.DESTROY_MACHINE, 3, 10, 3, 10);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_COLLECTOR, events_1.EventType.DESTROY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_COLLECTOR, mE, mDD, minE, mDD, 2), "../../assets/img/staffs/brunel.png");
     }
     static createCharantonis() {
+        let minE = 3;
+        let minDD = 10;
+        let mE = 3;
+        let mDD = 10;
         return new Staff(10, "Anastase Charantonis", "The cost of destroying conveyor belt decreases" +
             " by 3E and 10DD (min 3E and 10DD).", "Le coût de destruction du tapis roulant diminue " +
             " par 3E et 10DD (min 3E et 10DD).", 100, 200, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CONVEYOR_BELT, events_1.EventType.DESTROY_MACHINE, 3, 10, 3, 10);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CONVEYOR_BELT, events_1.EventType.DESTROY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_CONVEYOR_BELT, mE, mDD, minE, mDD, 2), "../../assets/img/staffs/charantonis.png");
     }
     static createDubois() {
+        let minE = 3;
+        let minDD = 10;
+        let mE = 3;
+        let mDD = 10;
         return new Staff(11, "Catherine Dubois", "The cost of destroying cross decreases" +
             " by 3E and 10DD (min 3E and 10DD).", "Le coût de destruction des croix diminue " +
             " par 3E et 10DD (min 3E et 10DD).", 100, 200, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CROSS_BELT, events_1.EventType.DESTROY_MACHINE, 3, 10, 3, 10);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_CROSS_BELT, events_1.EventType.DESTROY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_CROSS_BELT, mE, mDD, minE, mDD, 2), "../../assets/img/staffs/dubois.png");
     }
     static createDumbrava() {
+        let minE = 5;
+        let minDD = 25;
+        let mE = 5;
+        let mDD = 25;
         return new Staff(12, "Stefania Dumbrava", "The cost of destroying recycling center decreases" +
             " by 5E and 25DD (min 5E and 25DD).", "Le coût de destruction du centre de recyclage diminue " +
             " par 5E et 25DD (min 5E et 25DD).", 100, 200, function (event, count) {
-            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.DESTROY_MACHINE, 5, 25, 5, 25);
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_RECYCLING_CENTER, events_1.EventType.DESTROY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_RECYCLING_CENTER, mE, mDD, minE, mDD, 2), "../../assets/img/staffs/dumbrava.png");
     }
     static createFaye() {
+        let minE = 5;
+        let minDD = 10;
+        let mE = 5;
+        let mDD = 10;
         return new Staff(13, "Alain Faye", "The cost of destroying junkyard decreases by 5E" +
             " and 10DD (min 5E and 10DD).", "Le coût de destruction des déchetteries diminue de 5E et" +
             " 10DD (min 5E et 10DD).", 100, 200, function (event, count) {
-            return event;
-        });
+            return StaffUtils.applyMachinePriceEvent(event, count, machine_1.MachineStuff.MS_JUNKYARD, events_1.EventType.DESTROY_MACHINE, mE, mDD, minE, minDD);
+        }, StaffUtils.simulateLevelMax(machine_1.MachineStuff.MS_JUNKYARD, mE, mDD, minE, mDD, 2), "../../assets/img/staffs/faye.png");
     }
     static createLigozat() {
         return new Staff(14, "Anne-Laure Ligozat", "Half garbage of each case are remove", "La moitié des déchets de chaque case disparaissent", 1000, 10, function (event, count) {
@@ -341,7 +430,7 @@ class StaffUtils {
                 }
             }
             return event;
-        });
+        }, 1, "../../assets/img/staffs/ligozat.png");
     }
     static createMouilleron() {
         return new Staff(15, "Christophe Mouilleron", "School hire 20 FISE and 10 FISA", "L’école recrute 20 FISE et 10 FISA.", 1000, 400, function (event, count) {
@@ -353,18 +442,18 @@ class StaffUtils {
                 }
             }
             return event;
-        });
+        }, 1, "../../assets/img/staffs/mouilleron.png");
     }
     static createSzafranski() {
         return new Staff(16, "Marie Szafranski", "When a resource is send at the gate it count is doubled" +
-            " but the number of garbage is the same. Effect not cumulable.", "A chaque fois qu’une ressource est envoyée à la porte, elle compte double. Le " +
-            "nombre de déchet produit est toujours de 1.", 1000, 400, function (event, count) {
+            " but the number of garbage is the same.", "A chaque fois qu’une ressource est envoyée à la porte, elle compte double. Le " +
+            "nombre de déchet produit est toujours le même.", 1000, 400, function (event, count) {
             if (count !== 0 && event.type === events_1.EventType.CALCULATE_SCORE) {
                 let scoreEvent = event.data;
                 scoreEvent.modifierScore = 2; // multiplier is now two
             }
             return event;
-        });
+        }, 1, "../../assets/img/staffs/szafranski.png");
     }
     static createThomas() {
         return new Staff(17, "Gael Thomas", "When a garbage leave the door it has a one " +
@@ -386,7 +475,7 @@ class StaffUtils {
                 }
             }
             return event;
-        });
+        }, 10, "../../assets/img/staffs/thomas.png");
     }
     static createLejeune() {
         return new Staff(18, "Eric Lejeune", "The cost of FISE decreases by 5E and 2DD" +
@@ -397,7 +486,8 @@ class StaffUtils {
                 studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2);
             }
             return event;
-        });
+        }, 100, //todo:
+        "../../assets/img/staffs/lejeune.png");
     }
     static createMathias() {
         return new Staff(19, "Christine Mathias", "The cost of FISA decreases by 5E and 2DD" +
@@ -408,7 +498,8 @@ class StaffUtils {
                 studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2);
             }
             return event;
-        });
+        }, 100, //todo:
+        "../../assets/img/staffs/mathias.png");
     }
     static createSalhab() {
         return new Staff(20, "Katrin Salhab", "The cost of staff" +
@@ -420,7 +511,7 @@ class StaffUtils {
                 studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2);
             }
             return event;
-        });
+        }, 100, "../../assets/img/staffs/salhab.png");
     }
     static createForest() {
         return new Staff(21, "Julien Forest", "FISE produce 1E and 1DD more per turn", "Les FISE produisent 1E et 1DD de plus chaque tours.", 2000, 500, function (event, count) {
@@ -430,7 +521,7 @@ class StaffUtils {
                 productionEvent.costDD += count;
             }
             return event;
-        });
+        }, 1, "../../assets/img/staffs/forest.png");
     }
     static createLim() {
         return new Staff(22, "Thomas Lim", "Turn before source production decreases by 1 (min 1 turn)", "Les sources mettent un tour de moins à produire (minimum 1).", 1000, 400, function (event, count) {
@@ -440,7 +531,7 @@ class StaffUtils {
                 turnEvent.turn = Math.max(1, turnEvent.turn - count);
             }
             return event;
-        });
+        }, game_1.Game.config.constants.NB_TURN_PRODUCTION_SOURCE - 1, "../../assets/img/staffs/lim.png");
     }
     static createWatel() {
         return new Staff(23, "Dimitri Watel", "FISA product 4E or 4DD more each 2 turns", "Les FISA produisent 4E ou 4DD de plus tous les deux tours.", 2000, 500, function (event, count) {
@@ -450,7 +541,7 @@ class StaffUtils {
                 productionEvent.costDD += count * 4;
             }
             return event;
-        });
+        }, 1, "../../assets/img/staffs/watel.png");
     }
     static createPrevel() {
         return new Staff(24, "Laurent Prével", "10 percent of FISA and FISE leave the school but they send a" +
@@ -480,7 +571,7 @@ class StaffUtils {
                 }
             }
             return event;
-        });
+        }, 1, "../../assets/img/staffs/prevel.png");
     }
 }
 exports.StaffUtils = StaffUtils;

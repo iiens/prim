@@ -202,8 +202,10 @@ class Translation {
         this.translations_EN.set(TrKeys.MACHINE_PRICE_UPDATE, 'Price (upgrade):');
         this.translations_EN.set(TrKeys.MACHINE_CAPACITY, 'Capacity (default):');
         //staffs.ts
-        this.translations_EN.set(TrKeys.STAFF_COST, 'Cost (default):');
-        this.translations_EN.set(TrKeys.STAFF_HIRED_COUNT, 'Hired count:');
+        this.translations_EN.set(TrKeys.STAFF_COST, 'Upgrading cost :');
+        this.translations_EN.set(TrKeys.STAFF_LEVEL, 'LEVEL');
+        this.translations_EN.set(TrKeys.STAFF_LEVEL_MAX, 'Level max :');
+        this.translations_EN.set(TrKeys.STAFF_EFFECT, 'Current reduction is');
         //end.ts
         this.translations_EN.set(TrKeys.END_WIN, 'Victory');
         this.translations_EN.set(TrKeys.END_LOST, 'Defeat');
@@ -335,8 +337,10 @@ class Translation {
         this.translations_FR.set(TrKeys.MACHINE_PRICE_UPDATE, 'Prix (amélioration):');
         this.translations_FR.set(TrKeys.MACHINE_CAPACITY, 'Capacité (par défaut):');
         //staffs.ts
-        this.translations_FR.set(TrKeys.STAFF_COST, 'Prix (par défaut):');
-        this.translations_FR.set(TrKeys.STAFF_HIRED_COUNT, 'Nombre de personnel recrutés:');
+        this.translations_FR.set(TrKeys.STAFF_COST, 'Coût d\'amélioration');
+        this.translations_FR.set(TrKeys.STAFF_LEVEL, 'NIVEAU');
+        this.translations_FR.set(TrKeys.STAFF_LEVEL_MAX, 'Niveau max :');
+        this.translations_FR.set(TrKeys.STAFF_EFFECT, 'Réduction actuelle de');
         //end.ts
         this.translations_FR.set(TrKeys.END_WIN, 'Victoire');
         this.translations_FR.set(TrKeys.END_LOST, 'Défaite');
@@ -475,10 +479,12 @@ var TrKeys;
     TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 83] = "MACHINE_PRICE_UPDATE";
     TrKeys[TrKeys["MACHINE_CAPACITY"] = 84] = "MACHINE_CAPACITY";
     TrKeys[TrKeys["STAFF_COST"] = 85] = "STAFF_COST";
-    TrKeys[TrKeys["STAFF_HIRED_COUNT"] = 86] = "STAFF_HIRED_COUNT";
-    TrKeys[TrKeys["TERMINAL_HELP"] = 87] = "TERMINAL_HELP";
-    TrKeys[TrKeys["VOLUME_TITLE"] = 88] = "VOLUME_TITLE";
-    TrKeys[TrKeys["MUSIC_TITLE"] = 89] = "MUSIC_TITLE";
+    TrKeys[TrKeys["STAFF_LEVEL"] = 86] = "STAFF_LEVEL";
+    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 87] = "STAFF_LEVEL_MAX";
+    TrKeys[TrKeys["STAFF_EFFECT"] = 88] = "STAFF_EFFECT";
+    TrKeys[TrKeys["TERMINAL_HELP"] = 89] = "TERMINAL_HELP";
+    TrKeys[TrKeys["VOLUME_TITLE"] = 90] = "VOLUME_TITLE";
+    TrKeys[TrKeys["MUSIC_TITLE"] = 91] = "MUSIC_TITLE";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {
