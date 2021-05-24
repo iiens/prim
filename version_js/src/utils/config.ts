@@ -54,7 +54,7 @@ export class Config {
      */
     static machines = [
         new MachineInfo("Collector","Collecteur", MachineStuff.MS_COLLECTOR, "C",
-            200, 20, 2500,500,60,200,
+            200, 20, 1500,300,60,200,
             "Mine a resource or a garbage and send it to a belt adjacent to the white" +
             "bar side.",
             "Recolte une ressource et l'envoi sur un tapis selon son orientation" +

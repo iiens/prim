@@ -77,7 +77,7 @@ Config.constants = {
  * Array with information about all machine
  */
 Config.machines = [
-    new machine_1.MachineInfo("Collector", "Collecteur", machine_1.MachineStuff.MS_COLLECTOR, "C", 200, 20, 2500, 500, 60, 200, "Mine a resource or a garbage and send it to a belt adjacent to the white" +
+    new machine_1.MachineInfo("Collector", "Collecteur", machine_1.MachineStuff.MS_COLLECTOR, "C", 200, 20, 1500, 300, 60, 200, "Mine a resource or a garbage and send it to a belt adjacent to the white" +
         "bar side.", "Recolte une ressource et l'envoi sur un tapis selon son orientation" +
         "indiquée par la ligne blanche.", "+1 mined / level", "+1 recoltée / niveau", 1, "Collector Out is South by default", "La sortie du collecteur est" +
         " Sud par défaut", true, (level) => {
