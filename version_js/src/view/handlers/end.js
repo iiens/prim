@@ -19,7 +19,7 @@ if (game.map.getPlayerScore > game.config.constants.NUMBER_RESOURCE_WIN){
     // he win, then we will calculate the score
     score = s - g;
     if (score > 0) { // he didn't know create as many garbage as resources
-        score += s > 10000 * 2 ? Math.sqrt(s) : s;
+        score += s > game.config.constants.NUMBER_RESOURCE_WIN * 2 ? Math.sqrt(s) : s;
         console.log(score)
         // malus for turns
         score += score / Math.log(t);
