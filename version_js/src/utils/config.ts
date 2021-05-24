@@ -47,7 +47,7 @@ export class Config {
         NUMBER_RESOURCE_WIN: 5000, //!< number of resource to win
         MACHINE_DEFAULT_LVL: 1, //!< level of the machine by default
         RECYCLING_RATIO: 1, // xxx garbage produce 1 resource
-        GENERATE_GARBAGE_DOOR: 20 // x percent of generating garbage if not resources sent on the door
+        GENERATE_GARBAGE_DOOR: 50 // x percent of generating garbage if not resources sent on the door
     }
 
     /**

@@ -70,6 +70,7 @@ body { border: 1px solid #48545c; overflow-y: hidden; }
 .pointer { cursor: pointer; }
 
 .text-my-yellow { color: #FFCC33; }
+.bg-my-yellow { background: #FFCC33; }
 .text-my-blue { color: #00a087; }
 .bg-my-blue { background: #00a087; }
 .text-my-red { color: #dd4411; }
@@ -185,6 +186,14 @@ body { border: 1px solid #48545c; overflow-y: hidden; }
 #e-dd-change-e-label { left:11px;top: 1px; }
 #e-dd-change-dd-label { left:5px;top:2px; }
 
+/** context menu **/
+
+#popup-skip {
+  position: absolute; left: 35px; top: 150px;
+  width: auto;z-index: 99;background: #5c636a;
+}
+
+/** upgrade **/
 #upgrade-machine-div, .machine-div { background: black; color: white; }
 
 /** staffs */

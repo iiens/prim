@@ -197,7 +197,9 @@ export class Translation {
         this.translations_EN.set(TrKeys.GAME_GATE_DESC,'Bring resources to the door to close it. Be careful, it ' +
             'generates garbage that will lower your DD.');
         this.translations_EN.set(TrKeys.GAME_SOURCE_NAME,'SOURCE');
-        this.translations_EN.set(TrKeys.GAME_SOURCE_DESC,'Generates resources, 1 every 10 turns by default, ' +
+        this.translations_EN.set(TrKeys.GAME_SOURCE_DESC,'Generates resources, ' +
+            '<span id="source-gen" class="text-my-yellow">1</span> every' +
+            ' <span id="source-gen-turn" class="text-my-yellow">10</span> turns by default, ' +
             'harvestable with a COLLECTOR. ');
         this.translations_EN.set(TrKeys.GAME_COST,'Cost');
 
@@ -343,8 +345,10 @@ export class Translation {
         this.translations_FR.set(TrKeys.GAME_GATE_DESC,'Amenez des ressources à la porte pour la fermer. Attention, elle' +
             ' génère des déchets qui vont baisser vos DD.');
         this.translations_FR.set(TrKeys.GAME_SOURCE_NAME,'GÉNÉRATEUR');
-        this.translations_FR.set(TrKeys.GAME_SOURCE_DESC,'Génère des ressources, 1 tous les 10 tours par défaut,' +
-            ' récoltables avec un COLLECTEUR.');
+        this.translations_FR.set(TrKeys.GAME_SOURCE_DESC,'Génère des ressources, ' +
+            '<span id="source-gen" class="text-my-yellow">1</span> tous les' +
+            ' <span id="source-gen-turn" class="text-my-yellow">10</span> tours par défaut, ' +
+            'récoltables avec un COLLECTEUR. ');
         this.translations_FR.set(TrKeys.GAME_COST,'Coût');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html

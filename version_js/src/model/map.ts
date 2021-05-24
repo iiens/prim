@@ -1647,6 +1647,13 @@ export class Map {
                 new MachineEvent(costE, costDD, machineInfo?.type))
             ).data;
     }
+
+    getStudentCost (type: EventType, costE: number, costDD: number) : HireStudentEvent {
+        if (this.team === undefined) throw new Error();
+        return this.team.applyEffect(new GameEvent(
+            type, new HireStudentEvent(costE, costDD)
+        )).data;
+    }
 }
 
 /**

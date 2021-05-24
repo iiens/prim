@@ -13,6 +13,22 @@
 
 <div id="main" class="h-100 row mx-0 mt-0 px-0 pb-0 game-background">
     <div id="popup-div"></div>
+    <div class="p-2 rounded d-none" id="popup-skip">
+        <span class="text-my-yellow me-2">Do</span>
+        <button class="border border-dark px-2 py-1 rounded bg-my-yellow"
+        id="do10">
+            10
+        </button>
+        <button class="border border-dark px-2 py-1 rounded bg-my-yellow"
+                id="do20">
+            20
+        </button>
+        <button class="border border-dark px-2 py-1 rounded bg-my-yellow"
+                id="do50">
+            50
+        </button>
+        <span class="text-my-yellow me-2">times</span>
+    </div>
 
     <!--
 
@@ -69,11 +85,13 @@
                     <div class="" id="tr-game-case-selected">
                         No case selected
                     </div>
-                    <!-- todo: -->
                     <div class="d-none" id="source-selected">
                         <img src="../../assets/img/map/Resource.png" alt="">
                         <span class="align-self-center" id="tr-source">SOURCE</span> <br>
-                        <span id="tr-source-desc">Generates resources, 1 per 10 turns by default. You can
+                        <span id="tr-source-desc">Generates resources,
+                           <span id="source-gen" class="text-my-yellow">1</span> per
+                            <span id="source-gen-turn" class="text-my-yellow">10</span>
+                            turns by default. You can
                         collect then using a COLLECTOR.</span>
                     </div>
                     <div class="d-none" id="gate-selected">
