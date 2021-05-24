@@ -28,7 +28,7 @@ function createWindow () {
     mainWindow.loadFile('src/view/index.html').then();
 
     // fix minimum size
-    mainWindow.setMinimumSize(925,650)
+    mainWindow.setMinimumSize(975,700)
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();

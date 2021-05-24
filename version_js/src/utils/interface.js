@@ -8,6 +8,7 @@ const utilities_1 = require("./utilities");
 const config_1 = require("./config");
 const translation_1 = require("./translation");
 const logger_1 = require("../model/logger");
+const events_1 = require("./events");
 /**
  * \author Quentin Ra
  * \version 0.7
@@ -509,17 +510,17 @@ class InterfaceUtils {
                             let upgradeDIV = document.getElementById('upgrade-machine-div');
                             if (machineInfo.canUpgrade) {
                                 InterfaceUtils.setText('machine-lvl-selected', p.getMachine().level + '');
-                                //todo: fill with upgrade message
+                                let machineEvent = game_1.Game.map.getCostUpgrade(machineInfo, events_1.EventType.UPGRADE_MACHINE);
                                 InterfaceUtils.setHTML('machine-info-selected', `
-                                       +1 collected / turn
-                                        Cost ${machineInfo.costUpgradeE} E ${machineInfo.costUpgradeDD} DD
+                                        ${machineInfo.upgrade(translation_1.Translation.getLanguage())} <br/>
+                                        Cost ${machineEvent.costE} E ${machineEvent.costDD} DD
                                  `);
                                 upgradeDIV.classList.remove('d-none');
                             }
                             else {
                                 upgradeDIV.classList.add('d-none');
                             }
-                            // todo: show desc
+                            InterfaceUtils.setText('machine-desc', machineInfo.description(translation_1.Translation.getLanguage()));
                             break;
                         case map_1.CaseType.CASE_SOURCE:
                             // show buy menu since empty

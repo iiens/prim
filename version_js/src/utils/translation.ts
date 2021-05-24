@@ -192,13 +192,14 @@ export class Translation {
         this.translations_EN.set(TrKeys.GAME_BUY,'Buy');
         this.translations_EN.set(TrKeys.GAME_CASE_CONTENT,'Content');
         this.translations_EN.set(TrKeys.GAME_MACHINE_LEVEL,'Level');
-        this.translations_EN.set(TrKeys.GAME_ROTATION_NONE,'None rotation.');
+        this.translations_EN.set(TrKeys.GAME_ROTATION_NONE,'None.');
         this.translations_EN.set(TrKeys.GAME_GATE_NAME,'GATE');
         this.translations_EN.set(TrKeys.GAME_GATE_DESC,'Bring resources to the door to close it. Be careful, it ' +
             'generates garbage that will lower your DD.');
         this.translations_EN.set(TrKeys.GAME_SOURCE_NAME,'SOURCE');
         this.translations_EN.set(TrKeys.GAME_SOURCE_DESC,'Generates resources, 1 every 10 turns by default, ' +
             'harvestable with a COLLECTOR. ');
+        this.translations_EN.set(TrKeys.GAME_COST,'Cost');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B,'Back');
@@ -344,6 +345,7 @@ export class Translation {
         this.translations_FR.set(TrKeys.GAME_SOURCE_NAME,'GÉNÉRATEUR');
         this.translations_FR.set(TrKeys.GAME_SOURCE_DESC,'Génère des ressources, 1 tous les 10 tours par défaut,' +
             ' récoltables avec un COLLECTEUR.');
+        this.translations_FR.set(TrKeys.GAME_COST,'Coût');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B,'Retour');
@@ -517,6 +519,7 @@ export enum TrKeys {
     GAME_GATE_DESC,
     GAME_SOURCE_NAME,
     GAME_SOURCE_DESC,
+    GAME_COST,
 
     MENU_TITLE,
     MENU_LANGUAGE_EN,

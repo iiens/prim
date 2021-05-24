@@ -54,11 +54,10 @@ export class Config {
     static machines = [
         new MachineInfo("Collector","Collecteur", MachineStuff.MS_COLLECTOR, "C",
             200, 20, 2500,500,60,200,
-            "Sends a resource (resp. a garbage) produced by the source (resp. the gate)" +
-            " to the neighboring cell indicated by its orientation. Collector storage increases by 1 per level.",
-            "Envoie une ressource produites par la source sur la case voisine indiquée par son orientation." +
-            " La capacité d'un Collecteur augmente de 1 par niveau","+1 collected / level",
-            "+1 collectée / niveau",
+            "Mine a resource or a garbage and send it to a belt.",
+            "Recolte une ressource et l'envoi sur un tapis selon son orientation.",
+            "+1 mined / level",
+            "+1 recoltée / niveau",
             1, "Collector Out is South by default","La sortie du collecteur est" +
             " Sud par défaut",
             true,

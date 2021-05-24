@@ -842,18 +842,8 @@ class Map {
             if (goIn) {
                 //Retrieving Machine Information
                 let machineInfo = config_1.Config.getMachineStuff(s === undefined ? c.getMachine()?.type : s);
-                // get the default cost according to the type of event
-                let { costE, costDD } = function () {
-                    switch (type) {
-                        case events_1.EventType.UPGRADE_MACHINE:
-                            return { costE: machineInfo?.costUpgradeE, costDD: machineInfo?.costUpgradeDD };
-                        case events_1.EventType.DESTROY_MACHINE:
-                            return { costE: machineInfo?.costDestroyE, costDD: machineInfo?.costDestroyDD };
-                    }
-                    return machineInfo;
-                }();
                 // Allows you to find machine info
-                let machineEvent = this.team.applyEffect(new events_1.GameEvent(type, new events_1.MachineEvent(costE, costDD, machineInfo?.type))).data;
+                let machineEvent = this.getCostUpgrade(machineInfo, type);
                 // Check that the player has the money
                 return this.tryBuy(machineEvent?.costE, machineEvent?.costDD);
             }
@@ -1448,6 +1438,22 @@ class Map {
         else {
             return code_1.ErrorCode.ERROR_INVALID_STAFF_NUMBER;
         }
+    }
+    getCostUpgrade(machineInfo, type) {
+        if (this.team === undefined)
+            throw new Error();
+        // get the default cost according to the type of event
+        let { costE, costDD } = function () {
+            switch (type) {
+                case events_1.EventType.UPGRADE_MACHINE:
+                    return { costE: machineInfo?.costUpgradeE, costDD: machineInfo?.costUpgradeDD };
+                case events_1.EventType.DESTROY_MACHINE:
+                    return { costE: machineInfo?.costDestroyE, costDD: machineInfo?.costDestroyDD };
+            }
+            return machineInfo;
+        }();
+        // Allows you to find machine info
+        return this.team.applyEffect(new events_1.GameEvent(type, new events_1.MachineEvent(costE, costDD, machineInfo?.type))).data;
     }
 }
 exports.Map = Map;

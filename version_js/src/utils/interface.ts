@@ -6,6 +6,7 @@ import {getRandomInt} from "./utilities";
 import {Config} from "./config";
 import {Translation, TrKeys} from "./translation";
 import {Logger} from "../model/logger";
+import {EventType, MachineEvent} from "./events";
 
 /**
  * \author Quentin Ra
@@ -532,16 +533,20 @@ class InterfaceUtils {
                             let upgradeDIV = <HTMLElement>document.getElementById('upgrade-machine-div');
                             if (machineInfo.canUpgrade) {
                                 InterfaceUtils.setText('machine-lvl-selected', p.getMachine().level + '')
-                                //todo: fill with upgrade message
+
+                                let machineEvent : MachineEvent = Game.map.getCostUpgrade(machineInfo,
+                                    EventType.UPGRADE_MACHINE);
+
                                 InterfaceUtils.setHTML('machine-info-selected',`
-                                       +1 collected / turn
-                                        Cost ${machineInfo.costUpgradeE} E ${machineInfo.costUpgradeDD} DD
+                                        ${machineInfo.upgrade(Translation.getLanguage())} <br/>
+                                        Cost ${machineEvent.costE} E ${machineEvent.costDD} DD
                                  `);
                                 upgradeDIV.classList.remove('d-none')
                             } else {
                                 upgradeDIV.classList.add('d-none')
                             }
-                            // todo: show desc
+                            InterfaceUtils.setText('machine-desc',
+                                machineInfo.description(Translation.getLanguage()))
                             break;
                         case CaseType.CASE_SOURCE:
                             // show buy menu since empty
