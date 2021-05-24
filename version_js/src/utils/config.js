@@ -39,7 +39,7 @@ class Config {
     }
 }
 exports.Config = Config;
-Config.GAME_VERSION = "2.3.0";
+Config.GAME_VERSION = "3.1.0";
 /**
  * Keys shortcut that are use everywhere
  */
