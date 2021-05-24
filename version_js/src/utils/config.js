@@ -71,7 +71,8 @@ Config.constants = {
     NUMBER_WASTE_TO_PRODUCT_RESOURCE: 10,
     NUMBER_RESOURCE_WIN: 5000,
     MACHINE_DEFAULT_LVL: 1,
-    RECYCLING_RATIO: 1 // xxx garbage produce 1 resource
+    RECYCLING_RATIO: 1,
+    GENERATE_GARBAGE_DOOR: 20 // x percent of generating garbage if not resources sent on the door
 };
 /**
  * Array with information about all machine

@@ -1184,6 +1184,9 @@ export class Map {
      * Allows you to generate waste at the door
      */
     generateGarbage() : void {
+        // may create garbage if the player pass a lot of turns
+        let mayCreateGarbage = () => randomNumber(0, 100) < Config.constants.GENERATE_GARBAGE_DOOR ? 1 : 0;
+
         let logger = Logger.Instance;
         logger.debug("Begin generateGarbage");
 
@@ -1204,26 +1207,36 @@ export class Map {
             for (let j = 0; j < this.height; ++j) {
                 c = <Case>this.getCase(i, j);
                 // Checking the presence of the door
-                if (c.isGate && c.hasBox()) {
-                    // Recovery of the box
-                    let box : Box = c.getBox();
-                    // Retrieving the number of resources
-                    let numberR = box.numberResources;
-                    // Transformation of resources into waste
-                    box.addResources(numberR * -1);
+                if (c.isGate) {
+                    if (c.hasBox()){
+                        // Recovery of the box
+                        let box : Box = c.getBox();
+                        // Retrieving the number of resources
+                        let numberR = box.numberResources;
+                        if (numberR != 0){
+                            // Transformation of resources into waste
+                            box.addResources(numberR * -1);
 
-                    // Score increase
-                    this.addScore(numberR * modifierRes);
+                            // Score increase
+                            this.addScore(numberR * modifierRes);
 
-                    // can destroy some garbage using staffs
-                    numberR = this.team.applyEffect(new GameEvent(EventType.GARBAGE_DESTROY,
-                        new GarbageEvent(numberR)
-                        )
-                    ).data.garbage;
+                            // can destroy some garbage using staffs
+                            numberR = this.team.applyEffect(new GameEvent(EventType.GARBAGE_DESTROY,
+                                new GarbageEvent(numberR)
+                                )
+                            ).data.garbage;
 
-                    // Creation of waste
-                    logger.info("Creation of waste!");
-                    box.addGarbage(numberR);
+                            // Creation of waste
+                            logger.info("Creation of waste!");
+                            box.addGarbage(numberR);
+                        } else {
+                            box.addGarbage(mayCreateGarbage());
+                        }
+                    } else {
+                        // can add some garbage randomly
+                        c.setBox(new Box(0, mayCreateGarbage()));
+                        logger.info("We may have generated waste");
+                    }
                 }
             }
         }
