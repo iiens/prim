@@ -45,7 +45,8 @@ export class Config {
         NB_RESOURCE_PRODUCT_BY_SOURCE: 10,  //!< number of resource produced by Source
         NUMBER_WASTE_TO_PRODUCT_RESOURCE: 10, //!< number of waste to product a resource in a recycling center
         NUMBER_RESOURCE_WIN: 5000, //!< number of resource to win
-        MACHINE_DEFAULT_LVL: 1 //!< level of the machine by default
+        MACHINE_DEFAULT_LVL: 1, //!< level of the machine by default
+        RECYCLING_RATIO: 1 // xxx garbage produce 1 resource
     }
 
     /**

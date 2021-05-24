@@ -70,7 +70,8 @@ Config.constants = {
     NB_RESOURCE_PRODUCT_BY_SOURCE: 10,
     NUMBER_WASTE_TO_PRODUCT_RESOURCE: 10,
     NUMBER_RESOURCE_WIN: 5000,
-    MACHINE_DEFAULT_LVL: 1 //!< level of the machine by default
+    MACHINE_DEFAULT_LVL: 1,
+    RECYCLING_RATIO: 1 // xxx garbage produce 1 resource
 };
 /**
  * Array with information about all machine

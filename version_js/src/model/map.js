@@ -1118,16 +1118,13 @@ class Map {
                             let machineBox = machine.getBox(card);
                             // Checking the presence of a box
                             if (machineBox != null) {
-                                // Calculates the number of resources generated
                                 let numberGarbage = machineBox.numberGarbage;
-                                let numberResource = Math.round(numberGarbage / numberWasteToResource);
-                                let rest = numberGarbage % numberWasteToResource;
-                                // Verifying that resources are generated
-                                if (numberResource > 0) {
-                                    // Transformation of waste into resources
-                                    machineBox.addGarbage(rest - numberGarbage); // removing theses garbage
-                                    // adding resource
-                                    let outputBox = new machine_1.Box(numberResource, 0);
+                                let required = config_1.Config.constants.NUMBER_WASTE_TO_PRODUCT_RESOURCE;
+                                if (numberGarbage >= required) {
+                                    let coefficient = config_1.Config.constants.RECYCLING_RATIO; // traded for one resource
+                                    machineBox.addGarbage(-required);
+                                    // adding a box with "coefficient" resources
+                                    let outputBox = new machine_1.Box(coefficient, 0);
                                     // Sends resources on the output
                                     this.moveBox(c, outputBox, card);
                                 }
