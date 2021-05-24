@@ -10,8 +10,6 @@ const {TrKeys,Translation} = require("../../utils/translation");
 let tr_cost = Translation.get(TrKeys.STAFF_COST);
 let tr_level = Translation.get(TrKeys.STAFF_LEVEL);
 let tr_level_max = Translation.get(TrKeys.STAFF_LEVEL_MAX);
-let tr_effect = Translation.get(TrKeys.STAFF_EFFECT);
-let tr_and = Translation.get(TrKeys.AND_WORD);
 
 //todo: fix ??? in staff pane
 // and also add E/DD values in this menu

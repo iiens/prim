@@ -5,51 +5,72 @@
 // selectively enable features needed in the rendering
 // process.
 
+const {EventType} = require("../../utils/events");
 const {MachineStuff} = require("../../model/machine");
 const {TrKeys,Translation} = require("../../utils/translation");
 const {Cardinal} = require("../../model/machine");
 let machines = document.getElementById("machines-list");
 
+// load translations
+let tr_cost = Translation.get(TrKeys.MACHINE_PRICE);
+let tr_cost_upgrade = Translation.get(TrKeys.MACHINE_PRICE_UPDATE);
+let tr_cost_destroy = Translation.get(TrKeys.MACHINE_PRICE_DESTROY);
+
 // all machines
 for (const machine of config.machines) {
-    let pathToFile;
-    pathToFile = machine.imageFile.get(Cardinal.SOUTH);
-    let div = document.createElement("div");
-    div.classList.add("border", "border-dark" ,"mt-3", "p-3")
-    let price=Translation.get(TrKeys.MACHINE_PRICE);
-    let price_destroy=Translation.get(TrKeys.MACHINE_PRICE_DESTROY);
-    let orientation=Translation.get(TrKeys.MACHINE_ORIENTATION);
-    let and_word =Translation.get(TrKeys.AND_WORD);
-    // upgrade message
-    let up = "", capacity,capacity2,up2="";
-    if (machine.canUpgrade) {
-        up2 = Translation.get((TrKeys.MACHINE_PRICE_UPDATE));
-        up =`${up2} <span class="text-success">${machine.costUpgradeE}</span> E ${and_word} 
-        <span class="text-success">${machine.costUpgradeDD}</span> DD <br>`;
+    let machine_icon = machine.imageFile.get(Cardinal.SOUTH);
+    let info = config.getMachineStuff(machine.type);
+
+    // only if upgradable
+    let up_content = "";
+    if (machine.canUpgrade){
+        let me = game.map.getCostUpgrade(info, EventType.UPGRADE_MACHINE);
+        up_content = `
+        <div>
+        ${tr_cost_upgrade} <span class="text-my-yellow">${me.costE} E</span>
+        <span class="text-my-yellow">${me.costDD} DD</span>
+        </div>
+        `;
+    } else {
+        // should show not upgradable ?
     }
 
-    // unlimited capacity
-    if (machine.capacity === Number.MAX_VALUE) capacity = '';
-    else
-    {
-        capacity2 = Translation.get(TrKeys.MACHINE_CAPACITY);
-        capacity = `${capacity2} <span class="text-success">${machine.capacity}</span><br>`;
+    // not an unlimited capacity
+    let capacity_content = "";
+    if (machine.capacity !== Number.MAX_VALUE) {
+        // ...
     }
-    div.innerHTML = `<div class="">
-                <span class="fw-bold">${machine.name(game.getTranslationLanguage())}</span>
-                <i class="text-success">id=${machine.type}, <img src="${pathToFile}"></i>
+
+    let me = game.map.getCostUpgrade(info, EventType.BUY_MACHINE);
+    let me_destroy = game.map.getCostUpgrade(info, EventType.DESTROY_MACHINE);
+
+    // final machine view
+    let div = document.createElement("div");
+    div.classList.add("mt-3");
+    div.innerHTML = `
+          <div class="fz22">
+            <div class="settings-background ps-2 py-1 text-white">
+                <img src="${machine_icon}" alt="">
+                <span>${machine.name(game.getTranslationLanguage())}</span>
             </div>
-            <p>${machine.description(game.getTranslationLanguage())}</p>
-            <span>
-                ${price}
-                <span class="text-success">${machine.costE}</span> E ${and_word} 
-                <span class="text-success">${machine.costDD}</span> DD <br>
-                ${up}
-                ${price_destroy}
-                <span class="text-success">${machine.costDestroyE}</span> E ${and_word}  
-                <span class="text-success">${machine.costDestroyDD}</span> DD <br>
-                ${orientation} <span class="text-success">${machine.defaultOrientation(game.getTranslationLanguage())}</span> <br>
-                ${capacity}
-            </span>`
+            <div class="content-background p-3">
+                <div>
+                    ${machine.description(game.getTranslationLanguage())}
+                </div>
+                <div class="mt-3">
+                    ${tr_cost} <span class="text-my-yellow">${me.costE} E</span>
+                    <span class="text-my-yellow">${me.costDD} DD</span>
+                </div>
+                ${up_content}
+                <div>
+                    ${tr_cost_destroy} <span class="text-my-yellow">${me_destroy.costE} E</span>
+                    <span class="text-my-yellow">${me_destroy.costDD} DD</span>
+                </div>
+                <div class="mt-2 text-my-blue">
+                 ${machine.canUpgrade ? machine.upgrade(Translation.getLanguage()) : ""}
+                </div>
+            </div>
+        </div>    
+    `;
     machines.append(div)
 }

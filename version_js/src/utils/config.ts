@@ -54,8 +54,10 @@ export class Config {
     static machines = [
         new MachineInfo("Collector","Collecteur", MachineStuff.MS_COLLECTOR, "C",
             200, 20, 2500,500,60,200,
-            "Mine a resource or a garbage and send it to a belt.",
-            "Recolte une ressource et l'envoi sur un tapis selon son orientation.",
+            "Mine a resource or a garbage and send it to a belt adjacent to the white" +
+            "bar side.",
+            "Recolte une ressource et l'envoi sur un tapis selon son orientation" +
+            "indiquée par la ligne blanche.",
             "+1 mined / level",
             "+1 recoltée / niveau",
             1, "Collector Out is South by default","La sortie du collecteur est" +
@@ -101,10 +103,10 @@ export class Config {
         ),
         new MachineInfo("Recycling center","Centre de recyclage", MachineStuff.MS_RECYCLING_CENTER, "R",
             500, 40,  1500, 100, 100, 500,
-            "The recycling center has 3 entrances and one exit. The center can store up to 100 garbage." +
-            " 10 garbage produce 1 resource by default. Storage of Recycling center increases by 10 per level.",
+            "The recycling center has 3 entrances and one exit. It can store up to 100 garbage." +
+            " 10 garbage produce 1 resource.",
             "Le centre de recyclage a 3 entrées et une sortie. Le centre peut stocker jusqu'à 100 déchets. " +
-            "10 déchets produisent 1 ressource par défaut. Le stockage du centre de recyclage augmente de 10 par niveau.",
+            "10 déchets produisent 1 ressource.",
             "+10 storage / level","+10 capacité / niveau",
             100, "Recycling Center Out is South by default","La sortie du centre" +
             " de recyclage est le Sud par défaut",
@@ -120,11 +122,9 @@ export class Config {
         ),
         new MachineInfo("Junkyard","Déchetterie", MachineStuff.MS_JUNKYARD, "J",
             100, 100, 200,  600, 100, 200,
-            "The junkyard  has 4 entrances and no exit. It can store up to 50 garbage." +
-            "Storage of Junkyard increases by 20 per level.",
-            "La déchetterie a 4 entrées et aucune sortie. Il peut stocker jusqu'à 50 déchets. " +
-            "Le stockage de la déchetterie augmente de 20 par niveau.","+20 storage / level",
-            "+20 capacité / niveau",
+            "The junkyard  has 4 entrances and no exit. It can store up to 50 garbage.",
+            "La déchetterie a 4 entrées et aucune sortie. Elle peut stocker jusqu'à 50 déchets. ",
+            "+20 storage / level","+20 capacité / niveau",
             50, "Junkyard doesn't have any Out","La déchetterie ne possède pas" +
             " de sorties par défaut",
             true, function (level: number) : number {

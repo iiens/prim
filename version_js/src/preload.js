@@ -175,6 +175,7 @@ document.onreadystatechange = (event) => {
             }
             case 'machines': {
                 loadGame('machines');
+                window.game = Game;
                 window.config = Config;
                 window.translation = {
                     "tr-back": Translation.get(TrKeys.GO_BACK_B),
