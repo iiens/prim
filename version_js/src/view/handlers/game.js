@@ -4,7 +4,8 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-
+const {MachineStuff} = require("../../model/machine");
+const {EventType} = require("../../utils/events");
 game.interface.init()
 
 // replace son constants
@@ -131,7 +132,18 @@ function select_machine(e) {
     if (orientations.children[0].tagName === "IMG"){
         orientations.children[0].classList.add('border-my-yellow')
     }
+
+    let machineInfo = config.getMachineStuff(Number(id));
+    let me = game.map.getCostUpgrade(machineInfo, EventType.BUY_MACHINE);
+    document.getElementById('machine-cost')
+        .innerText = `${me.costE} E ${me.costDD} DD`
 }
+
+// set default price
+let machineInfo = config.getMachineStuff(MachineStuff.MS_COLLECTOR);
+let me = game.map.getCostUpgrade(machineInfo, EventType.BUY_MACHINE);
+document.getElementById('machine-cost')
+    .innerText = `${me.costE} E ${me.costDD} DD`;
 
 function select_orientation(e) {
     let selected = document.getElementsByClassName('orientation-selected')[0];

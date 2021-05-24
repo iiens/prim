@@ -54,14 +54,14 @@ class MachineInfo {
      * return the name with the correct language
      * @return name the name of a machine
      */
-    name(langue) {
+    name(lang) {
         let logger = logger_1.Logger.Instance;
-        if (langue == translation_1.Language.EN) {
-            logger.info("English name setted");
+        if (lang == translation_1.Language.EN) {
+            logger.info("English name set");
             return this.name_en;
         }
-        else if (langue == translation_1.Language.FR) {
-            logger.info("French name setted");
+        else if (lang == translation_1.Language.FR) {
+            logger.info("French name set");
             return this.name_fr;
         }
         else
@@ -71,14 +71,14 @@ class MachineInfo {
      * return the description with the correct language
      * @return description the description of a machine
      */
-    description(langue) {
+    description(lang) {
         let logger = logger_1.Logger.Instance;
-        if (langue == translation_1.Language.EN) {
-            logger.info("English description setted");
+        if (lang == translation_1.Language.EN) {
+            logger.info("English description set");
             return this.description_en;
         }
-        else if (langue == translation_1.Language.FR) {
-            logger.info("French description setted");
+        else if (lang == translation_1.Language.FR) {
+            logger.info("French description set");
             return this.description_fr;
         }
         else
@@ -88,13 +88,13 @@ class MachineInfo {
      * return the upgrade description with the correct language
      * @return upgrade the description of the upgrade
      */
-    upgrade(langue) {
+    upgrade(lang) {
         let logger = logger_1.Logger.Instance;
-        if (langue == translation_1.Language.EN) {
+        if (lang == translation_1.Language.EN) {
             logger.info("English upgrade description setted");
             return this.upgrade_en;
         }
-        else if (langue == translation_1.Language.FR) {
+        else if (lang == translation_1.Language.FR) {
             logger.info("French upgrade description setted");
             return this.upgrade_fr;
         }

@@ -176,13 +176,14 @@ class Translation {
         this.translations_EN.set(TrKeys.GAME_BUY, 'Buy');
         this.translations_EN.set(TrKeys.GAME_CASE_CONTENT, 'Content');
         this.translations_EN.set(TrKeys.GAME_MACHINE_LEVEL, 'Level');
-        this.translations_EN.set(TrKeys.GAME_ROTATION_NONE, 'None rotation.');
+        this.translations_EN.set(TrKeys.GAME_ROTATION_NONE, 'None.');
         this.translations_EN.set(TrKeys.GAME_GATE_NAME, 'GATE');
         this.translations_EN.set(TrKeys.GAME_GATE_DESC, 'Bring resources to the door to close it. Be careful, it ' +
             'generates garbage that will lower your DD.');
         this.translations_EN.set(TrKeys.GAME_SOURCE_NAME, 'SOURCE');
         this.translations_EN.set(TrKeys.GAME_SOURCE_DESC, 'Generates resources, 1 every 10 turns by default, ' +
             'harvestable with a COLLECTOR. ');
+        this.translations_EN.set(TrKeys.GAME_COST, 'Cost');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Back');
         //menu.html
@@ -318,6 +319,7 @@ class Translation {
         this.translations_FR.set(TrKeys.GAME_SOURCE_NAME, 'GÉNÉRATEUR');
         this.translations_FR.set(TrKeys.GAME_SOURCE_DESC, 'Génère des ressources, 1 tous les 10 tours par défaut,' +
             ' récoltables avec un COLLECTEUR.');
+        this.translations_FR.set(TrKeys.GAME_COST, 'Coût');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Retour');
         //menu.html
@@ -469,22 +471,23 @@ var TrKeys;
     TrKeys[TrKeys["GAME_GATE_DESC"] = 73] = "GAME_GATE_DESC";
     TrKeys[TrKeys["GAME_SOURCE_NAME"] = 74] = "GAME_SOURCE_NAME";
     TrKeys[TrKeys["GAME_SOURCE_DESC"] = 75] = "GAME_SOURCE_DESC";
-    TrKeys[TrKeys["MENU_TITLE"] = 76] = "MENU_TITLE";
-    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 77] = "MENU_LANGUAGE_EN";
-    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 78] = "MENU_LANGUAGE_FR";
-    TrKeys[TrKeys["MACHINE_PRICE"] = 79] = "MACHINE_PRICE";
-    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 80] = "MACHINE_PRICE_DESTROY";
-    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 81] = "MACHINE_ORIENTATION";
-    TrKeys[TrKeys["AND_WORD"] = 82] = "AND_WORD";
-    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 83] = "MACHINE_PRICE_UPDATE";
-    TrKeys[TrKeys["MACHINE_CAPACITY"] = 84] = "MACHINE_CAPACITY";
-    TrKeys[TrKeys["STAFF_COST"] = 85] = "STAFF_COST";
-    TrKeys[TrKeys["STAFF_LEVEL"] = 86] = "STAFF_LEVEL";
-    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 87] = "STAFF_LEVEL_MAX";
-    TrKeys[TrKeys["STAFF_EFFECT"] = 88] = "STAFF_EFFECT";
-    TrKeys[TrKeys["TERMINAL_HELP"] = 89] = "TERMINAL_HELP";
-    TrKeys[TrKeys["VOLUME_TITLE"] = 90] = "VOLUME_TITLE";
-    TrKeys[TrKeys["MUSIC_TITLE"] = 91] = "MUSIC_TITLE";
+    TrKeys[TrKeys["GAME_COST"] = 76] = "GAME_COST";
+    TrKeys[TrKeys["MENU_TITLE"] = 77] = "MENU_TITLE";
+    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 78] = "MENU_LANGUAGE_EN";
+    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 79] = "MENU_LANGUAGE_FR";
+    TrKeys[TrKeys["MACHINE_PRICE"] = 80] = "MACHINE_PRICE";
+    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 81] = "MACHINE_PRICE_DESTROY";
+    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 82] = "MACHINE_ORIENTATION";
+    TrKeys[TrKeys["AND_WORD"] = 83] = "AND_WORD";
+    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 84] = "MACHINE_PRICE_UPDATE";
+    TrKeys[TrKeys["MACHINE_CAPACITY"] = 85] = "MACHINE_CAPACITY";
+    TrKeys[TrKeys["STAFF_COST"] = 86] = "STAFF_COST";
+    TrKeys[TrKeys["STAFF_LEVEL"] = 87] = "STAFF_LEVEL";
+    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 88] = "STAFF_LEVEL_MAX";
+    TrKeys[TrKeys["STAFF_EFFECT"] = 89] = "STAFF_EFFECT";
+    TrKeys[TrKeys["TERMINAL_HELP"] = 90] = "TERMINAL_HELP";
+    TrKeys[TrKeys["VOLUME_TITLE"] = 91] = "VOLUME_TITLE";
+    TrKeys[TrKeys["MUSIC_TITLE"] = 92] = "MUSIC_TITLE";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

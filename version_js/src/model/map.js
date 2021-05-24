@@ -842,18 +842,8 @@ class Map {
             if (goIn) {
                 //Retrieving Machine Information
                 let machineInfo = config_1.Config.getMachineStuff(s === undefined ? c.getMachine()?.type : s);
-                // get the default cost according to the type of event
-                let { costE, costDD } = function () {
-                    switch (type) {
-                        case events_1.EventType.UPGRADE_MACHINE:
-                            return { costE: machineInfo?.costUpgradeE, costDD: machineInfo?.costUpgradeDD };
-                        case events_1.EventType.DESTROY_MACHINE:
-                            return { costE: machineInfo?.costDestroyE, costDD: machineInfo?.costDestroyDD };
-                    }
-                    return machineInfo;
-                }();
                 // Allows you to find machine info
-                let machineEvent = this.team.applyEffect(new events_1.GameEvent(type, new events_1.MachineEvent(costE, costDD, machineInfo?.type))).data;
+                let machineEvent = this.getCostUpgrade(machineInfo, type);
                 // Check that the player has the money
                 return this.tryBuy(machineEvent?.costE, machineEvent?.costDD);
             }
@@ -1128,16 +1118,13 @@ class Map {
                             let machineBox = machine.getBox(card);
                             // Checking the presence of a box
                             if (machineBox != null) {
-                                // Calculates the number of resources generated
                                 let numberGarbage = machineBox.numberGarbage;
-                                let numberResource = Math.round(numberGarbage / numberWasteToResource);
-                                let rest = numberGarbage % numberWasteToResource;
-                                // Verifying that resources are generated
-                                if (numberResource > 0) {
-                                    // Transformation of waste into resources
-                                    machineBox.addGarbage(rest - numberGarbage); // removing theses garbage
-                                    // adding resource
-                                    let outputBox = new machine_1.Box(numberResource, 0);
+                                let required = config_1.Config.constants.NUMBER_WASTE_TO_PRODUCT_RESOURCE;
+                                if (numberGarbage >= required) {
+                                    let coefficient = config_1.Config.constants.RECYCLING_RATIO; // traded for one resource
+                                    machineBox.addGarbage(-required);
+                                    // adding a box with "coefficient" resources
+                                    let outputBox = new machine_1.Box(coefficient, 0);
                                     // Sends resources on the output
                                     this.moveBox(c, outputBox, card);
                                 }
@@ -1448,6 +1435,22 @@ class Map {
         else {
             return code_1.ErrorCode.ERROR_INVALID_STAFF_NUMBER;
         }
+    }
+    getCostUpgrade(machineInfo, type) {
+        if (this.team === undefined)
+            throw new Error();
+        // get the default cost according to the type of event
+        let { costE, costDD } = function () {
+            switch (type) {
+                case events_1.EventType.UPGRADE_MACHINE:
+                    return { costE: machineInfo?.costUpgradeE, costDD: machineInfo?.costUpgradeDD };
+                case events_1.EventType.DESTROY_MACHINE:
+                    return { costE: machineInfo?.costDestroyE, costDD: machineInfo?.costDestroyDD };
+            }
+            return machineInfo;
+        }();
+        // Allows you to find machine info
+        return this.team.applyEffect(new events_1.GameEvent(type, new events_1.MachineEvent(costE, costDD, machineInfo?.type))).data;
     }
 }
 exports.Map = Map;

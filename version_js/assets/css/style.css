@@ -185,7 +185,7 @@ body { border: 1px solid #48545c; overflow-y: hidden; }
 #e-dd-change-e-label { left:11px;top: 1px; }
 #e-dd-change-dd-label { left:5px;top:2px; }
 
-#upgrade-machine-div { background: black; color: white; }
+#upgrade-machine-div, .machine-div { background: black; color: white; }
 
 /** staffs */
 .content-background { background: #1d2c40; color: white !important; }

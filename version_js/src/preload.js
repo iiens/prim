@@ -9,8 +9,6 @@ const {Config} = require('./utils/config');
 // When document has loaded, initialise
 document.onreadystatechange = (event) => {
     if (document.readyState === "complete") {
-        const jquery = require('jquery')
-
         // frameless window
         addHeader();
         handleWindowControls();
@@ -40,7 +38,6 @@ document.onreadystatechange = (event) => {
         // load the page javascript
         switch(page) {
             case 'index' : {
-
                 Game.clearGame(); // clear previous game just in case
                 // load config
                 window.config = Config;
@@ -118,6 +115,7 @@ document.onreadystatechange = (event) => {
                     "tr-gate-desc" : Translation.get(TrKeys.GAME_GATE_DESC),
                     "tr-source" : Translation.get(TrKeys.GAME_SOURCE_NAME),
                     "tr-source-desc" : Translation.get(TrKeys.GAME_SOURCE_DESC),
+                    "tr-cost" : Translation.get(TrKeys.GAME_COST),
                 }
                 translate();
                 require("./view/handlers/popup");
@@ -177,6 +175,7 @@ document.onreadystatechange = (event) => {
             }
             case 'machines': {
                 loadGame('machines');
+                window.game = Game;
                 window.config = Config;
                 window.translation = {
                     "tr-back": Translation.get(TrKeys.GO_BACK_B),
