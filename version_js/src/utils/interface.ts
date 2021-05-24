@@ -288,15 +288,29 @@ class InterfaceUtils {
         let img = new Image();
         if(content == "S "){
             img.src = url+'Resource.png';
+            img.onload = function() { ctx.drawImage(img, xx+1, yy+1); }
         } else if(content == "G "){
             // let gif = new GIF.loadFile(url+'Gate.gif');
             // ctx.drawImage(gif.image,0,0); // will draw the playing gif image
-            img.src = url+'Gate.png';
+            img.src = url+'gate/convert_1.png';
+            let i = 1;
+            let canCall = true;
+            img.onload = () => {
+                if (canCall){
+                    canCall = false;
+                    setTimeout(function () {
+                        i++;
+                        if (i == 100) i = 1; // reset
+                        img.src = `${url}gate/convert_${i}.png`;
+                        ctx.drawImage(img, xx+1, yy+1);
+                        canCall = true;
+                    }, 60)
+                }
+                ctx.drawImage(img, xx+1, yy+1);
+            }
         } else {
             img.src = url+'Sol/Random'+getRandomInt(numberImage)+'.png';
-        }
-        img.onload = function() {
-            ctx.drawImage(img, xx+1, yy+1);
+            img.onload = function() { ctx.drawImage(img, xx+1, yy+1); }
         }
     }
 

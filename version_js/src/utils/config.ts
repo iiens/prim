@@ -12,7 +12,7 @@ import {Cardinal, MachineInfo, MachineStuff} from "../model/machine";
  */
 export class Config {
 
-    static GAME_VERSION = "2.3.0";
+    static GAME_VERSION = "3.1.0";
 
     /**
      * Keys shortcut that are use everywhere
@@ -46,7 +46,8 @@ export class Config {
         NUMBER_WASTE_TO_PRODUCT_RESOURCE: 10, //!< number of waste to product a resource in a recycling center
         NUMBER_RESOURCE_WIN: 5000, //!< number of resource to win
         MACHINE_DEFAULT_LVL: 1, //!< level of the machine by default
-        RECYCLING_RATIO: 1 // xxx garbage produce 1 resource
+        RECYCLING_RATIO: 1, // xxx garbage produce 1 resource
+        GENERATE_GARBAGE_DOOR: 20 // x percent of generating garbage if not resources sent on the door
     }
 
     /**
