@@ -112,7 +112,7 @@
                     -->
                     <div class="d-none" id="empty-selected">
                         <p class="text-white"><span id="tr-machine">Machine</span>
-                            <a href="machines.html">
+                            <a href="#" id="list-machines">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                      fill="currentColor" class="bi bi-question-circle-fill
                                        text-my-blue pointer" viewBox="0 0 16 16">
@@ -174,14 +174,16 @@
                                  alt="" data-rotation="3">
                         </div>
                         <div id="orientations5" class="orientations d-none">
-                            <span id="tr-rotation-none"
-                            class="orientation-selected" data-id="0">Can't rotate.</span>
+                            <span id="tr-rotation-none" class="orientation-selected
+                            text-my-yellow" data-id="0">Can't rotate.</span>
                         </div>
 
                         <div class="text-end">
-                            <span class="me-3">Cost is
+                            <p class="text-white">
+                                <span id="tr-cost-is">Cost is</span>
                                 <span id="machine-cost">400 E 50 DD</span>
-                            </span>
+                                &nbsp;
+                            </p>
                             <button class="bg-transparent border border-my-yellow
                                                    rounded p-2 mt-2 text-my-yellow"
                             id="buy-button" data-x="0" data-y="0">

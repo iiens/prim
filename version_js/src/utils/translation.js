@@ -99,53 +99,72 @@ class Translation {
             'However, their joy didn\'t last long. Having 2 ENSIIE made their ' +
             'ranking in durable development decrease because their were spending twice ' +
             'their usual consommation of energy. That\'s why ' +
-            '<span class="text-success">you absolutely need to close the door !</span>');
+            '<span class="text-my-yellow">you absolutely need to close the door !</span>');
         this.translations_EN.set(TrKeys.RULES_EXPLAIN_TITLE, 'What are the rules ?');
-        this.translations_EN.set(TrKeys.RULES_EXPLAIN, ' You will have to spend <span class="text-success">energy (E)</span> ' +
+        this.translations_EN.set(TrKeys.RULES_EXPLAIN, ' You will have to spend <span class="text-my-yellow">energy (E)</span> ' +
             'to buy machines while preventing your ' +
-            '<span class="text-success">durable development (DD)</span> ' +
+            '<span class="text-my-yellow">durable development (DD)</span> ' +
             'from reaching <span class="text-danger">0</span> (meaning the destruction ' +
             'of your world). ' +
             '<br>' +
             'Your goal will be to produce ' +
-            'and send to the gate <span class="text-success" id="game-goal"></span> ' +
+            'and send to the gate <span class="text-my-yellow" id="game-goal"></span> ' +
             'resources in order to close it. Beware ! Each resource send will produce ' +
             'a garbage that you will have to handle otherwise your DD will decrease by ' +
-            '<span class="text-success" id="game-dd-malus"></span>.');
+            '<span class="text-my-yellow" id="game-dd-malus"></span>.');
         this.translations_EN.set(TrKeys.RULES_PLAY_TITLE, 'How should I play ?');
-        this.translations_EN.set(TrKeys.RULES_PLAY, 'At the start, you will have <span class="text-success"> ' +
-            '            <span id="game-nb-sources">2</span> sources</span> ' +
-            '            that produces <span class="text-success"> ' +
-            '            <span id="game-production">3</span> ' +
-            '            resources/<span id="game-turns-prod">10</span> turns</span>. ' +
-            '            You will have to buy a machine called a <span class="text-success">collector</span> ' +
-            '            to mine resources from a source (or garbage from the door) then send them ' +
-            '            using either a <span class="text-success">conveyor belt</span> ' +
-            '            or a <span class="text-success">cross belt</span>. ' +
-            '            <br> ' +
-            '            You can send garbage to a <span class="text-success">recycling center</span> ' +
-            '            or in a <span class="text-success">junkyard</span> according to your strategy. ' +
-            '            <i class="text-muted small">You ' +
-            '            will have a guide in-game to see more information about each machine.</i> ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            But in order to buy a machine, you will need <span class="text-success">E</span> ' +
-            '            and <span class="text-success">DD</span> ! These are produced by the student of ' +
-            '            the ENSIIE, called FISE (initial training course, <span class="text-success"> ' +
-            '            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD ' +
-            '            </span> ' +
-            '            per turn) or FISA (part-time training course, <span class="text-success"> ' +
-            '            <span id="game-fisa-e">4</span>E</span> or <span class="text-success"> ' +
-            '            <span id="game-fisa-dd">4</span> ' +
-            '            DD</span> per ' +
-            '            <span class="text-success" id="game-fisa-turn">2</span> ' +
-            '            turns). ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            If you have enough <span class="text-success">E</span> ' +
-            '            and <span class="text-success">DD</span>, you can hire a Staff that can reduce ' +
-            '            the cost of a machine, hire a lot of students, ... ' +
-            '            <i class="text-muted small">Be sure to check out all of them in-game !</i> ');
+        this.translations_EN.set(TrKeys.RULES_PLAY, `                                   
+            At the start, you will have <span class="text-my-yellow">  
+            <span id="game-nb-sources">2</span> sources</span>  
+            <img src="../../assets/img/legend/Resource.png" width="24" height="24" alt=" ">
+            that produces <span class="text-my-yellow">  
+            <span id="game-production">3</span>  
+            resources
+            <img src="../../assets/img/game/portal.png" width="24" height="24" alt=" ">
+            per <span id="game-turns-prod">10</span> turns</span>.  
+            
+            
+           You will have to buy a machine called a <span class="text-my-yellow">collector</span>  
+           <img src="../../assets/img/legend/MS_COLLECTOR_BOT.png" width="24" height="24" alt=" ">
+           to mine resources from a source (or garbage from the door) then send them  
+           using either a <span class="text-my-yellow">conveyor belt</span>  
+           <img src="../../assets/img/legend/MS_CONVEYOR_BELT_RIGHT.png" width="24" height="24" alt=" ">            
+           or a <span class="text-my-yellow">cross belt</span>
+           <img src="../../assets/img/legend/MS_CROSS_BELT_TOP_RIGHT.png" width="24" height="24" alt=" ">
+           .  
+           <br>         
+          
+          You can send garbage 
+          <img src="../../assets/img/game/garbage.png" width="24" height="24" alt=" ">
+          to a <span class="text-my-yellow">recycling center</span>  
+          <img src="../../assets/img/legend/MS_RECYCLING_CENTER_BOT.png" width="24" height="24" alt=" ">
+          or in a <span class="text-my-yellow">junkyard</span>
+          <img src="../../assets/img/legend/MS_JUNKYARD.png" width="24" height="24" alt=" ">
+          according to your strategy.  
+          
+          <i class="text-muted small">You will have a guide in-game to see more information about each machine.</i>  
+          
+          <br><br> 
+          
+          But in order to buy a machine, you will need <span class="text-my-yellow">E</span>  
+          and <span class="text-my-yellow">DD</span> ! These are produced by the student of  
+          the ENSIIE, called FISE (initial training course, <span class="text-my-yellow">  
+          <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD  
+          </span>  
+          per turn) or FISA (part-time training course, <span class="text-my-yellow">  
+          <span id="game-fisa-e">4</span>E</span> or <span class="text-my-yellow">  
+          <span id="game-fisa-dd">4</span>  
+          DD</span> per <span class="text-my-yellow" id="game-fisa-turn">2</span>  
+          turns).  
+                    
+          <br><br>  
+          
+          If you have enough <span class="text-my-yellow">E</span>  
+          and <span class="text-my-yellow">DD</span>, you can hire a Staff that can reduce  
+          the cost of a machine, hire a lot of students, ...  
+          <i class="text-muted small">Be sure to check out all of them in-game !</i>
+          
+          `);
         //game.html
         this.translations_EN.set(TrKeys.GAME_NAME, 'Game');
         this.translations_EN.set(TrKeys.GAME_TURN, 'Turn:');
@@ -186,6 +205,7 @@ class Translation {
             ' <span id="source-gen-turn" class="text-my-yellow">10</span> turns by default, ' +
             'harvestable with a COLLECTOR. ');
         this.translations_EN.set(TrKeys.GAME_COST, 'Cost');
+        this.translations_EN.set(TrKeys.GAME_COST_IS, 'Cost is');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Back');
         //menu.html
@@ -194,6 +214,8 @@ class Translation {
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR, 'French');
         this.translations_EN.set(TrKeys.VOLUME_TITLE, 'VOLUME');
         this.translations_EN.set(TrKeys.MUSIC_TITLE, 'MUSIC');
+        this.translations_EN.set(TrKeys.MENU_GLOBAL, 'Global Settings');
+        this.translations_EN.set(TrKeys.MENU_GLOBAL_SUB, 'Customize your game experience.');
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
@@ -234,56 +256,75 @@ class Translation {
         this.translations_FR.set(TrKeys.RULES_DOOR, 'Pendant que les étudiants du cursus "Calcul intensif et ' + 'données massives" ' +
             'étaient entrain d\'explorer le monde binaire, ils ont ouvert une porte entre ' +
             'notre monde et un autre monde qui ressemble trait pour trait au notre. ' +
-            'Cependant, leur joie n\'a pas duré longtemps. Avoir 2 ENSIIE a fait baisser leur ' +
+            'Cependant, leur joie n\'est pas duré longtemps. Avoir 2 ENSIIE a fait baisser leur ' +
             'classement en développement durable car ils dépensaient deux fois ' +
             'leur consommation d\'énergie habituelle. C\'est pourquoi ' +
-            '<span class="text-success">vous devez absolument fermer la porte !</span>');
+            '<span class="text-my-yellow">vous devez absolument fermer la porte !</span>');
         this.translations_FR.set(TrKeys.RULES_EXPLAIN_TITLE, 'Quelles sont les règles ?');
-        this.translations_FR.set(TrKeys.RULES_EXPLAIN, ' Vous devrez dépenser de l\'<span class="text-success">énergie (E)</span> ' +
+        this.translations_FR.set(TrKeys.RULES_EXPLAIN, ' Vous devrez dépenser de l\'<span class="text-my-yellow">énergie (E)</span> ' +
             'pour acheter des machines tout en empêchant votre ' +
-            '<span class="text-success">développement durable(DD)</span> ' +
+            '<span class="text-my-yellow">développement durable(DD)</span> ' +
             'd\'atteindre <span class="text-danger">0</span> (signifiant la destruction ' +
             'de votre monde). ' +
             '<br>' +
             'Votre but sera de produire ' +
-            'et envoyer à la porte <span class="text-success" id="game-goal"></span> ' +
+            'et envoyer à la porte <span class="text-my-yellow" id="game-goal"></span> ' +
             'ressources afin de la fermer. Faites attention ! Chaque envoi de ressource produira ' +
             'un déchet que vous devrez manipuler sinon votre DD diminuera de ' +
-            '<span class="text-success" id="game-dd-malus"></span>.');
+            '<span class="text-success" id="game-dd-malus">1</span>. ' +
+            'La porte génère également des déchets tant quelle ne sera pas fermée.' +
+            '' +
+            '');
         this.translations_FR.set(TrKeys.RULES_PLAY_TITLE, 'Comment jouer ?');
-        this.translations_FR.set(TrKeys.RULES_PLAY, 'Au début de la partie vous aurez <span class="text-success"> ' +
-            '            <span id="game-nb-sources">2</span> sources</span> ' +
-            '            qui vont produire <span class="text-success"> ' +
-            '            <span id="game-production">3</span> ' +
-            '            ressources/<span id="game-turns-prod">10</span> tours</span>. ' +
-            '            Vous devrez acheter une machine appelée un <span class="text-success">collecteur</span> ' +
-            '            pour extraire des ressources d\'une source (ou des déchets de la porte) puis les envoyer ' +
-            '            en utilisant soit un <span class="text-success">tapis roulant </span> ' +
-            '            soit une <span class="text-success">croix</span>. ' +
-            '            <br> ' +
-            '            Vous pouvez envoyer des déchets à un <span class="text-success">centre de recyclage</span> ' +
-            '            ou dans une <span class="text-success">déchetterie</span> selon votre stratégie. ' +
-            '            <i class="text-muted small">Vous ' +
-            '            aurez un guide dans le jeu pour voir plus d\'informations sur chaque machine.</i> ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            Mais pour acheter une machine, vous aurez besoin de <span class="text-success">E</span> ' +
-            '            et de <span class="text-success">DD</span> ! Ils sont produits par les étudiants ' +
-            '            de l\'ENSIIE, appelés FISE (cours de formation initiale, <span class="text-success"> ' +
-            '            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD ' +
-            '            </span> ' +
-            '            par tour) ou FISA (cours de formation à temps partiel, <span class="text-success"> ' +
-            '            <span id="game-fisa-e">4</span>E</span> ou <span class="text-success"> ' +
-            '            <span id="game-fisa-dd">4</span> ' +
-            '            DD</span> tout les ' +
-            '            <span class="text-success" id="game-fisa-turn">2</span> ' +
-            '            tours). ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            Si vous avez assez de <span class="text-success">E</span> ' +
-            '            et de <span class="text-success">DD</span>, vous pouvez embaucher un personnel qui peut réduire ' +
-            '            le coût d\'une machine, embaucher beaucoup d\'étudiants, ... ' +
-            '            <i class="text-muted small">Assurez-vous d\'y jeter un coup d\'oeil !</i> ');
+        this.translations_FR.set(TrKeys.RULES_PLAY, `
+            Au début de la partie vous aurez <span class="text-my-yellow">
+            <span id="game-nb-sources">2</span> sources</span>
+            <img src="../../assets/img/legend/Resource.png" width="24" height="24" alt=" ">
+            qui vont produire <span class="text-my-yellow">
+            <span id="game-production">3</span> ressources
+             <img src="../../assets/img/game/portal.png" width="24" height="24" alt=" ">
+             tous 
+            les <span id="game-turns-prod">10</span> tours</span> (par défaut).
+            
+            Vous devrez acheter une machine appelée un <span class="text-my-yellow">collecteur</span>
+            <img src="../../assets/img/legend/MS_COLLECTOR_BOT.png" width="24" height="24" alt=" ">
+            pour extraire des ressources d'une source
+            (ou des déchets de la porte) puis les envoyer
+            en utilisant soit un <span class="text-my-yellow">tapis roulant </span>
+            <img src="../../assets/img/legend/MS_CONVEYOR_BELT_RIGHT.png" width="24" height="24" alt=" ">
+            soit une <span class="text-my-yellow">croix</span>
+            <img src="../../assets/img/legend/MS_CROSS_BELT_TOP_RIGHT.png" width="24" height="24" alt=" ">
+            .
+           
+            Vous pouvez envoyer des déchets
+             <img src="../../assets/img/game/garbage.png" width="24" height="24" alt=" ">
+             à un <span class="text-my-yellow">centre de recyclage</span>
+             <img src="../../assets/img/legend/MS_RECYCLING_CENTER_BOT.png" width="24" height="24" alt=" ">
+            ou dans une <span class="text-my-yellow">déchetterie</span>
+            <img src="../../assets/img/legend/MS_JUNKYARD.png" width="24" height="24" alt=" ">
+            selon votre stratégie.
+            
+             <i class="text-muted small">Vous 
+             aurez un guide dans le jeu pour voir plus d\'informations sur chaque machine.</i>
+             
+             <br><br>
+            
+            Mais pour acheter une machine, vous aurez besoin de <span class="text-my-yellow">E</span>
+            et de <span class="text-my-yellow">DD</span> ! Ils sont produits par les étudiants
+            de l\'ENSIIE, appelés FISE (cours de formation initiale, <span class="text-my-yellow">
+            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD</span>
+            par tour) ou FISA (cours de formation à temps partiel, <span class="text-my-yellow">
+            <span id="game-fisa-e">4</span>E</span> ou <span class="text-my-yellow">
+            <span id="game-fisa-dd">4</span>
+            DD</span> tout les <span class="text-my-yellow" id="game-fisa-turn">2</span> tours).
+            
+            <br><br>
+            
+            Si vous avez assez de <span class="text-my-yellow">E</span>
+            et de <span class="text-my-yellow">DD</span>, vous pouvez embaucher un personnel qui peut réduire
+            le coût d'une machine, embaucher beaucoup d'étudiants, ...
+            <i class="text-muted small">Assurez-vous d'y jeter un coup d'oeil !</i>
+            `);
         //game.html
         this.translations_FR.set(TrKeys.GAME_NAME, 'Jeu');
         this.translations_FR.set(TrKeys.GAME_TURN, 'Tour:');
@@ -324,6 +365,7 @@ class Translation {
             ' <span id="source-gen-turn" class="text-my-yellow">10</span> tours par défaut, ' +
             'récoltables avec un COLLECTEUR. ');
         this.translations_FR.set(TrKeys.GAME_COST, 'Coût');
+        this.translations_FR.set(TrKeys.GAME_COST_IS, 'Le coût est de');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Retour');
         //menu.html
@@ -332,6 +374,8 @@ class Translation {
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR, 'Français');
         this.translations_FR.set(TrKeys.VOLUME_TITLE, 'VOLUME');
         this.translations_FR.set(TrKeys.MUSIC_TITLE, 'MUSIQUE');
+        this.translations_FR.set(TrKeys.MENU_GLOBAL, 'Paramètres généraux');
+        this.translations_FR.set(TrKeys.MENU_GLOBAL_SUB, 'Personnalisez votre expérience de jeu.');
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE, 'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
             ' auquel vous voulez jouer ou une application, contactez-nous !');
@@ -408,90 +452,71 @@ var TrKeys;
     TrKeys[TrKeys["MENU_RULES"] = 8] = "MENU_RULES";
     TrKeys[TrKeys["MENU_SETTINGS"] = 9] = "MENU_SETTINGS";
     TrKeys[TrKeys["MENU_EXIT"] = 10] = "MENU_EXIT";
-    TrKeys[TrKeys["CHOICE_DIFF"] = 11] = "CHOICE_DIFF";
-    TrKeys[TrKeys["SCREEN_TOO_SMALL"] = 12] = "SCREEN_TOO_SMALL";
-    TrKeys[TrKeys["GAME_NAME"] = 13] = "GAME_NAME";
-    TrKeys[TrKeys["GAME_TURN"] = 14] = "GAME_TURN";
-    TrKeys[TrKeys["GAME_E"] = 15] = "GAME_E";
-    TrKeys[TrKeys["GAME_DD"] = 16] = "GAME_DD";
-    TrKeys[TrKeys["GAME_FISE"] = 17] = "GAME_FISE";
-    TrKeys[TrKeys["GAME_FISA"] = 18] = "GAME_FISA";
-    TrKeys[TrKeys["GAME_FISA_MODE"] = 19] = "GAME_FISA_MODE";
-    TrKeys[TrKeys["GAME_SCORE"] = 20] = "GAME_SCORE";
-    TrKeys[TrKeys["GAME_GARBAGE"] = 21] = "GAME_GARBAGE";
-    TrKeys[TrKeys["GAME_SOURCE"] = 22] = "GAME_SOURCE";
-    TrKeys[TrKeys["GAME_GATE"] = 23] = "GAME_GATE";
-    TrKeys[TrKeys["GAME_CONVEYOR_BELT"] = 24] = "GAME_CONVEYOR_BELT";
-    TrKeys[TrKeys["GAME_CROSS"] = 25] = "GAME_CROSS";
-    TrKeys[TrKeys["GAME_RECYCLING_CENTER"] = 26] = "GAME_RECYCLING_CENTER";
-    TrKeys[TrKeys["GAME_JUNKYARD"] = 27] = "GAME_JUNKYARD";
-    TrKeys[TrKeys["GAME_COLLECTOR"] = 28] = "GAME_COLLECTOR";
-    TrKeys[TrKeys["ACTION_LABEL"] = 29] = "ACTION_LABEL";
-    TrKeys[TrKeys["GO_BACK_B"] = 30] = "GO_BACK_B";
-    TrKeys[TrKeys["MACHINE_LIST_TITLE"] = 31] = "MACHINE_LIST_TITLE";
-    TrKeys[TrKeys["ML_COST_TAG"] = 32] = "ML_COST_TAG";
-    TrKeys[TrKeys["ML_COST_UP_TAG"] = 33] = "ML_COST_UP_TAG";
-    TrKeys[TrKeys["ML_COST_DESTROY_TAG"] = 34] = "ML_COST_DESTROY_TAG";
-    TrKeys[TrKeys["STAFF_LIST_TITLE"] = 35] = "STAFF_LIST_TITLE";
-    TrKeys[TrKeys["STAFF_TAG"] = 36] = "STAFF_TAG";
-    TrKeys[TrKeys["TO_TAG"] = 37] = "TO_TAG";
-    TrKeys[TrKeys["ON_TAG"] = 38] = "ON_TAG";
-    TrKeys[TrKeys["ID_TAG"] = 39] = "ID_TAG";
-    TrKeys[TrKeys["OWNED_TAG"] = 40] = "OWNED_TAG";
-    TrKeys[TrKeys["TRANSLATION_LIST_STAFF_INDEX"] = 41] = "TRANSLATION_LIST_STAFF_INDEX";
-    TrKeys[TrKeys["TRANSLATION_PRESS_ARROW_CHANGE_PAGE"] = 42] = "TRANSLATION_PRESS_ARROW_CHANGE_PAGE";
-    TrKeys[TrKeys["ACTION_LIST_TITLE"] = 43] = "ACTION_LIST_TITLE";
-    // actions
-    TrKeys[TrKeys["INPUT_MACHINE_LOCATION"] = 44] = "INPUT_MACHINE_LOCATION";
-    TrKeys[TrKeys["INPUT_STAFF"] = 45] = "INPUT_STAFF";
-    TrKeys[TrKeys["INPUT_MACHINE"] = 46] = "INPUT_MACHINE";
-    TrKeys[TrKeys["INPUT_ACTION"] = 47] = "INPUT_ACTION";
-    TrKeys[TrKeys["INPUT_ORIENTATION"] = 48] = "INPUT_ORIENTATION";
+    TrKeys[TrKeys["GAME_NAME"] = 11] = "GAME_NAME";
+    TrKeys[TrKeys["GAME_TURN"] = 12] = "GAME_TURN";
+    TrKeys[TrKeys["GAME_E"] = 13] = "GAME_E";
+    TrKeys[TrKeys["GAME_DD"] = 14] = "GAME_DD";
+    TrKeys[TrKeys["GAME_FISE"] = 15] = "GAME_FISE";
+    TrKeys[TrKeys["GAME_FISA"] = 16] = "GAME_FISA";
+    TrKeys[TrKeys["GAME_FISA_MODE"] = 17] = "GAME_FISA_MODE";
+    TrKeys[TrKeys["GAME_SCORE"] = 18] = "GAME_SCORE";
+    TrKeys[TrKeys["GAME_GARBAGE"] = 19] = "GAME_GARBAGE";
+    TrKeys[TrKeys["GAME_SOURCE"] = 20] = "GAME_SOURCE";
+    TrKeys[TrKeys["GAME_GATE"] = 21] = "GAME_GATE";
+    TrKeys[TrKeys["GAME_CONVEYOR_BELT"] = 22] = "GAME_CONVEYOR_BELT";
+    TrKeys[TrKeys["GAME_CROSS"] = 23] = "GAME_CROSS";
+    TrKeys[TrKeys["GAME_RECYCLING_CENTER"] = 24] = "GAME_RECYCLING_CENTER";
+    TrKeys[TrKeys["GAME_JUNKYARD"] = 25] = "GAME_JUNKYARD";
+    TrKeys[TrKeys["GAME_COLLECTOR"] = 26] = "GAME_COLLECTOR";
+    TrKeys[TrKeys["GO_BACK_B"] = 27] = "GO_BACK_B";
     // legend and view components
-    TrKeys[TrKeys["LEGEND"] = 49] = "LEGEND";
-    TrKeys[TrKeys["END_WIN"] = 50] = "END_WIN";
-    TrKeys[TrKeys["END_LOST"] = 51] = "END_LOST";
-    TrKeys[TrKeys["RULES_DOOR_TITLE"] = 52] = "RULES_DOOR_TITLE";
-    TrKeys[TrKeys["RULES_DOOR"] = 53] = "RULES_DOOR";
-    TrKeys[TrKeys["RULES_EXPLAIN_TITLE"] = 54] = "RULES_EXPLAIN_TITLE";
-    TrKeys[TrKeys["RULES_EXPLAIN"] = 55] = "RULES_EXPLAIN";
-    TrKeys[TrKeys["RULES_PLAY_TITLE"] = 56] = "RULES_PLAY_TITLE";
-    TrKeys[TrKeys["RULES_PLAY"] = 57] = "RULES_PLAY";
-    TrKeys[TrKeys["END_MESSAGE"] = 58] = "END_MESSAGE";
-    TrKeys[TrKeys["GAME_CASE_SELECTED"] = 59] = "GAME_CASE_SELECTED";
-    TrKeys[TrKeys["GAME_MANAGE_STAFF"] = 60] = "GAME_MANAGE_STAFF";
-    TrKeys[TrKeys["GAME_COUNT_1"] = 61] = "GAME_COUNT_1";
-    TrKeys[TrKeys["GAME_COUNT_2"] = 62] = "GAME_COUNT_2";
-    TrKeys[TrKeys["GAME_UNITS"] = 63] = "GAME_UNITS";
-    TrKeys[TrKeys["GAME_EXIT"] = 64] = "GAME_EXIT";
-    TrKeys[TrKeys["GAME_END_TURN"] = 65] = "GAME_END_TURN";
-    TrKeys[TrKeys["GAME_MACHINE"] = 66] = "GAME_MACHINE";
-    TrKeys[TrKeys["GAME_ROTATION"] = 67] = "GAME_ROTATION";
-    TrKeys[TrKeys["GAME_BUY"] = 68] = "GAME_BUY";
-    TrKeys[TrKeys["GAME_CASE_CONTENT"] = 69] = "GAME_CASE_CONTENT";
-    TrKeys[TrKeys["GAME_MACHINE_LEVEL"] = 70] = "GAME_MACHINE_LEVEL";
-    TrKeys[TrKeys["GAME_ROTATION_NONE"] = 71] = "GAME_ROTATION_NONE";
-    TrKeys[TrKeys["GAME_GATE_NAME"] = 72] = "GAME_GATE_NAME";
-    TrKeys[TrKeys["GAME_GATE_DESC"] = 73] = "GAME_GATE_DESC";
-    TrKeys[TrKeys["GAME_SOURCE_NAME"] = 74] = "GAME_SOURCE_NAME";
-    TrKeys[TrKeys["GAME_SOURCE_DESC"] = 75] = "GAME_SOURCE_DESC";
-    TrKeys[TrKeys["GAME_COST"] = 76] = "GAME_COST";
-    TrKeys[TrKeys["MENU_TITLE"] = 77] = "MENU_TITLE";
-    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 78] = "MENU_LANGUAGE_EN";
-    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 79] = "MENU_LANGUAGE_FR";
-    TrKeys[TrKeys["MACHINE_PRICE"] = 80] = "MACHINE_PRICE";
-    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 81] = "MACHINE_PRICE_DESTROY";
-    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 82] = "MACHINE_ORIENTATION";
-    TrKeys[TrKeys["AND_WORD"] = 83] = "AND_WORD";
-    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 84] = "MACHINE_PRICE_UPDATE";
-    TrKeys[TrKeys["MACHINE_CAPACITY"] = 85] = "MACHINE_CAPACITY";
-    TrKeys[TrKeys["STAFF_COST"] = 86] = "STAFF_COST";
-    TrKeys[TrKeys["STAFF_LEVEL"] = 87] = "STAFF_LEVEL";
-    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 88] = "STAFF_LEVEL_MAX";
-    TrKeys[TrKeys["STAFF_EFFECT"] = 89] = "STAFF_EFFECT";
-    TrKeys[TrKeys["TERMINAL_HELP"] = 90] = "TERMINAL_HELP";
-    TrKeys[TrKeys["VOLUME_TITLE"] = 91] = "VOLUME_TITLE";
-    TrKeys[TrKeys["MUSIC_TITLE"] = 92] = "MUSIC_TITLE";
+    TrKeys[TrKeys["LEGEND"] = 28] = "LEGEND";
+    TrKeys[TrKeys["END_WIN"] = 29] = "END_WIN";
+    TrKeys[TrKeys["END_LOST"] = 30] = "END_LOST";
+    TrKeys[TrKeys["RULES_DOOR_TITLE"] = 31] = "RULES_DOOR_TITLE";
+    TrKeys[TrKeys["RULES_DOOR"] = 32] = "RULES_DOOR";
+    TrKeys[TrKeys["RULES_EXPLAIN_TITLE"] = 33] = "RULES_EXPLAIN_TITLE";
+    TrKeys[TrKeys["RULES_EXPLAIN"] = 34] = "RULES_EXPLAIN";
+    TrKeys[TrKeys["RULES_PLAY_TITLE"] = 35] = "RULES_PLAY_TITLE";
+    TrKeys[TrKeys["RULES_PLAY"] = 36] = "RULES_PLAY";
+    TrKeys[TrKeys["END_MESSAGE"] = 37] = "END_MESSAGE";
+    TrKeys[TrKeys["GAME_CASE_SELECTED"] = 38] = "GAME_CASE_SELECTED";
+    TrKeys[TrKeys["GAME_MANAGE_STAFF"] = 39] = "GAME_MANAGE_STAFF";
+    TrKeys[TrKeys["GAME_COUNT_1"] = 40] = "GAME_COUNT_1";
+    TrKeys[TrKeys["GAME_COUNT_2"] = 41] = "GAME_COUNT_2";
+    TrKeys[TrKeys["GAME_UNITS"] = 42] = "GAME_UNITS";
+    TrKeys[TrKeys["GAME_EXIT"] = 43] = "GAME_EXIT";
+    TrKeys[TrKeys["GAME_END_TURN"] = 44] = "GAME_END_TURN";
+    TrKeys[TrKeys["GAME_MACHINE"] = 45] = "GAME_MACHINE";
+    TrKeys[TrKeys["GAME_ROTATION"] = 46] = "GAME_ROTATION";
+    TrKeys[TrKeys["GAME_BUY"] = 47] = "GAME_BUY";
+    TrKeys[TrKeys["GAME_CASE_CONTENT"] = 48] = "GAME_CASE_CONTENT";
+    TrKeys[TrKeys["GAME_MACHINE_LEVEL"] = 49] = "GAME_MACHINE_LEVEL";
+    TrKeys[TrKeys["GAME_ROTATION_NONE"] = 50] = "GAME_ROTATION_NONE";
+    TrKeys[TrKeys["GAME_GATE_NAME"] = 51] = "GAME_GATE_NAME";
+    TrKeys[TrKeys["GAME_GATE_DESC"] = 52] = "GAME_GATE_DESC";
+    TrKeys[TrKeys["GAME_SOURCE_NAME"] = 53] = "GAME_SOURCE_NAME";
+    TrKeys[TrKeys["GAME_SOURCE_DESC"] = 54] = "GAME_SOURCE_DESC";
+    TrKeys[TrKeys["GAME_COST"] = 55] = "GAME_COST";
+    TrKeys[TrKeys["GAME_COST_IS"] = 56] = "GAME_COST_IS";
+    TrKeys[TrKeys["MENU_TITLE"] = 57] = "MENU_TITLE";
+    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 58] = "MENU_LANGUAGE_EN";
+    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 59] = "MENU_LANGUAGE_FR";
+    TrKeys[TrKeys["MACHINE_PRICE"] = 60] = "MACHINE_PRICE";
+    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 61] = "MACHINE_PRICE_DESTROY";
+    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 62] = "MACHINE_ORIENTATION";
+    TrKeys[TrKeys["AND_WORD"] = 63] = "AND_WORD";
+    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 64] = "MACHINE_PRICE_UPDATE";
+    TrKeys[TrKeys["MACHINE_CAPACITY"] = 65] = "MACHINE_CAPACITY";
+    TrKeys[TrKeys["STAFF_COST"] = 66] = "STAFF_COST";
+    TrKeys[TrKeys["STAFF_LEVEL"] = 67] = "STAFF_LEVEL";
+    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 68] = "STAFF_LEVEL_MAX";
+    TrKeys[TrKeys["STAFF_EFFECT"] = 69] = "STAFF_EFFECT";
+    TrKeys[TrKeys["TERMINAL_HELP"] = 70] = "TERMINAL_HELP";
+    TrKeys[TrKeys["VOLUME_TITLE"] = 71] = "VOLUME_TITLE";
+    TrKeys[TrKeys["MUSIC_TITLE"] = 72] = "MUSIC_TITLE";
+    TrKeys[TrKeys["MENU_GLOBAL"] = 73] = "MENU_GLOBAL";
+    TrKeys[TrKeys["MENU_GLOBAL_SUB"] = 74] = "MENU_GLOBAL_SUB";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

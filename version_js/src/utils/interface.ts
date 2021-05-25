@@ -553,7 +553,7 @@ class InterfaceUtils {
 
                                 InterfaceUtils.setHTML('machine-info-selected',`
                                         ${machineInfo.upgrade(Translation.getLanguage())} <br/>
-                                        Cost ${machineEvent.costE} E ${machineEvent.costDD} DD
+                                        ${Translation.get(TrKeys.GAME_COST)} ${machineEvent.costE} E ${machineEvent.costDD} DD
                                  `);
                                 upgradeDIV.classList.remove('d-none')
                             } else {

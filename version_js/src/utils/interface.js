@@ -528,7 +528,7 @@ class InterfaceUtils {
                                 let machineEvent = game_1.Game.map.getCostUpgrade(machineInfo, events_1.EventType.UPGRADE_MACHINE);
                                 InterfaceUtils.setHTML('machine-info-selected', `
                                         ${machineInfo.upgrade(translation_1.Translation.getLanguage())} <br/>
-                                        Cost ${machineEvent.costE} E ${machineEvent.costDD} DD
+                                        ${translation_1.Translation.get(translation_1.TrKeys.GAME_COST)} ${machineEvent.costE} E ${machineEvent.costDD} DD
                                  `);
                                 upgradeDIV.classList.remove('d-none');
                             }

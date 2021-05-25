@@ -29,7 +29,7 @@ console.log(game.config.constants.NB_RESOURCE_PRODUCT_BY_SOURCE)
 document.getElementById('exit-button-event').onclick = () => game.mappings.getMapping(game.actions.EXIT).code()
 // call end turn
 let endTurn = document.getElementById('tr-game-end-turn');
-endTurn.onclick = () => game.mappings.getMapping(game.actions.END_TURN).code()
+endTurn.onclick = (e, n= 1) => game.mappings.getMapping(game.actions.END_TURN).code(n)
 
 // change production mode
 changeMode(undefined, true) // set default
@@ -45,10 +45,12 @@ document.getElementById('update-selected').onclick = callUpgrade;
 // hire fise/fisa
 let buyFise = document.getElementById('buy-fise-event');
 let buyFisa = document.getElementById('buy-fisa-event');
-buyFise.onclick = () => game.mappings.getMapping(game.actions.HIRE_FISE).code();
-buyFisa.onclick = () => game.mappings.getMapping(game.actions.HIRE_FISA).code();
+buyFise.onclick = (e, n= 1) => game.mappings.getMapping(game.actions.HIRE_FISE).code(n);
+buyFisa.onclick = (e, n= 1) => game.mappings.getMapping(game.actions.HIRE_FISA).code(n);
 // staffs
 document.getElementById('manage-staff').onclick = () => game.mappings.getMapping(game.actions.LIST_STAFF).code()
+// machines
+document.getElementById('list-machines').onclick = () => game.mappings.getMapping(game.actions.LIST_MACHINES).code()
 
 //////////////
 /// helpers //
@@ -199,10 +201,7 @@ function show(e, newCaller) {
 // handles do event
 function doAction(e, n) {
     if (caller == null) return;
-    while (n > 0){
-        caller.click();
-        n--;
-    }
+    caller.onclick(e, n);
 }
 
 do10.onclick = (e) => doAction(e, 10);
