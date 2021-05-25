@@ -25,7 +25,7 @@ function createWindow () {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadFile('src/view/index.html').then();
+    mainWindow.loadFile('src/view/rules.html').then();
 
     // fix minimum size
     mainWindow.setMinimumSize(975,700)

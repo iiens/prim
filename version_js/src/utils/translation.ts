@@ -261,56 +261,78 @@ export class Translation {
         this.translations_FR.set(TrKeys.RULES_DOOR, 'Pendant que les étudiants du cursus "Calcul intensif et ' + 'données massives" ' +
             'étaient entrain d\'explorer le monde binaire, ils ont ouvert une porte entre ' +
             'notre monde et un autre monde qui ressemble trait pour trait au notre. ' +
-            'Cependant, leur joie n\'a pas duré longtemps. Avoir 2 ENSIIE a fait baisser leur ' +
+            'Cependant, leur joie n\'est pas duré longtemps. Avoir 2 ENSIIE a fait baisser leur ' +
             'classement en développement durable car ils dépensaient deux fois ' +
             'leur consommation d\'énergie habituelle. C\'est pourquoi ' +
-            '<span class="text-success">vous devez absolument fermer la porte !</span>');
+            '<span class="text-my-yellow">vous devez absolument fermer la porte !</span>');
         this.translations_FR.set(TrKeys.RULES_EXPLAIN_TITLE, 'Quelles sont les règles ?');
-        this.translations_FR.set(TrKeys.RULES_EXPLAIN, ' Vous devrez dépenser de l\'<span class="text-success">énergie (E)</span> ' +
+        this.translations_FR.set(TrKeys.RULES_EXPLAIN,
+            ' Vous devrez dépenser de l\'<span class="text-my-yellow">énergie (E)</span> ' +
             'pour acheter des machines tout en empêchant votre ' +
-            '<span class="text-success">développement durable(DD)</span> ' +
+            '<span class="text-my-yellow">développement durable(DD)</span> ' +
             'd\'atteindre <span class="text-danger">0</span> (signifiant la destruction ' +
             'de votre monde). ' +
             '<br>' +
             'Votre but sera de produire ' +
-            'et envoyer à la porte <span class="text-success" id="game-goal"></span> ' +
+            'et envoyer à la porte <span class="text-my-yellow" id="game-goal"></span> ' +
             'ressources afin de la fermer. Faites attention ! Chaque envoi de ressource produira ' +
             'un déchet que vous devrez manipuler sinon votre DD diminuera de ' +
-            '<span class="text-success" id="game-dd-malus"></span>.');
+            '<span class="text-success" id="game-dd-malus">1</span>. ' +
+            'La porte génère également des déchets tant quelle ne sera pas fermée.' +
+            '' +
+            '');
         this.translations_FR.set(TrKeys.RULES_PLAY_TITLE, 'Comment jouer ?');
-        this.translations_FR.set(TrKeys.RULES_PLAY, 'Au début de la partie vous aurez <span class="text-success"> ' +
-            '            <span id="game-nb-sources">2</span> sources</span> ' +
-            '            qui vont produire <span class="text-success"> ' +
-            '            <span id="game-production">3</span> ' +
-            '            ressources/<span id="game-turns-prod">10</span> tours</span>. ' +
-            '            Vous devrez acheter une machine appelée un <span class="text-success">collecteur</span> ' +
-            '            pour extraire des ressources d\'une source (ou des déchets de la porte) puis les envoyer ' +
-            '            en utilisant soit un <span class="text-success">tapis roulant </span> ' +
-            '            soit une <span class="text-success">croix</span>. ' +
-            '            <br> ' +
-            '            Vous pouvez envoyer des déchets à un <span class="text-success">centre de recyclage</span> ' +
-            '            ou dans une <span class="text-success">déchetterie</span> selon votre stratégie. ' +
-            '            <i class="text-muted small">Vous ' +
-            '            aurez un guide dans le jeu pour voir plus d\'informations sur chaque machine.</i> ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            Mais pour acheter une machine, vous aurez besoin de <span class="text-success">E</span> ' +
-            '            et de <span class="text-success">DD</span> ! Ils sont produits par les étudiants ' +
-            '            de l\'ENSIIE, appelés FISE (cours de formation initiale, <span class="text-success"> ' +
-            '            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD ' +
-            '            </span> ' +
-            '            par tour) ou FISA (cours de formation à temps partiel, <span class="text-success"> ' +
-            '            <span id="game-fisa-e">4</span>E</span> ou <span class="text-success"> ' +
-            '            <span id="game-fisa-dd">4</span> ' +
-            '            DD</span> tout les ' +
-            '            <span class="text-success" id="game-fisa-turn">2</span> ' +
-            '            tours). ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            Si vous avez assez de <span class="text-success">E</span> ' +
-            '            et de <span class="text-success">DD</span>, vous pouvez embaucher un personnel qui peut réduire ' +
-            '            le coût d\'une machine, embaucher beaucoup d\'étudiants, ... ' +
-            '            <i class="text-muted small">Assurez-vous d\'y jeter un coup d\'oeil !</i> ');
+        this.translations_FR.set(TrKeys.RULES_PLAY,
+            `
+            Au début de la partie vous aurez <span class="text-my-yellow">
+            <span id="game-nb-sources">2</span> sources</span>
+            <img src="../../assets/img/legend/Resource.png" width="24" height="24" alt=" ">
+            qui vont produire <span class="text-my-yellow">
+            <span id="game-production">3</span> ressources
+             <img src="../../assets/img/game/portal.png" width="24" height="24" alt=" ">
+             tous 
+            les <span id="game-turns-prod">10</span> tours</span> (par défaut).
+            
+            Vous devrez acheter une machine appelée un <span class="text-my-yellow">collecteur</span>
+            <img src="../../assets/img/legend/MS_COLLECTOR_BOT.png" width="24" height="24" alt=" ">
+            pour extraire des ressources d'une source
+            (ou des déchets de la porte) puis les envoyer
+            en utilisant soit un <span class="text-my-yellow">tapis roulant </span>
+            <img src="../../assets/img/legend/MS_CONVEYOR_BELT_RIGHT.png" width="24" height="24" alt=" ">
+            soit une <span class="text-my-yellow">croix</span>
+            <img src="../../assets/img/legend/MS_CROSS_BELT_TOP_RIGHT.png" width="24" height="24" alt=" ">
+            .
+           
+            Vous pouvez envoyer des déchets
+             <img src="../../assets/img/game/garbage.png" width="24" height="24" alt=" ">
+             à un <span class="text-my-yellow">centre de recyclage</span>
+             <img src="../../assets/img/legend/MS_RECYCLING_CENTER_BOT.png" width="24" height="24" alt=" ">
+            ou dans une <span class="text-my-yellow">déchetterie</span>
+            <img src="../../assets/img/legend/MS_JUNKYARD.png" width="24" height="24" alt=" ">
+            selon votre stratégie.
+            
+             <i class="text-muted small">Vous 
+             aurez un guide dans le jeu pour voir plus d\'informations sur chaque machine.</i>
+             
+             <br><br>
+            
+            Mais pour acheter une machine, vous aurez besoin de <span class="text-my-yellow">E</span>
+            et de <span class="text-my-yellow">DD</span> ! Ils sont produits par les étudiants
+            de l\'ENSIIE, appelés FISE (cours de formation initiale, <span class="text-my-yellow">
+            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD</span>
+            par tour) ou FISA (cours de formation à temps partiel, <span class="text-my-yellow">
+            <span id="game-fisa-e">4</span>E</span> ou <span class="text-my-yellow">
+            <span id="game-fisa-dd">4</span>
+            DD</span> tout les <span class="text-my-yellow" id="game-fisa-turn">2</span> tours).
+            
+            <br><br>
+            
+            Si vous avez assez de <span class="text-my-yellow">E</span>
+            et de <span class="text-my-yellow">DD</span>, vous pouvez embaucher un personnel qui peut réduire
+            le coût d'une machine, embaucher beaucoup d'étudiants, ...
+            <i class="text-muted small">Assurez-vous d'y jeter un coup d'oeil !</i>
+            `
+        );
 
         //game.html
         this.translations_FR.set(TrKeys.GAME_NAME, 'Jeu');
