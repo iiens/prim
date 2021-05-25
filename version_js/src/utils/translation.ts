@@ -225,6 +225,7 @@ export class Translation {
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B,'Back');
+        this.translations_EN.set(TrKeys.GO_BACK_LONG,'Go back to a previous screen.');
 
         //menu.html
         this.translations_EN.set(TrKeys.MENU_TITLE,"LANGUAGE");
@@ -234,6 +235,11 @@ export class Translation {
         this.translations_EN.set(TrKeys.MUSIC_TITLE,'MUSIC');
         this.translations_EN.set(TrKeys.MENU_GLOBAL,'Global Settings');
         this.translations_EN.set(TrKeys.MENU_GLOBAL_SUB,'Customize your game experience.');
+        this.translations_EN.set(TrKeys.MENU_SHORTCUTS,'Shortcuts');
+        this.translations_EN.set(TrKeys.MENU_RIGHT_CLICK,'Right click');
+        this.translations_EN.set(TrKeys.MENU_RIGHT_CLICK_DESC,
+            'On hire FISE/FISA or end turn, open a menu to do ' +
+            'the action more than one in one go.');
 
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
@@ -396,6 +402,7 @@ export class Translation {
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B,'Retour');
+        this.translations_FR.set(TrKeys.GO_BACK_LONG,'Retourner sur l\'écran précédent.');
 
         //menu.html
         this.translations_FR.set(TrKeys.MENU_TITLE,'LANGUE');
@@ -405,6 +412,10 @@ export class Translation {
         this.translations_FR.set(TrKeys.MUSIC_TITLE,'MUSIQUE');
         this.translations_FR.set(TrKeys.MENU_GLOBAL,'Paramètres généraux');
         this.translations_FR.set(TrKeys.MENU_GLOBAL_SUB,'Personnalisez votre expérience de jeu.');
+        this.translations_FR.set(TrKeys.MENU_SHORTCUTS,'Raccourcis');
+        this.translations_FR.set(TrKeys.MENU_RIGHT_CLICK,'Clic droit');
+        this.translations_FR.set(TrKeys.MENU_RIGHT_CLICK_DESC,'Sur recruter FISE/FISA ou TOUR_SUIVANT, ' +
+            'permet d\'effectuer l\'action plusieurs fois.');
 
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
@@ -509,6 +520,7 @@ export enum TrKeys {
     GAME_COLLECTOR, //!< Collector:
 
     GO_BACK_B, //!< go back message
+    GO_BACK_LONG, //!< go back message
 
     // legend and view components
     LEGEND, //!< Legend:
@@ -566,6 +578,9 @@ export enum TrKeys {
     MUSIC_TITLE,
     MENU_GLOBAL,
     MENU_GLOBAL_SUB,
+    MENU_SHORTCUTS,
+    MENU_RIGHT_CLICK,
+    MENU_RIGHT_CLICK_DESC,
 }
 
 export enum Language {

@@ -159,6 +159,10 @@ document.onreadystatechange = (event) => {
                     "tr-settings": Translation.get(TrKeys.MENU_SETTINGS),
                     "tr-settings-global" : Translation.get(TrKeys.MENU_GLOBAL),
                     "tr-settings-global-sub" : Translation.get(TrKeys.MENU_GLOBAL_SUB),
+                    "tr-shortcuts": Translation.get(TrKeys.MENU_SHORTCUTS),
+                    "tr-back-long": Translation.get(TrKeys.GO_BACK_LONG),
+                    "tr-shortcut-right-click": Translation.get(TrKeys.MENU_RIGHT_CLICK),
+                    "tr-shortcut-right-click-desc": Translation.get(TrKeys.MENU_RIGHT_CLICK_DESC),
                 }
                 translate();
                 audio.volume=Game.getAudio();

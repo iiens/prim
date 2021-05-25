@@ -14,20 +14,28 @@
 
 <div id="main" class="settings-background">
     <div class="h-100">
-        <p class="h1 text-white text-center" id="tr-settings">Settings</p>
+        <div class="">
+            <p class="h1 text-white text-center" id="tr-settings">Settings</p>
+            <div class="">
+                <div class="float-end rules-go-back">
+                    <button data-to="index.html" id="go-back" class="bg-transparent border border-my-yellow
+                    rounded p-2 text-my-yellow"
+                    >Back</button>
+                </div>
+            </div>
+        </div>
         <div class="row mx-0 mt-4 text-white">
             <div class="prim-menu-bg p-3">
                 <span class="h4" id="tr-settings-global">Global Settings</span><br>
                 <span class="text-my-blue" id="tr-settings-global-sub">Customize your game experience.</span>
                 <br>
-
                 <div class="row mx-0">
                     <!-- menu names -->
                     <div class="col-lg-9 col-6">
                         <ul class="list-unstyled mt-3">
-                            <li class="py-2"><span id="tr-menu-title" ></span></li>
-                            <li class="py-2"><span id="tr-volume-title" ></span></li>
-                            <li class="py-2"><span id="tr-music-title" ></span></li>
+                            <li class="py-2"><span id="tr-menu-title" >LANGUAGE</span></li>
+                            <li class="py-2"><span id="tr-volume-title" >VOLUME</span></li>
+                            <li class="py-2"><span id="tr-music-title" >MUSIC</span></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-6 pointer">
@@ -72,10 +80,35 @@
             </div>
             <div>&nbsp;</div>
         </div>
-        <div class="mt-3 float-end">
-            <button data-to="index.html" id="go-back" class="bg-transparent border border-my-yellow
-                    rounded p-2 text-my-yellow"
-            ><span id="tr-back" ></span></button>
+        <div class="row mx-0 mt-2 text-white">
+            <div class="prim-menu-bg p-3">
+                <span class="h4" id="tr-shortcuts"></span><br>
+                <div class="mt-3 row mx-0">
+                    <div class="d-inline col-6">
+                        <div class="row mx-0">
+                            <button class="bg-warning text-dark px-3 py-2 col-3 config-back-key">
+                                g
+                            </button>
+                            <span class="col-9" id="tr-back-long">
+                                Go back to a previous screen.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-inline col-6">
+                        <div class="row mx-0">
+                            <button class="bg-warning text-dark px-3 py-2 col-3"
+                            id="tr-shortcut-right-click">
+                                Right click
+                            </button>
+                            <span class="col-9" id="tr-shortcut-right-click-desc">
+                            On FISE/FISA or end turn, open a menu to do
+                            the action more than one in one go.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
         </div>
     </div>
 </div>
