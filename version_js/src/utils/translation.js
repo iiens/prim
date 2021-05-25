@@ -99,53 +99,72 @@ class Translation {
             'However, their joy didn\'t last long. Having 2 ENSIIE made their ' +
             'ranking in durable development decrease because their were spending twice ' +
             'their usual consommation of energy. That\'s why ' +
-            '<span class="text-success">you absolutely need to close the door !</span>');
+            '<span class="text-my-yellow">you absolutely need to close the door !</span>');
         this.translations_EN.set(TrKeys.RULES_EXPLAIN_TITLE, 'What are the rules ?');
-        this.translations_EN.set(TrKeys.RULES_EXPLAIN, ' You will have to spend <span class="text-success">energy (E)</span> ' +
+        this.translations_EN.set(TrKeys.RULES_EXPLAIN, ' You will have to spend <span class="text-my-yellow">energy (E)</span> ' +
             'to buy machines while preventing your ' +
-            '<span class="text-success">durable development (DD)</span> ' +
+            '<span class="text-my-yellow">durable development (DD)</span> ' +
             'from reaching <span class="text-danger">0</span> (meaning the destruction ' +
             'of your world). ' +
             '<br>' +
             'Your goal will be to produce ' +
-            'and send to the gate <span class="text-success" id="game-goal"></span> ' +
+            'and send to the gate <span class="text-my-yellow" id="game-goal"></span> ' +
             'resources in order to close it. Beware ! Each resource send will produce ' +
             'a garbage that you will have to handle otherwise your DD will decrease by ' +
-            '<span class="text-success" id="game-dd-malus"></span>.');
+            '<span class="text-my-yellow" id="game-dd-malus"></span>.');
         this.translations_EN.set(TrKeys.RULES_PLAY_TITLE, 'How should I play ?');
-        this.translations_EN.set(TrKeys.RULES_PLAY, 'At the start, you will have <span class="text-success"> ' +
-            '            <span id="game-nb-sources">2</span> sources</span> ' +
-            '            that produces <span class="text-success"> ' +
-            '            <span id="game-production">3</span> ' +
-            '            resources/<span id="game-turns-prod">10</span> turns</span>. ' +
-            '            You will have to buy a machine called a <span class="text-success">collector</span> ' +
-            '            to mine resources from a source (or garbage from the door) then send them ' +
-            '            using either a <span class="text-success">conveyor belt</span> ' +
-            '            or a <span class="text-success">cross belt</span>. ' +
-            '            <br> ' +
-            '            You can send garbage to a <span class="text-success">recycling center</span> ' +
-            '            or in a <span class="text-success">junkyard</span> according to your strategy. ' +
-            '            <i class="text-muted small">You ' +
-            '            will have a guide in-game to see more information about each machine.</i> ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            But in order to buy a machine, you will need <span class="text-success">E</span> ' +
-            '            and <span class="text-success">DD</span> ! These are produced by the student of ' +
-            '            the ENSIIE, called FISE (initial training course, <span class="text-success"> ' +
-            '            <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD ' +
-            '            </span> ' +
-            '            per turn) or FISA (part-time training course, <span class="text-success"> ' +
-            '            <span id="game-fisa-e">4</span>E</span> or <span class="text-success"> ' +
-            '            <span id="game-fisa-dd">4</span> ' +
-            '            DD</span> per ' +
-            '            <span class="text-success" id="game-fisa-turn">2</span> ' +
-            '            turns). ' +
-            '            <br> ' +
-            '            <br> ' +
-            '            If you have enough <span class="text-success">E</span> ' +
-            '            and <span class="text-success">DD</span>, you can hire a Staff that can reduce ' +
-            '            the cost of a machine, hire a lot of students, ... ' +
-            '            <i class="text-muted small">Be sure to check out all of them in-game !</i> ');
+        this.translations_EN.set(TrKeys.RULES_PLAY, `                                   
+            At the start, you will have <span class="text-my-yellow">  
+            <span id="game-nb-sources">2</span> sources</span>  
+            <img src="../../assets/img/legend/Resource.png" width="24" height="24" alt=" ">
+            that produces <span class="text-my-yellow">  
+            <span id="game-production">3</span>  
+            resources
+            <img src="../../assets/img/game/portal.png" width="24" height="24" alt=" ">
+            per <span id="game-turns-prod">10</span> turns</span>.  
+            
+            
+           You will have to buy a machine called a <span class="text-my-yellow">collector</span>  
+           <img src="../../assets/img/legend/MS_COLLECTOR_BOT.png" width="24" height="24" alt=" ">
+           to mine resources from a source (or garbage from the door) then send them  
+           using either a <span class="text-my-yellow">conveyor belt</span>  
+           <img src="../../assets/img/legend/MS_CONVEYOR_BELT_RIGHT.png" width="24" height="24" alt=" ">            
+           or a <span class="text-my-yellow">cross belt</span>
+           <img src="../../assets/img/legend/MS_CROSS_BELT_TOP_RIGHT.png" width="24" height="24" alt=" ">
+           .  
+           <br>         
+          
+          You can send garbage 
+          <img src="../../assets/img/game/garbage.png" width="24" height="24" alt=" ">
+          to a <span class="text-my-yellow">recycling center</span>  
+          <img src="../../assets/img/legend/MS_RECYCLING_CENTER_BOT.png" width="24" height="24" alt=" ">
+          or in a <span class="text-my-yellow">junkyard</span>
+          <img src="../../assets/img/legend/MS_JUNKYARD.png" width="24" height="24" alt=" ">
+          according to your strategy.  
+          
+          <i class="text-muted small">You will have a guide in-game to see more information about each machine.</i>  
+          
+          <br><br> 
+          
+          But in order to buy a machine, you will need <span class="text-my-yellow">E</span>  
+          and <span class="text-my-yellow">DD</span> ! These are produced by the student of  
+          the ENSIIE, called FISE (initial training course, <span class="text-my-yellow">  
+          <span id="game-fise-e">1</span>E+<span id="game-fise-dd">1</span>DD  
+          </span>  
+          per turn) or FISA (part-time training course, <span class="text-my-yellow">  
+          <span id="game-fisa-e">4</span>E</span> or <span class="text-my-yellow">  
+          <span id="game-fisa-dd">4</span>  
+          DD</span> per <span class="text-my-yellow" id="game-fisa-turn">2</span>  
+          turns).  
+                    
+          <br><br>  
+          
+          If you have enough <span class="text-my-yellow">E</span>  
+          and <span class="text-my-yellow">DD</span>, you can hire a Staff that can reduce  
+          the cost of a machine, hire a lot of students, ...  
+          <i class="text-muted small">Be sure to check out all of them in-game !</i>
+          
+          `);
         //game.html
         this.translations_EN.set(TrKeys.GAME_NAME, 'Game');
         this.translations_EN.set(TrKeys.GAME_TURN, 'Turn:');
