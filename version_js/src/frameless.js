@@ -76,7 +76,7 @@ function addHeader() {
     if (bar){
         bar.innerHTML = `<div id="drag-region">
         <div id="window-title">
-            <span>Prim - Environnement Line</span>
+            <span>Prim - Environment Line</span>
         </div>
         <div id="window-controls">
             <div class="button" id="min-button">

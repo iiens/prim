@@ -1,7 +1,7 @@
 {
   "name": "prim",
-  "version": "3.0.0",
-  "description": "Environnement line production game",
+  "version": "3.1.0",
+  "description": "Environment line production game",
   "main": "main.js",
   "author": "Legendary Games Studio",
   "license": "MIT",
@@ -34,7 +34,7 @@
       "icon": "assets/img/primI.png",
       "category": "Game",
       "maintainer": "Legendary Games Studio",
-      "description": "Environnement line production game"
+      "description": "Environment line production game"
     },
     "nsis": {
       "oneClick": false,
