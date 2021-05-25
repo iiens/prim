@@ -155,6 +155,9 @@ document.onreadystatechange = (event) => {
                     "tr-menu-fr": Translation.get(TrKeys.MENU_LANGUAGE_FR),
                     "tr-volume-title" : Translation.get(TrKeys.VOLUME_TITLE),
                     "tr-music-title" : Translation.get(TrKeys.MUSIC_TITLE),
+                    "tr-settings": Translation.get(TrKeys.MENU_SETTINGS),
+                    "tr-settings-global" : Translation.get(TrKeys.MENU_GLOBAL),
+                    "tr-settings-global-sub" : Translation.get(TrKeys.MENU_GLOBAL_SUB),
                 }
                 translate();
                 audio.volume=Game.getAudio();

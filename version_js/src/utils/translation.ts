@@ -212,6 +212,8 @@ export class Translation {
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR,'French');
         this.translations_EN.set(TrKeys.VOLUME_TITLE,'VOLUME');
         this.translations_EN.set(TrKeys.MUSIC_TITLE,'MUSIC');
+        this.translations_EN.set(TrKeys.MENU_GLOBAL,'Global Settings');
+        this.translations_EN.set(TrKeys.MENU_GLOBAL_SUB,'Customize your game experience.');
 
         //end.html
         this.translations_EN.set(TrKeys.END_MESSAGE,'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
@@ -360,6 +362,8 @@ export class Translation {
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR,'Français');
         this.translations_FR.set(TrKeys.VOLUME_TITLE,'VOLUME');
         this.translations_FR.set(TrKeys.MUSIC_TITLE,'MUSIQUE');
+        this.translations_FR.set(TrKeys.MENU_GLOBAL,'Paramètres généraux');
+        this.translations_FR.set(TrKeys.MENU_GLOBAL_SUB,'Personnalisez votre expérience de jeu.');
 
         //end.html
         this.translations_FR.set(TrKeys.END_MESSAGE,'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
@@ -446,9 +450,6 @@ export enum TrKeys {
     MENU_SETTINGS,
     MENU_EXIT,
 
-    CHOICE_DIFF, //!< difficulty menu header
-    SCREEN_TOO_SMALL, //!< screen too small message
-
     GAME_NAME, //!< name:
     GAME_TURN, //!< turn:
     GAME_E, //!< E:
@@ -466,31 +467,7 @@ export enum TrKeys {
     GAME_JUNKYARD, //!< Junkyard:
     GAME_COLLECTOR, //!< Collector:
 
-    ACTION_LABEL, //!< Action:
     GO_BACK_B, //!< go back message
-
-    MACHINE_LIST_TITLE, //!< list machines header
-    ML_COST_TAG, //!< cost
-    ML_COST_UP_TAG, //!< cost upgrade
-    ML_COST_DESTROY_TAG, //!< cost destroy
-
-    STAFF_LIST_TITLE, //!< list staff header
-    STAFF_TAG, //!< see below, part of header
-    TO_TAG, //!< see below, part of header
-    ON_TAG, //!< see below, part of header
-    ID_TAG, //!< see below, part of header
-    OWNED_TAG, //!< number of this staff
-    TRANSLATION_LIST_STAFF_INDEX, //!< from when to when
-    TRANSLATION_PRESS_ARROW_CHANGE_PAGE, //!< move page message
-
-    ACTION_LIST_TITLE, //!< list actions header
-
-    // actions
-    INPUT_MACHINE_LOCATION, //!< ask Location
-    INPUT_STAFF, //!< ask Staff ID
-    INPUT_MACHINE, //!< ask Machine ID
-    INPUT_ACTION, //!< Action help
-    INPUT_ORIENTATION, //!< ask orientation
 
     // legend and view components
     LEGEND, //!< Legend:
@@ -545,7 +522,8 @@ export enum TrKeys {
 
     VOLUME_TITLE,
     MUSIC_TITLE,
-
+    MENU_GLOBAL,
+    MENU_GLOBAL_SUB,
 }
 
 export enum Language {
