@@ -283,10 +283,30 @@ export class StaffUtils {
         if (type == 1){ MsE = stuff.costUpgradeE; MsDD = stuff.costUpgradeDD; }
         if (type == 2){ MsE = stuff.costDestroyE; MsDD = stuff.costDestroyDD; }
         // simulate
-        while (MsE - mE > minE && MsDD - mDD > minDD) {
+        while (MsE - mE > minE || MsDD - mDD > minDD) {
             level++;
             MsE -= mE;
             MsDD -= mDD;
+        }
+        return level;
+    }
+
+    private static simulateLevelMaxStudent(mE : number, mDD : number, minE : number,
+                                           minDD : number, type: number){
+        let level = 1;
+        let defaultE: number, defaultDD: number;
+        if (type == 0){ // fise
+            defaultE = Game.config.constants.COST_FISE_E;
+            defaultDD = Game.config.constants.COST_FISE_DD;
+        } else {
+            defaultE = Game.config.constants.COST_FISA_E;
+            defaultDD = Game.config.constants.COST_FISA_DD;
+        }
+        // simulate
+        while (defaultE - mE > minE || defaultDD - mDD > minDD) {
+            level++;
+            defaultE -= mE;
+            defaultDD -= mDD;
         }
         return level;
     }
@@ -658,7 +678,7 @@ export class StaffUtils {
                     studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2)
                 }
                 return event;
-            }, 100, //todo:
+            }, StaffUtils.simulateLevelMaxStudent(5,2,5,2, 0),
             "../../assets/img/staffs/lejeune.png"
         )
     }
@@ -673,7 +693,7 @@ export class StaffUtils {
                     studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2)
                 }
                 return event;
-            } , 100, //todo:
+            } , StaffUtils.simulateLevelMaxStudent(5,2,5,2, 1),
             "../../assets/img/staffs/mathias.png"
         )
     }

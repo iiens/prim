@@ -1466,6 +1466,11 @@ class Map {
         // Allows you to find machine info
         return this.team.applyEffect(new events_1.GameEvent(type, new events_1.MachineEvent(costE, costDD, machineInfo?.type))).data;
     }
+    getStudentCost(type, costE, costDD) {
+        if (this.team === undefined)
+            throw new Error();
+        return this.team.applyEffect(new events_1.GameEvent(type, new events_1.HireStudentEvent(costE, costDD))).data;
+    }
 }
 exports.Map = Map;
 /**

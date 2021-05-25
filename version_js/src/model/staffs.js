@@ -233,10 +233,29 @@ class StaffUtils {
             MsDD = stuff.costDestroyDD;
         }
         // simulate
-        while (MsE - mE > minE && MsDD - mDD > minDD) {
+        while (MsE - mE > minE || MsDD - mDD > minDD) {
             level++;
             MsE -= mE;
             MsDD -= mDD;
+        }
+        return level;
+    }
+    static simulateLevelMaxStudent(mE, mDD, minE, minDD, type) {
+        let level = 1;
+        let defaultE, defaultDD;
+        if (type == 0) { // fise
+            defaultE = game_1.Game.config.constants.COST_FISE_E;
+            defaultDD = game_1.Game.config.constants.COST_FISE_DD;
+        }
+        else {
+            defaultE = game_1.Game.config.constants.COST_FISA_E;
+            defaultDD = game_1.Game.config.constants.COST_FISA_DD;
+        }
+        // simulate
+        while (defaultE - mE > minE || defaultDD - mDD > minDD) {
+            level++;
+            defaultE -= mE;
+            defaultDD -= mDD;
         }
         return level;
     }
@@ -486,8 +505,7 @@ class StaffUtils {
                 studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2);
             }
             return event;
-        }, 100, //todo:
-        "../../assets/img/staffs/lejeune.png");
+        }, StaffUtils.simulateLevelMaxStudent(5, 2, 5, 2, 0), "../../assets/img/staffs/lejeune.png");
     }
     static createMathias() {
         return new Staff(19, "Christine Mathias", "The cost of FISA decreases by 5E and 2DD" +
@@ -498,8 +516,7 @@ class StaffUtils {
                 studentCost.costDD = Math.max(studentCost.costDD - count * 2, 2);
             }
             return event;
-        }, 100, //todo:
-        "../../assets/img/staffs/mathias.png");
+        }, StaffUtils.simulateLevelMaxStudent(5, 2, 5, 2, 1), "../../assets/img/staffs/mathias.png");
     }
     static createSalhab() {
         return new Staff(20, "Katrin Salhab", "The cost of staff" +

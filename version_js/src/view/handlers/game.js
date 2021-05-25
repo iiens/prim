@@ -4,21 +4,33 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-const {MachineStuff} = require("../../model/machine");
-const {EventType} = require("../../utils/events");
+const { MachineStuff } = require("../../model/machine");
+const { EventType } = require("../../utils/events");
 game.interface.init()
+
+// apply reductions
+let hireStudentEventFise = game.map.getStudentCost(EventType.HIRE_FISE,
+    game.config.constants.COST_FISE_E, game.config.constants.COST_FISE_DD);
+let hireStudentEventFisa = game.map.getStudentCost(EventType.HIRE_FISA,
+    game.config.constants.COST_FISA_E, game.config.constants.COST_FISA_DD);
 
 // replace son constants
 win.replaceText('max-score', game.config.constants.NUMBER_RESOURCE_WIN)
-win.replaceText('fise-cost-e', game.config.constants.COST_FISE_E)
-win.replaceText('fise-cost-dd', game.config.constants.COST_FISE_DD)
-win.replaceText('fisa-cost-e', game.config.constants.COST_FISA_E)
-win.replaceText('fise-cost-dd', game.config.constants.COST_FISA_DD)
+win.replaceText('fise-cost-e', hireStudentEventFise.costE)
+win.replaceText('fise-cost-dd', hireStudentEventFise.costDD)
+win.replaceText('fisa-cost-e', hireStudentEventFisa.costE)
+win.replaceText('fisa-cost-dd', hireStudentEventFisa.costDD)
+win.replaceText('source-gen', game.config.constants.NB_RESOURCE_PRODUCT_BY_SOURCE)
+win.replaceText('source-gen-turn', game.config.constants.NB_TURN_PRODUCTION_SOURCE)
+
+console.log(game.config.constants.NB_RESOURCE_PRODUCT_BY_SOURCE)
 
 // call exit
 document.getElementById('exit-button-event').onclick = () => game.mappings.getMapping(game.actions.EXIT).code()
 // call end turn
-document.getElementById('tr-game-end-turn').onclick = () => game.mappings.getMapping(game.actions.END_TURN).code()
+let endTurn = document.getElementById('tr-game-end-turn');
+endTurn.onclick = () => game.mappings.getMapping(game.actions.END_TURN).code()
+
 // change production mode
 changeMode(undefined, true) // set default
 document.getElementById('e-dd-change-e').onclick = changeMode;
@@ -31,8 +43,10 @@ document.querySelectorAll('.orientations').forEach((e) => initOrientationEvents(
 document.getElementById('destroy-selected').onclick = callDestroy;
 document.getElementById('update-selected').onclick = callUpgrade;
 // hire fise/fisa
-document.getElementById('buy-fise-event').onclick = () => game.mappings.getMapping(game.actions.HIRE_FISE).code()
-document.getElementById('buy-fisa-event').onclick = () => game.mappings.getMapping(game.actions.HIRE_FISA).code()
+let buyFise = document.getElementById('buy-fise-event');
+let buyFisa = document.getElementById('buy-fisa-event');
+buyFise.onclick = () => game.mappings.getMapping(game.actions.HIRE_FISE).code();
+buyFisa.onclick = () => game.mappings.getMapping(game.actions.HIRE_FISA).code();
 // staffs
 document.getElementById('manage-staff').onclick = () => game.mappings.getMapping(game.actions.LIST_STAFF).code()
 
@@ -156,3 +170,41 @@ function initOrientationEvents(orientationDIV) {
         e.onclick = select_orientation;
     }
 }
+
+////////////////////////////
+// handling context menus //
+////////////////////////////
+const contextMenu = document.getElementById('popup-skip');
+const do10 = document.getElementById('do10');
+const do20 = document.getElementById('do20');
+const do50 = document.getElementById('do50');
+let caller = null;
+
+// open
+buyFise.oncontextmenu = (e) => show(e, buyFise)
+buyFisa.oncontextmenu = (e) => show(e, buyFisa)
+endTurn.oncontextmenu = (e) => show(e, endTurn)
+
+// hides if right click
+document.onclick = () => { contextMenu.classList.add('d-none') }
+
+// show
+function show(e, newCaller) {
+    contextMenu.classList.remove('d-none')
+    contextMenu.style.left = e.pageX+"px";
+    contextMenu.style.top = e.pageY+"px";
+    caller = newCaller; // save
+}
+
+// handles do event
+function doAction(e, n) {
+    if (caller == null) return;
+    while (n > 0){
+        caller.click();
+        n--;
+    }
+}
+
+do10.onclick = (e) => doAction(e, 10);
+do20.onclick = (e) => doAction(e, 20);
+do50.onclick = (e) => doAction(e, 50);
