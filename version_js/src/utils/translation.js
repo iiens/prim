@@ -205,6 +205,7 @@ class Translation {
             ' <span id="source-gen-turn" class="text-my-yellow">10</span> turns by default, ' +
             'harvestable with a COLLECTOR. ');
         this.translations_EN.set(TrKeys.GAME_COST, 'Cost');
+        this.translations_EN.set(TrKeys.GAME_COST_IS, 'Cost is');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Back');
         //menu.html
@@ -364,6 +365,7 @@ class Translation {
             ' <span id="source-gen-turn" class="text-my-yellow">10</span> tours par défaut, ' +
             'récoltables avec un COLLECTEUR. ');
         this.translations_FR.set(TrKeys.GAME_COST, 'Coût');
+        this.translations_FR.set(TrKeys.GAME_COST_IS, 'Le coût est de');
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Retour');
         //menu.html
@@ -496,24 +498,25 @@ var TrKeys;
     TrKeys[TrKeys["GAME_SOURCE_NAME"] = 53] = "GAME_SOURCE_NAME";
     TrKeys[TrKeys["GAME_SOURCE_DESC"] = 54] = "GAME_SOURCE_DESC";
     TrKeys[TrKeys["GAME_COST"] = 55] = "GAME_COST";
-    TrKeys[TrKeys["MENU_TITLE"] = 56] = "MENU_TITLE";
-    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 57] = "MENU_LANGUAGE_EN";
-    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 58] = "MENU_LANGUAGE_FR";
-    TrKeys[TrKeys["MACHINE_PRICE"] = 59] = "MACHINE_PRICE";
-    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 60] = "MACHINE_PRICE_DESTROY";
-    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 61] = "MACHINE_ORIENTATION";
-    TrKeys[TrKeys["AND_WORD"] = 62] = "AND_WORD";
-    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 63] = "MACHINE_PRICE_UPDATE";
-    TrKeys[TrKeys["MACHINE_CAPACITY"] = 64] = "MACHINE_CAPACITY";
-    TrKeys[TrKeys["STAFF_COST"] = 65] = "STAFF_COST";
-    TrKeys[TrKeys["STAFF_LEVEL"] = 66] = "STAFF_LEVEL";
-    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 67] = "STAFF_LEVEL_MAX";
-    TrKeys[TrKeys["STAFF_EFFECT"] = 68] = "STAFF_EFFECT";
-    TrKeys[TrKeys["TERMINAL_HELP"] = 69] = "TERMINAL_HELP";
-    TrKeys[TrKeys["VOLUME_TITLE"] = 70] = "VOLUME_TITLE";
-    TrKeys[TrKeys["MUSIC_TITLE"] = 71] = "MUSIC_TITLE";
-    TrKeys[TrKeys["MENU_GLOBAL"] = 72] = "MENU_GLOBAL";
-    TrKeys[TrKeys["MENU_GLOBAL_SUB"] = 73] = "MENU_GLOBAL_SUB";
+    TrKeys[TrKeys["GAME_COST_IS"] = 56] = "GAME_COST_IS";
+    TrKeys[TrKeys["MENU_TITLE"] = 57] = "MENU_TITLE";
+    TrKeys[TrKeys["MENU_LANGUAGE_EN"] = 58] = "MENU_LANGUAGE_EN";
+    TrKeys[TrKeys["MENU_LANGUAGE_FR"] = 59] = "MENU_LANGUAGE_FR";
+    TrKeys[TrKeys["MACHINE_PRICE"] = 60] = "MACHINE_PRICE";
+    TrKeys[TrKeys["MACHINE_PRICE_DESTROY"] = 61] = "MACHINE_PRICE_DESTROY";
+    TrKeys[TrKeys["MACHINE_ORIENTATION"] = 62] = "MACHINE_ORIENTATION";
+    TrKeys[TrKeys["AND_WORD"] = 63] = "AND_WORD";
+    TrKeys[TrKeys["MACHINE_PRICE_UPDATE"] = 64] = "MACHINE_PRICE_UPDATE";
+    TrKeys[TrKeys["MACHINE_CAPACITY"] = 65] = "MACHINE_CAPACITY";
+    TrKeys[TrKeys["STAFF_COST"] = 66] = "STAFF_COST";
+    TrKeys[TrKeys["STAFF_LEVEL"] = 67] = "STAFF_LEVEL";
+    TrKeys[TrKeys["STAFF_LEVEL_MAX"] = 68] = "STAFF_LEVEL_MAX";
+    TrKeys[TrKeys["STAFF_EFFECT"] = 69] = "STAFF_EFFECT";
+    TrKeys[TrKeys["TERMINAL_HELP"] = 70] = "TERMINAL_HELP";
+    TrKeys[TrKeys["VOLUME_TITLE"] = 71] = "VOLUME_TITLE";
+    TrKeys[TrKeys["MUSIC_TITLE"] = 72] = "MUSIC_TITLE";
+    TrKeys[TrKeys["MENU_GLOBAL"] = 73] = "MENU_GLOBAL";
+    TrKeys[TrKeys["MENU_GLOBAL_SUB"] = 74] = "MENU_GLOBAL_SUB";
 })(TrKeys = exports.TrKeys || (exports.TrKeys = {}));
 var Language;
 (function (Language) {

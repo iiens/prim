@@ -116,6 +116,7 @@ document.onreadystatechange = (event) => {
                     "tr-source" : Translation.get(TrKeys.GAME_SOURCE_NAME),
                     "tr-source-desc" : Translation.get(TrKeys.GAME_SOURCE_DESC),
                     "tr-cost" : Translation.get(TrKeys.GAME_COST),
+                    "tr-cost-is" : Translation.get(TrKeys.GAME_COST_IS),
                 }
                 translate();
                 require("./view/handlers/popup");

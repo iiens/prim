@@ -221,6 +221,7 @@ export class Translation {
             ' <span id="source-gen-turn" class="text-my-yellow">10</span> turns by default, ' +
             'harvestable with a COLLECTOR. ');
         this.translations_EN.set(TrKeys.GAME_COST,'Cost');
+        this.translations_EN.set(TrKeys.GAME_COST_IS,'Cost is');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B,'Back');
@@ -391,6 +392,7 @@ export class Translation {
             ' <span id="source-gen-turn" class="text-my-yellow">10</span> tours par défaut, ' +
             'récoltables avec un COLLECTEUR. ');
         this.translations_FR.set(TrKeys.GAME_COST,'Coût');
+        this.translations_FR.set(TrKeys.GAME_COST_IS,'Le coût est de');
 
         //staffs.html, menu.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B,'Retour');
@@ -540,6 +542,7 @@ export enum TrKeys {
     GAME_SOURCE_NAME,
     GAME_SOURCE_DESC,
     GAME_COST,
+    GAME_COST_IS,
 
     MENU_TITLE,
     MENU_LANGUAGE_EN,
