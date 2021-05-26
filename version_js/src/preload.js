@@ -143,7 +143,7 @@ document.onreadystatechange = (event) => {
                 require("./view/handlers/go_back");
                 break;
             }
-            case 'menu': {
+            case 'settings': {
                 // load config
                 window.config = Config;
                 window.audio = audio;

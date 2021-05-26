@@ -75,7 +75,9 @@ class Translation {
     static initTranslations() {
         if (this.isInit)
             return;
-        //English Translation
+        // ////////////////////// //
+        // English Translation
+        // ////////////////////// //
         this.translations_EN = new Map();
         // index.html
         this.translations_EN.set(TrKeys.INTRO_HEADER, 'Prim is a production line game. The player ' +
@@ -90,7 +92,7 @@ class Translation {
         this.translations_EN.set(TrKeys.MENU_RULES, 'RULES');
         this.translations_EN.set(TrKeys.MENU_SETTINGS, 'SETTINGS');
         this.translations_EN.set(TrKeys.MENU_EXIT, 'EXIT');
-        //rules.html
+        // rules.html
         this.translations_EN.set(TrKeys.RULES_DOOR_TITLE, 'In order to close the door');
         this.translations_EN.set(TrKeys.RULES_DOOR, 'While the students from the "Calcul intensif et ' +
             'données massives" cursus ' +
@@ -165,7 +167,7 @@ class Translation {
           <i class="text-muted small">Be sure to check out all of them in-game !</i>
           
           `);
-        //game.html
+        // game.html
         this.translations_EN.set(TrKeys.GAME_NAME, 'Game');
         this.translations_EN.set(TrKeys.GAME_TURN, 'Turn:');
         this.translations_EN.set(TrKeys.GAME_E, 'E:');
@@ -206,10 +208,10 @@ class Translation {
             'harvestable with a COLLECTOR. ');
         this.translations_EN.set(TrKeys.GAME_COST, 'Cost');
         this.translations_EN.set(TrKeys.GAME_COST_IS, 'Cost is');
-        //staffs.html, menu.html, mapping.html, end.html,rules.html
+        // staffs.html, settings.html, mapping.html, end.html,rules.html
         this.translations_EN.set(TrKeys.GO_BACK_B, 'Back');
         this.translations_EN.set(TrKeys.GO_BACK_LONG, 'Go back to a previous screen.');
-        //menu.html
+        // settings.html
         this.translations_EN.set(TrKeys.MENU_TITLE, "LANGUAGE");
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_EN, 'English');
         this.translations_EN.set(TrKeys.MENU_LANGUAGE_FR, 'French');
@@ -221,27 +223,29 @@ class Translation {
         this.translations_EN.set(TrKeys.MENU_RIGHT_CLICK, 'Right click');
         this.translations_EN.set(TrKeys.MENU_RIGHT_CLICK_DESC, 'On hire FISE/FISA or end turn, open a menu to do ' +
             'the action more than one in one go.');
-        //end.html
+        // end.html
         this.translations_EN.set(TrKeys.END_MESSAGE, 'We hope you had fun ! If you got an idea about a game that you wants to play\n' +
             '                    or an application, get in touch with us !');
-        //machines.ts
+        // machines.ts
         this.translations_EN.set(TrKeys.MACHINE_PRICE, 'Price:');
         this.translations_EN.set(TrKeys.MACHINE_PRICE_DESTROY, 'Price (destroy):');
         this.translations_EN.set(TrKeys.AND_WORD, 'and');
         this.translations_EN.set(TrKeys.MACHINE_ORIENTATION, 'Orientation (default):');
         this.translations_EN.set(TrKeys.MACHINE_PRICE_UPDATE, 'Price (upgrade):');
         this.translations_EN.set(TrKeys.MACHINE_CAPACITY, 'Capacity (default):');
-        //staffs.ts
+        // staffs.ts
         this.translations_EN.set(TrKeys.STAFF_COST, 'Upgrading cost :');
         this.translations_EN.set(TrKeys.STAFF_LEVEL, 'LEVEL');
         this.translations_EN.set(TrKeys.STAFF_LEVEL_MAX, 'Level max :');
         this.translations_EN.set(TrKeys.STAFF_EFFECT, 'Current reduction is');
-        //end.ts
+        // end.ts
         this.translations_EN.set(TrKeys.END_WIN, 'Victory');
         this.translations_EN.set(TrKeys.END_LOST, 'Defeat');
-        //interface.ts
+        // interface.ts
         this.translations_EN.set(TrKeys.TERMINAL_HELP, 'Use help to get the list of available actions');
-        //French Translation
+        // ////////////////////// //
+        // French Translation
+        // ////////////////////// //
         this.translations_FR = new Map();
         // index.html
         this.translations_FR.set(TrKeys.INTRO_HEADER, 'Prim est un jeu de ligne de production. Le joueur devra déplacer les ressources des générateurs vers une porte afin de la fermer.');
@@ -330,7 +334,7 @@ class Translation {
             le coût d'une machine, embaucher beaucoup d'étudiants, ...
             <i class="text-muted small">Assurez-vous d'y jeter un coup d'oeil !</i>
             `);
-        //game.html
+        // game.html
         this.translations_FR.set(TrKeys.GAME_NAME, 'Jeu');
         this.translations_FR.set(TrKeys.GAME_TURN, 'Tour:');
         this.translations_FR.set(TrKeys.GAME_E, 'E:');
@@ -371,10 +375,10 @@ class Translation {
             'récoltables avec un COLLECTEUR. ');
         this.translations_FR.set(TrKeys.GAME_COST, 'Coût');
         this.translations_FR.set(TrKeys.GAME_COST_IS, 'Le coût est de');
-        //staffs.html, menu.html, mapping.html, end.html,rules.html
+        // staffs.html, settings.html, mapping.html, end.html,rules.html
         this.translations_FR.set(TrKeys.GO_BACK_B, 'Retour');
         this.translations_FR.set(TrKeys.GO_BACK_LONG, 'Retourner sur l\'écran précédent.');
-        //menu.html
+        // settings.html
         this.translations_FR.set(TrKeys.MENU_TITLE, 'LANGUE');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_EN, 'Anglais');
         this.translations_FR.set(TrKeys.MENU_LANGUAGE_FR, 'Français');
@@ -386,25 +390,25 @@ class Translation {
         this.translations_FR.set(TrKeys.MENU_RIGHT_CLICK, 'Clic droit');
         this.translations_FR.set(TrKeys.MENU_RIGHT_CLICK_DESC, 'Sur recruter FISE/FISA ou TOUR_SUIVANT, ' +
             'permet d\'effectuer l\'action plusieurs fois.');
-        //end.html
+        // end.html
         this.translations_FR.set(TrKeys.END_MESSAGE, 'Nous espérons que vous vous êtes bien amusé! Si vous avez une idée d\'un jeu' +
             ' auquel vous voulez jouer ou une application, contactez-nous !');
-        //machines.ts
+        // machines.ts
         this.translations_FR.set(TrKeys.MACHINE_PRICE, 'Prix:');
         this.translations_FR.set(TrKeys.MACHINE_PRICE_DESTROY, 'Prix (destruction):');
         this.translations_FR.set(TrKeys.AND_WORD, 'et');
         this.translations_FR.set(TrKeys.MACHINE_ORIENTATION, 'Orientation (par défaut):');
         this.translations_FR.set(TrKeys.MACHINE_PRICE_UPDATE, 'Prix (amélioration):');
         this.translations_FR.set(TrKeys.MACHINE_CAPACITY, 'Capacité (par défaut):');
-        //staffs.ts
+        // staffs.ts
         this.translations_FR.set(TrKeys.STAFF_COST, 'Coût d\'amélioration');
         this.translations_FR.set(TrKeys.STAFF_LEVEL, 'NIVEAU');
         this.translations_FR.set(TrKeys.STAFF_LEVEL_MAX, 'Niveau max :');
         this.translations_FR.set(TrKeys.STAFF_EFFECT, 'Réduction actuelle de');
-        //end.ts
+        // end.ts
         this.translations_FR.set(TrKeys.END_WIN, 'Victoire');
         this.translations_FR.set(TrKeys.END_LOST, 'Défaite');
-        //interface.ts
+        // interface.ts
         this.translations_FR.set(TrKeys.TERMINAL_HELP, 'Utilisez help pour obtenir la liste des actions disponibles');
         this.errors_EN = new Map();
         this.errors_EN.set(code_1.ErrorCode.ERROR, 'Some error occurred');
