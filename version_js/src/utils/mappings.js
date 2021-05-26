@@ -410,7 +410,6 @@ Mappings.buyStaff = function (id = -1, n = 1) {
         n--;
         bought++;
     }
-    game_1.Game.interface.reload(); // reload all since staff can change the map
     // we must save now since we buy staff
     game_1.Game.save();
     return bought;

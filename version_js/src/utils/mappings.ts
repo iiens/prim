@@ -244,8 +244,6 @@ export class Mappings {
             n--;
             bought++;
         }
-
-        Game.interface.reload(); // reload all since staff can change the map
         // we must save now since we buy staff
         Game.save();
         return bought;
