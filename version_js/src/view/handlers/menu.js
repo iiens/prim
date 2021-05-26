@@ -46,8 +46,8 @@ function move(value, on) {
         case VOLUME_ON:
             div = VOLUME_FIELD
             let volume = Number(VOLUME_FIELD.innerText) + value;
-            if (volume < 0) current = 0;
-            if (volume > 100) current = 100;
+            if (volume < 0) volume = 0;
+            if (volume > 100) volume = 100;
             text = volume;
             // and change value
             audio.volume = volume / 100;
@@ -73,8 +73,30 @@ document.getElementById('move-left-lang').onclick = (e) => move(-1, LANG_ON);
 document.getElementById('move-right-lang').onclick = (e) => move(1, LANG_ON);
 
 // add listener
-document.getElementById('move-left-volume').onclick = (e) => move(-1, VOLUME_ON);
-document.getElementById('move-right-volume').onclick = (e) => move(1, VOLUME_ON);
+let left_volume = document.getElementById('move-left-volume');
+let right_volume = document.getElementById('move-right-volume');
+let rightVolume = -1;
+let leftVolume = -1;
+let initHandlerVolume = (id, h) => {
+    if( id === -1 ) {
+        // shutdown all
+        leftVolume = shutDownHandlerVolume(left_volume);
+        rightVolume = shutDownHandlerVolume(rightVolume);
+        // start one
+        return setInterval(h , 100)
+    }
+    return id;
+};
+let shutDownHandlerVolume = (id) => { if (id !== -1) { clearInterval(id); return -1; } return id; };
+
+left_volume.onclick = () => move(-1, VOLUME_ON);
+left_volume.onmousedown = () => leftVolume = initHandlerVolume(leftVolume, () => move(-1, VOLUME_ON))
+left_volume.onmouseup = () => leftVolume = shutDownHandlerVolume(leftVolume);
+left_volume.onmouseover = () => leftVolume = shutDownHandlerVolume(leftVolume);
+right_volume.onclick = () => move(1, VOLUME_ON);
+right_volume.onmousedown = () => rightVolume = initHandlerVolume(rightVolume, () => move(1, VOLUME_ON))
+right_volume.onmouseup = () => rightVolume = shutDownHandlerVolume(rightVolume);
+right_volume.onmouseover = () => rightVolume = shutDownHandlerVolume(rightVolume);
 
 // add listener
 document.getElementById('move-left-music').onclick = (e) => move(-1, MUSIC_ON);
