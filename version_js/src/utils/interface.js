@@ -4,7 +4,6 @@ exports.Interface = void 0;
 const map_1 = require("../model/map");
 const game_1 = require("../game");
 const machine_1 = require("../model/machine");
-const utilities_1 = require("./utilities");
 const config_1 = require("./config");
 const translation_1 = require("./translation");
 const logger_1 = require("../model/logger");
@@ -46,6 +45,7 @@ class Interface {
         this.lastCase.tileSize, this.lastCase.startX, this.lastCase.startY);
     }
     static init() {
+        this.tiles = game_1.Game.getTiles(this.MAX_NUMBER_TILES);
         this.reload();
         this.renderMap(game_1.Game.map); // TODO Corriger problème d'affichage image first turn
     }
@@ -129,7 +129,7 @@ class Interface {
                         InterfaceUtils.drawMachine(Case, ctx, xx, yy);
                     }
                     else {
-                        InterfaceUtils.drawSpawner(content, ctx, xx, yy);
+                        InterfaceUtils.drawSpawner(content, ctx, xx, yy, x, y);
                     }
                 }
             }
@@ -257,14 +257,16 @@ class Interface {
     }
 }
 exports.Interface = Interface;
+// map tiles
+Interface.MAX_NUMBER_TILES = 15;
 Interface.showResource = false;
 Interface.showGarbage = false;
 class InterfaceUtils {
-    static drawSpawner(content, ctx, xx, yy) {
+    static drawSpawner(content, ctx, xx, yy, xi = -1, yi = -1) {
         let logger = logger_1.Logger.Instance;
         logger.debug('Begin drawSpawner');
         let url = '../../assets/img/map/';
-        const numberImage = 15;
+        const numberImage = Interface.MAX_NUMBER_TILES;
         let img = new Image();
         if (content == "S ") {
             img.src = url + 'Resource.png';
@@ -292,7 +294,7 @@ class InterfaceUtils {
             };
         }
         else {
-            img.src = url + 'Sol/Random' + utilities_1.getRandomInt(numberImage) + '.png';
+            img.src = url + 'Sol/Random' + Interface.tiles[xi][yi] + '.png';
             img.onload = function () { ctx.drawImage(img, xx + 1, yy + 1); };
         }
     }

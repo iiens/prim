@@ -5,7 +5,8 @@ import {Map} from "./model/map";
 import {Interface} from "./utils/interface";
 import {StaffDictionary} from "./model/staffs";
 import {Box, Facade, Machine} from "./model/machine";
-import {Translation, Language} from "./utils/translation";
+import {Language} from "./utils/translation";
+import {getRandomInt} from "./utils/utilities";
 
 /**
  * Game controller
@@ -27,6 +28,7 @@ export class Game {
     static clearGame(){
         // no more save
         localStorage.removeItem("save");
+        localStorage.removeItem("tiles");
     }
 
     /**
@@ -153,4 +155,24 @@ export class Game {
     }
 
 
+    /**
+     * Returns the tiles of the map
+     * @param max max value for a tile
+     */
+    static getTiles(max: number) : Array<Array<number>> {
+        if( localStorage.getItem("tiles") == null ){
+            // create
+            let tiles = new Array<Array<number>>();
+            for (let i = 0; i < this.map.getWidth; i++) {
+                tiles[i] = new Array<number>();
+                for (let j = 0; j < this.map.getHeight; j++) {
+                    tiles[i][j] = Number(getRandomInt(max));
+                }
+            }
+            // save
+            localStorage.setItem("tiles", JSON.stringify(tiles));
+        }
+        // returns
+        return JSON.parse(<string>localStorage.getItem("tiles"));
+    }
 }

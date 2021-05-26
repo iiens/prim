@@ -9,6 +9,7 @@ const interface_1 = require("./utils/interface");
 const staffs_1 = require("./model/staffs");
 const machine_1 = require("./model/machine");
 const translation_1 = require("./utils/translation");
+const utilities_1 = require("./utils/utilities");
 /**
  * Game controller
  */
@@ -19,6 +20,7 @@ class Game {
     static clearGame() {
         // no more save
         localStorage.removeItem("save");
+        localStorage.removeItem("tiles");
     }
     /**
      * @brief This function is used to initialize a game.
@@ -138,6 +140,26 @@ class Game {
      */
     static setMusic(path) {
         localStorage.setItem("music", path);
+    }
+    /**
+     * Returns the tiles of the map
+     * @param max max value for a tile
+     */
+    static getTiles(max) {
+        if (localStorage.getItem("tiles") == null) {
+            // create
+            let tiles = new Array();
+            for (let i = 0; i < this.map.getWidth; i++) {
+                tiles[i] = new Array();
+                for (let j = 0; j < this.map.getHeight; j++) {
+                    tiles[i][j] = Number(utilities_1.getRandomInt(max));
+                }
+            }
+            // save
+            localStorage.setItem("tiles", JSON.stringify(tiles));
+        }
+        // returns
+        return JSON.parse(localStorage.getItem("tiles"));
     }
 }
 exports.Game = Game;

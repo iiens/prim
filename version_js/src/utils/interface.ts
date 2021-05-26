@@ -27,6 +27,10 @@ import {EventType, MachineEvent} from "./events";
  */
 export class Interface {
 
+    // map tiles
+    static readonly MAX_NUMBER_TILES = 15;
+    static tiles: Array<Array<number>>;
+
     private static showResource = false;
     private static showGarbage = false;
 
@@ -51,6 +55,7 @@ export class Interface {
     }
 
     public static init(){
+        this.tiles = Game.getTiles(this.MAX_NUMBER_TILES);
         this.reload();
         this.renderMap(Game.map); // TODO Corriger problème d'affichage image first turn
     }
@@ -137,7 +142,7 @@ export class Interface {
                     if (Case.isMachine){
                         InterfaceUtils.drawMachine(Case, ctx, xx, yy);
                     } else {
-                        InterfaceUtils.drawSpawner(content,ctx,xx,yy);
+                        InterfaceUtils.drawSpawner(content,ctx,xx,yy, x, y);
                     }
                 }
             }
@@ -279,12 +284,12 @@ export class Interface {
 
 class InterfaceUtils {
 
-    static drawSpawner(content: any, ctx: any, xx: number, yy: number) {
+    static drawSpawner(content: any, ctx: any, xx: number, yy: number, xi=-1, yi=-1) {
         let logger = Logger.Instance;
         logger.debug('Begin drawSpawner');
 
         let url = '../../assets/img/map/';
-        const numberImage : number = 15;
+        const numberImage : number = Interface.MAX_NUMBER_TILES;
         let img = new Image();
         if(content == "S "){
             img.src = url+'Resource.png';
@@ -309,7 +314,7 @@ class InterfaceUtils {
                 ctx.drawImage(img, xx+1, yy+1);
             }
         } else {
-            img.src = url+'Sol/Random'+getRandomInt(numberImage)+'.png';
+            img.src = url+'Sol/Random'+Interface.tiles[xi][yi]+'.png';
             img.onload = function() { ctx.drawImage(img, xx+1, yy+1); }
         }
     }

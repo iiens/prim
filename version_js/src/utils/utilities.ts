@@ -32,5 +32,5 @@ export function randomNumber(min: number, max: number) : number {
 }
 
 export function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
+    return Number(Math.floor(Math.random() * max));
 }

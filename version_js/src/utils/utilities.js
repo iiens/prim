@@ -31,6 +31,6 @@ function randomNumber(min, max) {
 }
 exports.randomNumber = randomNumber;
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return Number(Math.floor(Math.random() * max));
 }
 exports.getRandomInt = getRandomInt;
