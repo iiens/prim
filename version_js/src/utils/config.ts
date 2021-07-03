@@ -12,7 +12,7 @@ import {Cardinal, MachineInfo, MachineStuff} from "../model/machine";
  */
 export class Config {
 
-    static GAME_VERSION = "3.1.1";
+    static GAME_VERSION = "3.1.2";
 
     /**
      * Keys shortcut that are use everywhere

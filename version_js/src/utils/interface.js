@@ -238,7 +238,8 @@ class Interface {
         let greetings = translation_1.Translation.get(translation_1.TrKeys.TERMINAL_HELP)
             .replace("help", game_1.Game.config.keys.help);
         // @ts-ignore
-        $('.terminal').terminal([game_1.Game.mappings.getMappingsFunctions(), function notFound(command) {
+        $('.terminal').terminal([game_1.Game.mappings.getMappingsFunctions(),
+            function notFound(command) {
                 // @ts-ignore
                 this.clear();
                 // @ts-ignore
