@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Prim"
-#define MyAppVersion "3.1.1"
+#define MyAppVersion "3.1.2"
 #define MyAppPublisher "Legendary Games Studio"
 #define MyAppURL "https://lgs-games.com/en/games/prim"
 #define MyAppExeName "prim.exe"
@@ -23,7 +23,7 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\quent\Desktop\prim\version_js\dist\win
-OutputBaseFilename=prim-setup
+OutputBaseFilename=prim-setup-{#MyAppVersion}
 SetupIconFile=C:\Users\quent\Desktop\prim\version_js\dist\.icon-ico\icon.ico
 Compression=lzma
 SolidCompression=yes
