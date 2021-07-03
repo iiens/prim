@@ -17,7 +17,7 @@ to compile then again. You can do it with
 
 ### Team
 
-Current version is ``3.0.x`` (2021-05).
+Current version is ``3.1.x`` (2021-07).
 
 Main contributors
 
